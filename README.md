@@ -131,6 +131,11 @@ graphical flowsheet alone is not treated as a successful result.
 The manuscript citation and archival identifier will be added after the public
 preprint record is finalized.
 
+## Contact
+
+For questions about CRAFTS, contact
+[ziyun_zhang@u.nus.edu](mailto:ziyun_zhang@u.nus.edu).
+
 ## License
 
 See [LICENSE](LICENSE). Dataset, model-weight, and third-party asset terms will
