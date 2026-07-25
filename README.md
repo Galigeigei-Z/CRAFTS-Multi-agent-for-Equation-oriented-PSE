@@ -22,8 +22,4 @@ organized and audited for a later public release.
 
 ## Contact
 
-[ziyun_zhang@u.nus.edu](mailto:ziyun_zhang@u.nus.edu)
-
-## License
-
-See [LICENSE](LICENSE).
+Questions, feedback, or collaboration ideas are welcome. Feel free to contact me: "Ziyoon_Zhang@outlook.com"
