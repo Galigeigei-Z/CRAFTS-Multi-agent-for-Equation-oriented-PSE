@@ -51,7 +51,7 @@ runtime and solver.
 
 ## Citation
 
-If you find OpenIDAES-450 useful, please cite our paper, [CRAFTS: Collaborative Role-Adaptive Fine-Tuning of LLM Agents for Chemical Process Simulation](https://arxiv.org/abs/2608.01369), and acknowledge the IDAES project.
+If you find OpenIDAES-450 useful, can can cite our paper, [CRAFTS: Collaborative Role-Adaptive Fine-Tuning of LLM Agents for Chemical Process Simulation](https://arxiv.org/abs/2608.01369), and acknowledge the IDAES project.
 
 ## Acknowledgments
 
@@ -68,7 +68,6 @@ We also acknowledge [Pyomo](https://github.com/Pyomo/pyomo),
 [WaterTAP](https://github.com/watertap-org/watertap), and the other upstream
 projects identified in the case provenance and package inventories. Please cite
 the relevant upstream software and model publications when using these materials.
-CRAFTS builds on these projects as an independent research contribution.
 
 ## Contact
 
