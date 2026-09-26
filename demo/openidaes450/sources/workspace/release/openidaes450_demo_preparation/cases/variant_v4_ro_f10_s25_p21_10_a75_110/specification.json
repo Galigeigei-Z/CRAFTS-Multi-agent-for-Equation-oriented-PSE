@@ -1,0 +1,186 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_v4_ro_f10_s25_p21_10_a75_110",
+  "family": "family_watertap_ro",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "properties[0].flow_vol_phase['Liq']",
+      "value": 0.001,
+      "units": "m3/s",
+      "role": "feed flow",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "feed",
+      "variable": "properties[0].mass_frac_phase_comp['Liq','NaCl']",
+      "value": 0.0025,
+      "units": "dimensionless",
+      "role": "feed salinity",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 298.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P1",
+      "variable": "outlet.pressure[0]",
+      "value": 2100000.0,
+      "units": "Pa",
+      "role": "first-pass pressure",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P2",
+      "variable": "outlet.pressure[0]",
+      "value": 1000000.0,
+      "units": "Pa",
+      "role": "second-pass pressure",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P1",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P2",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "area",
+      "value": 75,
+      "units": "m2",
+      "role": "first-pass membrane area",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "area",
+      "value": 110,
+      "units": "m2",
+      "role": "second-pass membrane area",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-06,
+      "units": "m/s",
+      "role": "loose first-pass salt permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-08,
+      "units": "m/s",
+      "role": "tight polishing salt permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "feed_side.cp_modulus[0,...,'NaCl']",
+      "value": 1.1,
+      "units": "dimensionless",
+      "role": "fixed concentration polarization",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "feed_side.cp_modulus[0,...,'NaCl']",
+      "value": 1.1,
+      "units": "dimensionless",
+      "role": "fixed concentration polarization",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "deltaP[0]",
+      "value": -100000,
+      "units": "Pa",
+      "role": "membrane pressure drop",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "deltaP[0]",
+      "value": -100000,
+      "units": "Pa",
+      "role": "membrane pressure drop",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "first_pass_brine.inlet",
+    "product.inlet",
+    "second_pass_brine.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "sequential feed-pump-RO propagation for each pass",
+    "solve_order": [
+      "feed",
+      "P1",
+      "RO1",
+      "P2",
+      "RO2"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

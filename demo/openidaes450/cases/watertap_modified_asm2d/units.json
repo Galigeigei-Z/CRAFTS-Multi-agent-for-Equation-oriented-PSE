@@ -1,0 +1,520 @@
+[
+  {
+    "name": "fs.FeedWater",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.MX1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "feed_water",
+        "recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.R1",
+    "class": "idaes.core.base.process_block._ScalarCSTR",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R2",
+    "class": "idaes.core.base.process_block._ScalarCSTR",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R3",
+    "class": "idaes.core.base.process_block._ScalarCSTR",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R4",
+    "class": "idaes.core.base.process_block._ScalarCSTR",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R5",
+    "class": "idaes.core.base.process_block._ScalarCSTR_Injection",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "electricity_consumption": {
+        "component": "fixed"
+      },
+      "has_aeration": false
+    }
+  },
+  {
+    "name": "fs.R6",
+    "class": "idaes.core.base.process_block._ScalarCSTR_Injection",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "electricity_consumption": {
+        "component": "fixed"
+      },
+      "has_aeration": false
+    }
+  },
+  {
+    "name": "fs.R7",
+    "class": "idaes.core.base.process_block._ScalarCSTR_Injection",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.rxn_props"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "electricity_consumption": {
+        "component": "fixed"
+      },
+      "has_aeration": false
+    }
+  },
+  {
+    "name": "fs.SP1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "underflow",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.CL1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "underflow",
+        "effluent"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "componentFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.MX2",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "clarifier",
+        "reactor"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.SP2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "waste",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.Treated",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.Sludge",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.P1",
+    "class": "idaes.core.base.process_block._ScalarPressureChanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isothermal"
+      },
+      "property_package": {
+        "component": "fs.props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

@@ -1,0 +1,172 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ed_concentrate_recycle_purge",
+  "family": "family_ed_recycle",
+  "process_type": "Electrodialysis Concentrate Recycle with Conductivity Purge",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_electrodialysis_conc_recirc.",
+    "Makes concentrate recycle a binding electrochemical/material-loop decision instead of a fixed recirculation ratio.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "cations",
+        "anions"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_electrodialysis_conc_recirc"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "cations",
+      "anions"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "brackish feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "fresh plus recycled concentrate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ED101",
+      "kind": "ElectrodialysisStack",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "ion transport stack",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "concentrate recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DILUATE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "desalted diluate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CONC",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ed_recycle",
+      "role": "conductivity-controlled concentrate purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.feed",
+      "stage": "ed_recycle",
+      "role": "fresh feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "ED101.diluate_inlet",
+      "stage": "ed_recycle",
+      "role": "stack feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ED101.diluate_outlet",
+      "destination": "DILUATE.inlet",
+      "stage": "ed_recycle",
+      "role": "desalted water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "ED101.concentrate_outlet",
+      "destination": "S101.inlet",
+      "stage": "ed_recycle",
+      "role": "salt concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "ed_recycle",
+      "role": "concentrate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s06",
+      "source": "S101.purge",
+      "destination": "CONC.inlet",
+      "stage": "ed_recycle",
+      "role": "conductivity purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "DILUATE.inlet",
+    "CONC.inlet"
+  ],
+  "tear_streams": [
+    "s05"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_electrodialysis_conc_recirc"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_electrodialysis_conc_recirc",
+    "chemical_change": "Makes concentrate recycle a binding electrochemical/material-loop decision instead of a fixed recirculation ratio.",
+    "native_metrics": {
+      "loop_water_kg_s": 0.9826883910386965,
+      "loop_solute_kg_s": 0.040887850467289724,
+      "product_water_kg_s": 0.8844195519348269,
+      "product_solute_kg_s": 0.008177570093457943,
+      "purge_water_kg_s": 0.08058044806517313,
+      "purge_solute_kg_s": 0.026822429906542065
+    }
+  }
+}

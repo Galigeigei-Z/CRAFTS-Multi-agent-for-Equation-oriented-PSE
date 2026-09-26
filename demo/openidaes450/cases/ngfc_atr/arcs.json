@@ -1,0 +1,57 @@
+[
+  {
+    "name": "fs.TO_NG_EXP",
+    "source": "fs.reformer_recuperator.cold_side_outlet",
+    "destination": "fs.NG_expander.inlet"
+  },
+  {
+    "name": "fs.NG_EXP_OUT",
+    "source": "fs.NG_expander.outlet",
+    "destination": "fs.reformer_bypass.inlet"
+  },
+  {
+    "name": "fs.TO_REF",
+    "source": "fs.reformer_bypass.reformer_outlet",
+    "destination": "fs.reformer_mix.gas_inlet"
+  },
+  {
+    "name": "fs.STAGE_1_OUT",
+    "source": "fs.air_compressor_s1.outlet",
+    "destination": "fs.intercooler_s1.inlet"
+  },
+  {
+    "name": "fs.IC_1_OUT",
+    "source": "fs.intercooler_s1.outlet",
+    "destination": "fs.air_compressor_s2.inlet"
+  },
+  {
+    "name": "fs.STAGE_2_OUT",
+    "source": "fs.air_compressor_s2.outlet",
+    "destination": "fs.intercooler_s2.inlet"
+  },
+  {
+    "name": "fs.IC_2_OUT",
+    "source": "fs.intercooler_s2.outlet",
+    "destination": "fs.reformer_mix.oxygen_inlet"
+  },
+  {
+    "name": "fs.REF_IN",
+    "source": "fs.reformer_mix.outlet",
+    "destination": "fs.reformer.inlet"
+  },
+  {
+    "name": "fs.REF_OUT",
+    "source": "fs.reformer.outlet",
+    "destination": "fs.reformer_recuperator.hot_side_inlet"
+  },
+  {
+    "name": "fs.REF_RECUP_OUT",
+    "source": "fs.reformer_recuperator.hot_side_outlet",
+    "destination": "fs.bypass_rejoin.syngas_inlet"
+  },
+  {
+    "name": "fs.REF_BYPASS",
+    "source": "fs.reformer_bypass.bypass_outlet",
+    "destination": "fs.bypass_rejoin.bypass_inlet"
+  }
+]

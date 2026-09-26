@@ -1,0 +1,33 @@
+[
+  {
+    "name": "fs.heat_exchanger",
+    "class": "idaes.core.base.process_block._ScalarHeatExchangerLumpedCapacitance",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "crossflow"
+      },
+      "dynamic_heat_balance": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

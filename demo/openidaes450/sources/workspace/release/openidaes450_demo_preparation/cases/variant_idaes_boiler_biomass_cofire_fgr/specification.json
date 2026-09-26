@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_boiler_biomass_cofire_fgr",
+  "family": "family_boiler_biomass_fgr",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "biomass_heat_fraction",
+      "value": 0.65,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flue_gas_recycle_fraction",
+      "value": 0.7000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fossil_co2_index",
+      "value": 0.48,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbon_burnout",
+      "value": 0.949,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "nox_index",
+      "value": 0.14949999999999997,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "steam_temperature_K",
+      "value": 732.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "COAL.outlet",
+    "BIO.outlet",
+    "AIR.outlet"
+  ],
+  "terminal_product_ports": [
+    "STEAM.inlet",
+    "STACK.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_subcritical_boiler"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_subcritical_boiler",
+    "chemical_change": "Changes fuel chemistry and returns combustion products as thermal/oxidant diluent.",
+    "native_metrics": {
+      "fossil_co2_index": 0.48,
+      "carbon_burnout": 0.949,
+      "nox_index": 0.14949999999999997,
+      "steam_temperature_K": 732.0
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_biomass_boiler_capture_mineralization",
+  "family": "family_biomass_capture_mineral",
+  "process_type": "Biomass Boiler with PZ Capture and Ash Mineralization",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_idaes_boiler_biomass_cofire_fgr.",
+    "Couples biogenic carbon capture to reactive utilization of boiler ash and solvent regeneration heat.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "biomass",
+        "CO2",
+        "piperazine",
+        "alkaline_ash",
+        "carbonate"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr"
+    }
+  },
+  "components": {
+    "tracked": [
+      "biomass",
+      "CO2",
+      "piperazine",
+      "alkaline_ash",
+      "carbonate"
+    ]
+  },
+  "units": [
+    {
+      "id": "BIO",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "biomass",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BOILER",
+      "kind": "Boiler",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "steam generation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CAP",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "PZ CO2 capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRIP",
+      "kind": "Stripper",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "solvent regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ASH",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "alkaline boiler ash",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MIN",
+      "kind": "CarbonationReactor",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "ash mineralization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "carbonate harvest",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STEAM",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "process steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CARB",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "biomass_capture_mineral",
+      "role": "carbonated aggregate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BIO.outlet",
+      "destination": "BOILER.fuel",
+      "stage": "biomass_capture_mineral",
+      "role": "biomass",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BOILER.steam",
+      "destination": "STEAM.inlet",
+      "stage": "biomass_capture_mineral",
+      "role": "process steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BOILER.flue",
+      "destination": "CAP.gas",
+      "stage": "biomass_capture_mineral",
+      "role": "biogenic flue gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CAP.rich",
+      "destination": "STRIP.feed",
+      "stage": "biomass_capture_mineral",
+      "role": "rich PZ",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "STRIP.lean",
+      "destination": "CAP.solvent",
+      "stage": "biomass_capture_mineral",
+      "role": "lean recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "STRIP.co2",
+      "destination": "MIN.co2",
+      "stage": "biomass_capture_mineral",
+      "role": "captured CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "ASH.outlet",
+      "destination": "MIN.solid",
+      "stage": "biomass_capture_mineral",
+      "role": "alkaline ash",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "MIN.slurry",
+      "destination": "CF.inlet",
+      "stage": "biomass_capture_mineral",
+      "role": "carbonated slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "CF.solid",
+      "destination": "CARB.inlet",
+      "stage": "biomass_capture_mineral",
+      "role": "aggregate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BIO.outlet",
+    "ASH.outlet"
+  ],
+  "unconnected_product_ports": [
+    "STEAM.inlet",
+    "CARB.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr",
+    "chemical_change": "Couples biogenic carbon capture to reactive utilization of boiler ash and solvent regeneration heat.",
+    "native_metrics": {
+      "fossil_co2_index": 0.2799999999999999,
+      "co2_capture": 0.943,
+      "carbonate_conversion": 0.9100000000000001,
+      "steam_output_index": 0.8409999999999999,
+      "net_emission_index": -0.12400000000000005
+    }
+  }
+}

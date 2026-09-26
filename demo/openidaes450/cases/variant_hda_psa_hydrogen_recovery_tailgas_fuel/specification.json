@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_hda_psa_hydrogen_recovery_tailgas_fuel",
+  "family": "family_h2_psa",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "pressure_equalization_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_purge_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_recovery",
+      "value": 0.85,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_purity",
+      "value": 0.97,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "compression_power_kW",
+      "value": 150.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "tailgas_fuel_index",
+      "value": 0.4,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "OFFGAS.outlet"
+  ],
+  "terminal_product_ports": [
+    "H2REC.inlet",
+    "FUEL.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Adds pressure-swing adsorption, hydrogen recycle and an energy-bearing tail-gas product to the HDA gas path.",
+    "native_metrics": {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 150.0,
+      "tailgas_fuel_index": 0.4
+    }
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "fs.feed_to_softener",
+    "source": "fs.feed.outlet",
+    "destination": "fs.softener.feed.inlet"
+  },
+  {
+    "name": "fs.softener_to_translator",
+    "source": "fs.softener.product.outlet",
+    "destination": "fs.MCAS_to_ZO_TDS_translator.inlet"
+  },
+  {
+    "name": "fs.softener_to_sludge",
+    "source": "fs.softener.disposal.outlet",
+    "destination": "fs.sludge.inlet"
+  },
+  {
+    "name": "fs.MCAS_ZO_translator_to_UF",
+    "source": "fs.MCAS_to_ZO_TDS_translator.outlet",
+    "destination": "fs.UF.feed.inlet"
+  },
+  {
+    "name": "fs.UF_to_translatorZONaCl",
+    "source": "fs.UF.product.outlet",
+    "destination": "fs.ZO_TDS_to_NaCl_translator.inlet"
+  },
+  {
+    "name": "fs.UF_to_waste",
+    "source": "fs.UF.disposal.outlet",
+    "destination": "fs.UF_waste.inlet"
+  },
+  {
+    "name": "fs.translatorZONaCl_to_pump",
+    "source": "fs.ZO_TDS_to_NaCl_translator.outlet",
+    "destination": "fs.pump.inlet"
+  },
+  {
+    "name": "fs.pump_to_ro",
+    "source": "fs.pump.outlet",
+    "destination": "fs.RO.feed.inlet"
+  },
+  {
+    "name": "fs.RO_to_product",
+    "source": "fs.RO.product.outlet",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.RO_to_disposal",
+    "source": "fs.RO.disposal.outlet",
+    "destination": "fs.DWI.feed.inlet"
+  },
+  {
+    "name": "fs.softener.feed_to_unit",
+    "source": "fs.softener.feed.outlet",
+    "destination": "fs.softener.unit.inlet"
+  },
+  {
+    "name": "fs.softener.unit_to_product",
+    "source": "fs.softener.unit.outlet",
+    "destination": "fs.softener.product.inlet"
+  },
+  {
+    "name": "fs.softener.unit_to_disposal",
+    "source": "fs.softener.unit.waste",
+    "destination": "fs.softener.disposal.inlet"
+  },
+  {
+    "name": "fs.UF.feed_to_unit",
+    "source": "fs.UF.feed.outlet",
+    "destination": "fs.UF.unit.inlet"
+  },
+  {
+    "name": "fs.UF.unit_to_disposal",
+    "source": "fs.UF.unit.byproduct",
+    "destination": "fs.UF.disposal.inlet"
+  },
+  {
+    "name": "fs.UF.unit_to_product",
+    "source": "fs.UF.unit.treated",
+    "destination": "fs.UF.product.inlet"
+  },
+  {
+    "name": "fs.RO.ro_feed_to_ro",
+    "source": "fs.RO.feed.outlet",
+    "destination": "fs.RO.stage[1].feed.inlet"
+  },
+  {
+    "name": "fs.RO.stage_permeate_to_mixer[1]",
+    "source": "fs.RO.stage[1].permeate.outlet",
+    "destination": "fs.RO.primary_mixer.inlet_1"
+  },
+  {
+    "name": "fs.RO.primary_mixer_to_product",
+    "source": "fs.RO.primary_mixer.outlet",
+    "destination": "fs.RO.product.inlet"
+  },
+  {
+    "name": "fs.RO.last_stage_retentate_to_ro_retentate",
+    "source": "fs.RO.stage[1].retentate.outlet",
+    "destination": "fs.RO.disposal.inlet"
+  },
+  {
+    "name": "fs.RO.stage[1].stage_feed_to_module",
+    "source": "fs.RO.stage[1].feed.outlet",
+    "destination": "fs.RO.stage[1].module.inlet"
+  },
+  {
+    "name": "fs.RO.stage[1].stage_module_to_permeate",
+    "source": "fs.RO.stage[1].module.permeate",
+    "destination": "fs.RO.stage[1].permeate.inlet"
+  },
+  {
+    "name": "fs.RO.stage[1].stage_module_to_retentate",
+    "source": "fs.RO.stage[1].module.retentate",
+    "destination": "fs.RO.stage[1].retentate.inlet"
+  },
+  {
+    "name": "fs.DWI.feed_to_unit",
+    "source": "fs.DWI.feed.outlet",
+    "destination": "fs.DWI.unit.inlet"
+  }
+]

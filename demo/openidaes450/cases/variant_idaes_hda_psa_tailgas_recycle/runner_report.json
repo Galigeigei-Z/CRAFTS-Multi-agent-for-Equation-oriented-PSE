@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "idaes_hda_psa_tailgas_recycle",
+  "recipe": "gas_cleanup_recovery",
+  "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "contaminant_removal_fraction": 0.8,
+    "resource_recovery_fraction": 1.0
+  },
+  "metrics": {
+    "trace_contaminant_removal": 0.922,
+    "bulk_resource_recovery": 0.9500000000000001,
+    "emissions_index": 0.0,
+    "pressure_loss_index": 0.15,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.12,
+      "pressure_loss_index": 0.05,
+      "objective": 0.16999999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.11399999999999999,
+      "pressure_loss_index": 0.051000000000000004,
+      "objective": 0.16499999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.108,
+      "pressure_loss_index": 0.052000000000000005,
+      "objective": 0.16,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.102,
+      "pressure_loss_index": 0.053000000000000005,
+      "objective": 0.155,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.096,
+      "pressure_loss_index": 0.054000000000000006,
+      "objective": 0.15000000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.09,
+      "pressure_loss_index": 0.055,
+      "objective": 0.145,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.08399999999999999,
+      "pressure_loss_index": 0.056,
+      "objective": 0.13999999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.07799999999999999,
+      "pressure_loss_index": 0.057,
+      "objective": 0.13499999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.072,
+      "pressure_loss_index": 0.058,
+      "objective": 0.13,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.066,
+      "pressure_loss_index": 0.059000000000000004,
+      "objective": 0.125,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.06,
+      "pressure_loss_index": 0.060000000000000005,
+      "objective": 0.12,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.05399999999999999,
+      "pressure_loss_index": 0.061000000000000006,
+      "objective": 0.11499999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.04799999999999999,
+      "pressure_loss_index": 0.062000000000000006,
+      "objective": 0.10999999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.041999999999999996,
+      "pressure_loss_index": 0.063,
+      "objective": 0.105,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.03599999999999999,
+      "pressure_loss_index": 0.064,
+      "objective": 0.09999999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.03,
+      "pressure_loss_index": 0.065,
+      "objective": 0.095,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.023999999999999994,
+      "pressure_loss_index": 0.066,
+      "objective": 0.09,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.017999999999999988,
+      "pressure_loss_index": 0.067,
+      "objective": 0.08499999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.068,
+      "objective": 0.08,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0059999999999999915,
+      "pressure_loss_index": 0.069,
+      "objective": 0.075,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.65,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.07,
+      "objective": 0.07,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.0,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.11399999999999999,
+      "pressure_loss_index": 0.05500000000000001,
+      "objective": 0.16899999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.10829999999999998,
+      "pressure_loss_index": 0.05600000000000001,
+      "objective": 0.1643,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.1026,
+      "pressure_loss_index": 0.05700000000000001,
+      "objective": 0.15960000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.09689999999999999,
+      "pressure_loss_index": 0.05800000000000001,
+      "objective": 0.15489999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0912,
+      "pressure_loss_index": 0.05900000000000001,
+      "objective": 0.1502,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.08549999999999999,
+      "pressure_loss_index": 0.060000000000000005,
+      "objective": 0.1455,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.07979999999999998,
+      "pressure_loss_index": 0.061000000000000006,
+      "objective": 0.14079999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.07409999999999999,
+      "pressure_loss_index": 0.062000000000000006,
+      "objective": 0.1361,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.06839999999999999,
+      "pressure_loss_index": 0.063,
+      "objective": 0.1314,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0627,
+      "pressure_loss_index": 0.064,
+      "objective": 0.1267,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.056999999999999995,
+      "pressure_loss_index": 0.065,
+      "objective": 0.122,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.05129999999999999,
+      "pressure_loss_index": 0.066,
+      "objective": 0.11729999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.04559999999999999,
+      "pressure_loss_index": 0.067,
+      "objective": 0.11259999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.03989999999999999,
+      "pressure_loss_index": 0.068,
+      "objective": 0.1079,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.03419999999999999,
+      "pressure_loss_index": 0.069,
+      "objective": 0.10319999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.028499999999999998,
+      "pressure_loss_index": 0.07,
+      "objective": 0.0985,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.022799999999999994,
+      "pressure_loss_index": 0.07100000000000001,
+      "objective": 0.0938,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.017099999999999987,
+      "pressure_loss_index": 0.07200000000000001,
+      "objective": 0.0891,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.011399999999999997,
+      "pressure_loss_index": 0.07300000000000001,
+      "objective": 0.0844,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0056999999999999915,
+      "pressure_loss_index": 0.07400000000000001,
+      "objective": 0.07970000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.667,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.07500000000000001,
+      "objective": 0.07500000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.05,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.108,
+      "pressure_loss_index": 0.060000000000000005,
+      "objective": 0.168,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.1026,
+      "pressure_loss_index": 0.061000000000000006,
+      "objective": 0.1636,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0972,
+      "pressure_loss_index": 0.062000000000000006,
+      "objective": 0.1592,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.09179999999999999,
+      "pressure_loss_index": 0.063,
+      "objective": 0.1548,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0864,
+      "pressure_loss_index": 0.064,
+      "objective": 0.1504,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.081,
+      "pressure_loss_index": 0.065,
+      "objective": 0.14600000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.0756,
+      "pressure_loss_index": 0.066,
+      "objective": 0.1416,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.07019999999999998,
+      "pressure_loss_index": 0.067,
+      "objective": 0.1372,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.0648,
+      "pressure_loss_index": 0.068,
+      "objective": 0.1328,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0594,
+      "pressure_loss_index": 0.069,
+      "objective": 0.12840000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.054,
+      "pressure_loss_index": 0.07,
+      "objective": 0.124,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.0486,
+      "pressure_loss_index": 0.07100000000000001,
+      "objective": 0.11960000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.04319999999999999,
+      "pressure_loss_index": 0.07200000000000001,
+      "objective": 0.1152,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.0378,
+      "pressure_loss_index": 0.07300000000000001,
+      "objective": 0.11080000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.03239999999999999,
+      "pressure_loss_index": 0.07400000000000001,
+      "objective": 0.1064,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.027,
+      "pressure_loss_index": 0.07500000000000001,
+      "objective": 0.10200000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.021599999999999994,
+      "pressure_loss_index": 0.07600000000000001,
+      "objective": 0.0976,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.01619999999999999,
+      "pressure_loss_index": 0.07700000000000001,
+      "objective": 0.0932,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.010799999999999997,
+      "pressure_loss_index": 0.07800000000000001,
+      "objective": 0.08880000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0053999999999999925,
+      "pressure_loss_index": 0.07900000000000001,
+      "objective": 0.0844,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.684,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.08,
+      "objective": 0.08,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.1,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.102,
+      "pressure_loss_index": 0.065,
+      "objective": 0.16699999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.09689999999999999,
+      "pressure_loss_index": 0.066,
+      "objective": 0.1629,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.09179999999999999,
+      "pressure_loss_index": 0.067,
+      "objective": 0.1588,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.08669999999999999,
+      "pressure_loss_index": 0.068,
+      "objective": 0.1547,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0816,
+      "pressure_loss_index": 0.069,
+      "objective": 0.1506,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0765,
+      "pressure_loss_index": 0.07,
+      "objective": 0.14650000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.07139999999999999,
+      "pressure_loss_index": 0.07100000000000001,
+      "objective": 0.1424,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.06629999999999998,
+      "pressure_loss_index": 0.07200000000000001,
+      "objective": 0.13829999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.06119999999999999,
+      "pressure_loss_index": 0.07300000000000001,
+      "objective": 0.13419999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.056100000000000004,
+      "pressure_loss_index": 0.07400000000000001,
+      "objective": 0.13010000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.051,
+      "pressure_loss_index": 0.075,
+      "objective": 0.126,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.04589999999999999,
+      "pressure_loss_index": 0.076,
+      "objective": 0.12189999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.04079999999999999,
+      "pressure_loss_index": 0.077,
+      "objective": 0.11779999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.035699999999999996,
+      "pressure_loss_index": 0.078,
+      "objective": 0.1137,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.030599999999999992,
+      "pressure_loss_index": 0.079,
+      "objective": 0.10959999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0255,
+      "pressure_loss_index": 0.08,
+      "objective": 0.1055,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.020399999999999995,
+      "pressure_loss_index": 0.081,
+      "objective": 0.10139999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.01529999999999999,
+      "pressure_loss_index": 0.082,
+      "objective": 0.0973,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.010199999999999997,
+      "pressure_loss_index": 0.083,
+      "objective": 0.0932,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0050999999999999926,
+      "pressure_loss_index": 0.084,
+      "objective": 0.0891,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.7010000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.085,
+      "objective": 0.085,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.15000000000000002,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.096,
+      "pressure_loss_index": 0.07,
+      "objective": 0.166,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.0912,
+      "pressure_loss_index": 0.07100000000000001,
+      "objective": 0.1622,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0864,
+      "pressure_loss_index": 0.07200000000000001,
+      "objective": 0.1584,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.0816,
+      "pressure_loss_index": 0.07300000000000001,
+      "objective": 0.15460000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.07680000000000001,
+      "pressure_loss_index": 0.07400000000000001,
+      "objective": 0.15080000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.07200000000000001,
+      "pressure_loss_index": 0.07500000000000001,
+      "objective": 0.14700000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.0672,
+      "pressure_loss_index": 0.07600000000000001,
+      "objective": 0.1432,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.06239999999999999,
+      "pressure_loss_index": 0.07700000000000001,
+      "objective": 0.1394,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.0576,
+      "pressure_loss_index": 0.07800000000000001,
+      "objective": 0.1356,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.05280000000000001,
+      "pressure_loss_index": 0.07900000000000001,
+      "objective": 0.13180000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.048,
+      "pressure_loss_index": 0.08,
+      "objective": 0.128,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.043199999999999995,
+      "pressure_loss_index": 0.081,
+      "objective": 0.1242,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.03839999999999999,
+      "pressure_loss_index": 0.082,
+      "objective": 0.1204,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.0336,
+      "pressure_loss_index": 0.083,
+      "objective": 0.11660000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.028799999999999996,
+      "pressure_loss_index": 0.084,
+      "objective": 0.1128,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.024,
+      "pressure_loss_index": 0.085,
+      "objective": 0.10900000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.019199999999999995,
+      "pressure_loss_index": 0.08600000000000001,
+      "objective": 0.1052,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.014399999999999991,
+      "pressure_loss_index": 0.08700000000000001,
+      "objective": 0.1014,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.009599999999999997,
+      "pressure_loss_index": 0.08800000000000001,
+      "objective": 0.0976,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0047999999999999935,
+      "pressure_loss_index": 0.08900000000000001,
+      "objective": 0.09380000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.718,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.09000000000000001,
+      "objective": 0.09000000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.2,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.09,
+      "pressure_loss_index": 0.07500000000000001,
+      "objective": 0.165,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.08549999999999999,
+      "pressure_loss_index": 0.07600000000000001,
+      "objective": 0.1615,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.081,
+      "pressure_loss_index": 0.07700000000000001,
+      "objective": 0.15800000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.0765,
+      "pressure_loss_index": 0.07800000000000001,
+      "objective": 0.15450000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.072,
+      "pressure_loss_index": 0.07900000000000001,
+      "objective": 0.15100000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0675,
+      "pressure_loss_index": 0.08000000000000002,
+      "objective": 0.14750000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.063,
+      "pressure_loss_index": 0.08100000000000002,
+      "objective": 0.14400000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.05849999999999999,
+      "pressure_loss_index": 0.08200000000000002,
+      "objective": 0.1405,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.054,
+      "pressure_loss_index": 0.08300000000000002,
+      "objective": 0.137,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0495,
+      "pressure_loss_index": 0.08400000000000002,
+      "objective": 0.1335,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.045,
+      "pressure_loss_index": 0.085,
+      "objective": 0.13,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.040499999999999994,
+      "pressure_loss_index": 0.08600000000000001,
+      "objective": 0.1265,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.03599999999999999,
+      "pressure_loss_index": 0.08700000000000001,
+      "objective": 0.123,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.0315,
+      "pressure_loss_index": 0.08800000000000001,
+      "objective": 0.11950000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.026999999999999993,
+      "pressure_loss_index": 0.08900000000000001,
+      "objective": 0.116,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0225,
+      "pressure_loss_index": 0.09000000000000001,
+      "objective": 0.11250000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.017999999999999995,
+      "pressure_loss_index": 0.09100000000000001,
+      "objective": 0.10900000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.013499999999999991,
+      "pressure_loss_index": 0.09200000000000001,
+      "objective": 0.10550000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.008999999999999998,
+      "pressure_loss_index": 0.09300000000000001,
+      "objective": 0.10200000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.004499999999999994,
+      "pressure_loss_index": 0.09400000000000001,
+      "objective": 0.0985,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.735,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.09500000000000001,
+      "objective": 0.09500000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.25,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.08399999999999999,
+      "pressure_loss_index": 0.08000000000000002,
+      "objective": 0.164,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.07979999999999998,
+      "pressure_loss_index": 0.08100000000000002,
+      "objective": 0.1608,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0756,
+      "pressure_loss_index": 0.08200000000000002,
+      "objective": 0.15760000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.07139999999999999,
+      "pressure_loss_index": 0.08300000000000002,
+      "objective": 0.1544,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0672,
+      "pressure_loss_index": 0.08400000000000002,
+      "objective": 0.1512,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.063,
+      "pressure_loss_index": 0.08500000000000002,
+      "objective": 0.14800000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.05879999999999999,
+      "pressure_loss_index": 0.08600000000000002,
+      "objective": 0.1448,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.05459999999999999,
+      "pressure_loss_index": 0.08700000000000002,
+      "objective": 0.1416,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.05039999999999999,
+      "pressure_loss_index": 0.08800000000000002,
+      "objective": 0.13840000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0462,
+      "pressure_loss_index": 0.08900000000000002,
+      "objective": 0.13520000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.041999999999999996,
+      "pressure_loss_index": 0.09000000000000001,
+      "objective": 0.132,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.03779999999999999,
+      "pressure_loss_index": 0.09100000000000001,
+      "objective": 0.1288,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.03359999999999999,
+      "pressure_loss_index": 0.09200000000000001,
+      "objective": 0.1256,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.029399999999999996,
+      "pressure_loss_index": 0.09300000000000001,
+      "objective": 0.12240000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.025199999999999993,
+      "pressure_loss_index": 0.09400000000000001,
+      "objective": 0.1192,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.020999999999999998,
+      "pressure_loss_index": 0.09500000000000001,
+      "objective": 0.11600000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.016799999999999995,
+      "pressure_loss_index": 0.09600000000000002,
+      "objective": 0.11280000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.012599999999999991,
+      "pressure_loss_index": 0.09700000000000002,
+      "objective": 0.1096,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.008399999999999998,
+      "pressure_loss_index": 0.09800000000000002,
+      "objective": 0.10640000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.004199999999999994,
+      "pressure_loss_index": 0.09900000000000002,
+      "objective": 0.10320000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.752,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.10000000000000002,
+      "objective": 0.10000000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.30000000000000004,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.07799999999999999,
+      "pressure_loss_index": 0.085,
+      "objective": 0.16299999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.07409999999999999,
+      "pressure_loss_index": 0.08600000000000001,
+      "objective": 0.1601,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.07019999999999998,
+      "pressure_loss_index": 0.08700000000000001,
+      "objective": 0.1572,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.06629999999999998,
+      "pressure_loss_index": 0.08800000000000001,
+      "objective": 0.1543,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.06239999999999999,
+      "pressure_loss_index": 0.08900000000000001,
+      "objective": 0.1514,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.05849999999999999,
+      "pressure_loss_index": 0.09000000000000001,
+      "objective": 0.1485,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.05459999999999999,
+      "pressure_loss_index": 0.09100000000000001,
+      "objective": 0.1456,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.05069999999999998,
+      "pressure_loss_index": 0.09200000000000001,
+      "objective": 0.1427,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.04679999999999999,
+      "pressure_loss_index": 0.093,
+      "objective": 0.13979999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.042899999999999994,
+      "pressure_loss_index": 0.094,
+      "objective": 0.1369,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.03899999999999999,
+      "pressure_loss_index": 0.095,
+      "objective": 0.134,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.03509999999999999,
+      "pressure_loss_index": 0.096,
+      "objective": 0.1311,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.031199999999999988,
+      "pressure_loss_index": 0.097,
+      "objective": 0.12819999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.027299999999999994,
+      "pressure_loss_index": 0.098,
+      "objective": 0.1253,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.02339999999999999,
+      "pressure_loss_index": 0.099,
+      "objective": 0.1224,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.019499999999999997,
+      "pressure_loss_index": 0.1,
+      "objective": 0.1195,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.015599999999999994,
+      "pressure_loss_index": 0.101,
+      "objective": 0.1166,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.011699999999999992,
+      "pressure_loss_index": 0.10200000000000001,
+      "objective": 0.1137,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.007799999999999997,
+      "pressure_loss_index": 0.10300000000000001,
+      "objective": 0.11080000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.003899999999999994,
+      "pressure_loss_index": 0.10400000000000001,
+      "objective": 0.10790000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.769,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.10500000000000001,
+      "objective": 0.10500000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.35000000000000003,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.072,
+      "pressure_loss_index": 0.09000000000000001,
+      "objective": 0.162,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.06839999999999999,
+      "pressure_loss_index": 0.09100000000000001,
+      "objective": 0.1594,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0648,
+      "pressure_loss_index": 0.09200000000000001,
+      "objective": 0.1568,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.06119999999999999,
+      "pressure_loss_index": 0.09300000000000001,
+      "objective": 0.1542,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0576,
+      "pressure_loss_index": 0.09400000000000001,
+      "objective": 0.1516,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.05399999999999999,
+      "pressure_loss_index": 0.09500000000000001,
+      "objective": 0.14900000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.05039999999999999,
+      "pressure_loss_index": 0.09600000000000002,
+      "objective": 0.1464,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.04679999999999999,
+      "pressure_loss_index": 0.09700000000000002,
+      "objective": 0.1438,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.043199999999999995,
+      "pressure_loss_index": 0.098,
+      "objective": 0.1412,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0396,
+      "pressure_loss_index": 0.099,
+      "objective": 0.1386,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.036,
+      "pressure_loss_index": 0.1,
+      "objective": 0.136,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.03239999999999999,
+      "pressure_loss_index": 0.101,
+      "objective": 0.1334,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.028799999999999992,
+      "pressure_loss_index": 0.10200000000000001,
+      "objective": 0.1308,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.025199999999999997,
+      "pressure_loss_index": 0.10300000000000001,
+      "objective": 0.1282,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.021599999999999994,
+      "pressure_loss_index": 0.10400000000000001,
+      "objective": 0.1256,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.018,
+      "pressure_loss_index": 0.10500000000000001,
+      "objective": 0.12300000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.014399999999999996,
+      "pressure_loss_index": 0.10600000000000001,
+      "objective": 0.12040000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.010799999999999994,
+      "pressure_loss_index": 0.10700000000000001,
+      "objective": 0.1178,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.007199999999999998,
+      "pressure_loss_index": 0.10800000000000001,
+      "objective": 0.11520000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.003599999999999995,
+      "pressure_loss_index": 0.10900000000000001,
+      "objective": 0.1126,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.786,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.11000000000000001,
+      "objective": 0.11000000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.4,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.066,
+      "pressure_loss_index": 0.095,
+      "objective": 0.161,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.0627,
+      "pressure_loss_index": 0.096,
+      "objective": 0.1587,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0594,
+      "pressure_loss_index": 0.097,
+      "objective": 0.1564,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.056100000000000004,
+      "pressure_loss_index": 0.098,
+      "objective": 0.15410000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.05280000000000001,
+      "pressure_loss_index": 0.099,
+      "objective": 0.15180000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0495,
+      "pressure_loss_index": 0.1,
+      "objective": 0.14950000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.0462,
+      "pressure_loss_index": 0.101,
+      "objective": 0.1472,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.042899999999999994,
+      "pressure_loss_index": 0.10200000000000001,
+      "objective": 0.1449,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.0396,
+      "pressure_loss_index": 0.10300000000000001,
+      "objective": 0.1426,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.036300000000000006,
+      "pressure_loss_index": 0.10400000000000001,
+      "objective": 0.1403,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.033,
+      "pressure_loss_index": 0.105,
+      "objective": 0.138,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.029699999999999997,
+      "pressure_loss_index": 0.106,
+      "objective": 0.1357,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.026399999999999996,
+      "pressure_loss_index": 0.107,
+      "objective": 0.1334,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.0231,
+      "pressure_loss_index": 0.108,
+      "objective": 0.1311,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.019799999999999998,
+      "pressure_loss_index": 0.109,
+      "objective": 0.1288,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0165,
+      "pressure_loss_index": 0.11,
+      "objective": 0.1265,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.013199999999999998,
+      "pressure_loss_index": 0.111,
+      "objective": 0.1242,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.009899999999999994,
+      "pressure_loss_index": 0.112,
+      "objective": 0.1219,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.006599999999999999,
+      "pressure_loss_index": 0.113,
+      "objective": 0.1196,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0032999999999999956,
+      "pressure_loss_index": 0.114,
+      "objective": 0.1173,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.803,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.115,
+      "objective": 0.115,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.45,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.06,
+      "pressure_loss_index": 0.1,
+      "objective": 0.16,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.056999999999999995,
+      "pressure_loss_index": 0.101,
+      "objective": 0.158,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.054,
+      "pressure_loss_index": 0.10200000000000001,
+      "objective": 0.156,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.051,
+      "pressure_loss_index": 0.10300000000000001,
+      "objective": 0.154,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.048,
+      "pressure_loss_index": 0.10400000000000001,
+      "objective": 0.15200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.045,
+      "pressure_loss_index": 0.10500000000000001,
+      "objective": 0.15000000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.041999999999999996,
+      "pressure_loss_index": 0.10600000000000001,
+      "objective": 0.14800000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.03899999999999999,
+      "pressure_loss_index": 0.10700000000000001,
+      "objective": 0.14600000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.036,
+      "pressure_loss_index": 0.10800000000000001,
+      "objective": 0.14400000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.033,
+      "pressure_loss_index": 0.10900000000000001,
+      "objective": 0.14200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.03,
+      "pressure_loss_index": 0.11,
+      "objective": 0.14,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.026999999999999996,
+      "pressure_loss_index": 0.111,
+      "objective": 0.138,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.023999999999999994,
+      "pressure_loss_index": 0.112,
+      "objective": 0.136,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.020999999999999998,
+      "pressure_loss_index": 0.113,
+      "objective": 0.134,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.017999999999999995,
+      "pressure_loss_index": 0.114,
+      "objective": 0.132,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.015,
+      "pressure_loss_index": 0.115,
+      "objective": 0.13,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.116,
+      "objective": 0.128,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.008999999999999994,
+      "pressure_loss_index": 0.117,
+      "objective": 0.126,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.005999999999999998,
+      "pressure_loss_index": 0.11800000000000001,
+      "objective": 0.124,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0029999999999999957,
+      "pressure_loss_index": 0.11900000000000001,
+      "objective": 0.122,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8200000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.12000000000000001,
+      "objective": 0.12000000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.5,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.05399999999999999,
+      "pressure_loss_index": 0.10500000000000001,
+      "objective": 0.159,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.05129999999999999,
+      "pressure_loss_index": 0.10600000000000001,
+      "objective": 0.1573,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0486,
+      "pressure_loss_index": 0.10700000000000001,
+      "objective": 0.15560000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.04589999999999999,
+      "pressure_loss_index": 0.10800000000000001,
+      "objective": 0.1539,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.043199999999999995,
+      "pressure_loss_index": 0.10900000000000001,
+      "objective": 0.1522,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.040499999999999994,
+      "pressure_loss_index": 0.11000000000000001,
+      "objective": 0.15050000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.03779999999999999,
+      "pressure_loss_index": 0.11100000000000002,
+      "objective": 0.14880000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.03509999999999999,
+      "pressure_loss_index": 0.11200000000000002,
+      "objective": 0.1471,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.03239999999999999,
+      "pressure_loss_index": 0.11300000000000002,
+      "objective": 0.1454,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.029699999999999997,
+      "pressure_loss_index": 0.11400000000000002,
+      "objective": 0.14370000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.026999999999999996,
+      "pressure_loss_index": 0.115,
+      "objective": 0.14200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.024299999999999995,
+      "pressure_loss_index": 0.116,
+      "objective": 0.1403,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.02159999999999999,
+      "pressure_loss_index": 0.117,
+      "objective": 0.1386,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.018899999999999997,
+      "pressure_loss_index": 0.11800000000000001,
+      "objective": 0.1369,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.016199999999999996,
+      "pressure_loss_index": 0.11900000000000001,
+      "objective": 0.13520000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.013499999999999998,
+      "pressure_loss_index": 0.12000000000000001,
+      "objective": 0.1335,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.010799999999999995,
+      "pressure_loss_index": 0.12100000000000001,
+      "objective": 0.1318,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.008099999999999994,
+      "pressure_loss_index": 0.12200000000000001,
+      "objective": 0.1301,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.005399999999999998,
+      "pressure_loss_index": 0.12300000000000001,
+      "objective": 0.12840000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0026999999999999962,
+      "pressure_loss_index": 0.12400000000000001,
+      "objective": 0.1267,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8370000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.125,
+      "objective": 0.125,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.55,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.04799999999999999,
+      "pressure_loss_index": 0.11000000000000001,
+      "objective": 0.158,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.04559999999999999,
+      "pressure_loss_index": 0.11100000000000002,
+      "objective": 0.15660000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.04319999999999999,
+      "pressure_loss_index": 0.11200000000000002,
+      "objective": 0.1552,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.04079999999999999,
+      "pressure_loss_index": 0.11300000000000002,
+      "objective": 0.1538,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.03839999999999999,
+      "pressure_loss_index": 0.11400000000000002,
+      "objective": 0.1524,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.03599999999999999,
+      "pressure_loss_index": 0.11500000000000002,
+      "objective": 0.15100000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.03359999999999999,
+      "pressure_loss_index": 0.11600000000000002,
+      "objective": 0.1496,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.031199999999999988,
+      "pressure_loss_index": 0.11700000000000002,
+      "objective": 0.1482,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.028799999999999992,
+      "pressure_loss_index": 0.11800000000000002,
+      "objective": 0.1468,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.026399999999999996,
+      "pressure_loss_index": 0.11900000000000002,
+      "objective": 0.14540000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.023999999999999994,
+      "pressure_loss_index": 0.12000000000000001,
+      "objective": 0.14400000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.02159999999999999,
+      "pressure_loss_index": 0.12100000000000001,
+      "objective": 0.1426,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.01919999999999999,
+      "pressure_loss_index": 0.12200000000000001,
+      "objective": 0.1412,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.016799999999999995,
+      "pressure_loss_index": 0.12300000000000001,
+      "objective": 0.1398,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.014399999999999993,
+      "pressure_loss_index": 0.12400000000000001,
+      "objective": 0.1384,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.125,
+      "objective": 0.137,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.009599999999999996,
+      "pressure_loss_index": 0.126,
+      "objective": 0.1356,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.007199999999999994,
+      "pressure_loss_index": 0.127,
+      "objective": 0.13419999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.004799999999999998,
+      "pressure_loss_index": 0.128,
+      "objective": 0.1328,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0023999999999999963,
+      "pressure_loss_index": 0.129,
+      "objective": 0.1314,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8540000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.13,
+      "objective": 0.13,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.6000000000000001,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.041999999999999996,
+      "pressure_loss_index": 0.115,
+      "objective": 0.157,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.03989999999999999,
+      "pressure_loss_index": 0.116,
+      "objective": 0.15589999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0378,
+      "pressure_loss_index": 0.117,
+      "objective": 0.1548,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.035699999999999996,
+      "pressure_loss_index": 0.11800000000000001,
+      "objective": 0.1537,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0336,
+      "pressure_loss_index": 0.11900000000000001,
+      "objective": 0.1526,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0315,
+      "pressure_loss_index": 0.12000000000000001,
+      "objective": 0.15150000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.029399999999999996,
+      "pressure_loss_index": 0.12100000000000001,
+      "objective": 0.1504,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.027299999999999994,
+      "pressure_loss_index": 0.12200000000000001,
+      "objective": 0.14930000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.025199999999999997,
+      "pressure_loss_index": 0.123,
+      "objective": 0.1482,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0231,
+      "pressure_loss_index": 0.124,
+      "objective": 0.1471,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.020999999999999998,
+      "pressure_loss_index": 0.125,
+      "objective": 0.146,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.018899999999999997,
+      "pressure_loss_index": 0.126,
+      "objective": 0.1449,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.016799999999999995,
+      "pressure_loss_index": 0.127,
+      "objective": 0.14379999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.014699999999999998,
+      "pressure_loss_index": 0.128,
+      "objective": 0.1427,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.012599999999999997,
+      "pressure_loss_index": 0.129,
+      "objective": 0.1416,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.010499999999999999,
+      "pressure_loss_index": 0.13,
+      "objective": 0.1405,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.008399999999999998,
+      "pressure_loss_index": 0.131,
+      "objective": 0.1394,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.006299999999999996,
+      "pressure_loss_index": 0.132,
+      "objective": 0.1383,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.004199999999999999,
+      "pressure_loss_index": 0.133,
+      "objective": 0.13720000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.002099999999999997,
+      "pressure_loss_index": 0.134,
+      "objective": 0.1361,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.871,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.135,
+      "objective": 0.135,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.65,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.03599999999999999,
+      "pressure_loss_index": 0.12000000000000001,
+      "objective": 0.156,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.03419999999999999,
+      "pressure_loss_index": 0.12100000000000001,
+      "objective": 0.1552,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.03239999999999999,
+      "pressure_loss_index": 0.12200000000000001,
+      "objective": 0.1544,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.030599999999999992,
+      "pressure_loss_index": 0.12300000000000001,
+      "objective": 0.15360000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.028799999999999992,
+      "pressure_loss_index": 0.12400000000000001,
+      "objective": 0.1528,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.026999999999999993,
+      "pressure_loss_index": 0.125,
+      "objective": 0.152,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.025199999999999993,
+      "pressure_loss_index": 0.126,
+      "objective": 0.1512,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.02339999999999999,
+      "pressure_loss_index": 0.127,
+      "objective": 0.15039999999999998,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.021599999999999994,
+      "pressure_loss_index": 0.128,
+      "objective": 0.1496,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.019799999999999995,
+      "pressure_loss_index": 0.129,
+      "objective": 0.1488,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.017999999999999995,
+      "pressure_loss_index": 0.13,
+      "objective": 0.148,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.016199999999999996,
+      "pressure_loss_index": 0.131,
+      "objective": 0.1472,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.014399999999999993,
+      "pressure_loss_index": 0.132,
+      "objective": 0.1464,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.012599999999999997,
+      "pressure_loss_index": 0.133,
+      "objective": 0.1456,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.010799999999999995,
+      "pressure_loss_index": 0.134,
+      "objective": 0.1448,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.008999999999999998,
+      "pressure_loss_index": 0.135,
+      "objective": 0.14400000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.007199999999999996,
+      "pressure_loss_index": 0.136,
+      "objective": 0.1432,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.005399999999999995,
+      "pressure_loss_index": 0.137,
+      "objective": 0.1424,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.003599999999999998,
+      "pressure_loss_index": 0.138,
+      "objective": 0.1416,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0017999999999999971,
+      "pressure_loss_index": 0.139,
+      "objective": 0.1408,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.8880000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.14,
+      "objective": 0.14,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.7000000000000001,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.03,
+      "pressure_loss_index": 0.125,
+      "objective": 0.155,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.028499999999999998,
+      "pressure_loss_index": 0.126,
+      "objective": 0.1545,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.027,
+      "pressure_loss_index": 0.127,
+      "objective": 0.154,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.0255,
+      "pressure_loss_index": 0.128,
+      "objective": 0.1535,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.024,
+      "pressure_loss_index": 0.129,
+      "objective": 0.153,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0225,
+      "pressure_loss_index": 0.13,
+      "objective": 0.1525,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.020999999999999998,
+      "pressure_loss_index": 0.131,
+      "objective": 0.152,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.019499999999999997,
+      "pressure_loss_index": 0.132,
+      "objective": 0.1515,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.018,
+      "pressure_loss_index": 0.133,
+      "objective": 0.151,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0165,
+      "pressure_loss_index": 0.134,
+      "objective": 0.15050000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.015,
+      "pressure_loss_index": 0.135,
+      "objective": 0.15000000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.013499999999999998,
+      "pressure_loss_index": 0.136,
+      "objective": 0.14950000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.137,
+      "objective": 0.14900000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.010499999999999999,
+      "pressure_loss_index": 0.138,
+      "objective": 0.14850000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.008999999999999998,
+      "pressure_loss_index": 0.139,
+      "objective": 0.14800000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0075,
+      "pressure_loss_index": 0.14,
+      "objective": 0.14750000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.005999999999999998,
+      "pressure_loss_index": 0.14100000000000001,
+      "objective": 0.14700000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.004499999999999997,
+      "pressure_loss_index": 0.14200000000000002,
+      "objective": 0.14650000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.002999999999999999,
+      "pressure_loss_index": 0.14300000000000002,
+      "objective": 0.14600000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0014999999999999979,
+      "pressure_loss_index": 0.14400000000000002,
+      "objective": 0.14550000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.905,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.145,
+      "objective": 0.145,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.75,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.023999999999999994,
+      "pressure_loss_index": 0.13,
+      "objective": 0.154,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.022799999999999994,
+      "pressure_loss_index": 0.131,
+      "objective": 0.1538,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.021599999999999994,
+      "pressure_loss_index": 0.132,
+      "objective": 0.15360000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.020399999999999995,
+      "pressure_loss_index": 0.133,
+      "objective": 0.1534,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.019199999999999995,
+      "pressure_loss_index": 0.134,
+      "objective": 0.1532,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.017999999999999995,
+      "pressure_loss_index": 0.135,
+      "objective": 0.153,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.016799999999999995,
+      "pressure_loss_index": 0.136,
+      "objective": 0.1528,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.015599999999999994,
+      "pressure_loss_index": 0.137,
+      "objective": 0.1526,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.014399999999999996,
+      "pressure_loss_index": 0.138,
+      "objective": 0.1524,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.013199999999999998,
+      "pressure_loss_index": 0.139,
+      "objective": 0.1522,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.14,
+      "objective": 0.15200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.010799999999999995,
+      "pressure_loss_index": 0.14100000000000001,
+      "objective": 0.15180000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.009599999999999996,
+      "pressure_loss_index": 0.14200000000000002,
+      "objective": 0.1516,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.008399999999999998,
+      "pressure_loss_index": 0.14300000000000002,
+      "objective": 0.1514,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.007199999999999996,
+      "pressure_loss_index": 0.14400000000000002,
+      "objective": 0.1512,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.005999999999999998,
+      "pressure_loss_index": 0.14500000000000002,
+      "objective": 0.15100000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.004799999999999998,
+      "pressure_loss_index": 0.14600000000000002,
+      "objective": 0.15080000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.003599999999999997,
+      "pressure_loss_index": 0.14700000000000002,
+      "objective": 0.1506,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.002399999999999999,
+      "pressure_loss_index": 0.14800000000000002,
+      "objective": 0.1504,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0011999999999999982,
+      "pressure_loss_index": 0.14900000000000002,
+      "objective": 0.15020000000000003,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.922,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15,
+      "objective": 0.15,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.017999999999999988,
+      "pressure_loss_index": 0.135,
+      "objective": 0.153,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.017099999999999987,
+      "pressure_loss_index": 0.136,
+      "objective": 0.15309999999999999,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.01619999999999999,
+      "pressure_loss_index": 0.137,
+      "objective": 0.1532,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.015299999999999989,
+      "pressure_loss_index": 0.138,
+      "objective": 0.1533,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.014399999999999991,
+      "pressure_loss_index": 0.139,
+      "objective": 0.1534,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.013499999999999991,
+      "pressure_loss_index": 0.14,
+      "objective": 0.1535,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.012599999999999991,
+      "pressure_loss_index": 0.14100000000000001,
+      "objective": 0.15360000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.01169999999999999,
+      "pressure_loss_index": 0.14200000000000002,
+      "objective": 0.1537,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.010799999999999992,
+      "pressure_loss_index": 0.14300000000000002,
+      "objective": 0.15380000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.009899999999999994,
+      "pressure_loss_index": 0.14400000000000002,
+      "objective": 0.1539,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.008999999999999994,
+      "pressure_loss_index": 0.14500000000000002,
+      "objective": 0.15400000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.008099999999999994,
+      "pressure_loss_index": 0.14600000000000002,
+      "objective": 0.15410000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.007199999999999994,
+      "pressure_loss_index": 0.14700000000000002,
+      "objective": 0.1542,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.006299999999999996,
+      "pressure_loss_index": 0.14800000000000002,
+      "objective": 0.15430000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.005399999999999995,
+      "pressure_loss_index": 0.14900000000000002,
+      "objective": 0.1544,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.004499999999999997,
+      "pressure_loss_index": 0.15000000000000002,
+      "objective": 0.15450000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.003599999999999997,
+      "pressure_loss_index": 0.15100000000000002,
+      "objective": 0.15460000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.0026999999999999967,
+      "pressure_loss_index": 0.15200000000000002,
+      "objective": 0.15470000000000003,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.0017999999999999984,
+      "pressure_loss_index": 0.15300000000000002,
+      "objective": 0.15480000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0008999999999999982,
+      "pressure_loss_index": 0.15400000000000003,
+      "objective": 0.15490000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9390000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.155,
+      "objective": 0.155,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.8500000000000001,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.011999999999999997,
+      "pressure_loss_index": 0.14,
+      "objective": 0.15200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.011399999999999997,
+      "pressure_loss_index": 0.14100000000000001,
+      "objective": 0.1524,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.010799999999999997,
+      "pressure_loss_index": 0.14200000000000002,
+      "objective": 0.15280000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.010199999999999997,
+      "pressure_loss_index": 0.14300000000000002,
+      "objective": 0.1532,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.009599999999999997,
+      "pressure_loss_index": 0.14400000000000002,
+      "objective": 0.15360000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.008999999999999998,
+      "pressure_loss_index": 0.14500000000000002,
+      "objective": 0.15400000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.008399999999999998,
+      "pressure_loss_index": 0.14600000000000002,
+      "objective": 0.1544,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.007799999999999997,
+      "pressure_loss_index": 0.14700000000000002,
+      "objective": 0.15480000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.007199999999999998,
+      "pressure_loss_index": 0.14800000000000002,
+      "objective": 0.1552,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.006599999999999999,
+      "pressure_loss_index": 0.14900000000000002,
+      "objective": 0.15560000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.005999999999999998,
+      "pressure_loss_index": 0.15000000000000002,
+      "objective": 0.15600000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.005399999999999998,
+      "pressure_loss_index": 0.15100000000000002,
+      "objective": 0.1564,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.004799999999999998,
+      "pressure_loss_index": 0.15200000000000002,
+      "objective": 0.15680000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.004199999999999999,
+      "pressure_loss_index": 0.15300000000000002,
+      "objective": 0.15720000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.003599999999999998,
+      "pressure_loss_index": 0.15400000000000003,
+      "objective": 0.15760000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.002999999999999999,
+      "pressure_loss_index": 0.15500000000000003,
+      "objective": 0.15800000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.002399999999999999,
+      "pressure_loss_index": 0.15600000000000003,
+      "objective": 0.1584,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.0017999999999999984,
+      "pressure_loss_index": 0.15700000000000003,
+      "objective": 0.15880000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.0011999999999999995,
+      "pressure_loss_index": 0.15800000000000003,
+      "objective": 0.15920000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0005999999999999991,
+      "pressure_loss_index": 0.15900000000000003,
+      "objective": 0.15960000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9560000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16,
+      "objective": 0.16,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.0059999999999999915,
+      "pressure_loss_index": 0.14500000000000002,
+      "objective": 0.15100000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.0056999999999999915,
+      "pressure_loss_index": 0.14600000000000002,
+      "objective": 0.1517,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0053999999999999925,
+      "pressure_loss_index": 0.14700000000000002,
+      "objective": 0.1524,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.0050999999999999926,
+      "pressure_loss_index": 0.14800000000000002,
+      "objective": 0.1531,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0047999999999999935,
+      "pressure_loss_index": 0.14900000000000002,
+      "objective": 0.15380000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.004499999999999994,
+      "pressure_loss_index": 0.15000000000000002,
+      "objective": 0.15450000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.004199999999999994,
+      "pressure_loss_index": 0.15100000000000002,
+      "objective": 0.1552,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.0038999999999999937,
+      "pressure_loss_index": 0.15200000000000002,
+      "objective": 0.1559,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.0035999999999999947,
+      "pressure_loss_index": 0.15300000000000002,
+      "objective": 0.15660000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0032999999999999956,
+      "pressure_loss_index": 0.15400000000000003,
+      "objective": 0.15730000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.0029999999999999957,
+      "pressure_loss_index": 0.15500000000000003,
+      "objective": 0.15800000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.002699999999999996,
+      "pressure_loss_index": 0.15600000000000003,
+      "objective": 0.15870000000000004,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.002399999999999996,
+      "pressure_loss_index": 0.15700000000000003,
+      "objective": 0.15940000000000001,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.002099999999999997,
+      "pressure_loss_index": 0.15800000000000003,
+      "objective": 0.16010000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.0017999999999999971,
+      "pressure_loss_index": 0.15900000000000003,
+      "objective": 0.16080000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0014999999999999979,
+      "pressure_loss_index": 0.16000000000000003,
+      "objective": 0.16150000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.001199999999999998,
+      "pressure_loss_index": 0.16100000000000003,
+      "objective": 0.16220000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.0008999999999999981,
+      "pressure_loss_index": 0.16200000000000003,
+      "objective": 0.16290000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.000599999999999999,
+      "pressure_loss_index": 0.16300000000000003,
+      "objective": 0.16360000000000002,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.00029999999999999916,
+      "pressure_loss_index": 0.16400000000000003,
+      "objective": 0.16430000000000003,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.9730000000000001,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.165,
+      "objective": 0.165,
+      "feasible": true,
+      "contaminant_removal_fraction": 0.9500000000000001,
+      "resource_recovery_fraction": 1.0
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.55,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15000000000000002,
+      "objective": 0.15000000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.0
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.5700000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15100000000000002,
+      "objective": 0.15100000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.05
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.5900000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15200000000000002,
+      "objective": 0.15200000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.1
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.6100000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15300000000000002,
+      "objective": 0.15300000000000002,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.6300000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15400000000000003,
+      "objective": 0.15400000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.2
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.65,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15500000000000003,
+      "objective": 0.15500000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.25
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.67,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15600000000000003,
+      "objective": 0.15600000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.6900000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15700000000000003,
+      "objective": 0.15700000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.7100000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15800000000000003,
+      "objective": 0.15800000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.4
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.7300000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.15900000000000003,
+      "objective": 0.15900000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.45
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.75,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16000000000000003,
+      "objective": 0.16000000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.5
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.77,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16100000000000003,
+      "objective": 0.16100000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.55
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.79,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16200000000000003,
+      "objective": 0.16200000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.81,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16300000000000003,
+      "objective": 0.16300000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.65
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.8300000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16400000000000003,
+      "objective": 0.16400000000000003,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.8500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16500000000000004,
+      "objective": 0.16500000000000004,
+      "feasible": false,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.75
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16600000000000004,
+      "objective": 0.16600000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.8
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.8900000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16700000000000004,
+      "objective": 0.16700000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.9100000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16800000000000004,
+      "objective": 0.16800000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.9
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.9300000000000002,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.16900000000000004,
+      "objective": 0.16900000000000004,
+      "feasible": true,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "trace_contaminant_removal": 0.99,
+      "bulk_resource_recovery": 0.9500000000000001,
+      "emissions_index": 0.0,
+      "pressure_loss_index": 0.17,
+      "objective": 0.17,
+      "feasible": true,
+      "contaminant_removal_fraction": 1.0,
+      "resource_recovery_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel",
+    "chemical_distinction": "Reduces the PSA concept to a small pressure-driven H2 recovery subflowsheet.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

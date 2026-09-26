@@ -1,0 +1,107 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_mother_liquor_recycle_crystallization",
+  "family": "family_watertap_crystallization",
+  "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp[0,'Liq','NaCl']",
+      "value": 10.5119,
+      "units": "kg/s",
+      "role": "fresh NaCl feed",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp[0,'Liq','H2O']",
+      "value": 38.9326,
+      "units": "kg/s",
+      "role": "fresh water feed",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 293.15,
+      "units": "K",
+      "role": "fresh feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "fresh feed pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C101",
+      "variable": "temperature_operating",
+      "value": 328.15,
+      "units": "K",
+      "role": "crystallizer temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C101",
+      "variable": "crystallization_yield['NaCl']",
+      "value": 0.4,
+      "units": "dimensionless",
+      "role": "single-pass salt yield",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0,'purge']",
+      "value": 0.2,
+      "units": "dimensionless",
+      "role": "mother-liquor purge fraction",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "T101",
+      "variable": "outlet.pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "conditioned recycle pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "crystals.inlet",
+    "vapor.inlet",
+    "purge.inlet"
+  ],
+  "translator_constraint_templates": {
+    "T101": "phase-preserving liquid recycle with specified outlet pressure"
+  },
+  "initialization": {
+    "strategy": "initialize crystallizer at estimated closed-loop feed, then activate recycle equations",
+    "tear_destination": "M101.recycle",
+    "solve_order": [
+      "M101",
+      "C101",
+      "S101",
+      "T101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

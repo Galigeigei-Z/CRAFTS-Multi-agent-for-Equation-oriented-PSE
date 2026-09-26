@@ -1,0 +1,361 @@
+[
+  {
+    "name": "fs.drum",
+    "class": "idaes.core.base.process_block._ScalarDrum",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.downcomer",
+    "class": "idaes.core.base.process_block._ScalarDowncomer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.Waterwalls[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[2]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[3]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[4]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[5]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[6]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[7]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[8]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[9]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.Waterwalls[10]",
+    "class": "idaes.models_extra.power_generation.unit_models.waterwall_section.WaterwallSectionData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "rigorous_boiling": false
+    }
+  },
+  {
+    "name": "fs.drum.flash",
+    "class": "idaes.core.base.process_block._ScalarHelmPhaseSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.drum.mixer",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "FeedWater",
+        "SaturatedWater"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "minimize"
+      }
+    }
+  }
+]

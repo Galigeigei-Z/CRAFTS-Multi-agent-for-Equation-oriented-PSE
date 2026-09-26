@@ -1,0 +1,221 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_nf_dspmde_bypass",
+  "family": "family_watertap_nf_dspmde_with_bypass",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_h2o",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "family_default water mass flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_ca",
+      "value": 0.258,
+      "units": "kg/m^3",
+      "role": "family_default calcium concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_hco3",
+      "value": 0.385,
+      "units": "kg/m^3",
+      "role": "family_default bicarbonate concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_so4",
+      "value": 1.011,
+      "units": "kg/m^3",
+      "role": "family_default sulfate concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_cl",
+      "value": 0.87,
+      "units": "kg/m^3",
+      "role": "family_default chloride concentration before electroneutral adjustment",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_na",
+      "value": 0.739,
+      "units": "kg/m^3",
+      "role": "family_default sodium concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_k",
+      "value": 0.009,
+      "units": "kg/m^3",
+      "role": "family_default potassium concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_mg",
+      "value": 0.09,
+      "units": "kg/m^3",
+      "role": "family_default magnesium concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "by_pass_splitter",
+      "variable": "bypass_split_fraction",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "family_default bypass fraction",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_pump",
+      "variable": "outlet_pressure",
+      "value": 300000.0,
+      "units": "Pa",
+      "role": "family_default NF pump pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_pump",
+      "variable": "efficiency_pump",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "family_default NF pump efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "area",
+      "value": 50.0,
+      "units": "m^2",
+      "role": "family_default membrane area",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "radius_pore",
+      "value": 5e-10,
+      "units": "m",
+      "role": "family_default NF270 pore radius",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "membrane_thickness_effective",
+      "value": 8.598945196055952e-07,
+      "units": "m",
+      "role": "family_default effective membrane thickness",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "membrane_charge_density",
+      "value": -50.0,
+      "units": "mol/m^3",
+      "role": "family_default membrane charge density",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "dielectric_constant_pore",
+      "value": 41.3,
+      "units": "dimensionless",
+      "role": "family_default pore dielectric constant",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "channel_height",
+      "value": 0.001,
+      "units": "m",
+      "role": "family_default channel height",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "inlet_velocity",
+      "value": 0.25,
+      "units": "m/s",
+      "role": "family_default inlet velocity",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "permeate_pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default permeate pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind NF DSPM-DE bypass topology is compiled to BuildPlanIR and solved by the NF bypass sandbox template",
+    "solve_order": [
+      "feed",
+      "by_pass_splitter",
+      "NF_feed",
+      "NF_pump",
+      "NF_unit",
+      "NF_product",
+      "NF_retentate",
+      "total_product_mixer",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

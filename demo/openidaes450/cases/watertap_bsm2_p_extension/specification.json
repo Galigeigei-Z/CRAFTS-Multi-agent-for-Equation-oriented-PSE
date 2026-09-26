@@ -1,0 +1,58 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_bsm2_p_extension",
+  "family": "family_watertap_bsm2_p_extension",
+  "source_url": "local://watertap/flowsheets/full_water_resource_recovery_facility/BSM2_P_extension",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": "official BSM2_P_extension influent",
+      "units": "m^3/s",
+      "role": "municipal wastewater feed",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/full_water_resource_recovery_facility/BSM2_P_extension"
+    },
+    {
+      "target": "R1-R7",
+      "variable": "reactor_volumes",
+      "value": "official WaterTAP BSM2_P_extension defaults",
+      "units": "m^3",
+      "role": "ASM2d biological reactor volumes",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/full_water_resource_recovery_facility/BSM2_P_extension"
+    },
+    {
+      "target": "AD",
+      "variable": "digester_volume",
+      "value": "official default",
+      "units": "m^3",
+      "role": "anaerobic digester sizing",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/full_water_resource_recovery_facility/BSM2_P_extension"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "BSM2_P_extension.build, set_operating_conditions, initialize_system, scale, solve closing recycle model",
+    "solve_order": [
+      "primary clarifier",
+      "ASM2d biological train",
+      "secondary clarifier recycle",
+      "thickener",
+      "ASM2d/ADM1 translator",
+      "anaerobic digester",
+      "ADM1/ASM2d translator",
+      "dewatering recycle"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0,
+    "local_status": "official local solve failed infeasible at closing recycle"
+  }
+}

@@ -1,0 +1,246 @@
+[
+  {
+    "name": "fs.feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.product",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.disposal",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.product_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "Desal_1",
+        "Desal_2",
+        "Desal_3"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.disposal_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "Pretreatment",
+        "Valorizer"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.Pretreatment.separator",
+    "class": "idaes.core.base.process_block._ScalarGenericSeparation",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.Desal_1.desalter",
+    "class": "idaes.core.base.process_block._ScalarGenericDesalter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tracked_solids_list": [
+        "TDS"
+      ]
+    }
+  },
+  {
+    "name": "fs.Desal_2.desalter",
+    "class": "idaes.core.base.process_block._ScalarGenericDesalter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tracked_solids_list": [
+        "TDS"
+      ]
+    }
+  },
+  {
+    "name": "fs.Desal_3.desalter",
+    "class": "idaes.core.base.process_block._ScalarGenericDesalter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tracked_solids_list": [
+        "TDS"
+      ]
+    }
+  },
+  {
+    "name": "fs.Valorizer.separator",
+    "class": "idaes.core.base.process_block._ScalarGenericSeparation",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

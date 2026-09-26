@@ -1,0 +1,25 @@
+{
+  "case_id": "reflo_kbhdp_soa",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.MCAS_properties",
+      "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.RO_properties",
+      "class": "watertap.property_models.NaCl_prop_pack.NaClParameterBlock",
+      "module": "watertap.property_models.NaCl_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.UF_properties",
+      "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+      "module": "watertap.core.zero_order_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

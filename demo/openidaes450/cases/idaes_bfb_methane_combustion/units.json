@@ -1,0 +1,37 @@
+[
+  {
+    "name": "fs.BFB",
+    "class": "idaes.core.base.process_block._ScalarBubblingFluidizedBed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "finite_elements": 5,
+      "length_domain_set": [
+        0.0,
+        1.0
+      ],
+      "transformation_method": "dae.collocation",
+      "transformation_scheme": "LAGRANGE-RADAU",
+      "collocation_points": 3,
+      "flow_type": "co_current",
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": true,
+      "gas_phase_config": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solid_phase_config": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

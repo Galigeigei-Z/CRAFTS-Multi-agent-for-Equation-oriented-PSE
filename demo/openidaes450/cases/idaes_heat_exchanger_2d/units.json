@@ -1,0 +1,33 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarHeatExchangerCrossFlow2D_Header",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "shell_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "transformation_method": "dae.finite_difference",
+      "transformation_scheme": "BACKWARD",
+      "finite_elements": 5,
+      "collocation_points": 3,
+      "flow_type": "counter_current",
+      "tube_arrangement": "in-line",
+      "tube_side_water_phase": "Vap",
+      "has_radiation": true,
+      "tube_inner_diameter": 0.035,
+      "tube_thickness": 0.0035,
+      "radial_elements": 5,
+      "header_inner_diameter": 0.3,
+      "header_wall_thickness": 0.03,
+      "header_radial_elements": 5,
+      "has_header": true
+    }
+  }
+]

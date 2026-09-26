@@ -1,0 +1,82 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_nf_brine_advanced_costing",
+  "family": "family_prommis_nf_brine_advanced_costing",
+  "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed.outlet",
+      "variable": "conc_mass_phase_comp[Liq,Li_+]",
+      "value": 1.19,
+      "units": "kg/m^3",
+      "role": "tutorial Salar de Atacama lithium concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    },
+    {
+      "target": "feed.outlet",
+      "variable": "conc_mass_phase_comp[Liq,Mg_2+]",
+      "value": 7.31,
+      "units": "kg/m^3",
+      "role": "tutorial magnesium concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    },
+    {
+      "target": "feed.outlet",
+      "variable": "flow_mass_H2O",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "tutorial water feed basis",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    },
+    {
+      "target": "pump",
+      "variable": "outlet_pressure",
+      "value": 200000.0,
+      "units": "Pa",
+      "role": "initial pump outlet pressure",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    },
+    {
+      "target": "unit",
+      "variable": "area",
+      "value": 100.0,
+      "units": "m^2",
+      "role": "initial membrane area before costing solve",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    },
+    {
+      "target": "unit",
+      "variable": "costing",
+      "value": "QGESSCosting WaterTAP block import",
+      "units": "dimensionless",
+      "role": "advanced costing tutorial attaches QGESS costing to the WaterTAP NF unit",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/costing_advanced_features-solution.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official nf_brine initialize, solve_model, attach QGESSCosting, costing initialization, solve",
+    "solve_order": [
+      "feed",
+      "pump",
+      "unit",
+      "permeate",
+      "retentate",
+      "costing_1"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap then ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

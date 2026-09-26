@@ -1,0 +1,77 @@
+[
+  {
+    "name": "fs.s01",
+    "source": "fs.feed.outlet",
+    "destination": "fs.pump_feed.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.pump_feed.outlet",
+    "destination": "fs.mixer.feed"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.mixer.outlet",
+    "destination": "fs.hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.hx.cold_side_outlet",
+    "destination": "fs.pump_brine.inlet"
+  },
+  {
+    "name": "fs.s05",
+    "source": "fs.pump_brine.outlet",
+    "destination": "fs.heater.inlet"
+  },
+  {
+    "name": "fs.s06",
+    "source": "fs.heater.outlet",
+    "destination": "fs.MD.hot_ch_inlet"
+  },
+  {
+    "name": "fs.s07",
+    "source": "fs.MD.hot_ch_outlet",
+    "destination": "fs.separator_concentrate.inlet"
+  },
+  {
+    "name": "fs.s08",
+    "source": "fs.separator_concentrate.reject",
+    "destination": "fs.reject.inlet"
+  },
+  {
+    "name": "fs.s09",
+    "source": "fs.separator_concentrate.recycle",
+    "destination": "fs.mixer.recycle"
+  },
+  {
+    "name": "fs.s10",
+    "source": "fs.chiller.outlet",
+    "destination": "fs.MD.cold_ch_inlet"
+  },
+  {
+    "name": "fs.s11",
+    "source": "fs.MD.cold_ch_outlet",
+    "destination": "fs.hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.s12",
+    "source": "fs.hx.hot_side_outlet",
+    "destination": "fs.separator_permeate.inlet"
+  },
+  {
+    "name": "fs.s13",
+    "source": "fs.separator_permeate.permeate",
+    "destination": "fs.permeate.inlet"
+  },
+  {
+    "name": "fs.s14",
+    "source": "fs.separator_permeate.cold_loop_stream",
+    "destination": "fs.pump_permeate.inlet"
+  },
+  {
+    "name": "fs.s15",
+    "source": "fs.pump_permeate.outlet",
+    "destination": "fs.chiller.inlet"
+  }
+]

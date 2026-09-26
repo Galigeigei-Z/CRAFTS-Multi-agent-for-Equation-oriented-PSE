@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_ngcc_supplementary_firing_district_heat",
+  "family": "family_ngcc_district_heat",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "duct_firing_fraction",
+      "value": 0.2,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "district_heat_extraction_fraction",
+      "value": 0.65,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "district_heat_index",
+      "value": 0.78,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stack_temperature_K",
+      "value": 370.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "net_power_index",
+      "value": 0.5624999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fuel_gas_index",
+      "value": 1.1,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "NG.outlet"
+  ],
+  "terminal_product_ports": [
+    "POWER.inlet",
+    "HEAT.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "ngcc_gas_turbine_subflowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "ngcc_gas_turbine_subflowsheet",
+    "chemical_change": "Adds post-turbine combustion and a useful low-grade heat-product path.",
+    "native_metrics": {
+      "district_heat_index": 0.78,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5624999999999999,
+      "fuel_gas_index": 1.1
+    }
+  }
+}

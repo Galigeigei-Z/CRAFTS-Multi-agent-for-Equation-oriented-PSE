@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:build-plan-ir/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "source_topology_sha256",
+    "source_spec_sha256",
+    "plan_sha256",
+    "units",
+    "arcs",
+    "spec_records",
+    "components",
+    "property_packages",
+    "initialization",
+    "solve",
+    "native_plan"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "build_plan_ir/v5"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "arcs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "spec_records": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "components": {},
+    "property_packages": {},
+    "initialization": {},
+    "solve": {},
+    "native_plan": {
+      "type": "object"
+    }
+  },
+  "$defs": {}
+}

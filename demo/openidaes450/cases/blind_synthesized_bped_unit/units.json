@@ -1,0 +1,53 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarElectrodialysis_Bipolar_1D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "has_pressure_change": false,
+      "pressure_drop_method": {
+        "component": "none"
+      },
+      "friction_factor_method": {
+        "component": "fixed"
+      },
+      "hydraulic_diameter_method": {
+        "component": "conventional"
+      },
+      "operation_mode": {
+        "component": "Constant_Voltage"
+      },
+      "limiting_current_density_method_bpm": {
+        "component": "Empirical"
+      },
+      "salt_calculation": false,
+      "limiting_current_density_bpm_data": 0.5,
+      "salt_input_cem": 100,
+      "salt_input_aem": 100,
+      "limiting_potential_data": 0.5,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "is_isothermal": true,
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "transformation_method": "dae.finite_difference",
+      "transformation_scheme": "BACKWARD",
+      "finite_elements": 10,
+      "terms_fE": 40,
+      "collocation_points": 2
+    }
+  }
+]

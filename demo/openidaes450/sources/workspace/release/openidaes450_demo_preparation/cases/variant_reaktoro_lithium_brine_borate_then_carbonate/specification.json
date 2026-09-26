@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reaktoro_lithium_brine_borate_then_carbonate",
+  "family": "family_lithium_selective_precip",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "borate_removal_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbonate_stage_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "borate_removal",
+      "value": 0.9400000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "lithium_recovery",
+      "value": 0.9109999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_boron_fraction",
+      "value": 0.0014999999999999987,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "reagent_index",
+      "value": 0.69,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BRINE.outlet",
+    "LIME.outlet",
+    "SODA.outlet"
+  ],
+  "terminal_product_ports": [
+    "LI2CO3.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reaktoro_thermal_precipitation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reaktoro_thermal_precipitation",
+    "chemical_change": "Adds chemically ordered impurity precipitation and lithium-product crystallization with mother-liquor recycle.",
+    "native_metrics": {
+      "borate_removal": 0.9400000000000001,
+      "lithium_recovery": 0.9109999999999999,
+      "product_boron_fraction": 0.0014999999999999987,
+      "reagent_index": 0.69
+    }
+  }
+}

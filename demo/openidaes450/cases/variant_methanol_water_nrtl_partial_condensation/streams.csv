@@ -1,0 +1,61 @@
+port,member,index,model_variable,value,units
+fs.feed_flash.inlet,flow_mol,0.0,fs.feed_flash.control_volume.properties_in[0.0].flow_mol,100.0,mol/s
+fs.feed_flash.inlet,mole_frac_comp,"(0.0, 'methanol')",fs.feed_flash.control_volume.properties_in[0.0].mole_frac_comp[methanol],0.9,dimensionless
+fs.feed_flash.inlet,mole_frac_comp,"(0.0, 'water')",fs.feed_flash.control_volume.properties_in[0.0].mole_frac_comp[water],0.1,dimensionless
+fs.feed_flash.inlet,temperature,0.0,fs.feed_flash.control_volume.properties_in[0.0].temperature,340.0,K
+fs.feed_flash.inlet,pressure,0.0,fs.feed_flash.control_volume.properties_in[0.0].pressure,101325.0,Pa
+fs.feed_flash.vap_outlet,flow_mol,0.0,fs.feed_flash.split._Vap_flow_mol_ref[0.0],99.99999874280486,mol/s
+fs.feed_flash.vap_outlet,mole_frac_comp,"(0.0, 'methanol')","fs.feed_flash.split._Vap_mole_frac_comp_ref[0.0,methanol]",0.9000000020835757,dimensionless
+fs.feed_flash.vap_outlet,mole_frac_comp,"(0.0, 'water')","fs.feed_flash.split._Vap_mole_frac_comp_ref[0.0,water]",0.09999999791642425,dimensionless
+fs.feed_flash.vap_outlet,temperature,0.0,fs.feed_flash.control_volume.properties_out[0.0].temperature,340.0000000000024,K
+fs.feed_flash.vap_outlet,pressure,0.0,fs.feed_flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.feed_flash.liq_outlet,flow_mol,0.0,fs.feed_flash.split._Liq_flow_mol_ref[0.0],1.2571951334365951e-06,mol/s
+fs.feed_flash.liq_outlet,mole_frac_comp,"(0.0, 'methanol')","fs.feed_flash.split._Liq_mole_frac_comp_ref[0.0,methanol]",0.7343301715130077,dimensionless
+fs.feed_flash.liq_outlet,mole_frac_comp,"(0.0, 'water')","fs.feed_flash.split._Liq_mole_frac_comp_ref[0.0,water]",0.2656698284869923,dimensionless
+fs.feed_flash.liq_outlet,temperature,0.0,fs.feed_flash.control_volume.properties_out[0.0].temperature,340.0000000000024,K
+fs.feed_flash.liq_outlet,pressure,0.0,fs.feed_flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.feed_flash.split.inlet,flow_mol,0.0,fs.feed_flash.control_volume.properties_out[0.0].flow_mol,100.0,mol/s
+fs.feed_flash.split.inlet,mole_frac_comp,"(0.0, 'methanol')",fs.feed_flash.control_volume.properties_out[0.0].mole_frac_comp[methanol],0.9,dimensionless
+fs.feed_flash.split.inlet,mole_frac_comp,"(0.0, 'water')",fs.feed_flash.control_volume.properties_out[0.0].mole_frac_comp[water],0.1,dimensionless
+fs.feed_flash.split.inlet,temperature,0.0,fs.feed_flash.control_volume.properties_out[0.0].temperature,340.0000000000024,K
+fs.feed_flash.split.inlet,pressure,0.0,fs.feed_flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.feed_flash.split.Vap,flow_mol,0.0,fs.feed_flash.split._Vap_flow_mol_ref[0.0],99.99999874280486,mol/s
+fs.feed_flash.split.Vap,mole_frac_comp,"(0.0, 'methanol')","fs.feed_flash.split._Vap_mole_frac_comp_ref[0.0,methanol]",0.9000000020835757,dimensionless
+fs.feed_flash.split.Vap,mole_frac_comp,"(0.0, 'water')","fs.feed_flash.split._Vap_mole_frac_comp_ref[0.0,water]",0.09999999791642425,dimensionless
+fs.feed_flash.split.Vap,temperature,0.0,fs.feed_flash.control_volume.properties_out[0.0].temperature,340.0000000000024,K
+fs.feed_flash.split.Vap,pressure,0.0,fs.feed_flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.feed_flash.split.Liq,flow_mol,0.0,fs.feed_flash.split._Liq_flow_mol_ref[0.0],1.2571951334365951e-06,mol/s
+fs.feed_flash.split.Liq,mole_frac_comp,"(0.0, 'methanol')","fs.feed_flash.split._Liq_mole_frac_comp_ref[0.0,methanol]",0.7343301715130077,dimensionless
+fs.feed_flash.split.Liq,mole_frac_comp,"(0.0, 'water')","fs.feed_flash.split._Liq_mole_frac_comp_ref[0.0,water]",0.2656698284869923,dimensionless
+fs.feed_flash.split.Liq,temperature,0.0,fs.feed_flash.control_volume.properties_out[0.0].temperature,340.0000000000024,K
+fs.feed_flash.split.Liq,pressure,0.0,fs.feed_flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.inlet,flow_mol,0.0,fs.vapor_polisher.control_volume.properties_in[0.0].flow_mol,99.99999874280486,mol/s
+fs.vapor_polisher.inlet,mole_frac_comp,"(0.0, 'methanol')",fs.vapor_polisher.control_volume.properties_in[0.0].mole_frac_comp[methanol],0.9000000020835757,dimensionless
+fs.vapor_polisher.inlet,mole_frac_comp,"(0.0, 'water')",fs.vapor_polisher.control_volume.properties_in[0.0].mole_frac_comp[water],0.09999999791642425,dimensionless
+fs.vapor_polisher.inlet,temperature,0.0,fs.vapor_polisher.control_volume.properties_in[0.0].temperature,340.0000000000024,K
+fs.vapor_polisher.inlet,pressure,0.0,fs.vapor_polisher.control_volume.properties_in[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.vap_outlet,flow_mol,0.0,fs.vapor_polisher.split._Vap_flow_mol_ref[0.0],33.979458910797426,mol/s
+fs.vapor_polisher.vap_outlet,mole_frac_comp,"(0.0, 'methanol')","fs.vapor_polisher.split._Vap_mole_frac_comp_ref[0.0,methanol]",0.9527613878000533,dimensionless
+fs.vapor_polisher.vap_outlet,mole_frac_comp,"(0.0, 'water')","fs.vapor_polisher.split._Vap_mole_frac_comp_ref[0.0,water]",0.047238612199946795,dimensionless
+fs.vapor_polisher.vap_outlet,temperature,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].temperature,333.0,K
+fs.vapor_polisher.vap_outlet,pressure,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.liq_outlet,flow_mol,0.0,fs.vapor_polisher.split._Liq_flow_mol_ref[0.0],66.02053983200742,mol/s
+fs.vapor_polisher.liq_outlet,mole_frac_comp,"(0.0, 'methanol')","fs.vapor_polisher.split._Liq_mole_frac_comp_ref[0.0,methanol]",0.8728447661167997,dimensionless
+fs.vapor_polisher.liq_outlet,mole_frac_comp,"(0.0, 'water')","fs.vapor_polisher.split._Liq_mole_frac_comp_ref[0.0,water]",0.12715523388320038,dimensionless
+fs.vapor_polisher.liq_outlet,temperature,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].temperature,333.0,K
+fs.vapor_polisher.liq_outlet,pressure,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.split.inlet,flow_mol,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].flow_mol,99.99999874280486,mol/s
+fs.vapor_polisher.split.inlet,mole_frac_comp,"(0.0, 'methanol')",fs.vapor_polisher.control_volume.properties_out[0.0].mole_frac_comp[methanol],0.9000000020835758,dimensionless
+fs.vapor_polisher.split.inlet,mole_frac_comp,"(0.0, 'water')",fs.vapor_polisher.control_volume.properties_out[0.0].mole_frac_comp[water],0.09999999791642426,dimensionless
+fs.vapor_polisher.split.inlet,temperature,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].temperature,333.0,K
+fs.vapor_polisher.split.inlet,pressure,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.split.Vap,flow_mol,0.0,fs.vapor_polisher.split._Vap_flow_mol_ref[0.0],33.979458910797426,mol/s
+fs.vapor_polisher.split.Vap,mole_frac_comp,"(0.0, 'methanol')","fs.vapor_polisher.split._Vap_mole_frac_comp_ref[0.0,methanol]",0.9527613878000533,dimensionless
+fs.vapor_polisher.split.Vap,mole_frac_comp,"(0.0, 'water')","fs.vapor_polisher.split._Vap_mole_frac_comp_ref[0.0,water]",0.047238612199946795,dimensionless
+fs.vapor_polisher.split.Vap,temperature,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].temperature,333.0,K
+fs.vapor_polisher.split.Vap,pressure,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.vapor_polisher.split.Liq,flow_mol,0.0,fs.vapor_polisher.split._Liq_flow_mol_ref[0.0],66.02053983200742,mol/s
+fs.vapor_polisher.split.Liq,mole_frac_comp,"(0.0, 'methanol')","fs.vapor_polisher.split._Liq_mole_frac_comp_ref[0.0,methanol]",0.8728447661167997,dimensionless
+fs.vapor_polisher.split.Liq,mole_frac_comp,"(0.0, 'water')","fs.vapor_polisher.split._Liq_mole_frac_comp_ref[0.0,water]",0.12715523388320038,dimensionless
+fs.vapor_polisher.split.Liq,temperature,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].temperature,333.0,K
+fs.vapor_polisher.split.Liq,pressure,0.0,fs.vapor_polisher.control_volume.properties_out[0.0].pressure,101325.0,Pa

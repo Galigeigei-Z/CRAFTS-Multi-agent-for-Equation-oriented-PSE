@@ -1,0 +1,173 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__watertap_metab",
+  "family": "family_source_verified_watertap_metab",
+  "process_type": "EXPOsan-backed METAB resource-recovery model evaluation",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/METAB/model_evaluation.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "This is a source-verified WaterTAP model-evaluation workflow backed by EXPOsan METAB, not a native IDAES flowsheet solve. No SpecIR, DOF, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "influent",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_reactor",
+      "kind": "AnaerobicReactor",
+      "package": null,
+      "stage": "hydrogen_recovery",
+      "role": "Source-derived AnaerobicReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "methane_reactor",
+      "kind": "AnaerobicReactor",
+      "package": null,
+      "stage": "methane_recovery",
+      "role": "Source-derived AnaerobicReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gas_separator",
+      "kind": "Separator",
+      "package": null,
+      "stage": "gas_recovery",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "methane_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "liquid_effluent",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "extracted_biogas",
+      "kind": "Product",
+      "package": null,
+      "stage": "accounting",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "influent_to_h2",
+      "source": "influent.outlet",
+      "destination": "hydrogen_reactor.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "h2_liquid_to_ch4",
+      "source": "hydrogen_reactor.effluent",
+      "destination": "methane_reactor.inlet",
+      "source_port": "effluent",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "h2_gas_to_separator",
+      "source": "hydrogen_reactor.biogas",
+      "destination": "gas_separator.hydrogen_feed",
+      "source_port": "biogas",
+      "destination_port": "hydrogen_feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ch4_gas_to_separator",
+      "source": "methane_reactor.biogas",
+      "destination": "gas_separator.methane_feed",
+      "source_port": "biogas",
+      "destination_port": "methane_feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_hydrogen",
+      "source": "gas_separator.hydrogen",
+      "destination": "hydrogen_product.inlet",
+      "source_port": "hydrogen",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_methane",
+      "source": "gas_separator.methane",
+      "destination": "methane_product.inlet",
+      "source_port": "methane",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "reactor_effluent",
+      "source": "methane_reactor.effluent",
+      "destination": "liquid_effluent.inlet",
+      "source_port": "effluent",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_extracted_gas",
+      "source": "gas_separator.extracted",
+      "destination": "extracted_biogas.inlet",
+      "source_port": "extracted",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "influent",
+    "hydrogen_reactor",
+    "methane_reactor",
+    "gas_separator",
+    "hydrogen_product",
+    "methane_product",
+    "liquid_effluent",
+    "extracted_biogas"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

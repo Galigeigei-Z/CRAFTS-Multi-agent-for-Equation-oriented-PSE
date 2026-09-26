@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fs.tsa",
+    "class": "idaes.core.base.process_block._ScalarFixedBedTSA0D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "adsorbent": {
+        "component": "zeolite_13x"
+      },
+      "number_of_beds": 1,
+      "transformation_method": "dae.collocation",
+      "transformation_scheme": {
+        "component": "lagrangeRadau"
+      },
+      "finite_elements": 20,
+      "collocation_points": 6,
+      "compressor": false,
+      "compressor_properties": {
+        "type": "builtins.object",
+        "requires_source_definition": true
+      },
+      "steam_calculation": {
+        "component": "none"
+      },
+      "steam_properties": {
+        "type": "builtins.object",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

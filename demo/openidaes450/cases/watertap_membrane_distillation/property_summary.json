@@ -1,0 +1,25 @@
+{
+  "case_id": "watertap_membrane_distillation",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.properties_hot_ch",
+      "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+      "module": "watertap.property_models.seawater_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.properties_cold_ch",
+      "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+      "module": "watertap.property_models.seawater_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.properties_vapor",
+      "class": "watertap.property_models.water_prop_pack.WaterParameterBlock",
+      "module": "watertap.property_models.water_prop_pack",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_subcritical_power_plant",
+  "family": "family_subcritical_power_plant",
+  "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "turb",
+      "variable": "power_output",
+      "value": 320.0,
+      "units": "MW",
+      "role": "steady-state power demand fixed by official example",
+      "source": "reference",
+      "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html"
+    },
+    {
+      "target": "turb",
+      "variable": "temperature_main_steam",
+      "value": 810.0,
+      "units": "K",
+      "role": "official main steam temperature specification",
+      "source": "reference",
+      "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html"
+    },
+    {
+      "target": "turb",
+      "variable": "main_steam_pressure",
+      "value": 14.4,
+      "units": "MPa",
+      "role": "official sliding-pressure/full-load main steam pressure",
+      "source": "reference",
+      "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official subcritical_power_plant.main_steady_state initializes fs_blr and fs_stc, connects cross-flowsheet arcs, solves connected model, then resolves at 320 MW",
+    "solve_order": [
+      "boiler_internal_arcs",
+      "steam_cycle_internal_arcs",
+      "cross_flowsheet_arcs",
+      "connected_full_plant"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

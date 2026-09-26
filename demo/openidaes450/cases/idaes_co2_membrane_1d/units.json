@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarMembrane1D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "sweep_flow": true,
+      "finite_elements": 3,
+      "flow_type": {
+        "component": "COUNTERCURRENT"
+      },
+      "feed_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "sweep_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.unit.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "interacting_streams": null,
+      "heterogeneous_reactions": null,
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

@@ -1,0 +1,667 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__official_idaes_sofc_power_plant",
+  "family": "family_official_idaes_sofc_power_plant",
+  "process_type": "Official IDAES SOFC Power Plant",
+  "source_url": "https://github.com/IDAES/examples-pse/blob/b9606eeddf24ddcb24b27eabe84a911d148abc93/src/Examples/Flowsheets/power_generation/sofc/sofc.py",
+  "source_flowchart_url": "https://github.com/IDAES/examples-pse/blob/b9606eeddf24ddcb24b27eabe84a911d148abc93/src/Examples/Flowsheets/power_generation/sofc/sofc_template.svg",
+  "source_basis": [
+    "Units and Arc endpoints were extracted from the pinned official Python source at commit b9606eeddf24ddcb24b27eabe84a911d148abc93.",
+    "The displayed PFD is the byte-preserved official SVG from the same repository commit.",
+    "This artifact verifies source topology only; it does not claim a native solve in the current environment."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "ASU_O2_outlet",
+      "kind": "Heater",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_blower",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_compressor_s1",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_compressor_s2",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode",
+      "kind": "GibbsReactor",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source GibbsReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_HRSG",
+      "kind": "Heater",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_blower",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_recycle",
+      "kind": "Separator",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anode_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu",
+      "kind": "Separator",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode",
+      "kind": "Separator",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_blower",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_heat",
+      "kind": "Heater",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_hrsg",
+      "kind": "Heater",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_recycle",
+      "kind": "Separator",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cathode_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "combustor_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recycle_and_mixing",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser",
+      "kind": "Heater",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cpu",
+      "kind": "CarbonProcessingUnit",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source CarbonProcessingUnit node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flash",
+      "kind": "Flash",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Flash node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flue_gas_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_cell_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "intercooler_s1",
+      "kind": "Heater",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "intercooler_s2",
+      "kind": "Heater",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "oxycombustor",
+      "kind": "StoichiometricReactor",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source StoichiometricReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "oxycombustor_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "prereformer",
+      "kind": "GibbsReactor",
+      "package": null,
+      "stage": "process",
+      "role": "Official-source GibbsReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "recycle_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "recycle_and_mixing",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sofc",
+      "kind": "SofcRom",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source SofcRom node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "air01",
+      "source": "air_blower.outlet",
+      "destination": "cathode_hx.tube_inlet",
+      "source_port": "outlet",
+      "destination_port": "tube_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "air02",
+      "source": "cathode_hx.tube_outlet",
+      "destination": "cathode_mix.air_inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "air_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "air03",
+      "source": "cathode_mix.outlet",
+      "destination": "cathode.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "air04",
+      "source": "cathode_heat.outlet",
+      "destination": "cathode_recycle.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "air05",
+      "source": "cathode_recycle.exhaust_outlet",
+      "destination": "cathode_hx.shell_inlet",
+      "source_port": "exhaust_outlet",
+      "destination_port": "shell_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "air06",
+      "source": "cathode_hx.shell_outlet",
+      "destination": "cathode_hrsg.inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "arec01",
+      "source": "cathode_recycle.recycle_outlet",
+      "destination": "cathode_blower.inlet",
+      "source_port": "recycle_outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "arec02",
+      "source": "cathode_blower.outlet",
+      "destination": "cathode_mix.recycle_inlet",
+      "source_port": "outlet",
+      "destination_port": "recycle_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu01",
+      "source": "air_compressor_s1.outlet",
+      "destination": "intercooler_s1.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu02",
+      "source": "intercooler_s1.outlet",
+      "destination": "air_compressor_s2.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu03",
+      "source": "air_compressor_s2.outlet",
+      "destination": "intercooler_s2.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu04",
+      "source": "intercooler_s2.outlet",
+      "destination": "asu.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu05",
+      "source": "asu.O2_outlet",
+      "destination": "ASU_O2_outlet.inlet",
+      "source_port": "O2_outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu05_trns",
+      "source": "ASU_O2_outlet.outlet",
+      "destination": "oxycombustor_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "cat01",
+      "source": "cathode.air_outlet",
+      "destination": "cathode_heat.inlet",
+      "source_port": "air_outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "exh01",
+      "source": "anode.outlet",
+      "destination": "anode_recycle.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "exh02",
+      "source": "anode_recycle.exhaust_outlet",
+      "destination": "anode_hx.shell_inlet",
+      "source_port": "exhaust_outlet",
+      "destination_port": "shell_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "exh03",
+      "source": "anode_hx.shell_outlet",
+      "destination": "combustor_mix.anode_inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "anode_inlet",
+      "stage": "recycle_and_mixing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fc01",
+      "source": "fuel_cell_mix.outlet",
+      "destination": "anode.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg01",
+      "source": "oxycombustor.outlet",
+      "destination": "anode_HRSG.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg01_trns",
+      "source": "anode_HRSG.outlet",
+      "destination": "flue_gas_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg02",
+      "source": "flue_gas_translator.outlet",
+      "destination": "condenser.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg03",
+      "source": "condenser.outlet",
+      "destination": "flash.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "frec01",
+      "source": "anode_recycle.recycle_outlet",
+      "destination": "anode_blower.inlet",
+      "source_port": "recycle_outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "frec02",
+      "source": "anode_blower.outlet",
+      "destination": "recycle_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "recycle_and_mixing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "frec02_trns",
+      "source": "recycle_translator.outlet",
+      "destination": "anode_mix.recycle_inlet",
+      "source_port": "outlet",
+      "destination_port": "recycle_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ion01",
+      "source": "cathode.ion_outlet",
+      "destination": "cathode_translator.inlet",
+      "source_port": "ion_outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ion01_trns",
+      "source": "cathode_translator.outlet",
+      "destination": "fuel_cell_mix.ion_inlet",
+      "source_port": "outlet",
+      "destination_port": "ion_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ng01",
+      "source": "anode_mix.outlet",
+      "destination": "anode_hx.tube_inlet",
+      "source_port": "outlet",
+      "destination_port": "tube_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ng02",
+      "source": "anode_hx.tube_outlet",
+      "destination": "prereformer.inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "inlet",
+      "stage": "process",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ng02_trns",
+      "source": "prereformer.outlet",
+      "destination": "anode_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "ng03",
+      "source": "anode_translator.outlet",
+      "destination": "fuel_cell_mix.fuel_inlet",
+      "source_port": "outlet",
+      "destination_port": "fuel_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "oxy01",
+      "source": "oxycombustor_translator.outlet",
+      "destination": "combustor_mix.oxygen_inlet",
+      "source_port": "outlet",
+      "destination_port": "oxygen_inlet",
+      "stage": "recycle_and_mixing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "oxy02",
+      "source": "combustor_mix.outlet",
+      "destination": "oxycombustor.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "initialization_order": [
+    "ASU_O2_outlet",
+    "air_blower",
+    "air_compressor_s1",
+    "air_compressor_s2",
+    "anode",
+    "anode_HRSG",
+    "anode_blower",
+    "anode_hx",
+    "anode_mix",
+    "anode_recycle",
+    "anode_translator",
+    "asu",
+    "cathode",
+    "cathode_blower",
+    "cathode_heat",
+    "cathode_hrsg",
+    "cathode_hx",
+    "cathode_mix",
+    "cathode_recycle",
+    "cathode_translator",
+    "combustor_mix",
+    "condenser",
+    "cpu",
+    "flash",
+    "flue_gas_translator",
+    "fuel_cell_mix",
+    "intercooler_s1",
+    "intercooler_s2",
+    "oxycombustor",
+    "oxycombustor_translator",
+    "prereformer",
+    "recycle_translator",
+    "sofc"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "Native execution requires the archived examples-pse dependency set and initialization data.",
+    "Operating specifications and degrees of freedom remain source-owned until native execution is reproduced."
+  ],
+  "evidence_status": "source_verified"
+}

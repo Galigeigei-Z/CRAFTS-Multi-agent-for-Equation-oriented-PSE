@@ -1,0 +1,87 @@
+[
+  {
+    "name": "fs.stream1",
+    "source": "fs.FeedWater.outlet",
+    "destination": "fs.MX1.feed_water"
+  },
+  {
+    "name": "fs.stream2",
+    "source": "fs.MX1.outlet",
+    "destination": "fs.R1.inlet"
+  },
+  {
+    "name": "fs.stream3",
+    "source": "fs.R1.outlet",
+    "destination": "fs.R2.inlet"
+  },
+  {
+    "name": "fs.stream4",
+    "source": "fs.R2.outlet",
+    "destination": "fs.MX2.reactor"
+  },
+  {
+    "name": "fs.stream5",
+    "source": "fs.MX2.outlet",
+    "destination": "fs.R3.inlet"
+  },
+  {
+    "name": "fs.stream6",
+    "source": "fs.R3.outlet",
+    "destination": "fs.R4.inlet"
+  },
+  {
+    "name": "fs.stream7",
+    "source": "fs.R4.outlet",
+    "destination": "fs.R5.inlet"
+  },
+  {
+    "name": "fs.stream8",
+    "source": "fs.R5.outlet",
+    "destination": "fs.R6.inlet"
+  },
+  {
+    "name": "fs.stream9",
+    "source": "fs.R6.outlet",
+    "destination": "fs.R7.inlet"
+  },
+  {
+    "name": "fs.stream10",
+    "source": "fs.R7.outlet",
+    "destination": "fs.SP1.inlet"
+  },
+  {
+    "name": "fs.stream11",
+    "source": "fs.SP1.overflow",
+    "destination": "fs.CL1.inlet"
+  },
+  {
+    "name": "fs.stream12",
+    "source": "fs.SP1.underflow",
+    "destination": "fs.MX2.clarifier"
+  },
+  {
+    "name": "fs.stream13",
+    "source": "fs.CL1.effluent",
+    "destination": "fs.Treated.inlet"
+  },
+  {
+    "name": "fs.stream14",
+    "source": "fs.CL1.underflow",
+    "destination": "fs.SP2.inlet"
+  },
+  {
+    "name": "fs.stream15",
+    "source": "fs.SP2.waste",
+    "destination": "fs.Sludge.inlet"
+  },
+  {
+    "name": "fs.stream16",
+    "source": "fs.SP2.recycle",
+    "destination": "fs.P1.inlet"
+  },
+  {
+    "name": "fs.stream17",
+    "source": "fs.P1.outlet",
+    "destination": "fs.MX1.recycle"
+  }
+]

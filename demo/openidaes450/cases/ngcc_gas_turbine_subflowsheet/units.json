@@ -1,0 +1,678 @@
+[
+  {
+    "name": "fs.feed_air1",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.feed_fuel1",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.exhaust_1",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.vsv",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.cmp1",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.splt1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "air04",
+        "air05",
+        "air07",
+        "air09"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.valve01",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.valve02",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.valve03",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.inject_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.cmb_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ng_preheat",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.inject1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.translator1",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.mx1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.translator2",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.mx2",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.translator3",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.mx3",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.cmb1",
+    "class": "idaes.core.base.process_block._ScalarStoichiometricReactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_of_reaction": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.gas_combustion"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.flue_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.cmb_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.gts1",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.gts2",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.gts3",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

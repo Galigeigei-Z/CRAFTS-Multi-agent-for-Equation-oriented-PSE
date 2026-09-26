@@ -1,0 +1,69 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "bus_count": 123,
+    "branch_count": 255,
+    "generator_count": 581,
+    "load_count": 123,
+    "variables_before_gdp_transform": 5266,
+    "constraints_before_gdp_transform": 123032,
+    "disjunctions_before_gdp_transform": 745,
+    "objective_value": 958088976.6610307,
+    "recovery_configuration": {
+      "official_dataset": "123_Bus_Coal",
+      "stages": 1,
+      "representative_periods": 1,
+      "representative_date": "2019-01-28 00:00",
+      "commitment_periods": 1,
+      "dispatch_periods": 1,
+      "flow_model": "CP",
+      "transmission": false,
+      "outage_mapping_count": 0,
+      "compatibility_fixes": [
+        {
+          "id": "egret_numeric_branch_uid_adapter",
+          "reason": "Prevent pandas iterrows from coercing integer bus IDs to unmatched decimal strings."
+        },
+        {
+          "id": "missing_generator_ramp_default",
+          "reason": "Fill absent ramp_q inputs with one-hour nameplate ramp capability.",
+          "affected_generator_rows": 581
+        },
+        {
+          "id": "official_2019_data_start",
+          "reason": "Use the year present in official time-series files instead of Prescient's 2020 default."
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "official_dataset": "123_Bus_Coal",
+    "stages": 1,
+    "representative_periods": 1,
+    "representative_date": "2019-01-28 00:00",
+    "commitment_periods": 1,
+    "dispatch_periods": 1,
+    "flow_model": "CP",
+    "transmission": false,
+    "outage_mapping_count": 0,
+    "compatibility_fixes": [
+      {
+        "id": "egret_numeric_branch_uid_adapter",
+        "reason": "Prevent pandas iterrows from coercing integer bus IDs to unmatched decimal strings."
+      },
+      {
+        "id": "missing_generator_ramp_default",
+        "reason": "Fill absent ramp_q inputs with one-hour nameplate ramp capability.",
+        "affected_generator_rows": 581
+      },
+      {
+        "id": "official_2019_data_start",
+        "reason": "Use the year present in official time-series files instead of Prescient's 2020 default."
+      }
+    ]
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

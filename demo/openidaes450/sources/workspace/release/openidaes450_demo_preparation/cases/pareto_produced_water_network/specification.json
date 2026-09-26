@@ -1,0 +1,25 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "pareto_produced_water_network",
+  "family": "family_nonofficial_pareto_produced_water",
+  "source_url": "https://github.com/project-pareto/project-pareto",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "PARETO documentation network topology smoke",
+    "solve_order": [
+      "source",
+      "storage",
+      "treatment",
+      "reuse/disposal"
+    ]
+  },
+  "solve": {
+    "solver": "reference_topology_only",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

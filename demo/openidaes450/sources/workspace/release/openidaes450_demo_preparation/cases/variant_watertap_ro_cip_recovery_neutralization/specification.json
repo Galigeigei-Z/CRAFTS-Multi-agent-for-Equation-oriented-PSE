@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_ro_cip_recovery_neutralization",
+  "family": "family_ro_cip_recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "cleanant_reuse_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_neutralization_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "cleaning_effectiveness",
+      "value": 0.96,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "neutralized_purge_ph",
+      "value": 6.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "liquid_waste_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "membrane_damage_index",
+      "value": 0.0075,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_salt_index",
+      "value": 0.0125,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "ACID.outlet",
+    "BASE.outlet"
+  ],
+  "terminal_product_ports": [
+    "WASTE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ro_antiscalant_recycle_purge"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ro_antiscalant_recycle_purge",
+    "chemical_change": "Adds chemically segregated cleaning loops, reusable cleanant recovery and controlled neutralization.",
+    "native_metrics": {
+      "cleaning_effectiveness": 0.96,
+      "neutralized_purge_ph": 6.5,
+      "liquid_waste_index": 0.0,
+      "membrane_damage_index": 0.0075,
+      "purge_salt_index": 0.0125
+    }
+  }
+}

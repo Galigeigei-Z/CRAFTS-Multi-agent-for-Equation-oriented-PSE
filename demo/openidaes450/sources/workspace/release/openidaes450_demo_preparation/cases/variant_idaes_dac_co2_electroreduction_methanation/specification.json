@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_dac_co2_electroreduction_methanation",
+  "family": "family_dac_co_methanation",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "co2_to_electroreduction_fraction",
+      "value": 0.9500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "syngas_recycle_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbon_utilization",
+      "value": 0.944,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_yield",
+      "value": 0.924,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_utilization",
+      "value": 0.7245,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "power_index",
+      "value": 4.375,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "AIR.outlet",
+    "H2.outlet"
+  ],
+  "terminal_product_ports": [
+    "CH4.inlet",
+    "CLEAN.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_dac_humidity_swing_calciner_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_dac_humidity_swing_calciner_recovery",
+    "chemical_change": "Creates a carbon utilization chain with electrochemical CO, Sabatier chemistry and gas recycle.",
+    "native_metrics": {
+      "carbon_utilization": 0.944,
+      "methane_yield": 0.924,
+      "hydrogen_utilization": 0.7245,
+      "power_index": 4.375
+    }
+  }
+}

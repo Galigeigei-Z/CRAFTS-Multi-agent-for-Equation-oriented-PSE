@@ -1,0 +1,156 @@
+[
+  {
+    "name": "fs.mixer_settler_ex",
+    "class": "idaes.core.base.process_block._ScalarMixerSettlerExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_stages": 3,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "settler_transformation_method": "dae.finite_difference",
+      "settler_transformation_scheme": "BACKWARD",
+      "settler_finite_elements": 4,
+      "settler_collocation_points": 5
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[1].unit",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": true
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[1].unit.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[2].unit",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": true
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[2].unit.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[3].unit",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": true
+    }
+  },
+  {
+    "name": "fs.mixer_settler_ex.mixer[3].unit.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

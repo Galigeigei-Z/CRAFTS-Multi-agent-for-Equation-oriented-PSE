@@ -1,0 +1,25 @@
+[
+  {
+    "name": "fs.pond",
+    "class": "idaes.core.base.process_block._ScalarEvaporationPond",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.brine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.brine_rxns"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solvent_id": "H2O"
+    }
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarBoronRemoval",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "is_isothermal": true,
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "chemical_mapping_data": {
+        "boron_name": "B[OH]3",
+        "borate_name": "B[OH]4_-",
+        "caustic_additive": {
+          "cation_name": "Na_+",
+          "mw_additive": [
+            40,
+            {
+              "component": "div"
+            }
+          ],
+          "moles_cation_per_additive": 1
+        }
+      }
+    }
+  }
+]

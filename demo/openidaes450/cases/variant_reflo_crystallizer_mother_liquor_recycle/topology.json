@@ -1,0 +1,193 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_reflo_crystallizer_mother_liquor_recycle",
+  "family": "family_crystallizer_recycle",
+  "process_type": "Crystallizer with Mother-Liquor Recycle and Impurity Purge",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "source_basis": [
+    "Derived from active parent reflo_crystallizer_effect.",
+    "Adds a solid/liquid separator, mother-liquor recycle and binding impurity purge, coupling yield to impurity buildup.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "salt",
+        "soluble_impurity",
+        "salt_crystal"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "reflo_crystallizer_effect"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "salt",
+      "soluble_impurity",
+      "salt_crystal"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "saline feed with soluble impurity",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "fresh plus recycled mother liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CR101",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "evaporative salt crystallization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF101",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "separate crystals and mother liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "mother-liquor recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SALT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "salt crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "crystallizer_recycle",
+      "role": "impurity purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.feed",
+      "stage": "crystallizer_recycle",
+      "role": "fresh brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "CR101.inlet",
+      "stage": "crystallizer_recycle",
+      "role": "crystallizer feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "CR101.slurry",
+      "destination": "CF101.inlet",
+      "stage": "crystallizer_recycle",
+      "role": "crystal slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CF101.solids",
+      "destination": "SALT.inlet",
+      "stage": "crystallizer_recycle",
+      "role": "salt crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CF101.liquid",
+      "destination": "S101.inlet",
+      "stage": "crystallizer_recycle",
+      "role": "mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "crystallizer_recycle",
+      "role": "mother-liquor recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "crystallizer_recycle",
+      "role": "impurity purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "SALT.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_crystallizer_effect"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_crystallizer_effect",
+    "chemical_change": "Adds a solid/liquid separator, mother-liquor recycle and binding impurity purge, coupling yield to impurity buildup.",
+    "native_metrics": {
+      "loop_water_kg_s": 1.782868525896414,
+      "loop_solute_kg_s": 0.14970059880239522,
+      "product_water_kg_s": 0.7131474103585657,
+      "product_solute_kg_s": 0.08982035928143711,
+      "purge_water_kg_s": 0.18185258964143428,
+      "purge_solute_kg_s": 0.010179640718562878,
+      "salt_crystal_kg_s": 0.08982035928143711,
+      "impurity_purge_kg_s": 0.004719573752103197
+    }
+  }
+}

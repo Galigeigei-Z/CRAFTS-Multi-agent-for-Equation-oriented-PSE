@@ -1,0 +1,131 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "local_btx_flash_canary",
+  "family": "family_btx_flash_canary",
+  "process_type": "Single-unit BTX flash canary with benzene/toluene feed and vapor/liquid products",
+  "source_url": "local://examples/official_structfs_flash_flowsheet",
+  "source_basis": [
+    "Local official_structfs_flash_flowsheet source builds one IDAES Flash unit using BTXParameterBlock with ideal VLE.",
+    "The flash feed is fixed at 1 mol/s, 368 K, 101325 Pa, and an equimolar benzene/toluene composition.",
+    "The flash heat duty and pressure drop are fixed to zero; IPOPT solves the square flash model."
+  ],
+  "property_packages": {
+    "properties": {
+      "entry_id": "btx_activity_coeff_vle_package",
+      "components": [
+        "benzene",
+        "toluene"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "flash"
+      ]
+    }
+  },
+  "components": {
+    "btx": [
+      "benzene",
+      "toluene"
+    ]
+  },
+  "units": [
+    {
+      "id": "flash",
+      "kind": "Flash",
+      "package": "properties",
+      "stage": "flash_section",
+      "role": "single BTX flash separator canary",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    }
+  ],
+  "arcs": [],
+  "feed_specs": [
+    {
+      "target": "flash.inlet",
+      "variable": "flow_mol[0]",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "BTX feed molar flow"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "temperature[0]",
+      "value": 368.0,
+      "units": "K",
+      "role": "BTX feed temperature"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "pressure[0]",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "BTX feed pressure"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "mole_frac_comp[0, 'benzene']",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "feed benzene mole fraction"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "mole_frac_comp[0, 'toluene']",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "feed toluene mole fraction"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "flash",
+      "variable": "heat_duty[0]",
+      "value": 0.0,
+      "units": "W",
+      "role": "adiabatic flash duty"
+    },
+    {
+      "target": "flash",
+      "variable": "deltaP[0]",
+      "value": 0.0,
+      "units": "Pa",
+      "role": "flash pressure drop"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "flash.inlet"
+  ],
+  "unconnected_product_ports": [
+    "flash.vap_outlet",
+    "flash.liq_outlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "direct Flash.initialize()",
+    "solve_order": [
+      "flash"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "btx_activity_coeff_vle_package",
+    "Flash"
+  ],
+  "notes_for_agent_a": [
+    "Use this as a fast canary case for web launch, topology prebuild, and Stage 3 solve.",
+    "Do not add mixers, products, recycle loops, or optimization to this single-unit flash canary."
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_idaes_hx_ntu_unit",
+  "family": "family_hx_ntu_unit",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "flow_mol",
+      "value": 60.54879,
+      "units": "mol/s",
+      "role": "hot MEA inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "temperature",
+      "value": 392.23,
+      "units": "K",
+      "role": "hot MEA inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "pressure",
+      "value": 202650,
+      "units": "Pa",
+      "role": "hot MEA inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "flow_mol",
+      "value": 63.0191,
+      "units": "mol/s",
+      "role": "cold MEA inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "temperature",
+      "value": 326.36,
+      "units": "K",
+      "role": "cold MEA inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "pressure",
+      "value": 202650,
+      "units": "Pa",
+      "role": "cold MEA inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 100,
+      "units": "m^2",
+      "role": "official exchanger area",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "heat_transfer_coefficient",
+      "value": 200,
+      "units": "W/m^2/K",
+      "role": "official heat transfer coefficient",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "effectiveness",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "official NTU effectiveness",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.hot_side",
+      "variable": "deltaP",
+      "value": -2000,
+      "units": "Pa",
+      "role": "hot side pressure drop",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side",
+      "variable": "deltaP",
+      "value": -2000,
+      "units": "Pa",
+      "role": "cold side pressure drop",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "heat_exchanger.hot_side_inlet",
+    "heat_exchanger.cold_side_inlet"
+  ],
+  "terminal_product_ports": [
+    "heat_exchanger.hot_side_outlet",
+    "heat_exchanger.cold_side_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official HeatExchangerNTU initialize then IPOPT solve",
+    "solve_order": [
+      "heat_exchanger"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

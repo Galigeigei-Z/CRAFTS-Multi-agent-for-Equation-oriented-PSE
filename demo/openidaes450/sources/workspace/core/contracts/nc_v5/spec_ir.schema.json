@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:spec-ir/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "topology_schema_version",
+    "case_id",
+    "family",
+    "specs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "spec_ir/1"
+    },
+    "topology_schema_version": {
+      "const": "topology_ir/1"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "terminal_feed_ports": {
+      "type": "array"
+    },
+    "terminal_product_ports": {
+      "type": "array"
+    },
+    "translator_constraint_templates": {
+      "type": "object"
+    },
+    "initialization": {
+      "type": "object"
+    },
+    "solve": {
+      "type": "object"
+    },
+    "specs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "variable",
+          "value",
+          "units"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "variable": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": [
+              "number",
+              "boolean"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "independent": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

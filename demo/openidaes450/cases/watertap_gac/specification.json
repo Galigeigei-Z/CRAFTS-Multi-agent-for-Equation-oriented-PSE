@@ -1,0 +1,127 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_gac",
+  "family": "family_watertap_gac",
+  "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "H2O_flow_mol",
+      "value": 2433.81215,
+      "units": "mol/s",
+      "role": "official default feed water molar flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "solute_flow_mol",
+      "value": 0.05476625,
+      "units": "mol/s",
+      "role": "official default solute molar flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "official default feed temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official default feed pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "freund_k",
+      "value": 10.0,
+      "units": "(m^3/kg)^(1/n)",
+      "role": "Freundlich isotherm k parameter",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "freund_ninv",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "Freundlich isotherm 1/n parameter",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "empty bed contact time",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "bed_voidage",
+      "value": 0.4,
+      "units": "dimensionless",
+      "role": "bed void fraction",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "adsorber bed length",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "gac",
+      "variable": "conc_ratio_replace",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "effluent-to-inlet concentration ratio at replacement",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "costing",
+      "variable": "contactor_type",
+      "value": "pressure",
+      "units": "dimensionless",
+      "role": "official pressure contactor costing option",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP GAC build, initialize, simulation solve, then official optimize() solve hook",
+    "solve_order": [
+      "feed",
+      "gac",
+      "product",
+      "adsorbed_removed",
+      "costing",
+      "official optimize solve"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_subcritical_boiler",
+  "family": "family_subcritical_boiler",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/subcritical/subcritical_boiler_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official subcritical_boiler.create_model/set_inputs/initialize",
+    "solve_order": [
+      "drum",
+      "downcomer",
+      "waterwall_sections"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0,
+    "web_test_mode": "topology_only"
+  }
+}

@@ -1,0 +1,1375 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "watertap_generic_desalination_train",
+  "family": "family_watertap_generic_desalination_train",
+  "process_type": "WaterTAP generic desalination treatment train with pretreatment separator, three desalters, valorizer, product mixer, and disposal mixer",
+  "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html",
+  "source_basis": [
+    "Source flowchart evidence unavailable: no --source-flowchart was provided.",
+    "WaterTAP generic desalination train documentation displays generic_treatment_train.png for the official process flow diagram.",
+    "The official default train type is Pretreatment>Desal1>Desal2>Crystalizer>Valorizer; the third desalter represents the crystallizer/concentrating stage in the code.",
+    "The official model builds feed, product, disposal endpoints, Pretreatment, Desal_1, Desal_2, Desal_3, Valorizer, product_mixer, and disposal_mixer connected by twelve Arc components."
+  ],
+  "property_packages": {
+    "mcas_generic": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "TDS",
+        "X"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "Pretreatment",
+        "Desal_1",
+        "Desal_2",
+        "Desal_3",
+        "Valorizer",
+        "product",
+        "disposal"
+      ]
+    }
+  },
+  "components": {
+    "water": [
+      "H2O"
+    ],
+    "salt": [
+      "TDS"
+    ],
+    "valuable_solute": [
+      "X"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas_generic",
+      "stage": "feed",
+      "role": "generic saline source water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Pretreatment",
+      "kind": "separator",
+      "package": "mcas_generic",
+      "stage": "pretreatment",
+      "role": "separator removing selected component X to disposal",
+      "constructor": {
+        "process_type": "separator"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Desal_1",
+      "kind": "desalter",
+      "package": "mcas_generic",
+      "stage": "desalination",
+      "role": "first desalination stage producing product and brine",
+      "constructor": {
+        "default_recovery_percent": 85
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Desal_2",
+      "kind": "desalter",
+      "package": "mcas_generic",
+      "stage": "desalination",
+      "role": "second desalination stage treating Desal_1 brine",
+      "constructor": {
+        "default_recovery_percent": 50
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Desal_3",
+      "kind": "desalter",
+      "package": "mcas_generic",
+      "stage": "crystallizer",
+      "role": "high-cost concentrating desalter used as the crystallizer stage",
+      "constructor": {
+        "default_recovery_percent": 90
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Valorizer",
+      "kind": "valorizer",
+      "package": "mcas_generic",
+      "stage": "valorization",
+      "role": "separator-style valorizer for valuable component X",
+      "constructor": {
+        "process_type": "valorizer"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "product_mixer",
+      "kind": "Mixer",
+      "package": "mcas_generic",
+      "stage": "product",
+      "role": "combines product streams from the desalination stages",
+      "constructor": {
+        "inlet_list": [
+          "Desal_1",
+          "Desal_2",
+          "Desal_3"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "disposal_mixer",
+      "kind": "Mixer",
+      "package": "mcas_generic",
+      "stage": "waste",
+      "role": "combines pretreatment and valorizer disposal streams",
+      "constructor": {
+        "inlet_list": [
+          "Pretreatment",
+          "Valorizer"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "mcas_generic",
+      "stage": "product",
+      "role": "final blended water product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal",
+      "kind": "Product",
+      "package": "mcas_generic",
+      "stage": "waste",
+      "role": "final disposal stream",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_pretreatment",
+      "source": "feed.outlet",
+      "destination": "Pretreatment.separator.inlet",
+      "stage": "feed",
+      "role": "source water to pretreatment",
+      "tear_candidate": false
+    },
+    {
+      "id": "pretreatment_to_desal_1",
+      "source": "Pretreatment.separator.treated",
+      "destination": "Desal_1.desalter.inlet",
+      "stage": "treated",
+      "role": "pretreated water to first desalination stage",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_1_brine_to_desal_2",
+      "source": "Desal_1.desalter.brine",
+      "destination": "Desal_2.desalter.inlet",
+      "stage": "brine",
+      "role": "first-stage brine to second desalination stage",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_2_brine_to_desal_3",
+      "source": "Desal_2.desalter.brine",
+      "destination": "Desal_3.desalter.inlet",
+      "stage": "brine",
+      "role": "second-stage brine to crystallizer desalter",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_3_brine_to_valorizer",
+      "source": "Desal_3.desalter.brine",
+      "destination": "Valorizer.separator.inlet",
+      "stage": "brine",
+      "role": "concentrated brine to valorizer",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_1_product_to_product_mixer",
+      "source": "Desal_1.desalter.product",
+      "destination": "product_mixer.Desal_1",
+      "stage": "product",
+      "role": "first-stage product to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_2_product_to_product_mixer",
+      "source": "Desal_2.desalter.product",
+      "destination": "product_mixer.Desal_2",
+      "stage": "product",
+      "role": "second-stage product to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "desal_3_product_to_product_mixer",
+      "source": "Desal_3.desalter.product",
+      "destination": "product_mixer.Desal_3",
+      "stage": "product",
+      "role": "third-stage product to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "product_mixer_to_product",
+      "source": "product_mixer.outlet",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "blended product to product endpoint",
+      "tear_candidate": false
+    },
+    {
+      "id": "pretreatment_disposal_to_disposal_mixer",
+      "source": "Pretreatment.separator.product",
+      "destination": "disposal_mixer.Pretreatment",
+      "stage": "waste",
+      "role": "pretreatment removed component stream to disposal mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "valorizer_disposal_to_disposal_mixer",
+      "source": "Valorizer.separator.treated",
+      "destination": "disposal_mixer.Valorizer",
+      "stage": "waste",
+      "role": "valorizer residual stream to disposal mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "disposal_mixer_to_disposal",
+      "source": "disposal_mixer.outlet",
+      "destination": "disposal.inlet",
+      "stage": "waste",
+      "role": "blended disposal stream to waste endpoint",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "H2O_flow_mass",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "official default water mass flow"
+    },
+    {
+      "target": "feed",
+      "variable": "TDS_conc_mass",
+      "value": 3.5,
+      "units": "kg/m^3",
+      "role": "official default TDS concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "X_conc_mass",
+      "value": 0.3,
+      "units": "kg/m^3",
+      "role": "official default tracked solute concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "official default feed temperature"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official default feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "Pretreatment",
+      "variable": "base_cost",
+      "value": 0.1,
+      "units": "$/m^3",
+      "role": "official default pretreatment base cost"
+    },
+    {
+      "target": "Desal_1",
+      "variable": "water_recovery_simulation",
+      "value": 85.0,
+      "units": "%",
+      "role": "default first-stage recovery"
+    },
+    {
+      "target": "Desal_2",
+      "variable": "water_recovery_simulation",
+      "value": 50.0,
+      "units": "%",
+      "role": "default second-stage recovery"
+    },
+    {
+      "target": "Desal_3",
+      "variable": "water_recovery_simulation",
+      "value": 90.0,
+      "units": "%",
+      "role": "default third-stage recovery"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_1_water_recovery",
+      "value": 80.0,
+      "units": "%",
+      "role": "official main() fixed recovery for Desal_1"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_2_water_recovery",
+      "value": 50.0,
+      "units": "%",
+      "role": "official main() fixed recovery for Desal_2"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_3_brine_water_mass_percent",
+      "value": 80.0,
+      "units": "%",
+      "role": "official main() final concentration specification"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "active generic treatment train cost objective"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "WaterTAP generic_train build and fully specified simulation solve; optimization follows official initialize(), main() specification fixes, and final solve",
+    "solve_order": [
+      "feed",
+      "Pretreatment",
+      "Desal_1",
+      "Desal_2",
+      "Desal_3",
+      "Valorizer",
+      "product_mixer",
+      "disposal_mixer",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.flowsheets.generic_desalination_train.generic_train",
+    "generic_treatment_train.png",
+    "separator",
+    "desalter",
+    "MCASParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "Use the WaterTAP generic treatment train PFD as source evidence; preserve separate product and disposal mixer branches."
+  ],
+  "visual_evidence": {
+    "status": "missing",
+    "reason": "no --source-flowchart was provided",
+    "blind_routing": {
+      "enabled": false,
+      "allow_legacy_lookup": false
+    },
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": true,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": false,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": true,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": true,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build IDAES topology for watertap_generic_desalination_train",
+      "visual_status": "missing",
+      "support_doc_ids": [
+        "watertap.flowsheet.generic_desalination_train",
+        "watertap.props.seawater"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": true,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": false,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": true,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": true,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "generic_desalination_train",
+        "qualified_templates": [
+          "generic_desalination_train"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.ngcc"
+            ]
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "sco2_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal sco2_surrogate",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.flowsheet.sco2_surrogate"
+            ]
+          },
+          "dispatches_usc_tes_integrated": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_integrated",
+              "forbidden signal full_desalination_train",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_integrated/qwen_route.dispatches_usc_tes_integrated"
+            ]
+          },
+          "dispatches_usc_tes_charge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_charge_superstructure",
+              "forbidden signal full_desalination_train",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_charge_superstructure/qwen_route.dispatches_usc_tes_charge_superstructure"
+            ]
+          },
+          "dispatches_usc_tes_discharge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_discharge_superstructure",
+              "forbidden signal full_desalination_train",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_discharge_superstructure/qwen_route.dispatches_usc_tes_discharge_superstructure"
+            ]
+          },
+          "dispatches_grid_integrated_rankine_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_grid_integrated_rankine_surrogate",
+              "forbidden signal full_desalination_train",
+              "missing one of required support docs family_profile.family_dispatches_grid_integrated_rankine_surrogate/qwen_route.dispatches_grid_integrated_rankine_surrogate"
+            ]
+          },
+          "fixed_bed_tsa0d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal fixed_bed_tsa0d",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc idaes.flowsheet.fixed_bed_tsa0d"
+            ]
+          },
+          "subcritical_power_plant": {
+            "qualified": false,
+            "failures": [
+              "missing required signal subcritical_power_plant",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc idaes.flowsheet.subcritical_power_plant"
+            ]
+          },
+          "prommis_diafiltration_byproduct_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_byproduct_recovery",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.diafiltration_byproduct_recovery"
+            ]
+          },
+          "prommis_diafiltration_two_salt": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_two_salt",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.diafiltration_two_salt"
+            ]
+          },
+          "prommis_diafiltration_cost_optimization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_cost_optimization",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.diafiltration_cost_optimization"
+            ]
+          },
+          "prommis_diafiltration_uq_reduced": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_reduced",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.diafiltration_uq_reduced"
+            ]
+          },
+          "prommis_diafiltration_uq_stage_lengths_histogram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage_lengths_histogram",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.diafiltration_uq_stage_lengths_histogram"
+            ]
+          },
+          "prommis_diafiltration_uq_uncertainty_distributions": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_uncertainty_distributions",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.diafiltration_uq_uncertainty_distributions"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li13_co05": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li13_co05",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li13_co05"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li15_co08": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li15_co08",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li15_co08"
+            ]
+          },
+          "prommis_diafiltration_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_pfd",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.diafiltration_pfd"
+            ]
+          },
+          "prommis_nf_brine_advanced_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nf_brine_advanced_costing",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.nf_brine_advanced_costing"
+            ]
+          },
+          "prommis_nanofiltration_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_ui_flowsheet",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.nanofiltration_ui_flowsheet"
+            ]
+          },
+          "prommis_membrane_cascade_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_membrane_cascade_flowsheet",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.membrane_cascade"
+            ]
+          },
+          "prommis_nanofiltration_membrane_schematic": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_membrane_schematic",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.nanofiltration_membrane_schematic"
+            ]
+          },
+          "prommis_multi_component_diafiltration_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_multi_component_diafiltration_unit",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.multi_component_diafiltration"
+            ]
+          },
+          "prommis_ion_exchange_multicomponent": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ion_exchange_multicomponent",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.ion_exchange_multicomponent"
+            ]
+          },
+          "prommis_cmi_opt_based_precipitator": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_opt_based_precipitator",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.cmi_opt_based_precipitator"
+            ]
+          },
+          "prommis_leach_train_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_train_unit",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.leach_train"
+            ]
+          },
+          "prommis_leach_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_flowsheet",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.leach"
+            ]
+          },
+          "prommis_crusher_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_crusher_unit",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.crusher"
+            ]
+          },
+          "prommis_evaporation_pond_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_evaporation_pond_unit",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.evaporation_pond"
+            ]
+          },
+          "prommis_ree_oxalate_roaster": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ree_oxalate_roaster",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.ree_oxalate_roaster"
+            ]
+          },
+          "prommis_superstructure_pathway_npv": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_pathway_npv",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.superstructure.pathway_npv"
+            ]
+          },
+          "prommis_superstructure_generic_mb_diagram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_generic_mb_diagram",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.superstructure_generic_mb_diagram"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_flowsheet",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.hydrogen_decrepitation"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_furnace": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_furnace",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.unit.hydrogen_decrepitation_furnace"
+            ]
+          },
+          "prommis_solvent_extraction_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_solvent_extraction_steady",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.solvent_extraction_steady"
+            ]
+          },
+          "prommis_mixer_settler_ex_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_mixer_settler_ex_steady",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.flowsheet.mixer_settler_ex_steady"
+            ]
+          },
+          "prommis_diafiltration": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.diafiltration"
+            ]
+          },
+          "prommis_cmi_process": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.cmi_process"
+            ]
+          },
+          "prommis_cmi_process_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process_pfd",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.cmi_process_pfd"
+            ]
+          },
+          "prommis_uky_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required signal prommis_uky_costing",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.uky_costing"
+            ]
+          },
+          "prommis_uky_byproduct_recovery_decision": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_byproduct_recovery_decision",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.uky.byproduct_recovery_decision"
+            ]
+          },
+          "prommis_simplified_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_simplified_uky_flowsheet",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.simplified_uky"
+            ]
+          },
+          "prommis_uky_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_ui_flowsheet",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.uky_ui_flowsheet"
+            ]
+          },
+          "prommis_uky_tutorial_flowsheet_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_tutorial_flowsheet_pfd",
+              "forbidden signal full_desalination_train",
+              "missing required support doc prommis.figure.uky_tutorial_flowsheet_pfd"
+            ]
+          },
+          "prommis_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc prommis.flowsheet.uky"
+            ]
+          },
+          "electronp_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electronp",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.electroNP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "bsm2_electronp_no_biop": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_electronp_no_biop",
+              "forbidden signal full_desalination_train",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.bsm2_electroNP_no_bioP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal full_desalination_train",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": true,
+            "failures": []
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "forbidden signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.mvc"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.oaro_multi"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.flowsheet.membrane_distillation"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.reverse_osmosis_0d"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal full_desalination_train",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.4
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_ed_organic_acid_recovery",
+  "family": "family_ed_vfa",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "vfa_transfer_current_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "concentrate_recycle_fraction",
+      "value": 0.7000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "vfa_recovery",
+      "value": 0.9045000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "phosphate_leakage",
+      "value": 0.01125,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "energy_index",
+      "value": 3.34,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "acid_concentration",
+      "value": 0.8150000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BROTH.outlet"
+  ],
+  "terminal_product_ports": [
+    "VFA.inlet",
+    "RAFF.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack",
+    "chemical_change": "Adds organic-acid ion separation and returns salt-depleted broth to fermentation.",
+    "native_metrics": {
+      "vfa_recovery": 0.9045000000000001,
+      "phosphate_leakage": 0.01125,
+      "energy_index": 3.34,
+      "acid_concentration": 0.8150000000000001
+    }
+  }
+}

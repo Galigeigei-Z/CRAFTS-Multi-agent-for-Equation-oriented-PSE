@@ -1,0 +1,46 @@
+{
+  "case_id": "reflo_kbhdp_rpt2",
+  "runner": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/release/openidaes450_executable/scripts_finish/module_runner.py",
+  "elapsed_seconds": 22.938,
+  "model_calls": 0,
+  "evidence_class": "fresh_registered_reference_model_export",
+  "report_pass": true,
+  "solver_optimal_observed": true,
+  "model_checks": {
+    "variable_count": 499,
+    "missing_variable_values": 8,
+    "port_value_count": 148,
+    "missing_port_values": 0,
+    "unit_count": 21,
+    "property_package_count": 4,
+    "degrees_of_freedom": 1,
+    "constraint_count": 238,
+    "constraint_residual_convention": "equation-terms/v2: violation/max(1,sum(abs(additive body terms)),abs(body),abs(bounds)); tolerance 1e-6; raw violations retained; not a substitute for engineering conservation audits",
+    "maximum_relative_constraint_violation": 1.0,
+    "violations": [
+      {
+        "name": "fs.treatment.product.properties[0.0].eq_conc_mass_phase_comp[Liq,H2O]",
+        "absolute_violation": 983.96296964375,
+        "relative_violation": 0.9800789465301725,
+        "normalization_scale": 1003.96296964375
+      },
+      {
+        "name": "fs.treatment.product.properties[0.0].eq_conc_mass_phase_comp[Liq,TDS]",
+        "absolute_violation": 10.0,
+        "relative_violation": 1.0,
+        "normalization_scale": 10.0
+      }
+    ],
+    "unevaluable_constraints": [],
+    "constraints_pass": false,
+    "idaes_model_present": true
+  },
+  "error": null,
+  "case_specific_specification_binding_verified": false,
+  "public_reference_complete": false,
+  "native_export_pass": false,
+  "model_fidelity": "native_IDAES",
+  "demo_accepted": true,
+  "residual_checks_are_warnings": true,
+  "streams_applicability": "actual_model_ports"
+}

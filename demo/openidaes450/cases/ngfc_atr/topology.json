@@ -1,0 +1,401 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "official_ngfc_autothermal_reformer",
+  "family": "family_ngfc_atr",
+  "process_type": "NGFC autothermal reformer subsystem with natural-gas recuperation, bypass, air compression, steam mixing, Gibbs reformer, and bypass rejoin",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html",
+  "source_basis": [
+    "Official source flowchart was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor file=/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/validation/VectorEngine_qwen36_validation/web_visual_vl_ngfc_atr_optimization_20260531/source_flowchart.png.",
+    "The hand-maintained official IDAES source mappings are guardrails for names, ports, and solver runners; they do not bypass the flowchart evidence gate.",
+    "Official NGFC flowsheet build_reformer() constructs the autothermal reformer subsystem.",
+    "The reformer subsystem includes a natural-gas recuperator, expander, bypass splitter, two-stage air compression with intercooling, reformer mixer, Gibbs reformer, and bypass rejoin mixer.",
+    "The official set_reformer_inputs() fixes natural gas, air, steam, pressure, temperature, bypass fraction, compressor, intercooler, and reformer specifications."
+  ],
+  "property_packages": {
+    "NG_props": {
+      "entry_id": "official_ngfc_natural_gas_pr_property_package",
+      "components": [
+        "H2",
+        "CO",
+        "H2O",
+        "CO2",
+        "CH4",
+        "C2H6",
+        "C3H8",
+        "C4H10",
+        "N2",
+        "O2",
+        "Ar"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "reformer_recuperator",
+        "NG_expander",
+        "reformer_bypass",
+        "air_compressor_s1",
+        "intercooler_s1",
+        "air_compressor_s2",
+        "intercooler_s2",
+        "reformer_mix",
+        "reformer",
+        "bypass_rejoin"
+      ]
+    }
+  },
+  "components": {
+    "natural_gas_air_steam": [
+      "H2",
+      "CO",
+      "H2O",
+      "CO2",
+      "CH4",
+      "C2H6",
+      "C3H8",
+      "C4H10",
+      "N2",
+      "O2",
+      "Ar"
+    ]
+  },
+  "units": [
+    {
+      "id": "reformer_recuperator",
+      "kind": "HeatExchanger",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "preheat natural gas using hot reformer outlet",
+      "constructor": {
+        "hot_side_name": "shell",
+        "cold_side_name": "tube"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "NG_expander",
+      "kind": "PressureChanger",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "expand preheated natural gas before bypass split",
+      "constructor": {
+        "compressor": false,
+        "thermodynamic_assumption": "isentropic"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "reformer_bypass",
+      "kind": "Separator",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "split natural gas between reformer and bypass",
+      "constructor": {
+        "outlet_list": [
+          "reformer_outlet",
+          "bypass_outlet"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "air_compressor_s1",
+      "kind": "PressureChanger",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "first-stage air compressor",
+      "constructor": {
+        "compressor": true,
+        "thermodynamic_assumption": "isentropic"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "intercooler_s1",
+      "kind": "Heater",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "first intercooler",
+      "constructor": {
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "air_compressor_s2",
+      "kind": "PressureChanger",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "second-stage air compressor",
+      "constructor": {
+        "compressor": true,
+        "thermodynamic_assumption": "isentropic"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "intercooler_s2",
+      "kind": "Heater",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "second intercooler",
+      "constructor": {
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "reformer_mix",
+      "kind": "Mixer",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "mix natural gas, compressed air, and steam",
+      "constructor": {
+        "inlet_list": [
+          "gas_inlet",
+          "oxygen_inlet",
+          "steam_inlet"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "reformer",
+      "kind": "GibbsReactor",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "autothermal reforming Gibbs reactor",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true,
+        "inert_species": [
+          "N2",
+          "Ar"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "bypass_rejoin",
+      "kind": "Mixer",
+      "package": "NG_props",
+      "stage": "atr_reformer",
+      "role": "mix reformer syngas with natural-gas bypass",
+      "constructor": {
+        "inlet_list": [
+          "syngas_inlet",
+          "bypass_inlet"
+        ]
+      },
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "TO_NG_EXP",
+      "source": "reformer_recuperator.tube_outlet",
+      "destination": "NG_expander.inlet",
+      "stage": "atr_reformer",
+      "role": "preheated natural gas to expander",
+      "tear_candidate": false
+    },
+    {
+      "id": "NG_EXP_OUT",
+      "source": "NG_expander.outlet",
+      "destination": "reformer_bypass.inlet",
+      "stage": "atr_reformer",
+      "role": "expanded natural gas to bypass splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "TO_REF",
+      "source": "reformer_bypass.reformer_outlet",
+      "destination": "reformer_mix.gas_inlet",
+      "stage": "atr_reformer",
+      "role": "natural gas to reformer mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "STAGE_1_OUT",
+      "source": "air_compressor_s1.outlet",
+      "destination": "intercooler_s1.inlet",
+      "stage": "atr_reformer",
+      "role": "first compressor outlet to intercooler",
+      "tear_candidate": false
+    },
+    {
+      "id": "IC_1_OUT",
+      "source": "intercooler_s1.outlet",
+      "destination": "air_compressor_s2.inlet",
+      "stage": "atr_reformer",
+      "role": "intercooled air to second compressor",
+      "tear_candidate": false
+    },
+    {
+      "id": "STAGE_2_OUT",
+      "source": "air_compressor_s2.outlet",
+      "destination": "intercooler_s2.inlet",
+      "stage": "atr_reformer",
+      "role": "second compressor outlet to intercooler",
+      "tear_candidate": false
+    },
+    {
+      "id": "IC_2_OUT",
+      "source": "intercooler_s2.outlet",
+      "destination": "reformer_mix.oxygen_inlet",
+      "stage": "atr_reformer",
+      "role": "compressed air to reformer mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "REF_IN",
+      "source": "reformer_mix.outlet",
+      "destination": "reformer.inlet",
+      "stage": "atr_reformer",
+      "role": "mixed feed to Gibbs reformer",
+      "tear_candidate": false
+    },
+    {
+      "id": "REF_OUT",
+      "source": "reformer.outlet",
+      "destination": "reformer_recuperator.shell_inlet",
+      "stage": "atr_reformer",
+      "role": "hot reformer outlet to recuperator shell",
+      "tear_candidate": false
+    },
+    {
+      "id": "REF_RECUP_OUT",
+      "source": "reformer_recuperator.shell_outlet",
+      "destination": "bypass_rejoin.syngas_inlet",
+      "stage": "atr_reformer",
+      "role": "cooled syngas to bypass rejoin",
+      "tear_candidate": false
+    },
+    {
+      "id": "REF_BYPASS",
+      "source": "reformer_bypass.bypass_outlet",
+      "destination": "bypass_rejoin.bypass_inlet",
+      "stage": "atr_reformer",
+      "role": "natural-gas bypass to rejoin mixer",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "reformer_recuperator.tube_inlet",
+      "variable": "flow_mol[0]",
+      "value": 1161.9,
+      "units": "mol/s",
+      "role": "natural gas feed flow"
+    },
+    {
+      "target": "air_compressor_s1.inlet",
+      "variable": "flow_mol[0]",
+      "value": 1332.9,
+      "units": "mol/s",
+      "role": "air feed initial flow"
+    },
+    {
+      "target": "reformer_mix.steam_inlet",
+      "variable": "flow_mol[0]",
+      "value": 464.77,
+      "units": "mol/s",
+      "role": "steam feed initial flow"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "reformer_bypass",
+      "variable": "split_fraction[0, 'bypass_outlet']",
+      "value": 0.6,
+      "units": "dimensionless",
+      "role": "internal reformation bypass fraction"
+    },
+    {
+      "target": "reformer_mix",
+      "variable": "steam_to_ng_ratio",
+      "value": 1.0,
+      "units": "dimensionless",
+      "role": "official steam flow constraint uses steam = (1 - IR) * NG flow"
+    },
+    {
+      "target": "reformer",
+      "variable": "outlet.temperature[0]",
+      "value": 1060.93,
+      "units": "K",
+      "role": "reformer outlet temperature"
+    },
+    {
+      "target": "reformer",
+      "variable": "outlet.pressure[0]",
+      "value": 137895,
+      "units": "Pa",
+      "role": "reformer outlet pressure"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "reformer_recuperator.tube_inlet",
+    "air_compressor_s1.inlet",
+    "reformer_mix.steam_inlet"
+  ],
+  "unconnected_product_ports": [
+    "bypass_rejoin.outlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official NGFC initialize_reformer()",
+    "solve_order": [
+      "reformer",
+      "reformer_recuperator",
+      "NG_expander",
+      "reformer_bypass",
+      "air_compressor_s1",
+      "intercooler_s1",
+      "air_compressor_s2",
+      "intercooler_s2",
+      "reformer_mix",
+      "bypass_rejoin"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "official_ngfc_natural_gas_pr_property_package",
+    "HeatExchanger",
+    "PressureChanger",
+    "Separator",
+    "Heater",
+    "Mixer",
+    "GibbsReactor"
+  ],
+  "notes_for_agent_a": [
+    "Use only the official NGFC build_reformer() subsystem, not the full SOFC power island.",
+    "The autothermal reformer itself is the GibbsReactor named reformer.",
+    "Keep bypass_rejoin.outlet as the terminal product/syngas stream for this ATR subsystem case."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/validation/VectorEngine_qwen36_validation/web_visual_vl_ngfc_atr_optimization_20260531/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1413,
+      "height": 707,
+      "mode": "RGB"
+    },
+    "descriptor": {
+      "status": "ok",
+      "provider": "openai_compatible_vision",
+      "base_url": "https://api.vectorengine.ai/v1",
+      "model": "qwen-vl-max",
+      "description": "1. PROCESS DESCRIPTION\nThe process is an Autothermal Reformer (ATR) system designed to convert natural gas into a product stream, likely for power generation or chemical synthesis. The core reaction occurs in the \"Autothermal Reformer\" unit where preheated natural gas and air are reacted. Air is supplied via a compressor train, while natural gas is fed, expanded, and then split: a portion bypasses the reformer to control temperature/heat balance, and the remainder is preheated before entering the reformer. Steam is also introduced as a reactant. The effluent from the reformer passes through a recuperator/preheat exchanger to recover heat before exiting as the final product stream sent \"To Power Island\".\n\n2. EQUIPMENT AND CONNECTIONS\n- Fs.air_compressor_s1.inlet → [Compressor 1] → [Intercooler/Aftercooler?] → [Compressor 2] → [Intercooler/Aftercooler?] → Split point\n- Fs.reformer_mix.steam_inlet → Mix point with compressed air\n- Natural Gas feed (Fs.feed (natural gas)) → Preheat unit (recuperator) → Natural Gas Expander → Split point\n  - One branch: Bypass line labeled “Fs.reformer_bypass” → joins reformer inlet\n  - Other branch: Preheated Natural Gas → enters Autothermal Reformer\n- Autothermal Reformer receives:\n  - Compressed + steam-mixed air\n  - Bypassed natural gas\n  - Preheated natural gas\n- Autothermal Reformer outlet → Recuperator (Preheat unit) → Final product stream\n- To Power Island ← Fs.product (final outlet)\n\n3. STREAMS AND DIRECTIONS\n- Air flows upward through two compressors and coolers, then splits to mix with steam and enter reformer.\n- Steam enters at bottom left (“Fs.reformer_mix.steam_inlet”) and mixes with compressed air before reformer.\n- Natural gas enters at bottom right (“Fs.feed (natural gas)”), goes through recuperator (preheater), then expander, then splits:\n  - Bypass stream (dashed purple arrow) rejoins reformer feed upstream.\n  - Main stream (solid purple arrow) labeled “Preheated Natural Gas” enters reformer.\n- Reformate exits reformer (dashed blue arrow), flows through recuperator (heat exchange with incoming NG), then exits as “Fs.product” to Power Island.\n- All streams flow left-to-right or top-to-bottom as indicated by arrows; no reverse loops visible.\n\n4. FINAL CONSISTENCY CHECK\n✓ All equipment units listed once and described with inlet/outlet directions.\n✓ No invented equipment — only visible components referenced.\n✓ Stream labels preserved exactly as shown (e.g., “Fs.reformer_bypass”, “Fs.product”).\n✓ Directionality consistent with arrows on diagram.\n✓ Heat integration noted: recuperator uses reformate effluent to preheat incoming natural gas.\n✓ Process logic holds: ATR combines oxidation (air) and reforming (steam/NG) in one vessel; bypass controls thermal balance.\n\nNo inconsistencies found based on visible PFD elements."
+    },
+    "description": "1. PROCESS DESCRIPTION\nThe process is an Autothermal Reformer (ATR) system designed to convert natural gas into a product stream, likely for power generation or chemical synthesis. The core reaction occurs in the \"Autothermal Reformer\" unit where preheated natural gas and air are reacted. Air is supplied via a compressor train, while natural gas is fed, expanded, and then split: a portion bypasses the reformer to control temperature/heat balance, and the remainder is preheated before entering the reformer. Steam is also introduced as a reactant. The effluent from the reformer passes through a recuperator/preheat exchanger to recover heat before exiting as the final product stream sent \"To Power Island\".\n\n2. EQUIPMENT AND CONNECTIONS\n- Fs.air_compressor_s1.inlet → [Compressor 1] → [Intercooler/Aftercooler?] → [Compressor 2] → [Intercooler/Aftercooler?] → Split point\n- Fs.reformer_mix.steam_inlet → Mix point with compressed air\n- Natural Gas feed (Fs.feed (natural gas)) → Preheat unit (recuperator) → Natural Gas Expander → Split point\n  - One branch: Bypass line labeled “Fs.reformer_bypass” → joins reformer inlet\n  - Other branch: Preheated Natural Gas → enters Autothermal Reformer\n- Autothermal Reformer receives:\n  - Compressed + steam-mixed air\n  - Bypassed natural gas\n  - Preheated natural gas\n- Autothermal Reformer outlet → Recuperator (Preheat unit) → Final product stream\n- To Power Island ← Fs.product (final outlet)\n\n3. STREAMS AND DIRECTIONS\n- Air flows upward through two compressors and coolers, then splits to mix with steam and enter reformer.\n- Steam enters at bottom left (“Fs.reformer_mix.steam_inlet”) and mixes with compressed air before reformer.\n- Natural gas enters at bottom right (“Fs.feed (natural gas)”), goes through recuperator (preheater), then expander, then splits:\n  - Bypass stream (dashed purple arrow) rejoins reformer feed upstream.\n  - Main stream (solid purple arrow) labeled “Preheated Natural Gas” enters reformer.\n- Reformate exits reformer (dashed blue arrow), flows through recuperator (heat exchange with incoming NG), then exits as “Fs.product” to Power Island.\n- All streams flow left-to-right or top-to-bottom as indicated by arrows; no reverse loops visible.\n\n4. FINAL CONSISTENCY CHECK\n✓ All equipment units listed once and described with inlet/outlet directions.\n✓ No invented equipment — only visible components referenced.\n✓ Stream labels preserved exactly as shown (e.g., “Fs.reformer_bypass”, “Fs.product”).\n✓ Directionality consistent with arrows on diagram.\n✓ Heat integration noted: recuperator uses reformate effluent to preheat incoming natural gas.\n✓ Process logic holds: ATR combines oxidation (air) and reforming (steam/NG) in one vessel; bypass controls thermal balance.\n\nNo inconsistencies found based on visible PFD elements."
+  }
+}

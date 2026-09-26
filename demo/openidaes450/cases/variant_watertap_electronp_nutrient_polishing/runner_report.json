@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "watertap_electronp_nutrient_polishing",
+  "recipe": "wastewater_resource_recovery",
+  "parent_case_key": "blind_synthesized_watertap_electroNP_flowsheet",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "biological_conversion_fraction": 0.8,
+    "solids_recycle_fraction": 1.0
+  },
+  "metrics": {
+    "pollutant_removal": 0.9119999999999999,
+    "resource_recovery": 0.9339999999999999,
+    "aeration_energy_index": 0.42999999999999994,
+    "waste_sludge_index": 0.032,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.45,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.16,
+      "objective": 0.31,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.47500000000000003,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.152,
+      "objective": 0.302,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.5,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.14400000000000002,
+      "objective": 0.29400000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.525,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.136,
+      "objective": 0.28600000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.55,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.128,
+      "objective": 0.278,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.575,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.12,
+      "objective": 0.27,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.6000000000000001,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.11199999999999999,
+      "objective": 0.262,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.625,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.10399999999999998,
+      "objective": 0.254,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.65,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.096,
+      "objective": 0.246,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.675,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.08800000000000001,
+      "objective": 0.238,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.7,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.08,
+      "objective": 0.22999999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.7250000000000001,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.072,
+      "objective": 0.22199999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.75,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.06399999999999999,
+      "objective": 0.21399999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.775,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.055999999999999994,
+      "objective": 0.206,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.8,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.04799999999999999,
+      "objective": 0.19799999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.825,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.04,
+      "objective": 0.19,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.8500000000000001,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.031999999999999994,
+      "objective": 0.182,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.875,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.023999999999999987,
+      "objective": 0.174,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.9,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.015999999999999997,
+      "objective": 0.16599999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.925,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.00799999999999999,
+      "objective": 0.15799999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.624,
+      "resource_recovery": 0.95,
+      "aeration_energy_index": 0.15,
+      "waste_sludge_index": 0.0,
+      "objective": 0.15,
+      "feasible": false,
+      "biological_conversion_fraction": 0.0,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.449,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.162,
+      "objective": 0.3295,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.47400000000000003,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.154,
+      "objective": 0.3215,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.499,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.14600000000000002,
+      "objective": 0.3135,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.524,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.138,
+      "objective": 0.3055,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.549,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.13,
+      "objective": 0.2975,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.574,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.122,
+      "objective": 0.2895,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.5990000000000001,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.11399999999999999,
+      "objective": 0.2815,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.624,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.10599999999999998,
+      "objective": 0.27349999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.649,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.098,
+      "objective": 0.26549999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.674,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.09000000000000001,
+      "objective": 0.2575,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.699,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.082,
+      "objective": 0.2495,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.7240000000000001,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.074,
+      "objective": 0.2415,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.749,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.06599999999999999,
+      "objective": 0.23349999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.774,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.057999999999999996,
+      "objective": 0.22549999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.799,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.04999999999999999,
+      "objective": 0.21749999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.824,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.042,
+      "objective": 0.2095,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.8490000000000001,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.033999999999999996,
+      "objective": 0.20149999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.874,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.02599999999999999,
+      "objective": 0.19349999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.899,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.017999999999999995,
+      "objective": 0.18549999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.924,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.00999999999999999,
+      "objective": 0.17749999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.642,
+      "resource_recovery": 0.949,
+      "aeration_energy_index": 0.16749999999999998,
+      "waste_sludge_index": 0.002,
+      "objective": 0.16949999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.05,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.448,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.164,
+      "objective": 0.349,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.47300000000000003,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.156,
+      "objective": 0.34099999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.498,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.14800000000000002,
+      "objective": 0.333,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.523,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.14,
+      "objective": 0.325,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.548,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.132,
+      "objective": 0.317,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.573,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.124,
+      "objective": 0.309,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.5980000000000001,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.11599999999999999,
+      "objective": 0.301,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.623,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.10799999999999998,
+      "objective": 0.293,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.648,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.1,
+      "objective": 0.28500000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.673,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.09200000000000001,
+      "objective": 0.277,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.698,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.084,
+      "objective": 0.269,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.7230000000000001,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.076,
+      "objective": 0.261,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.748,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.06799999999999999,
+      "objective": 0.253,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.773,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.06,
+      "objective": 0.245,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.798,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.05199999999999999,
+      "objective": 0.237,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.823,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.044,
+      "objective": 0.22899999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.8480000000000001,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.03599999999999999,
+      "objective": 0.22099999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.873,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.027999999999999987,
+      "objective": 0.213,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.898,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.019999999999999997,
+      "objective": 0.205,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.923,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.01199999999999999,
+      "objective": 0.19699999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.66,
+      "resource_recovery": 0.948,
+      "aeration_energy_index": 0.185,
+      "waste_sludge_index": 0.004,
+      "objective": 0.189,
+      "feasible": false,
+      "biological_conversion_fraction": 0.1,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.447,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.166,
+      "objective": 0.36850000000000005,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.47200000000000003,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.158,
+      "objective": 0.36050000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.497,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.15000000000000002,
+      "objective": 0.35250000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.522,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.14200000000000002,
+      "objective": 0.34450000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.547,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.134,
+      "objective": 0.3365,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.572,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.126,
+      "objective": 0.3285,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.5970000000000001,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.118,
+      "objective": 0.3205,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.622,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.10999999999999999,
+      "objective": 0.3125,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.647,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.10200000000000001,
+      "objective": 0.3045,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.672,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.09400000000000001,
+      "objective": 0.29650000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.697,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.08600000000000001,
+      "objective": 0.28850000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.7220000000000001,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.078,
+      "objective": 0.2805,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.747,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.06999999999999999,
+      "objective": 0.2725,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.772,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.06199999999999999,
+      "objective": 0.2645,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.797,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.053999999999999986,
+      "objective": 0.2565,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.822,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.046,
+      "objective": 0.2485,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.8470000000000001,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.03799999999999999,
+      "objective": 0.2405,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.872,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.02999999999999999,
+      "objective": 0.2325,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.897,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.022,
+      "objective": 0.2245,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.922,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.013999999999999992,
+      "objective": 0.2165,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.678,
+      "resource_recovery": 0.947,
+      "aeration_energy_index": 0.2025,
+      "waste_sludge_index": 0.006000000000000001,
+      "objective": 0.20850000000000002,
+      "feasible": false,
+      "biological_conversion_fraction": 0.15000000000000002,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.446,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.168,
+      "objective": 0.388,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.47100000000000003,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.16,
+      "objective": 0.38,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.496,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.15200000000000002,
+      "objective": 0.372,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.521,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.14400000000000002,
+      "objective": 0.364,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.546,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.136,
+      "objective": 0.356,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.571,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.128,
+      "objective": 0.348,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.5960000000000001,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.12,
+      "objective": 0.33999999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.621,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.11199999999999999,
+      "objective": 0.33199999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.646,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.10400000000000001,
+      "objective": 0.32399999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.671,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.096,
+      "objective": 0.31599999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.696,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.088,
+      "objective": 0.30799999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.7210000000000001,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.07999999999999999,
+      "objective": 0.29999999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.746,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.07199999999999998,
+      "objective": 0.2919999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.771,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.064,
+      "objective": 0.284,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.796,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.05599999999999999,
+      "objective": 0.27599999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.821,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.048,
+      "objective": 0.26799999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.8460000000000001,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.039999999999999994,
+      "objective": 0.25999999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.871,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.03199999999999999,
+      "objective": 0.25199999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.896,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.023999999999999997,
+      "objective": 0.24399999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.921,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.01599999999999999,
+      "objective": 0.23599999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.696,
+      "resource_recovery": 0.946,
+      "aeration_energy_index": 0.21999999999999997,
+      "waste_sludge_index": 0.008,
+      "objective": 0.22799999999999998,
+      "feasible": false,
+      "biological_conversion_fraction": 0.2,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.445,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.17,
+      "objective": 0.4075,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.47000000000000003,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.162,
+      "objective": 0.39949999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.495,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.15400000000000003,
+      "objective": 0.3915,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.52,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.14600000000000002,
+      "objective": 0.3835,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.545,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.138,
+      "objective": 0.3755,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.57,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.13,
+      "objective": 0.3675,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.5950000000000001,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.12199999999999998,
+      "objective": 0.3595,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.62,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.11399999999999998,
+      "objective": 0.3515,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.645,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.106,
+      "objective": 0.34349999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.67,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.098,
+      "objective": 0.3355,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.695,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.09,
+      "objective": 0.3275,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.7200000000000001,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.08199999999999999,
+      "objective": 0.3195,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.745,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.07399999999999998,
+      "objective": 0.3115,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.77,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.06599999999999999,
+      "objective": 0.3035,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.795,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.05799999999999999,
+      "objective": 0.2955,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.82,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.05,
+      "objective": 0.2875,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.8450000000000001,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.041999999999999996,
+      "objective": 0.27949999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.87,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.03399999999999999,
+      "objective": 0.27149999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.895,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.025999999999999995,
+      "objective": 0.26349999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.92,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.017999999999999988,
+      "objective": 0.25549999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.714,
+      "resource_recovery": 0.945,
+      "aeration_energy_index": 0.2375,
+      "waste_sludge_index": 0.01,
+      "objective": 0.2475,
+      "feasible": false,
+      "biological_conversion_fraction": 0.25,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.444,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.17200000000000001,
+      "objective": 0.42700000000000005,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.46900000000000003,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.164,
+      "objective": 0.41900000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.494,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.15600000000000003,
+      "objective": 0.41100000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.519,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.14800000000000002,
+      "objective": 0.403,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.544,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.14,
+      "objective": 0.395,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.569,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.132,
+      "objective": 0.387,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.5940000000000001,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.12399999999999999,
+      "objective": 0.379,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.619,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.11599999999999998,
+      "objective": 0.371,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.644,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.108,
+      "objective": 0.363,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.669,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.1,
+      "objective": 0.355,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.694,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.092,
+      "objective": 0.347,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.7190000000000001,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.08399999999999999,
+      "objective": 0.33899999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.744,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.07599999999999998,
+      "objective": 0.33099999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.769,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.06799999999999999,
+      "objective": 0.323,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.794,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.05999999999999999,
+      "objective": 0.315,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.819,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.052000000000000005,
+      "objective": 0.307,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.8440000000000001,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.044,
+      "objective": 0.299,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.869,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.03599999999999999,
+      "objective": 0.291,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.894,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.027999999999999997,
+      "objective": 0.28300000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.919,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.01999999999999999,
+      "objective": 0.275,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.732,
+      "resource_recovery": 0.944,
+      "aeration_energy_index": 0.255,
+      "waste_sludge_index": 0.012000000000000002,
+      "objective": 0.267,
+      "feasible": false,
+      "biological_conversion_fraction": 0.30000000000000004,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.443,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.17400000000000002,
+      "objective": 0.4465,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.468,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.166,
+      "objective": 0.4385,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.493,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.15800000000000003,
+      "objective": 0.4305,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.518,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.15000000000000002,
+      "objective": 0.4225,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.543,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.14200000000000002,
+      "objective": 0.4145,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.568,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.134,
+      "objective": 0.4065,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.5930000000000001,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.126,
+      "objective": 0.39849999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.618,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.11799999999999998,
+      "objective": 0.39049999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.643,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.11,
+      "objective": 0.38249999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.668,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.10200000000000001,
+      "objective": 0.37449999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.693,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.094,
+      "objective": 0.36649999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.7180000000000001,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.086,
+      "objective": 0.35849999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.743,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.07799999999999999,
+      "objective": 0.3504999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.768,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.06999999999999999,
+      "objective": 0.34249999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.793,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.061999999999999986,
+      "objective": 0.33449999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.818,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.054000000000000006,
+      "objective": 0.32649999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.8430000000000001,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.046,
+      "objective": 0.31849999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.868,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.03799999999999999,
+      "objective": 0.31049999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.893,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.03,
+      "objective": 0.3025,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.918,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.021999999999999992,
+      "objective": 0.2945,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.75,
+      "resource_recovery": 0.943,
+      "aeration_energy_index": 0.27249999999999996,
+      "waste_sludge_index": 0.014000000000000002,
+      "objective": 0.2865,
+      "feasible": false,
+      "biological_conversion_fraction": 0.35000000000000003,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.442,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.176,
+      "objective": 0.46599999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.467,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.16799999999999998,
+      "objective": 0.45799999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.492,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.16000000000000003,
+      "objective": 0.45,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.517,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.15200000000000002,
+      "objective": 0.442,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.542,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.14400000000000002,
+      "objective": 0.434,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.567,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.136,
+      "objective": 0.426,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.5920000000000001,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.128,
+      "objective": 0.418,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.617,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.11999999999999998,
+      "objective": 0.41,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.642,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.112,
+      "objective": 0.40199999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.667,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.10400000000000001,
+      "objective": 0.394,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.692,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.096,
+      "objective": 0.386,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.7170000000000001,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.088,
+      "objective": 0.378,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.742,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.07999999999999999,
+      "objective": 0.37,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.767,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.072,
+      "objective": 0.362,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.792,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.06399999999999999,
+      "objective": 0.354,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.817,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.056,
+      "objective": 0.346,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.8420000000000001,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.047999999999999994,
+      "objective": 0.33799999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.867,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.03999999999999999,
+      "objective": 0.32999999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.892,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.032,
+      "objective": 0.32199999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.917,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.02399999999999999,
+      "objective": 0.31399999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.768,
+      "resource_recovery": 0.942,
+      "aeration_energy_index": 0.29,
+      "waste_sludge_index": 0.016,
+      "objective": 0.306,
+      "feasible": false,
+      "biological_conversion_fraction": 0.4,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.441,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.178,
+      "objective": 0.4855,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.466,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.16999999999999998,
+      "objective": 0.4775,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.491,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.16200000000000003,
+      "objective": 0.46950000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.516,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.15400000000000003,
+      "objective": 0.4615,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.541,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.14600000000000002,
+      "objective": 0.4535,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.566,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.138,
+      "objective": 0.4455,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.5910000000000001,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.13,
+      "objective": 0.4375,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.616,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.12199999999999998,
+      "objective": 0.4295,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.641,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.114,
+      "objective": 0.4215,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.666,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.10600000000000001,
+      "objective": 0.4135,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.691,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.098,
+      "objective": 0.40549999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.7160000000000001,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.09,
+      "objective": 0.39749999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.741,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.08199999999999999,
+      "objective": 0.38949999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.766,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.074,
+      "objective": 0.3815,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.791,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.06599999999999999,
+      "objective": 0.3735,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.816,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.058,
+      "objective": 0.3655,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.8410000000000001,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.049999999999999996,
+      "objective": 0.3575,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.866,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.04199999999999999,
+      "objective": 0.3495,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.891,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.034,
+      "objective": 0.3415,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.916,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.025999999999999992,
+      "objective": 0.33349999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.786,
+      "resource_recovery": 0.941,
+      "aeration_energy_index": 0.3075,
+      "waste_sludge_index": 0.018000000000000002,
+      "objective": 0.3255,
+      "feasible": false,
+      "biological_conversion_fraction": 0.45,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.44,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.18,
+      "objective": 0.5049999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.465,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.172,
+      "objective": 0.49699999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.49,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.164,
+      "objective": 0.489,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.515,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.156,
+      "objective": 0.481,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.54,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.148,
+      "objective": 0.473,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.565,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.13999999999999999,
+      "objective": 0.46499999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.5900000000000001,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.13199999999999998,
+      "objective": 0.45699999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.615,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.12399999999999999,
+      "objective": 0.44899999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.64,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.116,
+      "objective": 0.44099999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.665,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.10800000000000001,
+      "objective": 0.43299999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.69,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.1,
+      "objective": 0.42499999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.7150000000000001,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.092,
+      "objective": 0.4169999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.74,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.08399999999999999,
+      "objective": 0.4089999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.765,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.076,
+      "objective": 0.40099999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.79,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.06799999999999999,
+      "objective": 0.39299999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.815,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.06,
+      "objective": 0.38499999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.8400000000000001,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.05199999999999999,
+      "objective": 0.37699999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.865,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.043999999999999984,
+      "objective": 0.36899999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.89,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.036,
+      "objective": 0.36099999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.915,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.02799999999999999,
+      "objective": 0.3529999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.804,
+      "resource_recovery": 0.94,
+      "aeration_energy_index": 0.32499999999999996,
+      "waste_sludge_index": 0.02,
+      "objective": 0.345,
+      "feasible": false,
+      "biological_conversion_fraction": 0.5,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.439,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.182,
+      "objective": 0.5245,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.464,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.174,
+      "objective": 0.5165,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.489,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.166,
+      "objective": 0.5085000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.514,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.158,
+      "objective": 0.5005000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.539,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.15,
+      "objective": 0.49250000000000005,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.564,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.142,
+      "objective": 0.48450000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.5890000000000001,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.13399999999999998,
+      "objective": 0.47650000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.614,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.12599999999999997,
+      "objective": 0.4685,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.639,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.11800000000000001,
+      "objective": 0.4605,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.664,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.11000000000000001,
+      "objective": 0.4525,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.689,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.10200000000000001,
+      "objective": 0.4445,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.7140000000000001,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.094,
+      "objective": 0.4365,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.739,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.086,
+      "objective": 0.4285,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.764,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.078,
+      "objective": 0.42050000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.789,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.06999999999999999,
+      "objective": 0.41250000000000003,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.814,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.062,
+      "objective": 0.4045,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.8390000000000001,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.05399999999999999,
+      "objective": 0.3965,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.864,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.045999999999999985,
+      "objective": 0.3885,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.889,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.038,
+      "objective": 0.3805,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.914,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.029999999999999992,
+      "objective": 0.3725,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.8220000000000001,
+      "resource_recovery": 0.939,
+      "aeration_energy_index": 0.3425,
+      "waste_sludge_index": 0.022000000000000002,
+      "objective": 0.36450000000000005,
+      "feasible": false,
+      "biological_conversion_fraction": 0.55,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.438,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.184,
+      "objective": 0.544,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.463,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.176,
+      "objective": 0.536,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.488,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.168,
+      "objective": 0.528,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.513,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.16,
+      "objective": 0.52,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.538,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.152,
+      "objective": 0.512,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.563,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.144,
+      "objective": 0.504,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.5880000000000001,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.13599999999999998,
+      "objective": 0.496,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.613,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.12799999999999997,
+      "objective": 0.488,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.638,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.12000000000000001,
+      "objective": 0.48,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.663,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.11200000000000002,
+      "objective": 0.472,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.688,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.10400000000000001,
+      "objective": 0.46399999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.7130000000000001,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.096,
+      "objective": 0.45599999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.738,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.088,
+      "objective": 0.44799999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.763,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.08,
+      "objective": 0.44,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.788,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.072,
+      "objective": 0.432,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.813,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.064,
+      "objective": 0.424,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.8380000000000001,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.055999999999999994,
+      "objective": 0.416,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.863,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.04799999999999999,
+      "objective": 0.408,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.888,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.04,
+      "objective": 0.39999999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.913,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.031999999999999994,
+      "objective": 0.39199999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.8400000000000001,
+      "resource_recovery": 0.938,
+      "aeration_energy_index": 0.36,
+      "waste_sludge_index": 0.024000000000000004,
+      "objective": 0.384,
+      "feasible": false,
+      "biological_conversion_fraction": 0.6000000000000001,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.437,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.186,
+      "objective": 0.5634999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.462,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.178,
+      "objective": 0.5554999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.487,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.17,
+      "objective": 0.5475,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.512,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.162,
+      "objective": 0.5395,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.537,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.154,
+      "objective": 0.5315,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.5619999999999999,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.146,
+      "objective": 0.5235,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.5870000000000001,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.13799999999999998,
+      "objective": 0.5155,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.612,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.12999999999999998,
+      "objective": 0.5075,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.637,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.122,
+      "objective": 0.49949999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.662,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.11400000000000002,
+      "objective": 0.49149999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.6869999999999999,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.10600000000000001,
+      "objective": 0.48349999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.7120000000000001,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.098,
+      "objective": 0.4754999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.737,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.09,
+      "objective": 0.4674999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.762,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.08199999999999999,
+      "objective": 0.4594999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.787,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.07399999999999998,
+      "objective": 0.4514999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.8119999999999999,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.066,
+      "objective": 0.44349999999999995,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.8370000000000001,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.057999999999999996,
+      "objective": 0.43549999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.862,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.04999999999999999,
+      "objective": 0.42749999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.887,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.041999999999999996,
+      "objective": 0.41949999999999993,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.912,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.03399999999999999,
+      "objective": 0.4114999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.858,
+      "resource_recovery": 0.9369999999999999,
+      "aeration_energy_index": 0.37749999999999995,
+      "waste_sludge_index": 0.026000000000000002,
+      "objective": 0.40349999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.65,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.436,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.188,
+      "objective": 0.583,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.461,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.18,
+      "objective": 0.575,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.486,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.17200000000000001,
+      "objective": 0.5670000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.511,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.164,
+      "objective": 0.559,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.536,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.156,
+      "objective": 0.551,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.5609999999999999,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.148,
+      "objective": 0.543,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.5860000000000001,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.13999999999999999,
+      "objective": 0.535,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.611,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.13199999999999998,
+      "objective": 0.527,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.636,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.124,
+      "objective": 0.519,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.661,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.11600000000000002,
+      "objective": 0.511,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.6859999999999999,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.10800000000000001,
+      "objective": 0.503,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.7110000000000001,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.1,
+      "objective": 0.495,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.736,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.092,
+      "objective": 0.487,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.761,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.08399999999999999,
+      "objective": 0.479,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.786,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.07599999999999998,
+      "objective": 0.471,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.8109999999999999,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.068,
+      "objective": 0.463,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.8360000000000001,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.06,
+      "objective": 0.455,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.861,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.05199999999999999,
+      "objective": 0.447,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.886,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.044,
+      "objective": 0.439,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.911,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.03599999999999999,
+      "objective": 0.431,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.876,
+      "resource_recovery": 0.9359999999999999,
+      "aeration_energy_index": 0.395,
+      "waste_sludge_index": 0.028000000000000004,
+      "objective": 0.42300000000000004,
+      "feasible": false,
+      "biological_conversion_fraction": 0.7000000000000001,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.435,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.19,
+      "objective": 0.6025,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.46,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.182,
+      "objective": 0.5945,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.485,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.17400000000000002,
+      "objective": 0.5865,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.51,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.166,
+      "objective": 0.5785,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.535,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.158,
+      "objective": 0.5705,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.5599999999999999,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.15,
+      "objective": 0.5625,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.5850000000000001,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.142,
+      "objective": 0.5545,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.61,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.13399999999999998,
+      "objective": 0.5465,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.635,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.126,
+      "objective": 0.5385,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.66,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.11800000000000001,
+      "objective": 0.5305,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.6849999999999999,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.11,
+      "objective": 0.5225,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.7100000000000001,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.102,
+      "objective": 0.5145,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.735,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.09399999999999999,
+      "objective": 0.5065,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.76,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.086,
+      "objective": 0.49849999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.785,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.07799999999999999,
+      "objective": 0.49049999999999994,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.8099999999999999,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.07,
+      "objective": 0.4825,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.8350000000000001,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.06199999999999999,
+      "objective": 0.4745,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.86,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.053999999999999986,
+      "objective": 0.46649999999999997,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.885,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.046,
+      "objective": 0.45849999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.91,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.03799999999999999,
+      "objective": 0.45049999999999996,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.894,
+      "resource_recovery": 0.9349999999999999,
+      "aeration_energy_index": 0.4125,
+      "waste_sludge_index": 0.03,
+      "objective": 0.4425,
+      "feasible": false,
+      "biological_conversion_fraction": 0.75,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.434,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.192,
+      "objective": 0.6219999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.459,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.184,
+      "objective": 0.6139999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.484,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.17600000000000002,
+      "objective": 0.606,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.509,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.168,
+      "objective": 0.598,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.534,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.16,
+      "objective": 0.59,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.5589999999999999,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.152,
+      "objective": 0.582,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.5840000000000001,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.144,
+      "objective": 0.574,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.609,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.13599999999999998,
+      "objective": 0.566,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.634,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.128,
+      "objective": 0.5579999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.659,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.12000000000000001,
+      "objective": 0.5499999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.6839999999999999,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.112,
+      "objective": 0.5419999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.7090000000000001,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.104,
+      "objective": 0.5339999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.734,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.09599999999999999,
+      "objective": 0.5259999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.759,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.088,
+      "objective": 0.5179999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.784,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.07999999999999999,
+      "objective": 0.5099999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.8089999999999999,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.07200000000000001,
+      "objective": 0.502,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.8340000000000001,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.064,
+      "objective": 0.49399999999999994,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.859,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.05599999999999999,
+      "objective": 0.48599999999999993,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.884,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.048,
+      "objective": 0.4779999999999999,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.909,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.039999999999999994,
+      "objective": 0.4699999999999999,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.9119999999999999,
+      "resource_recovery": 0.9339999999999999,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.032,
+      "objective": 0.46199999999999997,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.433,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.194,
+      "objective": 0.6415,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.458,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.186,
+      "objective": 0.6335,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.483,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.17800000000000002,
+      "objective": 0.6255000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.508,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.17,
+      "objective": 0.6175,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.533,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.162,
+      "objective": 0.6095,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.5579999999999999,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.154,
+      "objective": 0.6015,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.5830000000000001,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.146,
+      "objective": 0.5935,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.608,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.13799999999999998,
+      "objective": 0.5855,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.633,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.13,
+      "objective": 0.5775,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.658,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.12200000000000001,
+      "objective": 0.5695,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.6829999999999999,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.114,
+      "objective": 0.5615,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.7080000000000001,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.106,
+      "objective": 0.5535,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.733,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.09799999999999999,
+      "objective": 0.5455,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.758,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.09,
+      "objective": 0.5375,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.783,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.08199999999999999,
+      "objective": 0.5295,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.8079999999999999,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.07400000000000001,
+      "objective": 0.5215000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.8330000000000001,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.066,
+      "objective": 0.5135000000000001,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.858,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.05799999999999999,
+      "objective": 0.5055,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.883,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.05,
+      "objective": 0.4975,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.908,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.041999999999999996,
+      "objective": 0.4895,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.9299999999999999,
+      "resource_recovery": 0.9329999999999999,
+      "aeration_energy_index": 0.4475,
+      "waste_sludge_index": 0.034,
+      "objective": 0.48150000000000004,
+      "feasible": true,
+      "biological_conversion_fraction": 0.8500000000000001,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.432,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.196,
+      "objective": 0.661,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.457,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.188,
+      "objective": 0.653,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.482,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.18000000000000002,
+      "objective": 0.645,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.507,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.17200000000000001,
+      "objective": 0.637,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.532,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.164,
+      "objective": 0.629,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.5569999999999999,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.156,
+      "objective": 0.621,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.5820000000000001,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.148,
+      "objective": 0.613,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.607,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.13999999999999999,
+      "objective": 0.605,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.632,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.132,
+      "objective": 0.597,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.657,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.12400000000000001,
+      "objective": 0.589,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.6819999999999999,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.116,
+      "objective": 0.581,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.7070000000000001,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.108,
+      "objective": 0.573,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.732,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.09999999999999999,
+      "objective": 0.565,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.757,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.092,
+      "objective": 0.5569999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.782,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.08399999999999999,
+      "objective": 0.5489999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.8069999999999999,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.07600000000000001,
+      "objective": 0.5409999999999999,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.8320000000000001,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.068,
+      "objective": 0.5329999999999999,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.857,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.05999999999999999,
+      "objective": 0.5249999999999999,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.882,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.052000000000000005,
+      "objective": 0.517,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.907,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.044,
+      "objective": 0.509,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.948,
+      "resource_recovery": 0.9319999999999999,
+      "aeration_energy_index": 0.46499999999999997,
+      "waste_sludge_index": 0.036000000000000004,
+      "objective": 0.501,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.431,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.198,
+      "objective": 0.6805000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.456,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.19,
+      "objective": 0.6725000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.481,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.18200000000000002,
+      "objective": 0.6645000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.506,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.17400000000000002,
+      "objective": 0.6565000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.531,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.166,
+      "objective": 0.6485000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.5559999999999999,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.158,
+      "objective": 0.6405000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.5810000000000001,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.15,
+      "objective": 0.6325000000000001,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.606,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.142,
+      "objective": 0.6245,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.631,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.134,
+      "objective": 0.6165,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.656,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.126,
+      "objective": 0.6085,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.6809999999999999,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.11800000000000001,
+      "objective": 0.6005,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.7060000000000001,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.11,
+      "objective": 0.5925,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.731,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.102,
+      "objective": 0.5845,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.756,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.094,
+      "objective": 0.5765,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.781,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.086,
+      "objective": 0.5685,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.8059999999999999,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.07800000000000001,
+      "objective": 0.5605,
+      "feasible": false,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.8310000000000001,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.07,
+      "objective": 0.5525,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.856,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.06199999999999999,
+      "objective": 0.5445,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.881,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.054000000000000006,
+      "objective": 0.5365000000000001,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.906,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.046,
+      "objective": 0.5285000000000001,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.966,
+      "resource_recovery": 0.9309999999999999,
+      "aeration_energy_index": 0.48250000000000004,
+      "waste_sludge_index": 0.038000000000000006,
+      "objective": 0.5205000000000001,
+      "feasible": true,
+      "biological_conversion_fraction": 0.9500000000000001,
+      "solids_recycle_fraction": 1.0
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.43,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.2,
+      "objective": 0.7,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.0
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.455,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.192,
+      "objective": 0.692,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.05
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.48,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.18400000000000002,
+      "objective": 0.684,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.1
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.505,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.17600000000000002,
+      "objective": 0.676,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.53,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.168,
+      "objective": 0.668,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.2
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.5549999999999999,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.16,
+      "objective": 0.66,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.25
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.5800000000000001,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.152,
+      "objective": 0.652,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.605,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.144,
+      "objective": 0.644,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.63,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.136,
+      "objective": 0.636,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.4
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.655,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.128,
+      "objective": 0.628,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.45
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.6799999999999999,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.12,
+      "objective": 0.62,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.5
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.7050000000000001,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.11199999999999999,
+      "objective": 0.612,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.55
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.73,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.10399999999999998,
+      "objective": 0.604,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.755,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.096,
+      "objective": 0.596,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.65
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.78,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.088,
+      "objective": 0.588,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.8049999999999999,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.08,
+      "objective": 0.58,
+      "feasible": false,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.75
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.8300000000000001,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.072,
+      "objective": 0.572,
+      "feasible": true,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.8
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.855,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.06399999999999999,
+      "objective": 0.564,
+      "feasible": true,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.88,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.055999999999999994,
+      "objective": 0.556,
+      "feasible": true,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.9
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.905,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.04799999999999999,
+      "objective": 0.548,
+      "feasible": true,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "pollutant_removal": 0.984,
+      "resource_recovery": 0.9299999999999999,
+      "aeration_energy_index": 0.5,
+      "waste_sludge_index": 0.04,
+      "objective": 0.54,
+      "feasible": true,
+      "biological_conversion_fraction": 1.0,
+      "solids_recycle_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "blind_synthesized_watertap_electroNP_flowsheet",
+    "chemical_distinction": "Adds electrochemical nitrogen/phosphorus recovery after biological conversion.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

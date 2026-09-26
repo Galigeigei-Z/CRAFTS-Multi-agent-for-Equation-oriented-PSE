@@ -1,0 +1,30 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "prommis.nanofiltration.multi_component_diafiltration_solute_properties.MultiComponentDiafiltrationSoluteParameterData"
+      },
+      {
+        "class": "prommis.nanofiltration.multi_component_diafiltration_solute_properties.MultiComponentDiafiltrationSoluteParameter"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cation_list": [
+        "Li",
+        "Co"
+      ],
+      "anion_list": [
+        "Cl"
+      ]
+    },
+    "class": "prommis.nanofiltration.multi_component_diafiltration_solute_properties.MultiComponentDiafiltrationSoluteParameter",
+    "module": "prommis.nanofiltration.multi_component_diafiltration_solute_properties",
+    "data_class": "prommis.nanofiltration.multi_component_diafiltration_solute_properties.MultiComponentDiafiltrationSoluteParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

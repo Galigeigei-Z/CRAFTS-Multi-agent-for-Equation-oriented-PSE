@@ -1,0 +1,621 @@
+[
+  {
+    "name": "fs.stage[1]",
+    "class": "prommis.nanofiltration.membrane_cascade_flowsheet.membrane.MembraneData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 5,
+      "interacting_streams": null,
+      "heterogeneous_reactions": null,
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "flux": 0.1,
+      "sieving_coefficient": {
+        "Li": 1.3,
+        "Co": 0.5
+      }
+    }
+  },
+  {
+    "name": "fs.stage[2]",
+    "class": "prommis.nanofiltration.membrane_cascade_flowsheet.membrane.MembraneData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 5,
+      "interacting_streams": null,
+      "heterogeneous_reactions": null,
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "flux": 0.1,
+      "sieving_coefficient": {
+        "Li": 1.3,
+        "Co": 0.5
+      }
+    }
+  },
+  {
+    "name": "fs.split_retentate[1]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "product",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_retentate[2]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "product",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_permeate[1]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "product",
+        "forward"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_permeate[2]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "product",
+        "forward"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.inlet_mixers[1]",
+    "class": "idaes.models.unit_models.mixer.MixerData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "feed",
+        "diafiltrate",
+        "recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.inlet_mixers[2]",
+    "class": "idaes.models.unit_models.mixer.MixerData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "feed",
+        "diafiltrate",
+        "recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.splitters[1]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": null,
+      "num_outlets": 5,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.splitters[2]",
+    "class": "idaes.models.unit_models.separator.SeparatorData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": null,
+      "num_outlets": 5,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_feed",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": null,
+      "num_outlets": 2,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_diafiltrate",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": null,
+      "num_outlets": 2,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.mix_product_retentate",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": null,
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.mix_product_permeate",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": null,
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.precipitator[retentate]",
+    "class": "prommis.nanofiltration.membrane_cascade_flowsheet.precipitator.SplitterData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "solid",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true,
+      "yields": {
+        "permeate": {
+          "Li": 0.81,
+          "Co": 0.01
+        },
+        "retentate": {
+          "Li": 0.2,
+          "Co": 0.89
+        }
+      }
+    }
+  },
+  {
+    "name": "fs.precipitator[permeate]",
+    "class": "prommis.nanofiltration.membrane_cascade_flowsheet.precipitator.SplitterData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "solid",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true,
+      "yields": {
+        "permeate": {
+          "Li": 0.81,
+          "Co": 0.01
+        },
+        "retentate": {
+          "Li": 0.2,
+          "Co": 0.89
+        }
+      }
+    }
+  },
+  {
+    "name": "fs.mix_precipitate_recycle",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "retentate",
+        "permeate"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.split_precipitate_recycle",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "waste",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  }
+]

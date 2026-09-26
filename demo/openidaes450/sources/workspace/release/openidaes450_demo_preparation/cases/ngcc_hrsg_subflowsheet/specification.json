@@ -1,0 +1,45 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "ngcc_hrsg_subflowsheet",
+  "family": "family_ngcc_hrsg_subflowsheet",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html#hrsg_subflowsheet",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "HrsgFlowsheet",
+      "variable": "steam_generation_network",
+      "value": "LP/IP/HP",
+      "units": "dimensionless",
+      "role": "official HRSG multi-pressure section topology",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html#hrsg_subflowsheet"
+    }
+  ],
+  "terminal_feed_ports": [
+    "mixer1.ng_preheat",
+    "mixer_soec.soec",
+    "splitter_ip2.inlet"
+  ],
+  "terminal_product_ports": [
+    "splitter_ip1.toNGPH",
+    "hp_steam_out.outlet",
+    "ip_steam_out.outlet",
+    "lp_steam_out.outlet",
+    "stack_gas.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "HrsgFlowsheet(dynamic=False), load hrsg_init.json.gz, solve square steady-state model",
+    "solve_order": [
+      "LP section",
+      "IP section",
+      "HP section",
+      "flue gas heat recovery"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

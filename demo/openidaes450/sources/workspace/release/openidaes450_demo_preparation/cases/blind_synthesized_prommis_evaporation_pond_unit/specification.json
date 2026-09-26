@@ -1,0 +1,95 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_evaporation_pond_unit",
+  "family": "family_prommis_evaporation_pond_unit",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "brine_feed",
+      "variable": "flow_vol",
+      "value": 240.0,
+      "units": "L/s",
+      "role": "official brine feed flow",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "brine_feed",
+      "variable": "conc_mass_comp[Li]",
+      "value": 650.0,
+      "units": "mg/L",
+      "role": "official lithium feed concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "brine_feed",
+      "variable": "conc_mass_comp[Na]",
+      "value": 650.0,
+      "units": "mg/L",
+      "role": "official sodium feed concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "brine_feed",
+      "variable": "conc_mass_comp[Cl]",
+      "value": 4310.0,
+      "units": "mg/L",
+      "role": "official chloride feed concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "brine_feed",
+      "variable": "conc_mass_comp[H2O]",
+      "value": 1.0,
+      "units": "kg/L",
+      "role": "official water feed concentration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "pond",
+      "variable": "surface_area",
+      "value": 50000.0,
+      "units": "m^2",
+      "role": "official pond area",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "pond",
+      "variable": "average_pond_depth",
+      "value": 0.5,
+      "units": "m",
+      "role": "official average pond depth",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    },
+    {
+      "target": "pond",
+      "variable": "evaporation_rate",
+      "value": 4.75,
+      "units": "mm/day",
+      "role": "official evaporation rate",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official EvaporationPondInitializer",
+    "solve_order": [
+      "pond"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

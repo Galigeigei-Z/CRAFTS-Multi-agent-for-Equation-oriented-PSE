@@ -1,0 +1,70 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarDrum1D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": true,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "enthalpyTotal"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "finite_elements": 4,
+      "collocation_points": 3,
+      "drum_inner_diameter": 1.2,
+      "drum_thickness": 0.119
+    }
+  },
+  {
+    "name": "fs.unit.flash",
+    "class": "idaes.core.base.process_block._ScalarHelmPhaseSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.unit.mixer",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "FeedWater",
+        "SaturatedWater"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "equality"
+      }
+    }
+  }
+]

@@ -1,0 +1,207 @@
+[
+  {
+    "name": "fs.t02_dummy",
+    "source": "fs.steam_turbine.hp_stages[7].outlet",
+    "destination": "fs.dummy_reheat.inlet"
+  },
+  {
+    "name": "fs.t03_dummy",
+    "source": "fs.dummy_reheat.outlet",
+    "destination": "fs.steam_turbine.ip_stages[1].inlet"
+  },
+  {
+    "name": "fs.t04",
+    "source": "fs.steam_turbine.ip_stages[10].outlet",
+    "destination": "fs.steam_turbine_lp_mix.turbine"
+  },
+  {
+    "name": "fs.t16",
+    "source": "fs.steam_turbine_lp_mix.outlet",
+    "destination": "fs.steam_turbine_lp_split.inlet"
+  },
+  {
+    "name": "fs.t06",
+    "source": "fs.steam_turbine_lp_split.turbine",
+    "destination": "fs.steam_turbine.lp_stages[1].inlet"
+  },
+  {
+    "name": "fs.t07",
+    "source": "fs.steam_turbine.outlet_stage.outlet",
+    "destination": "fs.main_condenser.hot_side_inlet"
+  },
+  {
+    "name": "fs.t08",
+    "source": "fs.main_condenser.hot_side_outlet",
+    "destination": "fs.hotwell.condensate"
+  },
+  {
+    "name": "fs.t09",
+    "source": "fs.hotwell.outlet",
+    "destination": "fs.cond_pump.inlet"
+  },
+  {
+    "name": "fs.t10",
+    "source": "fs.cond_pump.outlet",
+    "destination": "fs.return_mix.pump"
+  },
+  {
+    "name": "fs.t13",
+    "source": "fs.reboiler.outlet",
+    "destination": "fs.return_mix.reboiler"
+  },
+  {
+    "name": "fs.t17",
+    "source": "fs.steam_turbine_lp_split.reboiler",
+    "destination": "fs.reboiler.inlet"
+  },
+  {
+    "name": "fs.steam_turbine.stream_throttle_inlet[1]",
+    "source": "fs.steam_turbine.inlet_split.outlet_1",
+    "destination": "fs.steam_turbine.throttle_valve[1].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.stream_throttle_outlet[1]",
+    "source": "fs.steam_turbine.throttle_valve[1].outlet",
+    "destination": "fs.steam_turbine.inlet_stage[1].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.stream_inlet_mix_inlet[1]",
+    "source": "fs.steam_turbine.inlet_stage[1].outlet",
+    "destination": "fs.steam_turbine.inlet_mix.inlet_1"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[1,1]",
+    "source": "fs.steam_turbine.hp_stages[1].outlet",
+    "destination": "fs.steam_turbine.hp_stages[2].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[2,1]",
+    "source": "fs.steam_turbine.hp_stages[2].outlet",
+    "destination": "fs.steam_turbine.hp_stages[3].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[3,1]",
+    "source": "fs.steam_turbine.hp_stages[3].outlet",
+    "destination": "fs.steam_turbine.hp_stages[4].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[4,1]",
+    "source": "fs.steam_turbine.hp_stages[4].outlet",
+    "destination": "fs.steam_turbine.hp_stages[5].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[5,1]",
+    "source": "fs.steam_turbine.hp_stages[5].outlet",
+    "destination": "fs.steam_turbine.hp_stages[6].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.hp_stream[6,1]",
+    "source": "fs.steam_turbine.hp_stages[6].outlet",
+    "destination": "fs.steam_turbine.hp_stages[7].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[1,1]",
+    "source": "fs.steam_turbine.ip_stages[1].outlet",
+    "destination": "fs.steam_turbine.ip_stages[2].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[2,1]",
+    "source": "fs.steam_turbine.ip_stages[2].outlet",
+    "destination": "fs.steam_turbine.ip_stages[3].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[3,1]",
+    "source": "fs.steam_turbine.ip_stages[3].outlet",
+    "destination": "fs.steam_turbine.ip_stages[4].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[4,1]",
+    "source": "fs.steam_turbine.ip_stages[4].outlet",
+    "destination": "fs.steam_turbine.ip_stages[5].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[5,1]",
+    "source": "fs.steam_turbine.ip_stages[5].outlet",
+    "destination": "fs.steam_turbine.ip_stages[6].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[6,1]",
+    "source": "fs.steam_turbine.ip_stages[6].outlet",
+    "destination": "fs.steam_turbine.ip_stages[7].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[7,1]",
+    "source": "fs.steam_turbine.ip_stages[7].outlet",
+    "destination": "fs.steam_turbine.ip_stages[8].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[8,1]",
+    "source": "fs.steam_turbine.ip_stages[8].outlet",
+    "destination": "fs.steam_turbine.ip_stages[9].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.ip_stream[9,1]",
+    "source": "fs.steam_turbine.ip_stages[9].outlet",
+    "destination": "fs.steam_turbine.ip_stages[10].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[1,1]",
+    "source": "fs.steam_turbine.lp_stages[1].outlet",
+    "destination": "fs.steam_turbine.lp_stages[2].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[2,1]",
+    "source": "fs.steam_turbine.lp_stages[2].outlet",
+    "destination": "fs.steam_turbine.lp_stages[3].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[3,1]",
+    "source": "fs.steam_turbine.lp_stages[3].outlet",
+    "destination": "fs.steam_turbine.lp_stages[4].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[4,1]",
+    "source": "fs.steam_turbine.lp_stages[4].outlet",
+    "destination": "fs.steam_turbine.lp_stages[5].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[5,1]",
+    "source": "fs.steam_turbine.lp_stages[5].outlet",
+    "destination": "fs.steam_turbine.lp_stages[6].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[6,1]",
+    "source": "fs.steam_turbine.lp_stages[6].outlet",
+    "destination": "fs.steam_turbine.lp_stages[7].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[7,1]",
+    "source": "fs.steam_turbine.lp_stages[7].outlet",
+    "destination": "fs.steam_turbine.lp_stages[8].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[8,1]",
+    "source": "fs.steam_turbine.lp_stages[8].outlet",
+    "destination": "fs.steam_turbine.lp_stages[9].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[9,1]",
+    "source": "fs.steam_turbine.lp_stages[9].outlet",
+    "destination": "fs.steam_turbine.lp_stages[10].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_stream[10,1]",
+    "source": "fs.steam_turbine.lp_stages[10].outlet",
+    "destination": "fs.steam_turbine.lp_stages[11].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.inlet_to_hp_stream",
+    "source": "fs.steam_turbine.inlet_mix.outlet",
+    "destination": "fs.steam_turbine.hp_stages[1].inlet"
+  },
+  {
+    "name": "fs.steam_turbine.lp_to_outlet_stream",
+    "source": "fs.steam_turbine.lp_stages[11].outlet",
+    "destination": "fs.steam_turbine.outlet_stage.inlet"
+  }
+]

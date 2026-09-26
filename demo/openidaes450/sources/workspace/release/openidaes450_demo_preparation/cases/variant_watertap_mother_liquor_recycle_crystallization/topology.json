@@ -1,0 +1,299 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_mother_liquor_recycle_crystallization",
+  "family": "family_watertap_crystallization",
+  "process_type": "NaCl crystallization with mother-liquor recycle and purge",
+  "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html",
+  "source_basis": [
+    "The native WaterTAP crystallizer uses explicit steady-state equations for 80% liquid mother-liquor recycle and 20% purge.",
+    "Vapor and crystal products do not recycle; only liquid H2O and NaCl mother liquor return.",
+    "Recycle pressure conditioning is a boundary condition and pump work is not claimed."
+  ],
+  "property_packages": {
+    "NaCl_crystallization": {
+      "components": [
+        "H2O",
+        "NaCl"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "source": "watertap.property_models.unit_specific.cryst_prop_pack"
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "NaCl"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "NaCl_crystallization",
+      "stage": "feed",
+      "role": "fresh NaCl brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "NaCl_crystallization",
+      "stage": "recycle",
+      "role": "mix fresh brine and conditioned mother liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Crystallization",
+      "package": "NaCl_crystallization",
+      "stage": "crystallization",
+      "role": "evaporative NaCl crystallizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "crystals",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "product",
+      "role": "NaCl crystal product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "vapor",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "product",
+      "role": "water vapor product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "NaCl_crystallization",
+      "stage": "recycle",
+      "role": "split liquid mother liquor into recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "T101",
+      "kind": "Translator",
+      "package": "NaCl_crystallization",
+      "stage": "recycle",
+      "role": "condition recycle pressure without modeled pump work",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "purge",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "purge",
+      "role": "mother-liquor purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "feed.outlet",
+      "destination": "M101.fresh",
+      "stage": "feed",
+      "role": "fresh brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "C101.inlet",
+      "stage": "crystallization",
+      "role": "combined crystallizer feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "C101.solids",
+      "destination": "crystals.inlet",
+      "stage": "product",
+      "role": "NaCl crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "C101.vapor",
+      "destination": "vapor.inlet",
+      "stage": "product",
+      "role": "water vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "C101.outlet",
+      "destination": "S101.inlet",
+      "stage": "recycle",
+      "role": "liquid mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "T101.inlet",
+      "stage": "recycle",
+      "role": "80% mother-liquor recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "T101.outlet",
+      "destination": "M101.recycle",
+      "stage": "recycle",
+      "role": "conditioned recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "S101.purge",
+      "destination": "purge.inlet",
+      "stage": "purge",
+      "role": "20% mother-liquor purge",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp[0,'Liq','NaCl']",
+      "value": 10.5119,
+      "units": "kg/s",
+      "role": "fresh NaCl feed",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp[0,'Liq','H2O']",
+      "value": 38.9326,
+      "units": "kg/s",
+      "role": "fresh water feed",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 293.15,
+      "units": "K",
+      "role": "fresh feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "fresh feed pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "C101",
+      "variable": "temperature_operating",
+      "value": 328.15,
+      "units": "K",
+      "role": "crystallizer temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C101",
+      "variable": "crystallization_yield['NaCl']",
+      "value": 0.4,
+      "units": "dimensionless",
+      "role": "single-pass salt yield",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0,'purge']",
+      "value": 0.2,
+      "units": "dimensionless",
+      "role": "mother-liquor purge fraction",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "T101",
+      "variable": "outlet.pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "conditioned recycle pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "crystals.inlet",
+    "vapor.inlet",
+    "purge.inlet"
+  ],
+  "tear_streams": [
+    {
+      "arc_id": "s07",
+      "destination": "M101.recycle",
+      "method": "explicit steady-state recycle equations",
+      "guesses": "20.22 kg/s NaCl total crystallizer feed"
+    }
+  ],
+  "translator_constraint_templates": {
+    "T101": "phase-preserving liquid recycle with specified outlet pressure"
+  },
+  "translator_constraints": [
+    "liquid H2O conserved",
+    "liquid NaCl conserved",
+    "vapor and crystals excluded from recycle"
+  ],
+  "initialization": {
+    "strategy": "initialize crystallizer at estimated closed-loop feed, then activate recycle equations",
+    "tear_destination": "M101.recycle",
+    "solve_order": [
+      "M101",
+      "C101",
+      "S101",
+      "T101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Mixer",
+    "Crystallization",
+    "Separator",
+    "Translator",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep the 20% purge explicit.",
+    "Do not claim recycle pump work or impurity accumulation modeling."
+  ]
+}

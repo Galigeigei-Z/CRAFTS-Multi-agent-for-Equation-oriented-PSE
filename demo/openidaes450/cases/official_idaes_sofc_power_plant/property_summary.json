@@ -1,0 +1,37 @@
+{
+  "case_id": "official_idaes_sofc_power_plant",
+  "applicability": "model_parameter_packages",
+  "package_count": 5,
+  "packages": [
+    {
+      "name": "fs.natural_gas_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.syn_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.air_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.flue_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.rxn_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+[
+  {
+    "name": "fs.CH4",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.H2O",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.PROD",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.M101",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "methane_feed",
+        "steam_feed"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.C101",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.H101",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R101",
+    "class": "idaes.core.base.process_block._ScalarEquilibriumReactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_rate_reactions": false,
+      "has_equilibrium_reactions": true,
+      "has_phase_equilibrium": false,
+      "has_heat_transfer": true,
+      "has_heat_of_reaction": true,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.reaction_params"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

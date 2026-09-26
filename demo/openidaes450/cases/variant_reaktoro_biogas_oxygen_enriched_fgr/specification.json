@@ -1,0 +1,79 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reaktoro_biogas_oxygen_enriched_fgr",
+  "family": "family_biogas_oxy_fgr",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_mole_fraction",
+      "value": 0.38,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flue_gas_recycle_fraction",
+      "value": 0.05,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flame_temperature_K",
+      "value": 1721.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co_kg_s",
+      "value": 9.99999999999981e-06,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_power_index",
+      "value": 6.800000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BIOGAS.outlet",
+    "O2AIR.outlet"
+  ],
+  "terminal_product_ports": [
+    "STACK.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reaktoro_biogas_combustion"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reaktoro_biogas_combustion",
+    "chemical_change": "Changes oxidant composition and recycles equilibrium products as a thermal diluent.",
+    "native_metrics": {
+      "flame_temperature_K": 1721.0,
+      "co_kg_s": 9.99999999999981e-06,
+      "oxygen_power_index": 6.800000000000001
+    }
+  }
+}

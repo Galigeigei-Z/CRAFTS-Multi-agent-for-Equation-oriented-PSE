@@ -1,0 +1,80 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_adm1_biogas_water_scrubbing",
+  "family": "family_adm1_scrub",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "scrubber_pressure_bar",
+      "value": 3.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_removal_fraction",
+      "value": 0.5034146962085905,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_loss_fraction",
+      "value": 0.009000000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "biomethane_purity",
+      "value": 0.9503025422083468,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "compression_power_kW",
+      "value": 36.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BIOGAS.outlet"
+  ],
+  "terminal_product_ports": [
+    "BIOMETHANE.inlet",
+    "CO2.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_modified_adm1_translators"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_modified_adm1_translators",
+    "chemical_change": "Adds selective CO2 absorption, water regeneration and methane flash recycle to the digestion product path.",
+    "native_metrics": {
+      "co2_removal_fraction": 0.5034146962085905,
+      "methane_loss_fraction": 0.009000000000000001,
+      "biomethane_purity": 0.9503025422083468,
+      "compression_power_kW": 36.0
+    }
+  }
+}

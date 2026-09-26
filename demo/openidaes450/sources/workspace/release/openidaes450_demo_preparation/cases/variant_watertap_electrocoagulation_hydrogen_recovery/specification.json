@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_electrocoagulation_hydrogen_recovery",
+  "family": "family_electrocoag_h2",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "electrode_current_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "sludge_seed_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "phosphorus_removal",
+      "value": 1.01,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_product_index",
+      "value": 0.1,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "sludge_index",
+      "value": 0.11,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_metal_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "H2.inlet",
+    "WATER.inlet",
+    "SLUDGE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_coagulation_flocculation_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_coagulation_flocculation_unit",
+    "chemical_change": "Replaces chemical coagulant with in-situ metal dissolution and creates a hydrogen coproduct plus solids feedback loop.",
+    "native_metrics": {
+      "phosphorus_removal": 1.01,
+      "hydrogen_product_index": 0.1,
+      "sludge_index": 0.11,
+      "residual_metal_index": 0.0
+    }
+  }
+}

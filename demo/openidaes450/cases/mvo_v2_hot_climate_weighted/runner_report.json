@@ -1,0 +1,132 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "stage": "native_mvo_scenario_weighting_highs",
+  "termination_condition": "optimal",
+  "solver": "appsi_highs",
+  "execution_scope": "native",
+  "metrics": {
+    "input_row_count": 78400,
+    "process_variant_count": 56,
+    "feasible_alternative_count": 38708,
+    "variables": 38742,
+    "constraints": 116183,
+    "objective_value": 7303036.704479997,
+    "unweighted_total_cost": 4173030.3985599987,
+    "weighted_total_cost": 7303036.704479997,
+    "weighted_average_cost": 74520.78269877548,
+    "worst_variant_cost": 103620.7484,
+    "selected_family_design_count": 4,
+    "selected_platform_module_count": 6,
+    "selected_platform_modules": [
+      {
+        "module_type": "Evaporator Area",
+        "design": 50.0
+      },
+      {
+        "module_type": "Evaporator Area",
+        "design": 80.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 20.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 25.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 60.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 105.0
+      }
+    ],
+    "selected_variant_costs": {
+      "(80, 28)": 47192.4014,
+      "(80, 29)": 47192.4014,
+      "(80, 30)": 47192.4014,
+      "(80, 31)": 47192.4014,
+      "(80, 32)": 47192.4014,
+      "(80, 33)": 47192.4014,
+      "(80, 34)": 47192.4014,
+      "(80, 35)": 47192.4014,
+      "(100, 28)": 54587.18716,
+      "(100, 29)": 54587.18716,
+      "(100, 30)": 54587.18716,
+      "(100, 31)": 54587.18716,
+      "(100, 32)": 54587.18716,
+      "(100, 33)": 54587.18716,
+      "(100, 34)": 54587.18716,
+      "(100, 35)": 54587.18716,
+      "(120, 28)": 67979.06188,
+      "(120, 29)": 67979.06188,
+      "(120, 30)": 67979.06188,
+      "(120, 31)": 67979.06188,
+      "(120, 32)": 67979.06188,
+      "(120, 33)": 67979.06188,
+      "(120, 34)": 67979.06188,
+      "(120, 35)": 67979.06188,
+      "(140, 28)": 75052.25617,
+      "(140, 29)": 75052.25617,
+      "(140, 30)": 75052.25617,
+      "(140, 31)": 75052.25617,
+      "(140, 32)": 75052.25617,
+      "(140, 33)": 75052.25617,
+      "(140, 34)": 75052.25617,
+      "(140, 35)": 75052.25617,
+      "(160, 28)": 82229.4262,
+      "(160, 29)": 82229.4262,
+      "(160, 30)": 82229.4262,
+      "(160, 31)": 82229.4262,
+      "(160, 32)": 82229.4262,
+      "(160, 33)": 82229.4262,
+      "(160, 34)": 82229.4262,
+      "(160, 35)": 82229.4262,
+      "(180, 28)": 91037.77071,
+      "(180, 29)": 91037.77071,
+      "(180, 30)": 91037.77071,
+      "(180, 31)": 91037.77071,
+      "(180, 32)": 91037.77071,
+      "(180, 33)": 91037.77071,
+      "(180, 34)": 91037.77071,
+      "(180, 35)": 91037.77071,
+      "(200, 28)": 103527.3456,
+      "(200, 29)": 103527.3456,
+      "(200, 30)": 103527.3456,
+      "(200, 31)": 103527.3456,
+      "(200, 32)": 103527.3456,
+      "(200, 33)": 103527.3456,
+      "(200, 34)": 103620.7484,
+      "(200, 35)": 103620.7484
+    },
+    "initialize_seconds": 1.4148012199439108,
+    "build_seconds": 9.124840907985345,
+    "solve_seconds": 383.2913018851541,
+    "primary_solve_seconds": 383.2913018851541,
+    "secondary_solve_seconds": 0.0
+  },
+  "configuration": {
+    "decision_type": "scenario_weighting",
+    "max_common_designs": {
+      "Evaporator Area": 2,
+      "Condenser Area": 2,
+      "Compressor Design Flow": 2
+    },
+    "policy": {
+      "hot_temperature_threshold_c": 33,
+      "emphasis_weight": 3.0
+    },
+    "scenario_weight_summary": {
+      "base_weight": 1.0,
+      "emphasis_weight": 3.0,
+      "emphasized_variant_count": 21,
+      "total_variant_count": 56,
+      "interpretation": "engineering emphasis weights, not observed probabilities"
+    }
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

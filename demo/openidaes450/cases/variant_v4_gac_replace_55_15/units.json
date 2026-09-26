@@ -1,0 +1,140 @@
+[
+  {
+    "name": "fs.feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.lead_bed",
+    "class": "idaes.core.base.process_block._ScalarGAC",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "is_isothermal": true,
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "cphsdm_calaculation_method": {
+        "component": "input"
+      },
+      "film_transfer_coefficient_type": {
+        "component": "calculated"
+      },
+      "surface_diffusion_coefficient_type": {
+        "component": "calculated"
+      },
+      "target_species": [
+        "solute"
+      ],
+      "add_trapezoidal_effluent_approximation": true,
+      "finite_elements_ss_approximation": 5
+    }
+  },
+  {
+    "name": "fs.lag_bed",
+    "class": "idaes.core.base.process_block._ScalarGAC",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "is_isothermal": true,
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "cphsdm_calaculation_method": {
+        "component": "input"
+      },
+      "film_transfer_coefficient_type": {
+        "component": "calculated"
+      },
+      "surface_diffusion_coefficient_type": {
+        "component": "calculated"
+      },
+      "target_species": [
+        "solute"
+      ],
+      "add_trapezoidal_effluent_approximation": true,
+      "finite_elements_ss_approximation": 5
+    }
+  },
+  {
+    "name": "fs.product",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.lead_adsorbed",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.lag_adsorbed",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

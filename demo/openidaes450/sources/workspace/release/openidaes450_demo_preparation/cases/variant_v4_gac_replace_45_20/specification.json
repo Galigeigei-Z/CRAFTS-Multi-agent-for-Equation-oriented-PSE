@@ -1,0 +1,123 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_v4_gac_replace_45_20",
+  "family": "family_watertap_gac",
+  "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp[0,'Liq','H2O']",
+      "value": 2433.81215,
+      "units": "mol/s",
+      "role": "feed water flow",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp[0,'Liq','solute']",
+      "value": 0.05476625,
+      "units": "mol/s",
+      "role": "feed organic-solute flow",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 298.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "feed pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "lead-bed depth",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "lead-bed empty-bed contact time",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "conc_ratio_replace",
+      "value": 0.45,
+      "units": "dimensionless",
+      "role": "lead-bed replacement concentration ratio",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "lag-bed depth within validated CPHSDM design domain",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "lag-bed empty-bed contact time",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "conc_ratio_replace",
+      "value": 0.2,
+      "units": "dimensionless",
+      "role": "stricter lag-bed polishing replacement ratio",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "treated_product.inlet",
+    "lead_adsorbed.inlet",
+    "lag_adsorbed.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "initialize feed, lead bed, lag bed, then product states with sequential state propagation",
+    "solve_order": [
+      "feed",
+      "lead_bed",
+      "lag_bed",
+      "products",
+      "full_flowsheet"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

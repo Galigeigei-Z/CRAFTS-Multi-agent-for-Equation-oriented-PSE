@@ -1,0 +1,49 @@
+{
+  "case_id": "blind_synthesized_prommis_uky_costing",
+  "applicability": "model_parameter_packages",
+  "package_count": 7,
+  "packages": [
+    {
+      "name": "fs.leach_soln",
+      "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameters",
+      "module": "prommis.properties.sulfuric_acid_leaching_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.coal",
+      "class": "prommis.properties.coal_refuse_properties.CoalRefuseParameters",
+      "module": "prommis.properties.coal_refuse_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.HCl_stripping_params",
+      "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterBlock",
+      "module": "prommis.properties.hcl_stripping_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_o",
+      "class": "prommis.solvent_extraction.ree_og_distribution.REESolExOgParameters",
+      "module": "prommis.solvent_extraction.ree_og_distribution",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.properties_solid",
+      "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParameters",
+      "module": "prommis.precipitate.precipitate_solids_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_gas",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_solid",
+      "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParameters",
+      "module": "prommis.precipitate.precipitate_solids_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

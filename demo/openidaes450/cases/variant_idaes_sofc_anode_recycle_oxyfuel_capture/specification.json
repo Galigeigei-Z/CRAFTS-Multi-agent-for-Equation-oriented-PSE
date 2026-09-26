@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_sofc_anode_recycle_oxyfuel_capture",
+  "family": "family_sofc_anode_capture",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "anode_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_polishing_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "electrical_efficiency",
+      "value": 0.573,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_capture",
+      "value": 0.9570000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbon_deposition_index",
+      "value": 0.004999999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_index",
+      "value": 0.108,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FUEL.outlet",
+    "O2.outlet"
+  ],
+  "terminal_product_ports": [
+    "CO2.inlet",
+    "POWER.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_sofc_power_plant"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_sofc_power_plant",
+    "chemical_change": "Adds electrochemical fuel recycle and oxygen combustion/condensation of anode tail gas.",
+    "native_metrics": {
+      "electrical_efficiency": 0.573,
+      "co2_capture": 0.9570000000000001,
+      "carbon_deposition_index": 0.004999999999999999,
+      "oxygen_index": 0.108
+    }
+  }
+}

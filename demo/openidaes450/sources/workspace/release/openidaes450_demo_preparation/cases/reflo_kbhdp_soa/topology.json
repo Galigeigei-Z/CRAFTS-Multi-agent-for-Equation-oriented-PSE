@@ -1,0 +1,125 @@
+{
+  "arcs": [
+    {
+      "destination": "softener.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_softener",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "uf.inlet",
+      "destination_port": "inlet",
+      "id": "softener_to_uf",
+      "source": "softener.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ro.inlet",
+      "destination_port": "inlet",
+      "id": "uf_to_ro",
+      "source": "uf.product",
+      "source_port": "product",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_product",
+      "source": "ro.permeate",
+      "source_port": "permeate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "dwi.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_dwi",
+      "source": "ro.retentate",
+      "source_port": "retentate",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_kbhdp_soa",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_kbhdp_soa",
+  "initialization_order": [
+    "feed",
+    "softener",
+    "uf",
+    "ro",
+    "dwi",
+    "product"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO KBHDP State-of-the-Art Train",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official KBHDP state-of-the-art train main() test"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_SOA.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "softener",
+      "kind": "ChemicalSoftening",
+      "package": null,
+      "role": "Source-derived ChemicalSoftening node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "uf",
+      "kind": "Ultrafiltration",
+      "package": null,
+      "role": "Source-derived Ultrafiltration node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ro",
+      "kind": "ReverseOsmosis",
+      "package": null,
+      "role": "Source-derived ReverseOsmosis node",
+      "stage": "desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "dwi",
+      "kind": "DeepWellInjection",
+      "package": null,
+      "role": "Source-derived DeepWellInjection node",
+      "stage": "disposal"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "ngfc_atr",
+  "official_reference_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "stream_values": {
+    "natural_gas_feed": {
+      "flow_mol": 1161.9,
+      "temperature": 288.15,
+      "pressure": 3447379.0,
+      "mole_frac_comp": {
+        "H2": 1e-11,
+        "CO": 1e-11,
+        "H2O": 1e-11,
+        "CO2": 0.01,
+        "CH4": 0.931,
+        "C2H6": 0.032,
+        "C3H8": 0.007,
+        "C4H10": 0.004,
+        "N2": 0.016,
+        "O2": 1e-11,
+        "Ar": 1e-11
+      }
+    },
+    "air_feed": {
+      "flow_mol": 1332.9316799999497,
+      "temperature": 288.15,
+      "pressure": 101353.0,
+      "mole_frac_comp": {
+        "H2": 1e-11,
+        "CO": 1e-11,
+        "H2O": 0.0104,
+        "CO2": 0.0003,
+        "CH4": 1e-11,
+        "C2H6": 1e-11,
+        "C3H8": 1e-11,
+        "C4H10": 1e-11,
+        "N2": 0.7722,
+        "O2": 0.2077,
+        "Ar": 0.0094
+      }
+    },
+    "steam_feed": {
+      "flow_mol": 464.760000000016,
+      "temperature": 422.0,
+      "pressure": 206843.0,
+      "mole_frac_comp": {
+        "H2": 1e-11,
+        "CO": 1e-11,
+        "H2O": 1.0,
+        "CO2": 1e-11,
+        "CH4": 1e-11,
+        "C2H6": 1e-11,
+        "C3H8": 1e-11,
+        "C4H10": 1e-11,
+        "N2": 1e-11,
+        "O2": 1e-11,
+        "Ar": 1e-11
+      }
+    },
+    "reformer_inlet": {
+      "flow_mol": 2262.451680149004,
+      "temperature": 469.8380098063362,
+      "pressure": 203395.99999999822,
+      "mole_frac_comp": {
+        "H2": 2.5965494878849013e-11,
+        "CO": 2.5965495255566917e-11,
+        "H2O": 0.21155036975048794,
+        "CO2": 0.0022309778286105793,
+        "CH4": 0.19124897287904927,
+        "C2H6": 0.0065735415084726126,
+        "C3H8": 0.001437962223659057,
+        "C4H10": 0.0008216927094814323,
+        "N2": 0.458231224293456,
+        "O2": 0.12236721445720801,
+        "Ar": 0.005538044382257471
+      }
+    },
+    "reformer_outlet": {
+      "flow_mol": 2942.0715642879154,
+      "temperature": 1060.93,
+      "pressure": 137895.0,
+      "mole_frac_comp": {
+        "H2": 0.34036022542494204,
+        "CO": 0.11247841544472001,
+        "H2O": 0.13826042437540045,
+        "CO2": 0.0517876011972777,
+        "CH4": 0.0004749790108545554,
+        "C2H6": 2.1934009253101673e-10,
+        "C3H8": 1.5965123297712752e-11,
+        "C4H10": 1.5964800605264902e-11,
+        "N2": 0.3523796007756082,
+        "O2": 1.596480063321699e-11,
+        "Ar": 0.004258753591620288
+      }
+    },
+    "atr_syngas_product": {
+      "flow_mol": 3639.2115642860945,
+      "temperature": 621.3217415116947,
+      "pressure": 137895.00000000003,
+      "mole_frac_comp": {
+        "H2": 0.2751596391556402,
+        "CO": 0.09093165973827999,
+        "H2O": 0.11177477754482254,
+        "CO2": 0.0437826232557296,
+        "CH4": 0.17872958213020487,
+        "C2H6": 0.006130031247964223,
+        "C3H8": 0.0013409443118324303,
+        "C4H10": 0.000766253899226245,
+        "N2": 0.2879415567838633,
+        "O2": 1.7667313422972856e-11,
+        "Ar": 0.0034429319755134966
+      }
+    }
+  },
+  "source_binding": {
+    "kind": "explicit_legacy_artifact_root",
+    "artifact_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+    "relative_path": "examples/archived_canonical_sources/cases/sources/official_examples_power_gen"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

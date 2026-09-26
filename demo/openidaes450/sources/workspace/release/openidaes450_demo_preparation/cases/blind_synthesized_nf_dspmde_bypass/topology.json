@@ -1,0 +1,687 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_nf_dspmde_bypass",
+  "family": "family_watertap_nf_dspmde_with_bypass",
+  "process_type": "Blind-synthesized WaterTAP NF DSPM-DE bypass draft with multi-ion feed, bypass splitter, NF feed junction, pump, NanofiltrationDSPMDE0D unit, permeate junction, retentate junction, blended product mixer, product, and disposal",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle library/family support cards.",
+    "No source URL, case id, run id, image filename, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: WaterTAP nanofiltration DSPM-DE; Family profile hint: family_watertap_nf_dspmde_with_bypass; WaterTAP pump and energy recovery pressure changers",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "The bypass signal requires an explicit feed splitter and product mixer; base NF and RO templates are not used.",
+    "Blind support hint: WaterTAP nanofiltration DSPM-DE (unit_model) matched ['nanofiltration', 'nf', 'dspm', 'bypass', 'permeate', 'retentate'].",
+    "Blind support hint: Family profile hint: family_watertap_nf_dspmde_with_bypass (family_profile_hint) matched ['nanofiltration', 'bypass', 'dspm-de'].",
+    "Blind support hint: WaterTAP pump and energy recovery pressure changers (unit_model) matched ['pump']."
+  ],
+  "property_packages": {
+    "mcas_hardness": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "Ca_2+",
+        "SO4_2-",
+        "HCO3_-",
+        "Na_+",
+        "Cl_-",
+        "K_+",
+        "Mg_2+"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "by_pass_splitter",
+        "NF_feed",
+        "NF_pump",
+        "NF_unit",
+        "NF_product",
+        "NF_retentate",
+        "total_product_mixer",
+        "product",
+        "disposal"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "ions": [
+      "Ca_2+",
+      "SO4_2-",
+      "HCO3_-",
+      "Na_+",
+      "Cl_-",
+      "K_+",
+      "Mg_2+"
+    ],
+    "quality": [
+      "total_hardness"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas_hardness",
+      "stage": "feed",
+      "role": "multi-ion brackish groundwater feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "by_pass_splitter",
+      "kind": "Separator",
+      "package": "mcas_hardness",
+      "stage": "split",
+      "role": "split feed between NF branch and bypass branch",
+      "constructor": {
+        "outlet_list": [
+          "nf_stage",
+          "bypass"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "NF_feed",
+      "kind": "StateJunction",
+      "package": "mcas_hardness",
+      "stage": "nanofiltration",
+      "role": "NF branch feed state junction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NF_pump",
+      "kind": "Pump",
+      "package": "mcas_hardness",
+      "stage": "nanofiltration",
+      "role": "pressurize NF branch feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NF_unit",
+      "kind": "NanofiltrationDSPMDE0D",
+      "package": "mcas_hardness",
+      "stage": "nanofiltration",
+      "role": "DSPM-DE nanofiltration membrane unit",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NF_product",
+      "kind": "StateJunction",
+      "package": "mcas_hardness",
+      "stage": "nanofiltration",
+      "role": "NF permeate state junction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NF_retentate",
+      "kind": "StateJunction",
+      "package": "mcas_hardness",
+      "stage": "waste",
+      "role": "NF retentate state junction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "total_product_mixer",
+      "kind": "Mixer",
+      "package": "mcas_hardness",
+      "stage": "product",
+      "role": "mix bypass stream with NF permeate",
+      "constructor": {
+        "inlet_list": [
+          "bypass",
+          "nf_stage"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "mcas_hardness",
+      "stage": "product",
+      "role": "blended treated product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal",
+      "kind": "Product",
+      "package": "mcas_hardness",
+      "stage": "waste",
+      "role": "retentate disposal",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_splitter",
+      "source": "feed.outlet",
+      "destination": "by_pass_splitter.inlet",
+      "stage": "feed",
+      "role": "feed to bypass splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "splitter_to_nfUnit_feed",
+      "source": "by_pass_splitter.nf_stage",
+      "destination": "NF_feed.inlet",
+      "stage": "nanofiltration",
+      "role": "NF branch feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "nf_feed_to_pump",
+      "source": "NF_feed.outlet",
+      "destination": "NF_pump.inlet",
+      "stage": "nanofiltration",
+      "role": "NF feed to pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "pump_to_nfUnit",
+      "source": "NF_pump.outlet",
+      "destination": "NF_unit.inlet",
+      "stage": "nanofiltration",
+      "role": "pressurized feed to DSPM-DE NF",
+      "tear_candidate": false
+    },
+    {
+      "id": "nfUnit_product",
+      "source": "NF_unit.permeate",
+      "destination": "NF_product.inlet",
+      "stage": "nanofiltration",
+      "role": "NF permeate to state junction",
+      "tear_candidate": false
+    },
+    {
+      "id": "nfUnit_retentate",
+      "source": "NF_unit.retentate",
+      "destination": "NF_retentate.inlet",
+      "stage": "waste",
+      "role": "NF retentate to state junction",
+      "tear_candidate": false
+    },
+    {
+      "id": "splitter_to_mixer",
+      "source": "by_pass_splitter.bypass",
+      "destination": "total_product_mixer.bypass",
+      "stage": "bypass",
+      "role": "feed bypass to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "nfUnit_product_to_mixer",
+      "source": "NF_product.outlet",
+      "destination": "total_product_mixer.nf_stage",
+      "stage": "product",
+      "role": "NF permeate to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "nfUnit_retentate_to_disposal",
+      "source": "NF_retentate.outlet",
+      "destination": "disposal.inlet",
+      "stage": "waste",
+      "role": "retentate to disposal",
+      "tear_candidate": false
+    },
+    {
+      "id": "mixer_to_product",
+      "source": "total_product_mixer.outlet",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "blended product outlet",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_h2o",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "family_default water mass flow"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_ca",
+      "value": 0.258,
+      "units": "kg/m^3",
+      "role": "family_default calcium concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_hco3",
+      "value": 0.385,
+      "units": "kg/m^3",
+      "role": "family_default bicarbonate concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_so4",
+      "value": 1.011,
+      "units": "kg/m^3",
+      "role": "family_default sulfate concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_cl",
+      "value": 0.87,
+      "units": "kg/m^3",
+      "role": "family_default chloride concentration before electroneutral adjustment"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_na",
+      "value": 0.739,
+      "units": "kg/m^3",
+      "role": "family_default sodium concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_k",
+      "value": 0.009,
+      "units": "kg/m^3",
+      "role": "family_default potassium concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "conc_mass_mg",
+      "value": 0.09,
+      "units": "kg/m^3",
+      "role": "family_default magnesium concentration"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default feed temperature"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "by_pass_splitter",
+      "variable": "bypass_split_fraction",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "family_default bypass fraction"
+    },
+    {
+      "target": "NF_pump",
+      "variable": "outlet_pressure",
+      "value": 300000.0,
+      "units": "Pa",
+      "role": "family_default NF pump pressure"
+    },
+    {
+      "target": "NF_pump",
+      "variable": "efficiency_pump",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "family_default NF pump efficiency"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "area",
+      "value": 50.0,
+      "units": "m^2",
+      "role": "family_default membrane area"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "radius_pore",
+      "value": 5e-10,
+      "units": "m",
+      "role": "family_default NF270 pore radius"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "membrane_thickness_effective",
+      "value": 8.598945196055952e-07,
+      "units": "m",
+      "role": "family_default effective membrane thickness"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "membrane_charge_density",
+      "value": -50.0,
+      "units": "mol/m^3",
+      "role": "family_default membrane charge density"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "dielectric_constant_pore",
+      "value": 41.3,
+      "units": "dimensionless",
+      "role": "family_default pore dielectric constant"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "channel_height",
+      "value": 0.001,
+      "units": "m",
+      "role": "family_default channel height"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "inlet_velocity",
+      "value": 0.25,
+      "units": "m/s",
+      "role": "family_default inlet velocity"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "permeate_pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default permeate pressure"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "strict blind NF DSPM-DE bypass topology is compiled to BuildPlanIR and solved by the NF bypass sandbox template",
+    "solve_order": [
+      "feed",
+      "by_pass_splitter",
+      "NF_feed",
+      "NF_pump",
+      "NF_unit",
+      "NF_product",
+      "NF_retentate",
+      "total_product_mixer",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.unit_models.nanofiltration_DSPMDE_0D.NanofiltrationDSPMDE0D",
+    "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "watertap.unit_models.pressure_changer.Pump",
+    "idaes.models.unit_models.Mixer",
+    "idaes.models.unit_models.Separator"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized draft topology, not a verified official case topology.",
+    "Keep bypass splitter and product mixer explicit; do not replace this with RO or base NF.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1280,
+      "height": 720,
+      "mode": "P"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": true,
+        "bypass": true,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen web API test. Build a compact WaterTAP nanofiltration DSPM-DE with bypass flowsheet for hardness removal: feed, bypass splitter, NF feed pump, NF DSPM-DE unit, NF permeate, NF retentate disposal, product mixer combining bypass and NF permeate, final product. This is nanofiltration with bypass, not reverse osmosis, not electrodialysis, and not a full desalination train.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "family_profile.family_watertap_nf_dspmde_with_bypass",
+        "watertap.unit.nf_dspmde",
+        "watertap.unit.pressure_changer"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": true,
+        "bypass": true,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "nf_dspmde_bypass",
+        "qualified_templates": [
+          "nf_dspmde_bypass"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal nanofiltration",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal nanofiltration",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal nanofiltration",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal nanofiltration",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": true,
+            "failures": []
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal nanofiltration",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.6000000000000001
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "watertap.unit.nf_dspmde",
+        "title": "WaterTAP nanofiltration DSPM-DE",
+        "kind": "unit_model",
+        "score": 144.0,
+        "matched_triggers": [
+          "nanofiltration",
+          "nf",
+          "dspm",
+          "bypass",
+          "permeate",
+          "retentate"
+        ],
+        "source_url": "",
+        "text": "Use nanofiltration DSPM-DE support for NF membranes, bypass splits, retentate/permeate outlets, and electrolyte transport hints."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_nf_dspmde_with_bypass",
+        "title": "Family profile hint: family_watertap_nf_dspmde_with_bypass",
+        "kind": "family_profile_hint",
+        "score": 76.0,
+        "matched_triggers": [
+          "nanofiltration",
+          "bypass",
+          "dspm-de"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP NF DSPM-DE bypass cases commonly use electrolyte property packages, Feed, Splitter/Separator bypass, nanofiltration membrane, Mixer, Product, and retentate/permeate outlets."
+      },
+      {
+        "doc_id": "watertap.unit.pressure_changer",
+        "title": "WaterTAP pump and energy recovery pressure changers",
+        "kind": "unit_model",
+        "score": 24.0,
+        "matched_triggers": [
+          "pump"
+        ],
+        "source_url": "",
+        "text": "Use Pump or EnergyRecoveryDevice-like pressure changer units for feed pumping and brine pressure recovery. Pump-as-turbine variants connect RO retentate to ERD inlet and disposal outlet."
+      }
+    ]
+  }
+}

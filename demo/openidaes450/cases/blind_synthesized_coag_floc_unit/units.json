@@ -1,0 +1,63 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarCoagulationFlocculation",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "is_isothermal": true,
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "chemical_additives": {
+        "Alum": {
+          "parameter_data": {
+            "mw_additive": [
+              200,
+              {
+                "component": "div"
+              }
+            ],
+            "moles_salt_per_mole_additive": 3,
+            "mw_salt": [
+              100,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Poly": {
+          "parameter_data": {
+            "mw_additive": [
+              25,
+              {
+                "component": "div"
+              }
+            ],
+            "moles_salt_per_mole_additive": 0,
+            "mw_salt": [
+              23,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]

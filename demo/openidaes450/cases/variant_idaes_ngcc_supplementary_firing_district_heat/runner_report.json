@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_power_energy_extension_solve",
+  "case_family": "ngcc_district_heat",
+  "parent_case_key": "ngcc_gas_turbine_subflowsheet",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "duct_firing_fraction": 0.2,
+    "district_heat_extraction_fraction": 0.65
+  },
+  "metrics": {
+    "district_heat_index": 0.78,
+    "stack_temperature_K": 370.0,
+    "net_power_index": 0.5624999999999999,
+    "fuel_gas_index": 1.1
+  },
+  "search_results": [
+    {
+      "district_heat_index": 0.2,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.0,
+      "objective": 0.76,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.24000000000000002,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.0,
+      "objective": 0.763,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.28,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.0,
+      "objective": 0.766,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.32000000000000006,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5775,
+      "fuel_gas_index": 1.0,
+      "objective": 0.769,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.36000000000000004,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.0,
+      "objective": 0.772,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.4,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.0,
+      "objective": 0.775,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.44000000000000006,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.0,
+      "objective": 0.778,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.48000000000000004,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5475,
+      "fuel_gas_index": 1.0,
+      "objective": 0.781,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.52,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.54,
+      "fuel_gas_index": 1.0,
+      "objective": 0.784,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.56,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.0,
+      "objective": 0.787,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6000000000000001,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.525,
+      "fuel_gas_index": 1.0,
+      "objective": 0.79,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.6400000000000001,
+      "stack_temperature_K": 358.0,
+      "net_power_index": 0.5175,
+      "fuel_gas_index": 1.0,
+      "objective": 0.793,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.6800000000000002,
+      "stack_temperature_K": 356.0,
+      "net_power_index": 0.51,
+      "fuel_gas_index": 1.0,
+      "objective": 0.796,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.72,
+      "stack_temperature_K": 354.0,
+      "net_power_index": 0.5025,
+      "fuel_gas_index": 1.0,
+      "objective": 0.799,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.76,
+      "stack_temperature_K": 352.0,
+      "net_power_index": 0.495,
+      "fuel_gas_index": 1.0,
+      "objective": 0.802,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.8,
+      "stack_temperature_K": 350.0,
+      "net_power_index": 0.4875,
+      "fuel_gas_index": 1.0,
+      "objective": 0.8049999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.8400000000000001,
+      "stack_temperature_K": 348.0,
+      "net_power_index": 0.48,
+      "fuel_gas_index": 1.0,
+      "objective": 0.808,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.8800000000000001,
+      "stack_temperature_K": 346.0,
+      "net_power_index": 0.4725,
+      "fuel_gas_index": 1.0,
+      "objective": 0.8109999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9200000000000002,
+      "stack_temperature_K": 344.0,
+      "net_power_index": 0.46499999999999997,
+      "fuel_gas_index": 1.0,
+      "objective": 0.8140000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 0.9600000000000002,
+      "stack_temperature_K": 342.0,
+      "net_power_index": 0.45749999999999996,
+      "fuel_gas_index": 1.0,
+      "objective": 0.817,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.0,
+      "stack_temperature_K": 340.0,
+      "net_power_index": 0.44999999999999996,
+      "fuel_gas_index": 1.0,
+      "objective": 0.8200000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.0,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.21500000000000002,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7789999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.255,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6075,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7819999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.29500000000000004,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7849999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.3350000000000001,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7879999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.37500000000000006,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7909999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.41500000000000004,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5775,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7939999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.45500000000000007,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7969999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.49500000000000005,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.025,
+      "objective": 0.7999999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.535,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8029999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.5750000000000001,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5475,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8059999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6150000000000001,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.54,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8089999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.6550000000000001,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8119999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.6950000000000002,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.525,
+      "fuel_gas_index": 1.025,
+      "objective": 0.815,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.735,
+      "stack_temperature_K": 358.0,
+      "net_power_index": 0.5175,
+      "fuel_gas_index": 1.025,
+      "objective": 0.818,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.775,
+      "stack_temperature_K": 356.0,
+      "net_power_index": 0.51,
+      "fuel_gas_index": 1.025,
+      "objective": 0.821,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.8150000000000001,
+      "stack_temperature_K": 354.0,
+      "net_power_index": 0.5025,
+      "fuel_gas_index": 1.025,
+      "objective": 0.824,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.8550000000000001,
+      "stack_temperature_K": 352.0,
+      "net_power_index": 0.495,
+      "fuel_gas_index": 1.025,
+      "objective": 0.827,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.8950000000000001,
+      "stack_temperature_K": 350.0,
+      "net_power_index": 0.4875,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8299999999999998,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9350000000000002,
+      "stack_temperature_K": 348.0,
+      "net_power_index": 0.48,
+      "fuel_gas_index": 1.025,
+      "objective": 0.833,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 0.9750000000000002,
+      "stack_temperature_K": 346.0,
+      "net_power_index": 0.4725,
+      "fuel_gas_index": 1.025,
+      "objective": 0.8359999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.015,
+      "stack_temperature_K": 344.0,
+      "net_power_index": 0.46499999999999997,
+      "fuel_gas_index": 1.025,
+      "objective": 0.839,
+      "feasible": false,
+      "duct_firing_fraction": 0.05,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.23,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.05,
+      "objective": 0.798,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.27,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6225,
+      "fuel_gas_index": 1.05,
+      "objective": 0.801,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.31000000000000005,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.05,
+      "objective": 0.804,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.3500000000000001,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6075,
+      "fuel_gas_index": 1.05,
+      "objective": 0.807,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.39,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.05,
+      "objective": 0.81,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.43000000000000005,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8130000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.4700000000000001,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8160000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.51,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5775,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8190000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.55,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.5700000000000001,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8220000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.5900000000000001,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8250000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6300000000000001,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.555,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8280000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.6700000000000002,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5475,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8310000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7100000000000002,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.54,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8340000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.75,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8370000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.79,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.525,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8400000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.8300000000000001,
+      "stack_temperature_K": 358.0,
+      "net_power_index": 0.5175000000000001,
+      "fuel_gas_index": 1.05,
+      "objective": 0.843,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.8700000000000001,
+      "stack_temperature_K": 356.0,
+      "net_power_index": 0.51,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8460000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9100000000000001,
+      "stack_temperature_K": 354.0,
+      "net_power_index": 0.5025,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8490000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9500000000000002,
+      "stack_temperature_K": 352.0,
+      "net_power_index": 0.495,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8520000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 0.9900000000000002,
+      "stack_temperature_K": 350.0,
+      "net_power_index": 0.4875,
+      "fuel_gas_index": 1.05,
+      "objective": 0.855,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.03,
+      "stack_temperature_K": 348.0,
+      "net_power_index": 0.48,
+      "fuel_gas_index": 1.05,
+      "objective": 0.8580000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.1,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.24500000000000002,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.075,
+      "objective": 0.817,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.28500000000000003,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375000000000001,
+      "fuel_gas_index": 1.075,
+      "objective": 0.8199999999999998,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.325,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.075,
+      "objective": 0.823,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.36500000000000005,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6225,
+      "fuel_gas_index": 1.075,
+      "objective": 0.826,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.405,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.075,
+      "objective": 0.829,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.445,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6075,
+      "fuel_gas_index": 1.075,
+      "objective": 0.832,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.48500000000000004,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.075,
+      "objective": 0.835,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.525,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.075,
+      "objective": 0.838,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.5650000000000001,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.075,
+      "objective": 0.841,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.6050000000000001,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5775,
+      "fuel_gas_index": 1.075,
+      "objective": 0.844,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6450000000000001,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.5700000000000001,
+      "fuel_gas_index": 1.075,
+      "objective": 0.847,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.6850000000000002,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.075,
+      "objective": 0.85,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7250000000000002,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.555,
+      "fuel_gas_index": 1.075,
+      "objective": 0.853,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.765,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5475,
+      "fuel_gas_index": 1.075,
+      "objective": 0.856,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.805,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.54,
+      "fuel_gas_index": 1.075,
+      "objective": 0.859,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.8450000000000001,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.075,
+      "objective": 0.862,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.8850000000000001,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.525,
+      "fuel_gas_index": 1.075,
+      "objective": 0.865,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9250000000000002,
+      "stack_temperature_K": 358.0,
+      "net_power_index": 0.5175000000000001,
+      "fuel_gas_index": 1.075,
+      "objective": 0.8679999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9650000000000002,
+      "stack_temperature_K": 356.0,
+      "net_power_index": 0.51,
+      "fuel_gas_index": 1.075,
+      "objective": 0.871,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0050000000000001,
+      "stack_temperature_K": 354.0,
+      "net_power_index": 0.5025,
+      "fuel_gas_index": 1.075,
+      "objective": 0.874,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.045,
+      "stack_temperature_K": 352.0,
+      "net_power_index": 0.495,
+      "fuel_gas_index": 1.075,
+      "objective": 0.877,
+      "feasible": false,
+      "duct_firing_fraction": 0.15000000000000002,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.26,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8360000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.30000000000000004,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8390000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.34,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.6449999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8420000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.38000000000000006,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8450000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.42000000000000004,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.6299999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8480000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.46,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6224999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8510000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.5,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.6149999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8540000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.54,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8570000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.5800000000000001,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.5999999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8600000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.6200000000000001,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5924999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8630000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6600000000000001,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8660000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7000000000000002,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5774999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8690000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7400000000000002,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8720000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.78,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5624999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8750000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.8200000000000001,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8780000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.8600000000000001,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5474999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8810000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.9000000000000001,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.5399999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8840000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9400000000000002,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8870000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9800000000000002,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.5249999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8900000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0200000000000002,
+      "stack_temperature_K": 358.0,
+      "net_power_index": 0.5174999999999998,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8930000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.06,
+      "stack_temperature_K": 356.0,
+      "net_power_index": 0.5099999999999999,
+      "fuel_gas_index": 1.1,
+      "objective": 0.8960000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.2,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.275,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.855,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.315,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.125,
+      "objective": 0.858,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.35500000000000004,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.861,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.3950000000000001,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.125,
+      "objective": 0.864,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.43500000000000005,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.6449999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.867,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.47500000000000003,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.125,
+      "objective": 0.87,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.515,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.6299999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.873,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.555,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6224999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.876,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.595,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.125,
+      "objective": 0.879,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.635,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.882,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.675,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.125,
+      "objective": 0.885,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7150000000000001,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5924999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.888,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7550000000000001,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.125,
+      "objective": 0.891,
+      "feasible": true,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.7949999999999999,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5774999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.894,
+      "feasible": true,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.835,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.125,
+      "objective": 0.897,
+      "feasible": true,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.875,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.125,
+      "objective": 0.9,
+      "feasible": true,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.915,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.903,
+      "feasible": true,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9550000000000001,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5474999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.906,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 0.9950000000000001,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.5399999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.909,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0350000000000001,
+      "stack_temperature_K": 362.0,
+      "net_power_index": 0.5325,
+      "fuel_gas_index": 1.125,
+      "objective": 0.912,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.075,
+      "stack_temperature_K": 360.0,
+      "net_power_index": 0.5249999999999999,
+      "fuel_gas_index": 1.125,
+      "objective": 0.915,
+      "feasible": false,
+      "duct_firing_fraction": 0.25,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.29000000000000004,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8739999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.33,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8769999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.37000000000000005,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8799999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.4100000000000001,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8829999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.45000000000000007,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8859999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.49000000000000005,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8889999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.53,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.6449999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8919999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.5700000000000001,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8949999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.61,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.6299999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.8979999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.65,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6224999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9009999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.6900000000000001,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9039999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7300000000000001,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9069999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7700000000000001,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9099999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.8099999999999999,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5924999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9129999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.85,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9159999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.89,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5774999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9189999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.93,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9219999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9700000000000001,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9249999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.0100000000000002,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9279999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0500000000000003,
+      "stack_temperature_K": 366.0,
+      "net_power_index": 0.5474999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9309999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.09,
+      "stack_temperature_K": 364.0,
+      "net_power_index": 0.5399999999999999,
+      "fuel_gas_index": 1.15,
+      "objective": 0.9339999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.30000000000000004,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.30500000000000005,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.175,
+      "objective": 0.893,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.34500000000000003,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.175,
+      "objective": 0.896,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.385,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.175,
+      "objective": 0.899,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.42500000000000004,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.175,
+      "objective": 0.902,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.4650000000000001,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.905,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.505,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.175,
+      "objective": 0.908,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.545,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.911,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.5850000000000001,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.175,
+      "objective": 0.914,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.625,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.175,
+      "objective": 0.917,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.665,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.175,
+      "objective": 0.92,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7050000000000001,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.175,
+      "objective": 0.923,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7450000000000001,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6224999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.926,
+      "feasible": false,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.7850000000000001,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.175,
+      "objective": 0.929,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.825,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.932,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.865,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.175,
+      "objective": 0.935,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.905,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9380000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.9450000000000001,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9410000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 0.9850000000000001,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5774999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9440000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.0250000000000001,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9470000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0650000000000002,
+      "stack_temperature_K": 370.0,
+      "net_power_index": 0.5625,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9500000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.105,
+      "stack_temperature_K": 368.0,
+      "net_power_index": 0.5549999999999999,
+      "fuel_gas_index": 1.175,
+      "objective": 0.9530000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.35000000000000003,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.32,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9119999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.36,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9149999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.4,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9179999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.44000000000000006,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9209999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.48000000000000004,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9239999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.52,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9269999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.56,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9299999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.6000000000000001,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9329999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.64,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.2,
+      "objective": 0.9359999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.68,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.2,
+      "objective": 0.939,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7200000000000001,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.2,
+      "objective": 0.942,
+      "feasible": false,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7600000000000001,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.2,
+      "objective": 0.945,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8000000000000002,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.2,
+      "objective": 0.948,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.84,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6224999999999999,
+      "fuel_gas_index": 1.2,
+      "objective": 0.951,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.88,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.2,
+      "objective": 0.954,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.92,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.2,
+      "objective": 0.957,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.9600000000000001,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.2,
+      "objective": 0.96,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.0,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.2,
+      "objective": 0.963,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.04,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.2,
+      "objective": 0.966,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.08,
+      "stack_temperature_K": 374.0,
+      "net_power_index": 0.5774999999999999,
+      "fuel_gas_index": 1.2,
+      "objective": 0.969,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.12,
+      "stack_temperature_K": 372.0,
+      "net_power_index": 0.57,
+      "fuel_gas_index": 1.2,
+      "objective": 0.972,
+      "feasible": true,
+      "duct_firing_fraction": 0.4,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.335,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.225,
+      "objective": 0.931,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.375,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.225,
+      "objective": 0.934,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.41500000000000004,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.225,
+      "objective": 0.937,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.45500000000000007,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9400000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.49500000000000005,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9430000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.535,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9460000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.5750000000000001,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9490000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.615,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9520000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.655,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.675,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9550000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.6950000000000001,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9580000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7350000000000001,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.66,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9610000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7750000000000001,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9640000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8150000000000002,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9670000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.855,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9700000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.895,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9730000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.935,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6225,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9760000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.9750000000000001,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9790000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.0150000000000001,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9820000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.0550000000000002,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9850000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.0950000000000002,
+      "stack_temperature_K": 378.0,
+      "net_power_index": 0.5925,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9880000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.135,
+      "stack_temperature_K": 376.0,
+      "net_power_index": 0.585,
+      "fuel_gas_index": 1.225,
+      "objective": 0.9910000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.45,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.35,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.25,
+      "objective": 0.95,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.39,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7425,
+      "fuel_gas_index": 1.25,
+      "objective": 0.953,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.43000000000000005,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.25,
+      "objective": 0.956,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.4700000000000001,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.25,
+      "objective": 0.959,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.51,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.25,
+      "objective": 0.962,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.55,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.25,
+      "objective": 0.965,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.5900000000000001,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.25,
+      "objective": 0.968,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.63,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.25,
+      "objective": 0.971,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.67,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.25,
+      "objective": 0.974,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.7100000000000001,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.25,
+      "objective": 0.977,
+      "feasible": false,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7500000000000001,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.675,
+      "fuel_gas_index": 1.25,
+      "objective": 0.98,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.7900000000000001,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.25,
+      "objective": 0.983,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8300000000000002,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.66,
+      "fuel_gas_index": 1.25,
+      "objective": 0.986,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.87,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525,
+      "fuel_gas_index": 1.25,
+      "objective": 0.989,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.91,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.25,
+      "objective": 0.992,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.9500000000000001,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.25,
+      "objective": 0.995,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 0.9900000000000001,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.25,
+      "objective": 0.998,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.03,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6225,
+      "fuel_gas_index": 1.25,
+      "objective": 1.001,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.07,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.25,
+      "objective": 1.004,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.11,
+      "stack_temperature_K": 382.0,
+      "net_power_index": 0.6074999999999999,
+      "fuel_gas_index": 1.25,
+      "objective": 1.0070000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.15,
+      "stack_temperature_K": 380.0,
+      "net_power_index": 0.6,
+      "fuel_gas_index": 1.25,
+      "objective": 1.01,
+      "feasible": true,
+      "duct_firing_fraction": 0.5,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.365,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9689999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.405,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575000000000001,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9719999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.44500000000000006,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9749999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.4850000000000001,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7425,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9779999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.525,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9809999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.5650000000000001,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9839999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.6050000000000001,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9869999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.645,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9899999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.685,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.7050000000000001,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9929999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.7250000000000001,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9959999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7650000000000001,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.6900000000000001,
+      "fuel_gas_index": 1.275,
+      "objective": 0.9989999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8050000000000002,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.275,
+      "objective": 1.0019999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8450000000000002,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.675,
+      "fuel_gas_index": 1.275,
+      "objective": 1.005,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.885,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.275,
+      "objective": 1.008,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.925,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.66,
+      "fuel_gas_index": 1.275,
+      "objective": 1.011,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.9650000000000001,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525000000000001,
+      "fuel_gas_index": 1.275,
+      "objective": 1.0139999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.0050000000000001,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.275,
+      "objective": 1.017,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.0450000000000002,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.275,
+      "objective": 1.02,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.0850000000000002,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.275,
+      "objective": 1.023,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.1250000000000002,
+      "stack_temperature_K": 386.0,
+      "net_power_index": 0.6225,
+      "fuel_gas_index": 1.275,
+      "objective": 1.0259999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.165,
+      "stack_temperature_K": 384.0,
+      "net_power_index": 0.615,
+      "fuel_gas_index": 1.275,
+      "objective": 1.029,
+      "feasible": true,
+      "duct_firing_fraction": 0.55,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.38,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.3,
+      "objective": 0.988,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.42000000000000004,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725000000000001,
+      "fuel_gas_index": 1.3,
+      "objective": 0.991,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.4600000000000001,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.3,
+      "objective": 0.994,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.5000000000000001,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575000000000001,
+      "fuel_gas_index": 1.3,
+      "objective": 0.997,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.54,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.3,
+      "objective": 1.0,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.5800000000000001,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7425,
+      "fuel_gas_index": 1.3,
+      "objective": 1.0030000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.6200000000000001,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.3,
+      "objective": 1.006,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.66,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.3,
+      "objective": 1.009,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.7000000000000001,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.3,
+      "objective": 1.012,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.7400000000000001,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.3,
+      "objective": 1.0150000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7800000000000001,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.7050000000000001,
+      "fuel_gas_index": 1.3,
+      "objective": 1.018,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8200000000000002,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.3,
+      "objective": 1.021,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8600000000000002,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.6900000000000001,
+      "fuel_gas_index": 1.3,
+      "objective": 1.024,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.9,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825,
+      "fuel_gas_index": 1.3,
+      "objective": 1.0270000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.9400000000000001,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.675,
+      "fuel_gas_index": 1.3,
+      "objective": 1.03,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.9800000000000001,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.3,
+      "objective": 1.033,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.02,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.66,
+      "fuel_gas_index": 1.3,
+      "objective": 1.036,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.06,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6525000000000001,
+      "fuel_gas_index": 1.3,
+      "objective": 1.039,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.645,
+      "fuel_gas_index": 1.3,
+      "objective": 1.042,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.1400000000000001,
+      "stack_temperature_K": 390.0,
+      "net_power_index": 0.6375,
+      "fuel_gas_index": 1.3,
+      "objective": 1.045,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.18,
+      "stack_temperature_K": 388.0,
+      "net_power_index": 0.63,
+      "fuel_gas_index": 1.3,
+      "objective": 1.048,
+      "feasible": true,
+      "duct_firing_fraction": 0.6000000000000001,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.395,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.7949999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.007,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.43500000000000005,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.325,
+      "objective": 1.01,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.47500000000000003,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.7799999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.013,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.5150000000000001,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.325,
+      "objective": 1.016,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.555,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.7649999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.019,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.595,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575,
+      "fuel_gas_index": 1.325,
+      "objective": 1.022,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.635,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.7499999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.025,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.675,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.028,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.7150000000000001,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.7349999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.031,
+      "feasible": false,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.7550000000000001,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7274999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.034,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.7950000000000002,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.325,
+      "objective": 1.037,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8350000000000002,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7124999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.04,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8750000000000002,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.325,
+      "objective": 1.043,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.915,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6974999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.046,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.9550000000000001,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.325,
+      "objective": 1.049,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 0.9950000000000001,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6824999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.052,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.0350000000000001,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.055,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.0750000000000002,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.325,
+      "objective": 1.0579999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1150000000000002,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.6599999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.061,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.1550000000000002,
+      "stack_temperature_K": 394.0,
+      "net_power_index": 0.6524999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.064,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.195,
+      "stack_temperature_K": 392.0,
+      "net_power_index": 0.6449999999999999,
+      "fuel_gas_index": 1.325,
+      "objective": 1.067,
+      "feasible": true,
+      "duct_firing_fraction": 0.65,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.41000000000000003,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.81,
+      "fuel_gas_index": 1.35,
+      "objective": 1.026,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.45000000000000007,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.029,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.49000000000000005,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.795,
+      "fuel_gas_index": 1.35,
+      "objective": 1.032,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.53,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.0350000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.5700000000000001,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.35,
+      "objective": 1.038,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.6100000000000001,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.041,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.6500000000000001,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.35,
+      "objective": 1.044,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.6900000000000001,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.0470000000000002,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.73,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.35,
+      "objective": 1.05,
+      "feasible": false,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.77,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7425,
+      "fuel_gas_index": 1.35,
+      "objective": 1.053,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.81,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.7350000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.056,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8500000000000001,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.35,
+      "objective": 1.0590000000000002,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.8900000000000001,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.7200000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.062,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.9299999999999999,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7125,
+      "fuel_gas_index": 1.35,
+      "objective": 1.065,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.97,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.7050000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.068,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.01,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.35,
+      "objective": 1.0710000000000002,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.05,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.6900000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.074,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.09,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6825000000000001,
+      "fuel_gas_index": 1.35,
+      "objective": 1.077,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1300000000000001,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.675,
+      "fuel_gas_index": 1.35,
+      "objective": 1.08,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.1700000000000002,
+      "stack_temperature_K": 398.0,
+      "net_power_index": 0.6675,
+      "fuel_gas_index": 1.35,
+      "objective": 1.0830000000000002,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.21,
+      "stack_temperature_K": 396.0,
+      "net_power_index": 0.66,
+      "fuel_gas_index": 1.35,
+      "objective": 1.086,
+      "feasible": true,
+      "duct_firing_fraction": 0.7000000000000001,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.425,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.375,
+      "objective": 1.045,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.46499999999999997,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8175,
+      "fuel_gas_index": 1.375,
+      "objective": 1.048,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.505,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.8099999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.051,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.545,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025,
+      "fuel_gas_index": 1.375,
+      "objective": 1.054,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.585,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.7949999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.057,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.625,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.375,
+      "objective": 1.06,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.665,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.7799999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.063,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.7050000000000001,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.375,
+      "objective": 1.066,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.745,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.7649999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.069,
+      "feasible": false,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.785,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575,
+      "fuel_gas_index": 1.375,
+      "objective": 1.072,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.8250000000000001,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.375,
+      "objective": 1.075,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8650000000000001,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.078,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9050000000000001,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.375,
+      "objective": 1.081,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.945,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7274999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.084,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 0.985,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.375,
+      "objective": 1.087,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.025,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7124999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.09,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.065,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.375,
+      "objective": 1.093,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.105,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.375,
+      "objective": 1.096,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.145,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.375,
+      "objective": 1.099,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.185,
+      "stack_temperature_K": 402.0,
+      "net_power_index": 0.6824999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.102,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.225,
+      "stack_temperature_K": 400.0,
+      "net_power_index": 0.6749999999999999,
+      "fuel_gas_index": 1.375,
+      "objective": 1.105,
+      "feasible": true,
+      "duct_firing_fraction": 0.75,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.44,
+      "stack_temperature_K": 444.0,
+      "net_power_index": 0.84,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0639999999999998,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.48,
+      "stack_temperature_K": 442.0,
+      "net_power_index": 0.8325,
+      "fuel_gas_index": 1.4,
+      "objective": 1.067,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.52,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0699999999999998,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.56,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8175,
+      "fuel_gas_index": 1.4,
+      "objective": 1.073,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.6000000000000001,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.8099999999999999,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0759999999999998,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.64,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025,
+      "fuel_gas_index": 1.4,
+      "objective": 1.079,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.68,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.7949999999999999,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0819999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.72,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.4,
+      "objective": 1.085,
+      "feasible": false,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.76,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0879999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.8,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.4,
+      "objective": 1.091,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.8400000000000001,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0939999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8800000000000001,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575,
+      "fuel_gas_index": 1.4,
+      "objective": 1.097,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9200000000000002,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.4,
+      "objective": 1.0999999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.96,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.4,
+      "objective": 1.103,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 1.0,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.4,
+      "objective": 1.1059999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.04,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.4,
+      "objective": 1.109,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.08,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.4,
+      "objective": 1.1119999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.12,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7124999999999999,
+      "fuel_gas_index": 1.4,
+      "objective": 1.115,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1600000000000001,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.4,
+      "objective": 1.1179999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.2000000000000002,
+      "stack_temperature_K": 406.0,
+      "net_power_index": 0.6975,
+      "fuel_gas_index": 1.4,
+      "objective": 1.121,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.24,
+      "stack_temperature_K": 404.0,
+      "net_power_index": 0.69,
+      "fuel_gas_index": 1.4,
+      "objective": 1.1239999999999999,
+      "feasible": true,
+      "duct_firing_fraction": 0.8,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.455,
+      "stack_temperature_K": 448.0,
+      "net_power_index": 0.855,
+      "fuel_gas_index": 1.425,
+      "objective": 1.083,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.495,
+      "stack_temperature_K": 446.0,
+      "net_power_index": 0.8475,
+      "fuel_gas_index": 1.425,
+      "objective": 1.086,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.535,
+      "stack_temperature_K": 444.0,
+      "net_power_index": 0.84,
+      "fuel_gas_index": 1.425,
+      "objective": 1.089,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.5750000000000001,
+      "stack_temperature_K": 442.0,
+      "net_power_index": 0.8325,
+      "fuel_gas_index": 1.425,
+      "objective": 1.092,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.615,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.425,
+      "objective": 1.095,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.655,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8175,
+      "fuel_gas_index": 1.425,
+      "objective": 1.098,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.6950000000000001,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.8099999999999999,
+      "fuel_gas_index": 1.425,
+      "objective": 1.101,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.7350000000000001,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025,
+      "fuel_gas_index": 1.425,
+      "objective": 1.104,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.775,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.7949999999999999,
+      "fuel_gas_index": 1.425,
+      "objective": 1.107,
+      "feasible": false,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.8150000000000001,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.425,
+      "objective": 1.11,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.8550000000000001,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.425,
+      "objective": 1.113,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.8950000000000001,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.425,
+      "objective": 1.116,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9350000000000002,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.425,
+      "objective": 1.119,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.975,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575,
+      "fuel_gas_index": 1.425,
+      "objective": 1.122,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 1.0150000000000001,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.425,
+      "objective": 1.125,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.0550000000000002,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.425,
+      "objective": 1.1280000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.0950000000000002,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.425,
+      "objective": 1.131,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.1350000000000002,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.425,
+      "objective": 1.134,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1750000000000003,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.425,
+      "objective": 1.137,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.2150000000000003,
+      "stack_temperature_K": 410.0,
+      "net_power_index": 0.7124999999999999,
+      "fuel_gas_index": 1.425,
+      "objective": 1.1400000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.255,
+      "stack_temperature_K": 408.0,
+      "net_power_index": 0.705,
+      "fuel_gas_index": 1.425,
+      "objective": 1.143,
+      "feasible": true,
+      "duct_firing_fraction": 0.8500000000000001,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.47000000000000003,
+      "stack_temperature_K": 452.0,
+      "net_power_index": 0.87,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1019999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.51,
+      "stack_temperature_K": 450.0,
+      "net_power_index": 0.8625,
+      "fuel_gas_index": 1.45,
+      "objective": 1.105,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.55,
+      "stack_temperature_K": 448.0,
+      "net_power_index": 0.855,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1079999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.5900000000000001,
+      "stack_temperature_K": 446.0,
+      "net_power_index": 0.8475,
+      "fuel_gas_index": 1.45,
+      "objective": 1.111,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.6300000000000001,
+      "stack_temperature_K": 444.0,
+      "net_power_index": 0.84,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1139999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.67,
+      "stack_temperature_K": 442.0,
+      "net_power_index": 0.8325,
+      "fuel_gas_index": 1.45,
+      "objective": 1.117,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.7100000000000001,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1199999999999999,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.75,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8175,
+      "fuel_gas_index": 1.45,
+      "objective": 1.123,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.79,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.81,
+      "fuel_gas_index": 1.45,
+      "objective": 1.126,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.8300000000000001,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025,
+      "fuel_gas_index": 1.45,
+      "objective": 1.129,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.8700000000000001,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.795,
+      "fuel_gas_index": 1.45,
+      "objective": 1.132,
+      "feasible": false,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.9100000000000001,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.45,
+      "objective": 1.135,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9500000000000002,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.45,
+      "objective": 1.138,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 0.99,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.45,
+      "objective": 1.141,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 1.03,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.45,
+      "objective": 1.144,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.07,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575000000000001,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1469999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.11,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.45,
+      "objective": 1.15,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.1500000000000001,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.45,
+      "objective": 1.153,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.1900000000000002,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.45,
+      "objective": 1.156,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.2300000000000002,
+      "stack_temperature_K": 414.0,
+      "net_power_index": 0.7275,
+      "fuel_gas_index": 1.45,
+      "objective": 1.1589999999999998,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.27,
+      "stack_temperature_K": 412.0,
+      "net_power_index": 0.72,
+      "fuel_gas_index": 1.45,
+      "objective": 1.162,
+      "feasible": true,
+      "duct_firing_fraction": 0.9,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.48500000000000004,
+      "stack_temperature_K": 456.0,
+      "net_power_index": 0.885,
+      "fuel_gas_index": 1.475,
+      "objective": 1.121,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.525,
+      "stack_temperature_K": 454.0,
+      "net_power_index": 0.8775000000000001,
+      "fuel_gas_index": 1.475,
+      "objective": 1.124,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.5650000000000001,
+      "stack_temperature_K": 452.0,
+      "net_power_index": 0.87,
+      "fuel_gas_index": 1.475,
+      "objective": 1.127,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.6050000000000001,
+      "stack_temperature_K": 450.0,
+      "net_power_index": 0.8625,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1300000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.645,
+      "stack_temperature_K": 448.0,
+      "net_power_index": 0.855,
+      "fuel_gas_index": 1.475,
+      "objective": 1.133,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.685,
+      "stack_temperature_K": 446.0,
+      "net_power_index": 0.8475,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1360000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.7250000000000001,
+      "stack_temperature_K": 444.0,
+      "net_power_index": 0.84,
+      "fuel_gas_index": 1.475,
+      "objective": 1.139,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.7650000000000001,
+      "stack_temperature_K": 442.0,
+      "net_power_index": 0.8325,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1420000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.805,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.475,
+      "objective": 1.145,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.8450000000000001,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8175,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1480000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.8850000000000001,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.81,
+      "fuel_gas_index": 1.475,
+      "objective": 1.151,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.9250000000000002,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8025,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1540000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9650000000000002,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.795,
+      "fuel_gas_index": 1.475,
+      "objective": 1.157,
+      "feasible": false,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 1.005,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7875,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1600000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 1.045,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.78,
+      "fuel_gas_index": 1.475,
+      "objective": 1.163,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.085,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1660000000000001,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.125,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.765,
+      "fuel_gas_index": 1.475,
+      "objective": 1.169,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.165,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7575000000000001,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1720000000000002,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.205,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.75,
+      "fuel_gas_index": 1.475,
+      "objective": 1.175,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.245,
+      "stack_temperature_K": 418.0,
+      "net_power_index": 0.7424999999999999,
+      "fuel_gas_index": 1.475,
+      "objective": 1.1780000000000002,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.2850000000000001,
+      "stack_temperature_K": 416.0,
+      "net_power_index": 0.735,
+      "fuel_gas_index": 1.475,
+      "objective": 1.181,
+      "feasible": true,
+      "duct_firing_fraction": 0.9500000000000001,
+      "district_heat_extraction_fraction": 1.0
+    },
+    {
+      "district_heat_index": 0.5,
+      "stack_temperature_K": 460.0,
+      "net_power_index": 0.8999999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.1400000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.0
+    },
+    {
+      "district_heat_index": 0.54,
+      "stack_temperature_K": 458.0,
+      "net_power_index": 0.8925,
+      "fuel_gas_index": 1.5,
+      "objective": 1.143,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.05
+    },
+    {
+      "district_heat_index": 0.5800000000000001,
+      "stack_temperature_K": 456.0,
+      "net_power_index": 0.8849999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.146,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.1
+    },
+    {
+      "district_heat_index": 0.6200000000000001,
+      "stack_temperature_K": 454.0,
+      "net_power_index": 0.8775,
+      "fuel_gas_index": 1.5,
+      "objective": 1.149,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.15000000000000002
+    },
+    {
+      "district_heat_index": 0.66,
+      "stack_temperature_K": 452.0,
+      "net_power_index": 0.8699999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.1520000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.2
+    },
+    {
+      "district_heat_index": 0.7,
+      "stack_temperature_K": 450.0,
+      "net_power_index": 0.8624999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.155,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.25
+    },
+    {
+      "district_heat_index": 0.74,
+      "stack_temperature_K": 448.0,
+      "net_power_index": 0.8549999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.158,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.30000000000000004
+    },
+    {
+      "district_heat_index": 0.78,
+      "stack_temperature_K": 446.0,
+      "net_power_index": 0.8474999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.161,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.35000000000000003
+    },
+    {
+      "district_heat_index": 0.8200000000000001,
+      "stack_temperature_K": 444.0,
+      "net_power_index": 0.8399999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.1640000000000001,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.4
+    },
+    {
+      "district_heat_index": 0.8600000000000001,
+      "stack_temperature_K": 442.0,
+      "net_power_index": 0.8324999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.167,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.45
+    },
+    {
+      "district_heat_index": 0.9000000000000001,
+      "stack_temperature_K": 440.0,
+      "net_power_index": 0.825,
+      "fuel_gas_index": 1.5,
+      "objective": 1.17,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.5
+    },
+    {
+      "district_heat_index": 0.9400000000000002,
+      "stack_temperature_K": 438.0,
+      "net_power_index": 0.8174999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.173,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.55
+    },
+    {
+      "district_heat_index": 0.9800000000000002,
+      "stack_temperature_K": 436.0,
+      "net_power_index": 0.8099999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.176,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.6000000000000001
+    },
+    {
+      "district_heat_index": 1.02,
+      "stack_temperature_K": 434.0,
+      "net_power_index": 0.8024999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.179,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.65
+    },
+    {
+      "district_heat_index": 1.06,
+      "stack_temperature_K": 432.0,
+      "net_power_index": 0.7949999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.182,
+      "feasible": false,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.7000000000000001
+    },
+    {
+      "district_heat_index": 1.1,
+      "stack_temperature_K": 430.0,
+      "net_power_index": 0.7874999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.185,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.75
+    },
+    {
+      "district_heat_index": 1.1400000000000001,
+      "stack_temperature_K": 428.0,
+      "net_power_index": 0.7799999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.188,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.8
+    },
+    {
+      "district_heat_index": 1.1800000000000002,
+      "stack_temperature_K": 426.0,
+      "net_power_index": 0.7725,
+      "fuel_gas_index": 1.5,
+      "objective": 1.191,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.8500000000000001
+    },
+    {
+      "district_heat_index": 1.2200000000000002,
+      "stack_temperature_K": 424.0,
+      "net_power_index": 0.7649999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.194,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.9
+    },
+    {
+      "district_heat_index": 1.2600000000000002,
+      "stack_temperature_K": 422.0,
+      "net_power_index": 0.7574999999999998,
+      "fuel_gas_index": 1.5,
+      "objective": 1.197,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 0.9500000000000001
+    },
+    {
+      "district_heat_index": 1.3,
+      "stack_temperature_K": 420.0,
+      "net_power_index": 0.7499999999999999,
+      "fuel_gas_index": 1.5,
+      "objective": 1.2,
+      "feasible": true,
+      "duct_firing_fraction": 1.0,
+      "district_heat_extraction_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo power and process-energy extension anchored to active registry parent",
+    "parent_case_key": "ngcc_gas_turbine_subflowsheet",
+    "chemical_distinction": "Adds post-turbine combustion and a useful low-grade heat-product path."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

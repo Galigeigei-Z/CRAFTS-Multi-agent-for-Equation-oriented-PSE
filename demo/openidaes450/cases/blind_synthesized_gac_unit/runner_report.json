@@ -1,0 +1,95 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_gac",
+  "official_reference_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "gac_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "gac_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "gac_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "gac_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "gac_streams_available",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "levelized_cost_of_water": 0.5635920577468919,
+  "specific_energy_consumption": 0.0002953514866178683,
+  "feed_flow_m3_s": 0.043813000000000005,
+  "product_flow_m3_s": 0.0438094160044596,
+  "feed_solute_flow_mol_s": 0.05476625,
+  "product_solute_flow_mol_s": 0.009966305745130093,
+  "adsorbed_solute_flow_mol_s": 0.04479994425486991,
+  "bed_length_m": 6.0,
+  "bed_volume_m3": 26.2878,
+  "bed_mass_gac_kg": 11829.509999999998,
+  "operational_time_s": 3207016.3256975766,
+  "gac_usage_rate_kg_s": 0.0036886341691532,
+  "bed_volumes_treated": 5345.027209495963,
+  "capital_cost": 743994.838916901,
+  "total_capital_cost": 743994.838916901,
+  "total_operating_cost": 626860.0920597743,
+  "stream_values": {
+    "feed_to_gac": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 2433.81215,
+        "Liq/solute": 0.05476625
+      },
+      "flow_mol": 2433.86691625,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.gac.inlet"
+    },
+    "gac_to_product": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 2433.81215,
+        "Liq/solute": 0.009966305745130093
+      },
+      "flow_mol": 2433.822116305745,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.gac.outlet",
+      "destination_port": "fs.product.inlet"
+    },
+    "gac_to_adsorbed_removed": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 0.0,
+        "Liq/solute": 0.04479994425486991
+      },
+      "flow_mol": 0.04479994425486991,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.gac.adsorbed",
+      "destination_port": "fs.adsorbed_removed.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.gac.gac",
+    "build_options": {
+      "material_flow_basis": "molar",
+      "film_transfer_coefficient_type": "calculated",
+      "surface_diffusion_coefficient_type": "calculated",
+      "diffusivity_calculation": "HaydukLaudie",
+      "cost_contactor_type": "pressure"
+    },
+    "stdout_tail": "Initializing model\nInitial model solved\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,570 @@
+[
+  {
+    "name": "fs.M101",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "toluene_feed",
+        "hydrogen_feed",
+        "vapor_recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.H101",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": true,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.R101",
+    "class": "idaes.core.base.process_block._ScalarCSTR",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": false,
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": true,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.hda_rxn"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.F101",
+    "class": "idaes.core.base.process_block._ScalarFlash",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": true,
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.S101",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "purge",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.C101",
+    "class": "idaes.core.base.process_block._ScalarPressureChanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isothermal"
+      },
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.T101",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.H102",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1",
+    "class": "idaes.core.base.process_block._ScalarTrayColumn",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "number_of_trays": 10,
+      "feed_tray_location": 5,
+      "condenser_type": {
+        "component": "totalCondenser"
+      },
+      "condenser_temperature_spec": {
+        "component": "atBubblePoint"
+      },
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.F101.split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "Vap",
+        "Liq"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "phaseFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": true,
+      "ideal_split_map": {
+        "Liq": "Liq",
+        "Vap": "Vap"
+      },
+      "mixed_state_block": {
+        "component": "fs.F101.control_volume.properties_out"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.COL1.rectification_section[1]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.rectification_section[2]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.rectification_section[3]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.rectification_section[4]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.feed_tray",
+    "class": "idaes.core.base.process_block._ScalarTray",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": true,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.stripping_section[6]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.stripping_section[7]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.stripping_section[8]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.stripping_section[9]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.stripping_section[10]",
+    "class": "idaes.models_extra.column_models.tray.TrayData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "is_feed_tray": false,
+      "has_liquid_side_draw": false,
+      "has_vapor_side_draw": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.condenser",
+    "class": "idaes.core.base.process_block._ScalarCondenser",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "condenser_type": {
+        "component": "totalCondenser"
+      },
+      "temperature_spec": {
+        "component": "atBubblePoint"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.COL1.reboiler",
+    "class": "idaes.core.base.process_block._ScalarReboiler",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "has_boilup_ratio": true,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.btx_thermo"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

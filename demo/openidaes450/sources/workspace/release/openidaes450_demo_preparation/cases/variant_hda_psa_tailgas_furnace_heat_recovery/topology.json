@@ -1,0 +1,223 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_psa_tailgas_furnace_heat_recovery",
+  "family": "family_hda_psa_furnace",
+  "process_type": "HDA Hydrogen PSA with Tail-Gas Furnace Heat Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_hda_psa_hydrogen_recovery_tailgas_fuel.",
+    "Connects separator gas purification, reactor hydrogen recycle and fuel/steam utility paths.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "CH4",
+        "toluene",
+        "benzene",
+        "flue_gas"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "CH4",
+      "toluene",
+      "benzene",
+      "flue_gas"
+    ]
+  },
+  "units": [
+    {
+      "id": "HDA",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "hydrodealkylation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SEP",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "gas/liquid split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PSA",
+      "kind": "PressureSwingAdsorber",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "hydrogen recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FURN",
+      "kind": "Furnace",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "tail-gas combustion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX",
+      "kind": "WasteHeatBoiler",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "recover furnace heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COL",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "benzene separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BENZENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "benzene",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STACK",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_psa_furnace",
+      "role": "stack gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "HDA.outlet",
+      "destination": "SEP.inlet",
+      "stage": "hda_psa_furnace",
+      "role": "HDA effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SEP.gas",
+      "destination": "PSA.inlet",
+      "stage": "hda_psa_furnace",
+      "role": "H2/CH4 gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "PSA.hydrogen",
+      "destination": "HDA.recycle",
+      "stage": "hda_psa_furnace",
+      "role": "H2 recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s04",
+      "source": "PSA.tailgas",
+      "destination": "FURN.fuel",
+      "stage": "hda_psa_furnace",
+      "role": "tail gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "FURN.exhaust",
+      "destination": "HX.hot_inlet",
+      "stage": "hda_psa_furnace",
+      "role": "hot exhaust",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HX.feed_heat",
+      "destination": "HDA.heat",
+      "stage": "hda_psa_furnace",
+      "role": "reactor feed heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX.steam",
+      "destination": "COL.reboiler",
+      "stage": "hda_psa_furnace",
+      "role": "column steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SEP.liquid",
+      "destination": "COL.feed",
+      "stage": "hda_psa_furnace",
+      "role": "aromatic liquid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "COL.distillate",
+      "destination": "BENZENE.inlet",
+      "stage": "hda_psa_furnace",
+      "role": "benzene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "HX.stack",
+      "destination": "STACK.inlet",
+      "stage": "hda_psa_furnace",
+      "role": "stack gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [
+    "BENZENE.inlet",
+    "STACK.inlet"
+  ],
+  "tear_streams": [
+    "s03"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel",
+    "chemical_change": "Connects separator gas purification, reactor hydrogen recycle and fuel/steam utility paths.",
+    "native_metrics": {
+      "hydrogen_recovery": 0.97,
+      "methane_slip": 0.0,
+      "external_steam_index": 0.4149999999999999,
+      "stack_temperature_K": 390.0,
+      "benzene_purity": 0.99
+    }
+  }
+}

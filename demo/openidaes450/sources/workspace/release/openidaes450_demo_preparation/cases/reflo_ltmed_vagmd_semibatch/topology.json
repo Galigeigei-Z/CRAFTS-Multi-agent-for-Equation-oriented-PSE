@@ -1,0 +1,207 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__reflo_ltmed_vagmd_semibatch",
+  "family": "family_source_verified_reflo_ltmed_vagmd_semibatch",
+  "process_type": "Hybrid LTMED and VAGMD semibatch desalination",
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/main/src/watertap_contrib/reflo/flowsheets/LTMED_VAGMD_semibatch/LTMED_VAGMD_flowsheet.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official REFLO LTMED-VAGMD case source. No multiperiod state initialization, SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "distribution",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ltmed",
+      "kind": "LTMEDSurrogate",
+      "package": null,
+      "stage": "thermal_desalination",
+      "role": "Source-derived LTMEDSurrogate node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "vagmd",
+      "kind": "VAGMDSurrogate",
+      "package": null,
+      "stage": "membrane_distillation",
+      "role": "Source-derived VAGMDSurrogate node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "brine_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recycle",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "recycle_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "recycle",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "distillate_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recovery",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "water_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "concentrate",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_splitter",
+      "source": "feed.outlet",
+      "destination": "feed_splitter.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_ltmed",
+      "source": "feed_splitter.ltmed",
+      "destination": "ltmed.inlet",
+      "source_port": "ltmed",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_vagmd",
+      "source": "feed_splitter.vagmd",
+      "destination": "vagmd.inlet",
+      "source_port": "vagmd",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ltmed_brine_to_mixer",
+      "source": "ltmed.brine",
+      "destination": "brine_mixer.inlet_1",
+      "source_port": "brine",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "vagmd_brine_to_mixer",
+      "source": "vagmd.brine",
+      "destination": "brine_mixer.inlet_2",
+      "source_port": "brine",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "mixer_to_recycle_split",
+      "source": "brine_mixer.outlet",
+      "destination": "recycle_splitter.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "recycle_to_vagmd",
+      "source": "recycle_splitter.recycle",
+      "destination": "vagmd.inlet",
+      "source_port": "recycle",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "purge_to_concentrate",
+      "source": "recycle_splitter.purge",
+      "destination": "concentrate.inlet",
+      "source_port": "purge",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ltmed_distillate",
+      "source": "ltmed.distillate",
+      "destination": "distillate_mixer.inlet_1",
+      "source_port": "distillate",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "vagmd_distillate",
+      "source": "vagmd.distillate",
+      "destination": "distillate_mixer.inlet_2",
+      "source_port": "distillate",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "distillate_product",
+      "source": "distillate_mixer.outlet",
+      "destination": "water_product.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "feed",
+    "feed_splitter",
+    "ltmed",
+    "vagmd",
+    "brine_mixer",
+    "recycle_splitter",
+    "distillate_mixer",
+    "water_product",
+    "concentrate"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

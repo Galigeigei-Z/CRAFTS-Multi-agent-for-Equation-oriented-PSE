@@ -1,0 +1,89 @@
+{
+  "arcs": [
+    {
+      "destination": "model.water",
+      "destination_port": "water",
+      "id": "water_to_model",
+      "source": "water.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.acid",
+      "destination_port": "acid",
+      "id": "acid_to_model",
+      "source": "acid.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "equilibrated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_equilibrated_water",
+      "source": "model.equilibrated_water",
+      "source_port": "equilibrated_water",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_redox_tracking",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reaktoro_redox_tracking",
+  "initialization_order": [
+    "water",
+    "acid",
+    "model",
+    "equilibrated_water"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Redox Tracking",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Reaktoro-PSE redox-couples regression test"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/examples/redox_tracking.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "water",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ReaktoroRedoxEquilibrium",
+      "package": null,
+      "role": "Source-derived ReaktoroRedoxEquilibrium node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "equilibrated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

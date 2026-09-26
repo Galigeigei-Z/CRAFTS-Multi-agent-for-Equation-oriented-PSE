@@ -1,0 +1,782 @@
+[
+  {
+    "name": "fs.c01",
+    "source": "fs.ngcc.st.steam_turbine_lp_split.soec",
+    "destination": "fs.soec.feed_hx01.cold_side_inlet"
+  },
+  {
+    "name": "fs.c02",
+    "source": "fs.soec.makeup_mix.outlet",
+    "destination": "fs.ngcc.hrsg.mixer_soec.soec_makeup"
+  },
+  {
+    "name": "fs.ngcc.g08a",
+    "source": "fs.ngcc.gt.mx3.outlet",
+    "destination": "fs.ngcc.fg_translate.inlet"
+  },
+  {
+    "name": "fs.ngcc.g08b",
+    "source": "fs.ngcc.fg_translate.outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp4.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.t05a",
+    "source": "fs.ngcc.hrsg.sh_lp.cold_side_outlet",
+    "destination": "fs.ngcc.st.steam_turbine_lp_mix.hrsg"
+  },
+  {
+    "name": "fs.ngcc.t02a",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[7].outlet",
+    "destination": "fs.ngcc.hrsg.splitter_ip2.inlet"
+  },
+  {
+    "name": "fs.ngcc.t03a",
+    "source": "fs.ngcc.hrsg.sh_ip3.cold_side_outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.t11a",
+    "source": "fs.ngcc.st.return_mix.outlet",
+    "destination": "fs.ngcc.hrsg.econ_lp.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.t01a",
+    "source": "fs.ngcc.hrsg.sh_hp4.cold_side_outlet",
+    "destination": "fs.ngcc.st.steam_turbine.inlet_split.inlet"
+  },
+  {
+    "name": "fs.ngcc.st01a",
+    "source": "fs.ngcc.hrsg.splitter_ip1.toNGPH",
+    "destination": "fs.ngcc.gt.ng_preheat.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.st02a",
+    "source": "fs.ngcc.gt.ng_preheat.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.mixer1.Preheater"
+  },
+  {
+    "name": "fs.ngcc.gt.fuel01",
+    "source": "fs.ngcc.gt.feed_fuel1.outlet",
+    "destination": "fs.ngcc.gt.ng_preheat.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.fuel02",
+    "source": "fs.ngcc.gt.ng_preheat.cold_side_outlet",
+    "destination": "fs.ngcc.gt.inject1.gas"
+  },
+  {
+    "name": "fs.ngcc.gt.air01",
+    "source": "fs.ngcc.gt.feed_air1.outlet",
+    "destination": "fs.ngcc.gt.vsv.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air02",
+    "source": "fs.ngcc.gt.vsv.outlet",
+    "destination": "fs.ngcc.gt.cmp1.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air03",
+    "source": "fs.ngcc.gt.cmp1.outlet",
+    "destination": "fs.ngcc.gt.splt1.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air04a",
+    "source": "fs.ngcc.gt.splt1.air04",
+    "destination": "fs.ngcc.gt.inject_translator.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air04b",
+    "source": "fs.ngcc.gt.inject_translator.outlet",
+    "destination": "fs.ngcc.gt.inject1.air"
+  },
+  {
+    "name": "fs.ngcc.gt.air05",
+    "source": "fs.ngcc.gt.splt1.air05",
+    "destination": "fs.ngcc.gt.valve01.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air06a",
+    "source": "fs.ngcc.gt.valve01.outlet",
+    "destination": "fs.ngcc.gt.translator1.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air06b",
+    "source": "fs.ngcc.gt.translator1.outlet",
+    "destination": "fs.ngcc.gt.mx1.air"
+  },
+  {
+    "name": "fs.ngcc.gt.air07",
+    "source": "fs.ngcc.gt.splt1.air07",
+    "destination": "fs.ngcc.gt.valve02.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air08a",
+    "source": "fs.ngcc.gt.valve02.outlet",
+    "destination": "fs.ngcc.gt.translator2.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air08b",
+    "source": "fs.ngcc.gt.translator2.outlet",
+    "destination": "fs.ngcc.gt.mx2.air"
+  },
+  {
+    "name": "fs.ngcc.gt.air09",
+    "source": "fs.ngcc.gt.splt1.air09",
+    "destination": "fs.ngcc.gt.valve03.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air10a",
+    "source": "fs.ngcc.gt.valve03.outlet",
+    "destination": "fs.ngcc.gt.translator3.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.air10b",
+    "source": "fs.ngcc.gt.translator3.outlet",
+    "destination": "fs.ngcc.gt.mx3.air"
+  },
+  {
+    "name": "fs.ngcc.gt.g01",
+    "source": "fs.ngcc.gt.inject1.outlet",
+    "destination": "fs.ngcc.gt.cmb1.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.g02a",
+    "source": "fs.ngcc.gt.cmb1.outlet",
+    "destination": "fs.ngcc.gt.flue_translator.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.g02b",
+    "source": "fs.ngcc.gt.flue_translator.outlet",
+    "destination": "fs.ngcc.gt.gts1.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.g03",
+    "source": "fs.ngcc.gt.gts1.outlet",
+    "destination": "fs.ngcc.gt.mx1.gas"
+  },
+  {
+    "name": "fs.ngcc.gt.g04",
+    "source": "fs.ngcc.gt.mx1.outlet",
+    "destination": "fs.ngcc.gt.gts2.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.g05",
+    "source": "fs.ngcc.gt.gts2.outlet",
+    "destination": "fs.ngcc.gt.mx2.gas"
+  },
+  {
+    "name": "fs.ngcc.gt.g06",
+    "source": "fs.ngcc.gt.mx2.outlet",
+    "destination": "fs.ngcc.gt.gts3.inlet"
+  },
+  {
+    "name": "fs.ngcc.gt.g07",
+    "source": "fs.ngcc.gt.gts3.outlet",
+    "destination": "fs.ngcc.gt.mx3.gas"
+  },
+  {
+    "name": "fs.ngcc.gt.g08",
+    "source": "fs.ngcc.gt.mx3.outlet",
+    "destination": "fs.ngcc.gt.exhaust_1.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp02",
+    "source": "fs.ngcc.hrsg.econ_lp.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.mixer1.econ_lp"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp04",
+    "source": "fs.ngcc.hrsg.mixer1.outlet",
+    "destination": "fs.ngcc.hrsg.evap_lp.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp05",
+    "source": "fs.ngcc.hrsg.evap_lp.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.mixer_soec.main"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp13",
+    "source": "fs.ngcc.hrsg.mixer_soec.outlet",
+    "destination": "fs.ngcc.hrsg.drum_lp.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp10",
+    "source": "fs.ngcc.hrsg.drum_lp.vap_outlet",
+    "destination": "fs.ngcc.hrsg.sh_lp.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp06",
+    "source": "fs.ngcc.hrsg.drum_lp.liq_outlet",
+    "destination": "fs.ngcc.hrsg.splitter1.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp08",
+    "source": "fs.ngcc.hrsg.splitter1.toIP",
+    "destination": "fs.ngcc.hrsg.pump_ip.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.lp09",
+    "source": "fs.ngcc.hrsg.splitter1.toHP",
+    "destination": "fs.ngcc.hrsg.pump_hp.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip01",
+    "source": "fs.ngcc.hrsg.pump_ip.outlet",
+    "destination": "fs.ngcc.hrsg.econ_ip1.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip02",
+    "source": "fs.ngcc.hrsg.econ_ip1.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.splitter_ip1.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip03",
+    "source": "fs.ngcc.hrsg.splitter_ip1.toIP_ECON2",
+    "destination": "fs.ngcc.hrsg.econ_ip2.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip05",
+    "source": "fs.ngcc.hrsg.econ_ip2.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.evap_ip.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip06",
+    "source": "fs.ngcc.hrsg.evap_ip.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip1.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip07",
+    "source": "fs.ngcc.hrsg.sh_ip1.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.mixer_ip1.sh_ip1"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip15",
+    "source": "fs.ngcc.hrsg.splitter_ip2.Cold_reheat",
+    "destination": "fs.ngcc.hrsg.mixer_ip1.Cold_reheat"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip08",
+    "source": "fs.ngcc.hrsg.mixer_ip1.outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip2.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.ip09",
+    "source": "fs.ngcc.hrsg.sh_ip2.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip3.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp01",
+    "source": "fs.ngcc.hrsg.pump_hp.outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp1.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp02",
+    "source": "fs.ngcc.hrsg.econ_hp1.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp2.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp03",
+    "source": "fs.ngcc.hrsg.econ_hp2.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp3.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp04",
+    "source": "fs.ngcc.hrsg.econ_hp3.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp4.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp05",
+    "source": "fs.ngcc.hrsg.econ_hp4.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp5.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp06",
+    "source": "fs.ngcc.hrsg.econ_hp5.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.evap_hp_valve.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp06b",
+    "source": "fs.ngcc.hrsg.evap_hp_valve.outlet",
+    "destination": "fs.ngcc.hrsg.evap_hp.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp07",
+    "source": "fs.ngcc.hrsg.evap_hp.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp1.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp08",
+    "source": "fs.ngcc.hrsg.sh_hp1.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp2.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp09",
+    "source": "fs.ngcc.hrsg.sh_hp2.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp3.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.hp10",
+    "source": "fs.ngcc.hrsg.sh_hp3.cold_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp4.cold_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g09",
+    "source": "fs.ngcc.hrsg.sh_hp4.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip3.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g10",
+    "source": "fs.ngcc.hrsg.sh_ip3.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp3.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g11",
+    "source": "fs.ngcc.hrsg.sh_hp3.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp2.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g12",
+    "source": "fs.ngcc.hrsg.sh_hp2.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip2.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g13",
+    "source": "fs.ngcc.hrsg.sh_ip2.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_hp1.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g14",
+    "source": "fs.ngcc.hrsg.sh_hp1.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.evap_hp.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g15",
+    "source": "fs.ngcc.hrsg.evap_hp.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp5.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g16",
+    "source": "fs.ngcc.hrsg.econ_hp5.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.sh_ip1.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g17",
+    "source": "fs.ngcc.hrsg.sh_ip1.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp4.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g18",
+    "source": "fs.ngcc.hrsg.econ_hp4.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp3.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g19",
+    "source": "fs.ngcc.hrsg.econ_hp3.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.split_fg_lp.inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g20",
+    "source": "fs.ngcc.hrsg.split_fg_lp.toLP_SH",
+    "destination": "fs.ngcc.hrsg.sh_lp.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g21",
+    "source": "fs.ngcc.hrsg.sh_lp.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.mixer_lp2.fromLP_SH"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g22",
+    "source": "fs.ngcc.hrsg.split_fg_lp.toMixer",
+    "destination": "fs.ngcc.hrsg.mixer_lp2.bypass"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g23",
+    "source": "fs.ngcc.hrsg.mixer_lp2.outlet",
+    "destination": "fs.ngcc.hrsg.evap_ip.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g24",
+    "source": "fs.ngcc.hrsg.evap_ip.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_ip2.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g25",
+    "source": "fs.ngcc.hrsg.econ_ip2.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp2.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g26",
+    "source": "fs.ngcc.hrsg.econ_hp2.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_ip1.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g27",
+    "source": "fs.ngcc.hrsg.econ_ip1.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_hp1.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g28",
+    "source": "fs.ngcc.hrsg.econ_hp1.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.evap_lp.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.hrsg.g29",
+    "source": "fs.ngcc.hrsg.evap_lp.hot_side_outlet",
+    "destination": "fs.ngcc.hrsg.econ_lp.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t02_dummy",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[7].outlet",
+    "destination": "fs.ngcc.st.dummy_reheat.inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t03_dummy",
+    "source": "fs.ngcc.st.dummy_reheat.outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t04",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[10].outlet",
+    "destination": "fs.ngcc.st.steam_turbine_lp_mix.turbine"
+  },
+  {
+    "name": "fs.ngcc.st.t16",
+    "source": "fs.ngcc.st.steam_turbine_lp_mix.outlet",
+    "destination": "fs.ngcc.st.steam_turbine_lp_split.inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t06",
+    "source": "fs.ngcc.st.steam_turbine_lp_split.turbine",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t07",
+    "source": "fs.ngcc.st.steam_turbine.outlet_stage.outlet",
+    "destination": "fs.ngcc.st.main_condenser.hot_side_inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t08",
+    "source": "fs.ngcc.st.main_condenser.hot_side_outlet",
+    "destination": "fs.ngcc.st.hotwell.condensate"
+  },
+  {
+    "name": "fs.ngcc.st.t09",
+    "source": "fs.ngcc.st.hotwell.outlet",
+    "destination": "fs.ngcc.st.cond_pump.inlet"
+  },
+  {
+    "name": "fs.ngcc.st.t10",
+    "source": "fs.ngcc.st.cond_pump.outlet",
+    "destination": "fs.ngcc.st.return_mix.pump"
+  },
+  {
+    "name": "fs.ngcc.st.t13",
+    "source": "fs.ngcc.st.reboiler.outlet",
+    "destination": "fs.ngcc.st.return_mix.reboiler"
+  },
+  {
+    "name": "fs.ngcc.st.t17",
+    "source": "fs.ngcc.st.steam_turbine_lp_split.reboiler",
+    "destination": "fs.ngcc.st.reboiler.inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.stream_throttle_inlet[1]",
+    "source": "fs.ngcc.st.steam_turbine.inlet_split.outlet_1",
+    "destination": "fs.ngcc.st.steam_turbine.throttle_valve[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.stream_throttle_outlet[1]",
+    "source": "fs.ngcc.st.steam_turbine.throttle_valve[1].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.inlet_stage[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.stream_inlet_mix_inlet[1]",
+    "source": "fs.ngcc.st.steam_turbine.inlet_stage[1].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.inlet_mix.inlet_1"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[1,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[1].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[2].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[2,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[2].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[3].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[3,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[3].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[4].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[4,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[4].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[5].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[5,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[5].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[6].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stream[6,1]",
+    "source": "fs.ngcc.st.steam_turbine.hp_stages[6].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[7].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[1,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[1].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[2].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[2,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[2].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[3].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[3,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[3].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[4].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[4,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[4].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[5].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[5,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[5].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[6].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[6,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[6].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[7].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[7,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[7].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[8].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[8,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[8].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[9].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stream[9,1]",
+    "source": "fs.ngcc.st.steam_turbine.ip_stages[9].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.ip_stages[10].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[1,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[1].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[2].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[2,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[2].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[3].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[3,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[3].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[4].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[4,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[4].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[5].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[5,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[5].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[6].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[6,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[6].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[7].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[7,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[7].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[8].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[8,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[8].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[9].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[9,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[9].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[10].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stream[10,1]",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[10].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.lp_stages[11].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.inlet_to_hp_stream",
+    "source": "fs.ngcc.st.steam_turbine.inlet_mix.outlet",
+    "destination": "fs.ngcc.st.steam_turbine.hp_stages[1].inlet"
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_to_outlet_stream",
+    "source": "fs.ngcc.st.steam_turbine.lp_stages[11].outlet",
+    "destination": "fs.ngcc.st.steam_turbine.outlet_stage.inlet"
+  },
+  {
+    "name": "fs.soec.ostrm01",
+    "source": "fs.soec.soec_module.oxygen_outlet",
+    "destination": "fs.soec.sweep_recycle_split.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm01",
+    "source": "fs.soec.soec_module.fuel_outlet",
+    "destination": "fs.soec.feed_recycle_split.inlet"
+  },
+  {
+    "name": "fs.soec.ostrm02",
+    "source": "fs.soec.sweep_recycle_split.recycle",
+    "destination": "fs.soec.sweep_recycle_mix.recycle"
+  },
+  {
+    "name": "fs.soec.hstrm02",
+    "source": "fs.soec.feed_recycle_split.recycle",
+    "destination": "fs.soec.feed_recycle_mix.recycle"
+  },
+  {
+    "name": "fs.soec.sweep01",
+    "source": "fs.soec.sweep_recycle_mix.outlet",
+    "destination": "fs.soec.sweep_heater.inlet"
+  },
+  {
+    "name": "fs.soec.feed01",
+    "source": "fs.soec.feed_recycle_mix.outlet",
+    "destination": "fs.soec.feed_heater.inlet"
+  },
+  {
+    "name": "fs.soec.sweep01b",
+    "source": "fs.soec.sweep_heater.outlet",
+    "destination": "fs.soec.soec_module.oxygen_inlet"
+  },
+  {
+    "name": "fs.soec.feed01b",
+    "source": "fs.soec.feed_heater.outlet",
+    "destination": "fs.soec.soec_module.fuel_inlet"
+  },
+  {
+    "name": "fs.soec.ostrm03",
+    "source": "fs.soec.sweep_recycle_split.out",
+    "destination": "fs.soec.sweep_hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.soec.sweep03",
+    "source": "fs.soec.sweep_compressor.outlet",
+    "destination": "fs.soec.sweep_hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.soec.sweep02",
+    "source": "fs.soec.sweep_hx.cold_side_outlet",
+    "destination": "fs.soec.sweep_recycle_mix.feed"
+  },
+  {
+    "name": "fs.soec.ostrm04",
+    "source": "fs.soec.sweep_hx.hot_side_outlet",
+    "destination": "fs.soec.sweep_turbine.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm03",
+    "source": "fs.soec.feed_recycle_split.out",
+    "destination": "fs.soec.feed_hx01.hot_side_inlet"
+  },
+  {
+    "name": "fs.soec.feed02",
+    "source": "fs.soec.feed_hx01.cold_side_outlet",
+    "destination": "fs.soec.feed_translator.inlet"
+  },
+  {
+    "name": "fs.soec.feed02b",
+    "source": "fs.soec.feed_translator.outlet",
+    "destination": "fs.soec.feed_recycle_mix.feed"
+  },
+  {
+    "name": "fs.soec.ostrm05",
+    "source": "fs.soec.sweep_turbine.outlet",
+    "destination": "fs.soec.water_heater02.hot_side_inlet"
+  },
+  {
+    "name": "fs.soec.water01",
+    "source": "fs.soec.water_pump.outlet",
+    "destination": "fs.soec.water_split.inlet"
+  },
+  {
+    "name": "fs.soec.water02",
+    "source": "fs.soec.water_split.outlet1",
+    "destination": "fs.soec.water_heater01.cold_side_inlet"
+  },
+  {
+    "name": "fs.soec.water03",
+    "source": "fs.soec.water_split.outlet2",
+    "destination": "fs.soec.water_heater02.cold_side_inlet"
+  },
+  {
+    "name": "fs.soec.water04",
+    "source": "fs.soec.water_heater01.cold_side_outlet",
+    "destination": "fs.soec.makeup_mix.w1"
+  },
+  {
+    "name": "fs.soec.water05",
+    "source": "fs.soec.water_heater02.cold_side_outlet",
+    "destination": "fs.soec.makeup_mix.w2"
+  },
+  {
+    "name": "fs.soec.hstrm04",
+    "source": "fs.soec.feed_hx01.hot_side_outlet",
+    "destination": "fs.soec.water_heater01.hot_side_inlet"
+  },
+  {
+    "name": "fs.soec.hstrm06",
+    "source": "fs.soec.h2_drop_water_port",
+    "destination": "fs.soec.h2_precooler.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm07",
+    "source": "fs.soec.h2_precooler.outlet",
+    "destination": "fs.soec.cmp01.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm08",
+    "source": "fs.soec.cmp01.outlet",
+    "destination": "fs.soec.ic01.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm09",
+    "source": "fs.soec.ic01.outlet",
+    "destination": "fs.soec.cmp02.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm10",
+    "source": "fs.soec.cmp02.outlet",
+    "destination": "fs.soec.ic02.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm11",
+    "source": "fs.soec.ic02.outlet",
+    "destination": "fs.soec.cmp03.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm12",
+    "source": "fs.soec.cmp03.outlet",
+    "destination": "fs.soec.ic03.inlet"
+  },
+  {
+    "name": "fs.soec.hstrm13",
+    "source": "fs.soec.ic03.outlet",
+    "destination": "fs.soec.cmp04.inlet"
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_ion_exchange_multicomponent",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html",
+  "termination_condition": "optimal",
+  "final_dof": 7,
+  "checks": [
+    {
+      "name": "ix_multicomponent_design_dof_recorded",
+      "pass": true,
+      "actual": 7
+    },
+    {
+      "name": "ix_multicomponent_bed_depth_matches_official_test",
+      "pass": true,
+      "actual": 2.24999932566518
+    },
+    {
+      "name": "ix_multicomponent_bed_diameter_positive",
+      "pass": true,
+      "actual": 0.010000001550235558
+    },
+    {
+      "name": "ix_multicomponent_breakthrough_time_positive",
+      "pass": true,
+      "actual": 2291425.838526299
+    },
+    {
+      "name": "ix_multicomponent_capital_cost_positive",
+      "pass": true,
+      "actual": 2398.5400648451327
+    }
+  ],
+  "bed_depth_m": 2.24999932566518,
+  "bed_diameter_m": 0.010000001550235558,
+  "target_breakthrough_time_s": 2291425.838526299,
+  "total_capital_cost": 2398.5400648451327,
+  "fixed_operating_cost": 17.035357974851127,
+  "stream_values": {
+    "unit_ix.inlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 0.0009277777777777778,
+        "Liq.La": 1.2022605377776176e-10,
+        "Liq.Dy": 3.288615384615384e-11,
+        "Liq.Ho": 5.2652640514157516e-12,
+        "Liq.Er": 1.1981346406791819e-11,
+        "Liq.Yb": 7.720312048540882e-12,
+        "Liq.Sm": 4.553737696195796e-11
+      },
+      "flow_mol": 0.0009277780013942848,
+      "flow_mol_s": 0.0009277780013942848,
+      "temperature": 298.15,
+      "pressure": 101325.0
+    },
+    "unit_ix.outlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 0.0009277777777777778,
+        "Liq.La": 8.572716676324705e-11,
+        "Liq.Dy": 1.3944531359132393e-11,
+        "Liq.Ho": 2.1991174893156346e-12,
+        "Liq.Er": 5.135388005191895e-12,
+        "Liq.Yb": 3.3403444654652232e-12,
+        "Liq.Sm": 1.955920431544937e-11
+      },
+      "flow_mol": 0.0009277779076835303,
+      "flow_mol_s": 0.0009277779076835303,
+      "temperature": 298.15,
+      "pressure": 101325.0
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/ion_exchange/ix_freundlich_multicomponent_example.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/ion_exchange/tests/test_ion_exchange_multicomponent.py",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "name": "fs.fuel01",
+    "source": "fs.feed_fuel1.outlet",
+    "destination": "fs.ng_preheat.cold_side_inlet"
+  },
+  {
+    "name": "fs.fuel02",
+    "source": "fs.ng_preheat.cold_side_outlet",
+    "destination": "fs.inject1.gas"
+  },
+  {
+    "name": "fs.air01",
+    "source": "fs.feed_air1.outlet",
+    "destination": "fs.vsv.inlet"
+  },
+  {
+    "name": "fs.air02",
+    "source": "fs.vsv.outlet",
+    "destination": "fs.cmp1.inlet"
+  },
+  {
+    "name": "fs.air03",
+    "source": "fs.cmp1.outlet",
+    "destination": "fs.splt1.inlet"
+  },
+  {
+    "name": "fs.air04a",
+    "source": "fs.splt1.air04",
+    "destination": "fs.inject_translator.inlet"
+  },
+  {
+    "name": "fs.air04b",
+    "source": "fs.inject_translator.outlet",
+    "destination": "fs.inject1.air"
+  },
+  {
+    "name": "fs.air05",
+    "source": "fs.splt1.air05",
+    "destination": "fs.valve01.inlet"
+  },
+  {
+    "name": "fs.air06a",
+    "source": "fs.valve01.outlet",
+    "destination": "fs.translator1.inlet"
+  },
+  {
+    "name": "fs.air06b",
+    "source": "fs.translator1.outlet",
+    "destination": "fs.mx1.air"
+  },
+  {
+    "name": "fs.air07",
+    "source": "fs.splt1.air07",
+    "destination": "fs.valve02.inlet"
+  },
+  {
+    "name": "fs.air08a",
+    "source": "fs.valve02.outlet",
+    "destination": "fs.translator2.inlet"
+  },
+  {
+    "name": "fs.air08b",
+    "source": "fs.translator2.outlet",
+    "destination": "fs.mx2.air"
+  },
+  {
+    "name": "fs.air09",
+    "source": "fs.splt1.air09",
+    "destination": "fs.valve03.inlet"
+  },
+  {
+    "name": "fs.air10a",
+    "source": "fs.valve03.outlet",
+    "destination": "fs.translator3.inlet"
+  },
+  {
+    "name": "fs.air10b",
+    "source": "fs.translator3.outlet",
+    "destination": "fs.mx3.air"
+  },
+  {
+    "name": "fs.g01",
+    "source": "fs.inject1.outlet",
+    "destination": "fs.cmb1.inlet"
+  },
+  {
+    "name": "fs.g02a",
+    "source": "fs.cmb1.outlet",
+    "destination": "fs.flue_translator.inlet"
+  },
+  {
+    "name": "fs.g02b",
+    "source": "fs.flue_translator.outlet",
+    "destination": "fs.gts1.inlet"
+  },
+  {
+    "name": "fs.g03",
+    "source": "fs.gts1.outlet",
+    "destination": "fs.mx1.gas"
+  },
+  {
+    "name": "fs.g04",
+    "source": "fs.mx1.outlet",
+    "destination": "fs.gts2.inlet"
+  },
+  {
+    "name": "fs.g05",
+    "source": "fs.gts2.outlet",
+    "destination": "fs.mx2.gas"
+  },
+  {
+    "name": "fs.g06",
+    "source": "fs.mx2.outlet",
+    "destination": "fs.gts3.inlet"
+  },
+  {
+    "name": "fs.g07",
+    "source": "fs.gts3.outlet",
+    "destination": "fs.mx3.gas"
+  },
+  {
+    "name": "fs.g08",
+    "source": "fs.mx3.outlet",
+    "destination": "fs.exhaust_1.inlet"
+  }
+]

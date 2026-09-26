@@ -1,0 +1,165 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_asm2d_sidestream_struvite",
+  "family": "family_asm2d_struvite",
+  "process_type": "ASM2d Sidestream Struvite Phosphorus Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent watertap_asm2d.",
+    "Adds MgNH4PO4 precipitation and a harvested solid product to the biological phosphorus-removal path.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "PO4",
+        "NH4",
+        "Mg",
+        "struvite"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_asm2d"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "PO4",
+      "NH4",
+      "Mg",
+      "struvite"
+    ]
+  },
+  "units": [
+    {
+      "id": "LIQUOR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "phosphate/ammonium sludge liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "magnesium reagent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "PrecipitationReactor",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "struvite crystallization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF101",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "harvest struvite",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRUVITE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "struvite fertilizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RETURN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "asm2d_struvite",
+      "role": "low-phosphate return liquor",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "LIQUOR.outlet",
+      "destination": "R101.liquor",
+      "stage": "asm2d_struvite",
+      "role": "sidestream liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "MG.outlet",
+      "destination": "R101.magnesium",
+      "stage": "asm2d_struvite",
+      "role": "Mg dose",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R101.slurry",
+      "destination": "CF101.inlet",
+      "stage": "asm2d_struvite",
+      "role": "struvite slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CF101.solids",
+      "destination": "STRUVITE.inlet",
+      "stage": "asm2d_struvite",
+      "role": "fertilizer crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CF101.liquid",
+      "destination": "RETURN.inlet",
+      "stage": "asm2d_struvite",
+      "role": "treated return liquor",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "LIQUOR.outlet",
+    "MG.outlet"
+  ],
+  "unconnected_product_ports": [
+    "STRUVITE.inlet",
+    "RETURN.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_asm2d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_asm2d",
+    "chemical_change": "Adds MgNH4PO4 precipitation and a harvested solid product to the biological phosphorus-removal path.",
+    "native_metrics": {
+      "phosphorus_recovery_fraction": 0.902,
+      "struvite_phosphorus_kg_s": 0.000451,
+      "residual_phosphate_kg_s": 4.9000000000000005e-05,
+      "residual_magnesium_kg_s": 9.9e-05
+    }
+  }
+}

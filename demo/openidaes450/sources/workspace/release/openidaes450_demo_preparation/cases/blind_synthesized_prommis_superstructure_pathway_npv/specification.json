@@ -1,0 +1,22 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_prommis_superstructure_pathway_npv",
+  "family": "family_prommis_superstructure_pathway_npv",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official superstructure build; solve requires compatible SOS MILP solver",
+    "solve_order": [
+      "superstructure"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_official_prommis_superstructure_pathway_npv",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

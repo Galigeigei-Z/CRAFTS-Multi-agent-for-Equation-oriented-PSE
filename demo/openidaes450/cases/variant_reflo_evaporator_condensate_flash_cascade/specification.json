@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reflo_evaporator_condensate_flash_cascade",
+  "family": "family_evap_flash_cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "first_condensate_flash_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "second_condensate_flash_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "live_steam_index",
+      "value": 0.49999999999999994,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "supersaturation_ratio",
+      "value": 1.016,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "salt_yield",
+      "value": 0.956,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "entrainment_fraction",
+      "value": 0.024,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "terminal_product_ports": [
+    "SALT.inlet",
+    "COND.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_multi_effect_crystallizer"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_multi_effect_crystallizer",
+    "chemical_change": "Adds condensate flash vapor as a secondary heating medium across evaporation effects.",
+    "native_metrics": {
+      "live_steam_index": 0.49999999999999994,
+      "supersaturation_ratio": 1.016,
+      "salt_yield": 0.956,
+      "entrainment_fraction": 0.024
+    }
+  }
+}

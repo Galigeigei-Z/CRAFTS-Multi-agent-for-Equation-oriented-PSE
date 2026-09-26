@@ -1,0 +1,88 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_hx2d_pcm_thermal_buffer",
+  "family": "family_hx_pcm",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "pcm_melt_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "process_bypass_fraction",
+      "value": 0.65,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "process_outlet_temperature_K",
+      "value": 370.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stored_heat_fraction",
+      "value": 0.8200000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "pcm_solid_fraction",
+      "value": 0.5075,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "pump_power_kW",
+      "value": 29.75,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "HOT.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_heat_exchanger_2d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_heat_exchanger_2d",
+    "chemical_change": "Adds latent-heat storage and a bypass/recombine path around a spatial heat exchanger.",
+    "native_metrics": {
+      "process_outlet_temperature_K": 370.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5075,
+      "pump_power_kW": 29.75
+    }
+  }
+}

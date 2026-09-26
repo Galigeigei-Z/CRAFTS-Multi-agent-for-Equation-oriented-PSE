@@ -1,0 +1,426 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__official_idaes_pz_afs_carbon_capture",
+  "family": "family_official_idaes_pz_afs_carbon_capture",
+  "process_type": "Official IDAES PZ/AFS Carbon Capture",
+  "source_url": "https://github.com/IDAES/publications/blob/720360b804c5e72c8feca178e6b59aa30498819b/akkor_et_al_2024/PZ_AFS_flowsheet.py",
+  "source_flowchart_url": "code-reconstructed-local-artifact",
+  "source_basis": [
+    "High-level equipment and material connections are reconstructed from pinned official IDAES publication source constraints.",
+    "The SVG is a deterministic code-derived diagram created for this registry, not an official publication figure.",
+    "Heat-exchanger hot and cold material sides are retained; cooling-water and steam utility return lines are omitted.",
+    "Native solve is not claimed because the published workflow requires GAMS/CONOPT3."
+  ],
+  "property_packages": {
+    "vap_properties": "PZ_column_stripper_vapor_properties.PZParameterBlock",
+    "liq_properties": "PZ_column_absorber_liquid_properties.PZParameterBlock",
+    "feed_properties": "PZ_column_absorber_vapor_properties.PZParameterBlock",
+    "solvent_properties": "PZ_column_stripper_liquid_properties.PZParameterBlock"
+  },
+  "components": {
+    "process": [
+      "CO2",
+      "H2O",
+      "PZ",
+      "N2"
+    ]
+  },
+  "units": [
+    {
+      "id": "flue_gas_feed",
+      "kind": "Feed",
+      "package": "feed_properties",
+      "stage": "absorption",
+      "role": "Coal or NGCC flue-gas feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "absorber",
+      "kind": "PZPackedColumn",
+      "package": "feed_properties+liq_properties",
+      "stage": "absorption",
+      "role": "Intercooled piperazine absorber",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treated_gas",
+      "kind": "Product",
+      "package": "feed_properties",
+      "stage": "products",
+      "role": "CO2-depleted treated gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "rich_split_1",
+      "kind": "Splitter",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Cold-rich bypass and bottom-rich split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hx1",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Rich/lean exchanger 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "rich_split_2",
+      "kind": "Splitter",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Warm-rich bypass and hot-rich split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hx2",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Rich/lean exchanger 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "steam_heater",
+      "kind": "Heater",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Steam heating of hot-rich solvent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flash_tank",
+      "kind": "FlashTank",
+      "package": "solvent_properties+vap_properties",
+      "stage": "advanced_flash_stripper",
+      "role": "Advanced flash vessel",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stripper",
+      "kind": "PZPackedColumn",
+      "package": "solvent_properties+vap_properties",
+      "stage": "advanced_flash_stripper",
+      "role": "Piperazine stripper column",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hx3",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "overhead_heat_recovery",
+      "role": "Stripper-overhead/rich-solvent exchanger 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "co2_product",
+      "kind": "Product",
+      "package": "vap_properties",
+      "stage": "products",
+      "role": "Cooled CO2-rich overhead product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "warm_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "rich_solvent_heat_recovery",
+      "role": "Combine cold and warm rich-solvent bypasses",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "water_makeup",
+      "kind": "Feed",
+      "package": null,
+      "stage": "lean_solvent_recycle",
+      "role": "Water make-up",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pz_makeup",
+      "kind": "Feed",
+      "package": null,
+      "stage": "lean_solvent_recycle",
+      "role": "Piperazine make-up",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "makeup_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "lean_solvent_recycle",
+      "role": "Restore lean-solvent water and piperazine inventory",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "lean_cooler",
+      "kind": "Cooler",
+      "package": null,
+      "stage": "lean_solvent_recycle",
+      "role": "Cool regenerated lean solvent before absorption",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "flue_gas_to_absorber",
+      "source": "flue_gas_feed.outlet",
+      "destination": "absorber.vapor_inlet",
+      "source_port": "outlet",
+      "destination_port": "vapor_inlet",
+      "stage": "absorption",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "absorber_to_treated_gas",
+      "source": "absorber.vapor_outlet",
+      "destination": "treated_gas.inlet",
+      "source_port": "vapor_outlet",
+      "destination_port": "inlet",
+      "stage": "products",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "absorber_rich_to_split1",
+      "source": "absorber.liquid_outlet",
+      "destination": "rich_split_1.inlet",
+      "source_port": "liquid_outlet",
+      "destination_port": "inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "split1_bottom_to_hx1",
+      "source": "rich_split_1.bottom",
+      "destination": "hx1.rich_inlet",
+      "source_port": "bottom",
+      "destination_port": "rich_inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "split1_cold_to_hx3",
+      "source": "rich_split_1.cold_bypass",
+      "destination": "hx3.rich_inlet",
+      "source_port": "cold_bypass",
+      "destination_port": "rich_inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx1_rich_to_split2",
+      "source": "hx1.rich_outlet",
+      "destination": "rich_split_2.inlet",
+      "source_port": "rich_outlet",
+      "destination_port": "inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "split2_hot_to_hx2",
+      "source": "rich_split_2.hot_branch",
+      "destination": "hx2.rich_inlet",
+      "source_port": "hot_branch",
+      "destination_port": "rich_inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "split2_warm_to_mixer",
+      "source": "rich_split_2.warm_bypass",
+      "destination": "warm_mixer.warm_inlet",
+      "source_port": "warm_bypass",
+      "destination_port": "warm_inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx2_rich_to_heater",
+      "source": "hx2.rich_outlet",
+      "destination": "steam_heater.inlet",
+      "source_port": "rich_outlet",
+      "destination_port": "inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "heater_to_flash",
+      "source": "steam_heater.outlet",
+      "destination": "flash_tank.rich_inlet",
+      "source_port": "outlet",
+      "destination_port": "rich_inlet",
+      "stage": "advanced_flash_stripper",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "stripper_bottom_to_flash",
+      "source": "stripper.liquid_outlet",
+      "destination": "flash_tank.stripper_liquid_inlet",
+      "source_port": "liquid_outlet",
+      "destination_port": "stripper_liquid_inlet",
+      "stage": "advanced_flash_stripper",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "flash_vapor_to_stripper",
+      "source": "flash_tank.vapor_outlet",
+      "destination": "stripper.vapor_inlet",
+      "source_port": "vapor_outlet",
+      "destination_port": "vapor_inlet",
+      "stage": "advanced_flash_stripper",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx3_rich_to_warm_mixer",
+      "source": "hx3.rich_outlet",
+      "destination": "warm_mixer.cold_inlet",
+      "source_port": "rich_outlet",
+      "destination_port": "cold_inlet",
+      "stage": "rich_solvent_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "warm_mixer_to_stripper",
+      "source": "warm_mixer.outlet",
+      "destination": "stripper.liquid_inlet",
+      "source_port": "outlet",
+      "destination_port": "liquid_inlet",
+      "stage": "advanced_flash_stripper",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "stripper_overhead_to_hx3",
+      "source": "stripper.vapor_outlet",
+      "destination": "hx3.gas_inlet",
+      "source_port": "vapor_outlet",
+      "destination_port": "gas_inlet",
+      "stage": "overhead_heat_recovery",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx3_gas_to_co2_product",
+      "source": "hx3.gas_outlet",
+      "destination": "co2_product.inlet",
+      "source_port": "gas_outlet",
+      "destination_port": "inlet",
+      "stage": "products",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "flash_lean_to_hx2",
+      "source": "flash_tank.liquid_outlet",
+      "destination": "hx2.lean_inlet",
+      "source_port": "liquid_outlet",
+      "destination_port": "lean_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx2_lean_to_hx1",
+      "source": "hx2.lean_outlet",
+      "destination": "hx1.lean_inlet",
+      "source_port": "lean_outlet",
+      "destination_port": "lean_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "hx1_lean_to_makeup",
+      "source": "hx1.lean_outlet",
+      "destination": "makeup_mixer.lean_inlet",
+      "source_port": "lean_outlet",
+      "destination_port": "lean_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "water_makeup_to_mixer",
+      "source": "water_makeup.outlet",
+      "destination": "makeup_mixer.water_inlet",
+      "source_port": "outlet",
+      "destination_port": "water_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "pz_makeup_to_mixer",
+      "source": "pz_makeup.outlet",
+      "destination": "makeup_mixer.pz_inlet",
+      "source_port": "outlet",
+      "destination_port": "pz_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "makeup_to_cooler",
+      "source": "makeup_mixer.outlet",
+      "destination": "lean_cooler.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "lean_recycle_to_absorber",
+      "source": "lean_cooler.outlet",
+      "destination": "absorber.liquid_inlet",
+      "source_port": "outlet",
+      "destination_port": "liquid_inlet",
+      "stage": "lean_solvent_recycle",
+      "state_link": "pinned_official_source_connection"
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "initialization_order": [
+    "flue_gas_feed",
+    "absorber",
+    "treated_gas",
+    "rich_split_1",
+    "hx1",
+    "rich_split_2",
+    "hx2",
+    "steam_heater",
+    "flash_tank",
+    "stripper",
+    "hx3",
+    "co2_product",
+    "warm_mixer",
+    "water_makeup",
+    "pz_makeup",
+    "makeup_mixer",
+    "lean_cooler"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "initialization": {
+    "source_owned": true
+  },
+  "solve": {
+    "source_owned": true
+  },
+  "open_decisions": [
+    "Operating specifications remain source-owned until native execution is reproduced."
+  ],
+  "evidence_status": "source_verified"
+}

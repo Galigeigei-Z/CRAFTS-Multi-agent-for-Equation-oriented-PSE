@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fs.stream1",
+    "source": "fs.stage1.permeate_outlet",
+    "destination": "fs.mix1.inlet_2"
+  },
+  {
+    "name": "fs.stream2",
+    "source": "fs.mix1.outlet",
+    "destination": "fs.stage2.retentate_inlet"
+  },
+  {
+    "name": "fs.stream3",
+    "source": "fs.stage2.permeate_outlet",
+    "destination": "fs.mix2.inlet_2"
+  },
+  {
+    "name": "fs.stream4",
+    "source": "fs.mix2.outlet",
+    "destination": "fs.stage3.retentate_inlet"
+  },
+  {
+    "name": "fs.stream5",
+    "source": "fs.stage2.retentate_outlet",
+    "destination": "fs.stage1.retentate_inlet"
+  },
+  {
+    "name": "fs.stream6",
+    "source": "fs.stage3.retentate_outlet",
+    "destination": "fs.mix1.inlet_1"
+  }
+]

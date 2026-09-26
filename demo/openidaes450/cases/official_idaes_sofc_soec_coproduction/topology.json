@@ -1,0 +1,742 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__official_idaes_sofc_soec_coproduction",
+  "family": "family_official_idaes_sofc_soec_coproduction",
+  "process_type": "Official IDAES SOFC-SOEC Co-production",
+  "source_url": "https://github.com/IDAES/examples-pse/blob/b9606eeddf24ddcb24b27eabe84a911d148abc93/src/Examples/Flowsheets/power_generation/sofc_soec/sofc_with_soec.py",
+  "source_flowchart_url": "https://github.com/IDAES/examples-pse/blob/b9606eeddf24ddcb24b27eabe84a911d148abc93/docs/Examples/Flowsheets/power_generation/sofc_soec/sofc_soec_PFD.svg",
+  "source_basis": [
+    "Units and Arc endpoints were extracted from the pinned official Python source at commit b9606eeddf24ddcb24b27eabe84a911d148abc93.",
+    "The displayed PFD is the byte-preserved official SVG from the same repository commit.",
+    "This artifact verifies source topology only; it does not claim a native solve in the current environment."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "asu_cmp01",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_cmp02",
+      "kind": "PressureChanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source PressureChanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_heat",
+      "kind": "Heater",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_ic01",
+      "kind": "Heater",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_ic02",
+      "kind": "Heater",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_split",
+      "kind": "Separator",
+      "package": null,
+      "stage": "recycle_and_mixing",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "asu_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfw_pump",
+      "kind": "HelmIsentropicCompressor",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source HelmIsentropicCompressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "boiler",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cmp01",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cmp02",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cmp03",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cmp04",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cpu",
+      "kind": "CarbonProcessingUnit",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source CarbonProcessingUnit node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dryer_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_heater",
+      "kind": "Heater",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_recycle_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_recycle_split",
+      "kind": "Separator",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "feed_and_compression",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fg_flash",
+      "kind": "Flash",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Flash node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flue_gas_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flue_gas_translator_2",
+      "kind": "Translator",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "flue_gas_translator_3",
+      "kind": "Translator",
+      "package": null,
+      "stage": "carbon_processing",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "h2_condenser",
+      "kind": "Flash",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source Flash node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "h2_condenser_translator",
+      "kind": "Translator",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source Translator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ic01",
+      "kind": "Heater",
+      "package": null,
+      "stage": "process",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ic02",
+      "kind": "Heater",
+      "package": null,
+      "stage": "process",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ic03",
+      "kind": "Heater",
+      "package": null,
+      "stage": "process",
+      "role": "Official-source Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "oxycombustor",
+      "kind": "StoichiometricReactor",
+      "package": null,
+      "stage": "oxygen_and_combustion",
+      "role": "Official-source StoichiometricReactor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "oxycombustor_mix",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recycle_and_mixing",
+      "role": "Official-source Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "soec_module",
+      "kind": "SolidOxideModuleSimple",
+      "package": null,
+      "stage": "solid_oxide_cell",
+      "role": "Official-source SolidOxideModuleSimple node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sweep_compressor",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "hydrogen_product",
+      "role": "Official-source Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sweep_heater",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sweep_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Official-source HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sweep_turbine",
+      "kind": "Turbine",
+      "package": null,
+      "stage": "process",
+      "role": "Official-source Turbine node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "asu01",
+      "source": "asu_cmp01.outlet",
+      "destination": "asu_ic01.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu02",
+      "source": "asu_ic01.outlet",
+      "destination": "asu_cmp02.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu03",
+      "source": "asu_cmp02.outlet",
+      "destination": "asu_ic02.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu04",
+      "source": "asu_ic02.outlet",
+      "destination": "asu_split.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "recycle_and_mixing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "asu05",
+      "source": "asu_split.o2_outlet",
+      "destination": "asu_heat.inlet",
+      "source_port": "o2_outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg01",
+      "source": "flue_gas_translator.outlet",
+      "destination": "sweep_heater.shell_inlet",
+      "source_port": "outlet",
+      "destination_port": "shell_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg02",
+      "source": "sweep_heater.shell_outlet",
+      "destination": "boiler.shell_inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "shell_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg03",
+      "source": "flue_gas_translator_2.outlet",
+      "destination": "fg_flash.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "fg04",
+      "source": "flue_gas_translator_3.outlet",
+      "destination": "cpu.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h01",
+      "source": "feed_recycle_mix.outlet",
+      "destination": "feed_heater.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h02",
+      "source": "feed_heater.outlet",
+      "destination": "soec_module.fuel_inlet",
+      "source_port": "outlet",
+      "destination_port": "fuel_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h03",
+      "source": "soec_module.fuel_outlet",
+      "destination": "feed_recycle_split.inlet",
+      "source_port": "fuel_outlet",
+      "destination_port": "inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h04",
+      "source": "feed_recycle_split.out",
+      "destination": "feed_hx.shell_inlet",
+      "source_port": "out",
+      "destination_port": "shell_inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h05",
+      "source": "h2_condenser_translator.outlet",
+      "destination": "h2_condenser.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h06",
+      "source": "h2_condenser.vap_outlet",
+      "destination": "dryer_translator.inlet",
+      "source_port": "vap_outlet",
+      "destination_port": "inlet",
+      "stage": "hydrogen_product",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h07",
+      "source": "dryer_translator.outlet",
+      "destination": "cmp01.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "hydrogen_product",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h08",
+      "source": "cmp01.outlet",
+      "destination": "ic01.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "process",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h09",
+      "source": "ic01.outlet",
+      "destination": "cmp02.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "hydrogen_product",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h10",
+      "source": "cmp02.outlet",
+      "destination": "ic02.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "process",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h11",
+      "source": "ic02.outlet",
+      "destination": "cmp03.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "hydrogen_product",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h12",
+      "source": "cmp03.outlet",
+      "destination": "ic03.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "process",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "h13",
+      "source": "ic03.outlet",
+      "destination": "cmp04.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "hydrogen_product",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "hr01",
+      "source": "feed_recycle_split.recycle",
+      "destination": "feed_recycle_mix.recycle_inlet",
+      "source_port": "recycle",
+      "destination_port": "recycle_inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "oxy01",
+      "source": "asu_translator.outlet",
+      "destination": "oxycombustor_mix.oxygen_inlet",
+      "source_port": "outlet",
+      "destination_port": "oxygen_inlet",
+      "stage": "recycle_and_mixing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "oxy02",
+      "source": "oxycombustor_mix.outlet",
+      "destination": "oxycombustor.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "swp01",
+      "source": "sweep_compressor.outlet",
+      "destination": "sweep_hx.tube_inlet",
+      "source_port": "outlet",
+      "destination_port": "tube_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "swp02",
+      "source": "sweep_hx.tube_outlet",
+      "destination": "sweep_heater.tube_inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "tube_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "swp03",
+      "source": "sweep_heater.tube_outlet",
+      "destination": "soec_module.oxygen_inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "oxygen_inlet",
+      "stage": "solid_oxide_cell",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "swp04",
+      "source": "soec_module.oxygen_outlet",
+      "destination": "sweep_hx.shell_inlet",
+      "source_port": "oxygen_outlet",
+      "destination_port": "shell_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "swp05",
+      "source": "sweep_hx.shell_outlet",
+      "destination": "sweep_turbine.inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "inlet",
+      "stage": "process",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_asu_translator",
+      "source": "asu_heat.outlet",
+      "destination": "asu_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "oxygen_and_combustion",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_feed_translator",
+      "source": "feed_hx.tube_outlet",
+      "destination": "feed_translator.inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_fg_translator",
+      "source": "oxycombustor.outlet",
+      "destination": "flue_gas_translator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_fg_translator_2",
+      "source": "boiler.shell_outlet",
+      "destination": "flue_gas_translator_2.inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_fg_translator_3",
+      "source": "fg_flash.vap_outlet",
+      "destination": "flue_gas_translator_3.inlet",
+      "source_port": "vap_outlet",
+      "destination_port": "inlet",
+      "stage": "carbon_processing",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "to_h2_condenser_translator",
+      "source": "feed_hx.shell_outlet",
+      "destination": "h2_condenser_translator.inlet",
+      "source_port": "shell_outlet",
+      "destination_port": "inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "w01",
+      "source": "bfw_pump.outlet",
+      "destination": "boiler.tube_inlet",
+      "source_port": "outlet",
+      "destination_port": "tube_inlet",
+      "stage": "heat_recovery",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "w02",
+      "source": "boiler.tube_outlet",
+      "destination": "feed_hx.tube_inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "tube_inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    },
+    {
+      "id": "w03",
+      "source": "feed_translator.outlet",
+      "destination": "feed_recycle_mix.feed_inlet",
+      "source_port": "outlet",
+      "destination_port": "feed_inlet",
+      "stage": "feed_and_compression",
+      "state_link": "pinned_official_source_arc"
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "initialization_order": [
+    "asu_cmp01",
+    "asu_cmp02",
+    "asu_heat",
+    "asu_ic01",
+    "asu_ic02",
+    "asu_split",
+    "asu_translator",
+    "bfw_pump",
+    "boiler",
+    "cmp01",
+    "cmp02",
+    "cmp03",
+    "cmp04",
+    "cpu",
+    "dryer_translator",
+    "feed_heater",
+    "feed_hx",
+    "feed_recycle_mix",
+    "feed_recycle_split",
+    "feed_translator",
+    "fg_flash",
+    "flue_gas_translator",
+    "flue_gas_translator_2",
+    "flue_gas_translator_3",
+    "h2_condenser",
+    "h2_condenser_translator",
+    "ic01",
+    "ic02",
+    "ic03",
+    "oxycombustor",
+    "oxycombustor_mix",
+    "soec_module",
+    "sweep_compressor",
+    "sweep_heater",
+    "sweep_hx",
+    "sweep_turbine"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "Native execution requires the archived examples-pse dependency set and initialization data.",
+    "Operating specifications and degrees of freedom remain source-owned until native execution is reproduced."
+  ],
+  "evidence_status": "source_verified"
+}

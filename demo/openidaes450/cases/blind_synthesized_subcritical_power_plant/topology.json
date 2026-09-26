@@ -1,0 +1,2246 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "official_subcritical_power_plant",
+  "family": "family_subcritical_power_plant",
+  "process_type": "Official IDAES subcritical coal-fired full power plant with expanded boiler, waterwall, steam-cycle, feedwater-heater, turbine, and cross-flowsheet PFD topology",
+  "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html",
+  "source_basis": [
+    "Source flowchart evidence unavailable: no --source-flowchart was provided.",
+    "The official IDAES documentation describes the steady-state subcritical power plant built by subcritical_power_plant.main_steady_state().",
+    "The source creates m.fs_main.fs_blr and m.fs_main.fs_stc, then their internal set_arcs_and_constraints() functions connect the PFD-level units.",
+    "The official boiler source connects economizer, drum, downcomer, Waterwalls[1..12], roof, primary superheater, attemperator, platen, reheaters, air preheater, and flue-gas path arcs.",
+    "The official steam-cycle source connects the turbine, condensers, hotwell, pumps, valves, feedwater heaters, deaerator, spray split, and BFP turbine arcs.",
+    "The official full-plant source connects S001 main steam, S005 cold reheat, S009 hot reheat, S042 feedwater to economizer, and B006 attemperator spray water arcs."
+  ],
+  "property_packages": {
+    "water_steam": {
+      "entry_id": "iapws95_water_steam",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Mix"
+      ],
+      "scope": [
+        "fs_blr",
+        "fs_stc",
+        "cross_flowsheet_arcs"
+      ]
+    },
+    "flue_gas": {
+      "entry_id": "flue_gas_ideal",
+      "components": [
+        "N2",
+        "O2",
+        "CO2",
+        "H2O",
+        "SO2"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "fs_blr"
+      ]
+    },
+    "coal": {
+      "entry_id": "subcritical boiler coal surrogate inputs",
+      "components": [
+        "raw coal",
+        "primary air",
+        "secondary air"
+      ],
+      "phases": [
+        "solid",
+        "gas"
+      ],
+      "scope": [
+        "fs_blr.aBoiler"
+      ]
+    }
+  },
+  "components": {
+    "water_steam": [
+      "H2O"
+    ],
+    "flue_gas": [
+      "N2",
+      "O2",
+      "CO2",
+      "H2O",
+      "SO2"
+    ],
+    "fuel_air": [
+      "coal",
+      "primary air",
+      "secondary air"
+    ]
+  },
+  "units": [
+    {
+      "id": "coal_feed",
+      "kind": "Feed",
+      "package": "coal",
+      "stage": "feed",
+      "role": "raw coal boundary condition for the boiler furnace",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "primary_air",
+      "kind": "Feed",
+      "package": "flue_gas",
+      "stage": "feed",
+      "role": "primary air boundary condition to the air preheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "secondary_air",
+      "kind": "Feed",
+      "package": "flue_gas",
+      "stage": "feed",
+      "role": "secondary air boundary condition to the air preheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aBoiler",
+      "kind": "Boiler",
+      "package": "flue_gas",
+      "stage": "boiler_furnace",
+      "role": "official fs_blr.aBoiler furnace/fireside heat release model",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aDrum",
+      "kind": "Drum",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.aDrum steam drum",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aDowncomer",
+      "kind": "Downcomer",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.aDowncomer natural-circulation downcomer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "blowdown_split",
+      "kind": "Separator",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.blowdown_split drum blowdown/downcomer splitter",
+      "constructor": {
+        "outlet_list": [
+          "FW_Downcomer",
+          "blowdown"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "ww01",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[1] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww02",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[2] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww03",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[3] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww04",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[4] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww05",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[5] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww06",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[6] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww07",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[7] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww08",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[8] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww09",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[9] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww10",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[10] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww11",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[11] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ww12",
+      "kind": "WaterwallSection",
+      "package": "water_steam",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.Waterwalls[12] waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aRoof",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_steam_path",
+      "role": "official fs_blr.aRoof roof superheater section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aPSH",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_steam_path",
+      "role": "official fs_blr.aPSH primary superheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Attemp",
+      "kind": "Attemperator",
+      "package": "water_steam",
+      "stage": "boiler_steam_path",
+      "role": "official fs_blr.Attemp spray attemperator",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aPlaten",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_steam_path",
+      "role": "official fs_blr.aPlaten platen superheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aRH1",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_reheat",
+      "role": "official fs_blr.aRH1 first reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aRH2",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_reheat",
+      "role": "official fs_blr.aRH2 second reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aECON",
+      "kind": "HeatExchanger1D",
+      "package": "water_steam",
+      "stage": "boiler_feedwater",
+      "role": "official fs_blr.aECON economizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aPipe",
+      "kind": "Pipe",
+      "package": "water_steam",
+      "stage": "boiler_feedwater",
+      "role": "official fs_blr.aPipe economizer-to-drum pipe",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aAPH",
+      "kind": "AirPreheater",
+      "package": "flue_gas",
+      "stage": "boiler_air_gas",
+      "role": "official fs_blr.aAPH three-stream air preheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Mixer_PA",
+      "kind": "Mixer",
+      "package": "flue_gas",
+      "stage": "boiler_air_gas",
+      "role": "official fs_blr.Mixer_PA primary-air mixer",
+      "constructor": {
+        "inlet_list": [
+          "PA_inlet"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "makeup_water",
+      "kind": "Feed",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "makeup water boundary condition to the condenser hotwell",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turb",
+      "kind": "SteamTurbine",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.turb multistage turbine train",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser",
+      "kind": "Condenser",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.condenser main condenser",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "aux_condenser",
+      "kind": "Condenser",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.aux_condenser BFP turbine auxiliary condenser",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser_hotwell",
+      "kind": "Mixer",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.condenser_hotwell condensate/makeup mixer",
+      "constructor": {
+        "inlet_list": [
+          "main_condensate",
+          "aux_condensate",
+          "makeup"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hotwell_tank",
+      "kind": "Tank",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.hotwell_tank",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cond_pump",
+      "kind": "Pump",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.cond_pump condensate pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cond_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.cond_valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "makeup_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.makeup_valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1",
+      "kind": "FeedWaterHeater",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh1 low-pressure feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1_drain_pump",
+      "kind": "Pump",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh1_drain_pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1_drain_return",
+      "kind": "Mixer",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh1_drain_return",
+      "constructor": {
+        "inlet_list": [
+          "feedwater",
+          "fwh1_drain"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "fwh2",
+      "kind": "FeedWaterHeater",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh2 low-pressure feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh2_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh2_valve drain valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh3",
+      "kind": "FeedWaterHeater",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh3 low-pressure feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh3_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh3_valve drain valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh4_deair",
+      "kind": "Deaerator",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh4_deair deaerating feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "da_tank",
+      "kind": "Tank",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.da_tank deaerator tank",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "booster",
+      "kind": "Pump",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.booster pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp",
+      "kind": "Pump",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.bfp boiler feed pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "split_attemp",
+      "kind": "Splitter",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.split_attemp feedwater/spray splitter",
+      "constructor": {
+        "outlet_list": [
+          "Spray",
+          "FeedWater"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "spray_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.spray_valve attemperator spray valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh5",
+      "kind": "FeedWaterHeater",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh5 high-pressure feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh5_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh5_valve drain valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh6",
+      "kind": "FeedWaterHeater",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh6 high-pressure feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh6_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "feedwater_heating",
+      "role": "official fs_stc.fwh6_valve drain valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp_turb_valve",
+      "kind": "Valve",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.bfp_turb_valve",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp_turb",
+      "kind": "SteamTurbine",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.bfp_turb boiler-feed-pump turbine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp_turb_os",
+      "kind": "SteamTurbine",
+      "package": "water_steam",
+      "stage": "steam_cycle",
+      "role": "official fs_stc.bfp_turb_os outlet stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "electric_power",
+      "kind": "Product",
+      "package": "power",
+      "stage": "product",
+      "role": "gross electric power output from the steam cycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stack_gas",
+      "kind": "Product",
+      "package": "flue_gas",
+      "stage": "product",
+      "role": "boiler flue gas/stack gas outlet surrogate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "coal_to_boiler",
+      "source": "coal_feed.outlet",
+      "destination": "aBoiler.coal_inlet",
+      "stage": "boiler_air_gas",
+      "role": "coal boundary condition to boiler furnace",
+      "tear_candidate": false
+    },
+    {
+      "id": "primary_air_to_aph",
+      "source": "primary_air.outlet",
+      "destination": "aAPH.side_2_inlet",
+      "stage": "boiler_air_gas",
+      "role": "primary air boundary condition to air preheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "secondary_air_to_aph",
+      "source": "secondary_air.outlet",
+      "destination": "aAPH.side_3_inlet",
+      "stage": "boiler_air_gas",
+      "role": "secondary air boundary condition to air preheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "B001",
+      "source": "aECON.tube_outlet",
+      "destination": "aPipe.inlet",
+      "stage": "boiler_feedwater",
+      "role": "official B001 economizer outlet to pipe",
+      "tear_candidate": false
+    },
+    {
+      "id": "B001b",
+      "source": "aPipe.outlet",
+      "destination": "aDrum.feedwater_inlet",
+      "stage": "boiler_feedwater",
+      "role": "official B001b pipe outlet to drum feedwater inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "B011",
+      "source": "aDrum.liquid_outlet",
+      "destination": "blowdown_split.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official B011 drum liquid to blowdown splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "B011b",
+      "source": "blowdown_split.FW_Downcomer",
+      "destination": "aDowncomer.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official B011b downcomer branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "B007",
+      "source": "aDowncomer.outlet",
+      "destination": "ww01.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official B007 downcomer outlet to first waterwall",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW01",
+      "source": "ww01.outlet",
+      "destination": "ww02.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[1]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW02",
+      "source": "ww02.outlet",
+      "destination": "ww03.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[2]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW03",
+      "source": "ww03.outlet",
+      "destination": "ww04.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[3]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW04",
+      "source": "ww04.outlet",
+      "destination": "ww05.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[4]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW05",
+      "source": "ww05.outlet",
+      "destination": "ww06.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[5]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW06",
+      "source": "ww06.outlet",
+      "destination": "ww07.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[6]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW07",
+      "source": "ww07.outlet",
+      "destination": "ww08.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[7]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW08",
+      "source": "ww08.outlet",
+      "destination": "ww09.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[8]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW09",
+      "source": "ww09.outlet",
+      "destination": "ww10.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[9]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW10",
+      "source": "ww10.outlet",
+      "destination": "ww11.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[10]",
+      "tear_candidate": false
+    },
+    {
+      "id": "WW11",
+      "source": "ww11.outlet",
+      "destination": "ww12.inlet",
+      "stage": "boiler_recirculation",
+      "role": "official fs_blr.ww_arcs[11]",
+      "tear_candidate": false
+    },
+    {
+      "id": "B008",
+      "source": "ww12.outlet",
+      "destination": "aDrum.water_steam_inlet",
+      "stage": "boiler_recirculation",
+      "role": "official B008 final waterwall outlet to drum",
+      "tear_candidate": false
+    },
+    {
+      "id": "B002",
+      "source": "aDrum.steam_outlet",
+      "destination": "aRoof.inlet",
+      "stage": "boiler_steam_path",
+      "role": "official B002 drum steam to roof section",
+      "tear_candidate": false
+    },
+    {
+      "id": "B003",
+      "source": "aRoof.outlet",
+      "destination": "aPSH.tube_inlet",
+      "stage": "boiler_steam_path",
+      "role": "official B003 roof outlet to primary superheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "B004",
+      "source": "aPSH.tube_outlet",
+      "destination": "Attemp.Steam_inlet",
+      "stage": "boiler_steam_path",
+      "role": "official B004 primary superheater to attemperator steam inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "B005",
+      "source": "Attemp.outlet",
+      "destination": "aPlaten.inlet",
+      "stage": "boiler_steam_path",
+      "role": "official B005 attemperator outlet to platen superheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "B012",
+      "source": "aRH1.tube_outlet",
+      "destination": "aRH2.tube_inlet",
+      "stage": "boiler_reheat",
+      "role": "official B012 first reheater to second reheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "PA04",
+      "source": "aAPH.side_2_outlet",
+      "destination": "Mixer_PA.PA_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official PA04 preheated primary air to primary-air mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "PA05",
+      "source": "Mixer_PA.outlet",
+      "destination": "aBoiler.primary_air_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official PA05 primary-air mixer to boiler",
+      "tear_candidate": false
+    },
+    {
+      "id": "SA03",
+      "source": "aAPH.side_3_outlet",
+      "destination": "aBoiler.secondary_air_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official SA03 preheated secondary air to boiler",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG01",
+      "source": "aBoiler.flue_gas_outlet",
+      "destination": "aRH2.shell_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official FG01 boiler flue gas to RH2 shell",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG02",
+      "source": "aRH2.shell_outlet",
+      "destination": "aRH1.shell_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official FG02 RH2 shell outlet to RH1 shell inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG03",
+      "source": "aRH1.shell_outlet",
+      "destination": "aPSH.shell_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official FG03 RH1 shell outlet to PSH shell inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG04",
+      "source": "aPSH.shell_outlet",
+      "destination": "aECON.shell_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official FG04 PSH shell outlet to economizer shell inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG05",
+      "source": "aECON.shell_outlet",
+      "destination": "aAPH.side_1_inlet",
+      "stage": "boiler_air_gas",
+      "role": "official FG05 economizer shell outlet to air preheater gas inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "FG06",
+      "source": "aAPH.side_1_outlet",
+      "destination": "stack_gas.inlet",
+      "stage": "product",
+      "role": "official PFD stack gas outlet after air preheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "makeup_to_valve",
+      "source": "makeup_water.outlet",
+      "destination": "makeup_valve.inlet",
+      "stage": "steam_cycle",
+      "role": "makeup water boundary condition to makeup valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S017",
+      "source": "turb.outlet_stage.outlet",
+      "destination": "condenser.hot_side_inlet",
+      "stage": "steam_cycle",
+      "role": "official S017 turbine exhaust to condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "S053",
+      "source": "bfp_turb.outlet",
+      "destination": "bfp_turb_os.inlet",
+      "stage": "steam_cycle",
+      "role": "official S053 BFP turbine to outlet stage",
+      "tear_candidate": false
+    },
+    {
+      "id": "S046",
+      "source": "bfp_turb_os.outlet",
+      "destination": "aux_condenser.hot_side_inlet",
+      "stage": "steam_cycle",
+      "role": "official S046 BFP turbine outlet stage to auxiliary condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "S022",
+      "source": "condenser.hot_side_outlet",
+      "destination": "condenser_hotwell.main_condensate",
+      "stage": "steam_cycle",
+      "role": "official S022 condenser outlet to hotwell mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "S047",
+      "source": "aux_condenser.hot_side_outlet",
+      "destination": "condenser_hotwell.aux_condensate",
+      "stage": "steam_cycle",
+      "role": "official S047 auxiliary condenser outlet to hotwell mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "S050b",
+      "source": "makeup_valve.outlet",
+      "destination": "condenser_hotwell.makeup",
+      "stage": "steam_cycle",
+      "role": "official S050b makeup valve outlet to hotwell mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "S031a",
+      "source": "fwh1.condense.cold_side_outlet",
+      "destination": "fwh1_drain_return.feedwater",
+      "stage": "feedwater_heating",
+      "role": "official S031a FWH1 cold outlet to drain return",
+      "tear_candidate": false
+    },
+    {
+      "id": "S030",
+      "source": "fwh1.condense.hot_side_outlet",
+      "destination": "fwh1_drain_pump.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S030 FWH1 drain to drain pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "S045",
+      "source": "fwh1_drain_pump.outlet",
+      "destination": "fwh1_drain_return.fwh1_drain",
+      "stage": "feedwater_heating",
+      "role": "official S045 FWH1 drain pump to drain return",
+      "tear_candidate": false
+    },
+    {
+      "id": "S024",
+      "source": "condenser_hotwell.outlet",
+      "destination": "hotwell_tank.inlet",
+      "stage": "steam_cycle",
+      "role": "official S024 hotwell mixer to hotwell tank",
+      "tear_candidate": false
+    },
+    {
+      "id": "S025",
+      "source": "hotwell_tank.outlet",
+      "destination": "cond_pump.inlet",
+      "stage": "steam_cycle",
+      "role": "official S025 hotwell tank to condensate pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "S016",
+      "source": "turb.lp_split[5].outlet_2",
+      "destination": "fwh1.drain_mix.steam",
+      "stage": "feedwater_heating",
+      "role": "official S016 LP extraction to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "S032",
+      "source": "fwh2.cooling.hot_side_outlet",
+      "destination": "fwh2_valve.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S032 FWH2 drain to valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S032b",
+      "source": "fwh2_valve.outlet",
+      "destination": "fwh1.drain_mix.drain",
+      "stage": "feedwater_heating",
+      "role": "official S032b FWH2 drain valve to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "S026",
+      "source": "cond_pump.outlet",
+      "destination": "cond_valve.inlet",
+      "stage": "steam_cycle",
+      "role": "official S026 condensate pump to valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S029",
+      "source": "cond_valve.outlet",
+      "destination": "fwh1.condense.cold_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S029 condensate valve to FWH1 cold inlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "S031b",
+      "source": "fwh1_drain_return.outlet",
+      "destination": "fwh2.cooling.cold_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S031b FWH1 drain return to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "S015",
+      "source": "turb.lp_split[4].outlet_2",
+      "destination": "fwh2.drain_mix.steam",
+      "stage": "feedwater_heating",
+      "role": "official S015 LP extraction to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "S034",
+      "source": "fwh3.cooling.hot_side_outlet",
+      "destination": "fwh3_valve.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S034 FWH3 drain to valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S034b",
+      "source": "fwh3_valve.outlet",
+      "destination": "fwh2.drain_mix.drain",
+      "stage": "feedwater_heating",
+      "role": "official S034b FWH3 drain valve to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "S033",
+      "source": "fwh2.condense.cold_side_outlet",
+      "destination": "fwh3.cooling.cold_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S033 FWH2 cold outlet to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "S014",
+      "source": "turb.lp_split[2].outlet_2",
+      "destination": "fwh3.condense.hot_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S014 LP extraction to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "S035",
+      "source": "fwh3.condense.cold_side_outlet",
+      "destination": "fwh4_deair.feedwater",
+      "stage": "feedwater_heating",
+      "role": "official S035 FWH3 outlet to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "S043",
+      "source": "turb.ip_split[9].outlet_2",
+      "destination": "fwh4_deair.steam",
+      "stage": "feedwater_heating",
+      "role": "official S043 IP extraction to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "S011",
+      "source": "turb.ip_split[9].outlet_3",
+      "destination": "bfp_turb_valve.inlet",
+      "stage": "steam_cycle",
+      "role": "official S011 IP extraction to BFP turbine valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S052",
+      "source": "bfp_turb_valve.outlet",
+      "destination": "bfp_turb.inlet",
+      "stage": "steam_cycle",
+      "role": "official S052 BFP turbine valve to BFP turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "S036",
+      "source": "fwh4_deair.outlet",
+      "destination": "da_tank.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S036 deaerator outlet to tank",
+      "tear_candidate": false
+    },
+    {
+      "id": "S036b",
+      "source": "da_tank.outlet",
+      "destination": "booster.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S036b deaerator tank to booster pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "S038",
+      "source": "booster.outlet",
+      "destination": "bfp.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S038 booster outlet to BFP",
+      "tear_candidate": false
+    },
+    {
+      "id": "S037",
+      "source": "bfp.outlet",
+      "destination": "split_attemp.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S037 BFP outlet to feedwater/spray splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "S054",
+      "source": "split_attemp.Spray",
+      "destination": "spray_valve.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S054 spray branch to spray valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S039",
+      "source": "fwh5.cooling.hot_side_outlet",
+      "destination": "fwh5_valve.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S039 FWH5 drain to valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S039b",
+      "source": "fwh5_valve.outlet",
+      "destination": "fwh4_deair.drain",
+      "stage": "feedwater_heating",
+      "role": "official S039b FWH5 drain valve to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "S051",
+      "source": "split_attemp.FeedWater",
+      "destination": "fwh5.cooling.cold_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S051 feedwater branch to FWH5",
+      "tear_candidate": false
+    },
+    {
+      "id": "S010",
+      "source": "turb.ip_split[6].outlet_2",
+      "destination": "fwh5.desuperheat.hot_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S010 IP extraction to FWH5",
+      "tear_candidate": false
+    },
+    {
+      "id": "S041",
+      "source": "fwh6.cooling.hot_side_outlet",
+      "destination": "fwh6_valve.inlet",
+      "stage": "feedwater_heating",
+      "role": "official S041 FWH6 drain to valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "S041b",
+      "source": "fwh6_valve.outlet",
+      "destination": "fwh5.drain_mix.drain",
+      "stage": "feedwater_heating",
+      "role": "official S041b FWH6 drain valve to FWH5",
+      "tear_candidate": false
+    },
+    {
+      "id": "S040",
+      "source": "fwh5.desuperheat.cold_side_outlet",
+      "destination": "fwh6.cooling.cold_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S040 FWH5 outlet to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "S006",
+      "source": "turb.hp_split[14].outlet_2",
+      "destination": "fwh6.desuperheat.hot_side_inlet",
+      "stage": "feedwater_heating",
+      "role": "official S006 HP extraction to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "S001_main_steam",
+      "source": "aPlaten.outlet",
+      "destination": "turb.inlet_split.inlet",
+      "stage": "cross_flowsheet",
+      "role": "official S001 main steam from platen superheater to turbine throttle",
+      "tear_candidate": false
+    },
+    {
+      "id": "S005_cold_reheat",
+      "source": "turb.hp_split[14].outlet_1",
+      "destination": "aRH1.tube_inlet",
+      "stage": "cross_flowsheet",
+      "role": "official S005 cold reheat steam from HP turbine split to first reheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "S009_hot_reheat",
+      "source": "aRH2.tube_outlet",
+      "destination": "turb.ip_stages[1].inlet",
+      "stage": "cross_flowsheet",
+      "role": "official S009 hot reheat steam from second reheater to IP turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "S042_feedwater",
+      "source": "fwh6.desuperheat.cold_side_outlet",
+      "destination": "aECON.tube_inlet",
+      "stage": "cross_flowsheet",
+      "role": "official S042 feedwater from FWH6 to economizer",
+      "tear_candidate": false
+    },
+    {
+      "id": "B006_spray_water",
+      "source": "spray_valve.outlet",
+      "destination": "Attemp.Water_inlet",
+      "stage": "cross_flowsheet",
+      "role": "official B006 attemperator spray water from steam cycle spray valve",
+      "tear_candidate": false
+    },
+    {
+      "id": "gross_power",
+      "source": "turb.power_output",
+      "destination": "electric_power.inlet",
+      "stage": "product",
+      "role": "gross electric power output",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "turb",
+      "variable": "power_output",
+      "value": 320.0,
+      "units": "MW",
+      "role": "steady-state power demand fixed by official example"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "turb",
+      "variable": "temperature_main_steam",
+      "value": 810.0,
+      "units": "K",
+      "role": "official main steam temperature specification"
+    },
+    {
+      "target": "turb",
+      "variable": "main_steam_pressure",
+      "value": 14.4,
+      "units": "MPa",
+      "role": "official sliding-pressure/full-load main steam pressure"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official subcritical_power_plant.main_steady_state initializes fs_blr and fs_stc, connects cross-flowsheet arcs, solves connected model, then resolves at 320 MW",
+    "solve_order": [
+      "boiler_internal_arcs",
+      "steam_cycle_internal_arcs",
+      "cross_flowsheet_arcs",
+      "connected_full_plant"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "subcritical_power_plant.py:main_steady_state",
+    "fs_main.fs_blr",
+    "fs_main.fs_stc",
+    "subcritical_boiler_flowsheet.py:set_arcs_and_constraints",
+    "steam_cycle_flowsheet.py:set_arcs_and_constraints",
+    "S001",
+    "S005",
+    "S009",
+    "S042",
+    "B006"
+  ],
+  "notes_for_agent_a": [
+    "Use the official full plant model; do not route this request to the smaller subcritical_boiler recirculation-only case or compress the full plant to fs_blr/fs_stc summary nodes."
+  ],
+  "visual_evidence": {
+    "status": "missing",
+    "reason": "no --source-flowchart was provided",
+    "blind_routing": {
+      "enabled": false,
+      "allow_legacy_lookup": false
+    },
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": true,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build IDAES topology for Official IDAES subcritical power plant coal-fired steam cycle. Original case key: blind_synthesized_subcritical_power_plant. Reference source: https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/power_generation/flowsheets/subcritical_power_plant.html.",
+      "visual_status": "missing",
+      "support_doc_ids": [
+        "idaes.flowsheet.subcritical_power_plant"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": true,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "subcritical_power_plant",
+        "qualified_templates": [
+          "subcritical_power_plant"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc",
+              "missing required support doc idaes.flowsheet.ngcc"
+            ]
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "sco2_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal sco2_surrogate",
+              "missing required support doc idaes.flowsheet.sco2_surrogate"
+            ]
+          },
+          "dispatches_usc_tes_integrated": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_integrated",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_integrated/qwen_route.dispatches_usc_tes_integrated"
+            ]
+          },
+          "dispatches_usc_tes_charge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_charge_superstructure",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_charge_superstructure/qwen_route.dispatches_usc_tes_charge_superstructure"
+            ]
+          },
+          "dispatches_usc_tes_discharge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_discharge_superstructure",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_discharge_superstructure/qwen_route.dispatches_usc_tes_discharge_superstructure"
+            ]
+          },
+          "dispatches_grid_integrated_rankine_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_grid_integrated_rankine_surrogate",
+              "missing one of required support docs family_profile.family_dispatches_grid_integrated_rankine_surrogate/qwen_route.dispatches_grid_integrated_rankine_surrogate"
+            ]
+          },
+          "fixed_bed_tsa0d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal fixed_bed_tsa0d",
+              "missing required support doc idaes.flowsheet.fixed_bed_tsa0d"
+            ]
+          },
+          "subcritical_power_plant": {
+            "qualified": true,
+            "failures": []
+          },
+          "prommis_diafiltration_byproduct_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_byproduct_recovery",
+              "missing required support doc prommis.flowsheet.diafiltration_byproduct_recovery"
+            ]
+          },
+          "prommis_diafiltration_two_salt": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_two_salt",
+              "missing required support doc prommis.flowsheet.diafiltration_two_salt"
+            ]
+          },
+          "prommis_diafiltration_cost_optimization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_cost_optimization",
+              "missing required support doc prommis.flowsheet.diafiltration_cost_optimization"
+            ]
+          },
+          "prommis_diafiltration_uq_reduced": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_reduced",
+              "missing required support doc prommis.flowsheet.diafiltration_uq_reduced"
+            ]
+          },
+          "prommis_diafiltration_uq_stage_lengths_histogram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage_lengths_histogram",
+              "missing required support doc prommis.figure.diafiltration_uq_stage_lengths_histogram"
+            ]
+          },
+          "prommis_diafiltration_uq_uncertainty_distributions": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_uncertainty_distributions",
+              "missing required support doc prommis.figure.diafiltration_uq_uncertainty_distributions"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li13_co05": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li13_co05",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li13_co05"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li15_co08": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li15_co08",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li15_co08"
+            ]
+          },
+          "prommis_diafiltration_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_pfd",
+              "missing required support doc prommis.figure.diafiltration_pfd"
+            ]
+          },
+          "prommis_nf_brine_advanced_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nf_brine_advanced_costing",
+              "missing required support doc prommis.flowsheet.nf_brine_advanced_costing"
+            ]
+          },
+          "prommis_nanofiltration_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_ui_flowsheet",
+              "missing required support doc prommis.figure.nanofiltration_ui_flowsheet"
+            ]
+          },
+          "prommis_membrane_cascade_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_membrane_cascade_flowsheet",
+              "missing required support doc prommis.flowsheet.membrane_cascade"
+            ]
+          },
+          "prommis_nanofiltration_membrane_schematic": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_membrane_schematic",
+              "missing required support doc prommis.figure.nanofiltration_membrane_schematic"
+            ]
+          },
+          "prommis_multi_component_diafiltration_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_multi_component_diafiltration_unit",
+              "missing required support doc prommis.unit.multi_component_diafiltration"
+            ]
+          },
+          "prommis_ion_exchange_multicomponent": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ion_exchange_multicomponent",
+              "missing required support doc prommis.unit.ion_exchange_multicomponent"
+            ]
+          },
+          "prommis_cmi_opt_based_precipitator": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_opt_based_precipitator",
+              "missing required support doc prommis.unit.cmi_opt_based_precipitator"
+            ]
+          },
+          "prommis_leach_train_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_train_unit",
+              "missing required support doc prommis.unit.leach_train"
+            ]
+          },
+          "prommis_leach_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_flowsheet",
+              "missing required support doc prommis.flowsheet.leach"
+            ]
+          },
+          "prommis_crusher_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_crusher_unit",
+              "missing required support doc prommis.unit.crusher"
+            ]
+          },
+          "prommis_evaporation_pond_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_evaporation_pond_unit",
+              "missing required support doc prommis.unit.evaporation_pond"
+            ]
+          },
+          "prommis_ree_oxalate_roaster": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ree_oxalate_roaster",
+              "missing required support doc prommis.unit.ree_oxalate_roaster"
+            ]
+          },
+          "prommis_superstructure_pathway_npv": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_pathway_npv",
+              "missing required support doc prommis.superstructure.pathway_npv"
+            ]
+          },
+          "prommis_superstructure_generic_mb_diagram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_generic_mb_diagram",
+              "missing required support doc prommis.figure.superstructure_generic_mb_diagram"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_flowsheet",
+              "missing required support doc prommis.flowsheet.hydrogen_decrepitation"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_furnace": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_furnace",
+              "missing required support doc prommis.unit.hydrogen_decrepitation_furnace"
+            ]
+          },
+          "prommis_solvent_extraction_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_solvent_extraction_steady",
+              "missing required support doc prommis.flowsheet.solvent_extraction_steady"
+            ]
+          },
+          "prommis_mixer_settler_ex_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_mixer_settler_ex_steady",
+              "missing required support doc prommis.flowsheet.mixer_settler_ex_steady"
+            ]
+          },
+          "prommis_diafiltration": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.diafiltration"
+            ]
+          },
+          "prommis_cmi_process": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.cmi_process"
+            ]
+          },
+          "prommis_cmi_process_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process_pfd",
+              "missing required support doc prommis.figure.cmi_process_pfd"
+            ]
+          },
+          "prommis_uky_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required signal prommis_uky_costing",
+              "missing required support doc prommis.flowsheet.uky_costing"
+            ]
+          },
+          "prommis_uky_byproduct_recovery_decision": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_byproduct_recovery_decision",
+              "missing required support doc prommis.uky.byproduct_recovery_decision"
+            ]
+          },
+          "prommis_simplified_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_simplified_uky_flowsheet",
+              "missing required support doc prommis.flowsheet.simplified_uky"
+            ]
+          },
+          "prommis_uky_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_ui_flowsheet",
+              "missing required support doc prommis.figure.uky_ui_flowsheet"
+            ]
+          },
+          "prommis_uky_tutorial_flowsheet_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_tutorial_flowsheet_pfd",
+              "missing required support doc prommis.figure.uky_tutorial_flowsheet_pfd"
+            ]
+          },
+          "prommis_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required support doc prommis.flowsheet.uky"
+            ]
+          },
+          "electronp_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electronp",
+              "missing required support doc watertap.flowsheet.electroNP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "bsm2_electronp_no_biop": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_electronp_no_biop",
+              "missing required support doc watertap.flowsheet.bsm2_electroNP_no_bioP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.2
+      }
+    }
+  }
+}

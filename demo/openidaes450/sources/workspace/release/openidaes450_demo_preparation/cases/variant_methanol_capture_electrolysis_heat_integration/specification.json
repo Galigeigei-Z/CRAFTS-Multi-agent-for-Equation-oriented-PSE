@@ -1,0 +1,100 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_methanol_capture_electrolysis_heat_integration",
+  "family": "family_methanol_capture_electrolysis",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "captured_co2_to_methanol_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "reaction_heat_to_soec_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbon_utilization",
+      "value": 0.96,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methanol_yield",
+      "value": 0.9299999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "external_soec_heat_index",
+      "value": 0.35,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fresh_water_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_product_index",
+      "value": 0.25,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FLUE.outlet",
+    "WATER.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "O2.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_methanol_co2_cofeed_water_knockout"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_methanol_co2_cofeed_water_knockout",
+    "chemical_change": "Closes carbon, hydrogen, water and heat loops between capture, electrolysis and methanol synthesis.",
+    "native_metrics": {
+      "carbon_utilization": 0.96,
+      "methanol_yield": 0.9299999999999999,
+      "external_soec_heat_index": 0.35,
+      "fresh_water_index": 0.0,
+      "oxygen_product_index": 0.25
+    }
+  }
+}

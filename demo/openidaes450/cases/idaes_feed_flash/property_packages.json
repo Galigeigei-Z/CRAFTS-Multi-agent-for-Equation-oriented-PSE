@@ -1,0 +1,30 @@
+[
+  {
+    "name": "fs.properties",
+    "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterBlock",
+    "module": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE",
+    "data_class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterData",
+    "identity_evidence": "runtime class hierarchy",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterData"
+      },
+      {
+        "class": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack.ActivityCoeffParameterData"
+      },
+      {
+        "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {},
+      "activity_coeff_model": "Ideal",
+      "state_vars": "FTPz",
+      "valid_phase": [
+        "Liq",
+        "Vap"
+      ]
+    },
+    "thermodynamic_model": "Ideal activity-coefficient model; phase/state options in configuration"
+  }
+]

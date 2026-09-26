@@ -1,0 +1,19 @@
+[
+  {
+    "name": "fs.soft",
+    "class": "idaes.core.base.process_block._ScalarChemicalSoftening",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "softening_procedure_type": "excess_lime_soda",
+      "silica_removal": true
+    }
+  }
+]

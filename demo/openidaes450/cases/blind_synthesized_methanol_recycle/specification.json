@@ -1,0 +1,159 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_methanol_recycle",
+  "family": "family_methanol_recycle",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "H2",
+      "variable": "outlet.flow_mol[0]",
+      "value": 637.2,
+      "units": "mol/s",
+      "role": "hydrogen feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.flow_mol[0]",
+      "value": 316.8,
+      "units": "mol/s",
+      "role": "carbon monoxide feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H2",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "carbon monoxide feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 5100000,
+      "units": "Pa",
+      "role": "compressor outlet pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "reactor feed preheat temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "R101",
+      "variable": "co_conversion",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "CO conversion",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "R101",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "reactor outlet temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "T101",
+      "variable": "deltaP[0]",
+      "value": -2000000,
+      "units": "Pa",
+      "role": "turbine pressure drop",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "T101",
+      "variable": "efficiency_isentropic[0]",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "turbine isentropic efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash feed cooling temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure drop",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "F101",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash outlet temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0, 'purge']",
+      "value": 0.9999,
+      "units": "dimensionless",
+      "role": "purge split fraction",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "SequentialDecomposition over methanol recycle loop",
+    "solve_order": [
+      "H2",
+      "CO",
+      "M101",
+      "M102",
+      "C101",
+      "H101",
+      "R101",
+      "T101",
+      "H102",
+      "F101",
+      "S101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

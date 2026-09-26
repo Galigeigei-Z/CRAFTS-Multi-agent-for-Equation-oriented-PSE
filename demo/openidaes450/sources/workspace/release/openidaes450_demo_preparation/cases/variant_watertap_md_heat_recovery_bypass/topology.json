@@ -1,0 +1,202 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_md_heat_recovery_bypass",
+  "family": "family_md_bypass",
+  "process_type": "Membrane Distillation Heat-Recovery Bypass",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "source_basis": [
+    "Derived from active parent watertap_membrane_distillation.",
+    "Changes the thermal path with a splitter, bypass and remixing node; the bypass binds against the brine preheat scaling-risk temperature.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "TDS",
+        "water_vapor"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_membrane_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "TDS",
+      "water_vapor"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED_LOOP",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "mixed brine loop",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "heat-recovery bypass split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "permeate-to-brine heat recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "combine heated and bypassed brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "trim to membrane hot-inlet temperature",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MD101",
+      "kind": "MembraneDistillation0D",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "water-vapor membrane separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "permeate product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BRINE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "md_bypass",
+      "role": "concentrate bleed",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED_LOOP.outlet",
+      "destination": "S101.inlet",
+      "stage": "md_bypass",
+      "role": "circulating brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "S101.recovery",
+      "destination": "HX101.cold_inlet",
+      "stage": "md_bypass",
+      "role": "heat-recovery branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S101.bypass",
+      "destination": "M101.bypass",
+      "stage": "md_bypass",
+      "role": "thermal bypass",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "HX101.cold_outlet",
+      "destination": "M101.heated",
+      "stage": "md_bypass",
+      "role": "preheated brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "M101.outlet",
+      "destination": "H101.inlet",
+      "stage": "md_bypass",
+      "role": "mixed preheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "H101.outlet",
+      "destination": "MD101.hot_inlet",
+      "stage": "md_bypass",
+      "role": "trim-heated brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "MD101.permeate",
+      "destination": "PRODUCT.inlet",
+      "stage": "md_bypass",
+      "role": "distillate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "MD101.concentrate",
+      "destination": "BRINE.inlet",
+      "stage": "md_bypass",
+      "role": "concentrate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED_LOOP.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "BRINE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_membrane_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_membrane_distillation",
+    "chemical_change": "Changes the thermal path with a splitter, bypass and remixing node; the bypass binds against the brine preheat scaling-risk temperature.",
+    "native_metrics": {
+      "mixed_preheat_temperature_K": 343.125751217501,
+      "heater_duty_kW": 675.6260114010557,
+      "recovered_heat_kW": 1753.7067212816878,
+      "water_recovery": 0.5
+    }
+  }
+}

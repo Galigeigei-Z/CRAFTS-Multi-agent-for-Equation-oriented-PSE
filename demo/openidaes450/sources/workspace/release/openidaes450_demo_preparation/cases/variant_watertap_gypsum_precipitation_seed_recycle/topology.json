@@ -1,0 +1,190 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_gypsum_precipitation_seed_recycle",
+  "family": "family_watertap_gypsum_precipitation_seed_recycle",
+  "process_type": "Gypsum Precipitation with Seed Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_two_stage_crystallization.",
+    "Changes the solid product and precipitation chemistry from NaCl to CaSO4 dihydrate.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Ca++",
+        "SO4--",
+        "CaSO4_2H2O",
+        "Cl-"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_two_stage_crystallization"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Ca++",
+      "SO4--",
+      "CaSO4_2H2O",
+      "Cl-"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "supersaturated or reactive liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "combine feed and seed recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CR101",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "controlled nucleation and crystal growth",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF101",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "separate crystals and mother liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "mother-liquor recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CRYSTAL",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "washed crystal product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "impurity-controlled liquor purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.fresh",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "fresh liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "CR101.inlet",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "seeded crystallizer feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "CR101.slurry",
+      "destination": "CF101.inlet",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "crystal slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CF101.solids",
+      "destination": "CRYSTAL.inlet",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "crystal product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CF101.liquid",
+      "destination": "S101.inlet",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "seed and mother-liquor recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "watertap_gypsum_precipitation_seed_recycle",
+      "role": "impurity purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CRYSTAL.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_two_stage_crystallization"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_two_stage_crystallization",
+    "chemical_change": "Changes the solid product and precipitation chemistry from NaCl to CaSO4 dihydrate.",
+    "native_metrics": {
+      "crystal_recovery": 0.8535,
+      "crystal_purity": 0.9825,
+      "mother_liquor_impurity_fraction": 0.026250000000000002,
+      "crystallization_duty_index": 0.385,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

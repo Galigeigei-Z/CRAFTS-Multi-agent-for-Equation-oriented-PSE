@@ -1,0 +1,223 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_pz_solvent_reclaimer_degradation_purge",
+  "family": "family_pz_reclaimer",
+  "process_type": "PZ Capture Solvent Reclaimer with Degradation Purge",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_pz_afs_carbon_capture.",
+    "Adds thermal/ionic degradation removal and purified-solvent recycle to the capture loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "piperazine",
+        "heat_stable_salt",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_pz_afs_carbon_capture"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "piperazine",
+      "heat_stable_salt",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FLUE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "flue gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "CO2 capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRIP",
+      "kind": "Stripper",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "PZ regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "reclaimer slipstream",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RECL",
+      "kind": "Reclaimer",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "remove heat-stable salts",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PZ",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "PZ makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "solvent recycle/makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "captured CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WASTE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pz_reclaimer",
+      "role": "degradation purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FLUE.outlet",
+      "destination": "ABS.gas",
+      "stage": "pz_reclaimer",
+      "role": "flue gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ABS.rich",
+      "destination": "STRIP.feed",
+      "stage": "pz_reclaimer",
+      "role": "rich solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "STRIP.lean",
+      "destination": "S1.inlet",
+      "stage": "pz_reclaimer",
+      "role": "lean solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S1.reclaim",
+      "destination": "RECL.inlet",
+      "stage": "pz_reclaimer",
+      "role": "reclaimer slipstream",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RECL.clean",
+      "destination": "M1.recovered",
+      "stage": "pz_reclaimer",
+      "role": "clean PZ",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "RECL.waste",
+      "destination": "WASTE.inlet",
+      "stage": "pz_reclaimer",
+      "role": "heat-stable salts",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "PZ.outlet",
+      "destination": "M1.makeup",
+      "stage": "pz_reclaimer",
+      "role": "PZ makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "M1.outlet",
+      "destination": "ABS.solvent",
+      "stage": "pz_reclaimer",
+      "role": "solvent recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "STRIP.co2",
+      "destination": "CO2.inlet",
+      "stage": "pz_reclaimer",
+      "role": "CO2",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FLUE.outlet",
+    "PZ.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO2.inlet",
+    "WASTE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture",
+    "chemical_change": "Adds thermal/ionic degradation removal and purified-solvent recycle to the capture loop.",
+    "native_metrics": {
+      "heat_stable_salt_fraction": 0.0188,
+      "co2_capture": 0.962,
+      "corrosion_index": 0.007520000000000001,
+      "pz_loss_index": 0.017,
+      "reclaimer_duty_index": 0.45
+    }
+  }
+}

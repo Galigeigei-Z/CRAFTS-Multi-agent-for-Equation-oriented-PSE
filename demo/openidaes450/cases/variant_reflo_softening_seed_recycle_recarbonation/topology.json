@@ -1,0 +1,245 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_reflo_softening_seed_recycle_recarbonation",
+  "family": "family_softening_seed",
+  "process_type": "Chemical Softening with Sludge Seed Recycle and Recarbonation",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "source_basis": [
+    "Derived from active parent reflo_chemical_softening.",
+    "Adds a solids recycle path and recarbonation chemistry, coupling nucleation, lime use, sludge inventory and finished-water stability.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "Ca2+",
+        "carbonate",
+        "CaCO3",
+        "lime",
+        "CO2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "reflo_chemical_softening"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "Ca2+",
+      "carbonate",
+      "CaCO3",
+      "lime",
+      "CO2"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "hard water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LIME",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "lime reagent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "feed, lime and seed sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "SofteningReactor",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "carbonate precipitation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CL101",
+      "kind": "Clarifier",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "settled CaCO3 sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "seed recycle and waste sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "recarbonation gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R201",
+      "kind": "RecarbonationBasin",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "stabilize alkalinity and pH",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "softened stable water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SLUDGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "softening_seed",
+      "role": "waste sludge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.water",
+      "stage": "softening_seed",
+      "role": "hard water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "LIME.outlet",
+      "destination": "M101.lime",
+      "stage": "softening_seed",
+      "role": "lime",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "R101.inlet",
+      "stage": "softening_seed",
+      "role": "softening feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "R101.slurry",
+      "destination": "CL101.inlet",
+      "stage": "softening_seed",
+      "role": "precipitated slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CL101.sludge",
+      "destination": "S101.inlet",
+      "stage": "softening_seed",
+      "role": "CaCO3 sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.seed",
+      "destination": "M101.seed",
+      "stage": "softening_seed",
+      "role": "seed recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.waste",
+      "destination": "SLUDGE.inlet",
+      "stage": "softening_seed",
+      "role": "waste sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CL101.overflow",
+      "destination": "R201.water",
+      "stage": "softening_seed",
+      "role": "softened water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "CO2.outlet",
+      "destination": "R201.co2",
+      "stage": "softening_seed",
+      "role": "recarbonation CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "R201.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "softening_seed",
+      "role": "stable product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet",
+    "LIME.outlet",
+    "CO2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "SLUDGE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_chemical_softening"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_chemical_softening",
+    "chemical_change": "Adds a solids recycle path and recarbonation chemistry, coupling nucleation, lime use, sludge inventory and finished-water stability.",
+    "native_metrics": {
+      "calcium_removal_fraction": 0.9400000000000001,
+      "lime_kg_s": 0.00108,
+      "precipitate_kg_s": 0.0018800000000000002,
+      "seed_solids_kg_s": 0.005381818181818182,
+      "recarbonation_co2_kg_s": 0.00012319999999999996
+    }
+  }
+}

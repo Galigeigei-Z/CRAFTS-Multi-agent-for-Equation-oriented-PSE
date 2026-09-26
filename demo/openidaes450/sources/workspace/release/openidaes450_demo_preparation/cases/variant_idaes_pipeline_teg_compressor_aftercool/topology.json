@@ -1,0 +1,180 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_pipeline_teg_compressor_aftercool",
+  "family": "family_idaes_pipeline_teg_compressor_aftercool",
+  "process_type": "Pipeline Compression with TEG Drying and Aftercooling",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent idaes_natural_gas_pipeline_network.",
+    "Adds water and sulfur cleanup around a pipeline compressor station.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "CO2",
+        "H2O",
+        "H2S"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_natural_gas_pipeline_network"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "CO2",
+      "H2O",
+      "H2S"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "raw process gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "gas compression",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E101",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "aftercooling and liquid dropout",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "G101",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "reactive trace-contaminant removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Membrane1D",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "bulk gas separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "pipeline-quality gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RECOVERED",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "recovered carbon or sulfur stream",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "C101.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "raw gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "C101.outlet",
+      "destination": "E101.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "compressed hot gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "E101.outlet",
+      "destination": "G101.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "cooled gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "G101.outlet",
+      "destination": "M101.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "guarded gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "M101.retentate",
+      "destination": "PRODUCT.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "clean product gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "M101.permeate",
+      "destination": "RECOVERED.inlet",
+      "stage": "idaes_pipeline_teg_compressor_aftercool",
+      "role": "recovered contaminant stream",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "RECOVERED.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_natural_gas_pipeline_network"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_natural_gas_pipeline_network",
+    "chemical_change": "Adds water and sulfur cleanup around a pipeline compressor station.",
+    "native_metrics": {
+      "trace_contaminant_removal": 0.931,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.003599999999999997,
+      "pressure_loss_index": 0.15100000000000002,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

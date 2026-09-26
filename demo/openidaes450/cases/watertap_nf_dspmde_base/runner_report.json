@@ -1,0 +1,171 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_nf_dspmde_base",
+  "official_reference_url": "local://watertap/flowsheets/nf_dspmde/nf",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "nf_base_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "nf_base_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "nf_base_product_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "nf_base_product_hardness_available",
+      "pass": true
+    },
+    {
+      "name": "nf_base_streams_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "feed_flow_m3_s": 0.001,
+  "product_flow_m3_s": 0.00010507677030855102,
+  "disposal_flow_m3_s": 0.0008983175265503207,
+  "feed_total_hardness_mg_l_as_caco3": 1000.0,
+  "product_total_hardness_mg_l_as_caco3": 373.73496598785573,
+  "disposal_total_hardness_mg_l_as_caco3": 1000.0,
+  "nf_area_m2": 50.0,
+  "nf_recovery_vol_liq": 0.10472131507772574,
+  "nf_feed_pressure_pa": 300000.0,
+  "levelized_cost_of_water": 1.0737805604073212,
+  "specific_energy_consumption": 0.7026586065952158,
+  "total_capital_cost": 2514.2895534918844,
+  "total_operating_cost": 2953.133420673385,
+  "stream_values": {
+    "feed_to_nfUnit_feed": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 55.55555553534522,
+        "Liq/Ca_2+": 0.006471640512758556,
+        "Liq/SO4_2-": 0.010566726478378754,
+        "Liq/HCO3_-": 0.006330945561304259,
+        "Liq/Na_+": 0.032238617633912295,
+        "Liq/Cl_-": 0.025540554454789026,
+        "Liq/K_+": 0.00039258115483566645,
+        "Liq/Mg_2+": 0.003715237997830613
+      },
+      "flow_mol": 55.640811839139026,
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.NF.feed.inlet"
+    },
+    "nfUnit_retentate_to_disposal": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 49.727419359577375,
+        "Liq/Ca_2+": 0.006231809921107208,
+        "Liq/SO4_2-": 0.010565715835829392,
+        "Liq/HCO3_-": 0.005857182581030491,
+        "Liq/Na_+": 0.03024117082408979,
+        "Liq/Cl_-": 0.023210897605998263,
+        "Liq/K_+": 0.0003693221790420125,
+        "Liq/Mg_2+": 0.0035627009252084145
+      },
+      "flow_mol": 49.80745815944968,
+      "temperature": 293.15,
+      "pressure": 300000.0,
+      "source_port": "fs.NF.retentate.outlet",
+      "destination_port": "fs.disposal.inlet"
+    },
+    "nfUnit_product_to_product": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 5.828136175767839,
+        "Liq/Ca_2+": 0.00023983059165134807,
+        "Liq/SO4_2-": 1.010642549361504e-06,
+        "Liq/HCO3_-": 0.00047376298027376805,
+        "Liq/Na_+": 0.0019974468098225046,
+        "Liq/Cl_-": 0.002329656848790761,
+        "Liq/K_+": 2.3258975793653985e-05,
+        "Liq/Mg_2+": 0.00015253707262219857
+      },
+      "flow_mol": 5.833353679689342,
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.NF.product.outlet",
+      "destination_port": "fs.product.inlet"
+    },
+    "feed_to_pump": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 55.55555553534522,
+        "Liq/Ca_2+": 0.006471640512758556,
+        "Liq/SO4_2-": 0.010566726478378754,
+        "Liq/HCO3_-": 0.006330945561304259,
+        "Liq/Na_+": 0.032238617633912295,
+        "Liq/Cl_-": 0.025540554454789026,
+        "Liq/K_+": 0.00039258115483566645,
+        "Liq/Mg_2+": 0.003715237997830613
+      },
+      "flow_mol": 55.640811839139026,
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.NF.feed.outlet",
+      "destination_port": "fs.NF.pump.inlet"
+    },
+    "pump_to_nf": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 55.55555553534522,
+        "Liq/Ca_2+": 0.006471640512758556,
+        "Liq/SO4_2-": 0.010566726478378754,
+        "Liq/HCO3_-": 0.006330945561304259,
+        "Liq/Na_+": 0.032238617633912295,
+        "Liq/Cl_-": 0.025540554454789026,
+        "Liq/K_+": 0.00039258115483566645,
+        "Liq/Mg_2+": 0.003715237997830613
+      },
+      "flow_mol": 55.640811839139026,
+      "temperature": 293.15,
+      "pressure": 300000.0,
+      "source_port": "fs.NF.pump.outlet",
+      "destination_port": "fs.NF.nfUnit.inlet"
+    },
+    "nf_to_product": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 5.828136175767839,
+        "Liq/Ca_2+": 0.00023983059165134807,
+        "Liq/SO4_2-": 1.010642549361504e-06,
+        "Liq/HCO3_-": 0.00047376298027376805,
+        "Liq/Na_+": 0.0019974468098225046,
+        "Liq/Cl_-": 0.002329656848790761,
+        "Liq/K_+": 2.3258975793653985e-05,
+        "Liq/Mg_2+": 0.00015253707262219857
+      },
+      "flow_mol": 5.833353679689342,
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.NF.nfUnit.permeate",
+      "destination_port": "fs.NF.product.inlet"
+    },
+    "nf_to_retentate": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 49.727419359577375,
+        "Liq/Ca_2+": 0.006231809921107208,
+        "Liq/SO4_2-": 0.010565715835829392,
+        "Liq/HCO3_-": 0.005857182581030491,
+        "Liq/Na_+": 0.03024117082408979,
+        "Liq/Cl_-": 0.023210897605998263,
+        "Liq/K_+": 0.0003693221790420125,
+        "Liq/Mg_2+": 0.0035627009252084145
+      },
+      "flow_mol": 49.80745815944968,
+      "temperature": 293.15,
+      "pressure": 300000.0,
+      "source_port": "fs.NF.nfUnit.retentate",
+      "destination_port": "fs.NF.retentate.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.nf_dspmde.nf",
+    "configuration": "base DSPM-DE nanofiltration without bypass splitter or product mixer",
+    "stdout_tail": "('Liq', 'H2O') flow_mol_phase_comp scaling factor = 0.1\n('Liq', 'Ca_2+') flow_mol_phase_comp scaling factor = 1000\n('Liq', 'SO4_2-') flow_mol_phase_comp scaling factor = 100\n('Liq', 'HCO3_-') flow_mol_phase_comp scaling factor = 1000\n('Liq', 'Na_+') flow_mol_phase_comp scaling factor = 100\n('Liq', 'Cl_-') flow_mol_phase_comp scaling factor = 100\n('Liq', 'K_+') flow_mol_phase_comp scaling factor = 10000\n('Liq', 'Mg_2+') flow_mol_phase_comp scaling factor = 1000\nCl_- adjusted: fs.feed.properties[0.0].flow_mol_phase_comp['Liq',Cl_-] was adjusted from 0.024940860157116954 and fixed to 0.025540554454789026. Electroneutrality satisfied for fs.feed.properties[0.0]. Balance Result = -2.6645352591003757e-15\ninitalized, DOFs: 0\nSolved box problem\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

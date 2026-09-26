@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_safety_operability_extension_solve",
+  "case_family": "boiler_startup_transition",
+  "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "biomass_transition_fraction": 1.0,
+    "startup_fgr_fraction": 1.0
+  },
+  "metrics": {
+    "flame_stability": 1.0099999999999998,
+    "co_index": 0.008,
+    "nox_index": 0.025,
+    "steam_temperature_K": 720.0
+  },
+  "search_results": [
+    {
+      "flame_stability": 0.58,
+      "co_index": 0.055,
+      "nox_index": 0.2,
+      "steam_temperature_K": 650.0,
+      "objective": 0.305,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.586,
+      "co_index": 0.0554,
+      "nox_index": 0.19,
+      "steam_temperature_K": 647.5,
+      "objective": 0.2954,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.592,
+      "co_index": 0.0558,
+      "nox_index": 0.18000000000000002,
+      "steam_temperature_K": 645.0,
+      "objective": 0.2858,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.598,
+      "co_index": 0.0562,
+      "nox_index": 0.17,
+      "steam_temperature_K": 642.5,
+      "objective": 0.2762,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.604,
+      "co_index": 0.0566,
+      "nox_index": 0.16000000000000003,
+      "steam_temperature_K": 640.0,
+      "objective": 0.2666,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.61,
+      "co_index": 0.057,
+      "nox_index": 0.15000000000000002,
+      "steam_temperature_K": 637.5,
+      "objective": 0.257,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.616,
+      "co_index": 0.0574,
+      "nox_index": 0.13999999999999999,
+      "steam_temperature_K": 635.0,
+      "objective": 0.2474,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.622,
+      "co_index": 0.057800000000000004,
+      "nox_index": 0.12999999999999998,
+      "steam_temperature_K": 632.5,
+      "objective": 0.23779999999999996,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.628,
+      "co_index": 0.0582,
+      "nox_index": 0.12,
+      "steam_temperature_K": 630.0,
+      "objective": 0.22820000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.634,
+      "co_index": 0.0586,
+      "nox_index": 0.11000000000000001,
+      "steam_temperature_K": 627.5,
+      "objective": 0.21860000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.6399999999999999,
+      "co_index": 0.059,
+      "nox_index": 0.1,
+      "steam_temperature_K": 625.0,
+      "objective": 0.20900000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.6459999999999999,
+      "co_index": 0.0594,
+      "nox_index": 0.09,
+      "steam_temperature_K": 622.5,
+      "objective": 0.19940000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.6519999999999999,
+      "co_index": 0.0598,
+      "nox_index": 0.07999999999999999,
+      "steam_temperature_K": 620.0,
+      "objective": 0.18979999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.6579999999999999,
+      "co_index": 0.060200000000000004,
+      "nox_index": 0.06999999999999999,
+      "steam_temperature_K": 617.5,
+      "objective": 0.18019999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.6639999999999999,
+      "co_index": 0.0606,
+      "nox_index": 0.05999999999999999,
+      "steam_temperature_K": 615.0,
+      "objective": 0.17059999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.6699999999999999,
+      "co_index": 0.061,
+      "nox_index": 0.05,
+      "steam_temperature_K": 612.5,
+      "objective": 0.161,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.6759999999999999,
+      "co_index": 0.0614,
+      "nox_index": 0.039999999999999994,
+      "steam_temperature_K": 610.0,
+      "objective": 0.15139999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.6819999999999999,
+      "co_index": 0.0618,
+      "nox_index": 0.029999999999999985,
+      "steam_temperature_K": 607.5,
+      "objective": 0.14179999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.688,
+      "co_index": 0.0622,
+      "nox_index": 0.019999999999999997,
+      "steam_temperature_K": 605.0,
+      "objective": 0.13219999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.694,
+      "co_index": 0.0626,
+      "nox_index": 0.009999999999999988,
+      "steam_temperature_K": 602.5,
+      "objective": 0.1226,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7,
+      "co_index": 0.063,
+      "nox_index": 0.0,
+      "steam_temperature_K": 600.0,
+      "objective": 0.113,
+      "feasible": false,
+      "biomass_transition_fraction": 0.0,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.5954999999999999,
+      "co_index": 0.05225,
+      "nox_index": 0.20125,
+      "steam_temperature_K": 656.0,
+      "objective": 0.301,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6014999999999999,
+      "co_index": 0.052649999999999995,
+      "nox_index": 0.19125,
+      "steam_temperature_K": 653.5,
+      "objective": 0.2914,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.6074999999999999,
+      "co_index": 0.05305,
+      "nox_index": 0.18125000000000002,
+      "steam_temperature_K": 651.0,
+      "objective": 0.2818,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.6134999999999999,
+      "co_index": 0.05345,
+      "nox_index": 0.17125,
+      "steam_temperature_K": 648.5,
+      "objective": 0.2722,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.6194999999999999,
+      "co_index": 0.053849999999999995,
+      "nox_index": 0.16125000000000003,
+      "steam_temperature_K": 646.0,
+      "objective": 0.2626,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.6255,
+      "co_index": 0.05425,
+      "nox_index": 0.15125000000000002,
+      "steam_temperature_K": 643.5,
+      "objective": 0.253,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.6315,
+      "co_index": 0.05465,
+      "nox_index": 0.14125,
+      "steam_temperature_K": 641.0,
+      "objective": 0.2434,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.6375,
+      "co_index": 0.05505,
+      "nox_index": 0.13124999999999998,
+      "steam_temperature_K": 638.5,
+      "objective": 0.23379999999999995,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.6435,
+      "co_index": 0.05545,
+      "nox_index": 0.12125,
+      "steam_temperature_K": 636.0,
+      "objective": 0.2242,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.6495,
+      "co_index": 0.05585,
+      "nox_index": 0.11125000000000002,
+      "steam_temperature_K": 633.5,
+      "objective": 0.2146,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.6555,
+      "co_index": 0.056249999999999994,
+      "nox_index": 0.10125,
+      "steam_temperature_K": 631.0,
+      "objective": 0.20500000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.6615,
+      "co_index": 0.05665,
+      "nox_index": 0.09125,
+      "steam_temperature_K": 628.5,
+      "objective": 0.19540000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.6675,
+      "co_index": 0.05705,
+      "nox_index": 0.08124999999999999,
+      "steam_temperature_K": 626.0,
+      "objective": 0.18579999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.6734999999999999,
+      "co_index": 0.05745,
+      "nox_index": 0.07125,
+      "steam_temperature_K": 623.5,
+      "objective": 0.17619999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.6794999999999999,
+      "co_index": 0.05785,
+      "nox_index": 0.06124999999999999,
+      "steam_temperature_K": 621.0,
+      "objective": 0.16659999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.6854999999999999,
+      "co_index": 0.058249999999999996,
+      "nox_index": 0.051250000000000004,
+      "steam_temperature_K": 618.5,
+      "objective": 0.157,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.6914999999999999,
+      "co_index": 0.05865,
+      "nox_index": 0.041249999999999995,
+      "steam_temperature_K": 616.0,
+      "objective": 0.14739999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.6974999999999999,
+      "co_index": 0.05905,
+      "nox_index": 0.031249999999999986,
+      "steam_temperature_K": 613.5,
+      "objective": 0.13779999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7034999999999999,
+      "co_index": 0.059449999999999996,
+      "nox_index": 0.021249999999999998,
+      "steam_temperature_K": 611.0,
+      "objective": 0.12819999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.7094999999999999,
+      "co_index": 0.05985,
+      "nox_index": 0.01124999999999999,
+      "steam_temperature_K": 608.5,
+      "objective": 0.1186,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7154999999999999,
+      "co_index": 0.06025,
+      "nox_index": 0.0012500000000000002,
+      "steam_temperature_K": 606.0,
+      "objective": 0.109,
+      "feasible": false,
+      "biomass_transition_fraction": 0.05,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.611,
+      "co_index": 0.0495,
+      "nox_index": 0.2025,
+      "steam_temperature_K": 662.0,
+      "objective": 0.297,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.617,
+      "co_index": 0.0499,
+      "nox_index": 0.1925,
+      "steam_temperature_K": 659.5,
+      "objective": 0.2874,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.623,
+      "co_index": 0.050300000000000004,
+      "nox_index": 0.18250000000000002,
+      "steam_temperature_K": 657.0,
+      "objective": 0.27780000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.629,
+      "co_index": 0.0507,
+      "nox_index": 0.17250000000000001,
+      "steam_temperature_K": 654.5,
+      "objective": 0.2682,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.635,
+      "co_index": 0.0511,
+      "nox_index": 0.16250000000000003,
+      "steam_temperature_K": 652.0,
+      "objective": 0.25860000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.641,
+      "co_index": 0.051500000000000004,
+      "nox_index": 0.15250000000000002,
+      "steam_temperature_K": 649.5,
+      "objective": 0.24900000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.647,
+      "co_index": 0.0519,
+      "nox_index": 0.1425,
+      "steam_temperature_K": 647.0,
+      "objective": 0.2394,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.653,
+      "co_index": 0.0523,
+      "nox_index": 0.13249999999999998,
+      "steam_temperature_K": 644.5,
+      "objective": 0.22979999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.659,
+      "co_index": 0.052700000000000004,
+      "nox_index": 0.1225,
+      "steam_temperature_K": 642.0,
+      "objective": 0.2202,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.665,
+      "co_index": 0.0531,
+      "nox_index": 0.11250000000000002,
+      "steam_temperature_K": 639.5,
+      "objective": 0.21060000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.671,
+      "co_index": 0.053500000000000006,
+      "nox_index": 0.10250000000000001,
+      "steam_temperature_K": 637.0,
+      "objective": 0.20100000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.677,
+      "co_index": 0.0539,
+      "nox_index": 0.0925,
+      "steam_temperature_K": 634.5,
+      "objective": 0.19140000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.683,
+      "co_index": 0.0543,
+      "nox_index": 0.08249999999999999,
+      "steam_temperature_K": 632.0,
+      "objective": 0.1818,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.689,
+      "co_index": 0.054700000000000006,
+      "nox_index": 0.0725,
+      "steam_temperature_K": 629.5,
+      "objective": 0.17220000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.695,
+      "co_index": 0.0551,
+      "nox_index": 0.06249999999999999,
+      "steam_temperature_K": 627.0,
+      "objective": 0.1626,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.701,
+      "co_index": 0.0555,
+      "nox_index": 0.052500000000000005,
+      "steam_temperature_K": 624.5,
+      "objective": 0.15300000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.707,
+      "co_index": 0.055900000000000005,
+      "nox_index": 0.042499999999999996,
+      "steam_temperature_K": 622.0,
+      "objective": 0.1434,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.713,
+      "co_index": 0.0563,
+      "nox_index": 0.03249999999999999,
+      "steam_temperature_K": 619.5,
+      "objective": 0.1338,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.719,
+      "co_index": 0.0567,
+      "nox_index": 0.0225,
+      "steam_temperature_K": 617.0,
+      "objective": 0.1242,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.725,
+      "co_index": 0.057100000000000005,
+      "nox_index": 0.012499999999999989,
+      "steam_temperature_K": 614.5,
+      "objective": 0.11460000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.731,
+      "co_index": 0.0575,
+      "nox_index": 0.0025000000000000005,
+      "steam_temperature_K": 612.0,
+      "objective": 0.10500000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.1,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.6265,
+      "co_index": 0.04675,
+      "nox_index": 0.20375000000000001,
+      "steam_temperature_K": 668.0,
+      "objective": 0.293,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6325,
+      "co_index": 0.04715,
+      "nox_index": 0.19375,
+      "steam_temperature_K": 665.5,
+      "objective": 0.2834,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.6385,
+      "co_index": 0.04755,
+      "nox_index": 0.18375000000000002,
+      "steam_temperature_K": 663.0,
+      "objective": 0.27380000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.6445,
+      "co_index": 0.04795,
+      "nox_index": 0.17375000000000002,
+      "steam_temperature_K": 660.5,
+      "objective": 0.2642,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.6505,
+      "co_index": 0.04835,
+      "nox_index": 0.16375000000000003,
+      "steam_temperature_K": 658.0,
+      "objective": 0.25460000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.6565,
+      "co_index": 0.04875,
+      "nox_index": 0.15375000000000003,
+      "steam_temperature_K": 655.5,
+      "objective": 0.24500000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.6625,
+      "co_index": 0.04915,
+      "nox_index": 0.14375,
+      "steam_temperature_K": 653.0,
+      "objective": 0.2354,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.6685,
+      "co_index": 0.04955,
+      "nox_index": 0.13374999999999998,
+      "steam_temperature_K": 650.5,
+      "objective": 0.22579999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.6745,
+      "co_index": 0.04995,
+      "nox_index": 0.12375,
+      "steam_temperature_K": 648.0,
+      "objective": 0.2162,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.6805,
+      "co_index": 0.05035,
+      "nox_index": 0.11375000000000002,
+      "steam_temperature_K": 645.5,
+      "objective": 0.20660000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.6864999999999999,
+      "co_index": 0.05075,
+      "nox_index": 0.10375000000000001,
+      "steam_temperature_K": 643.0,
+      "objective": 0.19700000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.6924999999999999,
+      "co_index": 0.05115,
+      "nox_index": 0.09375,
+      "steam_temperature_K": 640.5,
+      "objective": 0.1874,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.6984999999999999,
+      "co_index": 0.05155,
+      "nox_index": 0.08374999999999999,
+      "steam_temperature_K": 638.0,
+      "objective": 0.17779999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7044999999999999,
+      "co_index": 0.05195,
+      "nox_index": 0.07375,
+      "steam_temperature_K": 635.5,
+      "objective": 0.16820000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7104999999999999,
+      "co_index": 0.05235,
+      "nox_index": 0.06374999999999999,
+      "steam_temperature_K": 633.0,
+      "objective": 0.1586,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7164999999999999,
+      "co_index": 0.05275,
+      "nox_index": 0.053750000000000006,
+      "steam_temperature_K": 630.5,
+      "objective": 0.14900000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7224999999999999,
+      "co_index": 0.05315,
+      "nox_index": 0.04375,
+      "steam_temperature_K": 628.0,
+      "objective": 0.1394,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.7284999999999999,
+      "co_index": 0.05355,
+      "nox_index": 0.03374999999999999,
+      "steam_temperature_K": 625.5,
+      "objective": 0.1298,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7344999999999999,
+      "co_index": 0.05395,
+      "nox_index": 0.023749999999999997,
+      "steam_temperature_K": 623.0,
+      "objective": 0.1202,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.7404999999999999,
+      "co_index": 0.05435,
+      "nox_index": 0.013749999999999988,
+      "steam_temperature_K": 620.5,
+      "objective": 0.1106,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7464999999999999,
+      "co_index": 0.05475,
+      "nox_index": 0.0037500000000000007,
+      "steam_temperature_K": 618.0,
+      "objective": 0.101,
+      "feasible": false,
+      "biomass_transition_fraction": 0.15000000000000002,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.6419999999999999,
+      "co_index": 0.044000000000000004,
+      "nox_index": 0.20500000000000002,
+      "steam_temperature_K": 674.0,
+      "objective": 0.28900000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6479999999999999,
+      "co_index": 0.0444,
+      "nox_index": 0.195,
+      "steam_temperature_K": 671.5,
+      "objective": 0.2794,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.6539999999999999,
+      "co_index": 0.044800000000000006,
+      "nox_index": 0.18500000000000003,
+      "steam_temperature_K": 669.0,
+      "objective": 0.26980000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.6599999999999999,
+      "co_index": 0.045200000000000004,
+      "nox_index": 0.17500000000000002,
+      "steam_temperature_K": 666.5,
+      "objective": 0.2602,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.6659999999999999,
+      "co_index": 0.0456,
+      "nox_index": 0.16500000000000004,
+      "steam_temperature_K": 664.0,
+      "objective": 0.25060000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.6719999999999999,
+      "co_index": 0.046000000000000006,
+      "nox_index": 0.15500000000000003,
+      "steam_temperature_K": 661.5,
+      "objective": 0.24100000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.6779999999999999,
+      "co_index": 0.046400000000000004,
+      "nox_index": 0.145,
+      "steam_temperature_K": 659.0,
+      "objective": 0.2314,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.6839999999999999,
+      "co_index": 0.04680000000000001,
+      "nox_index": 0.13499999999999998,
+      "steam_temperature_K": 656.5,
+      "objective": 0.2218,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.69,
+      "co_index": 0.047200000000000006,
+      "nox_index": 0.125,
+      "steam_temperature_K": 654.0,
+      "objective": 0.21220000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.696,
+      "co_index": 0.0476,
+      "nox_index": 0.11500000000000002,
+      "steam_temperature_K": 651.5,
+      "objective": 0.20260000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.702,
+      "co_index": 0.048,
+      "nox_index": 0.10500000000000001,
+      "steam_temperature_K": 649.0,
+      "objective": 0.19300000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.708,
+      "co_index": 0.048400000000000006,
+      "nox_index": 0.095,
+      "steam_temperature_K": 646.5,
+      "objective": 0.1834,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.714,
+      "co_index": 0.0488,
+      "nox_index": 0.08499999999999999,
+      "steam_temperature_K": 644.0,
+      "objective": 0.1738,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7199999999999999,
+      "co_index": 0.04920000000000001,
+      "nox_index": 0.075,
+      "steam_temperature_K": 641.5,
+      "objective": 0.1642,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7259999999999999,
+      "co_index": 0.049600000000000005,
+      "nox_index": 0.06499999999999999,
+      "steam_temperature_K": 639.0,
+      "objective": 0.15460000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7319999999999999,
+      "co_index": 0.05,
+      "nox_index": 0.05500000000000001,
+      "steam_temperature_K": 636.5,
+      "objective": 0.14500000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7379999999999999,
+      "co_index": 0.05040000000000001,
+      "nox_index": 0.045,
+      "steam_temperature_K": 634.0,
+      "objective": 0.13540000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.7439999999999999,
+      "co_index": 0.050800000000000005,
+      "nox_index": 0.03499999999999999,
+      "steam_temperature_K": 631.5,
+      "objective": 0.1258,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7499999999999999,
+      "co_index": 0.0512,
+      "nox_index": 0.024999999999999998,
+      "steam_temperature_K": 629.0,
+      "objective": 0.11620000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.7559999999999999,
+      "co_index": 0.05160000000000001,
+      "nox_index": 0.014999999999999989,
+      "steam_temperature_K": 626.5,
+      "objective": 0.1066,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7619999999999999,
+      "co_index": 0.052000000000000005,
+      "nox_index": 0.005000000000000001,
+      "steam_temperature_K": 624.0,
+      "objective": 0.09700000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.2,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.6575,
+      "co_index": 0.04125,
+      "nox_index": 0.20625000000000002,
+      "steam_temperature_K": 680.0,
+      "objective": 0.28500000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6635,
+      "co_index": 0.04165,
+      "nox_index": 0.19625,
+      "steam_temperature_K": 677.5,
+      "objective": 0.2754,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.6695,
+      "co_index": 0.042050000000000004,
+      "nox_index": 0.18625000000000003,
+      "steam_temperature_K": 675.0,
+      "objective": 0.26580000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.6755,
+      "co_index": 0.04245,
+      "nox_index": 0.17625000000000002,
+      "steam_temperature_K": 672.5,
+      "objective": 0.2562,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.6815,
+      "co_index": 0.04285,
+      "nox_index": 0.16625000000000004,
+      "steam_temperature_K": 670.0,
+      "objective": 0.24660000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.6875,
+      "co_index": 0.043250000000000004,
+      "nox_index": 0.15625000000000003,
+      "steam_temperature_K": 667.5,
+      "objective": 0.23700000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.6935,
+      "co_index": 0.04365,
+      "nox_index": 0.14625,
+      "steam_temperature_K": 665.0,
+      "objective": 0.2274,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.6995,
+      "co_index": 0.044050000000000006,
+      "nox_index": 0.13624999999999998,
+      "steam_temperature_K": 662.5,
+      "objective": 0.2178,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.7055,
+      "co_index": 0.04445,
+      "nox_index": 0.12625,
+      "steam_temperature_K": 660.0,
+      "objective": 0.20820000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.7115,
+      "co_index": 0.04485,
+      "nox_index": 0.11625000000000002,
+      "steam_temperature_K": 657.5,
+      "objective": 0.19860000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.7175,
+      "co_index": 0.04525,
+      "nox_index": 0.10625000000000001,
+      "steam_temperature_K": 655.0,
+      "objective": 0.18900000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.7235,
+      "co_index": 0.04565,
+      "nox_index": 0.09625,
+      "steam_temperature_K": 652.5,
+      "objective": 0.1794,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.7295,
+      "co_index": 0.04605,
+      "nox_index": 0.08625,
+      "steam_temperature_K": 650.0,
+      "objective": 0.1698,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7354999999999999,
+      "co_index": 0.046450000000000005,
+      "nox_index": 0.07625,
+      "steam_temperature_K": 647.5,
+      "objective": 0.1602,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7414999999999999,
+      "co_index": 0.04685,
+      "nox_index": 0.06624999999999999,
+      "steam_temperature_K": 645.0,
+      "objective": 0.1506,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7474999999999999,
+      "co_index": 0.04725,
+      "nox_index": 0.05625,
+      "steam_temperature_K": 642.5,
+      "objective": 0.14100000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7535,
+      "co_index": 0.047650000000000005,
+      "nox_index": 0.04624999999999999,
+      "steam_temperature_K": 640.0,
+      "objective": 0.13140000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.7595,
+      "co_index": 0.04805,
+      "nox_index": 0.036249999999999984,
+      "steam_temperature_K": 637.5,
+      "objective": 0.12179999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7655,
+      "co_index": 0.04845,
+      "nox_index": 0.026249999999999996,
+      "steam_temperature_K": 635.0,
+      "objective": 0.1122,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.7715,
+      "co_index": 0.048850000000000005,
+      "nox_index": 0.016249999999999987,
+      "steam_temperature_K": 632.5,
+      "objective": 0.1026,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7775,
+      "co_index": 0.04925,
+      "nox_index": 0.00625,
+      "steam_temperature_K": 630.0,
+      "objective": 0.093,
+      "feasible": false,
+      "biomass_transition_fraction": 0.25,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.6729999999999999,
+      "co_index": 0.0385,
+      "nox_index": 0.20750000000000002,
+      "steam_temperature_K": 686.0,
+      "objective": 0.281,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6789999999999999,
+      "co_index": 0.0389,
+      "nox_index": 0.1975,
+      "steam_temperature_K": 683.5,
+      "objective": 0.2714,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.6849999999999999,
+      "co_index": 0.0393,
+      "nox_index": 0.18750000000000003,
+      "steam_temperature_K": 681.0,
+      "objective": 0.26180000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.691,
+      "co_index": 0.0397,
+      "nox_index": 0.17750000000000002,
+      "steam_temperature_K": 678.5,
+      "objective": 0.2522,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.697,
+      "co_index": 0.0401,
+      "nox_index": 0.16750000000000004,
+      "steam_temperature_K": 676.0,
+      "objective": 0.24260000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.703,
+      "co_index": 0.0405,
+      "nox_index": 0.15750000000000003,
+      "steam_temperature_K": 673.5,
+      "objective": 0.23300000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.709,
+      "co_index": 0.0409,
+      "nox_index": 0.1475,
+      "steam_temperature_K": 671.0,
+      "objective": 0.2234,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.715,
+      "co_index": 0.0413,
+      "nox_index": 0.13749999999999998,
+      "steam_temperature_K": 668.5,
+      "objective": 0.2138,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.721,
+      "co_index": 0.0417,
+      "nox_index": 0.1275,
+      "steam_temperature_K": 666.0,
+      "objective": 0.20420000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.727,
+      "co_index": 0.0421,
+      "nox_index": 0.11750000000000002,
+      "steam_temperature_K": 663.5,
+      "objective": 0.19460000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.7329999999999999,
+      "co_index": 0.042499999999999996,
+      "nox_index": 0.10750000000000001,
+      "steam_temperature_K": 661.0,
+      "objective": 0.18500000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.7389999999999999,
+      "co_index": 0.0429,
+      "nox_index": 0.0975,
+      "steam_temperature_K": 658.5,
+      "objective": 0.1754,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.7449999999999999,
+      "co_index": 0.0433,
+      "nox_index": 0.0875,
+      "steam_temperature_K": 656.0,
+      "objective": 0.1658,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7509999999999999,
+      "co_index": 0.0437,
+      "nox_index": 0.0775,
+      "steam_temperature_K": 653.5,
+      "objective": 0.1562,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7569999999999999,
+      "co_index": 0.0441,
+      "nox_index": 0.06749999999999999,
+      "steam_temperature_K": 651.0,
+      "objective": 0.14659999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7629999999999999,
+      "co_index": 0.0445,
+      "nox_index": 0.0575,
+      "steam_temperature_K": 648.5,
+      "objective": 0.137,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7689999999999999,
+      "co_index": 0.0449,
+      "nox_index": 0.047499999999999994,
+      "steam_temperature_K": 646.0,
+      "objective": 0.12739999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.7749999999999999,
+      "co_index": 0.0453,
+      "nox_index": 0.037499999999999985,
+      "steam_temperature_K": 643.5,
+      "objective": 0.11779999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7809999999999999,
+      "co_index": 0.0457,
+      "nox_index": 0.027499999999999997,
+      "steam_temperature_K": 641.0,
+      "objective": 0.10819999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.7869999999999999,
+      "co_index": 0.0461,
+      "nox_index": 0.017499999999999988,
+      "steam_temperature_K": 638.5,
+      "objective": 0.0986,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.7929999999999999,
+      "co_index": 0.0465,
+      "nox_index": 0.0075000000000000015,
+      "steam_temperature_K": 636.0,
+      "objective": 0.089,
+      "feasible": false,
+      "biomass_transition_fraction": 0.30000000000000004,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.6885,
+      "co_index": 0.03575,
+      "nox_index": 0.20875000000000002,
+      "steam_temperature_K": 692.0,
+      "objective": 0.277,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.6945,
+      "co_index": 0.036149999999999995,
+      "nox_index": 0.19875,
+      "steam_temperature_K": 689.5,
+      "objective": 0.26739999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.7005,
+      "co_index": 0.03655,
+      "nox_index": 0.18875000000000003,
+      "steam_temperature_K": 687.0,
+      "objective": 0.25780000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.7065,
+      "co_index": 0.03695,
+      "nox_index": 0.17875000000000002,
+      "steam_temperature_K": 684.5,
+      "objective": 0.2482,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.7125,
+      "co_index": 0.037349999999999994,
+      "nox_index": 0.16875000000000004,
+      "steam_temperature_K": 682.0,
+      "objective": 0.23860000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.7185,
+      "co_index": 0.03775,
+      "nox_index": 0.15875000000000003,
+      "steam_temperature_K": 679.5,
+      "objective": 0.22900000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.7245,
+      "co_index": 0.038149999999999996,
+      "nox_index": 0.14875,
+      "steam_temperature_K": 677.0,
+      "objective": 0.21939999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.7305,
+      "co_index": 0.03855,
+      "nox_index": 0.13874999999999998,
+      "steam_temperature_K": 674.5,
+      "objective": 0.2098,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.7365,
+      "co_index": 0.03895,
+      "nox_index": 0.12875,
+      "steam_temperature_K": 672.0,
+      "objective": 0.20020000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.7425,
+      "co_index": 0.039349999999999996,
+      "nox_index": 0.11875000000000002,
+      "steam_temperature_K": 669.5,
+      "objective": 0.19060000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.7484999999999999,
+      "co_index": 0.039749999999999994,
+      "nox_index": 0.10875000000000001,
+      "steam_temperature_K": 667.0,
+      "objective": 0.18100000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.7545,
+      "co_index": 0.04015,
+      "nox_index": 0.09875,
+      "steam_temperature_K": 664.5,
+      "objective": 0.1714,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.7605,
+      "co_index": 0.040549999999999996,
+      "nox_index": 0.08875,
+      "steam_temperature_K": 662.0,
+      "objective": 0.1618,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7665,
+      "co_index": 0.04095,
+      "nox_index": 0.07874999999999999,
+      "steam_temperature_K": 659.5,
+      "objective": 0.15219999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7725,
+      "co_index": 0.04135,
+      "nox_index": 0.06874999999999999,
+      "steam_temperature_K": 657.0,
+      "objective": 0.14259999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7785,
+      "co_index": 0.041749999999999995,
+      "nox_index": 0.058750000000000004,
+      "steam_temperature_K": 654.5,
+      "objective": 0.133,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7845,
+      "co_index": 0.04215,
+      "nox_index": 0.048749999999999995,
+      "steam_temperature_K": 652.0,
+      "objective": 0.12339999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.7905,
+      "co_index": 0.04255,
+      "nox_index": 0.038749999999999986,
+      "steam_temperature_K": 649.5,
+      "objective": 0.11379999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.7965,
+      "co_index": 0.042949999999999995,
+      "nox_index": 0.028749999999999998,
+      "steam_temperature_K": 647.0,
+      "objective": 0.10419999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.8025,
+      "co_index": 0.04335,
+      "nox_index": 0.01874999999999999,
+      "steam_temperature_K": 644.5,
+      "objective": 0.09459999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.8085,
+      "co_index": 0.04375,
+      "nox_index": 0.00875,
+      "steam_temperature_K": 642.0,
+      "objective": 0.08499999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.35000000000000003,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.704,
+      "co_index": 0.033,
+      "nox_index": 0.21000000000000002,
+      "steam_temperature_K": 698.0,
+      "objective": 0.273,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.71,
+      "co_index": 0.0334,
+      "nox_index": 0.2,
+      "steam_temperature_K": 695.5,
+      "objective": 0.26339999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.716,
+      "co_index": 0.033800000000000004,
+      "nox_index": 0.19000000000000003,
+      "steam_temperature_K": 693.0,
+      "objective": 0.2538,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.722,
+      "co_index": 0.0342,
+      "nox_index": 0.18000000000000002,
+      "steam_temperature_K": 690.5,
+      "objective": 0.24420000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.728,
+      "co_index": 0.0346,
+      "nox_index": 0.17000000000000004,
+      "steam_temperature_K": 688.0,
+      "objective": 0.23460000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.734,
+      "co_index": 0.035,
+      "nox_index": 0.16000000000000003,
+      "steam_temperature_K": 685.5,
+      "objective": 0.22500000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.74,
+      "co_index": 0.0354,
+      "nox_index": 0.15,
+      "steam_temperature_K": 683.0,
+      "objective": 0.2154,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.746,
+      "co_index": 0.0358,
+      "nox_index": 0.13999999999999999,
+      "steam_temperature_K": 680.5,
+      "objective": 0.20579999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.752,
+      "co_index": 0.0362,
+      "nox_index": 0.13,
+      "steam_temperature_K": 678.0,
+      "objective": 0.1962,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.758,
+      "co_index": 0.0366,
+      "nox_index": 0.12000000000000002,
+      "steam_temperature_K": 675.5,
+      "objective": 0.18660000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.764,
+      "co_index": 0.037000000000000005,
+      "nox_index": 0.11000000000000001,
+      "steam_temperature_K": 673.0,
+      "objective": 0.17700000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.77,
+      "co_index": 0.0374,
+      "nox_index": 0.1,
+      "steam_temperature_K": 670.5,
+      "objective": 0.16740000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.776,
+      "co_index": 0.0378,
+      "nox_index": 0.09,
+      "steam_temperature_K": 668.0,
+      "objective": 0.1578,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7819999999999999,
+      "co_index": 0.038200000000000005,
+      "nox_index": 0.07999999999999999,
+      "steam_temperature_K": 665.5,
+      "objective": 0.1482,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.7879999999999999,
+      "co_index": 0.0386,
+      "nox_index": 0.06999999999999999,
+      "steam_temperature_K": 663.0,
+      "objective": 0.1386,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.7939999999999999,
+      "co_index": 0.039,
+      "nox_index": 0.060000000000000005,
+      "steam_temperature_K": 660.5,
+      "objective": 0.129,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.7999999999999999,
+      "co_index": 0.039400000000000004,
+      "nox_index": 0.049999999999999996,
+      "steam_temperature_K": 658.0,
+      "objective": 0.1194,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.8059999999999999,
+      "co_index": 0.0398,
+      "nox_index": 0.03999999999999999,
+      "steam_temperature_K": 655.5,
+      "objective": 0.10979999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.8119999999999999,
+      "co_index": 0.0402,
+      "nox_index": 0.03,
+      "steam_temperature_K": 653.0,
+      "objective": 0.1002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.818,
+      "co_index": 0.040600000000000004,
+      "nox_index": 0.01999999999999999,
+      "steam_temperature_K": 650.5,
+      "objective": 0.09059999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.824,
+      "co_index": 0.041,
+      "nox_index": 0.010000000000000002,
+      "steam_temperature_K": 648.0,
+      "objective": 0.081,
+      "feasible": false,
+      "biomass_transition_fraction": 0.4,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.7195,
+      "co_index": 0.030250000000000003,
+      "nox_index": 0.21125000000000002,
+      "steam_temperature_K": 704.0,
+      "objective": 0.269,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.7255,
+      "co_index": 0.030650000000000004,
+      "nox_index": 0.20125,
+      "steam_temperature_K": 701.5,
+      "objective": 0.2594,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.7315,
+      "co_index": 0.03105,
+      "nox_index": 0.19125000000000003,
+      "steam_temperature_K": 699.0,
+      "objective": 0.24980000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.7375,
+      "co_index": 0.031450000000000006,
+      "nox_index": 0.18125000000000002,
+      "steam_temperature_K": 696.5,
+      "objective": 0.24020000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.7435,
+      "co_index": 0.03185,
+      "nox_index": 0.17125000000000004,
+      "steam_temperature_K": 694.0,
+      "objective": 0.23060000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.7495,
+      "co_index": 0.03225,
+      "nox_index": 0.16125000000000003,
+      "steam_temperature_K": 691.5,
+      "objective": 0.22100000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.7555000000000001,
+      "co_index": 0.032650000000000005,
+      "nox_index": 0.15125,
+      "steam_temperature_K": 689.0,
+      "objective": 0.2114,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.7615000000000001,
+      "co_index": 0.03305,
+      "nox_index": 0.14125,
+      "steam_temperature_K": 686.5,
+      "objective": 0.20179999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.7675000000000001,
+      "co_index": 0.03345,
+      "nox_index": 0.13125,
+      "steam_temperature_K": 684.0,
+      "objective": 0.1922,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.7735000000000001,
+      "co_index": 0.033850000000000005,
+      "nox_index": 0.12125000000000001,
+      "steam_temperature_K": 681.5,
+      "objective": 0.1826,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.7795000000000001,
+      "co_index": 0.03425,
+      "nox_index": 0.11125,
+      "steam_temperature_K": 679.0,
+      "objective": 0.17300000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.7855000000000001,
+      "co_index": 0.03465,
+      "nox_index": 0.10124999999999999,
+      "steam_temperature_K": 676.5,
+      "objective": 0.1634,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.7915000000000001,
+      "co_index": 0.035050000000000005,
+      "nox_index": 0.09124999999999998,
+      "steam_temperature_K": 674.0,
+      "objective": 0.1538,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.7975,
+      "co_index": 0.03545,
+      "nox_index": 0.08124999999999999,
+      "steam_temperature_K": 671.5,
+      "objective": 0.1442,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.8035,
+      "co_index": 0.03585000000000001,
+      "nox_index": 0.07125,
+      "steam_temperature_K": 669.0,
+      "objective": 0.1346,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.8095,
+      "co_index": 0.036250000000000004,
+      "nox_index": 0.061250000000000006,
+      "steam_temperature_K": 666.5,
+      "objective": 0.125,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.8155,
+      "co_index": 0.03665,
+      "nox_index": 0.05125,
+      "steam_temperature_K": 664.0,
+      "objective": 0.1154,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.8215,
+      "co_index": 0.03705,
+      "nox_index": 0.04124999999999999,
+      "steam_temperature_K": 661.5,
+      "objective": 0.10579999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.8275,
+      "co_index": 0.037450000000000004,
+      "nox_index": 0.03125,
+      "steam_temperature_K": 659.0,
+      "objective": 0.09620000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.8335,
+      "co_index": 0.03785,
+      "nox_index": 0.02124999999999999,
+      "steam_temperature_K": 656.5,
+      "objective": 0.0866,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.8395,
+      "co_index": 0.038250000000000006,
+      "nox_index": 0.011250000000000001,
+      "steam_temperature_K": 654.0,
+      "objective": 0.07700000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.45,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.735,
+      "co_index": 0.0275,
+      "nox_index": 0.21250000000000002,
+      "steam_temperature_K": 710.0,
+      "objective": 0.265,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.741,
+      "co_index": 0.0279,
+      "nox_index": 0.2025,
+      "steam_temperature_K": 707.5,
+      "objective": 0.2554,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.747,
+      "co_index": 0.0283,
+      "nox_index": 0.19250000000000003,
+      "steam_temperature_K": 705.0,
+      "objective": 0.24580000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.753,
+      "co_index": 0.0287,
+      "nox_index": 0.18250000000000002,
+      "steam_temperature_K": 702.5,
+      "objective": 0.23620000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.759,
+      "co_index": 0.0291,
+      "nox_index": 0.17250000000000004,
+      "steam_temperature_K": 700.0,
+      "objective": 0.22660000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.765,
+      "co_index": 0.0295,
+      "nox_index": 0.16250000000000003,
+      "steam_temperature_K": 697.5,
+      "objective": 0.21700000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.771,
+      "co_index": 0.0299,
+      "nox_index": 0.1525,
+      "steam_temperature_K": 695.0,
+      "objective": 0.2074,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.777,
+      "co_index": 0.0303,
+      "nox_index": 0.1425,
+      "steam_temperature_K": 692.5,
+      "objective": 0.19779999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.783,
+      "co_index": 0.0307,
+      "nox_index": 0.1325,
+      "steam_temperature_K": 690.0,
+      "objective": 0.1882,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.789,
+      "co_index": 0.0311,
+      "nox_index": 0.12250000000000001,
+      "steam_temperature_K": 687.5,
+      "objective": 0.1786,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.7949999999999999,
+      "co_index": 0.0315,
+      "nox_index": 0.1125,
+      "steam_temperature_K": 685.0,
+      "objective": 0.169,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8009999999999999,
+      "co_index": 0.0319,
+      "nox_index": 0.1025,
+      "steam_temperature_K": 682.5,
+      "objective": 0.1594,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8069999999999999,
+      "co_index": 0.0323,
+      "nox_index": 0.09249999999999999,
+      "steam_temperature_K": 680.0,
+      "objective": 0.1498,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.813,
+      "co_index": 0.0327,
+      "nox_index": 0.08249999999999999,
+      "steam_temperature_K": 677.5,
+      "objective": 0.1402,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.819,
+      "co_index": 0.033100000000000004,
+      "nox_index": 0.0725,
+      "steam_temperature_K": 675.0,
+      "objective": 0.1306,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.825,
+      "co_index": 0.0335,
+      "nox_index": 0.0625,
+      "steam_temperature_K": 672.5,
+      "objective": 0.121,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.831,
+      "co_index": 0.0339,
+      "nox_index": 0.05249999999999999,
+      "steam_temperature_K": 670.0,
+      "objective": 0.1114,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.837,
+      "co_index": 0.0343,
+      "nox_index": 0.04249999999999998,
+      "steam_temperature_K": 667.5,
+      "objective": 0.10179999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.843,
+      "co_index": 0.0347,
+      "nox_index": 0.0325,
+      "steam_temperature_K": 665.0,
+      "objective": 0.0922,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.849,
+      "co_index": 0.0351,
+      "nox_index": 0.02249999999999999,
+      "steam_temperature_K": 662.5,
+      "objective": 0.08259999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.855,
+      "co_index": 0.035500000000000004,
+      "nox_index": 0.0125,
+      "steam_temperature_K": 660.0,
+      "objective": 0.07300000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.5,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.7505,
+      "co_index": 0.024749999999999998,
+      "nox_index": 0.21375000000000002,
+      "steam_temperature_K": 716.0,
+      "objective": 0.261,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.7565,
+      "co_index": 0.02515,
+      "nox_index": 0.20375000000000001,
+      "steam_temperature_K": 713.5,
+      "objective": 0.2514,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.7625,
+      "co_index": 0.025549999999999996,
+      "nox_index": 0.19375000000000003,
+      "steam_temperature_K": 711.0,
+      "objective": 0.24180000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.7685,
+      "co_index": 0.025949999999999997,
+      "nox_index": 0.18375000000000002,
+      "steam_temperature_K": 708.5,
+      "objective": 0.23220000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.7745,
+      "co_index": 0.02635,
+      "nox_index": 0.17375000000000004,
+      "steam_temperature_K": 706.0,
+      "objective": 0.22260000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.7805,
+      "co_index": 0.026749999999999996,
+      "nox_index": 0.16375000000000003,
+      "steam_temperature_K": 703.5,
+      "objective": 0.21300000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.7865,
+      "co_index": 0.027149999999999997,
+      "nox_index": 0.15375,
+      "steam_temperature_K": 701.0,
+      "objective": 0.2034,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.7925,
+      "co_index": 0.027549999999999998,
+      "nox_index": 0.14375,
+      "steam_temperature_K": 698.5,
+      "objective": 0.19379999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.7985,
+      "co_index": 0.02795,
+      "nox_index": 0.13375,
+      "steam_temperature_K": 696.0,
+      "objective": 0.1842,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.8045,
+      "co_index": 0.028349999999999997,
+      "nox_index": 0.12375000000000001,
+      "steam_temperature_K": 693.5,
+      "objective": 0.1746,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.8105,
+      "co_index": 0.028749999999999998,
+      "nox_index": 0.11375,
+      "steam_temperature_K": 691.0,
+      "objective": 0.165,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8165,
+      "co_index": 0.02915,
+      "nox_index": 0.10375,
+      "steam_temperature_K": 688.5,
+      "objective": 0.15539999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8225,
+      "co_index": 0.02955,
+      "nox_index": 0.09374999999999999,
+      "steam_temperature_K": 686.0,
+      "objective": 0.14579999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.8284999999999999,
+      "co_index": 0.029949999999999997,
+      "nox_index": 0.08374999999999999,
+      "steam_temperature_K": 683.5,
+      "objective": 0.1362,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.8344999999999999,
+      "co_index": 0.03035,
+      "nox_index": 0.07375,
+      "steam_temperature_K": 681.0,
+      "objective": 0.1266,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.8404999999999999,
+      "co_index": 0.03075,
+      "nox_index": 0.06375,
+      "steam_temperature_K": 678.5,
+      "objective": 0.11699999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.8464999999999999,
+      "co_index": 0.031149999999999997,
+      "nox_index": 0.05374999999999999,
+      "steam_temperature_K": 676.0,
+      "objective": 0.1074,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.8524999999999999,
+      "co_index": 0.031549999999999995,
+      "nox_index": 0.04374999999999998,
+      "steam_temperature_K": 673.5,
+      "objective": 0.09779999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.8584999999999999,
+      "co_index": 0.03195,
+      "nox_index": 0.03375,
+      "steam_temperature_K": 671.0,
+      "objective": 0.0882,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.8644999999999999,
+      "co_index": 0.03235,
+      "nox_index": 0.02374999999999999,
+      "steam_temperature_K": 668.5,
+      "objective": 0.07859999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.8704999999999999,
+      "co_index": 0.03275,
+      "nox_index": 0.013750000000000002,
+      "steam_temperature_K": 666.0,
+      "objective": 0.069,
+      "feasible": false,
+      "biomass_transition_fraction": 0.55,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.766,
+      "co_index": 0.021999999999999995,
+      "nox_index": 0.21500000000000002,
+      "steam_temperature_K": 722.0,
+      "objective": 0.257,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.772,
+      "co_index": 0.022399999999999996,
+      "nox_index": 0.20500000000000002,
+      "steam_temperature_K": 719.5,
+      "objective": 0.2474,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.778,
+      "co_index": 0.022799999999999994,
+      "nox_index": 0.19500000000000003,
+      "steam_temperature_K": 717.0,
+      "objective": 0.2378,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.784,
+      "co_index": 0.023199999999999995,
+      "nox_index": 0.18500000000000003,
+      "steam_temperature_K": 714.5,
+      "objective": 0.22820000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.79,
+      "co_index": 0.023599999999999996,
+      "nox_index": 0.17500000000000004,
+      "steam_temperature_K": 712.0,
+      "objective": 0.21860000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.796,
+      "co_index": 0.023999999999999994,
+      "nox_index": 0.16500000000000004,
+      "steam_temperature_K": 709.5,
+      "objective": 0.20900000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.802,
+      "co_index": 0.024399999999999995,
+      "nox_index": 0.155,
+      "steam_temperature_K": 707.0,
+      "objective": 0.1994,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.808,
+      "co_index": 0.024799999999999996,
+      "nox_index": 0.145,
+      "steam_temperature_K": 704.5,
+      "objective": 0.18979999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.8140000000000001,
+      "co_index": 0.025199999999999997,
+      "nox_index": 0.135,
+      "steam_temperature_K": 702.0,
+      "objective": 0.1802,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.8200000000000001,
+      "co_index": 0.025599999999999994,
+      "nox_index": 0.12500000000000003,
+      "steam_temperature_K": 699.5,
+      "objective": 0.1706,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.8260000000000001,
+      "co_index": 0.025999999999999995,
+      "nox_index": 0.115,
+      "steam_temperature_K": 697.0,
+      "objective": 0.161,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8320000000000001,
+      "co_index": 0.026399999999999996,
+      "nox_index": 0.105,
+      "steam_temperature_K": 694.5,
+      "objective": 0.15139999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8380000000000001,
+      "co_index": 0.026799999999999997,
+      "nox_index": 0.09499999999999999,
+      "steam_temperature_K": 692.0,
+      "objective": 0.14179999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.844,
+      "co_index": 0.027199999999999995,
+      "nox_index": 0.08499999999999999,
+      "steam_temperature_K": 689.5,
+      "objective": 0.13219999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.85,
+      "co_index": 0.027599999999999996,
+      "nox_index": 0.075,
+      "steam_temperature_K": 687.0,
+      "objective": 0.12259999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.856,
+      "co_index": 0.027999999999999997,
+      "nox_index": 0.065,
+      "steam_temperature_K": 684.5,
+      "objective": 0.11299999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.862,
+      "co_index": 0.028399999999999995,
+      "nox_index": 0.05499999999999999,
+      "steam_temperature_K": 682.0,
+      "objective": 0.10339999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.868,
+      "co_index": 0.028799999999999996,
+      "nox_index": 0.044999999999999984,
+      "steam_temperature_K": 679.5,
+      "objective": 0.09379999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.874,
+      "co_index": 0.029199999999999997,
+      "nox_index": 0.035,
+      "steam_temperature_K": 677.0,
+      "objective": 0.0842,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.88,
+      "co_index": 0.029599999999999994,
+      "nox_index": 0.02499999999999999,
+      "steam_temperature_K": 674.5,
+      "objective": 0.07459999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.886,
+      "co_index": 0.029999999999999995,
+      "nox_index": 0.015000000000000003,
+      "steam_temperature_K": 672.0,
+      "objective": 0.065,
+      "feasible": false,
+      "biomass_transition_fraction": 0.6000000000000001,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.7815,
+      "co_index": 0.01925,
+      "nox_index": 0.21625,
+      "steam_temperature_K": 728.0,
+      "objective": 0.253,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.7875,
+      "co_index": 0.01965,
+      "nox_index": 0.20625,
+      "steam_temperature_K": 725.5,
+      "objective": 0.24339999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.7935,
+      "co_index": 0.02005,
+      "nox_index": 0.19625000000000004,
+      "steam_temperature_K": 723.0,
+      "objective": 0.23380000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.7995,
+      "co_index": 0.02045,
+      "nox_index": 0.18625000000000003,
+      "steam_temperature_K": 720.5,
+      "objective": 0.2242,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.8055,
+      "co_index": 0.02085,
+      "nox_index": 0.17625000000000002,
+      "steam_temperature_K": 718.0,
+      "objective": 0.2146,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.8115,
+      "co_index": 0.021249999999999998,
+      "nox_index": 0.16625,
+      "steam_temperature_K": 715.5,
+      "objective": 0.205,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.8175,
+      "co_index": 0.02165,
+      "nox_index": 0.15625,
+      "steam_temperature_K": 713.0,
+      "objective": 0.1954,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.8235,
+      "co_index": 0.02205,
+      "nox_index": 0.14625,
+      "steam_temperature_K": 710.5,
+      "objective": 0.1858,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.8295,
+      "co_index": 0.02245,
+      "nox_index": 0.13624999999999998,
+      "steam_temperature_K": 708.0,
+      "objective": 0.17619999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.8355,
+      "co_index": 0.02285,
+      "nox_index": 0.12625000000000003,
+      "steam_temperature_K": 705.5,
+      "objective": 0.16660000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.8414999999999999,
+      "co_index": 0.02325,
+      "nox_index": 0.11625,
+      "steam_temperature_K": 703.0,
+      "objective": 0.157,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8474999999999999,
+      "co_index": 0.02365,
+      "nox_index": 0.10625,
+      "steam_temperature_K": 700.5,
+      "objective": 0.14739999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8534999999999999,
+      "co_index": 0.024050000000000002,
+      "nox_index": 0.09624999999999999,
+      "steam_temperature_K": 698.0,
+      "objective": 0.13779999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.8594999999999999,
+      "co_index": 0.02445,
+      "nox_index": 0.08625,
+      "steam_temperature_K": 695.5,
+      "objective": 0.12819999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.8654999999999999,
+      "co_index": 0.02485,
+      "nox_index": 0.07624999999999998,
+      "steam_temperature_K": 693.0,
+      "objective": 0.11859999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.8714999999999999,
+      "co_index": 0.02525,
+      "nox_index": 0.06625,
+      "steam_temperature_K": 690.5,
+      "objective": 0.109,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.8775,
+      "co_index": 0.02565,
+      "nox_index": 0.056249999999999994,
+      "steam_temperature_K": 688.0,
+      "objective": 0.0994,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.8835,
+      "co_index": 0.02605,
+      "nox_index": 0.046249999999999986,
+      "steam_temperature_K": 685.5,
+      "objective": 0.08979999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.8895,
+      "co_index": 0.02645,
+      "nox_index": 0.03625,
+      "steam_temperature_K": 683.0,
+      "objective": 0.08020000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.8955,
+      "co_index": 0.02685,
+      "nox_index": 0.02624999999999999,
+      "steam_temperature_K": 680.5,
+      "objective": 0.07059999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.9015,
+      "co_index": 0.02725,
+      "nox_index": 0.01625,
+      "steam_temperature_K": 678.0,
+      "objective": 0.061,
+      "feasible": false,
+      "biomass_transition_fraction": 0.65,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.7969999999999999,
+      "co_index": 0.016499999999999997,
+      "nox_index": 0.21750000000000003,
+      "steam_temperature_K": 734.0,
+      "objective": 0.249,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.8029999999999999,
+      "co_index": 0.0169,
+      "nox_index": 0.20750000000000002,
+      "steam_temperature_K": 731.5,
+      "objective": 0.2394,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.8089999999999999,
+      "co_index": 0.017299999999999996,
+      "nox_index": 0.1975,
+      "steam_temperature_K": 729.0,
+      "objective": 0.22979999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.815,
+      "co_index": 0.017699999999999997,
+      "nox_index": 0.1875,
+      "steam_temperature_K": 726.5,
+      "objective": 0.22019999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.821,
+      "co_index": 0.018099999999999998,
+      "nox_index": 0.17750000000000005,
+      "steam_temperature_K": 724.0,
+      "objective": 0.21060000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.827,
+      "co_index": 0.018499999999999996,
+      "nox_index": 0.16750000000000004,
+      "steam_temperature_K": 721.5,
+      "objective": 0.201,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.833,
+      "co_index": 0.018899999999999997,
+      "nox_index": 0.15749999999999997,
+      "steam_temperature_K": 719.0,
+      "objective": 0.19139999999999996,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.839,
+      "co_index": 0.019299999999999998,
+      "nox_index": 0.14749999999999996,
+      "steam_temperature_K": 716.5,
+      "objective": 0.18179999999999993,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.845,
+      "co_index": 0.0197,
+      "nox_index": 0.1375,
+      "steam_temperature_K": 714.0,
+      "objective": 0.1722,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.851,
+      "co_index": 0.020099999999999996,
+      "nox_index": 0.1275,
+      "steam_temperature_K": 711.5,
+      "objective": 0.1626,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.857,
+      "co_index": 0.020499999999999997,
+      "nox_index": 0.11750000000000001,
+      "steam_temperature_K": 709.0,
+      "objective": 0.153,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.863,
+      "co_index": 0.0209,
+      "nox_index": 0.1075,
+      "steam_temperature_K": 706.5,
+      "objective": 0.14339999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.869,
+      "co_index": 0.0213,
+      "nox_index": 0.09749999999999999,
+      "steam_temperature_K": 704.0,
+      "objective": 0.13379999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.8749999999999999,
+      "co_index": 0.021699999999999997,
+      "nox_index": 0.0875,
+      "steam_temperature_K": 701.5,
+      "objective": 0.12419999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.8809999999999999,
+      "co_index": 0.022099999999999998,
+      "nox_index": 0.07749999999999999,
+      "steam_temperature_K": 699.0,
+      "objective": 0.11459999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.8869999999999999,
+      "co_index": 0.0225,
+      "nox_index": 0.0675,
+      "steam_temperature_K": 696.5,
+      "objective": 0.105,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.8929999999999999,
+      "co_index": 0.022899999999999997,
+      "nox_index": 0.057499999999999996,
+      "steam_temperature_K": 694.0,
+      "objective": 0.0954,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.8989999999999999,
+      "co_index": 0.023299999999999998,
+      "nox_index": 0.04749999999999999,
+      "steam_temperature_K": 691.5,
+      "objective": 0.08579999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9049999999999999,
+      "co_index": 0.0237,
+      "nox_index": 0.0375,
+      "steam_temperature_K": 689.0,
+      "objective": 0.07619999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.9109999999999999,
+      "co_index": 0.024099999999999996,
+      "nox_index": 0.02749999999999999,
+      "steam_temperature_K": 686.5,
+      "objective": 0.06659999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.9169999999999999,
+      "co_index": 0.024499999999999997,
+      "nox_index": 0.0175,
+      "steam_temperature_K": 684.0,
+      "objective": 0.056999999999999995,
+      "feasible": false,
+      "biomass_transition_fraction": 0.7000000000000001,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.8125,
+      "co_index": 0.01375,
+      "nox_index": 0.21875,
+      "steam_temperature_K": 740.0,
+      "objective": 0.24500000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.8185,
+      "co_index": 0.01415,
+      "nox_index": 0.20875,
+      "steam_temperature_K": 737.5,
+      "objective": 0.2354,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.8245,
+      "co_index": 0.01455,
+      "nox_index": 0.19875000000000004,
+      "steam_temperature_K": 735.0,
+      "objective": 0.22580000000000006,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.8305,
+      "co_index": 0.01495,
+      "nox_index": 0.18875000000000003,
+      "steam_temperature_K": 732.5,
+      "objective": 0.21620000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.8365,
+      "co_index": 0.01535,
+      "nox_index": 0.17875000000000002,
+      "steam_temperature_K": 730.0,
+      "objective": 0.20660000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.8425,
+      "co_index": 0.01575,
+      "nox_index": 0.16875,
+      "steam_temperature_K": 727.5,
+      "objective": 0.197,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.8485,
+      "co_index": 0.01615,
+      "nox_index": 0.15875,
+      "steam_temperature_K": 725.0,
+      "objective": 0.1874,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.8545,
+      "co_index": 0.016550000000000002,
+      "nox_index": 0.14875,
+      "steam_temperature_K": 722.5,
+      "objective": 0.1778,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.8605,
+      "co_index": 0.01695,
+      "nox_index": 0.13874999999999998,
+      "steam_temperature_K": 720.0,
+      "objective": 0.1682,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.8665,
+      "co_index": 0.01735,
+      "nox_index": 0.12875000000000003,
+      "steam_temperature_K": 717.5,
+      "objective": 0.15860000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.8725,
+      "co_index": 0.017750000000000002,
+      "nox_index": 0.11875000000000001,
+      "steam_temperature_K": 715.0,
+      "objective": 0.14900000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8785000000000001,
+      "co_index": 0.01815,
+      "nox_index": 0.10875,
+      "steam_temperature_K": 712.5,
+      "objective": 0.13940000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8845000000000001,
+      "co_index": 0.01855,
+      "nox_index": 0.09874999999999999,
+      "steam_temperature_K": 710.0,
+      "objective": 0.1298,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.8905,
+      "co_index": 0.01895,
+      "nox_index": 0.08875,
+      "steam_temperature_K": 707.5,
+      "objective": 0.12019999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.8965,
+      "co_index": 0.01935,
+      "nox_index": 0.07874999999999999,
+      "steam_temperature_K": 705.0,
+      "objective": 0.11059999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.9025,
+      "co_index": 0.01975,
+      "nox_index": 0.06875,
+      "steam_temperature_K": 702.5,
+      "objective": 0.101,
+      "feasible": true,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.9085,
+      "co_index": 0.02015,
+      "nox_index": 0.05875,
+      "steam_temperature_K": 700.0,
+      "objective": 0.0914,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.9145,
+      "co_index": 0.02055,
+      "nox_index": 0.04874999999999999,
+      "steam_temperature_K": 697.5,
+      "objective": 0.08179999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9205,
+      "co_index": 0.02095,
+      "nox_index": 0.03875,
+      "steam_temperature_K": 695.0,
+      "objective": 0.0722,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.9265,
+      "co_index": 0.02135,
+      "nox_index": 0.02874999999999999,
+      "steam_temperature_K": 692.5,
+      "objective": 0.06259999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.9325,
+      "co_index": 0.02175,
+      "nox_index": 0.018750000000000003,
+      "steam_temperature_K": 690.0,
+      "objective": 0.053000000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.75,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.828,
+      "co_index": 0.010999999999999998,
+      "nox_index": 0.22000000000000003,
+      "steam_temperature_K": 746.0,
+      "objective": 0.24100000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.834,
+      "co_index": 0.011399999999999997,
+      "nox_index": 0.21000000000000002,
+      "steam_temperature_K": 743.5,
+      "objective": 0.23140000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.84,
+      "co_index": 0.011799999999999998,
+      "nox_index": 0.2,
+      "steam_temperature_K": 741.0,
+      "objective": 0.22180000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.846,
+      "co_index": 0.012199999999999997,
+      "nox_index": 0.19,
+      "steam_temperature_K": 738.5,
+      "objective": 0.2122,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.852,
+      "co_index": 0.012599999999999998,
+      "nox_index": 0.18000000000000005,
+      "steam_temperature_K": 736.0,
+      "objective": 0.20260000000000006,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.858,
+      "co_index": 0.012999999999999998,
+      "nox_index": 0.17000000000000004,
+      "steam_temperature_K": 733.5,
+      "objective": 0.19300000000000006,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.864,
+      "co_index": 0.013399999999999999,
+      "nox_index": 0.15999999999999998,
+      "steam_temperature_K": 731.0,
+      "objective": 0.18339999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.87,
+      "co_index": 0.013799999999999998,
+      "nox_index": 0.14999999999999997,
+      "steam_temperature_K": 728.5,
+      "objective": 0.17379999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.876,
+      "co_index": 0.014199999999999997,
+      "nox_index": 0.14,
+      "steam_temperature_K": 726.0,
+      "objective": 0.1642,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.882,
+      "co_index": 0.014599999999999998,
+      "nox_index": 0.13,
+      "steam_temperature_K": 723.5,
+      "objective": 0.15460000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.8879999999999999,
+      "co_index": 0.014999999999999998,
+      "nox_index": 0.12000000000000001,
+      "steam_temperature_K": 721.0,
+      "objective": 0.14500000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.8939999999999999,
+      "co_index": 0.015399999999999997,
+      "nox_index": 0.11,
+      "steam_temperature_K": 718.5,
+      "objective": 0.13540000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.8999999999999999,
+      "co_index": 0.015799999999999998,
+      "nox_index": 0.09999999999999999,
+      "steam_temperature_K": 716.0,
+      "objective": 0.1258,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.9059999999999999,
+      "co_index": 0.0162,
+      "nox_index": 0.09,
+      "steam_temperature_K": 713.5,
+      "objective": 0.11619999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.9119999999999999,
+      "co_index": 0.016599999999999997,
+      "nox_index": 0.07999999999999999,
+      "steam_temperature_K": 711.0,
+      "objective": 0.10659999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.9179999999999999,
+      "co_index": 0.016999999999999998,
+      "nox_index": 0.07,
+      "steam_temperature_K": 708.5,
+      "objective": 0.097,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.9239999999999999,
+      "co_index": 0.0174,
+      "nox_index": 0.06,
+      "steam_temperature_K": 706.0,
+      "objective": 0.08739999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.9299999999999999,
+      "co_index": 0.017799999999999996,
+      "nox_index": 0.04999999999999999,
+      "steam_temperature_K": 703.5,
+      "objective": 0.07779999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9359999999999999,
+      "co_index": 0.018199999999999997,
+      "nox_index": 0.04,
+      "steam_temperature_K": 701.0,
+      "objective": 0.0682,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.942,
+      "co_index": 0.0186,
+      "nox_index": 0.029999999999999992,
+      "steam_temperature_K": 698.5,
+      "objective": 0.058599999999999985,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.948,
+      "co_index": 0.018999999999999996,
+      "nox_index": 0.020000000000000004,
+      "steam_temperature_K": 696.0,
+      "objective": 0.049,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.8434999999999999,
+      "co_index": 0.008249999999999995,
+      "nox_index": 0.22125,
+      "steam_temperature_K": 752.0,
+      "objective": 0.23700000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.8494999999999999,
+      "co_index": 0.008649999999999994,
+      "nox_index": 0.21125,
+      "steam_temperature_K": 749.5,
+      "objective": 0.2274,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.8554999999999999,
+      "co_index": 0.009049999999999996,
+      "nox_index": 0.20125000000000004,
+      "steam_temperature_K": 747.0,
+      "objective": 0.21780000000000005,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.8614999999999999,
+      "co_index": 0.009449999999999995,
+      "nox_index": 0.19125000000000003,
+      "steam_temperature_K": 744.5,
+      "objective": 0.20820000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.8674999999999999,
+      "co_index": 0.009849999999999996,
+      "nox_index": 0.18125000000000002,
+      "steam_temperature_K": 742.0,
+      "objective": 0.19860000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.8734999999999999,
+      "co_index": 0.010249999999999995,
+      "nox_index": 0.17125,
+      "steam_temperature_K": 739.5,
+      "objective": 0.189,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.8795,
+      "co_index": 0.010649999999999996,
+      "nox_index": 0.16125,
+      "steam_temperature_K": 737.0,
+      "objective": 0.1794,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.8855,
+      "co_index": 0.011049999999999996,
+      "nox_index": 0.15125,
+      "steam_temperature_K": 734.5,
+      "objective": 0.1698,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.8915,
+      "co_index": 0.011449999999999995,
+      "nox_index": 0.14125,
+      "steam_temperature_K": 732.0,
+      "objective": 0.16019999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.8975,
+      "co_index": 0.011849999999999996,
+      "nox_index": 0.13125000000000003,
+      "steam_temperature_K": 729.5,
+      "objective": 0.15060000000000004,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.9035,
+      "co_index": 0.012249999999999995,
+      "nox_index": 0.12125000000000001,
+      "steam_temperature_K": 727.0,
+      "objective": 0.14100000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.9095,
+      "co_index": 0.012649999999999995,
+      "nox_index": 0.11125,
+      "steam_temperature_K": 724.5,
+      "objective": 0.1314,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.9155,
+      "co_index": 0.013049999999999996,
+      "nox_index": 0.10124999999999999,
+      "steam_temperature_K": 722.0,
+      "objective": 0.12179999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.9214999999999999,
+      "co_index": 0.013449999999999997,
+      "nox_index": 0.09125,
+      "steam_temperature_K": 719.5,
+      "objective": 0.11219999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.9274999999999999,
+      "co_index": 0.013849999999999996,
+      "nox_index": 0.08124999999999999,
+      "steam_temperature_K": 717.0,
+      "objective": 0.10259999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.9334999999999999,
+      "co_index": 0.014249999999999995,
+      "nox_index": 0.07125000000000001,
+      "steam_temperature_K": 714.5,
+      "objective": 0.093,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.9394999999999999,
+      "co_index": 0.014649999999999996,
+      "nox_index": 0.06125,
+      "steam_temperature_K": 712.0,
+      "objective": 0.08339999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.9454999999999999,
+      "co_index": 0.015049999999999996,
+      "nox_index": 0.05124999999999999,
+      "steam_temperature_K": 709.5,
+      "objective": 0.07379999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9514999999999999,
+      "co_index": 0.015449999999999995,
+      "nox_index": 0.04125,
+      "steam_temperature_K": 707.0,
+      "objective": 0.0642,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.9574999999999999,
+      "co_index": 0.015849999999999996,
+      "nox_index": 0.031249999999999993,
+      "steam_temperature_K": 704.5,
+      "objective": 0.05459999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.9634999999999999,
+      "co_index": 0.016249999999999994,
+      "nox_index": 0.021250000000000005,
+      "steam_temperature_K": 702.0,
+      "objective": 0.045,
+      "feasible": true,
+      "biomass_transition_fraction": 0.8500000000000001,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.859,
+      "co_index": 0.005499999999999999,
+      "nox_index": 0.2225,
+      "steam_temperature_K": 758.0,
+      "objective": 0.233,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.865,
+      "co_index": 0.005899999999999999,
+      "nox_index": 0.2125,
+      "steam_temperature_K": 755.5,
+      "objective": 0.2234,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.871,
+      "co_index": 0.006299999999999999,
+      "nox_index": 0.2025,
+      "steam_temperature_K": 753.0,
+      "objective": 0.21380000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.877,
+      "co_index": 0.006699999999999999,
+      "nox_index": 0.1925,
+      "steam_temperature_K": 750.5,
+      "objective": 0.20420000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.883,
+      "co_index": 0.007099999999999999,
+      "nox_index": 0.18250000000000002,
+      "steam_temperature_K": 748.0,
+      "objective": 0.19460000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.889,
+      "co_index": 0.007499999999999999,
+      "nox_index": 0.17250000000000001,
+      "steam_temperature_K": 745.5,
+      "objective": 0.18500000000000003,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.895,
+      "co_index": 0.007899999999999999,
+      "nox_index": 0.16249999999999998,
+      "steam_temperature_K": 743.0,
+      "objective": 0.17539999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.901,
+      "co_index": 0.008299999999999998,
+      "nox_index": 0.15249999999999997,
+      "steam_temperature_K": 740.5,
+      "objective": 0.16579999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.907,
+      "co_index": 0.0087,
+      "nox_index": 0.1425,
+      "steam_temperature_K": 738.0,
+      "objective": 0.1562,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.913,
+      "co_index": 0.009099999999999999,
+      "nox_index": 0.1325,
+      "steam_temperature_K": 735.5,
+      "objective": 0.1466,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.919,
+      "co_index": 0.009499999999999998,
+      "nox_index": 0.12250000000000001,
+      "steam_temperature_K": 733.0,
+      "objective": 0.137,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.925,
+      "co_index": 0.009899999999999999,
+      "nox_index": 0.1125,
+      "steam_temperature_K": 730.5,
+      "objective": 0.1274,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.931,
+      "co_index": 0.0103,
+      "nox_index": 0.1025,
+      "steam_temperature_K": 728.0,
+      "objective": 0.1178,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.9369999999999999,
+      "co_index": 0.0107,
+      "nox_index": 0.0925,
+      "steam_temperature_K": 725.5,
+      "objective": 0.1082,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.943,
+      "co_index": 0.011099999999999999,
+      "nox_index": 0.08249999999999999,
+      "steam_temperature_K": 723.0,
+      "objective": 0.0986,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.949,
+      "co_index": 0.0115,
+      "nox_index": 0.07250000000000001,
+      "steam_temperature_K": 720.5,
+      "objective": 0.08900000000000001,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.955,
+      "co_index": 0.011899999999999999,
+      "nox_index": 0.0625,
+      "steam_temperature_K": 718.0,
+      "objective": 0.0794,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.961,
+      "co_index": 0.012299999999999998,
+      "nox_index": 0.05249999999999999,
+      "steam_temperature_K": 715.5,
+      "objective": 0.0698,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.967,
+      "co_index": 0.0127,
+      "nox_index": 0.042499999999999996,
+      "steam_temperature_K": 713.0,
+      "objective": 0.0602,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.973,
+      "co_index": 0.0131,
+      "nox_index": 0.03249999999999999,
+      "steam_temperature_K": 710.5,
+      "objective": 0.050599999999999985,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.979,
+      "co_index": 0.013499999999999998,
+      "nox_index": 0.022500000000000003,
+      "steam_temperature_K": 708.0,
+      "objective": 0.041,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.8745,
+      "co_index": 0.0027499999999999964,
+      "nox_index": 0.22375,
+      "steam_temperature_K": 764.0,
+      "objective": 0.229,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.8805000000000001,
+      "co_index": 0.0031499999999999966,
+      "nox_index": 0.21375,
+      "steam_temperature_K": 761.5,
+      "objective": 0.21939999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.8865000000000001,
+      "co_index": 0.0035499999999999963,
+      "nox_index": 0.20375000000000001,
+      "steam_temperature_K": 759.0,
+      "objective": 0.20980000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.8925000000000001,
+      "co_index": 0.003949999999999997,
+      "nox_index": 0.19375,
+      "steam_temperature_K": 756.5,
+      "objective": 0.20020000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.8985000000000001,
+      "co_index": 0.004349999999999996,
+      "nox_index": 0.18375000000000002,
+      "steam_temperature_K": 754.0,
+      "objective": 0.19060000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.9045000000000001,
+      "co_index": 0.004749999999999996,
+      "nox_index": 0.17375000000000002,
+      "steam_temperature_K": 751.5,
+      "objective": 0.18100000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.9105000000000001,
+      "co_index": 0.005149999999999997,
+      "nox_index": 0.16374999999999998,
+      "steam_temperature_K": 749.0,
+      "objective": 0.17139999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.9165000000000001,
+      "co_index": 0.005549999999999997,
+      "nox_index": 0.15374999999999997,
+      "steam_temperature_K": 746.5,
+      "objective": 0.16179999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.9225000000000001,
+      "co_index": 0.005949999999999997,
+      "nox_index": 0.14375,
+      "steam_temperature_K": 744.0,
+      "objective": 0.1522,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.9285000000000001,
+      "co_index": 0.006349999999999996,
+      "nox_index": 0.13375,
+      "steam_temperature_K": 741.5,
+      "objective": 0.1426,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.9345000000000001,
+      "co_index": 0.0067499999999999965,
+      "nox_index": 0.12375000000000001,
+      "steam_temperature_K": 739.0,
+      "objective": 0.133,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.9405000000000001,
+      "co_index": 0.007149999999999997,
+      "nox_index": 0.11375,
+      "steam_temperature_K": 736.5,
+      "objective": 0.12340000000000001,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.9465000000000001,
+      "co_index": 0.007549999999999997,
+      "nox_index": 0.10375,
+      "steam_temperature_K": 734.0,
+      "objective": 0.1138,
+      "feasible": false,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.9525,
+      "co_index": 0.007949999999999997,
+      "nox_index": 0.09375,
+      "steam_temperature_K": 731.5,
+      "objective": 0.1042,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.9585,
+      "co_index": 0.008349999999999996,
+      "nox_index": 0.08374999999999999,
+      "steam_temperature_K": 729.0,
+      "objective": 0.09459999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.9645,
+      "co_index": 0.008749999999999997,
+      "nox_index": 0.07375000000000001,
+      "steam_temperature_K": 726.5,
+      "objective": 0.085,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.9705,
+      "co_index": 0.009149999999999997,
+      "nox_index": 0.06375,
+      "steam_temperature_K": 724.0,
+      "objective": 0.0754,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.9765,
+      "co_index": 0.009549999999999996,
+      "nox_index": 0.05374999999999999,
+      "steam_temperature_K": 721.5,
+      "objective": 0.0658,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9825,
+      "co_index": 0.009949999999999997,
+      "nox_index": 0.04375,
+      "steam_temperature_K": 719.0,
+      "objective": 0.05619999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 0.9885,
+      "co_index": 0.010349999999999998,
+      "nox_index": 0.03374999999999999,
+      "steam_temperature_K": 716.5,
+      "objective": 0.04659999999999998,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 0.9945,
+      "co_index": 0.010749999999999996,
+      "nox_index": 0.023750000000000004,
+      "steam_temperature_K": 714.0,
+      "objective": 0.037,
+      "feasible": true,
+      "biomass_transition_fraction": 0.9500000000000001,
+      "startup_fgr_fraction": 1.0
+    },
+    {
+      "flame_stability": 0.8899999999999999,
+      "co_index": 0.0,
+      "nox_index": 0.225,
+      "steam_temperature_K": 770.0,
+      "objective": 0.225,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.0
+    },
+    {
+      "flame_stability": 0.8959999999999999,
+      "co_index": 0.0004,
+      "nox_index": 0.215,
+      "steam_temperature_K": 767.5,
+      "objective": 0.2154,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.05
+    },
+    {
+      "flame_stability": 0.9019999999999999,
+      "co_index": 0.0008,
+      "nox_index": 0.20500000000000002,
+      "steam_temperature_K": 765.0,
+      "objective": 0.2058,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.1
+    },
+    {
+      "flame_stability": 0.9079999999999999,
+      "co_index": 0.0012000000000000001,
+      "nox_index": 0.195,
+      "steam_temperature_K": 762.5,
+      "objective": 0.1962,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.15000000000000002
+    },
+    {
+      "flame_stability": 0.9139999999999999,
+      "co_index": 0.0016,
+      "nox_index": 0.18500000000000003,
+      "steam_temperature_K": 760.0,
+      "objective": 0.18660000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.2
+    },
+    {
+      "flame_stability": 0.9199999999999999,
+      "co_index": 0.002,
+      "nox_index": 0.17500000000000002,
+      "steam_temperature_K": 757.5,
+      "objective": 0.17700000000000002,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.25
+    },
+    {
+      "flame_stability": 0.9259999999999999,
+      "co_index": 0.0024000000000000002,
+      "nox_index": 0.16499999999999998,
+      "steam_temperature_K": 755.0,
+      "objective": 0.1674,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.30000000000000004
+    },
+    {
+      "flame_stability": 0.9319999999999999,
+      "co_index": 0.0028000000000000004,
+      "nox_index": 0.15499999999999997,
+      "steam_temperature_K": 752.5,
+      "objective": 0.15779999999999997,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.35000000000000003
+    },
+    {
+      "flame_stability": 0.938,
+      "co_index": 0.0032,
+      "nox_index": 0.145,
+      "steam_temperature_K": 750.0,
+      "objective": 0.1482,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.4
+    },
+    {
+      "flame_stability": 0.944,
+      "co_index": 0.0036000000000000003,
+      "nox_index": 0.135,
+      "steam_temperature_K": 747.5,
+      "objective": 0.1386,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.45
+    },
+    {
+      "flame_stability": 0.95,
+      "co_index": 0.004,
+      "nox_index": 0.125,
+      "steam_temperature_K": 745.0,
+      "objective": 0.129,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.5
+    },
+    {
+      "flame_stability": 0.956,
+      "co_index": 0.0044,
+      "nox_index": 0.11499999999999999,
+      "steam_temperature_K": 742.5,
+      "objective": 0.11939999999999999,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.55
+    },
+    {
+      "flame_stability": 0.962,
+      "co_index": 0.0048000000000000004,
+      "nox_index": 0.10499999999999998,
+      "steam_temperature_K": 740.0,
+      "objective": 0.10979999999999998,
+      "feasible": false,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.6000000000000001
+    },
+    {
+      "flame_stability": 0.9679999999999999,
+      "co_index": 0.005200000000000001,
+      "nox_index": 0.095,
+      "steam_temperature_K": 737.5,
+      "objective": 0.1002,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.65
+    },
+    {
+      "flame_stability": 0.9739999999999999,
+      "co_index": 0.005600000000000001,
+      "nox_index": 0.08499999999999999,
+      "steam_temperature_K": 735.0,
+      "objective": 0.09059999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.7000000000000001
+    },
+    {
+      "flame_stability": 0.9799999999999999,
+      "co_index": 0.006,
+      "nox_index": 0.07500000000000001,
+      "steam_temperature_K": 732.5,
+      "objective": 0.08100000000000002,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.75
+    },
+    {
+      "flame_stability": 0.9859999999999999,
+      "co_index": 0.0064,
+      "nox_index": 0.065,
+      "steam_temperature_K": 730.0,
+      "objective": 0.0714,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.8
+    },
+    {
+      "flame_stability": 0.9919999999999999,
+      "co_index": 0.0068000000000000005,
+      "nox_index": 0.054999999999999986,
+      "steam_temperature_K": 727.5,
+      "objective": 0.06179999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.8500000000000001
+    },
+    {
+      "flame_stability": 0.9979999999999999,
+      "co_index": 0.007200000000000001,
+      "nox_index": 0.045,
+      "steam_temperature_K": 725.0,
+      "objective": 0.052199999999999996,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.9
+    },
+    {
+      "flame_stability": 1.004,
+      "co_index": 0.007600000000000001,
+      "nox_index": 0.03499999999999999,
+      "steam_temperature_K": 722.5,
+      "objective": 0.04259999999999999,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 0.9500000000000001
+    },
+    {
+      "flame_stability": 1.0099999999999998,
+      "co_index": 0.008,
+      "nox_index": 0.025,
+      "steam_temperature_K": 720.0,
+      "objective": 0.033,
+      "feasible": true,
+      "biomass_transition_fraction": 1.0,
+      "startup_fgr_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo safety/operability extension anchored to active registry parent",
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr",
+    "chemical_distinction": "Adds time-ordered fuel chemistry transition and flue-gas dilution during cold startup."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

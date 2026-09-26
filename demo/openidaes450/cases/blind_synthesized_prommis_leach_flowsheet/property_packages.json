@@ -1,0 +1,44 @@
+[
+  {
+    "name": "fs.leach_soln",
+    "implementation": [
+      {
+        "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameterData"
+      },
+      {
+        "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameters",
+    "module": "prommis.properties.sulfuric_acid_leaching_properties",
+    "data_class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.coal",
+    "implementation": [
+      {
+        "class": "prommis.properties.coal_refuse_properties.CoalRefuseParameterData"
+      },
+      {
+        "class": "prommis.properties.coal_refuse_properties.CoalRefuseParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.properties.coal_refuse_properties.CoalRefuseParameters",
+    "module": "prommis.properties.coal_refuse_properties",
+    "data_class": "prommis.properties.coal_refuse_properties.CoalRefuseParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

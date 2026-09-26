@@ -1,0 +1,19 @@
+{
+  "case_id": "official_subcritical_boiler",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_gas",
+      "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock",
+      "module": "idaes.models_extra.power_generation.properties.flue_gas_ideal",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

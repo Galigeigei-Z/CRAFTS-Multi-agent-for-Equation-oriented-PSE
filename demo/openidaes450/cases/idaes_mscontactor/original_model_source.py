@@ -1,0 +1,5149 @@
+#################################################################################
+# The Institute for the Design of Advanced Energy Systems Integrated Platform
+# Framework (IDAES IP) was produced under the DOE Institute for the
+# Design of Advanced Energy Systems (IDAES).
+#
+# Copyright (c) 2018-2026 by the software owners: The Regents of the
+# University of California, through Lawrence Berkeley National Laboratory,
+# National Technology & Engineering Solutions of Sandia, LLC, Carnegie Mellon
+# University, West Virginia University Research Corporation, et al.
+# All rights reserved.  Please see the files COPYRIGHT.md and LICENSE.md
+# for full copyright and license information.
+#################################################################################
+"""
+Tests for multi-state contactor unit model.
+Authors: Andrew Lee, Douglas Allan
+"""
+
+import pytest
+from pytest import approx
+import re
+from types import MethodType
+
+from pyomo.environ import (
+    assert_optimal_termination,
+    Block,
+    ConcreteModel,
+    Constraint,
+    Expression,
+    log,
+    RangeSet,
+    Set,
+    TransformationFactory,
+    units,
+    value,
+    Var,
+)
+from pyomo.network import Arc, Port
+from pyomo.common.config import ConfigBlock, ConfigValue
+from pyomo.util.check_units import assert_units_consistent, assert_units_equivalent
+from pyomo.dae import DerivativeVar
+
+from idaes.core import (
+    FlowsheetBlock,
+    FlowDirection,
+    declare_process_block_class,
+    PhysicalParameterBlock,
+    ProcessBlockData,
+    ProcessBlock,
+    StateBlock,
+    StateBlockData,
+    Component,
+    Phase,
+    MaterialFlowBasis,
+    MaterialBalanceType,
+)
+from idaes.core.base import property_meta
+from idaes.models.unit_models import Mixer, MixingType, MomentumMixingType
+from idaes.models.unit_models.mscontactor import (
+    MSContactor,
+    MSContactorData,
+    _get_state_blocks,
+    MSContactorInitializer,
+    MSContactorScaler,
+)
+from idaes.core.util.model_statistics import degrees_of_freedom
+from idaes.core.util.misc import add_object_reference
+from idaes.core.solvers import get_solver
+from idaes.core.scaling import CustomScalerBase
+from idaes.core.scaling.util import jacobian_cond
+from idaes.core.util.exceptions import (
+    BurntToast,
+    ConfigurationError,
+    PropertyNotSupportedError,
+)
+from idaes.core.util.initialization import (
+    propagate_state,
+    fix_state_vars,
+    revert_state_vars,
+)
+from idaes.core.util.testing import (
+    PhysicalParameterTestBlock,
+    ReactionParameterTestBlock,
+    ReactionBlock,
+)
+
+from idaes.core.initialization import InitializationStatus
+from idaes.models.properties.examples.saponification_thermo import (
+    SaponificationParameterBlock,
+)
+
+solver = get_solver("ipopt_v2")
+
+
+# -----------------------------------------------------------------------------
+# Property packages for testing
+class Properties1Scaler(CustomScalerBase):
+    DEFAULT_SCALING_FACTORS = {
+        "flow_mol_phase_comp[phase1, solvent1]": 2,
+        "flow_mol_phase_comp[phase1, solute1]": 3,
+        "flow_mol_phase_comp[phase1, solute2]": 5,
+        "flow_mol_phase_comp[phase1, solute3]": 7,
+        "enth_flow": 11,
+        "pressure": 13,
+    }
+
+    def variable_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        for vdata in model.flow_mol_phase_comp.values():
+            self.scale_variable_by_default(vdata, overwrite=overwrite)
+        self.scale_variable_by_default(model.enth_flow, overwrite=overwrite)
+        self.scale_variable_by_default(model.pressure, overwrite=overwrite)
+
+    def constraint_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        model.constraints_scaled = True
+
+
+@declare_process_block_class("Parameters1")
+class Parameter1Data(PhysicalParameterBlock):
+    def build(self):
+        super().build()
+
+        self.phase1 = Phase()
+
+        self.solvent1 = Component()
+        self.solute1 = Component()
+        self.solute2 = Component()
+        self.solute3 = Component()
+
+        self._state_block_class = StateBlock1
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.s,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+
+class SBlock1Base(StateBlock):
+    default_scaler = Properties1Scaler
+
+    def initialize(blk, **kwargs):
+        pass
+
+    def release_state(blk, **kwargs):
+        pass
+
+
+@declare_process_block_class("StateBlock1", block_class=SBlock1Base)
+class StateBlock1Data(StateBlockData):
+    CONFIG = ConfigBlock(implicit=True)
+
+    def build(self):
+        super().build()
+
+        self.flow_mol_phase_comp = Var(
+            self.phase_component_set,
+            units=units.mol / units.s,
+        )
+        self.enth_flow = Var(
+            units=units.J / units.s,
+        )
+        self.pressure = Var(units=units.Pa)
+
+    def get_material_flow_terms(self, p, j):
+        return self.flow_mol_phase_comp[p, j]
+
+    def get_enthalpy_flow_terms(self, p):
+        return self.enth_flow
+
+    def get_material_density_terms(self, p, j):
+        return 42
+
+    def get_energy_density_terms(self, p):
+        return 43
+
+    def get_material_flow_basis(self):
+        return MaterialFlowBasis.molar
+
+    def define_state_vars(self):
+        return {
+            "flow_mol_phase_comp": self.flow_mol_phase_comp,
+            "enth_flow": self.enth_flow,
+            "pressure": self.pressure,
+        }
+
+
+class Properties2Scaler(CustomScalerBase):
+    DEFAULT_SCALING_FACTORS = {
+        "flow_mol_phase_comp[phase1,solvent2]": 19,
+        "flow_mol_phase_comp[phase1,solute1]": 23,
+        "flow_mol_phase_comp[phase1,solute2]": 29,
+        "enth_flow": 37,
+        "pressure": 41,
+    }
+
+    def variable_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        for vdata in model.flow_mol_phase_comp.values():
+            self.scale_variable_by_default(vdata, overwrite=overwrite)
+        self.scale_variable_by_default(model.enth_flow, overwrite=overwrite)
+        self.scale_variable_by_default(model.pressure, overwrite=overwrite)
+
+    def constraint_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        model.constraints_scaled = True
+
+
+@declare_process_block_class("Parameters2")
+class Parameter2Data(PhysicalParameterBlock):
+    def build(self):
+        super().build()
+
+        self.phase1 = Phase()
+
+        self.solvent2 = Component()
+        self.solute1 = Component()
+        self.solute2 = Component()
+
+        self._state_block_class = StateBlock2
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.s,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+
+class SBlock2Base(StateBlock):
+    default_scaler = Properties2Scaler
+
+    def initialize(blk, **kwargs):
+        pass
+
+    def release_state(blk, **kwargs):
+        pass
+
+
+@declare_process_block_class("StateBlock2", block_class=SBlock2Base)
+class StateBlock2Data(StateBlockData):
+    CONFIG = ConfigBlock(implicit=True)
+
+    def build(self):
+        super().build()
+
+        self.flow_mol_phase_comp = Var(
+            self.phase_component_set,
+            units=units.mol / units.s,
+        )
+        self.enth_flow = Var(
+            units=units.J / units.s,
+        )
+        self.pressure = Var(units=units.Pa)
+
+    def get_material_flow_terms(self, p, j):
+        return self.flow_mol_phase_comp[p, j]
+
+    def get_enthalpy_flow_terms(self, p):
+        return self.enth_flow
+
+    def get_material_density_terms(self, p, j):
+        return 52
+
+    def get_energy_density_terms(self, p):
+        return 53
+
+    def get_material_flow_basis(self):
+        return MaterialFlowBasis.molar
+
+    def define_state_vars(self):
+        return {
+            "flow_mol_phase_comp": self.flow_mol_phase_comp,
+            "enth_flow": self.enth_flow,
+            "pressure": self.pressure,
+        }
+
+
+@declare_process_block_class("Parameters3")
+class Parameter3Data(PhysicalParameterBlock):
+    def build(self):
+        super().build()
+
+        self.phase1 = Phase()
+
+        self.solvent4 = Component()
+
+        self._state_block_class = StateBlock3
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.s,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+
+class SBlock3Base(StateBlock):
+    def initialize(blk, **kwargs):
+        pass
+
+    def release_state(blk, **kwargs):
+        pass
+
+
+@declare_process_block_class("StateBlock3", block_class=SBlock3Base)
+class StateBlock3Data(StateBlockData):
+    CONFIG = ConfigBlock(implicit=True)
+
+    def build(self):
+        super().build()
+
+    def get_material_flow_basis(self):
+        return MaterialFlowBasis.mass
+
+
+class Properties4Scaler(CustomScalerBase):
+    DEFAULT_SCALING_FACTORS = {
+        "flow_mol_phase_comp[phase1,solvent1]": 811,
+        "flow_mol_phase_comp[phase1,solute1]": 821,
+        "flow_mol_phase_comp[phase1,solute2]": 823,
+        "flow_mol_phase_comp[phase1,solute3]": 827,
+        "flow_mol_phase_comp[phase2,solvent1]": 829,
+        "flow_mol_phase_comp[phase2,solute1]": 839,
+        "flow_mol_phase_comp[phase2,solute2]": 853,
+        "flow_mol_phase_comp[phase2,solute3]": 857,
+        "enth_flow": 859,
+        "pressure": 863,
+    }
+
+    def variable_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        for vdata in model.flow_mol_phase_comp.values():
+            self.scale_variable_by_default(vdata, overwrite=overwrite)
+        self.scale_variable_by_default(model.enth_flow, overwrite=overwrite)
+        self.scale_variable_by_default(model.pressure, overwrite=overwrite)
+
+    def constraint_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        model.constraints_scaled = True
+
+
+@declare_process_block_class("Parameters4")
+class Parameter4Data(PhysicalParameterBlock):
+    def build(self):
+        super().build()
+
+        self.phase1 = Phase()
+        self.phase2 = Phase()
+
+        self.solvent1 = Component()
+        self.solute1 = Component()
+        self.solute2 = Component()
+        self.solute3 = Component()
+
+        self._state_block_class = StateBlock4
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.s,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+
+class SBlock4Base(StateBlock):
+    default_scaler = Properties4Scaler
+
+    def initialize(blk, **kwargs):
+        pass
+
+    def release_state(blk, **kwargs):
+        pass
+
+
+@declare_process_block_class("StateBlock4", block_class=SBlock4Base)
+class StateBlock4Data(StateBlockData):
+    CONFIG = ConfigBlock(implicit=True)
+
+    def build(self):
+        super().build()
+
+        self.flow_mol_phase_comp = Var(
+            self.phase_component_set,
+            units=units.mol / units.s,
+        )
+        self.enth_flow = Var(
+            units=units.J / units.s,
+        )
+        self.pressure = Var(units=units.Pa)
+
+    def get_material_flow_terms(self, p, j):
+        return self.flow_mol_phase_comp[p, j]
+
+    def get_enthalpy_flow_terms(self, p):
+        return self.enth_flow
+
+    def get_material_density_terms(self, p, j):
+        return 72
+
+    def get_energy_density_terms(self, p):
+        return 73
+
+    def get_material_flow_basis(self):
+        return MaterialFlowBasis.molar
+
+    def define_state_vars(self):
+        return {
+            "flow_mol_phase_comp": self.flow_mol_phase_comp,
+            "enth_flow": self.enth_flow,
+            "pressure": self.pressure,
+        }
+
+
+class DummyHeterogeneousReactionsScaler(CustomScalerBase):
+    def variable_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        model.variables_scaled = True
+
+    def constraint_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        model.constraints_scaled = True
+
+
+@declare_process_block_class("DummyHeterogeneousReactionsParameterBlock")
+class DummyHeterogeneousReactionsParameterData(
+    ProcessBlockData, property_meta.HasPropertyClassMetadata
+):
+    def build(self):
+        super().build()
+
+        self._reaction_block_class = DummyHeterogeneousReactionsBlock
+
+        self.reaction_idx = Set(initialize=["R1", "R2", "R3", "R4"])
+
+        self.reaction_stoichiometry = {
+            ("R1", "p1", "c1"): 2749,
+            ("R2", "p1", "c2"): 2753,
+            ("R3", "p2", "c1"): 2767,
+            ("R4", "p2", "c2"): 2777,
+        }
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.hour,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+    @property
+    def reaction_block_class(self):
+        return self._reaction_block_class
+
+    def build_reaction_block(self, *args, **kwargs):
+        """
+        Methods to construct a ReactionBlock associated with this
+        ReactionParameterBlock. This will automatically set the parameters
+        construction argument for the ReactionBlock.
+
+        Returns:
+            ReactionBlock
+
+        """
+        default = kwargs.pop("default", {})
+        initialize = kwargs.pop("initialize", {})
+
+        if initialize == {}:
+            default["parameters"] = self
+        else:
+            for i in initialize.keys():
+                initialize[i]["parameters"] = self
+
+        return self.reaction_block_class(  # pylint: disable=not-callable
+            *args, **kwargs, **default, initialize=initialize
+        )
+
+
+class _DummyHeterogeneousReactionsBlock(ProcessBlock):
+    default_scaler = DummyHeterogeneousReactionsScaler
+
+
+@declare_process_block_class(
+    "DummyHeterogeneousReactionsBlock", block_class=_DummyHeterogeneousReactionsBlock
+)
+class DummyHeterogeneousReactionsData(ProcessBlockData):
+    CONFIG = ProcessBlockData.CONFIG()
+    CONFIG.declare(
+        "parameters",
+        ConfigValue(
+            # TODO
+            # domain=is_reaction_parameter_block,
+            description="""A reference to an instance of the Heterogeneous Reaction Parameter
+    Block associated with this property package.""",
+        ),
+    )
+
+    def build(self):
+        super().build()
+        add_object_reference(self, "_params", self.config.parameters)
+
+    @property
+    def params(self):
+        return self._params
+
+    @property
+    def default_scaler(self):
+        return self.parent_component().default_scaler
+
+
+# -----------------------------------------------------------------------------
+# Frame class for unit testing
+@declare_process_block_class("ECFrame")
+class ECFrameData(MSContactorData):
+    def build(self):
+        super(MSContactorData, self).build()
+
+        # Add placeholders that would normally be built in build()
+        self.flow_basis = None
+        self.uom = None
+
+
+# -----------------------------------------------------------------------------
+class TestBuild:
+    @pytest.fixture
+    def model(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties2 = Parameters2()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {
+                    "property_package": m.fs.properties2,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        return m
+
+    @pytest.fixture
+    def dynamic(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(
+            dynamic=True,
+            time_set=[0, 1],
+            time_units=units.s,
+        )
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties2 = Parameters2()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {
+                    "property_package": m.fs.properties2,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        return m
+
+    @pytest.mark.unit
+    def test_config(self, model):
+        assert not model.fs.unit.config.dynamic
+        assert not model.fs.unit.config.has_holdup
+        assert model.fs.unit.config.number_of_finite_elements == 2
+        assert "stream1" in model.fs.unit.config.streams
+        assert "stream2" in model.fs.unit.config.streams
+        assert model.fs.unit.config.interacting_streams is None
+
+        assert (
+            model.fs.unit.config.streams["stream1"].property_package
+            is model.fs.properties1
+        )
+        assert model.fs.unit.config.streams["stream1"].property_package_args == {}
+        assert model.fs.unit.config.streams["stream1"].reaction_package is None
+        assert model.fs.unit.config.streams["stream1"].reaction_package_args == {}
+        assert (
+            model.fs.unit.config.streams["stream1"].flow_direction
+            is FlowDirection.forward
+        )
+        assert model.fs.unit.config.streams["stream1"].has_feed
+        assert not model.fs.unit.config.streams["stream1"].has_rate_reactions
+        assert not model.fs.unit.config.streams["stream1"].has_equilibrium_reactions
+        assert model.fs.unit.config.streams["stream1"].side_streams is None
+        assert model.fs.unit.config.streams["stream1"].has_energy_balance
+        assert model.fs.unit.config.streams["stream1"].has_pressure_balance
+        assert not model.fs.unit.config.streams["stream1"].has_pressure_change
+
+        assert (
+            model.fs.unit.config.streams["stream2"].property_package
+            is model.fs.properties2
+        )
+        assert model.fs.unit.config.streams["stream2"].property_package_args == {}
+        assert model.fs.unit.config.streams["stream2"].reaction_package is None
+        assert model.fs.unit.config.streams["stream2"].reaction_package_args == {}
+        assert (
+            model.fs.unit.config.streams["stream2"].flow_direction
+            is FlowDirection.backward
+        )
+        assert model.fs.unit.config.streams["stream2"].has_feed
+        assert not model.fs.unit.config.streams["stream2"].has_rate_reactions
+        assert not model.fs.unit.config.streams["stream2"].has_equilibrium_reactions
+        assert model.fs.unit.config.streams["stream2"].side_streams is None
+        assert model.fs.unit.config.streams["stream2"].has_energy_balance
+        assert model.fs.unit.config.streams["stream2"].has_pressure_balance
+        assert not model.fs.unit.config.streams["stream2"].has_pressure_change
+
+    @pytest.mark.unit
+    def test_default_scaler(self, model):
+        assert model.fs.unit.default_scaler is MSContactorScaler
+
+    @pytest.mark.unit
+    def test_verify_inputs_too_few_streams(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+            },
+        )
+
+        with pytest.raises(
+            ConfigurationError,
+            match=re.escape(
+                "MSContactor models must define at least two streams; received "
+                "['stream1']"
+            ),
+        ):
+            m.fs.unit._verify_inputs()
+
+    @pytest.mark.unit
+    def test_verify_inputs_no_common_components(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties3 = Parameters3()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {"property_package": m.fs.properties3},
+            },
+        )
+
+        with pytest.raises(
+            ConfigurationError,
+            match="No common components found in property packages and no heterogeneous reactions "
+            "specified. The MSContactor model assumes that mass transfer occurs between "
+            "components with the same name in different streams or due to heterogeneous reactions.",
+        ):
+            m.fs.unit._verify_inputs()
+
+        # Should pass if heterogeneous reaction argument provided
+        m.fs.unit.config.heterogeneous_reactions = True
+        m.fs.unit._verify_inputs()
+
+    @pytest.mark.unit
+    def test_verify_inputs_reactions_with_no_package(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {
+                    "property_package": m.fs.properties1,
+                    "has_rate_reactions": True,
+                },
+                "stream2": {"property_package": m.fs.properties1},
+            },
+        )
+
+        with pytest.raises(
+            ConfigurationError,
+            match="Stream stream1 was set to include reactions, "
+            "but no reaction package was provided.",
+        ):
+            m.fs.unit._verify_inputs()
+
+    @pytest.mark.unit
+    def test_verify_inputs_construct_components(self, model):
+        model.fs.unit._verify_inputs()
+
+        assert isinstance(model.fs.unit.elements, RangeSet)
+        assert len(model.fs.unit.elements) == 2
+
+        assert isinstance(model.fs.unit.stream_interactions, Set)
+        assert len(model.fs.unit.stream_interactions) == 1
+        assert model.fs.unit.stream_interactions == [("stream1", "stream2")]
+
+        assert isinstance(model.fs.unit.stream_component_interactions, Set)
+        # One stream pair with two common components
+        assert len(model.fs.unit.stream_component_interactions) == 2
+        for k in model.fs.unit.stream_component_interactions:
+            assert k in [
+                ("stream1", "stream2", "solute1"),
+                ("stream1", "stream2", "solute2"),
+            ]
+
+    @pytest.mark.unit
+    def test_build_state_blocks(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        assert model.fs.unit.flow_basis == MaterialFlowBasis.molar
+        assert model.fs.unit.uom == model.fs.properties1.get_metadata().derived_units
+
+        assert isinstance(model.fs.unit.stream1, StateBlock1)
+        assert len(model.fs.unit.stream1) == 2
+        assert not model.fs.unit.stream1[0, 1].config.defined_state
+        assert not model.fs.unit.stream1[0, 2].config.defined_state
+
+        assert isinstance(model.fs.unit.stream1_inlet_state, StateBlock1)
+        assert len(model.fs.unit.stream1_inlet_state) == 1
+        assert model.fs.unit.stream1_inlet_state[0].config.defined_state
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_set")
+        assert not hasattr(model.fs.unit, "stream1_side_stream_state")
+
+        assert isinstance(model.fs.unit.stream2, StateBlock2)
+        assert len(model.fs.unit.stream2) == 2
+        assert not model.fs.unit.stream2[0, 1].config.defined_state
+        assert not model.fs.unit.stream2[0, 2].config.defined_state
+
+        assert isinstance(model.fs.unit.stream2_inlet_state, StateBlock2)
+        assert len(model.fs.unit.stream2_inlet_state) == 1
+        assert model.fs.unit.stream2_inlet_state[0].config.defined_state
+
+        assert not hasattr(model.fs.unit, "stream2_side_stream_set")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_state")
+
+    @pytest.mark.unit
+    def test_scale_state_blocks(self, model):
+        unit = model.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        scaler_obj = unit.default_scaler()
+
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", "solvent1"], 433
+        )
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].pressure, 1151
+        )
+
+        scaler_obj.set_component_scaling_factor(
+            unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", "solute2"], 577
+        )
+        scaler_obj.set_component_scaling_factor(
+            unit.stream2_inlet_state[0].enth_flow, 1423
+        )
+
+        scaler_obj.scale_model(unit)
+
+        for state in unit.stream1.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solvent1"]]
+                == 433
+            )
+            assert state.scaling_factor[state.pressure] == 1151
+            assert state.scaling_factor[state.enth_flow] == 11
+            assert state.constraints_scaled
+
+        for state in unit.stream2.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solute2"]]
+                == 577
+            )
+            assert state.scaling_factor[state.enth_flow] == 1423
+            assert state.scaling_factor[state.pressure] == 41
+            assert state.constraints_scaled
+
+    @pytest.mark.unit
+    def test_build_state_blocks_no_feed(self, model):
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        assert model.fs.unit.flow_basis == MaterialFlowBasis.molar
+        assert model.fs.unit.uom == model.fs.properties1.get_metadata().derived_units
+
+        assert isinstance(model.fs.unit.stream1, StateBlock1)
+        assert len(model.fs.unit.stream1) == 2
+        assert not model.fs.unit.stream1[0, 1].config.defined_state
+        assert not model.fs.unit.stream1[0, 2].config.defined_state
+
+        assert isinstance(model.fs.unit.stream1_inlet_state, StateBlock1)
+        assert len(model.fs.unit.stream1_inlet_state) == 1
+        assert model.fs.unit.stream1_inlet_state[0].config.defined_state
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_set")
+        assert not hasattr(model.fs.unit, "stream1_side_stream_state")
+
+        assert isinstance(model.fs.unit.stream2, StateBlock2)
+        assert len(model.fs.unit.stream2) == 2
+        assert not model.fs.unit.stream2[0, 1].config.defined_state
+        assert not model.fs.unit.stream2[0, 2].config.defined_state
+
+        assert not hasattr(model.fs.unit, "stream2_inlet_state")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_set")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_state")
+
+    @pytest.mark.unit
+    def test_scale_state_blocks_no_feed(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_feed = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        scaler_obj = unit.default_scaler()
+
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", "solvent1"], 433
+        )
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].pressure, 1151
+        )
+
+        scaler_obj.scale_model(unit)
+
+        for state in unit.stream1.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solvent1"]]
+                == 433
+            )
+            assert state.scaling_factor[state.pressure] == 1151
+            assert state.scaling_factor[state.enth_flow] == 11
+            assert state.constraints_scaled
+
+        for state in unit.stream2.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solute2"]]
+                == 29
+            )
+            assert state.scaling_factor[state.enth_flow] == 37
+            assert state.scaling_factor[state.pressure] == 41
+            assert state.constraints_scaled
+
+    @pytest.mark.unit
+    def test_build_state_blocks_side_stream(self, model):
+        model.fs.unit.config.streams["stream2"].side_streams = [1]
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        assert model.fs.unit.flow_basis == MaterialFlowBasis.molar
+        assert model.fs.unit.uom == model.fs.properties1.get_metadata().derived_units
+
+        assert isinstance(model.fs.unit.stream1, StateBlock1)
+        assert len(model.fs.unit.stream1) == 2
+        assert not model.fs.unit.stream1[0, 1].config.defined_state
+        assert not model.fs.unit.stream1[0, 2].config.defined_state
+
+        assert isinstance(model.fs.unit.stream1_inlet_state, StateBlock1)
+        assert len(model.fs.unit.stream1_inlet_state) == 1
+        assert model.fs.unit.stream1_inlet_state[0].config.defined_state
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_set")
+        assert not hasattr(model.fs.unit, "stream1_side_stream_state")
+
+        assert isinstance(model.fs.unit.stream2, StateBlock2)
+        assert len(model.fs.unit.stream2) == 2
+        assert not model.fs.unit.stream2[0, 1].config.defined_state
+        assert not model.fs.unit.stream2[0, 2].config.defined_state
+
+        assert isinstance(model.fs.unit.stream2_inlet_state, StateBlock2)
+        assert len(model.fs.unit.stream2_inlet_state) == 1
+        assert model.fs.unit.stream2_inlet_state[0].config.defined_state
+
+        assert isinstance(model.fs.unit.stream2_side_stream_set, Set)
+        assert len(model.fs.unit.stream2_side_stream_set) == 1
+        assert isinstance(model.fs.unit.stream2_side_stream_state, StateBlock2)
+        assert len(model.fs.unit.stream2_side_stream_state) == 1
+        assert not model.fs.unit.stream2_side_stream_state[0, 1].config.defined_state
+
+    @pytest.mark.unit
+    def test_scale_state_blocks_side_stream(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].side_streams = [1]
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        scaler_obj = unit.default_scaler()
+
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", "solvent1"], 433
+        )
+        scaler_obj.set_component_scaling_factor(
+            unit.stream1_inlet_state[0].pressure, 1151
+        )
+
+        scaler_obj.set_component_scaling_factor(
+            unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", "solute2"], 577
+        )
+        scaler_obj.set_component_scaling_factor(
+            unit.stream2_inlet_state[0].enth_flow, 1423
+        )
+
+        scaler_obj.scale_model(unit)
+
+        for state in unit.stream1.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solvent1"]]
+                == 433
+            )
+            assert state.scaling_factor[state.pressure] == 1151
+            assert state.scaling_factor[state.enth_flow] == 11
+            assert state.constraints_scaled
+
+        for state in unit.stream2.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solute2"]]
+                == 577
+            )
+            assert state.scaling_factor[state.enth_flow] == 1423
+            assert state.scaling_factor[state.pressure] == 41
+            assert state.constraints_scaled
+
+        for state in unit.stream2_side_stream_state.values():
+            assert (
+                state.scaling_factor[state.flow_mol_phase_comp["phase1", "solute2"]]
+                == 577
+            )
+            assert state.scaling_factor[state.enth_flow] == 1423
+            assert state.scaling_factor[state.pressure] == 41
+            assert state.constraints_scaled
+
+    @pytest.mark.unit
+    def test_build_state_blocks_side_stream_invalid(self, model):
+        model.fs.unit.config.streams["stream2"].side_streams = [10]
+        model.fs.unit._verify_inputs()
+
+        with pytest.raises(
+            ConfigurationError,
+            match="side_streams must be a sub-set of the set of elements. "
+            "Found 10 in side_streams which is not in elements.",
+        ):
+            model.fs.unit._build_state_blocks()
+
+    @pytest.mark.unit
+    def test_build_state_blocks_different_flow_basis(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties3 = Parameters3()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                # Properties3 has a different flow basis
+                "stream2": {"property_package": m.fs.properties3},
+            },
+        )
+
+        m.fs.unit.elements = Set(initialize=[1, 2])
+
+        with pytest.raises(
+            ConfigurationError,
+            match="Property packages use different flow bases: ExtractionCascade "
+            "requires all property packages to use the same basis. stream2 uses "
+            "MaterialFlowBasis.mass, whilst first stream uses "
+            "MaterialFlowBasis.molar.",
+        ):
+            m.fs.unit._build_state_blocks()
+
+    @pytest.mark.unit
+    def test_get_state_blocks(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream1"
+        )
+        assert in_state is model.fs.unit.stream1_inlet_state[0]
+        assert out_state is model.fs.unit.stream1[0, 1]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream1"
+        )
+        assert in_state is model.fs.unit.stream1[0, 1]
+        assert out_state is model.fs.unit.stream1[0, 2]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream2"
+        )
+        assert in_state is model.fs.unit.stream2[0, 2]
+        assert out_state is model.fs.unit.stream2[0, 1]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream2"
+        )
+        assert in_state is model.fs.unit.stream2_inlet_state[0]
+        assert out_state is model.fs.unit.stream2[0, 2]
+        assert side_state is None
+
+    @pytest.mark.unit
+    def test_get_state_blocks_no_feed(self, model):
+        model.fs.unit.config.streams["stream1"].has_feed = False
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream1"
+        )
+        assert in_state is None
+        assert out_state is model.fs.unit.stream1[0, 1]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream1"
+        )
+        assert in_state is model.fs.unit.stream1[0, 1]
+        assert out_state is model.fs.unit.stream1[0, 2]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream2"
+        )
+        assert in_state is model.fs.unit.stream2[0, 2]
+        assert out_state is model.fs.unit.stream2[0, 1]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream2"
+        )
+        assert in_state is None
+        assert out_state is model.fs.unit.stream2[0, 2]
+        assert side_state is None
+
+    @pytest.mark.unit
+    def test_get_state_blocks_side_streams(self, model):
+        model.fs.unit.config.streams["stream1"].side_streams = [1]
+        model.fs.unit.config.streams["stream2"].side_streams = [2]
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream1"
+        )
+        assert in_state is model.fs.unit.stream1_inlet_state[0]
+        assert out_state is model.fs.unit.stream1[0, 1]
+        assert side_state is model.fs.unit.stream1_side_stream_state[0, 1]
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream1"
+        )
+        assert in_state is model.fs.unit.stream1[0, 1]
+        assert out_state is model.fs.unit.stream1[0, 2]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 1, "stream2"
+        )
+        assert in_state is model.fs.unit.stream2[0, 2]
+        assert out_state is model.fs.unit.stream2[0, 1]
+        assert side_state is None
+
+        in_state, out_state, side_state = _get_state_blocks(
+            model.fs.unit, 0, 2, "stream2"
+        )
+        assert in_state is model.fs.unit.stream2_inlet_state[0]
+        assert out_state is model.fs.unit.stream2[0, 2]
+        assert side_state is model.fs.unit.stream2_side_stream_state[0, 2]
+
+    @pytest.mark.unit
+    def test_add_geometry_no_holdup(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._add_geometry()
+
+        assert not hasattr(model.fs.unit, "volume")
+        assert not hasattr(model.fs.unit, "volume_frac_stream")
+        assert not hasattr(model.fs.unit, "sum_volume_frac")
+
+        assert not hasattr(model.fs.unit, "stream1_phase_fraction")
+        assert not hasattr(model.fs.unit, "stream1_sum_phase_fractions")
+
+        assert not hasattr(model.fs.unit, "stream2_phase_fraction")
+        assert not hasattr(model.fs.unit, "stream2_sum_phase_fractions")
+
+    @pytest.mark.unit
+    def test_add_geometry_holdup_single_phase(self, dynamic):
+        dynamic.fs.unit._verify_inputs()
+        dynamic.fs.unit._build_state_blocks()
+        dynamic.fs.unit._add_geometry()
+
+        assert isinstance(dynamic.fs.unit.volume, Var)
+        assert len(dynamic.fs.unit.volume) == 2
+        assert isinstance(dynamic.fs.unit.volume_frac_stream, Var)
+        assert len(dynamic.fs.unit.volume_frac_stream) == 2 * 2 * 2
+        assert isinstance(dynamic.fs.unit.sum_volume_frac, Constraint)
+        assert len(dynamic.fs.unit.sum_volume_frac) == 2 * 2 * 1
+
+        assert isinstance(dynamic.fs.unit.stream1_phase_fraction, Expression)
+        assert isinstance(dynamic.fs.unit.stream2_phase_fraction, Expression)
+        assert not hasattr(dynamic.fs.unit, "stream1_sum_phase_fractions")
+        assert not hasattr(dynamic.fs.unit, "stream2_sum_phase_fractions")
+
+        for i in dynamic.fs.unit.stream1_phase_fraction.values():
+            assert i.expr == 1
+        for i in dynamic.fs.unit.stream2_phase_fraction.values():
+            assert i.expr == 1
+
+    @pytest.mark.unit
+    def test_scale_geometry_holdup_single_phase(self, dynamic):
+        unit = dynamic.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._add_geometry()
+        scaler_obj = unit.default_scaler()
+        scaler_obj.default_scaling_factors["volume"] = 1907
+
+        scaler_obj.scale_model(unit)
+
+        for vardata in unit.volume.values():
+            assert unit.scaling_factor[vardata] == 1907
+        for expdata in unit.stream1_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+        for expdata in unit.stream2_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+
+    @pytest.mark.unit
+    def test_add_geometry_holdup_multi_phase(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(
+            dynamic=True,
+            time_set=[0, 1],
+            time_units=units.s,
+        )
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties2 = Parameters4()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {
+                    "property_package": m.fs.properties2,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        m.fs.unit._verify_inputs()
+        m.fs.unit._build_state_blocks()
+        m.fs.unit._add_geometry()
+
+        assert isinstance(m.fs.unit.volume, Var)
+        assert len(m.fs.unit.volume) == 2
+        assert isinstance(m.fs.unit.volume_frac_stream, Var)
+        assert len(m.fs.unit.volume_frac_stream) == 2 * 2 * 2
+        assert isinstance(m.fs.unit.sum_volume_frac, Constraint)
+        assert len(m.fs.unit.sum_volume_frac) == 2 * 2 * 1
+
+        assert isinstance(m.fs.unit.stream1_phase_fraction, Expression)
+        assert isinstance(m.fs.unit.stream2_phase_fraction, Var)
+        assert not hasattr(m.fs.unit, "stream1_sum_phase_fractions")
+        assert isinstance(m.fs.unit.stream2_sum_phase_fractions, Constraint)
+
+        for i in m.fs.unit.stream1_phase_fraction.values():
+            assert i.expr == 1
+
+        for (t, e), con in m.fs.unit.stream2_sum_phase_fractions.items():
+            assert str(con.expr) == str(
+                1
+                == sum(
+                    m.fs.unit.stream2_phase_fraction[t, e, p]
+                    for p in ["phase1", "phase2"]
+                )
+            )
+
+    @pytest.mark.unit
+    def test_scale_geometry_holdup_multi_phase(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(
+            dynamic=True,
+            time_set=[0, 1],
+            time_units=units.s,
+        )
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties2 = Parameters4()
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {
+                    "property_package": m.fs.properties2,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        unit = m.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._add_geometry()
+        scaler_obj = unit.default_scaler()
+        scaler_obj.default_scaling_factors["volume"] = 1907
+
+        scaler_obj.scale_model(unit)
+
+        for vardata in unit.volume.values():
+            assert unit.scaling_factor[vardata] == 1907
+        for vardata in unit.stream1_phase_fraction.values():
+            assert unit.scaling_hint[vardata] == 10
+        for vardata in unit.stream2_phase_fraction.values():
+            assert unit.scaling_factor[vardata] == 10
+        for condata in unit.stream2_sum_phase_fractions.values():
+            assert unit.scaling_factor[condata] == 1
+
+    @pytest.mark.unit
+    def test_material_balances(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(model.fs.unit.material_transfer_term, Var)
+        # One stream pair with two common components over two elements and 1 time point
+        assert len(model.fs.unit.material_transfer_term) == 4
+        assert_units_equivalent(
+            model.fs.unit.material_transfer_term._units, units.mol / units.s
+        )
+
+        assert isinstance(model.fs.unit.stream1_material_balance, Constraint)
+        # 1 time point, 2 elements, 4 components
+        assert len(model.fs.unit.stream1_material_balance) == 8
+
+        for j in ["solvent1", "solute3"]:  # no mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+        for j in ["solute1", "solute2"]:  # has +ve mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+
+        assert isinstance(model.fs.unit.stream2_material_balance, Constraint)
+        # 1 time point, 2 elements, 3 components
+        assert len(model.fs.unit.stream2_material_balance) == 6
+        for j in ["solvent2"]:  # no mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+            )
+        for j in ["solute1", "solute2"]:  # has -ve mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+
+    @pytest.mark.unit
+    def test_material_balances_scaling(self, model):
+        unit = model.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 18
+        # Variables
+        for t in model.fs.time:
+            for e in unit.elements:
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute1"
+                        ]
+                    ]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute2"
+                        ]
+                    ]
+                    == 29
+                )
+
+        # Constraints
+        for t in model.fs.time:
+            for e in unit.elements:
+                # Stream 1
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solvent1"]]
+                    == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute1"]]
+                    == 3
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute2"]]
+                    == 5
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute3"]]
+                    == 7
+                )
+
+                # Stream 2
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solvent2"]]
+                    == 19
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute1"]]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute2"]]
+                    == 29
+                )
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_material_balances_dynamic(self, dynamic):
+        dynamic.fs.unit._verify_inputs()
+        dynamic.fs.unit._build_state_blocks()
+        dynamic.fs.unit._add_geometry()
+        dynamic.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(dynamic.fs.unit.material_transfer_term, Var)
+        # One stream pair with two common components over two elements and 2 time point
+        assert len(dynamic.fs.unit.material_transfer_term) == 8
+        assert_units_equivalent(
+            dynamic.fs.unit.material_transfer_term._units, units.mol / units.s
+        )
+
+        assert isinstance(dynamic.fs.unit.stream1_material_holdup, Var)
+        assert len(dynamic.fs.unit.stream1_material_holdup) == 16
+        assert isinstance(dynamic.fs.unit.stream1_material_accumulation, DerivativeVar)
+        assert len(dynamic.fs.unit.stream1_material_accumulation) == 16
+        assert isinstance(
+            dynamic.fs.unit.stream1_material_holdup_constraint, Constraint
+        )
+        assert len(dynamic.fs.unit.stream1_material_holdup_constraint) == 16
+        for (
+            t,
+            x,
+            p,
+            j,
+        ), con in dynamic.fs.unit.stream1_material_holdup_constraint.items():
+            assert str(con.expr) == str(
+                dynamic.fs.unit.stream1_material_holdup[t, x, p, j]
+                == dynamic.fs.unit.volume[x]
+                * dynamic.fs.unit.volume_frac_stream[t, x, "stream1"]
+                * dynamic.fs.unit.stream1_phase_fraction[t, x, p]
+                * 42
+            )
+
+        assert isinstance(dynamic.fs.unit.stream2_material_holdup, Var)
+        assert len(dynamic.fs.unit.stream2_material_holdup) == 12
+        assert isinstance(dynamic.fs.unit.stream2_material_accumulation, DerivativeVar)
+        assert len(dynamic.fs.unit.stream2_material_accumulation) == 12
+        assert isinstance(
+            dynamic.fs.unit.stream2_material_holdup_constraint, Constraint
+        )
+        assert len(dynamic.fs.unit.stream2_material_holdup_constraint) == 12
+        for (
+            t,
+            x,
+            p,
+            j,
+        ), con in dynamic.fs.unit.stream2_material_holdup_constraint.items():
+            assert str(con.expr) == str(
+                dynamic.fs.unit.stream2_material_holdup[t, x, p, j]
+                == dynamic.fs.unit.volume[x]
+                * dynamic.fs.unit.volume_frac_stream[t, x, "stream2"]
+                * dynamic.fs.unit.stream2_phase_fraction[t, x, p]
+                * 52
+            )
+
+        assert isinstance(dynamic.fs.unit.stream1_material_balance, Constraint)
+        # 2 time point, 2 elements, 4 components
+        assert len(dynamic.fs.unit.stream1_material_balance) == 16
+
+        for t in dynamic.fs.time:
+            for j in ["solvent1", "solute3"]:  # no mass transfer, forward flow
+                assert str(
+                    dynamic.fs.unit.stream1_material_balance[t, 1, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream1_material_accumulation[t, 1, "phase1", j]
+                    == dynamic.fs.unit.stream1_inlet_state[t].flow_mol_phase_comp[
+                        "phase1", j
+                    ]
+                    - dynamic.fs.unit.stream1[t, 1].flow_mol_phase_comp["phase1", j]
+                )
+                assert str(
+                    dynamic.fs.unit.stream1_material_balance[t, 2, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream1_material_accumulation[t, 2, "phase1", j]
+                    == dynamic.fs.unit.stream1[t, 1].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.stream1[t, 2].flow_mol_phase_comp["phase1", j]
+                )
+            for j in ["solute1", "solute2"]:  # has +ve mass transfer, forward flow
+                assert str(
+                    dynamic.fs.unit.stream1_material_balance[t, 1, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream1_material_accumulation[t, 1, "phase1", j]
+                    == dynamic.fs.unit.stream1_inlet_state[t].flow_mol_phase_comp[
+                        "phase1", j
+                    ]
+                    - dynamic.fs.unit.stream1[t, 1].flow_mol_phase_comp["phase1", j]
+                    + dynamic.fs.unit.material_transfer_term[
+                        t, 1, "stream1", "stream2", j
+                    ]
+                )
+                assert str(
+                    dynamic.fs.unit.stream1_material_balance[t, 2, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream1_material_accumulation[t, 2, "phase1", j]
+                    == dynamic.fs.unit.stream1[t, 1].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.stream1[t, 2].flow_mol_phase_comp["phase1", j]
+                    + dynamic.fs.unit.material_transfer_term[
+                        t, 2, "stream1", "stream2", j
+                    ]
+                )
+
+        assert isinstance(dynamic.fs.unit.stream2_material_balance, Constraint)
+        # 2 time point, 2 elements, 3 components
+        assert len(dynamic.fs.unit.stream2_material_balance) == 12
+
+        for t in dynamic.fs.time:
+            for j in ["solvent2"]:  # no mass transfer, reverse flow
+                assert str(
+                    dynamic.fs.unit.stream2_material_balance[t, 2, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream2_material_accumulation[t, 2, "phase1", j]
+                    == dynamic.fs.unit.stream2_inlet_state[t].flow_mol_phase_comp[
+                        "phase1", j
+                    ]
+                    - dynamic.fs.unit.stream2[t, 2].flow_mol_phase_comp["phase1", j]
+                )
+                assert str(
+                    dynamic.fs.unit.stream2_material_balance[t, 1, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream2_material_accumulation[t, 1, "phase1", j]
+                    == dynamic.fs.unit.stream2[t, 2].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.stream2[t, 1].flow_mol_phase_comp["phase1", j]
+                )
+            for j in ["solute1", "solute2"]:  # has -ve mass transfer, reverse flow
+                assert str(
+                    dynamic.fs.unit.stream2_material_balance[t, 2, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream2_material_accumulation[t, 2, "phase1", j]
+                    == dynamic.fs.unit.stream2_inlet_state[t].flow_mol_phase_comp[
+                        "phase1", j
+                    ]
+                    - dynamic.fs.unit.stream2[t, 2].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.material_transfer_term[
+                        t, 2, "stream1", "stream2", j
+                    ]
+                )
+                assert str(
+                    dynamic.fs.unit.stream2_material_balance[t, 1, j].expr
+                ) == str(
+                    dynamic.fs.unit.stream2_material_accumulation[t, 1, "phase1", j]
+                    == dynamic.fs.unit.stream2[t, 2].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.stream2[t, 1].flow_mol_phase_comp["phase1", j]
+                    - dynamic.fs.unit.material_transfer_term[
+                        t, 1, "stream1", "stream2", j
+                    ]
+                )
+
+    @pytest.mark.unit
+    def test_material_balances_dynamic_scaling(self, dynamic):
+        unit = dynamic.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._add_geometry()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.default_scaling_factors["volume"] = 2683
+
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 106
+        # Variables
+        for e in unit.elements:
+            assert unit.scaling_factor[unit.volume[e]] == 2683
+        for t in dynamic.fs.time:
+            for e in unit.elements:
+                assert (
+                    unit.scaling_factor[unit.volume_frac_stream[t, e, "stream1"]] == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.volume_frac_stream[t, e, "stream2"]] == 2
+                )
+
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute1"
+                        ]
+                    ]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute2"
+                        ]
+                    ]
+                    == 29
+                )
+
+        for vardata in unit.stream1_material_holdup.values():
+            assert unit.scaling_factor[vardata] == approx(2683 * 2 * 10 / 42)
+
+        for vardata in unit.stream2_material_holdup.values():
+            assert unit.scaling_factor[vardata] == approx(2683 * 2 * 10 / 52)
+
+        # Constraints
+        for t in dynamic.fs.time:
+            for e in unit.elements:
+                assert unit.scaling_factor[unit.sum_volume_frac[t, e]] == 1
+
+                # Stream 1
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solvent1"]]
+                    == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute1"]]
+                    == 3
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute2"]]
+                    == 5
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute3"]]
+                    == 7
+                )
+
+                # Stream 2
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solvent2"]]
+                    == 19
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute1"]]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute2"]]
+                    == 29
+                )
+
+        for condata in unit.stream1_material_holdup_constraint.values():
+            assert unit.scaling_factor[condata] == approx(2683 * 2 * 10 / 42)
+
+        for condata in unit.stream2_material_holdup_constraint.values():
+            assert unit.scaling_factor[condata] == approx(2683 * 2 * 10 / 52)
+
+        # Expressions
+        assert len(unit.scaling_hint) == 8
+        for expdata in unit.stream1_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+
+        for expdata in unit.stream2_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+
+    @pytest.mark.unit
+    def test_build_material_balances_no_feed(self, model):
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(model.fs.unit.material_transfer_term, Var)
+        # One stream pair with two common components over two elements and 1 time point
+        assert len(model.fs.unit.material_transfer_term) == 4
+        assert_units_equivalent(
+            model.fs.unit.material_transfer_term._units, units.mol / units.s
+        )
+
+        assert isinstance(model.fs.unit.stream1_material_balance, Constraint)
+        # 1 time point, 2 elements, 4 components
+        assert len(model.fs.unit.stream1_material_balance) == 8
+
+        for j in ["solvent1", "solute3"]:  # no mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+        for j in ["solute1", "solute2"]:  # has +ve mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+
+        assert isinstance(model.fs.unit.stream2_material_balance, Constraint)
+        # 1 time point, 2 elements, 3 components
+        assert len(model.fs.unit.stream2_material_balance) == 6
+        for j in ["solvent2"]:  # no mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == -model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+            )
+        for j in ["solute1", "solute2"]:  # has -ve mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == -model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+
+    @pytest.mark.unit
+    def test_material_balances_no_feed_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_feed = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 18
+        # Variables
+        for t in model.fs.time:
+            for e in unit.elements:
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute1"
+                        ]
+                    ]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute2"
+                        ]
+                    ]
+                    == 29
+                )
+
+        # Constraints
+        for t in model.fs.time:
+            for e in unit.elements:
+                # Stream 1
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solvent1"]]
+                    == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute1"]]
+                    == 3
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute2"]]
+                    == 5
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute3"]]
+                    == 7
+                )
+
+                # Stream 2
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solvent2"]]
+                    == 19
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute1"]]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute2"]]
+                    == 29
+                )
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_material_balances_side_stream(self, model):
+        model.fs.unit.config.streams["stream2"].side_streams = [1]
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(model.fs.unit.material_transfer_term, Var)
+        # One stream pair with two common components over two elements and 1 time point
+        assert len(model.fs.unit.material_transfer_term) == 4
+        assert_units_equivalent(
+            model.fs.unit.material_transfer_term._units, units.mol / units.s
+        )
+
+        assert isinstance(model.fs.unit.stream1_material_balance, Constraint)
+        # 1 time point, 2 elements, 4 components
+        assert len(model.fs.unit.stream1_material_balance) == 8
+
+        for j in ["solvent1", "solute3"]:  # no mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+        for j in ["solute1", "solute2"]:  # has +ve mass transfer, forward flow
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream1[0, 1].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream1[0, 2].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+
+        assert isinstance(model.fs.unit.stream2_material_balance, Constraint)
+        # 1 time point, 2 elements, 3 components
+        assert len(model.fs.unit.stream2_material_balance) == 6
+        for j in ["solvent2"]:  # no mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.stream2_side_stream_state[0, 1].flow_mol_phase_comp[
+                    "phase1", j
+                ]
+            )
+        for j in ["solute1", "solute2"]:  # has -ve mass transfer, reverse flow
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2_inlet_state[0].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == model.fs.unit.stream2[0, 2].flow_mol_phase_comp["phase1", j]
+                - model.fs.unit.stream2[0, 1].flow_mol_phase_comp["phase1", j]
+                + model.fs.unit.stream2_side_stream_state[0, 1].flow_mol_phase_comp[
+                    "phase1", j
+                ]
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+
+    @pytest.mark.unit
+    def test_material_balances_side_stream_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].side_streams = [1]
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 18
+        # Variables
+        for t in model.fs.time:
+            for e in unit.elements:
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute1"
+                        ]
+                    ]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[
+                        unit.material_transfer_term[
+                            t, e, "stream1", "stream2", "solute2"
+                        ]
+                    ]
+                    == 29
+                )
+
+        # Constraints
+        for t in model.fs.time:
+            for e in unit.elements:
+                # Stream 1
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solvent1"]]
+                    == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute1"]]
+                    == 3
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute2"]]
+                    == 5
+                )
+                assert (
+                    unit.scaling_factor[unit.stream1_material_balance[t, e, "solute3"]]
+                    == 7
+                )
+
+                # Stream 2
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solvent2"]]
+                    == 19
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute1"]]
+                    == 23
+                )
+                assert (
+                    unit.scaling_factor[unit.stream2_material_balance[t, e, "solute2"]]
+                    == 29
+                )
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert isinstance(model.fs.unit.energy_transfer_term, Var)
+        # 1 stream interaction, 2 elements
+        assert len(model.fs.unit.energy_transfer_term) == 2
+        for k in model.fs.unit.energy_transfer_term:
+            assert k in [
+                (0, 1, "stream1", "stream2"),
+                (0, 2, "stream1", "stream2"),
+            ]
+
+        assert isinstance(model.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_energy_balance) == 2
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].enth_flow
+                - model.fs.unit.stream1[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].enth_flow
+                - model.fs.unit.stream1[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert isinstance(model.fs.unit.stream2_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_energy_balance) == 2
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].enth_flow
+                - model.fs.unit.stream2[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].enth_flow
+                - model.fs.unit.stream2[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+
+    @pytest.mark.unit
+    def test_energy_balances_scaling(self, model):
+        unit = model.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 6
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 37
+
+        # Constraints
+        for condata in unit.stream1_energy_balance.values():
+            assert unit.scaling_factor[condata] == 11
+
+        for condata in unit.stream2_energy_balance.values():
+            assert unit.scaling_factor[condata] == 37
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances_dynamic(self, dynamic):
+        dynamic.fs.unit._verify_inputs()
+        dynamic.fs.unit._build_state_blocks()
+        dynamic.fs.unit._add_geometry()
+        dynamic.fs.unit._build_energy_balance_constraints()
+
+        assert isinstance(dynamic.fs.unit.energy_transfer_term, Var)
+        # 1 stream interaction, 2 elements
+        assert len(dynamic.fs.unit.energy_transfer_term) == 4
+        for k in dynamic.fs.unit.energy_transfer_term:
+            assert k in [
+                (0, 1, "stream1", "stream2"),
+                (0, 2, "stream1", "stream2"),
+                (1, 1, "stream1", "stream2"),
+                (1, 2, "stream1", "stream2"),
+            ]
+
+        assert isinstance(dynamic.fs.unit.stream1_energy_holdup, Var)
+        assert len(dynamic.fs.unit.stream1_energy_holdup) == 4
+        assert isinstance(dynamic.fs.unit.stream1_energy_accumulation, DerivativeVar)
+        assert len(dynamic.fs.unit.stream1_energy_accumulation) == 4
+        assert isinstance(dynamic.fs.unit.stream1_energy_holdup_constraint, Constraint)
+        assert len(dynamic.fs.unit.stream1_energy_holdup_constraint) == 4
+        for (
+            t,
+            x,
+            p,
+        ), con in dynamic.fs.unit.stream1_energy_holdup_constraint.items():
+            assert str(con.expr) == str(
+                dynamic.fs.unit.stream1_energy_holdup[t, x, p]
+                == dynamic.fs.unit.volume[x]
+                * dynamic.fs.unit.volume_frac_stream[t, x, "stream1"]
+                * dynamic.fs.unit.stream1_phase_fraction[t, x, p]
+                * 43
+            )
+
+        assert isinstance(dynamic.fs.unit.stream2_energy_holdup, Var)
+        assert len(dynamic.fs.unit.stream2_energy_holdup) == 4
+        assert isinstance(dynamic.fs.unit.stream2_energy_accumulation, DerivativeVar)
+        assert len(dynamic.fs.unit.stream2_energy_accumulation) == 4
+        assert isinstance(dynamic.fs.unit.stream2_energy_holdup_constraint, Constraint)
+        assert len(dynamic.fs.unit.stream2_energy_holdup_constraint) == 4
+        for (
+            t,
+            x,
+            p,
+        ), con in dynamic.fs.unit.stream2_energy_holdup_constraint.items():
+            assert str(con.expr) == str(
+                dynamic.fs.unit.stream2_energy_holdup[t, x, p]
+                == dynamic.fs.unit.volume[x]
+                * dynamic.fs.unit.volume_frac_stream[t, x, "stream2"]
+                * dynamic.fs.unit.stream2_phase_fraction[t, x, p]
+                * 53
+            )
+
+        assert isinstance(dynamic.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(dynamic.fs.unit.stream1_energy_balance) == 4
+
+        for t in dynamic.fs.time:
+            assert str(dynamic.fs.unit.stream1_energy_balance[t, 1].expr) == str(
+                dynamic.fs.unit.stream1_energy_accumulation[t, 1, "phase1"]
+                == units.convert(
+                    dynamic.fs.unit.stream1_inlet_state[t].enth_flow
+                    - dynamic.fs.unit.stream1[t, 1].enth_flow,
+                    units.kg * units.m**2 / units.s**3,
+                )
+                + dynamic.fs.unit.energy_transfer_term[t, 1, "stream1", "stream2"]
+            )
+            assert str(dynamic.fs.unit.stream1_energy_balance[t, 2].expr) == str(
+                dynamic.fs.unit.stream1_energy_accumulation[t, 2, "phase1"]
+                == units.convert(
+                    dynamic.fs.unit.stream1[t, 1].enth_flow
+                    - dynamic.fs.unit.stream1[t, 2].enth_flow,
+                    units.kg * units.m**2 / units.s**3,
+                )
+                + dynamic.fs.unit.energy_transfer_term[t, 2, "stream1", "stream2"]
+            )
+
+        assert isinstance(dynamic.fs.unit.stream2_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(dynamic.fs.unit.stream2_energy_balance) == 4
+
+        for t in dynamic.fs.time:
+            assert str(dynamic.fs.unit.stream2_energy_balance[t, 2].expr) == str(
+                dynamic.fs.unit.stream2_energy_accumulation[t, 2, "phase1"]
+                == units.convert(
+                    dynamic.fs.unit.stream2_inlet_state[t].enth_flow
+                    - dynamic.fs.unit.stream2[t, 2].enth_flow,
+                    units.kg * units.m**2 / units.s**3,
+                )
+                - dynamic.fs.unit.energy_transfer_term[t, 2, "stream1", "stream2"]
+            )
+            assert str(dynamic.fs.unit.stream2_energy_balance[t, 1].expr) == str(
+                dynamic.fs.unit.stream2_energy_accumulation[t, 1, "phase1"]
+                == units.convert(
+                    dynamic.fs.unit.stream2[t, 2].enth_flow
+                    - dynamic.fs.unit.stream2[t, 1].enth_flow,
+                    units.kg * units.m**2 / units.s**3,
+                )
+                - dynamic.fs.unit.energy_transfer_term[t, 1, "stream1", "stream2"]
+            )
+
+    @pytest.mark.unit
+    def test_energy_balances_dynamic_scaling(self, dynamic):
+        unit = dynamic.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._add_geometry()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.default_scaling_factors["volume"] = 2683
+
+        scaler_obj.scale_model(unit)
+
+        from idaes.core.scaling import report_scaling_factors
+
+        report_scaling_factors(unit, descend_into=True)
+
+        assert len(unit.scaling_factor) == 42
+
+        # Variables
+        for e in unit.elements:
+            assert unit.scaling_factor[unit.volume[e]] == 2683
+        for t in dynamic.fs.time:
+            for e in unit.elements:
+                assert (
+                    unit.scaling_factor[unit.volume_frac_stream[t, e, "stream1"]] == 2
+                )
+                assert (
+                    unit.scaling_factor[unit.volume_frac_stream[t, e, "stream2"]] == 2
+                )
+
+                assert (
+                    unit.scaling_factor[
+                        unit.energy_transfer_term[t, e, "stream1", "stream2"]
+                    ]
+                    == 37
+                )
+                assert (
+                    unit.scaling_factor[
+                        unit.energy_transfer_term[t, e, "stream1", "stream2"]
+                    ]
+                    == 37
+                )
+
+        for vardata in unit.stream1_energy_holdup.values():
+            assert unit.scaling_factor[vardata] == approx(2683 * 2 * 10 / 43)
+
+        for vardata in unit.stream2_energy_holdup.values():
+            assert unit.scaling_factor[vardata] == approx(2683 * 2 * 10 / 53)
+
+        # Constraints
+        for t in dynamic.fs.time:
+            for e in unit.elements:
+                assert unit.scaling_factor[unit.sum_volume_frac[t, e]] == 1
+
+                # Stream 1
+                assert unit.scaling_factor[unit.stream1_energy_balance[t, e]] == 11
+
+                # Stream 2
+                assert unit.scaling_factor[unit.stream2_energy_balance[t, e]] == 37
+
+        for condata in unit.stream1_energy_holdup_constraint.values():
+            assert unit.scaling_factor[condata] == approx(2683 * 2 * 10 / 43)
+
+        for condata in unit.stream2_energy_holdup_constraint.values():
+            assert unit.scaling_factor[condata] == approx(2683 * 2 * 10 / 53)
+
+        # Expressions
+        assert len(unit.scaling_hint) == 8
+        for expdata in unit.stream1_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+
+        for expdata in unit.stream2_phase_fraction.values():
+            assert unit.scaling_hint[expdata] == 10
+
+    @pytest.mark.unit
+    def test_energy_balances_has_heat_transfer(self, model):
+        model.fs.unit.config.streams["stream2"].has_heat_transfer = True
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert not hasattr(model.fs.unit, "stream1_heat")
+        assert isinstance(model.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_energy_balance) == 2
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].enth_flow
+                - model.fs.unit.stream1[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].enth_flow
+                - model.fs.unit.stream1[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert isinstance(model.fs.unit.stream2_heat, Var)
+        assert len(model.fs.unit.stream2_heat) == 2
+        assert_units_equivalent(model.fs.unit.stream2_heat, units.watt)
+
+        assert isinstance(model.fs.unit.stream2_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_energy_balance) == 2
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].enth_flow
+                - model.fs.unit.stream2[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+            + model.fs.unit.stream2_heat[0, 2]
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].enth_flow
+                - model.fs.unit.stream2[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+            + model.fs.unit.stream2_heat[0, 1]
+        )
+
+    @pytest.mark.unit
+    def test_energy_balances_has_heat_transfer_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_heat_transfer = True
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+        assert len(unit.scaling_factor) == 8
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 37
+        for vardata in unit.stream2_heat.values():
+            assert unit.scaling_factor[vardata] == 37
+
+        # Constraints
+        for condata in unit.stream1_energy_balance.values():
+            assert unit.scaling_factor[condata] == 11
+        for condata in unit.stream2_energy_balance.values():
+            assert unit.scaling_factor[condata] == 37
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances_no_feed(self, model):
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_energy_balance) == 2
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].enth_flow
+                - model.fs.unit.stream1[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].enth_flow
+                - model.fs.unit.stream1[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert isinstance(model.fs.unit.stream2_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_energy_balance) == 2
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                -model.fs.unit.stream2[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].enth_flow
+                - model.fs.unit.stream2[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+
+    @pytest.mark.unit
+    def test_energy_balances_no_feed_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_feed = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 6
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 37
+
+        # Constraints
+        for condata in unit.stream1_energy_balance.values():
+            assert unit.scaling_factor[condata] == 11
+
+        for condata in unit.stream2_energy_balance.values():
+            assert unit.scaling_factor[condata] == 37
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances_has_energy_balance_false(self, model):
+        model.fs.unit.config.streams["stream2"].has_energy_balance = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_energy_balance) == 2
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].enth_flow
+                - model.fs.unit.stream1[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].enth_flow
+                - model.fs.unit.stream1[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert not hasattr(model.fs.unit, "stream2_energy_balance")
+
+    @pytest.mark.unit
+    def test_energy_balances_has_energy_balance_false_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_energy_balance = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 4
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 11
+
+        # Constraints
+        for condata in unit.stream1_energy_balance.values():
+            assert unit.scaling_factor[condata] == 11
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances_has_energy_balance_false_stream_1_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream1"].has_energy_balance = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 4
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 37
+
+        # Constraints
+        for condata in unit.stream2_energy_balance.values():
+            assert unit.scaling_factor[condata] == 37
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_energy_balances_scaling_energy_transfer_burnt_toast(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream1"].has_energy_balance = False
+        unit.config.streams["stream2"].has_energy_balance = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+        unit.energy_transfer_term = Var()
+
+        scaler_obj = unit.default_scaler()
+        with pytest.raises(
+            BurntToast,
+            match=re.escape(
+                "Energy transfer term should not be constructed if "
+                "neither stream has an energy balance, please report "
+                "this problem to the IDAES developers."
+            ),
+        ):
+            scaler_obj.scale_model(unit)
+
+    @pytest.mark.unit
+    def test_energy_balances_side_stream(self, model):
+        model.fs.unit.config.streams["stream2"].side_streams = [1]
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_energy_balance) == 2
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].enth_flow
+                - model.fs.unit.stream1[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].enth_flow
+                - model.fs.unit.stream1[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert isinstance(model.fs.unit.stream2_energy_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_energy_balance) == 2
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].enth_flow
+                - model.fs.unit.stream2[0, 2].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].enth_flow
+                - model.fs.unit.stream2[0, 1].enth_flow
+                + model.fs.unit.stream2_side_stream_state[0, 1].enth_flow,
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+
+    @pytest.mark.unit
+    def test_energy_balances_side_stream_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].side_streams = [1]
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_energy_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 6
+
+        # Variables
+        for vardata in unit.energy_transfer_term.values():
+            assert unit.scaling_factor[vardata] == 37
+
+        # Constraints
+        for condata in unit.stream1_energy_balance.values():
+            assert unit.scaling_factor[condata] == 11
+
+        for condata in unit.stream2_energy_balance.values():
+            assert unit.scaling_factor[condata] == 37
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_pressure_balances(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_pressure_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream1_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].pressure
+                - model.fs.unit.stream1[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream1_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].pressure
+                - model.fs.unit.stream1[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert isinstance(model.fs.unit.stream2_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream2_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].pressure
+                - model.fs.unit.stream2[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream2_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].pressure
+                - model.fs.unit.stream2[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_pressure_balance")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_pressure_balance")
+
+    @pytest.mark.unit
+    def test_pressure_balances_scaling(self, model):
+        unit = model.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_pressure_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 4
+
+        # No variables
+
+        # Constraints
+        for condata in unit.stream1_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 13
+
+        for condata in unit.stream2_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 41
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_pressure_balances_deltaP(self, model):
+        model.fs.unit.config.streams["stream2"].has_pressure_change = True
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_pressure_balance_constraints()
+
+        assert not hasattr(model.fs.unit, "stream1_deltaP")
+        assert isinstance(model.fs.unit.stream1_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream1_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].pressure
+                - model.fs.unit.stream1[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream1_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].pressure
+                - model.fs.unit.stream1[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert isinstance(model.fs.unit.stream2_deltaP, Var)
+        assert len(model.fs.unit.stream2_deltaP) == 2
+        assert_units_equivalent(model.fs.unit.stream2_deltaP, units.Pa)
+
+        assert isinstance(model.fs.unit.stream2_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream2_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].pressure
+                - model.fs.unit.stream2[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+            + model.fs.unit.stream2_deltaP[0, 2]
+        )
+        assert str(model.fs.unit.stream2_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].pressure
+                - model.fs.unit.stream2[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+            + model.fs.unit.stream2_deltaP[0, 1]
+        )
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_pressure_balance")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_pressure_balance")
+
+    @pytest.mark.unit
+    def test_pressure_balances_deltaP_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_pressure_change = True
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_pressure_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 6
+        # Variables
+        for vardata in unit.stream2_deltaP.values():
+            assert unit.scaling_factor[vardata] == 41
+
+        # Constraints
+        for condata in unit.stream1_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 13
+
+        for condata in unit.stream2_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 41
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_pressure_balances_no_feed(self, model):
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_pressure_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream1_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].pressure
+                - model.fs.unit.stream1[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream1_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].pressure
+                - model.fs.unit.stream1[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert isinstance(model.fs.unit.stream2_pressure_balance, Constraint)
+        # 1 time point, 1 elements; No balance at feed end
+        assert len(model.fs.unit.stream2_pressure_balance) == 1
+
+        assert str(model.fs.unit.stream2_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].pressure
+                - model.fs.unit.stream2[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_pressure_balance")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_pressure_balance")
+
+    @pytest.mark.unit
+    def test_pressure_balances_no_feed_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_feed = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_pressure_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 3
+
+        # No variables
+
+        # Constraints
+        for condata in unit.stream1_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 13
+
+        for condata in unit.stream2_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 41
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_pressure_balances_has_pressure_balance_false(self, model):
+        model.fs.unit.config.streams["stream2"].has_pressure_balance = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_pressure_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream1_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].pressure
+                - model.fs.unit.stream1[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream1_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].pressure
+                - model.fs.unit.stream1[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert not hasattr(model.fs.unit, "stream2_pressure_balance")
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_pressure_balance")
+        assert not hasattr(model.fs.unit, "stream2_side_stream_pressure_balance")
+
+    @pytest.mark.unit
+    def test_pressure_balances_has_pressure_balance_false_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].has_pressure_balance = False
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_pressure_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 2
+
+        # No variables
+
+        # Constraints
+        for condata in unit.stream1_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 13
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_pressure_balances_side_stream(self, model):
+        model.fs.unit.config.streams["stream2"].side_streams = [1]
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_pressure_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream1_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream1_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1_inlet_state[0].pressure
+                - model.fs.unit.stream1[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream1_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream1[0, 1].pressure
+                - model.fs.unit.stream1[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert isinstance(model.fs.unit.stream2_pressure_balance, Constraint)
+        # 1 time point, 2 elements
+        assert len(model.fs.unit.stream2_pressure_balance) == 2
+
+        assert str(model.fs.unit.stream2_pressure_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2_inlet_state[0].pressure
+                - model.fs.unit.stream2[0, 2].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+        assert str(model.fs.unit.stream2_pressure_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**-1 * units.s**-2)
+            == units.convert(
+                model.fs.unit.stream2[0, 2].pressure
+                - model.fs.unit.stream2[0, 1].pressure,
+                units.kg / units.m / units.s**2,
+            )
+        )
+
+        assert not hasattr(model.fs.unit, "stream1_side_stream_pressure_balance")
+        assert isinstance(
+            model.fs.unit.stream2_side_stream_pressure_balance, Constraint
+        )
+        assert len(model.fs.unit.stream2_side_stream_pressure_balance) == 1
+        assert str(
+            model.fs.unit.stream2_side_stream_pressure_balance[0, 1].expr
+        ) == str(
+            model.fs.unit.stream2[0, 1].pressure
+            == model.fs.unit.stream2_side_stream_state[0, 1].pressure
+        )
+
+    @pytest.mark.unit
+    def test_pressure_balances_side_stream_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].side_streams = [1]
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_pressure_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 5
+
+        # No variables
+
+        # Constraints
+        for condata in unit.stream1_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 13
+
+        for condata in unit.stream2_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 41
+
+        for condata in unit.stream2_side_stream_pressure_balance.values():
+            assert unit.scaling_factor[condata] == 41
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_ports(self, model):
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_ports()
+
+        assert isinstance(model.fs.unit.stream1_inlet, Port)
+        for p, j in model.fs.unit.stream1.phase_component_set:
+            assert (
+                model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream1_inlet.enth_flow[0]
+            is model.fs.unit.stream1_inlet_state[0].enth_flow
+        )
+        assert (
+            model.fs.unit.stream1_inlet.pressure[0]
+            is model.fs.unit.stream1_inlet_state[0].pressure
+        )
+
+        assert isinstance(model.fs.unit.stream1_outlet, Port)
+        for p, j in model.fs.unit.stream1.phase_component_set:
+            assert (
+                model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream1[0, 2].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream1_outlet.enth_flow[0]
+            is model.fs.unit.stream1[0, 2].enth_flow
+        )
+        assert (
+            model.fs.unit.stream1_outlet.pressure[0]
+            is model.fs.unit.stream1[0, 2].pressure
+        )
+
+        assert isinstance(model.fs.unit.stream2_inlet, Port)
+        for p, j in model.fs.unit.stream2.phase_component_set:
+            assert (
+                model.fs.unit.stream2_inlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream2_inlet_state[0].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream2_inlet.enth_flow[0]
+            is model.fs.unit.stream2_inlet_state[0].enth_flow
+        )
+        assert (
+            model.fs.unit.stream2_inlet.pressure[0]
+            is model.fs.unit.stream2_inlet_state[0].pressure
+        )
+
+        assert isinstance(model.fs.unit.stream2_outlet, Port)
+        for p, j in model.fs.unit.stream2.phase_component_set:
+            assert (
+                model.fs.unit.stream2_outlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream2[0, 1].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream2_outlet.enth_flow[0]
+            is model.fs.unit.stream2[0, 1].enth_flow
+        )
+        assert (
+            model.fs.unit.stream2_outlet.pressure[0]
+            is model.fs.unit.stream2[0, 1].pressure
+        )
+
+    @pytest.mark.unit
+    def test_ports_no_feed(self, model):
+        model.fs.unit.config.streams["stream2"].has_feed = False
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_ports()
+
+        assert isinstance(model.fs.unit.stream1_inlet, Port)
+        for p, j in model.fs.unit.stream1.phase_component_set:
+            assert (
+                model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream1_inlet_state[0].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream1_inlet.enth_flow[0]
+            is model.fs.unit.stream1_inlet_state[0].enth_flow
+        )
+        assert (
+            model.fs.unit.stream1_inlet.pressure[0]
+            is model.fs.unit.stream1_inlet_state[0].pressure
+        )
+
+        assert isinstance(model.fs.unit.stream1_outlet, Port)
+        for p, j in model.fs.unit.stream1.phase_component_set:
+            assert (
+                model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream1[0, 2].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream1_outlet.enth_flow[0]
+            is model.fs.unit.stream1[0, 2].enth_flow
+        )
+        assert (
+            model.fs.unit.stream1_outlet.pressure[0]
+            is model.fs.unit.stream1[0, 2].pressure
+        )
+
+        assert not hasattr(model.fs.unit, "stream2_inlet")
+
+        assert isinstance(model.fs.unit.stream2_outlet, Port)
+        for p, j in model.fs.unit.stream2.phase_component_set:
+            assert (
+                model.fs.unit.stream2_outlet.flow_mol_phase_comp[0, p, j]
+                is model.fs.unit.stream2[0, 1].flow_mol_phase_comp[p, j]
+            )
+        assert (
+            model.fs.unit.stream2_outlet.enth_flow[0]
+            is model.fs.unit.stream2[0, 1].enth_flow
+        )
+        assert (
+            model.fs.unit.stream2_outlet.pressure[0]
+            is model.fs.unit.stream2[0, 1].pressure
+        )
+
+
+class TestReactions:
+    @pytest.fixture
+    def model(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties = PhysicalParameterTestBlock()
+        m.fs.reactions = ReactionParameterTestBlock(property_package=m.fs.properties)
+
+        m.fs.unit = ECFrame(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties},
+                "stream2": {
+                    "property_package": m.fs.properties,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        return m
+
+    @pytest.mark.unit
+    def test_inherent_reactions(self, model):
+        # Activate inherent reactions for testing
+        model.fs.properties._has_inherent_reactions = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(model.fs.unit.stream1_inherent_reaction_extent, Var)
+        assert len(model.fs.unit.stream1_inherent_reaction_extent) == 4
+        for k in model.fs.unit.stream1_inherent_reaction_extent:
+            assert k in [(0, 1, "i1"), (0, 1, "i2"), (0, 2, "i1"), (0, 2, "i2")]
+
+        assert isinstance(model.fs.unit.stream1_inherent_reaction_generation, Var)
+        assert len(model.fs.unit.stream1_inherent_reaction_generation) == 8
+        for k in model.fs.unit.stream1_inherent_reaction_generation:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        assert isinstance(
+            model.fs.unit.stream1_inherent_reaction_constraint, Constraint
+        )
+        assert len(model.fs.unit.stream1_inherent_reaction_constraint) == 8
+        for k in model.fs.unit.stream1_inherent_reaction_constraint:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has +ve mass transfer, forward flow, inherent reactions
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream1_inherent_reaction_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream1_inherent_reaction_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+        assert isinstance(model.fs.unit.stream2_inherent_reaction_extent, Var)
+        assert len(model.fs.unit.stream2_inherent_reaction_extent) == 4
+        for k in model.fs.unit.stream2_inherent_reaction_extent:
+            assert k in [(0, 1, "i1"), (0, 1, "i2"), (0, 2, "i1"), (0, 2, "i2")]
+
+        assert isinstance(model.fs.unit.stream2_inherent_reaction_generation, Var)
+        assert len(model.fs.unit.stream2_inherent_reaction_generation) == 8
+        for k in model.fs.unit.stream2_inherent_reaction_generation:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        assert isinstance(
+            model.fs.unit.stream2_inherent_reaction_constraint, Constraint
+        )
+        assert len(model.fs.unit.stream2_inherent_reaction_constraint) == 8
+        for k in model.fs.unit.stream2_inherent_reaction_constraint:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has -ve mass transfer, forward flow, inherent reactions
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_inherent_reaction_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_inherent_reaction_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+    @pytest.mark.unit
+    def test_inherent_reaction_scaling(self, model):
+        # Activate inherent reactions for testing
+        model.fs.properties._has_inherent_reactions = True
+
+        unit = model.fs.unit
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 52
+
+        # Variables
+        for vardata in unit.material_transfer_term.values():
+            assert unit.scaling_factor[vardata] == approx(1 / (43 * 2))
+
+        for t in model.fs.time:
+            for e in unit.elements:
+                unit.scaling_factor[
+                    unit.stream1_inherent_reaction_extent[t, e, "i1"]
+                ] == 1 / 43
+                unit.scaling_factor[
+                    unit.stream1_inherent_reaction_extent[t, e, "i2"]
+                ] == approx(7 / 43)
+
+                unit.scaling_factor[
+                    unit.stream2_inherent_reaction_extent[t, e, "i1"]
+                ] == 1 / 43
+                unit.scaling_factor[
+                    unit.stream2_inherent_reaction_extent[t, e, "i2"]
+                ] == approx(7 / 43)
+
+        for vardata in unit.stream1_inherent_reaction_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        for vardata in unit.stream2_inherent_reaction_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        # Constraints
+        for condata in unit.stream1_inherent_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+        for condata in unit.stream2_inherent_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+
+        for condata in unit.stream1_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+        for condata in unit.stream2_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+
+    @pytest.mark.unit
+    def test_reaction_blocks(self, model):
+        model.fs.unit.config.streams["stream1"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].has_equilibrium_reactions = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        assert isinstance(model.fs.unit.stream1_reactions, ReactionBlock)
+        assert len(model.fs.unit.stream1_reactions) == 2
+        for k, b in model.fs.unit.stream1_reactions.items():
+            assert k in [(0, 1), (0, 2)]
+            assert not b.config.has_equilibrium
+
+        assert isinstance(model.fs.unit.stream2_reactions, ReactionBlock)
+        assert len(model.fs.unit.stream2_reactions) == 2
+        for k, b in model.fs.unit.stream2_reactions.items():
+            assert k in [(0, 1), (0, 2)]
+            assert b.config.has_equilibrium
+
+    @pytest.mark.unit
+    def test_equilibrium_reactions(self, model):
+        model.fs.unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].has_equilibrium_reactions = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert not hasattr(model.fs.unit, "stream1_equilibrium_reaction_extent")
+        assert not hasattr(model.fs.unit, "stream1_equilibrium_reaction_generation")
+        assert not hasattr(model.fs.unit, "stream1_equilibrium_reaction_constraint")
+
+        assert isinstance(model.fs.unit.stream2_equilibrium_reaction_extent, Var)
+        assert len(model.fs.unit.stream2_equilibrium_reaction_extent) == 4
+        for k in model.fs.unit.stream2_equilibrium_reaction_extent:
+            assert k in [(0, 1, "e1"), (0, 1, "e2"), (0, 2, "e1"), (0, 2, "e2")]
+
+        assert isinstance(model.fs.unit.stream2_equilibrium_reaction_generation, Var)
+        assert len(model.fs.unit.stream2_equilibrium_reaction_generation) == 8
+        for k in model.fs.unit.stream2_equilibrium_reaction_generation:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        assert isinstance(
+            model.fs.unit.stream2_equilibrium_reaction_constraint, Constraint
+        )
+        assert len(model.fs.unit.stream2_equilibrium_reaction_constraint) == 8
+        for k in model.fs.unit.stream2_equilibrium_reaction_constraint:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has +ve mass transfer, forward flow, no reactions
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has -ve mass transfer, forward flow, equilibrium reactions
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_equilibrium_reaction_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_equilibrium_reaction_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+    @pytest.mark.unit
+    def test_equilibrium_reaction_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        unit.config.streams["stream2"].has_equilibrium_reactions = True
+
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 32
+
+        # Make sure reaction block is scaled
+        for blk in unit.stream2_reactions.values():
+            assert blk.variables_scaled
+            assert blk.constraints_scaled
+
+        # Variables
+        for vardata in unit.material_transfer_term.values():
+            assert unit.scaling_factor[vardata] == approx(1 / (43 * 2))
+
+        for t in model.fs.time:
+            for e in unit.elements:
+                unit.scaling_factor[
+                    unit.stream2_equilibrium_reaction_extent[t, e, "e1"]
+                ] == 1 / 43
+                unit.scaling_factor[
+                    unit.stream2_equilibrium_reaction_extent[t, e, "e2"]
+                ] == 1 / 43
+
+        for vardata in unit.stream2_equilibrium_reaction_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        # Constraints
+        for condata in unit.stream2_equilibrium_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+
+        for condata in unit.stream1_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+        for condata in unit.stream2_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+
+    @pytest.mark.unit
+    def test_heterogeneous_reactions_no_build_method(self, model):
+        model.fs.unit.config.heterogeneous_reactions = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        with pytest.raises(
+            ConfigurationError,
+            match="Heterogeneous reaction package has not implemented a "
+            "build_reaction_block method. Please ensure that your "
+            "reaction block conforms to the required standards.",
+        ):
+            model.fs.unit._build_heterogeneous_reaction_blocks()
+
+    @pytest.mark.unit
+    def test_heterogeneous_reactions_no_rxn_index(self, model):
+        model.hetero_dummy = Block()
+
+        def build_reaction_block(*args, **kwargs):
+            pass
+
+        model.hetero_dummy.build_reaction_block = MethodType(
+            build_reaction_block, model.hetero_dummy
+        )
+
+        model.fs.unit.config.heterogeneous_reactions = model.hetero_dummy
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+
+        with pytest.raises(
+            PropertyNotSupportedError,
+            match=re.escape(
+                "Heterogeneous reaction package does not contain a list of "
+                "reactions (reaction_idx)."
+            ),
+        ):
+            model.fs.unit._build_heterogeneous_reaction_blocks()
+
+    @pytest.mark.unit
+    def test_heterogeneous_reactions(self, model):
+        model.fs.hetero_dummy = DummyHeterogeneousReactionsParameterBlock()
+
+        model.fs.unit.config.heterogeneous_reactions = model.fs.hetero_dummy
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_heterogeneous_reaction_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert isinstance(model.fs.unit.heterogeneous_reaction_extent, Var)
+        for k in model.fs.unit.heterogeneous_reaction_extent.keys():
+            assert k in [
+                (0, 1, "R1"),
+                (0, 1, "R2"),
+                (0, 1, "R3"),
+                (0, 1, "R4"),
+                (0, 2, "R1"),
+                (0, 2, "R2"),
+                (0, 2, "R3"),
+                (0, 2, "R4"),
+            ]
+
+        for s in ["stream1", "stream2"]:
+            gen = getattr(model.fs.unit, s + "_heterogeneous_reactions_generation")
+            assert isinstance(gen, Var)
+            for k in gen:
+                assert k in [
+                    (0, 1, "p1", "c1"),
+                    (0, 1, "p1", "c2"),
+                    (0, 1, "p2", "c1"),
+                    (0, 1, "p2", "c2"),
+                    (0, 2, "p1", "c1"),
+                    (0, 2, "p1", "c2"),
+                    (0, 2, "p2", "c1"),
+                    (0, 2, "p2", "c2"),
+                ]
+
+            con = getattr(model.fs.unit, s + "_heterogeneous_reaction_constraint")
+            assert isinstance(con, Constraint)
+            for k, c in con.items():
+                assert k in [
+                    (0, 1, "p1", "c1"),
+                    (0, 1, "p1", "c2"),
+                    (0, 1, "p2", "c1"),
+                    (0, 1, "p2", "c2"),
+                    (0, 2, "p1", "c1"),
+                    (0, 2, "p1", "c2"),
+                    (0, 2, "p2", "c1"),
+                    (0, 2, "p2", "c2"),
+                ]
+
+                if k[2] == "p1" and k[3] == "c1":
+                    r = "R1"
+                elif k[2] == "p1" and k[3] == "c2":
+                    r = "R2"
+                elif k[2] == "p2" and k[3] == "c1":
+                    r = "R3"
+                else:
+                    r = "R4"
+
+                expr = str(
+                    gen[k]
+                    - model.fs.hetero_dummy.reaction_stoichiometry[r, k[2], k[3]]
+                    * model.fs.unit.heterogeneous_reaction_extent[0, k[1], r]
+                )
+                assert str(c.body) == expr
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has +ve mass transfer, forward flow, heterogeneous reactions
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream1_heterogeneous_reactions_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream1_heterogeneous_reactions_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has -ve mass transfer, forward flow, heterogeneous reactions
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_heterogeneous_reactions_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_heterogeneous_reactions_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+    @pytest.mark.unit
+    def test_heterogeneous_reaction_scaling(self, model):
+        model.fs.hetero_dummy = DummyHeterogeneousReactionsParameterBlock()
+
+        unit = model.fs.unit
+
+        unit.config.heterogeneous_reactions = model.fs.hetero_dummy
+
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_heterogeneous_reaction_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        # Test that heterogeneous reaction blocks are scaled
+        for blk in unit.heterogeneous_reactions.values():
+            assert blk.variables_scaled
+            assert blk.constraints_scaled
+
+        assert len(unit.scaling_factor) == 52
+
+        # Variables
+        for vardata in unit.material_transfer_term.values():
+            assert unit.scaling_factor[vardata] == approx(1 / (43 * 2))
+
+        for t in model.fs.time:
+            for e in unit.elements:
+                unit.scaling_factor[
+                    unit.heterogeneous_reaction_extent[t, e, "R1"]
+                ] == approx(2749 / 43)
+                unit.scaling_factor[
+                    unit.heterogeneous_reaction_extent[t, e, "R2"]
+                ] == approx(2753 / 43)
+
+                unit.scaling_factor[
+                    unit.heterogeneous_reaction_extent[t, e, "R3"]
+                ] == approx(2767 / 43)
+                unit.scaling_factor[
+                    unit.heterogeneous_reaction_extent[t, e, "R4"]
+                ] == approx(2777 / 43)
+
+        for vardata in unit.stream1_heterogeneous_reactions_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        for vardata in unit.stream2_heterogeneous_reactions_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        # Constraints
+        for condata in unit.stream1_heterogeneous_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+        for condata in unit.stream2_heterogeneous_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+
+        for condata in unit.stream1_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+        for condata in unit.stream2_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+
+        # Expressions
+        assert not hasattr(unit, "scaling_hint")
+
+    @pytest.mark.unit
+    def test_rate_reactions(self, model):
+        model.fs.unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].has_rate_reactions = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+
+        assert not hasattr(model.fs.unit, "stream1_rate_reaction_extent")
+        assert not hasattr(model.fs.unit, "stream1_rate_reaction_generation")
+        assert not hasattr(model.fs.unit, "stream1_rate_reaction_constraint")
+
+        assert isinstance(model.fs.unit.stream2_rate_reaction_extent, Var)
+        assert len(model.fs.unit.stream2_rate_reaction_extent) == 4
+        for k in model.fs.unit.stream2_rate_reaction_extent:
+            assert k in [(0, 1, "r1"), (0, 1, "r2"), (0, 2, "r1"), (0, 2, "r2")]
+
+        assert isinstance(model.fs.unit.stream2_rate_reaction_generation, Var)
+        assert len(model.fs.unit.stream2_rate_reaction_generation) == 8
+        for k in model.fs.unit.stream2_rate_reaction_generation:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        assert isinstance(model.fs.unit.stream2_rate_reaction_constraint, Constraint)
+        assert len(model.fs.unit.stream2_rate_reaction_constraint) == 8
+        for k in model.fs.unit.stream2_rate_reaction_constraint:
+            assert k in [
+                (0, 1, "p1", "c1"),
+                (0, 1, "p1", "c2"),
+                (0, 1, "p2", "c1"),
+                (0, 1, "p2", "c2"),
+                (0, 2, "p1", "c1"),
+                (0, 2, "p1", "c2"),
+                (0, 2, "p2", "c1"),
+                (0, 2, "p2", "c2"),
+            ]
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has +ve mass transfer, forward flow, no reactions
+            assert str(model.fs.unit.stream1_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+            )
+            assert str(model.fs.unit.stream1_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream1[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                + model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+            )
+
+        for j in [
+            "c1",
+            "c2",
+        ]:  # has -ve mass transfer, forward flow, rate reactions
+            assert str(model.fs.unit.stream2_material_balance[0, 2, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2_inlet_state[0].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 2, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_rate_reaction_generation[0, 2, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+            assert str(model.fs.unit.stream2_material_balance[0, 1, j].expr) == str(
+                0 * (units.mol * units.s**-1)
+                == sum(
+                    model.fs.unit.stream2[0, 2].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_material_flow_terms(p, j)
+                    for p in ["p1", "p2"]
+                )
+                - model.fs.unit.material_transfer_term[0, 1, "stream1", "stream2", j]
+                + sum(
+                    model.fs.unit.stream2_rate_reaction_generation[0, 1, p, j]
+                    for p in ["p1", "p2"]
+                )
+            )
+
+    @pytest.mark.unit
+    def test_rate_reaction_scaling(self, model):
+        unit = model.fs.unit
+        unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        unit.config.streams["stream2"].has_rate_reactions = True
+
+        unit._verify_inputs()
+        unit._build_state_blocks()
+        unit._build_material_balance_constraints()
+
+        scaler_obj = unit.default_scaler()
+        scaler_obj.scale_model(unit)
+
+        assert len(unit.scaling_factor) == 32
+
+        # Make sure reaction block is scaled
+        for blk in unit.stream2_reactions.values():
+            assert blk.variables_scaled
+            assert blk.constraints_scaled
+
+        # Variables
+        for vardata in unit.material_transfer_term.values():
+            assert unit.scaling_factor[vardata] == approx(1 / (43 * 2))
+
+        for t in model.fs.time:
+            for e in unit.elements:
+                unit.scaling_factor[
+                    unit.stream2_rate_reaction_extent[t, e, "r1"]
+                ] == 1 / 43
+                unit.scaling_factor[
+                    unit.stream2_rate_reaction_extent[t, e, "r2"]
+                ] == 1 / 43
+
+        for vardata in unit.stream2_rate_reaction_generation.values():
+            assert unit.scaling_factor[vardata] == 1 / 43
+
+        # Constraints
+        for condata in unit.stream2_rate_reaction_constraint.values():
+            assert unit.scaling_factor[condata] == 1 / 43
+
+        for condata in unit.stream1_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+        for condata in unit.stream2_material_balance.values():
+            assert unit.scaling_factor[condata] == approx(1 / (43 * 2))
+
+    @pytest.mark.unit
+    def test_heat_of_reaction_rate(self, model):
+        model.fs.unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].has_rate_reactions = True
+        model.fs.unit.config.streams["stream2"].has_heat_of_reaction = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream1_inlet_state[0].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream1[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream2_inlet_state[0].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+            - sum(
+                model.fs.unit.stream2_rate_reaction_extent[0, 2, r]
+                * model.fs.unit.stream2_reactions[0, 2].dh_rxn[r]
+                for r in ["r1", "r2"]
+            )
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream2[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+            - sum(
+                model.fs.unit.stream2_rate_reaction_extent[0, 1, r]
+                * model.fs.unit.stream2_reactions[0, 1].dh_rxn[r]
+                for r in ["r1", "r2"]
+            )
+        )
+
+    @pytest.mark.unit
+    def test_heat_of_reaction_equilibrium(self, model):
+        model.fs.unit.config.streams["stream2"].reaction_package = model.fs.reactions
+        model.fs.unit.config.streams["stream2"].has_equilibrium_reactions = True
+        model.fs.unit.config.streams["stream2"].has_heat_of_reaction = True
+
+        model.fs.unit._verify_inputs()
+        model.fs.unit._build_state_blocks()
+        model.fs.unit._build_material_balance_constraints()
+        model.fs.unit._build_energy_balance_constraints()
+
+        assert str(model.fs.unit.stream1_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream1_inlet_state[0].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+        )
+        assert str(model.fs.unit.stream1_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream1[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream1[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            + model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+        )
+
+        assert str(model.fs.unit.stream2_energy_balance[0, 2].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream2_inlet_state[0].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 2, "stream1", "stream2"]
+            - sum(
+                model.fs.unit.stream2_equilibrium_reaction_extent[0, 2, e]
+                * model.fs.unit.stream2_reactions[0, 2].dh_rxn[e]
+                for e in ["e1", "e2"]
+            )
+        )
+        assert str(model.fs.unit.stream2_energy_balance[0, 1].expr) == str(
+            0 * (units.kg * units.m**2 * units.s**-3)
+            == units.convert(
+                sum(
+                    model.fs.unit.stream2[0, 2].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                )
+                - sum(
+                    model.fs.unit.stream2[0, 1].get_enthalpy_flow_terms(p)
+                    for p in ["p1", "p2"]
+                ),
+                units.kg * units.m**2 / units.s**3,
+            )
+            - model.fs.unit.energy_transfer_term[0, 1, "stream1", "stream2"]
+            - sum(
+                model.fs.unit.stream2_equilibrium_reaction_extent[0, 1, e]
+                * model.fs.unit.stream2_reactions[0, 1].dh_rxn[e]
+                for e in ["e1", "e2"]
+            )
+        )
+
+
+class TestToyProblem:
+    @pytest.fixture(scope="class")
+    def model(self):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties1 = Parameters1()
+        m.fs.properties2 = Parameters2()
+
+        m.fs.unit = MSContactor(
+            number_of_finite_elements=2,
+            streams={
+                "stream1": {"property_package": m.fs.properties1},
+                "stream2": {
+                    "property_package": m.fs.properties2,
+                    "flow_direction": FlowDirection.backward,
+                },
+            },
+        )
+
+        return m
+
+    @pytest.mark.unit
+    def test_degrees_of_freedom(self, model):
+        # Expect 17 DoF:
+        # 6 stream1 inlets, 5 stream2 inlets
+        # 2x2 mass transfer terms and 2 energy transfer terms
+        assert (degrees_of_freedom(model)) == 17
+
+    @pytest.mark.component
+    def test_unit_consistency(self, model):
+        assert_units_consistent(model)
+
+    @pytest.mark.component
+    def test_toy_problem(self, model):
+        model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, "phase1", "solvent1"].fix(2)
+        model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, "phase1", "solute1"].fix(3)
+        model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, "phase1", "solute2"].fix(4)
+        model.fs.unit.stream1_inlet.flow_mol_phase_comp[0, "phase1", "solute3"].fix(5)
+        model.fs.unit.stream1_inlet.enth_flow[0].fix(5000)
+        model.fs.unit.stream1_inlet.pressure[0].fix(1.2e5)
+
+        model.fs.unit.stream2_inlet.flow_mol_phase_comp[0, "phase1", "solvent2"].fix(11)
+        model.fs.unit.stream2_inlet.flow_mol_phase_comp[0, "phase1", "solute1"].fix(12)
+        model.fs.unit.stream2_inlet.flow_mol_phase_comp[0, "phase1", "solute2"].fix(13)
+        model.fs.unit.stream2_inlet.enth_flow[0].fix(7000)
+        model.fs.unit.stream2_inlet.pressure[0].fix(2e5)
+
+        model.fs.unit.material_transfer_term[0, :, "stream1", "stream2", "solute1"].fix(
+            0.5
+        )
+        model.fs.unit.material_transfer_term[0, :, "stream1", "stream2", "solute2"].fix(
+            -0.5
+        )
+
+        model.fs.unit.energy_transfer_term[0, :, "stream1", "stream2"].fix(100)
+
+        assert (degrees_of_freedom(model)) == 0
+
+        results = solver.solve(model)
+
+        assert_optimal_termination(results)
+
+        assert value(
+            model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, "phase1", "solvent1"]
+        ) == pytest.approx(2, rel=1e-5)
+        assert value(
+            model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, "phase1", "solute1"]
+        ) == pytest.approx(
+            4, rel=1e-5
+        )  # 3 + 0.5 + 0.5
+        assert value(
+            model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, "phase1", "solute2"]
+        ) == pytest.approx(
+            3, rel=1e-5
+        )  # 3 - 0.5 - 0.5
+        assert value(
+            model.fs.unit.stream1_outlet.flow_mol_phase_comp[0, "phase1", "solute3"]
+        ) == pytest.approx(5, rel=1e-5)
+
+        assert value(
+            model.fs.unit.stream2_outlet.flow_mol_phase_comp[0, "phase1", "solvent2"]
+        ) == pytest.approx(11, rel=1e-5)
+        assert value(
+            model.fs.unit.stream2_outlet.flow_mol_phase_comp[0, "phase1", "solute1"]
+        ) == pytest.approx(
+            11, rel=1e-5
+        )  # 12 - 0.5 - 0.5
+        assert value(
+            model.fs.unit.stream2_outlet.flow_mol_phase_comp[0, "phase1", "solute2"]
+        ) == pytest.approx(
+            14, rel=1e-5
+        )  # 13 + 0.5 + 0.5
+
+        assert value(model.fs.unit.stream1_outlet.enth_flow[0]) == pytest.approx(
+            5200, rel=1e-5
+        )
+        assert value(model.fs.unit.stream2_outlet.enth_flow[0]) == pytest.approx(
+            6800, rel=1e-5
+        )
+
+        assert value(model.fs.unit.stream1_outlet.pressure[0]) == pytest.approx(
+            1.2e5, rel=1e-5
+        )
+        assert value(model.fs.unit.stream2_outlet.pressure[0]) == pytest.approx(
+            2e5, rel=1e-5
+        )
+
+
+# -----------------------------------------------------------------------------
+# Li-Co Diafiltration example
+
+
+class LiCoPropertiesScaler(CustomScalerBase):
+    DEFAULT_SCALING_FACTORS = {
+        "flow_vol": -1,
+        "conc_mass_comp[Li]": -1,
+        "conc_mass_comp[Co]": -1,
+    }
+
+    def variable_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        for var in model.component_data_objects(ctype=Var):
+            self.scale_variable_by_default(var, overwrite=overwrite)
+
+    def constraint_scaling_routine(
+        self, model, overwrite: bool = False, submodel_scalers: dict = None
+    ):
+        pass
+
+
+@declare_process_block_class("LiCoParameters")
+class LiCoParameterData(PhysicalParameterBlock):
+    def build(self):
+        super().build()
+
+        self.phase1 = Phase()
+
+        self.solvent = Component()
+        self.Li = Component()
+        self.Co = Component()
+
+        self._state_block_class = LiCoStateBlock
+
+    @classmethod
+    def define_metadata(cls, obj):
+        obj.add_default_units(
+            {
+                "time": units.hour,
+                "length": units.m,
+                "mass": units.kg,
+                "amount": units.mol,
+                "temperature": units.K,
+            }
+        )
+
+
+class LiCoSBlockBase(StateBlock):
+    default_scaler = LiCoPropertiesScaler
+
+    def initialize(blk, *args, hold_state=False, **kwargs):
+        flags = fix_state_vars(blk, {})
+
+        if hold_state is True:
+            return flags
+        else:
+            blk.release_state(flags)
+
+    def release_state(blk, flags, **kwargs):
+        if flags is None:
+            return
+        # Unfix state variables
+        revert_state_vars(blk, flags)
+
+
+@declare_process_block_class("LiCoStateBlock", block_class=LiCoSBlockBase)
+class LiCoStateBlock1Data(StateBlockData):
+    CONFIG = ConfigBlock(implicit=True)
+
+    def build(self):
+        super().build()
+
+        self.flow_vol = Var(
+            units=units.m**3 / units.hour,
+            bounds=(1e-8, None),
+        )
+        self.conc_mass_solute = Var(
+            ["Li", "Co"],
+            units=units.kg / units.m**3,
+            bounds=(1e-8, None),
+        )
+
+    def get_material_density_terms(self, p, j):
+        if j == "solvent":
+            # Assume constant density of pure water
+            return 1000 * units.kg / units.m**3
+        else:
+            return self.conc_mass_solute[j]
+
+    def get_material_flow_terms(self, p, j):
+        if j == "solvent":
+            # Assume constant density of pure water
+            return self.flow_vol * 1000 * units.kg / units.m**3
+        else:
+            return self.flow_vol * self.conc_mass_solute[j]
+
+    def get_material_flow_basis(self):
+        return MaterialFlowBasis.mass
+
+    def define_state_vars(self):
+        return {
+            "flow_vol": self.flow_vol,
+            "conc_mass_solute": self.conc_mass_solute,
+        }
+
+
+def create_sapon_model(has_holdup):
+    m = ConcreteModel()
+    m.fs = FlowsheetBlock(dynamic=False)
+
+    m.fs.properties = SaponificationParameterBlock()
+
+    # Add separation stages
+    m.fs.contactor = MSContactor(
+        number_of_finite_elements=10,
+        streams={
+            "s1": {
+                "property_package": m.fs.properties,
+            },
+            "s2": {
+                "property_package": m.fs.properties,
+            },
+        },
+        has_holdup=has_holdup,
+    )
+
+    m.fs.contactor.s1_inlet.flow_vol[0].set_value(1.0e-03)
+    m.fs.contactor.s1_inlet.conc_mol_comp[0, "H2O"].set_value(55388.0)
+    m.fs.contactor.s1_inlet.conc_mol_comp[0, "NaOH"].set_value(100.0)
+    m.fs.contactor.s1_inlet.conc_mol_comp[0, "EthylAcetate"].set_value(100.0)
+    m.fs.contactor.s1_inlet.conc_mol_comp[0, "SodiumAcetate"].set_value(0.0)
+    m.fs.contactor.s1_inlet.conc_mol_comp[0, "Ethanol"].set_value(0.0)
+    m.fs.contactor.s1_inlet.temperature[0].set_value(303.15)
+    m.fs.contactor.s1_inlet.pressure[0].set_value(101325.0)
+
+    m.fs.contactor.s2_inlet.flow_vol[0].set_value(2.0e-03)
+    m.fs.contactor.s2_inlet.conc_mol_comp[0, "H2O"].set_value(55388.0)
+    m.fs.contactor.s2_inlet.conc_mol_comp[0, "NaOH"].set_value(50.0)
+    m.fs.contactor.s2_inlet.conc_mol_comp[0, "EthylAcetate"].set_value(50.0)
+    m.fs.contactor.s2_inlet.conc_mol_comp[0, "SodiumAcetate"].set_value(50.0)
+    m.fs.contactor.s2_inlet.conc_mol_comp[0, "Ethanol"].set_value(50.0)
+    m.fs.contactor.s2_inlet.temperature[0].set_value(323.15)
+    m.fs.contactor.s2_inlet.pressure[0].set_value(2e5)
+
+    m.fs.contactor.material_transfer_term.fix(0)
+    m.fs.contactor.energy_transfer_term.fix(0)
+
+    if has_holdup:
+        m.fs.contactor.volume.fix(1)
+        m.fs.contactor.volume_frac_stream[:, :, "s1"].fix(0.5)
+
+    return m
+
+
+def validate_solution(model):
+    for x in model.fs.contactor.elements:
+        assert value(model.fs.contactor.s1[0, x].flow_vol) == pytest.approx(
+            1.0e-03, rel=1e-6
+        )
+        assert value(model.fs.contactor.s1[0, x].conc_mol_comp["H2O"]) == pytest.approx(
+            55388, rel=1e-6
+        )
+        assert value(
+            model.fs.contactor.s1[0, x].conc_mol_comp["NaOH"]
+        ) == pytest.approx(1e2, rel=1e-6)
+        assert value(
+            model.fs.contactor.s1[0, x].conc_mol_comp["EthylAcetate"]
+        ) == pytest.approx(1e2, rel=1e-6)
+        assert value(
+            model.fs.contactor.s1[0, x].conc_mol_comp["SodiumAcetate"]
+        ) == pytest.approx(0, abs=1e-4)
+        assert value(
+            model.fs.contactor.s1[0, x].conc_mol_comp["Ethanol"]
+        ) == pytest.approx(0, abs=1e-4)
+        assert value(model.fs.contactor.s1[0, x].temperature) == pytest.approx(
+            303.15, rel=1e-6
+        )
+        assert value(model.fs.contactor.s1[0, x].pressure) == pytest.approx(
+            101325, rel=1e-6
+        )
+
+        assert value(model.fs.contactor.s2[0, x].flow_vol) == pytest.approx(
+            2.0e-03, rel=1e-6
+        )
+        assert value(model.fs.contactor.s2[0, x].conc_mol_comp["H2O"]) == pytest.approx(
+            55388, rel=1e-6
+        )
+        assert value(
+            model.fs.contactor.s2[0, x].conc_mol_comp["NaOH"]
+        ) == pytest.approx(50, rel=1e-6)
+        assert value(
+            model.fs.contactor.s2[0, x].conc_mol_comp["EthylAcetate"]
+        ) == pytest.approx(50, rel=1e-6)
+        assert value(
+            model.fs.contactor.s2[0, x].conc_mol_comp["SodiumAcetate"]
+        ) == pytest.approx(50, rel=1e-6)
+        assert value(
+            model.fs.contactor.s2[0, x].conc_mol_comp["Ethanol"]
+        ) == pytest.approx(50, rel=1e-6)
+        assert value(model.fs.contactor.s2[0, x].temperature) == pytest.approx(
+            323.15, rel=1e-6
+        )
+        assert value(model.fs.contactor.s2[0, x].pressure) == pytest.approx(
+            2e5, rel=1e-6
+        )
+
+    assert not model.fs.contactor.s1_inlet.flow_vol[0].fixed
+    assert not model.fs.contactor.s1_inlet.conc_mol_comp[0, "H2O"].fixed
+    assert not model.fs.contactor.s1_inlet.conc_mol_comp[0, "NaOH"].fixed
+    assert not model.fs.contactor.s1_inlet.conc_mol_comp[0, "EthylAcetate"].fixed
+    assert not model.fs.contactor.s1_inlet.conc_mol_comp[0, "SodiumAcetate"].fixed
+    assert not model.fs.contactor.s1_inlet.conc_mol_comp[0, "Ethanol"].fixed
+    assert not model.fs.contactor.s1_inlet.temperature[0].fixed
+    assert not model.fs.contactor.s1_inlet.pressure[0].fixed
+
+    assert not model.fs.contactor.s2_inlet.flow_vol[0].fixed
+    assert not model.fs.contactor.s2_inlet.conc_mol_comp[0, "H2O"].fixed
+    assert not model.fs.contactor.s2_inlet.conc_mol_comp[0, "NaOH"].fixed
+    assert not model.fs.contactor.s2_inlet.conc_mol_comp[0, "EthylAcetate"].fixed
+    assert not model.fs.contactor.s2_inlet.conc_mol_comp[0, "SodiumAcetate"].fixed
+    assert not model.fs.contactor.s2_inlet.conc_mol_comp[0, "Ethanol"].fixed
+    assert not model.fs.contactor.s2_inlet.temperature[0].fixed
+    assert not model.fs.contactor.s2_inlet.pressure[0].fixed
+
+
+expected = {
+    "Units": {
+        "Volumetric Flowrate": getattr(units.pint_registry, "m**3/second"),
+        "Molar Concentration H2O": getattr(units.pint_registry, "mole/m**3"),
+        "Molar Concentration NaOH": getattr(units.pint_registry, "mole/m**3"),
+        "Molar Concentration EthylAcetate": getattr(units.pint_registry, "mole/m**3"),
+        "Molar Concentration SodiumAcetate": getattr(units.pint_registry, "mole/m**3"),
+        "Molar Concentration Ethanol": getattr(units.pint_registry, "mole/m**3"),
+        "Temperature": getattr(units.pint_registry, "K"),
+        "Pressure": getattr(units.pint_registry, "Pa"),
+    },
+    "s1 Inlet": {
+        "Volumetric Flowrate": pytest.approx(0.001, rel=1e-4),
+        "Molar Concentration H2O": pytest.approx(5.5388e4, rel=1e-4),
+        "Molar Concentration NaOH": pytest.approx(100, rel=1e-4),
+        "Molar Concentration EthylAcetate": pytest.approx(100, rel=1e-4),
+        "Molar Concentration SodiumAcetate": pytest.approx(0, abs=1e-6),
+        "Molar Concentration Ethanol": pytest.approx(0, abs=1e-6),
+        "Temperature": pytest.approx(303.15, rel=1e-4),
+        "Pressure": pytest.approx(101325, rel=1e-4),
+    },
+    "s1 Outlet": {
+        "Volumetric Flowrate": pytest.approx(0.001, rel=1e-4),
+        "Molar Concentration H2O": pytest.approx(55388.0, rel=1e-4),
+        "Molar Concentration NaOH": pytest.approx(100, rel=1e-4),
+        "Molar Concentration EthylAcetate": pytest.approx(100, rel=1e-4),
+        "Molar Concentration SodiumAcetate": pytest.approx(0, abs=1e-6),
+        "Molar Concentration Ethanol": pytest.approx(0, abs=1e-6),
+        "Temperature": pytest.approx(303.15, rel=1e-4),
+        "Pressure": pytest.approx(101325, rel=1e-4),
+    },
+    "s2 Inlet": {
+        "Volumetric Flowrate": pytest.approx(0.002, rel=1e-4),
+        "Molar Concentration H2O": pytest.approx(5.5388e4, rel=1e-4),
+        "Molar Concentration NaOH": pytest.approx(50, rel=1e-4),
+        "Molar Concentration EthylAcetate": pytest.approx(50, rel=1e-4),
+        "Molar Concentration SodiumAcetate": pytest.approx(50, rel=1e-4),
+        "Molar Concentration Ethanol": pytest.approx(50, rel=1e-4),
+        "Temperature": pytest.approx(323.15, rel=1e-4),
+        "Pressure": pytest.approx(2e5, rel=1e-4),
+    },
+    "s2 Outlet": {
+        "Volumetric Flowrate": pytest.approx(0.002, rel=1e-4),
+        "Molar Concentration H2O": pytest.approx(5.5388e4, rel=1e-4),
+        "Molar Concentration NaOH": pytest.approx(50, rel=1e-4),
+        "Molar Concentration EthylAcetate": pytest.approx(50, rel=1e-4),
+        "Molar Concentration SodiumAcetate": pytest.approx(50, rel=1e-4),
+        "Molar Concentration Ethanol": pytest.approx(50, rel=1e-4),
+        "Temperature": pytest.approx(323.15, rel=1e-4),
+        "Pressure": pytest.approx(2e5, rel=1e-4),
+    },
+}
+
+
+class TestMSContactorInitializerNoHoldup:
+    @pytest.fixture(scope="class")
+    def model(self):
+        return create_sapon_model(has_holdup=False)
+
+    @pytest.mark.unit
+    def test_default_initializer(self, model):
+        assert MSContactorData.default_initializer is MSContactorInitializer
+        assert model.fs.contactor.default_initializer is MSContactorInitializer
+
+    @pytest.mark.component
+    def test_MSInitializer(self, model):
+        initializer = MSContactorInitializer()
+        initializer.initialize(model.fs.contactor)
+
+        assert (
+            initializer.summary[model.fs.contactor]["status"] == InitializationStatus.Ok
+        )
+        validate_solution(model)
+
+    @pytest.mark.component
+    def test_MSScaler(self, model):
+        assert jacobian_cond(model, scaled=False) == approx(4.757e12, rel=1e-2)
+
+        scaler_obj = model.fs.contactor.default_scaler()
+        scaler_obj.scale_model(model.fs.contactor)
+
+        assert jacobian_cond(model, scaled=True) == approx(4573, rel=1e-2)
+
+    @pytest.mark.ui
+    @pytest.mark.unit
+    def test_get_performance_contents(self, model):
+        perf_dict = model.fs.contactor._get_performance_contents()
+
+        assert perf_dict == {}
+
+    @pytest.mark.ui
+    @pytest.mark.unit
+    def test_get_stream_table_contents(self, model):
+        stable = model.fs.contactor._get_stream_table_contents()
+        assert stable.to_dict() == expected
+
+
+class TestMSContactorInitializerWithHoldup:
+    @pytest.fixture(scope="class")
+    def model(self):
+        return create_sapon_model(has_holdup=True)
+
+    @pytest.mark.unit
+    def test_default_initializer(self, model):
+        assert MSContactorData.default_initializer is MSContactorInitializer
+        assert model.fs.contactor.default_initializer is MSContactorInitializer
+
+    @pytest.mark.component
+    def test_MSInitializer(self, model):
+        initializer = MSContactorInitializer()
+
+        assert degrees_of_freedom(model) == 16
+        initializer.initialize(model.fs.contactor)
+
+        assert (
+            initializer.summary[model.fs.contactor]["status"] == InitializationStatus.Ok
+        )
+        validate_solution(model)
+        assert degrees_of_freedom(model) == 16
+
+        for vardata in model.fs.contactor.volume.values():
+            assert vardata.fixed
+            assert vardata.value == 1
+        for (_, _, s), vardata in model.fs.contactor.volume_frac_stream.items():
+            if s == "s1":
+                assert vardata.fixed
+            else:
+                assert not vardata.fixed
+            assert vardata.value == 0.5
+
+        def approx(x):
+            return pytest.approx(x, rel=1e-4)
+
+        assert model.fs.contactor.s1_material_holdup[
+            0.0, 1, "Liq", "Ethanol"
+        ].value == approx(0)
+        assert model.fs.contactor.s1_material_holdup[
+            0.0, 3, "Liq", "H2O"
+        ].value == approx(27694.0)
+        assert model.fs.contactor.s1_material_holdup[
+            0.0, 5, "Liq", "EthylAcetate"
+        ].value == approx(50)
+        assert model.fs.contactor.s1_material_holdup[
+            0.0, 9, "Liq", "NaOH"
+        ].value == approx(50)
+        assert model.fs.contactor.s1_material_holdup[
+            0.0, 8, "Liq", "SodiumAcetate"
+        ].value == approx(0)
+
+        assert model.fs.contactor.s2_material_holdup[
+            0.0, 1, "Liq", "Ethanol"
+        ].value == approx(25)
+        assert model.fs.contactor.s2_material_holdup[
+            0.0, 3, "Liq", "H2O"
+        ].value == approx(27694.0)
+        assert model.fs.contactor.s2_material_holdup[
+            0.0, 5, "Liq", "EthylAcetate"
+        ].value == approx(25)
+        assert model.fs.contactor.s2_material_holdup[
+            0.0, 9, "Liq", "NaOH"
+        ].value == approx(25)
+        assert model.fs.contactor.s2_material_holdup[
+            0.0, 8, "Liq", "SodiumAcetate"
+        ].value == approx(25)
+
+    @pytest.mark.component
+    def test_MSScaler(self, model):
+        assert jacobian_cond(model, scaled=False) == approx(3.26980160e13, rel=1e-2)
+
+        scaler_obj = model.fs.contactor.default_scaler()
+        scaler_obj.default_scaling_factors["volume"] = 1
+        scaler_obj.scale_model(model.fs.contactor)
+
+        assert jacobian_cond(model, scaled=True) == approx(1.242418e6, rel=1e-2)
+
+    @pytest.mark.ui
+    @pytest.mark.unit
+    def test_get_performance_contents(self, model):
+        perf_dict = model.fs.contactor._get_performance_contents()
+
+        assert perf_dict == {}
+
+    @pytest.mark.ui
+    @pytest.mark.unit
+    def test_get_stream_table_contents(self, model):
+        stable = model.fs.contactor._get_stream_table_contents()
+        assert stable.to_dict() == expected
+
+
+# TODO this flowsheet test should really be put in a separate file
+class TestLiCoDiafiltration:
+    """
+    Test case based on:
+
+    Wamble, N.P., Eugene, E.A., Phillip, W.A., Dowling, A.W.,
+    'Optimal Diafiltration Membrane Cascades Enable Green Recycling
+    of Spent Lithium-Ion Batteries',
+    ACS Sustainable Chem. Eng. 2022, 10, 12207−12225
+
+    Configuration and results based on Figure 2, Case III
+    """
+
+    def create_model(self, has_holdup):
+        m = ConcreteModel()
+        m.fs = FlowsheetBlock(dynamic=False)
+
+        m.fs.properties = LiCoParameters()
+
+        # Add separation stages
+        m.fs.stage1 = MSContactor(
+            number_of_finite_elements=10,
+            streams={
+                "retentate": {
+                    "property_package": m.fs.properties,
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+                "permeate": {
+                    "property_package": m.fs.properties,
+                    "has_feed": False,
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+            },
+            has_holdup=has_holdup,
+        )
+
+        m.fs.stage2 = MSContactor(
+            number_of_finite_elements=10,
+            streams={
+                "retentate": {
+                    "property_package": m.fs.properties,
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+                "permeate": {
+                    "property_package": m.fs.properties,
+                    "has_feed": False,
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+            },
+            has_holdup=has_holdup,
+        )
+
+        m.fs.stage3 = MSContactor(
+            number_of_finite_elements=10,
+            streams={
+                "retentate": {
+                    "property_package": m.fs.properties,
+                    "side_streams": [10],
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+                "permeate": {
+                    "property_package": m.fs.properties,
+                    "has_feed": False,
+                    "has_energy_balance": False,
+                    "has_pressure_balance": False,
+                },
+            },
+            has_holdup=has_holdup,
+        )
+
+        # Add mixers
+        m.fs.mix1 = Mixer(
+            num_inlets=2,
+            property_package=m.fs.properties,
+            material_balance_type=MaterialBalanceType.componentTotal,
+            energy_mixing_type=MixingType.none,
+            momentum_mixing_type=MomentumMixingType.none,
+        )
+        m.fs.mix2 = Mixer(
+            num_inlets=2,
+            property_package=m.fs.properties,
+            material_balance_type=MaterialBalanceType.componentTotal,
+            energy_mixing_type=MixingType.none,
+            momentum_mixing_type=MomentumMixingType.none,
+        )
+
+        # Connect units
+        m.fs.stream1 = Arc(
+            source=m.fs.stage1.permeate_outlet,
+            destination=m.fs.mix1.inlet_2,
+        )
+        m.fs.stream2 = Arc(
+            source=m.fs.mix1.outlet,
+            destination=m.fs.stage2.retentate_inlet,
+        )
+        m.fs.stream3 = Arc(
+            source=m.fs.stage2.permeate_outlet,
+            destination=m.fs.mix2.inlet_2,
+        )
+        m.fs.stream4 = Arc(
+            source=m.fs.mix2.outlet,
+            destination=m.fs.stage3.retentate_inlet,
+        )
+        m.fs.stream5 = Arc(
+            source=m.fs.stage2.retentate_outlet,
+            destination=m.fs.stage1.retentate_inlet,
+        )
+        m.fs.stream6 = Arc(
+            source=m.fs.stage3.retentate_outlet,
+            destination=m.fs.mix1.inlet_1,
+        )
+
+        TransformationFactory("network.expand_arcs").apply_to(m)
+
+        # Global constants
+        J = 0.1 * units.m / units.hour
+        w = 1.5 * units.m
+        rho = 1000 * units.kg / units.m**3
+
+        # Add mass transfer variables and constraints
+        m.fs.solutes = Set(initialize=["Li", "Co"])
+
+        m.fs.sieving_coefficient = Var(
+            m.fs.solutes,
+            units=units.dimensionless,
+        )
+        m.fs.sieving_coefficient["Li"].fix(1.3)
+        m.fs.sieving_coefficient["Co"].fix(0.5)
+
+        if has_holdup:
+            # Try initializing with range of volume fractions
+            # A real diafiltration model would have a constraint
+            # linking volume to stage length
+            m.fs.stage1.volume_frac_stream[:, :, "retentate"].fix(0.1)
+            m.fs.stage1.volume.fix(0.1)
+            m.fs.stage2.volume_frac_stream[:, :, "retentate"].fix(0.5)
+            m.fs.stage2.volume.fix(1)
+            m.fs.stage3.volume_frac_stream[:, :, "retentate"].fix(0.9)
+            m.fs.stage3.volume.fix(10)
+
+        m.fs.stage1.length = Var(units=units.m)
+        m.fs.stage2.length = Var(units=units.m)
+        m.fs.stage3.length = Var(units=units.m)
+
+        # Start by initializing with a short length
+        # Too long and we deplete solvent due to lack of recycles
+        m.fs.stage1.length.fix(10)
+        m.fs.stage2.length.fix(10)
+        m.fs.stage3.length.fix(10)
+
+        def solvent_rule(b, s):
+            return (
+                b.material_transfer_term[0, s, "permeate", "retentate", "solvent"]
+                == J * b.length * w * rho / 10
+            )
+
+        def solute_rule(b, s, j):
+            if s == 1:
+                in_state = b.retentate_inlet_state[0]
+            else:
+                sp = b.elements.prev(s)
+                in_state = b.retentate[0, sp]
+
+            return log(b.retentate[0, s].conc_mass_solute[j]) + (
+                m.fs.sieving_coefficient[j] - 1
+            ) * log(in_state.flow_vol) == log(in_state.conc_mass_solute[j]) + (
+                m.fs.sieving_coefficient[j] - 1
+            ) * log(
+                b.retentate[0, s].flow_vol
+            )
+
+        m.fs.stage1.solvent_flux = Constraint(
+            m.fs.stage1.elements,
+            rule=solvent_rule,
+        )
+        m.fs.stage1.solute_sieving = Constraint(
+            m.fs.stage1.elements,
+            m.fs.solutes,
+            rule=solute_rule,
+        )
+
+        m.fs.stage2.solvent_flux = Constraint(
+            m.fs.stage2.elements,
+            rule=solvent_rule,
+        )
+        m.fs.stage2.solute_sieving = Constraint(
+            m.fs.stage2.elements,
+            m.fs.solutes,
+            rule=solute_rule,
+        )
+
+        # For stage 3, we need to account for the side feed at element 10
+        def stage3_solute_rule(b, s, j):
+            if s == 1:
+                q_in = b.retentate_inlet_state[0].flow_vol
+                c_in = b.retentate_inlet_state[0].conc_mass_solute[j]
+            elif s == 10:
+                sp = b.elements.prev(s)
+                q_in = (
+                    b.retentate[0, sp].flow_vol
+                    + b.retentate_side_stream_state[0, 10].flow_vol
+                )
+                c_in = (
+                    b.retentate[0, sp].conc_mass_solute[j] * b.retentate[0, sp].flow_vol
+                    + b.retentate_side_stream_state[0, 10].conc_mass_solute[j]
+                    * b.retentate_side_stream_state[0, 10].flow_vol
+                ) / q_in
+            else:
+                sp = b.elements.prev(s)
+                q_in = b.retentate[0, sp].flow_vol
+                c_in = b.retentate[0, sp].conc_mass_solute[j]
+
+            return log(b.retentate[0, s].conc_mass_solute[j]) + (
+                m.fs.sieving_coefficient[j] - 1
+            ) * log(q_in) == log(c_in) + (m.fs.sieving_coefficient[j] - 1) * log(
+                b.retentate[0, s].flow_vol
+            )
+
+        m.fs.stage3.solvent_flux = Constraint(
+            m.fs.stage3.elements,
+            rule=solvent_rule,
+        )
+        m.fs.stage3.solute_sieving = Constraint(
+            m.fs.stage3.elements,
+            m.fs.solutes,
+            rule=stage3_solute_rule,
+        )
+
+        return m
+
+    def initialize_model(self, model):
+        # Start with stage 3
+        # Initial feed guess is pure diafiltrate (no recycle)
+        model.fs.stage3.retentate_inlet.flow_vol[0].fix(30)
+        model.fs.stage3.retentate_inlet.conc_mass_solute[0, "Li"].fix(0.1)
+        model.fs.stage3.retentate_inlet.conc_mass_solute[0, "Co"].fix(0.2)
+
+        # Fresh feed stream is side feed at element 10
+        model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol.fix(100)
+        model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Li"].fix(
+            1.7
+        )
+        model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Co"].fix(
+            17
+        )
+
+        # Initialize flow and conc values to avoid log(0)
+        for s in model.fs.stage3.retentate.values():
+            s.flow_vol.set_value(30)
+            s.conc_mass_solute["Li"].set_value(0.1)
+            s.conc_mass_solute["Co"].set_value(0.2)
+
+        assert degrees_of_freedom(model.fs.stage3) == 0
+
+        initializer = MSContactorInitializer()
+        initializer.initialize(model.fs.stage3)
+
+        # Unfix feed guesses
+        model.fs.stage3.retentate_inlet.flow_vol[0].unfix()
+        model.fs.stage3.retentate_inlet.conc_mass_solute[0, "Li"].unfix()
+        model.fs.stage3.retentate_inlet.conc_mass_solute[0, "Co"].unfix()
+
+        # Stage 2 next - feed is retentate of stage 3
+        Q = value(model.fs.stage3.retentate_outlet.flow_vol[0])
+        C_Li = value(model.fs.stage3.retentate_outlet.conc_mass_solute[0, "Li"])
+        C_Co = value(model.fs.stage3.retentate_outlet.conc_mass_solute[0, "Co"])
+
+        model.fs.stage2.retentate_inlet.flow_vol[0].fix(Q)
+        model.fs.stage2.retentate_inlet.conc_mass_solute[0, "Li"].fix(C_Li)
+        model.fs.stage2.retentate_inlet.conc_mass_solute[0, "Co"].fix(C_Co)
+
+        # Initialize flow and conc values to avoid log(0)
+        for s in model.fs.stage2.retentate.values():
+            s.flow_vol.set_value(Q)
+            s.conc_mass_solute["Li"].set_value(C_Li)
+            s.conc_mass_solute["Co"].set_value(C_Co)
+
+        assert degrees_of_freedom(model.fs.stage2) == 0
+
+        initializer.initialize(model.fs.stage2)
+
+        # Unfix feed guesses
+        model.fs.stage2.retentate_inlet.flow_vol[0].unfix()
+        model.fs.stage2.retentate_inlet.conc_mass_solute[0, "Li"].unfix()
+        model.fs.stage2.retentate_inlet.conc_mass_solute[0, "Co"].unfix()
+
+        # Initialize Mixer 2
+        # Inlet 1 is fresh diafilatrate
+        model.fs.mix2.inlet_1.flow_vol[0].fix(30)
+        model.fs.mix2.inlet_1.conc_mass_solute[0, "Li"].fix(0.1)
+        model.fs.mix2.inlet_1.conc_mass_solute[0, "Co"].fix(0.2)
+
+        propagate_state(
+            destination=model.fs.mix2.inlet_2,
+            source=model.fs.stage2.permeate_outlet,
+        )
+
+        model.fs.mix2.initialize()  # TODO: Update to Initializer object
+
+        # Initialize first stage - feed is retentate of stage 2
+        Q = value(model.fs.stage2.retentate_outlet.flow_vol[0])
+        C_Li = value(model.fs.stage2.retentate_outlet.conc_mass_solute[0, "Li"])
+        C_Co = value(model.fs.stage2.retentate_outlet.conc_mass_solute[0, "Co"])
+
+        model.fs.stage1.retentate_inlet.flow_vol[0].fix(Q)
+        model.fs.stage1.retentate_inlet.conc_mass_solute[0, "Li"].fix(C_Li)
+        model.fs.stage1.retentate_inlet.conc_mass_solute[0, "Co"].fix(C_Co)
+
+        # Initialize flow and conc values to avoid log(0)
+        for s in model.fs.stage1.retentate.values():
+            s.flow_vol.set_value(Q)
+            s.conc_mass_solute["Li"].set_value(C_Li)
+            s.conc_mass_solute["Co"].set_value(C_Co)
+
+        assert degrees_of_freedom(model.fs.stage1) == 0
+
+        initializer.initialize(model.fs.stage1)
+
+        # Unfix feed guesses
+        model.fs.stage1.retentate_inlet.flow_vol[0].unfix()
+        model.fs.stage1.retentate_inlet.conc_mass_solute[0, "Li"].unfix()
+        model.fs.stage1.retentate_inlet.conc_mass_solute[0, "Co"].unfix()
+
+        # Initialize Mixer 1
+        propagate_state(
+            destination=model.fs.mix1.inlet_1,
+            source=model.fs.stage3.retentate_outlet,
+        )
+
+        propagate_state(
+            destination=model.fs.mix1.inlet_2,
+            source=model.fs.stage1.permeate_outlet,
+        )
+
+        model.fs.mix1.initialize()  # TODO: Update to Initializer object
+
+        # Solve the full model
+        assert degrees_of_freedom(model) == 0
+
+        res = solver.solve(model, tee=True)
+        assert_optimal_termination(res)
+
+        # Increase stage length and re-solve
+        L = 756.4  # isotropic stages
+        model.fs.stage1.length.fix(L)
+        model.fs.stage2.length.fix(L)
+        model.fs.stage3.length.fix(L)
+
+        res = solver.solve(model, tee=True)
+        assert_optimal_termination(res)
+
+    @pytest.mark.component
+    def test_diafiltration_build(self):
+        model = self.create_model(has_holdup=False)
+        assert isinstance(model.fs.stage3.retentate_inlet, Port)
+        assert isinstance(model.fs.stage3.retentate_outlet, Port)
+        assert not hasattr(model.fs.stage3, "permeate_inlet")
+        assert isinstance(model.fs.stage3.permeate_outlet, Port)
+
+    @pytest.mark.integration
+    def test_initialize_and_solve_no_holdup(self):
+        model = self.create_model(has_holdup=False)
+        self.initialize_model(model)
+
+        # Check conservation
+        # Solvent
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+            ),
+            rel=1e-5,
+        )
+        # Lithium
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            * model.fs.mix2.inlet_1.conc_mass_solute[0, "Li"]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+            * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Li"]
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Li"]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+                * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Li"]
+            ),
+            rel=1e-5,
+        )
+        # Cobalt
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            * model.fs.mix2.inlet_1.conc_mass_solute[0, "Co"]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+            * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Co"]
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Co"]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+                * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Co"]
+            ),
+            rel=1e-5,
+        )
+
+        # Calculate recovery
+        R_Li = value(
+            model.fs.stage3.permeate_outlet.flow_vol[0]
+            * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Li"]
+            / (
+                model.fs.mix2.inlet_1.flow_vol[0]
+                * model.fs.mix2.inlet_1.conc_mass_solute[0, "Li"]
+                + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+                * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute[
+                    "Li"
+                ]
+            )
+        )
+        R_Co = value(
+            model.fs.stage1.retentate_outlet.flow_vol[0]
+            * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Co"]
+            / (
+                model.fs.mix2.inlet_1.flow_vol[0]
+                * model.fs.mix2.inlet_1.conc_mass_solute[0, "Co"]
+                + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+                * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute[
+                    "Co"
+                ]
+            )
+        )
+        assert R_Li == pytest.approx(0.9451, rel=1e-4)
+        assert R_Co == pytest.approx(0.6378, rel=1e-4)
+
+    @pytest.mark.integration
+    def test_initialize_and_solve_with_holdup(self):
+        model = self.create_model(has_holdup=True)
+        self.initialize_model(model)
+        # Check conservation
+        # Solvent
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+            ),
+            rel=1e-5,
+        )
+        # Lithium
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            * model.fs.mix2.inlet_1.conc_mass_solute[0, "Li"]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+            * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Li"]
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Li"]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+                * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Li"]
+            ),
+            rel=1e-5,
+        )
+        # Cobalt
+        assert value(
+            model.fs.mix2.inlet_1.flow_vol[0]
+            * model.fs.mix2.inlet_1.conc_mass_solute[0, "Co"]
+            + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+            * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute["Co"]
+        ) == pytest.approx(
+            value(
+                model.fs.stage3.permeate_outlet.flow_vol[0]
+                * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Co"]
+                + model.fs.stage1.retentate_outlet.flow_vol[0]
+                * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Co"]
+            ),
+            rel=1e-5,
+        )
+
+        # Calculate recovery
+        R_Li = value(
+            model.fs.stage3.permeate_outlet.flow_vol[0]
+            * model.fs.stage3.permeate_outlet.conc_mass_solute[0, "Li"]
+            / (
+                model.fs.mix2.inlet_1.flow_vol[0]
+                * model.fs.mix2.inlet_1.conc_mass_solute[0, "Li"]
+                + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+                * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute[
+                    "Li"
+                ]
+            )
+        )
+        R_Co = value(
+            model.fs.stage1.retentate_outlet.flow_vol[0]
+            * model.fs.stage1.retentate_outlet.conc_mass_solute[0, "Co"]
+            / (
+                model.fs.mix2.inlet_1.flow_vol[0]
+                * model.fs.mix2.inlet_1.conc_mass_solute[0, "Co"]
+                + model.fs.stage3.retentate_side_stream_state[0, 10].flow_vol
+                * model.fs.stage3.retentate_side_stream_state[0, 10].conc_mass_solute[
+                    "Co"
+                ]
+            )
+        )
+        assert R_Li == pytest.approx(0.9451, rel=1e-4)
+        assert R_Co == pytest.approx(0.6378, rel=1e-4)
+
+        for stage, vol_frac, volume in zip(
+            [model.fs.stage1, model.fs.stage2, model.fs.stage3],
+            [0.1, 0.5, 0.9],
+            [0.1, 1, 10],
+        ):
+            for vardata in stage.volume_frac_stream[:, :, "retentate"]:
+                assert vardata.fixed
+                assert vardata.value == vol_frac
+            for vardata in stage.volume_frac_stream[:, :, "permeate"]:
+                assert not vardata.fixed
+                assert vardata.value == pytest.approx(1 - vol_frac)
+            for vardata in stage.volume.values():
+                assert vardata.fixed
+                assert vardata.value == volume
+
+        def approx(x):
+            return pytest.approx(x, rel=1e-4)
+
+        # Spot test a few holdup values
+        # Stage 1
+        assert model.fs.stage1.retentate_material_holdup[
+            0, 1, "phase1", "solvent"
+        ].value == approx(10)
+        assert model.fs.stage1.retentate_material_holdup[
+            0.0, 3, "phase1", "Co"
+        ].value == approx(0.273115)
+        assert model.fs.stage1.retentate_material_holdup[
+            0.0, 8, "phase1", "Li"
+        ].value == approx(0.0074371075)
+
+        assert model.fs.stage1.permeate_material_holdup[
+            0, 8, "phase1", "solvent"
+        ].value == approx(90)
+        assert model.fs.stage1.permeate_material_holdup[
+            0.0, 2, "phase1", "Co"
+        ].value == approx(1.106536)
+        assert model.fs.stage1.permeate_material_holdup[
+            0.0, 6, "phase1", "Li"
+        ].value == approx(0.113279772)
+
+        # Stage 2
+        assert model.fs.stage2.retentate_material_holdup[
+            0, 7, "phase1", "solvent"
+        ].value == approx(500)
+        assert model.fs.stage2.retentate_material_holdup[
+            0.0, 6, "phase1", "Co"
+        ].value == approx(10.101154)
+        assert model.fs.stage2.retentate_material_holdup[
+            0.0, 7, "phase1", "Li"
+        ].value == approx(0.5711698)
+
+        assert model.fs.stage2.permeate_material_holdup[
+            0, 3, "phase1", "solvent"
+        ].value == approx(500)
+        assert model.fs.stage2.permeate_material_holdup[
+            0.0, 6, "phase1", "Co"
+        ].value == approx(4.6373872)
+        assert model.fs.stage2.permeate_material_holdup[
+            0.0, 5, "phase1", "Li"
+        ].value == approx(0.80491291)
+
+        # Stage 3
+        assert model.fs.stage3.retentate_material_holdup[
+            0, 7, "phase1", "solvent"
+        ].value == approx(9000)
+        assert model.fs.stage3.retentate_material_holdup[
+            0.0, 8, "phase1", "Co"
+        ].value == approx(116.9801)
+        assert model.fs.stage3.retentate_material_holdup[
+            0.0, 4, "phase1", "Li"
+        ].value == approx(9.9399983)
+
+        assert model.fs.stage3.permeate_material_holdup[
+            0, 1, "phase1", "solvent"
+        ].value == approx(1000)
+        assert model.fs.stage3.permeate_material_holdup[
+            0.0, 5, "phase1", "Co"
+        ].value == approx(4.4315796)
+        assert model.fs.stage3.permeate_material_holdup[
+            0.0, 2, "phase1", "Li"
+        ].value == approx(1.56961)

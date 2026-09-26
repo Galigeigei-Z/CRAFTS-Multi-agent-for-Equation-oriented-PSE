@@ -1,0 +1,161 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_hda_once_through_two_flash",
+  "family": "family_hda_btx",
+  "source_url": "local://examples/hda_once_through/source_root/notebook_build.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "M101",
+      "variable": "toluene_feed.flow_mol_phase_comp[0, 'Liq', 'toluene']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "toluene feed",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'hydrogen']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "hydrogen feed",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'methane']",
+      "value": 0.02,
+      "units": "mol/s",
+      "role": "methane impurity",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "toluene feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "hydrogen feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "toluene feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 600,
+      "units": "K",
+      "role": "reactor inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "conservative once-through conversion",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "heat_duty[0]",
+      "value": 0,
+      "units": "W",
+      "role": "adiabatic reactor",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "vap_outlet.temperature[0]",
+      "value": 325,
+      "units": "K",
+      "role": "non-condensable knock-out temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "first flash pressure change",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F102",
+      "variable": "vap_outlet.temperature[0]",
+      "value": 375,
+      "units": "K",
+      "role": "second-stage flash temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F102",
+      "variable": "deltaP[0]",
+      "value": -225000,
+      "units": "Pa",
+      "role": "second-stage pressure let-down to 125 kPa",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "M101.toluene_feed",
+    "M101.hydrogen_feed"
+  ],
+  "terminal_product_ports": [
+    "F101.vap_outlet",
+    "F102.vap_outlet",
+    "F102.liq_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "acyclic unit-by-unit state propagation followed by simultaneous solve",
+    "tear_destination": null,
+    "solve_order": [
+      "M101",
+      "H101",
+      "R101",
+      "F101",
+      "F102"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

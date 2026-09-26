@@ -1,0 +1,249 @@
+[
+  {
+    "name": "blocks[0].process.fs.windpower",
+    "class": "idaes.core.base.process_block._ScalarWind_Power",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "resource_speed": null,
+      "resource_probability_density": null,
+      "capacity_factor": [
+        0.1665879574970484
+      ]
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.pem",
+    "class": "idaes.core.base.process_block._ScalarPEM_Electrolyzer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "blocks[0].process.fs.h2ideal_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.battery",
+    "class": "idaes.core.base.process_block._ScalarBatteryStorage",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.h2_tank",
+    "class": "idaes.core.base.process_block._ScalarSimpleHydrogenTank",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "blocks[0].process.fs.h2ideal_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "blocks[0].process.fs.h2ideal_props"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "air_feed",
+        "hydrogen_feed",
+        "purchased_hydrogen_feed"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine",
+    "class": "idaes.core.base.process_block._ScalarHydrogenTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "blocks[0].process.fs.reaction_params"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.splitter",
+    "class": "idaes.core.base.process_block._ScalarElectricalSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_list": [
+        "grid",
+        "pem",
+        "battery"
+      ],
+      "num_outlets": null,
+      "add_split_fraction_vars": false
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine.compressor",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine.stoic_reactor",
+    "class": "idaes.core.base.process_block._ScalarStoichiometricReactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_of_reaction": true,
+      "has_heat_transfer": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "blocks[0].process.fs.reaction_params"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine.turbine",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "blocks[0].process.fs.h2turbine_props"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

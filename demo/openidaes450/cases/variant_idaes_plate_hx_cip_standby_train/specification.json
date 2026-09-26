@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_plate_hx_cip_standby_train",
+  "family": "family_plate_hx_cip",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "online_train_duty_fraction",
+      "value": 0.55,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "cip_rotation_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "train_availability",
+      "value": 0.9425000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fouling_resistance_index",
+      "value": 0.018125,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_temperature_K",
+      "value": 355.25,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "pressure_drop_kPa",
+      "value": 129.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "cleaning_solution_index",
+      "value": 0.11249999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "HOT.outlet",
+    "COLD.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_plate_heat_exchanger"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_plate_heat_exchanger",
+    "chemical_change": "Adds a standby/CIP material path and discrete exchanger rotation so fouling no longer accumulates in a single unit.",
+    "native_metrics": {
+      "train_availability": 0.9425000000000001,
+      "fouling_resistance_index": 0.018125,
+      "product_temperature_K": 355.25,
+      "pressure_drop_kPa": 129.5,
+      "cleaning_solution_index": 0.11249999999999999
+    }
+  }
+}

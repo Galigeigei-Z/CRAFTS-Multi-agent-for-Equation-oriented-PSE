@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.saline_feed",
+      "destination_port": "saline_feed",
+      "id": "saline_feed_to_model",
+      "source": "saline_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.solar_energy",
+      "destination_port": "solar_energy",
+      "id": "solar_energy_to_model",
+      "source": "solar_energy.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "distillate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_distillate",
+      "source": "model.distillate",
+      "source_port": "distillate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "brine.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_brine",
+      "source": "model.brine",
+      "source_port": "brine",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_solar_still",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_solar_still",
+  "initialization_order": [
+    "saline_feed",
+    "solar_energy",
+    "model",
+    "distillate",
+    "brine"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO Solar Still",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO SolarStill unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/solar_still.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "saline_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "solar_energy",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "SolarStill",
+      "package": null,
+      "role": "Source-derived SolarStill node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "distillate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "brine",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "name": "fs.leaching_sol_feed",
+    "source": "fs.leach_solid_feed.outlet",
+    "destination": "fs.leach.solid_inlet"
+  },
+  {
+    "name": "fs.leaching_liq_feed",
+    "source": "fs.leach_liquid_feed.outlet",
+    "destination": "fs.leach_mixer.feed"
+  },
+  {
+    "name": "fs.leaching_feed_mixture",
+    "source": "fs.leach_mixer.outlet",
+    "destination": "fs.leach.liquid_inlet"
+  },
+  {
+    "name": "fs.leaching_solid_outlet",
+    "source": "fs.leach.solid_outlet",
+    "destination": "fs.sl_sep1.solid_inlet"
+  },
+  {
+    "name": "fs.leaching_liquid_outlet",
+    "source": "fs.leach.liquid_outlet",
+    "destination": "fs.sl_sep1.liquid_inlet"
+  },
+  {
+    "name": "fs.sl_sep1_solid_outlet",
+    "source": "fs.sl_sep1.solid_outlet",
+    "destination": "fs.leach_filter_cake.inlet"
+  },
+  {
+    "name": "fs.sl_sep1_retained_liquid_outlet",
+    "source": "fs.sl_sep1.retained_liquid_outlet",
+    "destination": "fs.leach_filter_cake_liquid.inlet"
+  },
+  {
+    "name": "fs.sl_sep1_liquid_outlet",
+    "source": "fs.sl_sep1.recovered_liquid_outlet",
+    "destination": "fs.leach_sx_mixer.leach"
+  },
+  {
+    "name": "fs.sx_rougher_load_aq_feed",
+    "source": "fs.leach_sx_mixer.outlet",
+    "destination": "fs.solex_rougher_load.aqueous_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_org_feed",
+    "source": "fs.rougher_org_make_up.outlet",
+    "destination": "fs.rougher_mixer.make_up"
+  },
+  {
+    "name": "fs.sx_rougher_mixed_org_recycle",
+    "source": "fs.rougher_mixer.outlet",
+    "destination": "fs.solex_rougher_load.organic_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_load_aq_outlet",
+    "source": "fs.solex_rougher_load.aqueous_outlet",
+    "destination": "fs.load_sep.inlet"
+  },
+  {
+    "name": "fs.sx_rougher_load_aq_recycle",
+    "source": "fs.load_sep.recycle",
+    "destination": "fs.leach_mixer.load_recycle"
+  },
+  {
+    "name": "fs.sx_rougher_load_org_outlet",
+    "source": "fs.solex_rougher_load.organic_outlet",
+    "destination": "fs.solex_rougher_scrub.organic_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_scrub_acid_feed",
+    "source": "fs.acid_feed1.outlet",
+    "destination": "fs.solex_rougher_scrub.aqueous_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_scrub_aq_outlet",
+    "source": "fs.solex_rougher_scrub.aqueous_outlet",
+    "destination": "fs.scrub_sep.inlet"
+  },
+  {
+    "name": "fs.sx_rougher_scrub_aq_translator",
+    "source": "fs.scrub_sep.recycle",
+    "destination": "fs.scrubber_HCl_leach_translator.inlet"
+  },
+  {
+    "name": "fs.translator_scrub_recycle",
+    "source": "fs.scrubber_HCl_leach_translator.outlet",
+    "destination": "fs.leach_mixer.scrub_recycle"
+  },
+  {
+    "name": "fs.sx_rougher_scrub_org_outlet",
+    "source": "fs.solex_rougher_scrub.organic_outlet",
+    "destination": "fs.solex_rougher_strip.organic_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_strip_acid_feed",
+    "source": "fs.acid_feed2.outlet",
+    "destination": "fs.solex_rougher_strip.aqueous_inlet"
+  },
+  {
+    "name": "fs.sx_rougher_strip_org_outlet",
+    "source": "fs.solex_rougher_strip.organic_outlet",
+    "destination": "fs.rougher_sep.inlet"
+  },
+  {
+    "name": "fs.sx_rougher_strip_org_purge",
+    "source": "fs.rougher_sep.purge",
+    "destination": "fs.rougher_organic_purge.inlet"
+  },
+  {
+    "name": "fs.sx_rougher_strip_org_recycle",
+    "source": "fs.rougher_sep.recycle",
+    "destination": "fs.rougher_mixer.recycle"
+  },
+  {
+    "name": "fs.sx_rougher_strip_aq_outlet",
+    "source": "fs.solex_rougher_strip.aqueous_outlet",
+    "destination": "fs.precip_sx_mixer.rougher"
+  },
+  {
+    "name": "fs.sx_cleaner_load_aq_feed",
+    "source": "fs.precip_sx_mixer.outlet",
+    "destination": "fs.solex_cleaner_load.aqueous_inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_org_feed",
+    "source": "fs.cleaner_org_make_up.outlet",
+    "destination": "fs.cleaner_mixer.make_up"
+  },
+  {
+    "name": "fs.sx_cleaner_mixed_org_recycle",
+    "source": "fs.cleaner_mixer.outlet",
+    "destination": "fs.solex_cleaner_load.organic_inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_load_aq_outlet_translator",
+    "source": "fs.solex_cleaner_load.aqueous_outlet",
+    "destination": "fs.cleaner_HCl_leach_translator.inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_load_translator_leach_sx_mixer",
+    "source": "fs.cleaner_HCl_leach_translator.outlet",
+    "destination": "fs.leach_sx_mixer.cleaner"
+  },
+  {
+    "name": "fs.sx_cleaner_strip_acid_feed",
+    "source": "fs.acid_feed3.outlet",
+    "destination": "fs.solex_cleaner_strip.aqueous_inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_load_org_outlet",
+    "source": "fs.solex_cleaner_load.organic_outlet",
+    "destination": "fs.solex_cleaner_strip.organic_inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_strip_org_outlet",
+    "source": "fs.solex_cleaner_strip.organic_outlet",
+    "destination": "fs.cleaner_sep.inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_strip_org_purge",
+    "source": "fs.cleaner_sep.purge",
+    "destination": "fs.cleaner_organic_purge.inlet"
+  },
+  {
+    "name": "fs.sx_cleaner_strip_org_recycle",
+    "source": "fs.cleaner_sep.recycle",
+    "destination": "fs.cleaner_mixer.recycle"
+  },
+  {
+    "name": "fs.sx_cleaner_strip_aq_precip",
+    "source": "fs.solex_cleaner_strip.aqueous_outlet",
+    "destination": "fs.precipitator.aqueous_inlet"
+  },
+  {
+    "name": "fs.precip_solid_outlet",
+    "source": "fs.precipitator.precipitate_outlet",
+    "destination": "fs.sl_sep2.solid_inlet"
+  },
+  {
+    "name": "fs.precip_aq_sl_sep2",
+    "source": "fs.precipitator.aqueous_outlet",
+    "destination": "fs.sl_sep2.liquid_inlet"
+  },
+  {
+    "name": "fs.sl_sep2_solid_outlet",
+    "source": "fs.sl_sep2.solid_outlet",
+    "destination": "fs.roaster.solid_inlet"
+  },
+  {
+    "name": "fs.sl_sep2_liquid_outlet",
+    "source": "fs.sl_sep2.recovered_liquid_outlet",
+    "destination": "fs.precip_sep.inlet"
+  },
+  {
+    "name": "fs.sl_sep2_retained_liquid_roaster",
+    "source": "fs.sl_sep2.retained_liquid_outlet",
+    "destination": "fs.roaster.liquid_inlet"
+  },
+  {
+    "name": "fs.sl_sep2_aq_purge",
+    "source": "fs.precip_sep.purge",
+    "destination": "fs.precip_purge.inlet"
+  },
+  {
+    "name": "fs.sl_sep2_aq_recycle",
+    "source": "fs.precip_sep.recycle",
+    "destination": "fs.precip_sx_mixer.precip"
+  }
+]

@@ -1,0 +1,549 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "dispatches_grid_integrated_rankine_surrogate",
+  "family": "family_dispatches_grid_integrated_rankine_surrogate",
+  "process_type": "DISPATCHES simple Rankine-cycle design integrated with Keras grid-market surrogate blocks for revenue, startup count, and zone-hour power outputs",
+  "source_url": "local://dispatches/case_studies/simple_rankine_cycle/surrogate_design_keras.ipynb",
+  "source_basis": [
+    "The official simple_rankine_cycle surrogate_design_keras notebook builds a Rankine design flowsheet and loads trained Keras market surrogates.",
+    "The notebook creates cap_fs with src.create_model, closes the flowsheet loop, then builds SurrogateBlock constraints for revenue, nstartups, and zones.",
+    "This is a surrogate-assisted grid/market design case, not the IDAES S-CO2 surrogate flowsheet."
+  ],
+  "property_packages": {
+    "rankine": {
+      "entry_id": "dispatches.case_studies.simple_rankine_cycle.simple_rankine_cycle",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "cap_fs",
+        "operation_flowsheets"
+      ]
+    },
+    "keras_surrogate": {
+      "entry_id": "idaes.core.surrogate.keras_surrogate.KerasSurrogate",
+      "components": [
+        "market_outputs"
+      ],
+      "phases": [
+        "Surrogate"
+      ],
+      "scope": [
+        "revenue",
+        "nstartups",
+        "zones"
+      ]
+    },
+    "electricity": {
+      "entry_id": "DISPATCHES grid-market pseudo-property",
+      "components": [
+        "electricity",
+        "market_revenue"
+      ],
+      "phases": [
+        "Energy",
+        "Currency"
+      ],
+      "scope": [
+        "grid_market"
+      ]
+    }
+  },
+  "components": {
+    "working_fluid": [
+      "H2O"
+    ],
+    "surrogate_outputs": [
+      "revenue",
+      "nstartups",
+      "zones"
+    ],
+    "market_inputs": [
+      "pmax",
+      "pmin_multi",
+      "ramp_multi",
+      "min_up_time",
+      "min_dn_multi",
+      "marg_cst",
+      "no_load_cst",
+      "startup_cst"
+    ]
+  },
+  "units": [
+    {
+      "id": "cap_fs",
+      "kind": "RankineCycleDesignFlowsheet",
+      "package": "rankine",
+      "stage": "design",
+      "role": "capital/design Rankine-cycle flowsheet created by src.create_model",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "closed_loop",
+      "kind": "FlowsheetLoopClosure",
+      "package": "rankine",
+      "stage": "design",
+      "role": "src.close_flowsheet_loop applied to cap_fs",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "off_fs",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "off-line/no-load operating flowsheet used for no-load cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_0",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 0",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_1",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 1",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_2",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 2",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_3",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 3",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_4",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 4",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_5",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 5",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_6",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 6",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_7",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 7",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_8",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 8",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "op_zone_9",
+      "kind": "RankineOperatingFlowsheet",
+      "package": "rankine",
+      "stage": "operation",
+      "role": "operating-zone Rankine flowsheet at scaled power zone 9",
+      "constructor": {
+        "capital_fs": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "keras_revenue_surrogate",
+      "kind": "SurrogateBlock",
+      "package": "keras_surrogate",
+      "stage": "market",
+      "role": "Keras revenue neural-network surrogate",
+      "constructor": {
+        "formulation": "REDUCED_SPACE"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "keras_nstartups_surrogate",
+      "kind": "SurrogateBlock",
+      "package": "keras_surrogate",
+      "stage": "market",
+      "role": "Keras number-of-startups neural-network surrogate",
+      "constructor": {
+        "formulation": "REDUCED_SPACE"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "keras_zones_surrogate",
+      "kind": "SurrogateBlock",
+      "package": "keras_surrogate",
+      "stage": "market",
+      "role": "Keras zone-hour power-output neural-network surrogate",
+      "constructor": {
+        "formulation": "REDUCED_SPACE"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "market_inputs",
+      "kind": "VarBlock",
+      "package": "electricity",
+      "stage": "market",
+      "role": "grid market design inputs pmax, pmin, ramp, min-up/down, marginal/no-load/startup cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "zone_hour_allocator",
+      "kind": "ExpressionBlock",
+      "package": "electricity",
+      "stage": "market",
+      "role": "maps zone surrogate outputs to operating-zone hours",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "total_cost",
+      "kind": "ExpressionBlock",
+      "package": "electricity",
+      "stage": "optimization",
+      "role": "capital, startup, no-load, marginal, and operating-zone cost expression",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "total_revenue",
+      "kind": "ExpressionBlock",
+      "package": "electricity",
+      "stage": "optimization",
+      "role": "annualized market revenue expression from revenue surrogate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "objective",
+      "kind": "Objective",
+      "package": "electricity",
+      "stage": "optimization",
+      "role": "annualized net revenue/capital objective",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "cap_fs_to_closed_loop",
+      "source": "cap_fs.fs",
+      "destination": "closed_loop.inlet",
+      "stage": "rankine_design",
+      "role": "Rankine design flowsheet is closed with src.close_flowsheet_loop",
+      "tear_candidate": false
+    },
+    {
+      "id": "closed_loop_to_pmax",
+      "source": "closed_loop.net_cycle_power_output",
+      "destination": "market_inputs.pmax",
+      "stage": "power",
+      "role": "closed Rankine design capacity defines market pmax",
+      "tear_candidate": false
+    },
+    {
+      "id": "market_to_revenue_surrogate",
+      "source": "market_inputs.outlet",
+      "destination": "keras_revenue_surrogate.input_vars",
+      "stage": "surrogate_inputs",
+      "role": "market variables to revenue surrogate",
+      "tear_candidate": false
+    },
+    {
+      "id": "market_to_nstartups_surrogate",
+      "source": "market_inputs.outlet",
+      "destination": "keras_nstartups_surrogate.input_vars",
+      "stage": "surrogate_inputs",
+      "role": "market variables to startup-count surrogate",
+      "tear_candidate": false
+    },
+    {
+      "id": "market_to_zones_surrogate",
+      "source": "market_inputs.outlet",
+      "destination": "keras_zones_surrogate.input_vars",
+      "stage": "surrogate_inputs",
+      "role": "market variables to zone surrogate",
+      "tear_candidate": false
+    },
+    {
+      "id": "zones_surrogate_to_allocator",
+      "source": "keras_zones_surrogate.output_vars",
+      "destination": "zone_hour_allocator.zone_hours",
+      "stage": "surrogate_outputs",
+      "role": "zone-hour surrogate output allocates operating-zone hours",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_0",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_0.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 0",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_1",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_1.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 1",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_2",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_2.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 2",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_3",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_3.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 3",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_4",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_4.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 4",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_5",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_5.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 5",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_6",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_6.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 6",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_7",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_7.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 7",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_8",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_8.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 8",
+      "tear_candidate": false
+    },
+    {
+      "id": "allocator_to_op_zone_9",
+      "source": "zone_hour_allocator.zone_hours",
+      "destination": "op_zone_9.zone_hours",
+      "stage": "operating_hours",
+      "role": "zone hours assigned to operating flowsheet 9",
+      "tear_candidate": false
+    },
+    {
+      "id": "market_to_off_fs",
+      "source": "market_inputs.no_load_cst",
+      "destination": "off_fs.operating_cost",
+      "stage": "economic",
+      "role": "no-load cost assigned to off-line flowsheet",
+      "tear_candidate": false
+    },
+    {
+      "id": "market_to_op_zones",
+      "source": "market_inputs.power_cost_inputs",
+      "destination": "zone_hour_allocator.operating_cost_inputs",
+      "stage": "economic",
+      "role": "market inputs parameterize operating-zone costs",
+      "tear_candidate": false
+    },
+    {
+      "id": "op_zones_to_total_cost",
+      "source": "zone_hour_allocator.operating_costs",
+      "destination": "total_cost.operating_cost",
+      "stage": "economic",
+      "role": "operating-zone costs accumulate into total cost",
+      "tear_candidate": false
+    },
+    {
+      "id": "off_fs_to_total_cost",
+      "source": "off_fs.operating_cost",
+      "destination": "total_cost.no_load_cost",
+      "stage": "economic",
+      "role": "off-line no-load cost accumulates into total cost",
+      "tear_candidate": false
+    },
+    {
+      "id": "nstartups_to_total_cost",
+      "source": "keras_nstartups_surrogate.output_vars",
+      "destination": "total_cost.startup_cost",
+      "stage": "economic",
+      "role": "startup surrogate output contributes startup cost",
+      "tear_candidate": false
+    },
+    {
+      "id": "capex_to_total_cost",
+      "source": "cap_fs.fs.capital_cost",
+      "destination": "total_cost.capital_cost",
+      "stage": "economic",
+      "role": "Rankine capital cost feeds total cost",
+      "tear_candidate": false
+    },
+    {
+      "id": "revenue_to_total_revenue",
+      "source": "keras_revenue_surrogate.output_vars",
+      "destination": "total_revenue.revenue",
+      "stage": "economic",
+      "role": "surrogate revenue feeds total revenue",
+      "tear_candidate": false
+    },
+    {
+      "id": "total_cost_to_objective",
+      "source": "total_cost.outlet",
+      "destination": "objective.cost",
+      "stage": "economic",
+      "role": "total cost feeds objective",
+      "tear_candidate": false
+    },
+    {
+      "id": "total_revenue_to_objective",
+      "source": "total_revenue.outlet",
+      "destination": "objective.revenue",
+      "stage": "economic",
+      "role": "total revenue feeds objective",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "market_inputs",
+      "variable": "pmax_bounds",
+      "value": [
+        175,
+        450
+      ],
+      "units": "MW",
+      "role": "official pmax design bounds from notebook"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "keras_revenue_surrogate",
+      "variable": "formulation",
+      "value": "KerasSurrogate.Formulation.REDUCED_SPACE",
+      "units": "enum",
+      "role": "official surrogate formulation"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "topology reference validation for official DISPATCHES Rankine Keras surrogate notebook; TensorFlow training/loading is not run in this lightweight case",
+    "solve_order": [
+      "cap_fs",
+      "market inputs",
+      "KerasSurrogate wrappers",
+      "SurrogateBlock constraints",
+      "objective"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  },
+  "required_entries": [
+    "surrogate_design_keras.ipynb",
+    "simple_rankine_cycle.py",
+    "KerasSurrogate",
+    "SurrogateBlock",
+    "keras_revenue_surrogate",
+    "keras_nstartups_surrogate",
+    "keras_zones_surrogate"
+  ],
+  "notes_for_agent_a": [
+    "Route this separately from sco2_surrogate_flowsheet; the key signals are DISPATCHES simple Rankine cycle plus Keras grid-market surrogates."
+  ],
+  "visual_evidence": null
+}

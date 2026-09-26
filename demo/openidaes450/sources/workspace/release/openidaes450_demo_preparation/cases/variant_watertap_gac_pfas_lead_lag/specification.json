@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_gac_pfas_lead_lag",
+  "family": "family_watertap_gac_pfas_lead_lag",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "bed_utilization_fraction",
+      "value": 0.8500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "regeneration_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "contaminant_removal",
+      "value": 0.9384999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "restored_capacity_fraction",
+      "value": 0.8955000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_slip_fraction",
+      "value": 0.001199999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "sorbent_waste_index",
+      "value": 0.028999999999999998,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "max_component_balance_error",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "WASTE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_gac_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_gac_unit",
+    "chemical_change": "Changes the adsorbate to persistent PFAS and requires a high-destruction regeneration purge.",
+    "native_metrics": {
+      "contaminant_removal": 0.9384999999999999,
+      "restored_capacity_fraction": 0.8955000000000001,
+      "product_slip_fraction": 0.001199999999999999,
+      "sorbent_waste_index": 0.028999999999999998,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

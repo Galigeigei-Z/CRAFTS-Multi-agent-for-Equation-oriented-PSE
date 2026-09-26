@@ -1,0 +1,27 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack.ActivityCoeffParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "activity_coeff_model": "NRTL",
+      "state_vars": "FTPz",
+      "valid_phase": [
+        "Liq",
+        "Vap"
+      ]
+    },
+    "class": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack.ActivityCoeffParameterData",
+    "module": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack",
+    "data_class": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack.ActivityCoeffParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy",
+    "thermodynamic_model": "NRTL activity-coefficient model; phase/state options in configuration"
+  }
+]

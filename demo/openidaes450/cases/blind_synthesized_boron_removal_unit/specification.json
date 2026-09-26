@@ -1,0 +1,66 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_boron_removal_unit",
+  "family": "family_watertap_boron_removal",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp['Liq','H2O']",
+      "value": 55.5,
+      "units": "mol/s",
+      "role": "water feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp['Liq','B[OH]3']",
+      "value": 0.00023106,
+      "units": "mol/s",
+      "role": "feed boric acid concentration basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "boron_removal",
+      "variable": "outlet.flow_mol_phase_comp['Liq','B[OH]3']",
+      "value": 1.98677e-05,
+      "units": "mol/s",
+      "role": "outlet neutral boron target",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "boron_removal",
+      "variable": "reactor_volume",
+      "value": 1.0,
+      "units": "m^3",
+      "role": "steady-state unit volume",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [
+    "caustic_dosing.caustic"
+  ],
+  "terminal_product_ports": [
+    "treated.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "Build official BoronRemoval unit with MCASParameterBlock, fix feed and target outlet B[OH]3, unfix caustic dose, initialize, then solve.",
+    "solve_order": [
+      "feed",
+      "caustic dosing",
+      "boron speciation",
+      "treated outlet"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_boron_removal",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

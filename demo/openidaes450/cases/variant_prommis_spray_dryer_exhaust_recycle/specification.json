@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_spray_dryer_exhaust_recycle",
+  "family": "family_spray_dryer_recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "exhaust_recycle_fraction",
+      "value": 0.6000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "solvent_condensation_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "powder_moisture",
+      "value": 0.003999999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "gas_oxygen_fraction",
+      "value": 0.007999999999999998,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "solvent_recovery",
+      "value": 0.96,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fan_power_kW",
+      "value": 51.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "SOLUTION.outlet",
+    "N2.outlet"
+  ],
+  "terminal_product_ports": [
+    "POWDER.inlet",
+    "SOLVENT.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_prommis_sx_scrub_strip_organic_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_prommis_sx_scrub_strip_organic_recycle",
+    "chemical_change": "Adds gas-solid drying, solvent condensation and inert exhaust recycle to the REE product path.",
+    "native_metrics": {
+      "powder_moisture": 0.003999999999999999,
+      "gas_oxygen_fraction": 0.007999999999999998,
+      "solvent_recovery": 0.96,
+      "fan_power_kW": 51.0
+    }
+  }
+}

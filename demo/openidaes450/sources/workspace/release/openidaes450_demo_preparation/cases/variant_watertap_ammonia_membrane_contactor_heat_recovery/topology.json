@@ -1,0 +1,205 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ammonia_membrane_contactor_heat_recovery",
+  "family": "family_ammonia_membrane_heat",
+  "process_type": "Heated Ammonia Membrane Contactor with Acid Regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_ad_digestate_ammonia_stripping.",
+    "Replaces air stripping with hydrophobic membrane transfer and closes a regeneration-heat loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NH3",
+        "acid",
+        "ammonium_salt"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_ad_digestate_ammonia_stripping"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NH3",
+      "acid",
+      "ammonium_salt"
+    ]
+  },
+  "units": [
+    {
+      "id": "DIG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "ammonia digestate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "condition digestate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MC",
+      "kind": "MembraneContactor",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "NH3 transfer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "acid absorbent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EVAP",
+      "kind": "Evaporator",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "concentrate ammonium salt",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX2",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "recover evaporation heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FERT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "ammonium salt",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LIQ",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ammonia_membrane_heat",
+      "role": "treated digestate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "DIG.outlet",
+      "destination": "HX1.cold_inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "digestate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HX1.cold_outlet",
+      "destination": "MC.liquid",
+      "stage": "ammonia_membrane_heat",
+      "role": "heated digestate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ACID.outlet",
+      "destination": "MC.acid",
+      "stage": "ammonia_membrane_heat",
+      "role": "acid absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "MC.product",
+      "destination": "EVAP.inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "ammonium solution",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "EVAP.heat",
+      "destination": "HX2.hot_inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "evaporator condensate heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HX2.heat",
+      "destination": "HX1.hot_inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "digestate preheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "EVAP.salt",
+      "destination": "FERT.inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "fertilizer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "MC.raffinate",
+      "destination": "LIQ.inlet",
+      "stage": "ammonia_membrane_heat",
+      "role": "low-ammonia liquid",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "DIG.outlet",
+    "ACID.outlet"
+  ],
+  "unconnected_product_ports": [
+    "FERT.inlet",
+    "LIQ.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ad_digestate_ammonia_stripping"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ad_digestate_ammonia_stripping",
+    "chemical_change": "Replaces air stripping with hydrophobic membrane transfer and closes a regeneration-heat loop.",
+    "native_metrics": {
+      "ammonia_recovery": 0.904,
+      "free_ammonia_kg_s": 0.004799999999999999,
+      "ammonium_salt_index": 0.8136,
+      "external_heat_index": 0.41000000000000003
+    }
+  }
+}

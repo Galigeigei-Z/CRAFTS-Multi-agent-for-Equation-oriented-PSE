@@ -1,0 +1,157 @@
+[
+  {
+    "name": "fs.s01",
+    "source": "fs.M101.outlet",
+    "destination": "fs.H101.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.H101.outlet",
+    "destination": "fs.R101.inlet"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.R101.outlet",
+    "destination": "fs.F101.inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.F101.vap_outlet",
+    "destination": "fs.S101.inlet"
+  },
+  {
+    "name": "fs.s05",
+    "source": "fs.S101.recycle",
+    "destination": "fs.C101.inlet"
+  },
+  {
+    "name": "fs.s06",
+    "source": "fs.C101.outlet",
+    "destination": "fs.M101.vapor_recycle"
+  },
+  {
+    "name": "fs.s07",
+    "source": "fs.F101.liq_outlet",
+    "destination": "fs.T101.inlet"
+  },
+  {
+    "name": "fs.s08",
+    "source": "fs.T101.outlet",
+    "destination": "fs.H102.inlet"
+  },
+  {
+    "name": "fs.s09",
+    "source": "fs.H102.outlet",
+    "destination": "fs.COL1.feed"
+  },
+  {
+    "name": "fs.COL1.rectification_liq_stream[1]",
+    "source": "fs.COL1.rectification_section[1].liq_out",
+    "destination": "fs.COL1.rectification_section[2].liq_in"
+  },
+  {
+    "name": "fs.COL1.rectification_liq_stream[2]",
+    "source": "fs.COL1.rectification_section[2].liq_out",
+    "destination": "fs.COL1.rectification_section[3].liq_in"
+  },
+  {
+    "name": "fs.COL1.rectification_liq_stream[3]",
+    "source": "fs.COL1.rectification_section[3].liq_out",
+    "destination": "fs.COL1.rectification_section[4].liq_in"
+  },
+  {
+    "name": "fs.COL1.rectification_vap_stream[1]",
+    "source": "fs.COL1.rectification_section[2].vap_out",
+    "destination": "fs.COL1.rectification_section[1].vap_in"
+  },
+  {
+    "name": "fs.COL1.rectification_vap_stream[2]",
+    "source": "fs.COL1.rectification_section[3].vap_out",
+    "destination": "fs.COL1.rectification_section[2].vap_in"
+  },
+  {
+    "name": "fs.COL1.rectification_vap_stream[3]",
+    "source": "fs.COL1.rectification_section[4].vap_out",
+    "destination": "fs.COL1.rectification_section[3].vap_in"
+  },
+  {
+    "name": "fs.COL1.stripping_liq_stream[6]",
+    "source": "fs.COL1.stripping_section[6].liq_out",
+    "destination": "fs.COL1.stripping_section[7].liq_in"
+  },
+  {
+    "name": "fs.COL1.stripping_liq_stream[7]",
+    "source": "fs.COL1.stripping_section[7].liq_out",
+    "destination": "fs.COL1.stripping_section[8].liq_in"
+  },
+  {
+    "name": "fs.COL1.stripping_liq_stream[8]",
+    "source": "fs.COL1.stripping_section[8].liq_out",
+    "destination": "fs.COL1.stripping_section[9].liq_in"
+  },
+  {
+    "name": "fs.COL1.stripping_liq_stream[9]",
+    "source": "fs.COL1.stripping_section[9].liq_out",
+    "destination": "fs.COL1.stripping_section[10].liq_in"
+  },
+  {
+    "name": "fs.COL1.stripping_vap_stream[6]",
+    "source": "fs.COL1.stripping_section[7].vap_out",
+    "destination": "fs.COL1.stripping_section[6].vap_in"
+  },
+  {
+    "name": "fs.COL1.stripping_vap_stream[7]",
+    "source": "fs.COL1.stripping_section[8].vap_out",
+    "destination": "fs.COL1.stripping_section[7].vap_in"
+  },
+  {
+    "name": "fs.COL1.stripping_vap_stream[8]",
+    "source": "fs.COL1.stripping_section[9].vap_out",
+    "destination": "fs.COL1.stripping_section[8].vap_in"
+  },
+  {
+    "name": "fs.COL1.stripping_vap_stream[9]",
+    "source": "fs.COL1.stripping_section[10].vap_out",
+    "destination": "fs.COL1.stripping_section[9].vap_in"
+  },
+  {
+    "name": "fs.COL1.feed_liq_in",
+    "source": "fs.COL1.rectification_section[4].liq_out",
+    "destination": "fs.COL1.feed_tray.liq_in"
+  },
+  {
+    "name": "fs.COL1.feed_liq_out",
+    "source": "fs.COL1.feed_tray.liq_out",
+    "destination": "fs.COL1.stripping_section[6].liq_in"
+  },
+  {
+    "name": "fs.COL1.feed_vap_in",
+    "source": "fs.COL1.stripping_section[6].vap_out",
+    "destination": "fs.COL1.feed_tray.vap_in"
+  },
+  {
+    "name": "fs.COL1.feed_vap_out",
+    "source": "fs.COL1.feed_tray.vap_out",
+    "destination": "fs.COL1.rectification_section[4].vap_in"
+  },
+  {
+    "name": "fs.COL1.condenser_vap_in",
+    "source": "fs.COL1.rectification_section[1].vap_out",
+    "destination": "fs.COL1.condenser.inlet"
+  },
+  {
+    "name": "fs.COL1.condenser_reflux_out",
+    "source": "fs.COL1.condenser.reflux",
+    "destination": "fs.COL1.rectification_section[1].liq_in"
+  },
+  {
+    "name": "fs.COL1.reboiler_liq_in",
+    "source": "fs.COL1.stripping_section[10].liq_out",
+    "destination": "fs.COL1.reboiler.inlet"
+  },
+  {
+    "name": "fs.COL1.reboiler_vap_out",
+    "source": "fs.COL1.reboiler.vapor_reboil",
+    "destination": "fs.COL1.stripping_section[10].vap_in"
+  }
+]

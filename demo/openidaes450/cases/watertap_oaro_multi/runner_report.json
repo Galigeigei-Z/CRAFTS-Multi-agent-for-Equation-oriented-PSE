@@ -1,0 +1,530 @@
+{
+  "pass": true,
+  "stage": "design_optimization_solver",
+  "case_family": "watertap_oaro_multi",
+  "official_reference_url": "local://watertap/flowsheets/oaro/oaro_multi",
+  "optimization_termination_condition": "optimal",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "oaro_multi_design_optimization_optimal",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_terminal_solution_loaded",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_terminal_design_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_terminal_constraint_residual",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_product_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_lcow_available",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_sec_available",
+      "pass": true
+    },
+    {
+      "name": "oaro_multi_streams_available",
+      "pass": true
+    }
+  ],
+  "number_of_stages": 3,
+  "target_system_recovery": 0.5,
+  "optimization_dof_before_terminal_freeze": 14,
+  "frozen_design_variables": {
+    "fs.PrimaryPumps[1].control_volume.properties_out[0.0].pressure": 6499999.994141674,
+    "fs.PrimaryPumps[2].control_volume.properties_out[0.0].pressure": 6499999.985795697,
+    "fs.PrimaryPumps[3].control_volume.properties_out[0.0].pressure": 7969432.783908532,
+    "fs.RecyclePumps[2].control_volume.properties_out[0.0].pressure": 1593607.2710377628,
+    "fs.RecyclePumps[3].control_volume.properties_out[0.0].pressure": 1307486.9099368271,
+    "fs.OAROUnits[1].recovery_mass_phase_comp[0.0,Liq,H2O]": 0.5198103196946299,
+    "fs.OAROUnits[1].area": 3989.8699276155917,
+    "fs.OAROUnits[1].width": 21.480118719623224,
+    "fs.OAROUnits[1].feed_side.velocity[0.0,0.0]": 0.16811412359813413,
+    "fs.OAROUnits[1].permeate_side.properties_out[0.0].pressure": 101325.00571829088,
+    "fs.OAROUnits[2].recovery_mass_phase_comp[0.0,Liq,H2O]": 0.5314083960554352,
+    "fs.OAROUnits[2].area": 2423.5668094550715,
+    "fs.OAROUnits[2].width": 17.44002572120119,
+    "fs.OAROUnits[2].feed_side.velocity[0.0,0.0]": 0.19830828602417658
+  },
+  "final_dof": 0,
+  "maximum_constraint_residual": 5.820766091346741e-11,
+  "feed_flow_m3_s": 0.005416667,
+  "product_flow_m3_s": 0.002648286197886584,
+  "disposal_flow_m3_s": 1.0,
+  "water_recovery": 0.4889143394868214,
+  "mass_water_recovery": 0.5,
+  "system_salt_rejection": 0.9936903554344283,
+  "levelized_cost_of_water": 3.627016708659118,
+  "specific_energy_consumption": 11.66275666630065,
+  "total_oaro_membrane_area_m2": 6413.436737070663,
+  "ro_membrane_area_m2": 500.9512412182637,
+  "total_membrane_area_m2": 6914.387978288927,
+  "product_nacl_mass_fraction": 0.0004999999891749423,
+  "disposal_nacl_mass_fraction": 0.1391643402820627,
+  "stream_values": {
+    "feed_to_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.2694555326075,
+        "Liq/NaCl": 0.42725315129249997
+      },
+      "mass_flow": 5.6967086839,
+      "flow_kg_s": 5.6967086839,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.925,
+        "Liq/NaCl": 0.075
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.PrimaryPumps[1].inlet"
+    },
+    "pump_to_OARO[1]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.2694555326075,
+        "Liq/NaCl": 0.42725315129249997
+      },
+      "mass_flow": 5.6967086839,
+      "flow_kg_s": 5.6967086839,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.925,
+        "Liq/NaCl": 0.075
+      },
+      "temperature": 298.15,
+      "pressure": 6499999.994141674,
+      "source_port": "fs.PrimaryPumps[1].outlet",
+      "destination_port": "fs.OAROUnits[1].feed_inlet"
+    },
+    "pump_to_OARO[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.0739987273952964,
+        "Liq/NaCl": 0.3215330614663706
+      },
+      "mass_flow": 5.395531788861667,
+      "flow_kg_s": 5.395531788861667,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9404075308887753,
+        "Liq/NaCl": 0.059592469111224844
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 6499999.985795697,
+      "source_port": "fs.PrimaryPumps[2].outlet",
+      "destination_port": "fs.OAROUnits[2].feed_inlet"
+    },
+    "OARO_to_pump[1]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.0739987273952964,
+        "Liq/NaCl": 0.3215330614663706
+      },
+      "mass_flow": 5.395531788861667,
+      "flow_kg_s": 5.395531788861667,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9404075308887753,
+        "Liq/NaCl": 0.059592469111224844
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 101325.00571829088,
+      "source_port": "fs.OAROUnits[1].permeate_outlet",
+      "destination_port": "fs.PrimaryPumps[2].inlet"
+    },
+    "OARO_to_pump[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 4.579172691155552,
+        "Liq/NaCl": 0.23093914214845573
+      },
+      "mass_flow": 4.810111833304008,
+      "flow_kg_s": 4.810111833304008,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9519888206029866,
+        "Liq/NaCl": 0.048011179397013395
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.01326542241,
+      "source_port": "fs.OAROUnits[2].permeate_outlet",
+      "destination_port": "fs.PrimaryPumps[3].inlet"
+    },
+    "OARO_to_ERD[1]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.530338167586159,
+        "Liq/NaCl": 0.41302942189308645
+      },
+      "mass_flow": 2.9433675894792457,
+      "flow_kg_s": 2.9433675894792457,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8596745362796627,
+        "Liq/NaCl": 0.14032546372033727
+      },
+      "temperature": 298.15,
+      "pressure": 4849963.086851236,
+      "source_port": "fs.OAROUnits[1].feed_outlet",
+      "destination_port": "fs.EnergyRecoveryDevices[1].inlet"
+    },
+    "OARO_to_ERD[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.377633202082843,
+        "Liq/NaCl": 0.3129361895218627
+      },
+      "mass_flow": 2.6905693916047055,
+      "flow_kg_s": 2.6905693916047055,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914630418724,
+        "Liq/NaCl": 0.11630853695812757
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 5023330.106144706,
+      "source_port": "fs.OAROUnits[2].feed_outlet",
+      "destination_port": "fs.EnergyRecoveryDevices[2].inlet"
+    },
+    "ERD_to_separator[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.377633202082843,
+        "Liq/NaCl": 0.3129361895218627
+      },
+      "mass_flow": 2.6905693916047055,
+      "flow_kg_s": 2.6905693916047055,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914630418724,
+        "Liq/NaCl": 0.11630853695812757
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 101325.0,
+      "source_port": "fs.EnergyRecoveryDevices[2].outlet",
+      "destination_port": "fs.Separators[2].inlet"
+    },
+    "ERD_to_separator[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.9444448352311958,
+        "Liq/NaCl": 0.22962111923757345
+      },
+      "mass_flow": 2.1740659544687695,
+      "flow_kg_s": 2.1740659544687695,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817142411941,
+        "Liq/NaCl": 0.10561828575880583
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.EnergyRecoveryDevices[3].outlet",
+      "destination_port": "fs.Separators[3].inlet"
+    },
+    "separator_to_mixer[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.334881345390228,
+        "Liq/NaCl": 0.307309332058461
+      },
+      "mass_flow": 2.6421906774486894,
+      "flow_kg_s": 2.6421906774486894,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914630418723,
+        "Liq/NaCl": 0.11630853695812757
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 101325.0,
+      "source_port": "fs.Separators[2].treat",
+      "destination_port": "fs.Mixers[2].treat"
+    },
+    "separator_to_mixer[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.8828071230797552,
+        "Liq/NaCl": 0.22234227018255545
+      },
+      "mass_flow": 2.1051493932623107,
+      "flow_kg_s": 2.1051493932623107,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817142411942,
+        "Liq/NaCl": 0.10561828575880583
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.Separators[3].treat",
+      "destination_port": "fs.Mixers[3].treat"
+    },
+    "makeup_to_mixer[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.6983727290442096e-08,
+        "Liq/NaCl": 8.496111517037771e-12
+      },
+      "mass_flow": 1.6992223401959134e-08,
+      "flow_kg_s": 1.6992223401959134e-08,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9995000000108251,
+        "Liq/NaCl": 0.0004999999891749425
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.ProductSeparator.makeup2",
+      "destination_port": "fs.Mixers[2].makeup"
+    },
+    "makeup_to_mixer[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 4.2763343178753814e-08,
+        "Liq/NaCl": 2.1392367309884617e-11
+      },
+      "mass_flow": 4.27847355460637e-08,
+      "flow_kg_s": 4.27847355460637e-08,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9995000000108251,
+        "Liq/NaCl": 0.0004999999891749423
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.ProductSeparator.makeup3",
+      "destination_port": "fs.Mixers[3].makeup"
+    },
+    "mixer_to_recyclepump[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.3348813623739555,
+        "Liq/NaCl": 0.3073093320669571
+      },
+      "mass_flow": 2.6421906944409126,
+      "flow_kg_s": 2.6421906944409126,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914637866501,
+        "Liq/NaCl": 0.11630853621334994
+      },
+      "temperature": 298.1500000002208,
+      "pressure": 101324.9995,
+      "source_port": "fs.Mixers[2].outlet",
+      "destination_port": "fs.RecyclePumps[2].inlet"
+    },
+    "mixer_to_recyclepump[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.8828071658430983,
+        "Liq/NaCl": 0.22234227020394784
+      },
+      "mass_flow": 2.105149436047046,
+      "flow_kg_s": 2.105149436047046,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817163776022,
+        "Liq/NaCl": 0.10561828362239788
+      },
+      "temperature": 298.1500000003328,
+      "pressure": 101324.9995,
+      "source_port": "fs.Mixers[3].outlet",
+      "destination_port": "fs.RecyclePumps[3].inlet"
+    },
+    "recyclepump_to_OARO[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.3348813623739555,
+        "Liq/NaCl": 0.3073093320669571
+      },
+      "mass_flow": 2.6421906944409126,
+      "flow_kg_s": 2.6421906944409126,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914637866501,
+        "Liq/NaCl": 0.11630853621334994
+      },
+      "temperature": 298.1500000002208,
+      "pressure": 1593607.2710377628,
+      "source_port": "fs.RecyclePumps[2].outlet",
+      "destination_port": "fs.OAROUnits[1].permeate_inlet"
+    },
+    "recyclepump_to_OARO[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.8828071658430983,
+        "Liq/NaCl": 0.22234227020394784
+      },
+      "mass_flow": 2.105149436047046,
+      "flow_kg_s": 2.105149436047046,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817163776022,
+        "Liq/NaCl": 0.10561828362239788
+      },
+      "temperature": 298.1500000003328,
+      "pressure": 1307486.9099368271,
+      "source_port": "fs.RecyclePumps[3].outlet",
+      "destination_port": "fs.OAROUnits[2].permeate_inlet"
+    },
+    "purge_to_wastemixer[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.042751856692614734,
+        "Liq/NaCl": 0.005626857463401731
+      },
+      "mass_flow": 0.04837871415601647,
+      "flow_kg_s": 0.04837871415601647,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8836914630418724,
+        "Liq/NaCl": 0.11630853695812758
+      },
+      "temperature": 298.15000000011037,
+      "pressure": 101325.0,
+      "source_port": "fs.Separators[2].purge",
+      "destination_port": "fs.WasteMixer.purge2"
+    },
+    "purge_to_wastemixer[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.061637712151440684,
+        "Liq/NaCl": 0.007278849055017985
+      },
+      "mass_flow": 0.06891656120645867,
+      "flow_kg_s": 0.06891656120645867,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817142411942,
+        "Liq/NaCl": 0.10561828575880584
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.Separators[3].purge",
+      "destination_port": "fs.WasteMixer.purge3"
+    },
+    "ERD_to_wastemixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.530338167586159,
+        "Liq/NaCl": 0.41302942189308645
+      },
+      "mass_flow": 2.9433675894792457,
+      "flow_kg_s": 2.9433675894792457,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8596745362796627,
+        "Liq/NaCl": 0.14032546372033727
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.EnergyRecoveryDevices[1].outlet",
+      "destination_port": "fs.WasteMixer.purge1"
+    },
+    "wastemixer_to_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.634727736430215,
+        "Liq/NaCl": 0.4259351284115061
+      },
+      "mass_flow": 3.060662864841721,
+      "flow_kg_s": 3.060662864841721,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8608356597179373,
+        "Liq/NaCl": 0.13916434028206268
+      },
+      "temperature": 298.15000000018256,
+      "pressure": 101324.99919098301,
+      "source_port": "fs.WasteMixer.outlet",
+      "destination_port": "fs.disposal.inlet"
+    },
+    "pump_to_ro": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 4.579172691155552,
+        "Liq/NaCl": 0.23093914214845573
+      },
+      "mass_flow": 4.810111833304008,
+      "flow_kg_s": 4.810111833304008,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9519888206029866,
+        "Liq/NaCl": 0.048011179397013395
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 7969432.783908532,
+      "source_port": "fs.PrimaryPumps[3].outlet",
+      "destination_port": "fs.RO.inlet"
+    },
+    "ro_to_productseparator": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.6347278559243557,
+        "Liq/NaCl": 0.0013180229108822703
+      },
+      "mass_flow": 2.636045878835238,
+      "flow_kg_s": 2.636045878835238,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.999500000010825,
+        "Liq/NaCl": 0.0004999999891749423
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.RO.permeate",
+      "destination_port": "fs.ProductSeparator.inlet"
+    },
+    "productseparator_to_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.6347277961772853,
+        "Liq/NaCl": 0.0013180228809937917
+      },
+      "mass_flow": 2.636045819058279,
+      "flow_kg_s": 2.636045819058279,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9995000000108251,
+        "Liq/NaCl": 0.0004999999891749424
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.ProductSeparator.product",
+      "destination_port": "fs.product.inlet"
+    },
+    "ro_to_ERD": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.9444448352311958,
+        "Liq/NaCl": 0.22962111923757345
+      },
+      "mass_flow": 2.1740659544687695,
+      "flow_kg_s": 2.1740659544687695,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8943817142411941,
+        "Liq/NaCl": 0.10561828575880583
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 7674442.615779701,
+      "source_port": "fs.RO.retentate",
+      "destination_port": "fs.EnergyRecoveryDevices[3].inlet"
+    },
+    "feed": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.2694555326075,
+        "Liq/NaCl": 0.42725315129249997
+      },
+      "mass_flow": 5.6967086839,
+      "flow_kg_s": 5.6967086839,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.925,
+        "Liq/NaCl": 0.075
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet"
+    },
+    "product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.6347277961772853,
+        "Liq/NaCl": 0.0013180228809937917
+      },
+      "mass_flow": 2.636045819058279,
+      "flow_kg_s": 2.636045819058279,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9995000000108251,
+        "Liq/NaCl": 0.0004999999891749424
+      },
+      "temperature": 298.1500000002216,
+      "pressure": 101325.0,
+      "source_port": "fs.product.inlet"
+    },
+    "disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 2.634727736430215,
+        "Liq/NaCl": 0.4259351284115061
+      },
+      "mass_flow": 3.060662864841721,
+      "flow_kg_s": 3.060662864841721,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8608356597179373,
+        "Liq/NaCl": 0.13916434028206268
+      },
+      "temperature": 298.15000000018256,
+      "pressure": 101324.99919098301,
+      "source_port": "fs.disposal.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.oaro.oaro_multi",
+    "configuration": "3-stage OARO design optimization at 50% system recovery",
+    "stdout_tail": "ize=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 5.2694555326075, (0.0, 'Liq', 'NaCl'): 0.42725315129249997}\n         :             pressure : {0.0: 6500000.0}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[1].permeate_inlet\npermeate_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.63472776630375, (0.0, 'Liq', 'NaCl'): 0.29907720590474995}\n         :             pressure : {0.0: 200000.0}\n         :          temperature : {0.0: 298.15}\nfs.PrimaryPumps[2].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 4.215564426086, (0.0, 'Liq', 'NaCl'): 0.3055629215947639}\n         :             pressure : {0.0: 52244.03488221601}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[2].feed_inlet\nfeed_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 4.215564426086, (0.0, 'Liq', 'NaCl'): 0.3055629215947639}\n         :             pressure : {0.0: 6500000.0}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[2].permeate_inlet\npermeate_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.107782213043, (0.0, 'Liq', 'NaCl'): 0.21389404511633472}\n         :             pressure : {0.0: 200000.0}\n         :          temperature : {0.0: 298.15}\nfs.EnergyRecoveryDevices[2].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.9508950982602, (0.0, 'Liq', 'NaCl'): 0.30117523981727345}\n         :             pressure : {0.0: 6326226.179373796}\n         :          temperature : {0.0: 298.15}\nfs.Separators[2].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.9508950982602, (0.0, 'Liq', 'NaCl'): 0.30117523981727345}\n         :             pressure : {0.0: 101325}\n         :          temperature : {0.0: 298.15}\nfs.Mixers[2].treat\ntreat : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.930338700622049, (0.0, 'Liq', 'NaCl'): 0.29907720590474995}\n         :             pressure : {0.0: 101325.0}\n         :          temperature : {0.0: 298.15}\nfs.RecyclePumps[2].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.9303387016220492, (0.0, 'Liq', 'NaCl'): 0.29907720590474995}\n         :             pressure : {0.0: 101324.99999995016}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[1].permeate_inlet\npermeate_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.9303387016220492, (0.0, 'Liq', 'NaCl'): 0.29907720590474995}\n         :             pressure : {0.0: 200000.0}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[1].feed_inlet\nfeed_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 5.2694555326075, (0.0, 'Liq', 'NaCl'): 0.42725315129249997}\n         :             pressure : {0.0: 6500000.0}\n         :          temperature : {0.0: 298.15}\nfs.PrimaryPumps[3].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 3.3724515408688, (0.0, 'Liq', 'NaCl'): 0.21828172689382516}\n         :             pressure : {0.0: 74623.7905388126}\n         :          temperature : {0.0: 298.15}\nfs.RO.inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 3.3724515408688, (0.0, 'Liq', 'NaCl'): 0.21828172689382516}\n         :             pressure : {0.0: 8500000.0}\n         :          temperature : {0.0: 298.15}\nfs.EnergyRecoveryDevices[3].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.36071607860816, (0.0, 'Liq', 'NaCl'): 0.21766845026532067}\n         :             pressure : {0.0: 8096382.145310019}\n         :          temperature : {0.0: 298.15}\nfs.Separators[3].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.36071607860816, (0.0, 'Liq', 'NaCl'): 0.21766845026532067}\n         :             pressure : {0.0: 101325}\n         :          temperature : {0.0: 298.15}\nfs.Mixers[3].treat\ntreat : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.36071607860816, (0.0, 'Liq', 'NaCl'): 0.21766845026532067}\n         :             pressure : {0.0: 101325.0}\n         :          temperature : {0.0: 298.15}\nfs.RecyclePumps[3].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.36071607960816, (0.0, 'Liq', 'NaCl'): 0.21766845026532067}\n         :             pressure : {0.0: 101324.99999995016}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[2].permeate_inlet\npermeate_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 2.36071607960816, (0.0, 'Liq', 'NaCl'): 0.21766845026532067}\n         :             pressure : {0.0: 200000.0}\n         :          temperature : {0.0: 298.15}\nfs.OAROUnits[2].feed_inlet\nfeed_inlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 4.215564426086, (0.0, 'Liq', 'NaCl'): 0.3055629215947639}\n         :             pressure : {0.0: 6500000.0}\n         :          temperature : {0.0: 298.15}\nfs.EnergyRecoveryDevices[1].inlet\ninlet : Size=1\n    Key  : Name                 : Value\n    None : flow_mass_phase_comp : {(0.0, 'Liq', 'H2O'): 3.6886188728252503, (0.0, 'Liq', 'NaCl'): 0.42031015814670986}\n         :             pressure : {0.0: 6283760.081780655}\n         :          temperature : {0.0: 298.15}\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

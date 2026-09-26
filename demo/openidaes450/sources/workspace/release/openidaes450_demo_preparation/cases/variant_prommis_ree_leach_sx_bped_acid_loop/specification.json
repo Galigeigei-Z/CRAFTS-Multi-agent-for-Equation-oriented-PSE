@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_ree_leach_sx_bped_acid_loop",
+  "family": "family_ree_acid_loop",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "bped_acid_recovery_fraction",
+      "value": 0.8500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "sx_organic_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "acid_recovery",
+      "value": 0.903,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ree_recovery",
+      "value": 0.97,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "iron_in_product",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "organic_loss",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "bped_voltage_V",
+      "value": 36.25,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "ORE.outlet"
+  ],
+  "terminal_product_ports": [
+    "REE.inlet",
+    "RES.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_prommis_ree_staged_leach_acid_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_prommis_ree_staged_leach_acid_recycle",
+    "chemical_change": "Integrates hydrometallurgical separation with electrochemical reagent regeneration.",
+    "native_metrics": {
+      "acid_recovery": 0.903,
+      "ree_recovery": 0.97,
+      "iron_in_product": 0.0,
+      "organic_loss": 0.0,
+      "bped_voltage_V": 36.25
+    }
+  }
+}

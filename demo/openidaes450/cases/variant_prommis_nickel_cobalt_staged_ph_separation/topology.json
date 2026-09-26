@@ -1,0 +1,234 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_nickel_cobalt_staged_ph_separation",
+  "family": "family_ni_co_separation",
+  "process_type": "Staged Nickel-Cobalt pH Separation with Wash Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_mixer_settler_ex_steady.",
+    "Uses sequential speciation windows and solids washing to create separate cobalt and nickel products.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Ni2+",
+        "Co2+",
+        "OH-",
+        "NiOH2",
+        "CoOH2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_mixer_settler_ex_steady"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Ni2+",
+      "Co2+",
+      "OH-",
+      "NiOH2",
+      "CoOH2"
+    ]
+  },
+  "units": [
+    {
+      "id": "PLS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "Ni/Co liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BASE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "alkali reagent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P1",
+      "kind": "PrecipitationReactor",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "cobalt-selective stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F1",
+      "kind": "Filter",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "cobalt product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P2",
+      "kind": "PrecipitationReactor",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "nickel stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F2",
+      "kind": "Filter",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "nickel product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "W1",
+      "kind": "Washer",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "product wash",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "cobalt hydroxide",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NI",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ni_co_separation",
+      "role": "nickel hydroxide",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "PLS.outlet",
+      "destination": "P1.liquor",
+      "stage": "ni_co_separation",
+      "role": "mixed-metal liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BASE.outlet",
+      "destination": "P1.base",
+      "stage": "ni_co_separation",
+      "role": "first-stage base",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "P1.slurry",
+      "destination": "F1.inlet",
+      "stage": "ni_co_separation",
+      "role": "cobalt slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "F1.solid",
+      "destination": "W1.cobalt",
+      "stage": "ni_co_separation",
+      "role": "cobalt cake",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "F1.liquid",
+      "destination": "P2.inlet",
+      "stage": "ni_co_separation",
+      "role": "nickel liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "P2.slurry",
+      "destination": "F2.inlet",
+      "stage": "ni_co_separation",
+      "role": "nickel slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "F2.solid",
+      "destination": "W1.nickel",
+      "stage": "ni_co_separation",
+      "role": "nickel cake",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "W1.cobalt_out",
+      "destination": "CO.inlet",
+      "stage": "ni_co_separation",
+      "role": "washed cobalt",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "W1.nickel_out",
+      "destination": "NI.inlet",
+      "stage": "ni_co_separation",
+      "role": "washed nickel",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "W1.filtrate",
+      "destination": "P1.recycle",
+      "stage": "ni_co_separation",
+      "role": "wash recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "PLS.outlet",
+    "BASE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO.inlet",
+    "NI.inlet"
+  ],
+  "tear_streams": [
+    "s10"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_mixer_settler_ex_steady"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_mixer_settler_ex_steady",
+    "chemical_change": "Uses sequential speciation windows and solids washing to create separate cobalt and nickel products.",
+    "native_metrics": {
+      "cobalt_product_purity": 0.943,
+      "nickel_recovery": 0.863,
+      "cobalt_in_nickel_fraction": 0.013999999999999999,
+      "base_index": 0.36
+    }
+  }
+}

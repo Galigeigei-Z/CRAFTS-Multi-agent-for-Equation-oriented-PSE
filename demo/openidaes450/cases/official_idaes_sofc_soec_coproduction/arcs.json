@@ -1,0 +1,197 @@
+[
+  {
+    "name": "fs.asu01",
+    "source": "fs.asu_cmp01.outlet",
+    "destination": "fs.asu_ic01.inlet"
+  },
+  {
+    "name": "fs.asu02",
+    "source": "fs.asu_ic01.outlet",
+    "destination": "fs.asu_cmp02.inlet"
+  },
+  {
+    "name": "fs.asu03",
+    "source": "fs.asu_cmp02.outlet",
+    "destination": "fs.asu_ic02.inlet"
+  },
+  {
+    "name": "fs.asu04",
+    "source": "fs.asu_ic02.outlet",
+    "destination": "fs.asu_split.inlet"
+  },
+  {
+    "name": "fs.asu05",
+    "source": "fs.asu_split.o2_outlet",
+    "destination": "fs.asu_heat.inlet"
+  },
+  {
+    "name": "fs.to_asu_translator",
+    "source": "fs.asu_heat.outlet",
+    "destination": "fs.asu_translator.inlet"
+  },
+  {
+    "name": "fs.oxy01",
+    "source": "fs.asu_translator.outlet",
+    "destination": "fs.oxycombustor_mix.oxygen_inlet"
+  },
+  {
+    "name": "fs.oxy02",
+    "source": "fs.oxycombustor_mix.outlet",
+    "destination": "fs.oxycombustor.inlet"
+  },
+  {
+    "name": "fs.to_fg_translator",
+    "source": "fs.oxycombustor.outlet",
+    "destination": "fs.flue_gas_translator.inlet"
+  },
+  {
+    "name": "fs.fg01",
+    "source": "fs.flue_gas_translator.outlet",
+    "destination": "fs.sweep_heater.hot_side_inlet"
+  },
+  {
+    "name": "fs.fg02",
+    "source": "fs.sweep_heater.hot_side_outlet",
+    "destination": "fs.boiler.hot_side_inlet"
+  },
+  {
+    "name": "fs.to_fg_translator_2",
+    "source": "fs.boiler.hot_side_outlet",
+    "destination": "fs.flue_gas_translator_2.inlet"
+  },
+  {
+    "name": "fs.fg03",
+    "source": "fs.flue_gas_translator_2.outlet",
+    "destination": "fs.fg_flash.inlet"
+  },
+  {
+    "name": "fs.to_fg_translator_3",
+    "source": "fs.fg_flash.vap_outlet",
+    "destination": "fs.flue_gas_translator_3.inlet"
+  },
+  {
+    "name": "fs.fg04",
+    "source": "fs.flue_gas_translator_3.outlet",
+    "destination": "fs.cpu.inlet"
+  },
+  {
+    "name": "fs.w01",
+    "source": "fs.bfw_pump.outlet",
+    "destination": "fs.boiler.cold_side_inlet"
+  },
+  {
+    "name": "fs.w02",
+    "source": "fs.boiler.cold_side_outlet",
+    "destination": "fs.feed_hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.to_feed_translator",
+    "source": "fs.feed_hx.cold_side_outlet",
+    "destination": "fs.feed_translator.inlet"
+  },
+  {
+    "name": "fs.w03",
+    "source": "fs.feed_translator.outlet",
+    "destination": "fs.feed_recycle_mix.feed_inlet"
+  },
+  {
+    "name": "fs.h01",
+    "source": "fs.feed_recycle_mix.outlet",
+    "destination": "fs.feed_heater.inlet"
+  },
+  {
+    "name": "fs.h02",
+    "source": "fs.feed_heater.outlet",
+    "destination": "fs.soec_module.fuel_inlet"
+  },
+  {
+    "name": "fs.h03",
+    "source": "fs.soec_module.fuel_outlet",
+    "destination": "fs.feed_recycle_split.inlet"
+  },
+  {
+    "name": "fs.hr01",
+    "source": "fs.feed_recycle_split.recycle",
+    "destination": "fs.feed_recycle_mix.recycle_inlet"
+  },
+  {
+    "name": "fs.h04",
+    "source": "fs.feed_recycle_split.out",
+    "destination": "fs.feed_hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.to_h2_condenser_translator",
+    "source": "fs.feed_hx.hot_side_outlet",
+    "destination": "fs.h2_condenser_translator.inlet"
+  },
+  {
+    "name": "fs.h05",
+    "source": "fs.h2_condenser_translator.outlet",
+    "destination": "fs.h2_condenser.inlet"
+  },
+  {
+    "name": "fs.h06",
+    "source": "fs.h2_condenser.vap_outlet",
+    "destination": "fs.dryer_translator.inlet"
+  },
+  {
+    "name": "fs.h07",
+    "source": "fs.dryer_translator.outlet",
+    "destination": "fs.cmp01.inlet"
+  },
+  {
+    "name": "fs.h08",
+    "source": "fs.cmp01.outlet",
+    "destination": "fs.ic01.inlet"
+  },
+  {
+    "name": "fs.h09",
+    "source": "fs.ic01.outlet",
+    "destination": "fs.cmp02.inlet"
+  },
+  {
+    "name": "fs.h10",
+    "source": "fs.cmp02.outlet",
+    "destination": "fs.ic02.inlet"
+  },
+  {
+    "name": "fs.h11",
+    "source": "fs.ic02.outlet",
+    "destination": "fs.cmp03.inlet"
+  },
+  {
+    "name": "fs.h12",
+    "source": "fs.cmp03.outlet",
+    "destination": "fs.ic03.inlet"
+  },
+  {
+    "name": "fs.h13",
+    "source": "fs.ic03.outlet",
+    "destination": "fs.cmp04.inlet"
+  },
+  {
+    "name": "fs.swp01",
+    "source": "fs.sweep_compressor.outlet",
+    "destination": "fs.sweep_hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.swp02",
+    "source": "fs.sweep_hx.cold_side_outlet",
+    "destination": "fs.sweep_heater.cold_side_inlet"
+  },
+  {
+    "name": "fs.swp03",
+    "source": "fs.sweep_heater.cold_side_outlet",
+    "destination": "fs.soec_module.oxygen_inlet"
+  },
+  {
+    "name": "fs.swp04",
+    "source": "fs.soec_module.oxygen_outlet",
+    "destination": "fs.sweep_hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.swp05",
+    "source": "fs.sweep_hx.hot_side_outlet",
+    "destination": "fs.sweep_turbine.inlet"
+  }
+]

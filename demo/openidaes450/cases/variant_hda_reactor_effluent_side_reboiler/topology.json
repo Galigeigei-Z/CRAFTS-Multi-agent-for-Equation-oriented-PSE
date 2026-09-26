@@ -1,0 +1,196 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_reactor_effluent_side_reboiler",
+  "family": "family_hda_side_reboiler",
+  "process_type": "HDA Reactor-Effluent Side Reboiler Integration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_hda_distillation.",
+    "Transfers reaction sensible heat into a column side-reboiler vapor path and changes column internal traffic.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "toluene",
+        "benzene",
+        "CH4",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_hda_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "toluene",
+      "benzene",
+      "CH4",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "toluene/H2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "feed-effluent exchange",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R1",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "HDA reaction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "hot-effluent heat split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SRB",
+      "kind": "SideReboiler",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "column side vaporization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COL",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "benzene recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BENZENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_side_reboiler",
+      "role": "benzene",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "HX1.cold_inlet",
+      "stage": "hda_side_reboiler",
+      "role": "cold feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HX1.cold_outlet",
+      "destination": "R1.inlet",
+      "stage": "hda_side_reboiler",
+      "role": "preheated feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R1.outlet",
+      "destination": "S1.inlet",
+      "stage": "hda_side_reboiler",
+      "role": "hot effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S1.feed_preheat",
+      "destination": "HX1.hot_inlet",
+      "stage": "hda_side_reboiler",
+      "role": "feed-preheat branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S1.reboil",
+      "destination": "SRB.hot_inlet",
+      "stage": "hda_side_reboiler",
+      "role": "side-reboiler heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SRB.vapor",
+      "destination": "COL.side_vapor",
+      "stage": "hda_side_reboiler",
+      "role": "side vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX1.hot_outlet",
+      "destination": "COL.feed",
+      "stage": "hda_side_reboiler",
+      "role": "cooled HDA liquid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "COL.distillate",
+      "destination": "BENZENE.inlet",
+      "stage": "hda_side_reboiler",
+      "role": "benzene",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "BENZENE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Transfers reaction sensible heat into a column side-reboiler vapor path and changes column internal traffic.",
+    "native_metrics": {
+      "benzene_purity": 0.99,
+      "reactor_inlet_temperature_K": 557.0,
+      "external_steam_index": 0.35,
+      "minimum_approach_K": 28.0
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_rsofc_hydrogen_storage_heat_cascade",
+  "family": "family_rsofc_h2_storage",
+  "process_type": "Reversible SOFC/SOEC Hydrogen Storage with Heat Cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_rsofc_soec_mode.",
+    "Adds material inventory closure through hydrogen storage and transfers SOFC waste heat to SOEC steam generation.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "H2",
+        "O2",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_rsofc_soec_mode"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "H2",
+      "O2",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "WATER",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SOEC",
+      "kind": "Electrolyzer",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "hydrogen production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TANK",
+      "kind": "StorageTank",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "hydrogen inventory",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SOFC",
+      "kind": "FuelCell",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "hydrogen power",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "SOFC-to-SOEC heat cascade",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "stored hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POWER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "rsofc_h2_storage",
+      "role": "dispatched power",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WATER.outlet",
+      "destination": "SOEC.water",
+      "stage": "rsofc_h2_storage",
+      "role": "electrolysis water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SOEC.hydrogen",
+      "destination": "TANK.inlet",
+      "stage": "rsofc_h2_storage",
+      "role": "produced hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "TANK.outlet",
+      "destination": "SOFC.fuel",
+      "stage": "rsofc_h2_storage",
+      "role": "discharge hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SOFC.exhaust",
+      "destination": "HX1.hot_inlet",
+      "stage": "rsofc_h2_storage",
+      "role": "SOFC waste heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "HX1.heat",
+      "destination": "SOEC.steam_heat",
+      "stage": "rsofc_h2_storage",
+      "role": "SOEC steam heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "TANK.product",
+      "destination": "H2.inlet",
+      "stage": "rsofc_h2_storage",
+      "role": "hydrogen product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SOFC.power",
+      "destination": "POWER.inlet",
+      "stage": "rsofc_h2_storage",
+      "role": "electricity",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "WATER.outlet"
+  ],
+  "unconnected_product_ports": [
+    "H2.inlet",
+    "POWER.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_rsofc_soec_mode"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_rsofc_soec_mode",
+    "chemical_change": "Adds material inventory closure through hydrogen storage and transfers SOFC waste heat to SOEC steam generation.",
+    "native_metrics": {
+      "round_trip_efficiency": 0.626,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 950.0,
+      "recovered_heat_index": 1.2
+    }
+  }
+}

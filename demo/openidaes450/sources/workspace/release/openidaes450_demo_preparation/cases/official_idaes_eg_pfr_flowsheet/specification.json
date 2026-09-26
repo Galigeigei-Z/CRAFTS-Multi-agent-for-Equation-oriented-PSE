@@ -1,0 +1,73 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_idaes_eg_pfr_flowsheet",
+  "family": "family_eg_pfr_flowsheet",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "OXIDE.outlet",
+      "variable": "flow_mol_phase_comp[Liq,ethylene_oxide]",
+      "value": 58.0,
+      "units": "mol/s",
+      "role": "official ethylene oxide feed",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html"
+    },
+    {
+      "target": "ACID.outlet",
+      "variable": "flow_mol_phase_comp[Liq,water]",
+      "value": 200.0,
+      "units": "mol/s",
+      "role": "official acid/catalyst feed",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature",
+      "value": 328.15,
+      "units": "K",
+      "role": "official heater outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html"
+    },
+    {
+      "target": "R101",
+      "variable": "conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "official CSTR conversion",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html"
+    },
+    {
+      "target": "R101",
+      "variable": "length",
+      "value": 1.0,
+      "units": "m",
+      "role": "official PFR length",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/plug_flow_reactor_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official notebook build and IPOPT solve",
+    "solve_order": [
+      "OXIDE",
+      "ACID",
+      "M101",
+      "H101",
+      "R101",
+      "PROD"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

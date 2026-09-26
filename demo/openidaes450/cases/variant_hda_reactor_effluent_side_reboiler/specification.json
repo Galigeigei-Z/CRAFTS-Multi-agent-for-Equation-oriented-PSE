@@ -1,0 +1,88 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_hda_reactor_effluent_side_reboiler",
+  "family": "family_hda_side_reboiler",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "feed_preheat_split_fraction",
+      "value": 0.4,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "side_reboiler_heat_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "benzene_purity",
+      "value": 0.99,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "reactor_inlet_temperature_K",
+      "value": 557.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "external_steam_index",
+      "value": 0.35,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "minimum_approach_K",
+      "value": 28.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "BENZENE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Transfers reaction sensible heat into a column side-reboiler vapor path and changes column internal traffic.",
+    "native_metrics": {
+      "benzene_purity": 0.99,
+      "reactor_inlet_temperature_K": 557.0,
+      "external_steam_index": 0.35,
+      "minimum_approach_K": 28.0
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_prommis_ion_exchange_multicomponent",
+  "family": "family_prommis_ion_exchange_multicomponent",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "unit_ix",
+      "variable": "inlet.pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "aqueous feed pressure",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "inlet.temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "aqueous feed temperature",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "resin",
+      "value": "S950",
+      "units": "categorical",
+      "role": "chelating resin selection",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "target_component",
+      "value": "La",
+      "units": "categorical",
+      "role": "optimization target REE",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "number_of_trapezoids",
+      "value": 30,
+      "units": "count",
+      "role": "breakthrough integration resolution",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "bed_porosity",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "fixed bed porosity",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "target_breakthrough_ratio",
+      "value": 0.999,
+      "units": "dimensionless",
+      "role": "La breakthrough design constraint",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "other_ree_breakthrough_ratio_min",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "minimum breakthrough constraint for other REEs",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official IXMC initialization and costing solve",
+    "solve_order": [
+      "unit_ix"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt_v2",
+    "steady_state": true,
+    "expected_dof": 7,
+    "mode": "design_optimization"
+  }
+}

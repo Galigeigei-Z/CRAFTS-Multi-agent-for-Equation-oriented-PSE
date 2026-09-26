@@ -1,0 +1,276 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_v4_cryst_n16_t333_y55_35",
+  "family": "family_watertap_crystallization",
+  "process_type": "Two-stage NaCl crystallization with serial mother-liquor treatment - operating/design variant",
+  "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html",
+  "source_basis": [
+    "Both stages use the official WaterTAP Crystallization unit and NaCl multiphase property package.",
+    "Only stage-1 liquid mother liquor feeds stage 2; stage-1 crystals and vapor leave separately.",
+    "This is serial recovery, not a closed mother-liquor recycle loop.",
+    "Derived from variant_watertap_two_stage_crystallization; unique parameter fingerprint 670fc10c78dfa7d57a50bcb841c98f7bf58a4e26c54c59558062f6a2075ce6d8."
+  ],
+  "property_packages": {
+    "NaCl_crystallization": {
+      "components": [
+        "H2O",
+        "NaCl"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "source": "watertap.property_models.unit_specific.cryst_prop_pack"
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "NaCl"
+    ]
+  },
+  "units": [
+    {
+      "id": "brine_feed",
+      "kind": "Feed",
+      "package": "NaCl_crystallization",
+      "stage": "feed",
+      "role": "NaCl brine feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C1",
+      "kind": "Crystallization",
+      "package": "NaCl_crystallization",
+      "stage": "stage1",
+      "role": "primary evaporative crystallizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stage1_crystals",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "stage1",
+      "role": "primary NaCl crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stage1_vapor",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "stage1",
+      "role": "primary water vapor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C2",
+      "kind": "Crystallization",
+      "package": "NaCl_crystallization",
+      "stage": "stage2",
+      "role": "cooler secondary mother-liquor crystallizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stage2_crystals",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "stage2",
+      "role": "incremental NaCl crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "stage2_vapor",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "stage2",
+      "role": "secondary water vapor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "final_mother_liquor",
+      "kind": "Product",
+      "package": "NaCl_crystallization",
+      "stage": "product",
+      "role": "depleted final mother liquor",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "brine_feed.outlet",
+      "destination": "C1.inlet",
+      "stage": "feed",
+      "role": "fresh brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "C1.solids",
+      "destination": "stage1_crystals.inlet",
+      "stage": "stage1",
+      "role": "primary crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "C1.vapor",
+      "destination": "stage1_vapor.inlet",
+      "stage": "stage1",
+      "role": "evaporated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "C1.outlet",
+      "destination": "C2.inlet",
+      "stage": "interstage",
+      "role": "stage-1 mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "C2.solids",
+      "destination": "stage2_crystals.inlet",
+      "stage": "stage2",
+      "role": "incremental crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "C2.vapor",
+      "destination": "stage2_vapor.inlet",
+      "stage": "stage2",
+      "role": "secondary evaporated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "C2.outlet",
+      "destination": "final_mother_liquor.inlet",
+      "stage": "product",
+      "role": "depleted mother liquor",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "C1",
+      "variable": "inlet.flow_mass_phase_comp[0,'Liq','NaCl']",
+      "value": 16,
+      "units": "kg/s",
+      "role": "feed NaCl",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C1",
+      "variable": "inlet.flow_mass_phase_comp[0,'Liq','H2O']",
+      "value": 60,
+      "units": "kg/s",
+      "role": "feed water",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C1",
+      "variable": "inlet.temperature[0]",
+      "value": 293.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C1",
+      "variable": "inlet.pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "feed pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "C1",
+      "variable": "temperature_operating",
+      "value": 333.15,
+      "units": "K",
+      "role": "primary crystallizer temperature",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C2",
+      "variable": "temperature_operating",
+      "value": 318.15,
+      "units": "K",
+      "role": "secondary crystallizer temperature",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C1",
+      "variable": "crystallization_yield['NaCl']",
+      "value": 0.55,
+      "units": "dimensionless",
+      "role": "primary salt yield",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "C2",
+      "variable": "crystallization_yield['NaCl']",
+      "value": 0.35,
+      "units": "dimensionless",
+      "role": "secondary mother-liquor salt yield",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "brine_feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "stage1_crystals.inlet",
+    "stage1_vapor.inlet",
+    "stage2_crystals.inlet",
+    "stage2_vapor.inlet",
+    "final_mother_liquor.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "initialize C1, propagate liquid mother liquor, initialize C2",
+    "solve_order": [
+      "C1",
+      "C2"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Crystallization",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep C1.outlet connected to C2.inlet.",
+    "Do not add a recycle arc from C2 to C1.",
+    "Do not merge this operating point with its parent case."
+  ]
+}

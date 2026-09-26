@@ -1,0 +1,78 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_hx_ntu_e70_a120",
+  "family": "family_idaes_hx_ntu",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "hot_feed",
+      "variable": "temperature",
+      "value": 392.23,
+      "units": "K",
+      "role": "hot feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "cold_feed",
+      "variable": "temperature",
+      "value": 326.36,
+      "units": "K",
+      "role": "cold feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 120,
+      "units": "m^2",
+      "role": "area",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "heat_transfer_coefficient",
+      "value": 220,
+      "units": "W/m^2/K",
+      "role": "coefficient",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "effectiveness",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "effectiveness",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "hot_feed.outlet",
+    "cold_feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "hot_product.inlet",
+    "cold_product.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "hot_feed",
+      "cold_feed",
+      "heat_exchanger",
+      "hot_product",
+      "cold_product"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

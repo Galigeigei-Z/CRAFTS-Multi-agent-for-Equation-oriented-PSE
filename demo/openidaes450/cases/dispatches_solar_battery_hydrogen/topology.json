@@ -1,0 +1,209 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__dispatches_solar_battery_hydrogen",
+  "family": "family_source_verified_dispatches_solar_battery_hydrogen",
+  "process_type": "Solar, battery, PEM electrolysis, hydrogen storage, and turbine hybrid",
+  "source_url": "https://github.com/gmlc-dispatches/dispatches/tree/main/dispatches/case_studies/renewables_case",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official DISPATCHES renewables case source. No time-series data, market model, SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "solar_pv",
+      "kind": "SolarPV",
+      "package": null,
+      "stage": "generation",
+      "role": "Source-derived SolarPV node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "dispatch",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "grid",
+      "kind": "ElectricalGrid",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived ElectricalGrid node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "battery",
+      "kind": "ElectricalStorage",
+      "package": null,
+      "stage": "storage",
+      "role": "Source-derived ElectricalStorage node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pem",
+      "kind": "PEMElectrolyzer",
+      "package": null,
+      "stage": "hydrogen",
+      "role": "Source-derived PEMElectrolyzer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_tank",
+      "kind": "StorageTank",
+      "package": null,
+      "stage": "hydrogen",
+      "role": "Source-derived StorageTank node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "hydrogen",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_pipeline",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_turbine",
+      "kind": "Turbine",
+      "package": null,
+      "stage": "generation",
+      "role": "Source-derived Turbine node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_power",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "solar_to_splitter",
+      "source": "solar_pv.electricity",
+      "destination": "power_splitter.inlet",
+      "source_port": "electricity",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_grid",
+      "source": "power_splitter.grid",
+      "destination": "grid.inlet",
+      "source_port": "grid",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_battery",
+      "source": "power_splitter.battery",
+      "destination": "battery.charge",
+      "source_port": "battery",
+      "destination_port": "charge",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "battery_to_pem",
+      "source": "battery.discharge",
+      "destination": "pem.electricity",
+      "source_port": "discharge",
+      "destination_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_pem",
+      "source": "power_splitter.pem",
+      "destination": "pem.electricity",
+      "source_port": "pem",
+      "destination_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pem_to_tank",
+      "source": "pem.hydrogen",
+      "destination": "hydrogen_tank.inlet",
+      "source_port": "hydrogen",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "tank_to_h2_splitter",
+      "source": "hydrogen_tank.outlet",
+      "destination": "hydrogen_splitter.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "h2_to_pipeline",
+      "source": "hydrogen_splitter.pipeline",
+      "destination": "hydrogen_pipeline.inlet",
+      "source_port": "pipeline",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "h2_to_turbine",
+      "source": "hydrogen_splitter.turbine",
+      "destination": "hydrogen_turbine.fuel_inlet",
+      "source_port": "turbine",
+      "destination_port": "fuel_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "turbine_to_power",
+      "source": "hydrogen_turbine.electricity",
+      "destination": "turbine_power.inlet",
+      "source_port": "electricity",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "solar_pv",
+    "power_splitter",
+    "grid",
+    "battery",
+    "pem",
+    "hydrogen_tank",
+    "hydrogen_splitter",
+    "hydrogen_pipeline",
+    "hydrogen_turbine",
+    "turbine_power"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__reflo_vagmd_multiperiod",
+  "family": "family_source_verified_reflo_vagmd_multiperiod",
+  "process_type": "Multiperiod batch vacuum air-gap membrane distillation",
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/main/src/watertap_contrib/reflo/flowsheets/VAGMD_batch/VAGMD_batch_multiperiod_flowsheet.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology and temporal links are derived from the official REFLO VAGMD batch source. No discretized multiperiod instance, SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "batch_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_tank",
+      "kind": "StorageTank",
+      "package": null,
+      "stage": "period_state",
+      "role": "Source-derived StorageTank node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "vagmd_period",
+      "kind": "VAGMDSurrogate",
+      "package": null,
+      "stage": "period_operation",
+      "role": "Source-derived VAGMDSurrogate node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "distillate_tank",
+      "kind": "StorageTank",
+      "package": null,
+      "stage": "collection",
+      "role": "Source-derived StorageTank node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "brine_return",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recycle",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "period_link",
+      "kind": "TemporalLink",
+      "package": null,
+      "stage": "multiperiod",
+      "role": "Source-derived TemporalLink node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "water_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "final_brine",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_tank",
+      "source": "batch_feed.outlet",
+      "destination": "feed_tank.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "tank_to_vagmd",
+      "source": "feed_tank.outlet",
+      "destination": "vagmd_period.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "vagmd_distillate",
+      "source": "vagmd_period.permeate",
+      "destination": "distillate_tank.inlet",
+      "source_port": "permeate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "vagmd_brine",
+      "source": "vagmd_period.concentrate",
+      "destination": "brine_return.inlet",
+      "source_port": "concentrate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "brine_state_link",
+      "source": "brine_return.outlet",
+      "destination": "period_link.current_state",
+      "source_port": "outlet",
+      "destination_port": "current_state",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "next_period_feed",
+      "source": "period_link.next_state",
+      "destination": "feed_tank.inlet",
+      "source_port": "next_state",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "distillate_product",
+      "source": "distillate_tank.outlet",
+      "destination": "water_product.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "final_concentrate",
+      "source": "period_link.final_state",
+      "destination": "final_brine.inlet",
+      "source_port": "final_state",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "batch_feed",
+    "feed_tank",
+    "vagmd_period",
+    "distillate_tank",
+    "brine_return",
+    "period_link",
+    "water_product",
+    "final_brine"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

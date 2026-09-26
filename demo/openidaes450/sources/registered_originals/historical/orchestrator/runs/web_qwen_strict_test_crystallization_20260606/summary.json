@@ -1,0 +1,76 @@
+{
+  "question": "Strict qwen test WaterTAP crystallization. Brine feed enters a crystallizer, liquid outlet, vapor outlet, and solid NaCl crystal product leave the unit.",
+  "case_id": "web_qwen_strict_test_crystallization_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_test_crystallization_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_crystallization\",\n  \"family\": \"family_watertap_crystallization\",\n  \"units\": 5,\n  \"arcs\": 4\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 5,\n    \"arc_count\": 4,\n    \"units\": [\n      \"feed\",\n      \"crystallizer\",\n      \"liquid_product\",\n      \"vapor_product\",\n      \"solid_product\"\n    ],\n    \"arcs\": [\n      \"feed_to_crystallizer\",\n      \"crystallizer_to_liquid_product\",\n      \"crystallizer_to_vapor_product\",\n      \"crystallizer_to_solid_product\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/web_qwen_strict_test_crystallization_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 9\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_crystallization\",\n  \"family\": \"family_watertap_crystallization\",\n  \"spec_count\": 9,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 5,\n  \"arc_count\": 4\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_crystallization_20260606/native_solve_report.json",
+      "output_tail": "l/NaCl\": 1e-06\n      },\n      \"mass_flow\": 49.444502,\n      \"flow_kg_s\": 49.444502,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.7873999823074364,\n        \"Liq/NaCl\": 0.21259997724317256,\n        \"Vap/H2O\": 2.022469555866899e-08,\n        \"Sol/NaCl\": 2.022469555866899e-08\n      },\n      \"temperature\": 293.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.crystallizer.inlet\"\n    },\n    \"crystallizer_liquid_outlet\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 13.431271245282268,\n        \"Liq/NaCl\": 4.95590096,\n        \"Vap/H2O\": 1e-08,\n        \"Sol/NaCl\": 1e-08\n      },\n      \"mass_flow\": 18.38717222528227,\n      \"flow_kg_s\": 18.38717222528227,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.7304696492054573,\n        \"Liq/NaCl\": 0.2695303497068277,\n        \"Vap/H2O\": 5.438574174146283e-10,\n        \"Sol/NaCl\": 5.438574174146283e-10\n      },\n      \"temperature\": 328.15,\n      \"pressure\": 11991.824260266158,\n      \"source_port\": \"fs.crystallizer.outlet\"\n    },\n    \"crystallizer_vapor_outlet\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 1e-08,\n        \"Liq/NaCl\": 1e-08,\n        \"Vap/H2O\": 25.501329714717727,\n        \"Sol/NaCl\": 1e-08\n      },\n      \"mass_flow\": 25.50132974471773,\n      \"flow_kg_s\": 25.50132974471773,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 3.921364140656771e-10,\n        \"Liq/NaCl\": 3.921364140656771e-10,\n        \"Vap/H2O\": 0.9999999988235907,\n        \"Sol/NaCl\": 3.921364140656771e-10\n      },\n      \"temperature\": 328.15,\n      \"pressure\": 11991.824260266158,\n      \"source_port\": \"fs.crystallizer.vapor\"\n    },\n    \"crystallizer_solids_outlet\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 1e-08,\n        \"Liq/NaCl\": 1e-08,\n        \"Vap/H2O\": 1e-08,\n        \"Sol/NaCl\": 5.556\n      },\n      \"mass_flow\": 5.55600003,\n      \"flow_kg_s\": 5.55600003,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 1.7998560018006336e-09,\n        \"Liq/NaCl\": 1.7998560018006336e-09,\n        \"Vap/H2O\": 1.7998560018006336e-09,\n        \"Sol/NaCl\": 0.999999994600432\n      },\n      \"temperature\": 328.15,\n      \"pressure\": 11991.824260266158,\n      \"source_port\": \"fs.crystallizer.solids\"\n    }\n  },\n  \"build_plan_sha256\": \"3250326092ec4ce720c057095170b2f628b0a6c410118f7eb1db3dda5fca4c56\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_crystallization\",\n    \"plan_derived_params\": [\n      \"feed.flow_mass_liq_nacl\",\n      \"feed.flow_mass_liq_h2o\",\n      \"feed.temperature\",\n      \"feed.pressure\",\n      \"crystallizer.temperature_operating\",\n      \"crystallizer.solid_nacl_flow\"\n    ],\n    \"fixed_template_params\": [\n      \"feed.flow_mass_sol_nacl\",\n      \"feed.flow_mass_vap_h2o\",\n      \"crystallizer.crystal_growth_rate\",\n      \"crystallizer.souders_brown_constant\",\n      \"crystallizer.crystal_median_length\",\n      \"costing.cost_type.mass_basis\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

@@ -1,0 +1,1461 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_prommis_membrane_cascade_flowsheet",
+  "family": "family_prommis_membrane_cascade_flowsheet",
+  "process_type": "PrOMMiS multi-stage membrane diafiltration cascade with downstream retentate and permeate precipitators",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle PrOMMiS membrane cascade flowsheet support cards.",
+    "No source URL, case id, run id, image filename, solved report, family registry, or legacy lookup routing was used.",
+    "Retrieved support cards: PrOMMiS membrane cascade flowsheet; PrOMMiS diafiltration cascade",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: PrOMMiS membrane cascade flowsheet (flowsheet) matched ['prommis membrane cascade flowsheet', 'membrane cascade flowsheet', 'DiafiltrationModel'].",
+    "Blind support hint: PrOMMiS diafiltration cascade (flowsheet) matched ['diafiltration cascade']."
+  ],
+  "property_packages": {
+    "membrane_solute": {
+      "entry_id": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property.SoluteParameters",
+      "components": [
+        "solvent",
+        "Li",
+        "Co"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed_splitter",
+        "diafiltrate_splitter",
+        "stage_1",
+        "stage_2",
+        "retentate_product_mixer",
+        "permeate_product_mixer",
+        "retentate_precipitator",
+        "permeate_precipitator",
+        "precipitate_recycle_mixer",
+        "precipitate_recycle_splitter"
+      ]
+    }
+  },
+  "components": {
+    "aqueous_solution": [
+      "solvent",
+      "Li",
+      "Co"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "membrane_solute",
+      "stage": "feed",
+      "role": "fresh Li/Co feed to cascade",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "diafiltrate_feed",
+      "kind": "Feed",
+      "package": "membrane_solute",
+      "stage": "feed",
+      "role": "fresh diafiltrate feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_splitter",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "distribution",
+      "role": "split fresh feed to cascade inlets",
+      "constructor": {
+        "outlet_list": [
+          "stage_1_feed",
+          "stage_2_feed"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "diafiltrate_splitter",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "distribution",
+      "role": "split diafiltrate and recycle solvent",
+      "constructor": {
+        "outlet_list": [
+          "stage_1_diafiltrate",
+          "stage_2_diafiltrate"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "stage_1_mixer",
+      "kind": "Mixer",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage-mixing inlet mixer for stage 1",
+      "constructor": {
+        "inlet_list": [
+          "feed",
+          "diafiltrate",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "stage_1",
+      "kind": "MembraneCascadeStage",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "first diafiltration stage with five membrane tubes",
+      "constructor": {
+        "number_of_tubes": 5,
+        "mixing": "stage"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "stage_2_mixer",
+      "kind": "Mixer",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage-mixing inlet mixer for stage 2",
+      "constructor": {
+        "inlet_list": [
+          "feed",
+          "diafiltrate",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "stage_2",
+      "kind": "MembraneCascadeStage",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "second diafiltration stage with five membrane tubes",
+      "constructor": {
+        "number_of_tubes": 5,
+        "mixing": "stage"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "retentate_splitter_1",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage 1 retentate split between product and recycle",
+      "constructor": {
+        "outlet_list": [
+          "product",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "retentate_splitter_2",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage 2 retentate split between product and upstream recycle",
+      "constructor": {
+        "outlet_list": [
+          "product",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "permeate_splitter_1",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage 1 permeate split between product and recycle",
+      "constructor": {
+        "outlet_list": [
+          "product",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "permeate_splitter_2",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "cascade",
+      "role": "stage 2 permeate split between product and recycle",
+      "constructor": {
+        "outlet_list": [
+          "product",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "retentate_product_mixer",
+      "kind": "Mixer",
+      "package": "membrane_solute",
+      "stage": "product",
+      "role": "mix selected retentate product streams before precipitation",
+      "constructor": {
+        "inlet_list": [
+          "stage_1",
+          "stage_2"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "permeate_product_mixer",
+      "kind": "Mixer",
+      "package": "membrane_solute",
+      "stage": "product",
+      "role": "mix selected permeate product streams before precipitation",
+      "constructor": {
+        "inlet_list": [
+          "stage_1",
+          "stage_2"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "retentate_precipitator",
+      "kind": "Precipitator",
+      "package": "membrane_solute",
+      "stage": "precipitation",
+      "role": "retentate product precipitator",
+      "constructor": {
+        "volume": 500
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "permeate_precipitator",
+      "kind": "Precipitator",
+      "package": "membrane_solute",
+      "stage": "precipitation",
+      "role": "permeate product precipitator",
+      "constructor": {
+        "volume": 500
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "precipitate_recycle_mixer",
+      "kind": "Mixer",
+      "package": "membrane_solute",
+      "stage": "recycle",
+      "role": "mix liquid recycle from both precipitators",
+      "constructor": {
+        "inlet_list": [
+          "retentate",
+          "permeate"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "precipitate_recycle_splitter",
+      "kind": "Separator",
+      "package": "membrane_solute",
+      "stage": "recycle",
+      "role": "split precipitate liquid recycle to diafiltrate and waste",
+      "constructor": {
+        "outlet_list": [
+          "recycle",
+          "waste"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "retentate_solid_product",
+      "kind": "Product",
+      "package": "membrane_solute",
+      "stage": "product",
+      "role": "retentate precipitated solids",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "permeate_solid_product",
+      "kind": "Product",
+      "package": "membrane_solute",
+      "stage": "product",
+      "role": "permeate precipitated solids",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waste_product",
+      "kind": "Product",
+      "package": "membrane_solute",
+      "stage": "product",
+      "role": "liquid waste leaving recycle splitter",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_splitter",
+      "source": "feed.outlet",
+      "destination": "feed_splitter.inlet",
+      "stage": "feed",
+      "role": "fresh feed to feed splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "diafiltrate_to_splitter",
+      "source": "diafiltrate_feed.outlet",
+      "destination": "diafiltrate_splitter.inlet",
+      "stage": "feed",
+      "role": "fresh diafiltrate to diafiltrate splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "feed_splitter_to_stage_1",
+      "source": "feed_splitter.stage_1_feed",
+      "destination": "stage_1_mixer.feed",
+      "stage": "feed",
+      "role": "feed to stage 1 mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "feed_splitter_to_stage_2",
+      "source": "feed_splitter.stage_2_feed",
+      "destination": "stage_2_mixer.feed",
+      "stage": "feed",
+      "role": "feed to stage 2 mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "diafiltrate_splitter_to_stage_1",
+      "source": "diafiltrate_splitter.stage_1_diafiltrate",
+      "destination": "stage_1_mixer.diafiltrate",
+      "stage": "diafiltrate",
+      "role": "diafiltrate to stage 1 mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "diafiltrate_splitter_to_stage_2",
+      "source": "diafiltrate_splitter.stage_2_diafiltrate",
+      "destination": "stage_2_mixer.diafiltrate",
+      "stage": "diafiltrate",
+      "role": "diafiltrate to stage 2 mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_1_mixer_to_stage_1",
+      "source": "stage_1_mixer.outlet",
+      "destination": "stage_1.inlet",
+      "stage": "cascade",
+      "role": "mixed feed to first membrane stage",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_mixer_to_stage_2",
+      "source": "stage_2_mixer.outlet",
+      "destination": "stage_2.inlet",
+      "stage": "cascade",
+      "role": "mixed feed to second membrane stage",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_1_retentate_to_splitter",
+      "source": "stage_1.retentate_outlet",
+      "destination": "retentate_splitter_1.inlet",
+      "stage": "cascade",
+      "role": "stage 1 retentate split",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_retentate_to_splitter",
+      "source": "stage_2.retentate_outlet",
+      "destination": "retentate_splitter_2.inlet",
+      "stage": "cascade",
+      "role": "stage 2 retentate split",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_1_permeate_to_splitter",
+      "source": "stage_1.permeate_outlet",
+      "destination": "permeate_splitter_1.inlet",
+      "stage": "cascade",
+      "role": "stage 1 permeate split",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_permeate_to_splitter",
+      "source": "stage_2.permeate_outlet",
+      "destination": "permeate_splitter_2.inlet",
+      "stage": "cascade",
+      "role": "stage 2 permeate split",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_1_retentate_product",
+      "source": "retentate_splitter_1.product",
+      "destination": "retentate_product_mixer.stage_1",
+      "stage": "product",
+      "role": "stage 1 retentate to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_retentate_product",
+      "source": "retentate_splitter_2.product",
+      "destination": "retentate_product_mixer.stage_2",
+      "stage": "product",
+      "role": "stage 2 retentate to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_1_permeate_product",
+      "source": "permeate_splitter_1.product",
+      "destination": "permeate_product_mixer.stage_1",
+      "stage": "product",
+      "role": "stage 1 permeate to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_permeate_product",
+      "source": "permeate_splitter_2.product",
+      "destination": "permeate_product_mixer.stage_2",
+      "stage": "product",
+      "role": "stage 2 permeate to product mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stage_2_retentate_recycle",
+      "source": "retentate_splitter_2.recycle",
+      "destination": "stage_1_mixer.recycle",
+      "stage": "recycle",
+      "role": "downstream retentate recycle to previous stage",
+      "tear_candidate": true
+    },
+    {
+      "id": "retentate_product_to_precipitator",
+      "source": "retentate_product_mixer.outlet",
+      "destination": "retentate_precipitator.inlet",
+      "stage": "precipitation",
+      "role": "retentate product precipitation",
+      "tear_candidate": false
+    },
+    {
+      "id": "permeate_product_to_precipitator",
+      "source": "permeate_product_mixer.outlet",
+      "destination": "permeate_precipitator.inlet",
+      "stage": "precipitation",
+      "role": "permeate product precipitation",
+      "tear_candidate": false
+    },
+    {
+      "id": "retentate_solid_product",
+      "source": "retentate_precipitator.solid",
+      "destination": "retentate_solid_product.inlet",
+      "stage": "product",
+      "role": "retentate solid product",
+      "tear_candidate": false
+    },
+    {
+      "id": "permeate_solid_product",
+      "source": "permeate_precipitator.solid",
+      "destination": "permeate_solid_product.inlet",
+      "stage": "product",
+      "role": "permeate solid product",
+      "tear_candidate": false
+    },
+    {
+      "id": "retentate_liquid_recycle",
+      "source": "retentate_precipitator.liquid",
+      "destination": "precipitate_recycle_mixer.retentate",
+      "stage": "recycle",
+      "role": "retentate precipitator liquid recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "permeate_liquid_recycle",
+      "source": "permeate_precipitator.liquid",
+      "destination": "precipitate_recycle_mixer.permeate",
+      "stage": "recycle",
+      "role": "permeate precipitator liquid recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "precipitate_recycle_to_splitter",
+      "source": "precipitate_recycle_mixer.outlet",
+      "destination": "precipitate_recycle_splitter.inlet",
+      "stage": "recycle",
+      "role": "mixed liquid recycle split",
+      "tear_candidate": false
+    },
+    {
+      "id": "precipitate_recycle_to_diafiltrate",
+      "source": "precipitate_recycle_splitter.recycle",
+      "destination": "diafiltrate_splitter.inlet",
+      "stage": "recycle",
+      "role": "precipitate recycle reused as diafiltrate",
+      "tear_candidate": true
+    },
+    {
+      "id": "waste_liquid_product",
+      "source": "precipitate_recycle_splitter.waste",
+      "destination": "waste_product.inlet",
+      "stage": "product",
+      "role": "liquid waste product",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "solvent",
+      "value": 100.0,
+      "units": "m^3/h",
+      "role": "official fresh water feed basis"
+    },
+    {
+      "target": "feed",
+      "variable": "Li",
+      "value": 170.0,
+      "units": "kg/h",
+      "role": "official lithium feed basis"
+    },
+    {
+      "target": "feed",
+      "variable": "Co",
+      "value": 1700.0,
+      "units": "kg/h",
+      "role": "official cobalt feed basis"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "solvent",
+      "value": 30.0,
+      "units": "m^3/h",
+      "role": "official diafiltrate water basis"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Li",
+      "value": 3.0,
+      "units": "kg/h",
+      "role": "official diafiltrate lithium basis"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Co",
+      "value": 6.0,
+      "units": "kg/h",
+      "role": "official diafiltrate cobalt basis"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "stage_1",
+      "variable": "number_of_tubes",
+      "value": 5,
+      "units": "dimensionless",
+      "role": "official solver test size"
+    },
+    {
+      "target": "stage_2",
+      "variable": "number_of_tubes",
+      "value": 5,
+      "units": "dimensionless",
+      "role": "official solver test size"
+    },
+    {
+      "target": "stage_1",
+      "variable": "flux",
+      "value": 0.1,
+      "units": "m/h",
+      "role": "official flux parameter"
+    },
+    {
+      "target": "stage_2",
+      "variable": "flux",
+      "value": 0.1,
+      "units": "m/h",
+      "role": "official flux parameter"
+    },
+    {
+      "target": "stage_1",
+      "variable": "sieving_Li",
+      "value": 1.3,
+      "units": "dimensionless",
+      "role": "official lithium sieving coefficient"
+    },
+    {
+      "target": "stage_1",
+      "variable": "sieving_Co",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "official cobalt sieving coefficient"
+    },
+    {
+      "target": "retentate_precipitator",
+      "variable": "volume",
+      "value": 500.0,
+      "units": "m^3",
+      "role": "fixed official solver test volume"
+    },
+    {
+      "target": "permeate_precipitator",
+      "variable": "volume",
+      "value": 500.0,
+      "units": "m^3",
+      "role": "fixed official solver test volume"
+    },
+    {
+      "target": "permeate_precipitator",
+      "variable": "Li_yield",
+      "value": 0.81,
+      "units": "dimensionless",
+      "role": "official precipitate yield"
+    },
+    {
+      "target": "retentate_precipitator",
+      "variable": "Co_yield",
+      "value": 0.89,
+      "units": "dimensionless",
+      "role": "official precipitate yield"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [
+    {
+      "arc_id": "stage_2_retentate_recycle",
+      "destination": "stage_1_mixer.recycle",
+      "reason": "cascade recycle across membrane stages"
+    },
+    {
+      "arc_id": "precipitate_recycle_to_diafiltrate",
+      "destination": "diafiltrate_splitter.inlet",
+      "reason": "precipitator liquid recycle to diafiltration water"
+    }
+  ],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official DiafiltrationModel.build_flowsheet, initialize fixed-point recycles, unfix_dof, then solve optimization",
+    "solve_order": [
+      "feed_splitter",
+      "stage_1",
+      "stage_2",
+      "product_mixers",
+      "precipitators",
+      "precipitate_recycle"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_official_prommis_membrane_cascade_flowsheet",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "prommis.nanofiltration.membrane_cascade_flowsheet.diafiltration_flowsheet_model.DiafiltrationModel",
+    "prommis.nanofiltration.membrane_cascade_flowsheet.flowsheet.png"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized compact topology, not a verified official case topology.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_prommis_membrane_cascade_flowsheet_20260607/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 2956,
+      "height": 1397,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "subcritical_power_plant": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "prommis_diafiltration": true,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_membrane_cascade_flowsheet": true,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build PrOMMiS membrane cascade flowsheet DiafiltrationModel for a multi-stage diafiltration cascade with downstream retentate and permeate precipitators.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "prommis.flowsheet.diafiltration",
+        "prommis.flowsheet.membrane_cascade"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "subcritical_power_plant": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "prommis_diafiltration": true,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_membrane_cascade_flowsheet": true,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "prommis_membrane_cascade_flowsheet",
+        "qualified_templates": [
+          "prommis_membrane_cascade_flowsheet"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc",
+              "missing required support doc idaes.flowsheet.ngcc"
+            ]
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "sco2_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal sco2_surrogate",
+              "missing required support doc idaes.flowsheet.sco2_surrogate"
+            ]
+          },
+          "fixed_bed_tsa0d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal fixed_bed_tsa0d",
+              "missing required support doc idaes.flowsheet.fixed_bed_tsa0d"
+            ]
+          },
+          "subcritical_power_plant": {
+            "qualified": false,
+            "failures": [
+              "missing required signal subcritical_power_plant",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc idaes.flowsheet.subcritical_power_plant"
+            ]
+          },
+          "prommis_diafiltration_byproduct_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration_byproduct_recovery",
+              "missing required support doc prommis.flowsheet.diafiltration_byproduct_recovery"
+            ]
+          },
+          "prommis_diafiltration_two_salt": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration_two_salt",
+              "missing required support doc prommis.flowsheet.diafiltration_two_salt"
+            ]
+          },
+          "prommis_diafiltration_cost_optimization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration_cost_optimization",
+              "missing required support doc prommis.flowsheet.diafiltration_cost_optimization"
+            ]
+          },
+          "prommis_diafiltration_uq_reduced": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration_uq_reduced",
+              "missing required support doc prommis.flowsheet.diafiltration_uq_reduced"
+            ]
+          },
+          "prommis_nf_brine_advanced_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nf_brine_advanced_costing",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.nf_brine_advanced_costing"
+            ]
+          },
+          "prommis_membrane_cascade_flowsheet": {
+            "qualified": true,
+            "failures": []
+          },
+          "prommis_ion_exchange_multicomponent": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ion_exchange_multicomponent",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.ion_exchange_multicomponent"
+            ]
+          },
+          "prommis_cmi_opt_based_precipitator": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_opt_based_precipitator",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.cmi_opt_based_precipitator"
+            ]
+          },
+          "prommis_leach_train_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_train_unit",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.leach_train"
+            ]
+          },
+          "prommis_leach_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_flowsheet",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.leach"
+            ]
+          },
+          "prommis_crusher_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_crusher_unit",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.crusher"
+            ]
+          },
+          "prommis_evaporation_pond_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_evaporation_pond_unit",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.evaporation_pond"
+            ]
+          },
+          "prommis_ree_oxalate_roaster": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ree_oxalate_roaster",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.ree_oxalate_roaster"
+            ]
+          },
+          "prommis_superstructure_pathway_npv": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_pathway_npv",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.superstructure.pathway_npv"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_flowsheet",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.hydrogen_decrepitation"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_furnace": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_furnace",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.unit.hydrogen_decrepitation_furnace"
+            ]
+          },
+          "prommis_solvent_extraction_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_solvent_extraction_steady",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.solvent_extraction_steady"
+            ]
+          },
+          "prommis_mixer_settler_ex_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_mixer_settler_ex_steady",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.mixer_settler_ex_steady"
+            ]
+          },
+          "prommis_diafiltration": {
+            "qualified": false,
+            "failures": [
+              "forbidden signal prommis_membrane_cascade_flowsheet"
+            ]
+          },
+          "prommis_cmi_process": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.cmi_process"
+            ]
+          },
+          "prommis_uky_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required signal prommis_uky_costing",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.uky_costing"
+            ]
+          },
+          "prommis_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.uky"
+            ]
+          },
+          "electronp_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electronp",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.flowsheet.electroNP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "bsm2_electronp_no_biop": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_electronp_no_biop",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.flowsheet.bsm2_electroNP_no_bioP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal prommis_diafiltration",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.4
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "prommis.flowsheet.membrane_cascade",
+        "title": "PrOMMiS membrane cascade flowsheet",
+        "kind": "flowsheet",
+        "score": 92.0,
+        "matched_triggers": [
+          "prommis membrane cascade flowsheet",
+          "membrane cascade flowsheet",
+          "DiafiltrationModel"
+        ],
+        "source_url": "https://github.com/prommis/prommis/tree/main/src/prommis/nanofiltration/membrane_cascade_flowsheet",
+        "text": "Use the official PrOMMiS membrane_cascade_flowsheet DiafiltrationModel: multi-stage Li/Co diafiltration cascade with stage mixing, splitters, recycle streams, downstream retentate/permeate precipitators, and official recovery/precipitate checks."
+      },
+      {
+        "doc_id": "prommis.flowsheet.diafiltration",
+        "title": "PrOMMiS diafiltration cascade",
+        "kind": "flowsheet",
+        "score": 28.0,
+        "matched_triggers": [
+          "diafiltration cascade"
+        ],
+        "source_url": "https://prommis.readthedocs.io/en/latest/tutorials/diafiltration.html",
+        "text": "Use the PrOMMiS lithium/cobalt diafiltration cascade with fresh feed, diafiltrate feed, three MSContactor membrane stages, mix1, mix2, stream6 recycle, retentate product, permeate product, Li/Co recovery checks, and annualized cost."
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_ad_biogas_h2s_guard_emergency_flare",
+  "family": "family_biogas_h2s_emergency",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "guard_bed_utilization_fraction",
+      "value": 0.9500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "emergency_scrubber_fraction",
+      "value": 0.9500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "chp_h2s_index",
+      "value": 0.002519999999999998,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flare_h2s_index",
+      "value": 0.00385,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_destruction",
+      "value": 0.9845,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "caustic_index",
+      "value": 0.09500000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "bed_life_fraction",
+      "value": 0.9300000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BIOGAS.outlet"
+  ],
+  "terminal_product_ports": [
+    "SULFIDE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ad_biogas_chp_heat_integrated"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ad_biogas_chp_heat_integrated",
+    "chemical_change": "Adds sulfur chemisorption, emergency alkaline absorption and safe methane destruction paths.",
+    "native_metrics": {
+      "chp_h2s_index": 0.002519999999999998,
+      "flare_h2s_index": 0.00385,
+      "methane_destruction": 0.9845,
+      "caustic_index": 0.09500000000000001,
+      "bed_life_fraction": 0.9300000000000002
+    }
+  }
+}

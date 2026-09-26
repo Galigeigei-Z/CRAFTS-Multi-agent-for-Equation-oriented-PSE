@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_adsorption_carbon_extension_solve",
+  "case_family": "h2_psa",
+  "parent_case_key": "blind_synthesized_hda_distillation",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "pressure_equalization_fraction": 1.0,
+    "hydrogen_purge_fraction": 1.0
+  },
+  "metrics": {
+    "hydrogen_recovery": 0.85,
+    "hydrogen_purity": 0.97,
+    "compression_power_kW": 150.0,
+    "tailgas_fuel_index": 0.4
+  },
+  "search_results": [
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 100.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 96.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 100.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 96.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 101.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 96.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.735,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 101.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 96.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 102.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 97.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.725,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 102.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 97.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 103.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 97.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.715,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 103.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 98.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.71,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 104.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 98.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.705,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 104.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 98.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.7,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 105.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 99.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.695,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 105.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 99.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.69,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 106.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 99.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.685,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 106.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 99.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.6799999999999999,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 107.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 100.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.675,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 107.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 100.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.6699999999999999,
+      "hydrogen_purity": 0.982,
+      "compression_power_kW": 108.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 100.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.665,
+      "hydrogen_purity": 0.984,
+      "compression_power_kW": 108.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 101.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.66,
+      "hydrogen_purity": 0.986,
+      "compression_power_kW": 109.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 101.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.655,
+      "hydrogen_purity": 0.988,
+      "compression_power_kW": 109.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 101.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.65,
+      "hydrogen_purity": 0.99,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 102.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.0,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 102.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 98.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 102.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 98.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 103.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 98.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 103.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 98.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 104.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 99.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.735,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 104.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 99.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 105.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 99.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.725,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 105.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 100.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 106.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 100.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.715,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 106.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 100.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.71,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 107.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 101.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.705,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 107.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 101.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.7,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 108.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 101.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.6950000000000001,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 108.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 101.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.69,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 109.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 102.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.685,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 109.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 102.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.6799999999999999,
+      "hydrogen_purity": 0.981,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 102.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.675,
+      "hydrogen_purity": 0.983,
+      "compression_power_kW": 110.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 103.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.67,
+      "hydrogen_purity": 0.985,
+      "compression_power_kW": 111.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 103.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.665,
+      "hydrogen_purity": 0.987,
+      "compression_power_kW": 111.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 103.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.66,
+      "hydrogen_purity": 0.989,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 104.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.05,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 104.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 100.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 104.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 100.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 105.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 100.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 105.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 100.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 106.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 101.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 106.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 101.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 107.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 101.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.735,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 107.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 102.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 108.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 102.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.725,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 108.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 102.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 109.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 103.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.715,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 109.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 103.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.71,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 103.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7050000000000001,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 110.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 103.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.7,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 111.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 104.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.6950000000000001,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 111.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 104.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.69,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 104.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.685,
+      "hydrogen_purity": 0.982,
+      "compression_power_kW": 112.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 105.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.68,
+      "hydrogen_purity": 0.984,
+      "compression_power_kW": 113.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 105.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.675,
+      "hydrogen_purity": 0.986,
+      "compression_power_kW": 113.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 105.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.67,
+      "hydrogen_purity": 0.988,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 106.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.1,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 106.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 102.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 106.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 102.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 107.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 102.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 107.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 102.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 108.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 103.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 108.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 103.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 109.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 103.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 109.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 104.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 104.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.735,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 110.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 104.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 111.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 105.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.725,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 111.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 105.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 105.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7150000000000001,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 112.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 105.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.71,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 113.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 106.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7050000000000001,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 113.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 106.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.7,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 106.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.6950000000000001,
+      "hydrogen_purity": 0.981,
+      "compression_power_kW": 114.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 107.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.6900000000000001,
+      "hydrogen_purity": 0.983,
+      "compression_power_kW": 115.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 107.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.685,
+      "hydrogen_purity": 0.985,
+      "compression_power_kW": 115.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 107.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.68,
+      "hydrogen_purity": 0.987,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 108.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.15000000000000002,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 108.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 104.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 108.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 104.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 109.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 104.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 109.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 104.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 105.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 110.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 105.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 111.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 105.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 111.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 106.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 106.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 112.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 106.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 113.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 107.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.735,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 113.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 107.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 107.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7250000000000001,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 114.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 107.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 115.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 108.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7150000000000001,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 115.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 108.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.71,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 108.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7050000000000001,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 116.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 109.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7000000000000001,
+      "hydrogen_purity": 0.982,
+      "compression_power_kW": 117.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 109.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.6950000000000001,
+      "hydrogen_purity": 0.984,
+      "compression_power_kW": 117.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 109.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.6900000000000001,
+      "hydrogen_purity": 0.986,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 110.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.2,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 110.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 106.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.795,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 110.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 106.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 111.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 106.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 111.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 106.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 107.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 112.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 107.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 113.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 107.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 113.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 108.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 108.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 114.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 108.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 115.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 109.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 115.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 109.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 109.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7350000000000001,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 116.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 109.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 117.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 110.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7250000000000001,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 117.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 110.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.72,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 110.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7150000000000001,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 118.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 111.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7100000000000001,
+      "hydrogen_purity": 0.981,
+      "compression_power_kW": 119.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 111.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.7050000000000001,
+      "hydrogen_purity": 0.983,
+      "compression_power_kW": 119.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 111.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7000000000000001,
+      "hydrogen_purity": 0.985,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 112.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.25,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 112.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 108.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.805,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 112.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 108.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 113.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 108.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.795,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 113.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 108.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 109.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 114.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 109.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 115.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 109.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 115.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 110.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 110.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 116.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 110.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 117.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 111.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 117.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 111.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 111.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7450000000000001,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 118.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 111.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 119.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 112.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7350000000000001,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 119.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 112.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.73,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 112.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7250000000000001,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 120.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 113.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7200000000000001,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 121.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 113.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.7150000000000001,
+      "hydrogen_purity": 0.982,
+      "compression_power_kW": 121.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 113.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7100000000000001,
+      "hydrogen_purity": 0.984,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 114.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.30000000000000004,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 114.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 110.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.8150000000000001,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 114.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 110.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 115.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 110.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.805,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 115.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 110.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 111.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.795,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 116.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 111.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 117.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 111.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 117.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 112.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 112.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 118.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 112.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 119.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 113.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 119.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 113.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 113.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7550000000000001,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 120.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 113.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 121.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 114.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7450000000000001,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 121.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 114.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 114.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7350000000000001,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 122.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 115.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7300000000000001,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 123.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 115.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.7250000000000001,
+      "hydrogen_purity": 0.981,
+      "compression_power_kW": 123.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 115.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7200000000000001,
+      "hydrogen_purity": 0.983,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 116.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.35000000000000003,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.8300000000000001,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 116.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 112.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.8250000000000001,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 116.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 112.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 117.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 112.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.8150000000000001,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 117.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 112.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 113.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.805,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 118.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 113.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 119.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 113.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.795,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 119.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 114.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 114.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 120.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 114.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 121.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 115.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 121.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 115.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 115.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7650000000000001,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 122.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 115.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 123.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 116.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7550000000000001,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 123.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 116.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 116.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7450000000000001,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 124.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 117.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7400000000000001,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 125.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 117.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.7350000000000001,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 125.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 117.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7300000000000001,
+      "hydrogen_purity": 0.982,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 118.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.4,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 118.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 114.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 118.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 114.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 119.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 114.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 119.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 114.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.82,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 115.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 120.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 115.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.8099999999999999,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 121.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 115.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 121.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 116.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.7999999999999999,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 116.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.7949999999999999,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 122.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 116.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.7899999999999999,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 123.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 117.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.7849999999999999,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 123.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 117.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.7799999999999999,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 117.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7749999999999999,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 124.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 117.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 125.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 118.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7649999999999999,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 125.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 118.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 118.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7549999999999999,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 126.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 119.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 127.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 119.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.745,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 127.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 119.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.74,
+      "hydrogen_purity": 0.981,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 120.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.45,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 120.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 116.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 120.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 116.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 121.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 116.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 121.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 116.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 117.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 122.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 117.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.82,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 123.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 117.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 123.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 118.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.8099999999999999,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 118.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 124.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 118.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.7999999999999999,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 125.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 119.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.7949999999999999,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 125.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 119.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.7899999999999999,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 119.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7849999999999999,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 126.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 119.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 127.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 120.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7749999999999999,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 127.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 120.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 120.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7649999999999999,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 128.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 121.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 129.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 121.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.755,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 129.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 121.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.75,
+      "hydrogen_purity": 0.98,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 122.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.5,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.939,
+      "compression_power_kW": 122.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 118.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 122.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 118.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 123.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 118.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 123.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 118.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 119.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 124.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 119.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 125.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 119.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 125.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 120.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.82,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 120.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 126.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 120.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.8099999999999999,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 127.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 121.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 127.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 121.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.7999999999999999,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 121.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7949999999999999,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 128.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 121.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 129.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 122.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7849999999999999,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 129.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 122.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 122.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7749999999999999,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 130.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 123.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 131.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 123.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.765,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 131.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 123.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.76,
+      "hydrogen_purity": 0.979,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 124.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.55,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.938,
+      "compression_power_kW": 124.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 120.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 124.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 120.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 125.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 120.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 125.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 120.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 121.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 126.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 121.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 127.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 121.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 127.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 122.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 122.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 128.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 122.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.82,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 129.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 123.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 129.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 123.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.8099999999999999,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 123.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 130.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 123.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 131.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 124.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.7949999999999999,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 131.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 124.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 124.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7849999999999999,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 132.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 125.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 133.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 125.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.775,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 133.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 125.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.77,
+      "hydrogen_purity": 0.978,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 126.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.6000000000000001,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.9369999999999999,
+      "compression_power_kW": 126.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 122.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.939,
+      "compression_power_kW": 126.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 122.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 127.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 122.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 127.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 122.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 123.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 128.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 123.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 129.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 123.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 129.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 124.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 124.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 130.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 124.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 131.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 125.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 131.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 125.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.82,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 125.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 132.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 125.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 133.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 126.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 133.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 126.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 126.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.7949999999999999,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 134.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 127.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 135.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 127.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.785,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 135.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 127.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.78,
+      "hydrogen_purity": 0.977,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 128.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.65,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.9359999999999999,
+      "compression_power_kW": 128.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 124.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.938,
+      "compression_power_kW": 128.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 124.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 129.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 124.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 129.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 124.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 125.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 130.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 125.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 131.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 125.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 131.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 126.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 126.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 132.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 126.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 133.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 127.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 133.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 127.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.83,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 127.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 134.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 127.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 135.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 128.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 135.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 128.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 128.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.8049999999999999,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 136.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 129.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 137.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 129.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.795,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 137.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 129.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.79,
+      "hydrogen_purity": 0.976,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 130.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.7000000000000001,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.9,
+      "hydrogen_purity": 0.9349999999999999,
+      "compression_power_kW": 130.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 126.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.895,
+      "hydrogen_purity": 0.9369999999999999,
+      "compression_power_kW": 130.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 126.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.939,
+      "compression_power_kW": 131.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 126.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 131.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 126.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 127.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 132.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 127.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 133.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 127.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 133.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 128.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 128.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 134.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 128.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 135.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 129.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 135.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 129.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.84,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 129.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 136.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 129.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8300000000000001,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 137.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 130.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 137.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 130.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 130.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.815,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 138.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 131.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 139.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 131.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.805,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 139.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 131.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8,
+      "hydrogen_purity": 0.975,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 132.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.75,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.91,
+      "hydrogen_purity": 0.9339999999999999,
+      "compression_power_kW": 132.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 128.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.905,
+      "hydrogen_purity": 0.9359999999999999,
+      "compression_power_kW": 132.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 128.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.9,
+      "hydrogen_purity": 0.938,
+      "compression_power_kW": 133.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 128.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.895,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 133.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 128.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 129.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 134.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 129.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 135.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 129.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 135.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 130.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 130.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 136.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 130.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 137.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 131.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 137.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 131.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 131.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 138.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 131.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8400000000000001,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 139.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 132.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 139.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 132.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8300000000000001,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 132.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.825,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 140.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 133.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 141.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 133.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.8150000000000001,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 141.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 133.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.81,
+      "hydrogen_purity": 0.974,
+      "compression_power_kW": 142.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 134.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.92,
+      "hydrogen_purity": 0.9329999999999999,
+      "compression_power_kW": 134.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 130.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.915,
+      "hydrogen_purity": 0.9349999999999999,
+      "compression_power_kW": 134.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 130.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.91,
+      "hydrogen_purity": 0.9369999999999999,
+      "compression_power_kW": 135.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 130.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.905,
+      "hydrogen_purity": 0.939,
+      "compression_power_kW": 135.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 130.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.9,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 131.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.895,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 136.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 131.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 137.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 131.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 137.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 132.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 132.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 138.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 132.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 139.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 133.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 139.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 133.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 133.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 140.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 133.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8500000000000001,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 141.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 134.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 141.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 134.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8400000000000001,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 142.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 134.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.835,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 142.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 135.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8300000000000001,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 143.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 135.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.8250000000000001,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 143.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 135.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8200000000000001,
+      "hydrogen_purity": 0.973,
+      "compression_power_kW": 144.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 136.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.8500000000000001,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.93,
+      "hydrogen_purity": 0.9319999999999999,
+      "compression_power_kW": 136.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 132.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.925,
+      "hydrogen_purity": 0.9339999999999999,
+      "compression_power_kW": 136.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 132.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.92,
+      "hydrogen_purity": 0.9359999999999999,
+      "compression_power_kW": 137.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 132.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.915,
+      "hydrogen_purity": 0.938,
+      "compression_power_kW": 137.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 132.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.91,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 133.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.905,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 138.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 133.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.9,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 139.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 133.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.895,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 139.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 134.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 134.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 140.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 134.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 141.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 135.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 141.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 135.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.87,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 142.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 135.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 142.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 135.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8600000000000001,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 143.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 136.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 143.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 136.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8500000000000001,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 144.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 136.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.845,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 144.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 137.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8400000000000001,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 145.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 137.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.8350000000000001,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 145.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 137.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8300000000000001,
+      "hydrogen_purity": 0.972,
+      "compression_power_kW": 146.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 138.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.9400000000000001,
+      "hydrogen_purity": 0.9309999999999999,
+      "compression_power_kW": 138.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 134.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.935,
+      "hydrogen_purity": 0.9329999999999999,
+      "compression_power_kW": 138.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 134.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.93,
+      "hydrogen_purity": 0.9349999999999999,
+      "compression_power_kW": 139.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 134.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.925,
+      "hydrogen_purity": 0.9369999999999999,
+      "compression_power_kW": 139.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 134.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.92,
+      "hydrogen_purity": 0.939,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 135.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.915,
+      "hydrogen_purity": 0.941,
+      "compression_power_kW": 140.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 135.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.91,
+      "hydrogen_purity": 0.943,
+      "compression_power_kW": 141.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 135.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.905,
+      "hydrogen_purity": 0.945,
+      "compression_power_kW": 141.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 136.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.9,
+      "hydrogen_purity": 0.947,
+      "compression_power_kW": 142.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 136.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.895,
+      "hydrogen_purity": 0.949,
+      "compression_power_kW": 142.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 136.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.89,
+      "hydrogen_purity": 0.951,
+      "compression_power_kW": 143.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 137.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.953,
+      "compression_power_kW": 143.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 137.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.88,
+      "hydrogen_purity": 0.955,
+      "compression_power_kW": 144.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 137.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.957,
+      "compression_power_kW": 144.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 137.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8700000000000001,
+      "hydrogen_purity": 0.959,
+      "compression_power_kW": 145.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 138.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.961,
+      "compression_power_kW": 145.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 138.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8600000000000001,
+      "hydrogen_purity": 0.963,
+      "compression_power_kW": 146.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 138.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.965,
+      "compression_power_kW": 146.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 139.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8500000000000001,
+      "hydrogen_purity": 0.967,
+      "compression_power_kW": 147.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 139.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.8450000000000001,
+      "hydrogen_purity": 0.969,
+      "compression_power_kW": 147.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 139.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.8400000000000001,
+      "hydrogen_purity": 0.971,
+      "compression_power_kW": 148.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 140.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 0.9500000000000001,
+      "hydrogen_purge_fraction": 1.0
+    },
+    {
+      "hydrogen_recovery": 0.95,
+      "hydrogen_purity": 0.9299999999999999,
+      "compression_power_kW": 140.0,
+      "tailgas_fuel_index": 0.2,
+      "objective": 136.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.0
+    },
+    {
+      "hydrogen_recovery": 0.945,
+      "hydrogen_purity": 0.9319999999999999,
+      "compression_power_kW": 140.5,
+      "tailgas_fuel_index": 0.21000000000000002,
+      "objective": 136.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.05
+    },
+    {
+      "hydrogen_recovery": 0.94,
+      "hydrogen_purity": 0.9339999999999999,
+      "compression_power_kW": 141.0,
+      "tailgas_fuel_index": 0.22000000000000003,
+      "objective": 136.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.1
+    },
+    {
+      "hydrogen_recovery": 0.9349999999999999,
+      "hydrogen_purity": 0.9359999999999999,
+      "compression_power_kW": 141.5,
+      "tailgas_fuel_index": 0.23,
+      "objective": 136.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.15000000000000002
+    },
+    {
+      "hydrogen_recovery": 0.9299999999999999,
+      "hydrogen_purity": 0.938,
+      "compression_power_kW": 142.0,
+      "tailgas_fuel_index": 0.24000000000000002,
+      "objective": 137.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.2
+    },
+    {
+      "hydrogen_recovery": 0.9249999999999999,
+      "hydrogen_purity": 0.94,
+      "compression_power_kW": 142.5,
+      "tailgas_fuel_index": 0.25,
+      "objective": 137.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.25
+    },
+    {
+      "hydrogen_recovery": 0.9199999999999999,
+      "hydrogen_purity": 0.942,
+      "compression_power_kW": 143.0,
+      "tailgas_fuel_index": 0.26,
+      "objective": 137.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.30000000000000004
+    },
+    {
+      "hydrogen_recovery": 0.9149999999999999,
+      "hydrogen_purity": 0.944,
+      "compression_power_kW": 143.5,
+      "tailgas_fuel_index": 0.27,
+      "objective": 138.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.35000000000000003
+    },
+    {
+      "hydrogen_recovery": 0.9099999999999999,
+      "hydrogen_purity": 0.946,
+      "compression_power_kW": 144.0,
+      "tailgas_fuel_index": 0.28,
+      "objective": 138.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.4
+    },
+    {
+      "hydrogen_recovery": 0.9049999999999999,
+      "hydrogen_purity": 0.948,
+      "compression_power_kW": 144.5,
+      "tailgas_fuel_index": 0.29000000000000004,
+      "objective": 138.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.45
+    },
+    {
+      "hydrogen_recovery": 0.8999999999999999,
+      "hydrogen_purity": 0.95,
+      "compression_power_kW": 145.0,
+      "tailgas_fuel_index": 0.30000000000000004,
+      "objective": 139.0,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.5
+    },
+    {
+      "hydrogen_recovery": 0.8949999999999999,
+      "hydrogen_purity": 0.952,
+      "compression_power_kW": 145.5,
+      "tailgas_fuel_index": 0.31000000000000005,
+      "objective": 139.3,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.55
+    },
+    {
+      "hydrogen_recovery": 0.8899999999999999,
+      "hydrogen_purity": 0.954,
+      "compression_power_kW": 146.0,
+      "tailgas_fuel_index": 0.32000000000000006,
+      "objective": 139.6,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.6000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.885,
+      "hydrogen_purity": 0.956,
+      "compression_power_kW": 146.5,
+      "tailgas_fuel_index": 0.33,
+      "objective": 139.9,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.65
+    },
+    {
+      "hydrogen_recovery": 0.8799999999999999,
+      "hydrogen_purity": 0.958,
+      "compression_power_kW": 147.0,
+      "tailgas_fuel_index": 0.34,
+      "objective": 140.2,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.7000000000000001
+    },
+    {
+      "hydrogen_recovery": 0.875,
+      "hydrogen_purity": 0.96,
+      "compression_power_kW": 147.5,
+      "tailgas_fuel_index": 0.35000000000000003,
+      "objective": 140.5,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.75
+    },
+    {
+      "hydrogen_recovery": 0.8699999999999999,
+      "hydrogen_purity": 0.962,
+      "compression_power_kW": 148.0,
+      "tailgas_fuel_index": 0.36000000000000004,
+      "objective": 140.8,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.8
+    },
+    {
+      "hydrogen_recovery": 0.865,
+      "hydrogen_purity": 0.964,
+      "compression_power_kW": 148.5,
+      "tailgas_fuel_index": 0.37000000000000005,
+      "objective": 141.1,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.8500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.86,
+      "hydrogen_purity": 0.966,
+      "compression_power_kW": 149.0,
+      "tailgas_fuel_index": 0.38,
+      "objective": 141.4,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.9
+    },
+    {
+      "hydrogen_recovery": 0.855,
+      "hydrogen_purity": 0.968,
+      "compression_power_kW": 149.5,
+      "tailgas_fuel_index": 0.39,
+      "objective": 141.7,
+      "feasible": false,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 0.9500000000000001
+    },
+    {
+      "hydrogen_recovery": 0.85,
+      "hydrogen_purity": 0.97,
+      "compression_power_kW": 150.0,
+      "tailgas_fuel_index": 0.4,
+      "objective": 142.0,
+      "feasible": true,
+      "pressure_equalization_fraction": 1.0,
+      "hydrogen_purge_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo adsorption/carbon extension anchored to active registry parent",
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_distinction": "Adds pressure-swing adsorption, hydrogen recycle and an energy-bearing tail-gas product to the HDA gas path."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

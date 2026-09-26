@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_wgs_interstage_cooling_condensate_knockout",
+  "family": "family_wgs_intercool",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "high_temperature_shift_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "interstage_cooling_fraction",
+      "value": 0.8500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co_conversion",
+      "value": 0.905,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "lts_liquid_water_fraction",
+      "value": 0.006749999999999996,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "lts_inlet_temperature_K",
+      "value": 439.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_yield_index",
+      "value": 0.8145,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "SYNGAS.outlet"
+  ],
+  "terminal_product_ports": [
+    "H2.inlet",
+    "WATER.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_methanol_single"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_single",
+    "chemical_change": "Adds reaction-temperature staging and phase separation that alters steam/CO equilibrium between catalyst beds.",
+    "native_metrics": {
+      "co_conversion": 0.905,
+      "lts_liquid_water_fraction": 0.006749999999999996,
+      "lts_inlet_temperature_K": 439.5,
+      "hydrogen_yield_index": 0.8145
+    }
+  }
+}

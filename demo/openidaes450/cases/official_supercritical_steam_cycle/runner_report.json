@@ -1,0 +1,792 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "supercritical_steam_cycle",
+  "official_reference_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/supercritical/supercritical_steam_cycle_doc.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "gross_power_mw": 622.3884026414312,
+  "steam_cycle_efficiency": 44.258494060928875,
+  "boiler_heat_mw": 1406.2575237752426,
+  "main_steam_pressure_pa": 24230000.0,
+  "condenser_pressure_pa": 3973.266839343183,
+  "bfp_power_mw": 14.986971727272909,
+  "bfpt_power_mw": 14.986971727272909,
+  "stream_table": {
+    "columns": [
+      "Molar Flow",
+      "Mass Flow",
+      "T",
+      "P",
+      "Vapor Fraction",
+      "Molar Enthalpy"
+    ],
+    "records": [
+      {
+        "stream": "Units",
+        "Molar Flow": "mole / second",
+        "Mass Flow": "kilogram / second",
+        "T": "kelvin",
+        "P": "pascal",
+        "Vapor Fraction": "dimensionless",
+        "Molar Enthalpy": "joule / mole"
+      },
+      {
+        "stream": "COND_01",
+        "Molar Flow": 18667.79647986384,
+        "Mass Flow": 336.3053565542037,
+        "T": 301.99452145865956,
+        "P": 3973.266839343183,
+        "Vapor Fraction": 1.0141615406620215e-14,
+        "Molar Enthalpy": 2178.1104413898197
+      },
+      {
+        "stream": "COND_02",
+        "Molar Flow": 18667.796479863835,
+        "Mass Flow": 336.3053565542036,
+        "T": 301.99452145865956,
+        "P": 3973.266839343183,
+        "Vapor Fraction": 1.0129931517902911e-14,
+        "Molar Enthalpy": 2178.1104413898192
+      },
+      {
+        "stream": "COND_03",
+        "Molar Flow": 18667.796479863835,
+        "Mass Flow": 336.3053565542036,
+        "T": 302.0758881424749,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 2200.716121849344
+      },
+      {
+        "stream": "CW01",
+        "Molar Flow": 2500000,
+        "Mass Flow": 45038.170000000006,
+        "T": 295.5368612090945,
+        "P": 500000,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 1700
+      },
+      {
+        "stream": "CW02",
+        "Molar Flow": 2500000.0,
+        "Mass Flow": 45038.170000000006,
+        "T": 299.7026075116718,
+        "P": 500000.0,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 2013.7276604405074
+      },
+      {
+        "stream": "EXHST_BFPT",
+        "Molar Flow": 1967.3886797474336,
+        "Mass Flow": 35.44303432581619,
+        "T": 301.99452145865956,
+        "P": 3973.266839343183,
+        "Vapor Fraction": 0.9954362012480287,
+        "Molar Enthalpy": 45801.252273314094
+      },
+      {
+        "stream": "EXHST_MAIN",
+        "Molar Flow": 16700.407800116405,
+        "Mass Flow": 300.8623222283875,
+        "T": 301.99452145865956,
+        "P": 3973.266839343183,
+        "Vapor Fraction": 0.9544056703129604,
+        "Molar Enthalpy": 44003.16549670742
+      },
+      {
+        "stream": "EXTR_BFPT_A",
+        "Molar Flow": 1967.3886797474336,
+        "Mass Flow": 35.44303432581619,
+        "T": 522.826641001887,
+        "P": 359106.11953278014,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 53418.94972250185
+      },
+      {
+        "stream": "EXTR_HP4",
+        "Molar Flow": 1878.4575715058902,
+        "Mass Flow": 33.84091657730778,
+        "T": 694.6706127254885,
+        "P": 8414083.510789983,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 57487.193456498455
+      },
+      {
+        "stream": "EXTR_HP7",
+        "Molar Flow": 1298.9626835135125,
+        "Mass Flow": 23.40116086549511,
+        "T": 601.4865405740218,
+        "P": 4308010.757524472,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 54581.3481310071
+      },
+      {
+        "stream": "EXTR_IP10",
+        "Molar Flow": 927.7708804694255,
+        "Mass Flow": 16.714041054252668,
+        "T": 522.826641001887,
+        "P": 359106.11953278014,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 53418.94972250185
+      },
+      {
+        "stream": "EXTR_IP5",
+        "Molar Flow": 891.5184107357959,
+        "Mass Flow": 16.06094309633944,
+        "T": 676.5849567512339,
+        "P": 1243797.8236192912,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 58873.20889438422
+      },
+      {
+        "stream": "EXTR_LP10",
+        "Molar Flow": 157.0136922552909,
+        "Mass Flow": 2.82864374564859,
+        "T": 336.3436972410613,
+        "P": 23086.53357399834,
+        "Vapor Fraction": 0.9570995067104013,
+        "Molar Enthalpy": 45282.67995802148
+      },
+      {
+        "stream": "EXTR_LP11",
+        "Molar Flow": 431.23374152765683,
+        "Mass Flow": 7.768791424263467,
+        "T": 330.4052173540365,
+        "P": 17545.76551623874,
+        "Vapor Fraction": 0.9465333158543204,
+        "Molar Enthalpy": 44635.18338604574
+      },
+      {
+        "stream": "EXTR_LP4",
+        "Molar Flow": 283.62868019161607,
+        "Mass Flow": 5.109646686138255,
+        "T": 413.50343430022724,
+        "P": 119805.61562529649,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 49646.62199287771
+      },
+      {
+        "stream": "EXTR_LP8",
+        "Molar Flow": 149.68720279051678,
+        "Mass Flow": 2.696655074441508,
+        "T": 348.98865259028423,
+        "P": 39969.760342794914,
+        "Vapor Fraction": 0.9795421556793709,
+        "Molar Enthalpy": 46634.13594085655
+      },
+      {
+        "stream": "FW01A",
+        "Molar Flow": 18667.796479863835,
+        "Mass Flow": 336.3053565542036,
+        "T": 314.37610828545365,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 3126.329765789085
+      },
+      {
+        "stream": "FW01B",
+        "Molar Flow": 19689.359796628916,
+        "Mass Flow": 354.7090934846954,
+        "T": 315.2166791176859,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 3189.588705042423
+      },
+      {
+        "stream": "FW02",
+        "Molar Flow": 19689.359796628916,
+        "Mass Flow": 354.7090934846954,
+        "T": 319.803064329036,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 3534.7866060095316
+      },
+      {
+        "stream": "FW03",
+        "Molar Flow": 19689.359796628916,
+        "Mass Flow": 354.7090934846954,
+        "T": 324.1998874110522,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 3865.80107200843
+      },
+      {
+        "stream": "FW04",
+        "Molar Flow": 19689.359796628916,
+        "Mass Flow": 354.7090934846954,
+        "T": 332.5713337557717,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 4496.362017786858
+      },
+      {
+        "stream": "FW05A",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 376.8841206572423,
+        "P": 1003973.266839343,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 7847.208630878759
+      },
+      {
+        "stream": "FW05B",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 380.32847748008436,
+        "P": 26922222.22222222,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 8454.311022074608
+      },
+      {
+        "stream": "FW06",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 410.98312971627126,
+        "P": 26922222.22222222,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 10765.434578005052
+      },
+      {
+        "stream": "FW07",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 438.75411081023407,
+        "P": 26922222.22222222,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 12883.841832018177
+      },
+      {
+        "stream": "FW08",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 473.36477186197885,
+        "P": 26922222.22222222,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 15573.59901364483
+      },
+      {
+        "stream": "FWH1_DRN1",
+        "Molar Flow": 1021.5633167650806,
+        "Mass Flow": 18.40373693049182,
+        "T": 330.4052173540365,
+        "P": 17545.76551623874,
+        "Vapor Fraction": 3.2456506692230845e-16,
+        "Molar Enthalpy": 4318.1269554308155
+      },
+      {
+        "stream": "FWH1_DRN2",
+        "Molar Flow": 1021.5633167650806,
+        "Mass Flow": 18.40373693049182,
+        "T": 330.52675942013434,
+        "P": 1217545.7655162388,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 4345.566982779409
+      },
+      {
+        "stream": "FWH2_DRN",
+        "Molar Flow": 590.3295752374237,
+        "Mass Flow": 10.634945506228352,
+        "T": 328.0012153308826,
+        "P": 23086.53357399834,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 4137.028171991885
+      },
+      {
+        "stream": "FWH3_DRN",
+        "Molar Flow": 433.3158829821328,
+        "Mass Flow": 7.806301760579762,
+        "T": 338.2912941662472,
+        "P": 39969.760342794914,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 4913.124731603412
+      },
+      {
+        "stream": "FWH4_DRN",
+        "Molar Flow": 283.62868019161607,
+        "Mass Flow": 5.109646686138255,
+        "T": 350.9939637853511,
+        "P": 119805.61562529649,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 5873.39945858941
+      },
+      {
+        "stream": "FWH6_DRN",
+        "Molar Flow": 4068.938665755198,
+        "Mass Flow": 73.30302053914232,
+        "T": 452.16651782657476,
+        "P": 1243797.8236192912,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 13670.813304699526
+      },
+      {
+        "stream": "FWH7_DRN",
+        "Molar Flow": 3177.4202550194022,
+        "Mass Flow": 57.24207744280288,
+        "T": 516.0584950963568,
+        "P": 4308010.757524472,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 18943.577729729113
+      },
+      {
+        "stream": "FWH8_DRN",
+        "Molar Flow": 1878.4575715058902,
+        "Mass Flow": 33.84091657730778,
+        "T": 551.8312169262775,
+        "P": 8414083.510789983,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 22139.29244011092
+      },
+      {
+        "stream": "MAKEUP_01",
+        "Molar Flow": -1.7520707107300837e-12,
+        "Mass Flow": -3.156402340875294e-14,
+        "T": 306.24808547589095,
+        "P": 101325,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 2500
+      },
+      {
+        "stream": "RHT_COLD",
+        "Molar Flow": 21508.649087834136,
+        "Mass Flow": 387.4840776352875,
+        "T": 601.4865405740218,
+        "P": 4308010.757524472,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 54581.3481310071
+      },
+      {
+        "stream": "RHT_HOT",
+        "Molar Flow": 21508.649087834136,
+        "Mass Flow": 387.4840776352875,
+        "T": 866.0000000000003,
+        "P": 4308010.757524472,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 65862.62662798045
+      },
+      {
+        "stream": "STEAM_LP",
+        "Molar Flow": 17721.971116881483,
+        "Mass Flow": 319.2660591588793,
+        "T": 522.826641001887,
+        "P": 359106.11953278014,
+        "Vapor Fraction": 1.0,
+        "Molar Enthalpy": 53418.94972250185
+      },
+      {
+        "stream": "STEAM_MAIN",
+        "Molar Flow": 24686.06934285354,
+        "Mass Flow": 444.72615507809047,
+        "T": 866.4816998575948,
+        "P": 24230000.0,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 62710
+      },
+      {
+        "stream": "THRTL1",
+        "Molar Flow": 6171.517335713385,
+        "Mass Flow": 111.18153876952262,
+        "T": 862.514274717931,
+        "P": 23000898.75400153,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 62710.0
+      },
+      {
+        "stream": "THRTL2",
+        "Molar Flow": 6171.517335713385,
+        "Mass Flow": 111.18153876952262,
+        "T": 862.514274717931,
+        "P": 23000898.75400153,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 62710.0
+      },
+      {
+        "stream": "THRTL3",
+        "Molar Flow": 6171.517335713385,
+        "Mass Flow": 111.18153876952262,
+        "T": 862.514274717931,
+        "P": 23000898.75400153,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 62710.0
+      },
+      {
+        "stream": "THRTL4",
+        "Molar Flow": 6171.517335713385,
+        "Mass Flow": 111.18153876952262,
+        "T": 862.514274717931,
+        "P": 23000898.75400153,
+        "Vapor Fraction": 0.0,
+        "Molar Enthalpy": 62710.0
+      },
+      {
+        "stream": "condenser_mix_to_condenser",
+        "Molar Flow": 18667.79647986384,
+        "Mass Flow": 336.3053565542037,
+        "T": 301.99452145865956,
+        "P": 3973.266839343183,
+        "Vapor Fraction": 0.9587298551289213,
+        "Molar Enthalpy": 44192.664861204736
+      }
+    ]
+  },
+  "stream_values": {
+    "COND_01": {
+      "Molar Flow": 18667.79647986384,
+      "Mass Flow": 336.3053565542037,
+      "T": 301.99452145865956,
+      "P": 3973.266839343183,
+      "Vapor Fraction": 1.0141615406620215e-14,
+      "Molar Enthalpy": 2178.1104413898197
+    },
+    "COND_02": {
+      "Molar Flow": 18667.796479863835,
+      "Mass Flow": 336.3053565542036,
+      "T": 301.99452145865956,
+      "P": 3973.266839343183,
+      "Vapor Fraction": 1.0129931517902911e-14,
+      "Molar Enthalpy": 2178.1104413898192
+    },
+    "COND_03": {
+      "Molar Flow": 18667.796479863835,
+      "Mass Flow": 336.3053565542036,
+      "T": 302.0758881424749,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 2200.716121849344
+    },
+    "CW01": {
+      "Molar Flow": 2500000,
+      "Mass Flow": 45038.170000000006,
+      "T": 295.5368612090945,
+      "P": 500000,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 1700
+    },
+    "CW02": {
+      "Molar Flow": 2500000.0,
+      "Mass Flow": 45038.170000000006,
+      "T": 299.7026075116718,
+      "P": 500000.0,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 2013.7276604405074
+    },
+    "EXHST_BFPT": {
+      "Molar Flow": 1967.3886797474336,
+      "Mass Flow": 35.44303432581619,
+      "T": 301.99452145865956,
+      "P": 3973.266839343183,
+      "Vapor Fraction": 0.9954362012480287,
+      "Molar Enthalpy": 45801.252273314094
+    },
+    "EXHST_MAIN": {
+      "Molar Flow": 16700.407800116405,
+      "Mass Flow": 300.8623222283875,
+      "T": 301.99452145865956,
+      "P": 3973.266839343183,
+      "Vapor Fraction": 0.9544056703129604,
+      "Molar Enthalpy": 44003.16549670742
+    },
+    "EXTR_BFPT_A": {
+      "Molar Flow": 1967.3886797474336,
+      "Mass Flow": 35.44303432581619,
+      "T": 522.826641001887,
+      "P": 359106.11953278014,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 53418.94972250185
+    },
+    "EXTR_HP4": {
+      "Molar Flow": 1878.4575715058902,
+      "Mass Flow": 33.84091657730778,
+      "T": 694.6706127254885,
+      "P": 8414083.510789983,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 57487.193456498455
+    },
+    "EXTR_HP7": {
+      "Molar Flow": 1298.9626835135125,
+      "Mass Flow": 23.40116086549511,
+      "T": 601.4865405740218,
+      "P": 4308010.757524472,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 54581.3481310071
+    },
+    "EXTR_IP10": {
+      "Molar Flow": 927.7708804694255,
+      "Mass Flow": 16.714041054252668,
+      "T": 522.826641001887,
+      "P": 359106.11953278014,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 53418.94972250185
+    },
+    "EXTR_IP5": {
+      "Molar Flow": 891.5184107357959,
+      "Mass Flow": 16.06094309633944,
+      "T": 676.5849567512339,
+      "P": 1243797.8236192912,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 58873.20889438422
+    },
+    "EXTR_LP10": {
+      "Molar Flow": 157.0136922552909,
+      "Mass Flow": 2.82864374564859,
+      "T": 336.3436972410613,
+      "P": 23086.53357399834,
+      "Vapor Fraction": 0.9570995067104013,
+      "Molar Enthalpy": 45282.67995802148
+    },
+    "EXTR_LP11": {
+      "Molar Flow": 431.23374152765683,
+      "Mass Flow": 7.768791424263467,
+      "T": 330.4052173540365,
+      "P": 17545.76551623874,
+      "Vapor Fraction": 0.9465333158543204,
+      "Molar Enthalpy": 44635.18338604574
+    },
+    "EXTR_LP4": {
+      "Molar Flow": 283.62868019161607,
+      "Mass Flow": 5.109646686138255,
+      "T": 413.50343430022724,
+      "P": 119805.61562529649,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 49646.62199287771
+    },
+    "EXTR_LP8": {
+      "Molar Flow": 149.68720279051678,
+      "Mass Flow": 2.696655074441508,
+      "T": 348.98865259028423,
+      "P": 39969.760342794914,
+      "Vapor Fraction": 0.9795421556793709,
+      "Molar Enthalpy": 46634.13594085655
+    },
+    "FW01A": {
+      "Molar Flow": 18667.796479863835,
+      "Mass Flow": 336.3053565542036,
+      "T": 314.37610828545365,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 3126.329765789085
+    },
+    "FW01B": {
+      "Molar Flow": 19689.359796628916,
+      "Mass Flow": 354.7090934846954,
+      "T": 315.2166791176859,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 3189.588705042423
+    },
+    "FW02": {
+      "Molar Flow": 19689.359796628916,
+      "Mass Flow": 354.7090934846954,
+      "T": 319.803064329036,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 3534.7866060095316
+    },
+    "FW03": {
+      "Molar Flow": 19689.359796628916,
+      "Mass Flow": 354.7090934846954,
+      "T": 324.1998874110522,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 3865.80107200843
+    },
+    "FW04": {
+      "Molar Flow": 19689.359796628916,
+      "Mass Flow": 354.7090934846954,
+      "T": 332.5713337557717,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 4496.362017786858
+    },
+    "FW05A": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 376.8841206572423,
+      "P": 1003973.266839343,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 7847.208630878759
+    },
+    "FW05B": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 380.32847748008436,
+      "P": 26922222.22222222,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 8454.311022074608
+    },
+    "FW06": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 410.98312971627126,
+      "P": 26922222.22222222,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 10765.434578005052
+    },
+    "FW07": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 438.75411081023407,
+      "P": 26922222.22222222,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 12883.841832018177
+    },
+    "FW08": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 473.36477186197885,
+      "P": 26922222.22222222,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 15573.59901364483
+    },
+    "FWH1_DRN1": {
+      "Molar Flow": 1021.5633167650806,
+      "Mass Flow": 18.40373693049182,
+      "T": 330.4052173540365,
+      "P": 17545.76551623874,
+      "Vapor Fraction": 3.2456506692230845e-16,
+      "Molar Enthalpy": 4318.1269554308155
+    },
+    "FWH1_DRN2": {
+      "Molar Flow": 1021.5633167650806,
+      "Mass Flow": 18.40373693049182,
+      "T": 330.52675942013434,
+      "P": 1217545.7655162388,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 4345.566982779409
+    },
+    "FWH2_DRN": {
+      "Molar Flow": 590.3295752374237,
+      "Mass Flow": 10.634945506228352,
+      "T": 328.0012153308826,
+      "P": 23086.53357399834,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 4137.028171991885
+    },
+    "FWH3_DRN": {
+      "Molar Flow": 433.3158829821328,
+      "Mass Flow": 7.806301760579762,
+      "T": 338.2912941662472,
+      "P": 39969.760342794914,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 4913.124731603412
+    },
+    "FWH4_DRN": {
+      "Molar Flow": 283.62868019161607,
+      "Mass Flow": 5.109646686138255,
+      "T": 350.9939637853511,
+      "P": 119805.61562529649,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 5873.39945858941
+    },
+    "FWH6_DRN": {
+      "Molar Flow": 4068.938665755198,
+      "Mass Flow": 73.30302053914232,
+      "T": 452.16651782657476,
+      "P": 1243797.8236192912,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 13670.813304699526
+    },
+    "FWH7_DRN": {
+      "Molar Flow": 3177.4202550194022,
+      "Mass Flow": 57.24207744280288,
+      "T": 516.0584950963568,
+      "P": 4308010.757524472,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 18943.577729729113
+    },
+    "FWH8_DRN": {
+      "Molar Flow": 1878.4575715058902,
+      "Mass Flow": 33.84091657730778,
+      "T": 551.8312169262775,
+      "P": 8414083.510789983,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 22139.29244011092
+    },
+    "MAKEUP_01": {
+      "Molar Flow": -1.7520707107300837e-12,
+      "Mass Flow": -3.156402340875294e-14,
+      "T": 306.24808547589095,
+      "P": 101325,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 2500
+    },
+    "RHT_COLD": {
+      "Molar Flow": 21508.649087834136,
+      "Mass Flow": 387.4840776352875,
+      "T": 601.4865405740218,
+      "P": 4308010.757524472,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 54581.3481310071
+    },
+    "RHT_HOT": {
+      "Molar Flow": 21508.649087834136,
+      "Mass Flow": 387.4840776352875,
+      "T": 866.0000000000003,
+      "P": 4308010.757524472,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 65862.62662798045
+    },
+    "STEAM_LP": {
+      "Molar Flow": 17721.971116881483,
+      "Mass Flow": 319.2660591588793,
+      "T": 522.826641001887,
+      "P": 359106.11953278014,
+      "Vapor Fraction": 1.0,
+      "Molar Enthalpy": 53418.94972250185
+    },
+    "STEAM_MAIN": {
+      "Molar Flow": 24686.06934285354,
+      "Mass Flow": 444.72615507809047,
+      "T": 866.4816998575948,
+      "P": 24230000.0,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 62710
+    },
+    "THRTL1": {
+      "Molar Flow": 6171.517335713385,
+      "Mass Flow": 111.18153876952262,
+      "T": 862.514274717931,
+      "P": 23000898.75400153,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 62710.0
+    },
+    "THRTL2": {
+      "Molar Flow": 6171.517335713385,
+      "Mass Flow": 111.18153876952262,
+      "T": 862.514274717931,
+      "P": 23000898.75400153,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 62710.0
+    },
+    "THRTL3": {
+      "Molar Flow": 6171.517335713385,
+      "Mass Flow": 111.18153876952262,
+      "T": 862.514274717931,
+      "P": 23000898.75400153,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 62710.0
+    },
+    "THRTL4": {
+      "Molar Flow": 6171.517335713385,
+      "Mass Flow": 111.18153876952262,
+      "T": 862.514274717931,
+      "P": 23000898.75400153,
+      "Vapor Fraction": 0.0,
+      "Molar Enthalpy": 62710.0
+    },
+    "condenser_mix_to_condenser": {
+      "Molar Flow": 18667.79647986384,
+      "Mass Flow": 336.3053565542037,
+      "T": 301.99452145865956,
+      "P": 3973.266839343183,
+      "Vapor Fraction": 0.9587298551289213,
+      "Molar Enthalpy": 44192.664861204736
+    }
+  },
+  "source_summary": {
+    "source": "idaes.models_extra.power_generation.flowsheets.supercritical_steam_cycle.supercritical_steam_cycle.main",
+    "stream_count": 44
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

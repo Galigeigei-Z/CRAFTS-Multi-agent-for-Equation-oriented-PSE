@@ -1,0 +1,179 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_two_reactor_intercooling",
+  "family": "family_methanol_intercool",
+  "process_type": "Two-Reactor Methanol Synthesis with Interstage Cooling",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_methanol_single.",
+    "Adds reactor staging and interstage heat removal, changing the reaction/temperature path rather than a feed point.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "CO",
+        "CH3OH",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_methanol_single"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "CO",
+      "CH3OH",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "syngas feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "first methanol stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "remove first-stage heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R201",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "second methanol stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "recover methanol",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MEOH",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "liquid methanol",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "OFFGAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_intercool",
+      "role": "unreacted gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "R101.inlet",
+      "stage": "methanol_intercool",
+      "role": "syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "R101.outlet",
+      "destination": "HX101.inlet",
+      "stage": "methanol_intercool",
+      "role": "hot first-stage effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "HX101.outlet",
+      "destination": "R201.inlet",
+      "stage": "methanol_intercool",
+      "role": "intercooled gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "R201.outlet",
+      "destination": "F101.inlet",
+      "stage": "methanol_intercool",
+      "role": "second-stage effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "F101.liquid",
+      "destination": "MEOH.inlet",
+      "stage": "methanol_intercool",
+      "role": "methanol product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "F101.vapor",
+      "destination": "OFFGAS.inlet",
+      "stage": "methanol_intercool",
+      "role": "unreacted offgas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "MEOH.inlet",
+    "OFFGAS.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_methanol_single"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_single",
+    "chemical_change": "Adds reactor staging and interstage heat removal, changing the reaction/temperature path rather than a feed point.",
+    "native_metrics": {
+      "first_stage_conversion": 0.38,
+      "second_stage_conversion": 0.27590000000000003,
+      "total_conversion": 0.6558999999999999,
+      "intercooler_duty_index": 126.0
+    }
+  }
+}

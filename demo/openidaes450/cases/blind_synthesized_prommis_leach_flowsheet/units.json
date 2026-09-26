@@ -1,0 +1,44 @@
+[
+  {
+    "name": "fs.leach",
+    "class": "idaes.core.base.process_block._ScalarLeachingTrain",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "liquid_phase": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solid_phase": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.leach_rxns"
+      },
+      "reaction_package_args": null,
+      "number_of_tanks": 1
+    }
+  },
+  {
+    "name": "fs.leach.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.leach_rxns"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

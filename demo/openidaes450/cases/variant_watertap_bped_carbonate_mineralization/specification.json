@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_bped_carbonate_mineralization",
+  "family": "family_bped_mineralization",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "alkalinity_current_fraction",
+      "value": 0.7000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "mother_liquor_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_capture",
+      "value": 0.9069999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "membrane_scaling_index",
+      "value": 0.0315,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stack_voltage_V",
+      "value": 33.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbonate_purity",
+      "value": 0.96,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "SALT.outlet",
+    "CO2.outlet"
+  ],
+  "terminal_product_ports": [
+    "CARB.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_bped_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_bped_unit",
+    "chemical_change": "Couples electrochemical alkalinity generation to reactive mineral carbonation and solid-product harvest.",
+    "native_metrics": {
+      "co2_capture": 0.9069999999999999,
+      "membrane_scaling_index": 0.0315,
+      "stack_voltage_V": 33.0,
+      "carbonate_purity": 0.96
+    }
+  }
+}

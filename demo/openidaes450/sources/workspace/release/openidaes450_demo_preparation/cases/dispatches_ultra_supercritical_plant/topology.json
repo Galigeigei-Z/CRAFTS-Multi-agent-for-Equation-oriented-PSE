@@ -1,0 +1,729 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "dispatches_ultra_supercritical_plant",
+  "family": "family_dispatches_ultra_supercritical_plant",
+  "process_type": "DISPATCHES ultra-supercritical pulverized coal power plant steam cycle with boiler, two reheaters, multi-stage HP/IP/LP turbines, condenser, condensate pump, nine feedwater heaters, deaerator, booster pump, boiler feedwater pump, and power output",
+  "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant",
+  "source_basis": [
+    "Official source flowchart was read before topology IR emission; visual_evidence mode=official_svg_text_layer file=/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_dispatches_ultra_supercritical_plant_fullsmoke_20260603/source_flowchart.svg.",
+    "The hand-maintained official IDAES source mappings are guardrails for names, ports, and solver runners; they do not bypass the flowchart evidence gate.",
+    "The DISPATCHES fossil_case ultra_supercritical_plant package includes pfd_ultra_supercritical_pc.svg as the official process flow diagram.",
+    "The PFD labels HP, IP, LP, Boiler, Reheater 1, Reheater 2, Turbine 1-11, condenser, condenser pump, FWH1-FWH9, deaerator, BFW pump, booster pump, makeup water, and Power out.",
+    "This case is distinct from the existing IDAES supercritical steam-cycle case because it represents the larger DISPATCHES ultra-supercritical pulverized coal plant with a longer turbine/feedwater-heater train."
+  ],
+  "property_packages": {
+    "iapws95": {
+      "entry_id": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "steam_cycle"
+      ]
+    },
+    "electricity": {
+      "entry_id": "DISPATCHES electrical pseudo-property",
+      "components": [
+        "electricity"
+      ],
+      "phases": [
+        "Energy"
+      ],
+      "scope": [
+        "generator",
+        "power_out"
+      ]
+    }
+  },
+  "components": {
+    "working_fluid": [
+      "H2O"
+    ],
+    "energy": [
+      "coal_heat",
+      "steam_power",
+      "electricity"
+    ]
+  },
+  "units": [
+    {
+      "id": "makeup_water",
+      "kind": "Feed",
+      "package": "iapws95",
+      "stage": "makeup",
+      "role": "makeup water to condenser hotwell",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser",
+      "kind": "Condenser",
+      "package": "iapws95",
+      "stage": "condensing",
+      "role": "condenses LP turbine exhaust and receives makeup water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser_pump",
+      "kind": "Pump",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "raises condensate pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH1",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "low-pressure feedwater heater 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH2",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "low-pressure feedwater heater 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH3",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "low-pressure feedwater heater 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH4",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "low-pressure feedwater heater 4",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "deaerator",
+      "kind": "Deaerator",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "deaerating open feedwater heater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "booster_pump",
+      "kind": "Pump",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "booster pump after deaerator",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BFW_pump",
+      "kind": "Pump",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "boiler feedwater pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH5",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "high-pressure feedwater heater 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH6",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "high-pressure feedwater heater 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH7",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "high-pressure feedwater heater 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH8",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "high-pressure feedwater heater 8",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH9",
+      "kind": "FeedwaterHeater",
+      "package": "iapws95",
+      "stage": "feedwater",
+      "role": "high-pressure feedwater heater 9",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "boiler",
+      "kind": "Boiler",
+      "package": "iapws95",
+      "stage": "boiler",
+      "role": "ultra-supercritical pulverized coal boiler",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_1",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "HP",
+      "role": "first HP turbine stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_2",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "HP",
+      "role": "second HP turbine stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reheater_1",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "reheat",
+      "role": "first reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_3",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "IP",
+      "role": "first IP turbine stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_4",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "IP",
+      "role": "second IP turbine stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reheater_2",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "reheat",
+      "role": "second reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_5",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_6",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_7",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_8",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 8",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_9",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 9",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_10",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 10",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine_11",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "LP",
+      "role": "LP turbine stage 11",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp_turbine",
+      "kind": "Turbine",
+      "package": "iapws95",
+      "stage": "auxiliary_power",
+      "role": "boiler feed pump turbine drive",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_out",
+      "kind": "Product",
+      "package": "electricity",
+      "stage": "power",
+      "role": "net power output",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "makeup_to_condenser",
+      "source": "makeup_water.outlet",
+      "destination": "condenser.makeup",
+      "stage": "makeup",
+      "role": "makeup water to condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "condenser_to_pump",
+      "source": "condenser.outlet",
+      "destination": "condenser_pump.inlet",
+      "stage": "feedwater",
+      "role": "condensate to condenser pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "pump_to_FWH1",
+      "source": "condenser_pump.outlet",
+      "destination": "FWH1.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH1_to_FWH2",
+      "source": "FWH1.tube_outlet",
+      "destination": "FWH2.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH1 to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH2_to_FWH3",
+      "source": "FWH2.tube_outlet",
+      "destination": "FWH3.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH2 to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH3_to_FWH4",
+      "source": "FWH3.tube_outlet",
+      "destination": "FWH4.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH3 to FWH4",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH4_to_deaerator",
+      "source": "FWH4.tube_outlet",
+      "destination": "deaerator.feedwater",
+      "stage": "feedwater",
+      "role": "feedwater to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "deaerator_to_booster",
+      "source": "deaerator.outlet",
+      "destination": "booster_pump.inlet",
+      "stage": "feedwater",
+      "role": "deaerator outlet to booster pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "booster_to_BFW",
+      "source": "booster_pump.outlet",
+      "destination": "BFW_pump.inlet",
+      "stage": "feedwater",
+      "role": "booster pump to BFW pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "BFW_to_FWH5",
+      "source": "BFW_pump.outlet",
+      "destination": "FWH5.tube_inlet",
+      "stage": "feedwater",
+      "role": "BFW pump to FWH5",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH5_to_FWH6",
+      "source": "FWH5.tube_outlet",
+      "destination": "FWH6.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH5 to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH6_to_FWH7",
+      "source": "FWH6.tube_outlet",
+      "destination": "FWH7.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH6 to FWH7",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH7_to_FWH8",
+      "source": "FWH7.tube_outlet",
+      "destination": "FWH8.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH7 to FWH8",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH8_to_FWH9",
+      "source": "FWH8.tube_outlet",
+      "destination": "FWH9.tube_inlet",
+      "stage": "feedwater",
+      "role": "FWH8 to FWH9",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH9_to_boiler",
+      "source": "FWH9.tube_outlet",
+      "destination": "boiler.feedwater_inlet",
+      "stage": "boiler",
+      "role": "heated feedwater to boiler",
+      "tear_candidate": false
+    },
+    {
+      "id": "boiler_to_turbine_1",
+      "source": "boiler.steam_outlet",
+      "destination": "turbine_1.inlet",
+      "stage": "HP",
+      "role": "main steam to HP turbine 1",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_1_to_turbine_2",
+      "source": "turbine_1.outlet",
+      "destination": "turbine_2.inlet",
+      "stage": "HP",
+      "role": "HP turbine 1 to HP turbine 2",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_2_to_reheater_1",
+      "source": "turbine_2.outlet",
+      "destination": "reheater_1.cold_inlet",
+      "stage": "reheat",
+      "role": "cold reheat to reheater 1",
+      "tear_candidate": false
+    },
+    {
+      "id": "reheater_1_to_turbine_3",
+      "source": "reheater_1.hot_outlet",
+      "destination": "turbine_3.inlet",
+      "stage": "IP",
+      "role": "hot reheat to IP turbine 3",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_3_to_turbine_4",
+      "source": "turbine_3.outlet",
+      "destination": "turbine_4.inlet",
+      "stage": "IP",
+      "role": "IP turbine 3 to turbine 4",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_4_to_reheater_2",
+      "source": "turbine_4.outlet",
+      "destination": "reheater_2.cold_inlet",
+      "stage": "reheat",
+      "role": "second cold reheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "reheater_2_to_turbine_5",
+      "source": "reheater_2.hot_outlet",
+      "destination": "turbine_5.inlet",
+      "stage": "LP",
+      "role": "second hot reheat to LP turbine train",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_5_to_turbine_6",
+      "source": "turbine_5.outlet",
+      "destination": "turbine_6.inlet",
+      "stage": "LP",
+      "role": "LP turbine 5 to 6",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_6_to_turbine_7",
+      "source": "turbine_6.outlet",
+      "destination": "turbine_7.inlet",
+      "stage": "LP",
+      "role": "LP turbine 6 to 7",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_7_to_turbine_8",
+      "source": "turbine_7.outlet",
+      "destination": "turbine_8.inlet",
+      "stage": "LP",
+      "role": "LP turbine 7 to 8",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_8_to_turbine_9",
+      "source": "turbine_8.outlet",
+      "destination": "turbine_9.inlet",
+      "stage": "LP",
+      "role": "LP turbine 8 to 9",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_9_to_turbine_10",
+      "source": "turbine_9.outlet",
+      "destination": "turbine_10.inlet",
+      "stage": "LP",
+      "role": "LP turbine 9 to 10",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_10_to_turbine_11",
+      "source": "turbine_10.outlet",
+      "destination": "turbine_11.inlet",
+      "stage": "LP",
+      "role": "LP turbine 10 to 11",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_11_to_condenser",
+      "source": "turbine_11.outlet",
+      "destination": "condenser.steam_inlet",
+      "stage": "condensing",
+      "role": "LP exhaust to condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_1_power",
+      "source": "turbine_1.work",
+      "destination": "power_out.inlet",
+      "stage": "power",
+      "role": "HP turbine power contribution",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_3_power",
+      "source": "turbine_3.work",
+      "destination": "power_out.inlet",
+      "stage": "power",
+      "role": "IP turbine power contribution",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_11_power",
+      "source": "turbine_11.work",
+      "destination": "power_out.inlet",
+      "stage": "power",
+      "role": "LP turbine power contribution",
+      "tear_candidate": false
+    },
+    {
+      "id": "bfp_turbine_to_BFW",
+      "source": "bfp_turbine.work",
+      "destination": "BFW_pump.shaft",
+      "stage": "auxiliary_power",
+      "role": "BFP turbine drives boiler feedwater pump",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "boiler",
+      "variable": "main_steam_pressure",
+      "value": "ultra-supercritical design",
+      "units": "MPa",
+      "role": "USC boiler pressure target"
+    },
+    {
+      "target": "makeup_water",
+      "variable": "flow",
+      "value": "makeup water from PFD",
+      "units": "kmol/s",
+      "role": "makeup to condenser"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "power_out",
+      "variable": "net_power",
+      "value": "Power out (MWe)",
+      "units": "MW",
+      "role": "net plant power output"
+    },
+    {
+      "target": "FWH1-FWH9",
+      "variable": "feedwater_heater_train",
+      "value": 9,
+      "units": "count",
+      "role": "nine feedwater heaters shown on PFD"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "topology reference validation from DISPATCHES USC PFD; full plant solve is intentionally not run in this lightweight case",
+    "solve_order": [
+      "condenser/feedwater train",
+      "boiler",
+      "HP/IP/LP turbine train",
+      "power accounting"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  },
+  "required_entries": [
+    "dispatches.case_studies.fossil_case.ultra_supercritical_plant",
+    "pfd_ultra_supercritical_pc.svg",
+    "Boiler",
+    "Reheater 1",
+    "Reheater 2",
+    "FWH1-FWH9",
+    "Turbine 1-11"
+  ],
+  "notes_for_agent_a": [
+    "Use the DISPATCHES ultra-supercritical PC SVG PFD as source evidence; this case validates topology/FV rather than solving the full USC plant model."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_dispatches_ultra_supercritical_plant_fullsmoke_20260603/source_flowchart.svg",
+    "suffix": ".svg",
+    "mode": "official_svg_text_layer",
+    "descriptor_agent": "svg_text_reader",
+    "labels": [
+      "HP",
+      "Booster Pump",
+      "FWH1",
+      "FWH2",
+      "FWH3",
+      "Deaerator",
+      "FWH5",
+      "FWH6",
+      "condenser",
+      "Ultra Supercritical Pulverized Coal Power Plant",
+      "FWH4",
+      "FWH7",
+      "Reheater 2",
+      "bfp turbine",
+      "Turbine 3",
+      "Turbine 4",
+      "Turbine 5",
+      "Turbine 6",
+      "Turbine 7",
+      "Turbine 8",
+      "Turbine 9",
+      "Turbine 10",
+      "Turbine 11",
+      "fwh mixer 2",
+      "fwh mixer 3",
+      "fwh mixer 1",
+      "fwh mixer 4",
+      "makeup water",
+      "condenser pump",
+      "fwh mixer 6",
+      "IP",
+      "LP",
+      "?",
+      "Power out (MWe)",
+      "FTPHx",
+      "F",
+      "T",
+      "P",
+      "H",
+      "x",
+      "VHP",
+      "Reheater 1",
+      "Turbine 1",
+      "Turbine 2",
+      "FWH8",
+      "FWH9",
+      "fwh mixer 7",
+      "Boiler",
+      "fwh mixer 8",
+      "BFW Pump",
+      "Power",
+      "F: Flow (kmol/s)",
+      "T: Temperature (K)",
+      "P: Pressure (MPa)",
+      "H: Specific Enthalpy (kJ/s)",
+      "x: Vapor Fraction",
+      "Power: (MW)"
+    ],
+    "description": "Official SVG flowchart text labels: HP; Booster Pump; FWH1; FWH2; FWH3; Deaerator; FWH5; FWH6; condenser; Ultra Supercritical Pulverized Coal Power Plant; FWH4; FWH7; Reheater 2; bfp turbine; Turbine 3; Turbine 4; Turbine 5; Turbine 6; Turbine 7; Turbine 8; Turbine 9; Turbine 10; Turbine 11; fwh mixer 2; fwh mixer 3; fwh mixer 1; fwh mixer 4; makeup water; condenser pump; fwh mixer 6; IP; LP; ?; Power out (MWe); FTPHx; F; T; P; H; x; VHP; Reheater 1; Turbine 1; Turbine 2; FWH8; FWH9; fwh mixer 7; Boiler; fwh mixer 8; BFW Pump; Power; F: Flow (kmol/s); T: Temperature (K); P: Pressure (MPa); H: Specific Enthalpy (kJ/s); x: Vapor Fraction; Power: (MW)"
+  }
+}

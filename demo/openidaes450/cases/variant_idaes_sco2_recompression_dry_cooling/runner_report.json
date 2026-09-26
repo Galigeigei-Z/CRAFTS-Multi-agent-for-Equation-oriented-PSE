@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_power_energy_extension_solve",
+  "case_family": "sco2_recompression",
+  "parent_case_key": "official_sco2_surrogate_flowsheet",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "recompression_split_fraction": 1.0,
+    "dry_cooler_bypass_fraction": 0.25
+  },
+  "metrics": {
+    "cycle_efficiency": 0.47004999999999997,
+    "recuperator_approach_K": 9.25,
+    "compressor_inlet_temperature_K": 320.0,
+    "dry_cooler_fan_kW": 22.5
+  },
+  "search_results": [
+    {
+      "cycle_efficiency": 0.41154999999999997,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.39654999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.41004999999999997,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.3958,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.40854999999999997,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.39504999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.40704999999999997,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.3943,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.40554999999999997,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.39354999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.40404999999999996,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.3928,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.40254999999999996,
+      "recuperator_approach_K": 24.5,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.39204999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.40104999999999996,
+      "recuperator_approach_K": 24.75,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.3913,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.39954999999999996,
+      "recuperator_approach_K": 25.0,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.39054999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.39804999999999996,
+      "recuperator_approach_K": 25.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.3898,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.39654999999999996,
+      "recuperator_approach_K": 25.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.38904999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.39504999999999996,
+      "recuperator_approach_K": 25.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.3883,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.39354999999999996,
+      "recuperator_approach_K": 26.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.38754999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.39204999999999995,
+      "recuperator_approach_K": 26.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.3868,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.39054999999999995,
+      "recuperator_approach_K": 26.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.38604999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.38904999999999995,
+      "recuperator_approach_K": 26.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.3853,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.38754999999999995,
+      "recuperator_approach_K": 27.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.38454999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.38604999999999995,
+      "recuperator_approach_K": 27.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.3838,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.38454999999999995,
+      "recuperator_approach_K": 27.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.38304999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.38304999999999995,
+      "recuperator_approach_K": 27.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.3823,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.38155,
+      "recuperator_approach_K": 28.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.38155,
+      "feasible": false,
+      "recompression_split_fraction": 0.0,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4158,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.4008,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4143,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.40005,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4128,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.3993,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4113,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.39855,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4098,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.3978,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4083,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.39705,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.4068,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.3963,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.4053,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.39555,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.4038,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.3948,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.4023,
+      "recuperator_approach_K": 24.5,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.39405,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.4008,
+      "recuperator_approach_K": 24.75,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.3933,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.3993,
+      "recuperator_approach_K": 25.0,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.39255,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.3978,
+      "recuperator_approach_K": 25.25,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.3918,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.3963,
+      "recuperator_approach_K": 25.5,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.39105,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.3948,
+      "recuperator_approach_K": 25.75,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.3903,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.3933,
+      "recuperator_approach_K": 26.0,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.38955,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.3918,
+      "recuperator_approach_K": 26.25,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.3888,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.3903,
+      "recuperator_approach_K": 26.5,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.38805,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.3888,
+      "recuperator_approach_K": 26.75,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.3873,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.3873,
+      "recuperator_approach_K": 27.0,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.38655,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.38580000000000003,
+      "recuperator_approach_K": 27.25,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.38580000000000003,
+      "feasible": false,
+      "recompression_split_fraction": 0.05,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.41995,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.40495,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.41845,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4042,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.41695,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.40345,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.41545,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4027,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.41395,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.40195,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.41245,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4012,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.41095,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.40045,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.40945,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.3997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.40795,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.39894999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.40645,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.3982,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.40495,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.39744999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.40345,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.3967,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.40195,
+      "recuperator_approach_K": 24.5,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.39594999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.40045,
+      "recuperator_approach_K": 24.75,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.3952,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.39894999999999997,
+      "recuperator_approach_K": 25.0,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.39444999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.39744999999999997,
+      "recuperator_approach_K": 25.25,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.3937,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.39594999999999997,
+      "recuperator_approach_K": 25.5,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.39294999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.39444999999999997,
+      "recuperator_approach_K": 25.75,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.3922,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.39294999999999997,
+      "recuperator_approach_K": 26.0,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.39144999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.39144999999999996,
+      "recuperator_approach_K": 26.25,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.3907,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.38995,
+      "recuperator_approach_K": 26.5,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.38995,
+      "feasible": false,
+      "recompression_split_fraction": 0.1,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.424,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.409,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4225,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.40825,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.421,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.4075,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4195,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.40675,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.418,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.40599999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4165,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.40525,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.415,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.40449999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.4135,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.40375,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.412,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.40299999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.4105,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.40225,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.409,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.40149999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.4075,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.40075,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.40599999999999997,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.39999999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.40449999999999997,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.39925,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.40299999999999997,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.39849999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.40149999999999997,
+      "recuperator_approach_K": 24.5,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.39775,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.39999999999999997,
+      "recuperator_approach_K": 24.75,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.39699999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.39849999999999997,
+      "recuperator_approach_K": 25.0,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.39625,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.39699999999999996,
+      "recuperator_approach_K": 25.25,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.39549999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.39549999999999996,
+      "recuperator_approach_K": 25.5,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.39475,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.394,
+      "recuperator_approach_K": 25.75,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.394,
+      "feasible": false,
+      "recompression_split_fraction": 0.15000000000000002,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.42795,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.41295,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.42645,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4122,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.42495,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.41145,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.42345,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4107,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.42195,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.40995,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.42045,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4092,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.41895,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.40845,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.41745,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4077,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.41595,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.40695,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.41445,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4062,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.41295,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.40545,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.41145,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4047,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.40995,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.40395,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.40845,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.4032,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.40695,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.40245,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.40545,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.4017,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.40395,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.40095,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.40245,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.4002,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.40095,
+      "recuperator_approach_K": 24.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.39944999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.39944999999999997,
+      "recuperator_approach_K": 24.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.3987,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.39795,
+      "recuperator_approach_K": 25.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.39795,
+      "feasible": false,
+      "recompression_split_fraction": 0.2,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4318,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.4168,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4303,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.41605000000000003,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4288,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.4153,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4273,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.41455000000000003,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4258,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.4138,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4243,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.41305000000000003,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.4228,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.4123,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.4213,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.41155,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.4198,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.4108,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.4183,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.41005,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.4168,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.4093,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.4153,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.40855,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.4138,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.4078,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.4123,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.40705,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.4108,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.4063,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.4093,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.40555,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.4078,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.4048,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.4063,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.40405,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4048,
+      "recuperator_approach_K": 23.75,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.4033,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.4033,
+      "recuperator_approach_K": 24.0,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.40255,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.40180000000000005,
+      "recuperator_approach_K": 24.25,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.40180000000000005,
+      "feasible": false,
+      "recompression_split_fraction": 0.25,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.43555,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.42055,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.43405,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4198,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.43255,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.41905,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.43105,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4183,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.42955,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.41755,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.42805,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4168,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.42655,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.41605,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.42505,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4153,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.42355,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.41455,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.42205,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4138,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.42055,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.41305,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.41905,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4123,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.41755,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.41154999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.41605,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.4108,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.41455,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.41004999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.41305,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.4093,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.41154999999999997,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.40854999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.41004999999999997,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.4078,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.40854999999999997,
+      "recuperator_approach_K": 23.0,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.40704999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.40704999999999997,
+      "recuperator_approach_K": 23.25,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.4063,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.40555,
+      "recuperator_approach_K": 23.5,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.40555,
+      "feasible": false,
+      "recompression_split_fraction": 0.30000000000000004,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4392,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.42419999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4377,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.42345,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4362,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.42269999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4347,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.42195,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4332,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.42119999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4317,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.42045,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.43019999999999997,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.41969999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.42869999999999997,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.41895,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.42719999999999997,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.41819999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.42569999999999997,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.41745,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.42419999999999997,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.41669999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.42269999999999996,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.41595,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.42119999999999996,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.41519999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.41969999999999996,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.41445,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.41819999999999996,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.41369999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.41669999999999996,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.41295,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.41519999999999996,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.41219999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.41369999999999996,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.41145,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.41219999999999996,
+      "recuperator_approach_K": 22.25,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.41069999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.41069999999999995,
+      "recuperator_approach_K": 22.5,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.40995,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4092,
+      "recuperator_approach_K": 22.75,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.4092,
+      "feasible": false,
+      "recompression_split_fraction": 0.35000000000000003,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.44275000000000003,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.42775,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.44125000000000003,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.42700000000000005,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.43975000000000003,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.42625,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.43825000000000003,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.42550000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.43675,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.42475,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.43525,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.42400000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.43375,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.42325,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.43225,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.42250000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.43075,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.42175,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.42925,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.42100000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.42775,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.42025,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.42625,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.41950000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.42475,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.41875,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.42325,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.41800000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.42175,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.41725,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.42025,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.41650000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.41875,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.41575,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.41725,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.41500000000000004,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.41575,
+      "recuperator_approach_K": 21.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.41425,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.41425,
+      "recuperator_approach_K": 21.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.41350000000000003,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.41275000000000006,
+      "recuperator_approach_K": 22.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.41275000000000006,
+      "feasible": false,
+      "recompression_split_fraction": 0.4,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4462,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.43119999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4447,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.43045,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4432,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.42969999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4417,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.42895,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4402,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.42819999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4387,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.42745,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.4372,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.42669999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.4357,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.42595,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.4342,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.42519999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.4327,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.42445,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.43119999999999997,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.42369999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.42969999999999997,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.42295,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.42819999999999997,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.42219999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.42669999999999997,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.42145,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.42519999999999997,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.42069999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.42369999999999997,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.41995,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.42219999999999996,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.41919999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.42069999999999996,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.41845,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.41919999999999996,
+      "recuperator_approach_K": 20.75,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.41769999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.41769999999999996,
+      "recuperator_approach_K": 21.0,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.41695,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4162,
+      "recuperator_approach_K": 21.25,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.4162,
+      "feasible": false,
+      "recompression_split_fraction": 0.45,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.44954999999999995,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.43454999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.44804999999999995,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.43379999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.44654999999999995,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.43304999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.44504999999999995,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.43229999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.44354999999999994,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.43154999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.44204999999999994,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.43079999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.44054999999999994,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.43004999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.43904999999999994,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.42929999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.43754999999999994,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.42854999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.43604999999999994,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.42779999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.43454999999999994,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.42704999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.43304999999999993,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.42629999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.43154999999999993,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.42554999999999993,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43004999999999993,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.42479999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.42854999999999993,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.4240499999999999,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.42704999999999993,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.42329999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.42554999999999993,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.4225499999999999,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.4240499999999999,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.42179999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4225499999999999,
+      "recuperator_approach_K": 20.0,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.4210499999999999,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.4210499999999999,
+      "recuperator_approach_K": 20.25,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.42029999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4195499999999999,
+      "recuperator_approach_K": 20.5,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.4195499999999999,
+      "feasible": false,
+      "recompression_split_fraction": 0.5,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4528,
+      "recuperator_approach_K": 14.75,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.43779999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4513,
+      "recuperator_approach_K": 15.0,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.43705,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4498,
+      "recuperator_approach_K": 15.25,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.43629999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4483,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.43555,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4468,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.43479999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4453,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.43405,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.4438,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.43329999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.44229999999999997,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.43255,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.44079999999999997,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.43179999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.43929999999999997,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.43105,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.43779999999999997,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.43029999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.43629999999999997,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.42955,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.43479999999999996,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.42879999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43329999999999996,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.42805,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.43179999999999996,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.42729999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43029999999999996,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.42655,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.42879999999999996,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.42579999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.42729999999999996,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.42505,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.42579999999999996,
+      "recuperator_approach_K": 19.25,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.42429999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.42429999999999995,
+      "recuperator_approach_K": 19.5,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.42355,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.42279999999999995,
+      "recuperator_approach_K": 19.75,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.42279999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.55,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.45594999999999997,
+      "recuperator_approach_K": 13.999999999999998,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.44094999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.45444999999999997,
+      "recuperator_approach_K": 14.249999999999998,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4402,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.45294999999999996,
+      "recuperator_approach_K": 14.499999999999998,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.43944999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.45144999999999996,
+      "recuperator_approach_K": 14.749999999999998,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4387,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.44994999999999996,
+      "recuperator_approach_K": 14.999999999999998,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.43794999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.44844999999999996,
+      "recuperator_approach_K": 15.249999999999998,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4372,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.44694999999999996,
+      "recuperator_approach_K": 15.499999999999998,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.43644999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.44544999999999996,
+      "recuperator_approach_K": 15.749999999999998,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4357,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.44394999999999996,
+      "recuperator_approach_K": 15.999999999999998,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.43494999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.44244999999999995,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4342,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.44094999999999995,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.43344999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.43944999999999995,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4327,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.43794999999999995,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.43194999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43644999999999995,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.43119999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.43494999999999995,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.43044999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43344999999999995,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.42969999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.43194999999999995,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.42894999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.43044999999999994,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.42819999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.42894999999999994,
+      "recuperator_approach_K": 18.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.42744999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.42744999999999994,
+      "recuperator_approach_K": 18.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.42669999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.42594999999999994,
+      "recuperator_approach_K": 19.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.42594999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.6000000000000001,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.45899999999999996,
+      "recuperator_approach_K": 13.25,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.44399999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.45749999999999996,
+      "recuperator_approach_K": 13.5,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.44325,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.45599999999999996,
+      "recuperator_approach_K": 13.75,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.44249999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.45449999999999996,
+      "recuperator_approach_K": 14.0,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.44175,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.45299999999999996,
+      "recuperator_approach_K": 14.25,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.44099999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.45149999999999996,
+      "recuperator_approach_K": 14.5,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.44025,
+      "feasible": true,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.44999999999999996,
+      "recuperator_approach_K": 14.75,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.43949999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.44849999999999995,
+      "recuperator_approach_K": 15.0,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.43875,
+      "feasible": true,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.44699999999999995,
+      "recuperator_approach_K": 15.25,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.43799999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.44549999999999995,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.43724999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.44399999999999995,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.43649999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.44249999999999995,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.43574999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.44099999999999995,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.43499999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43949999999999995,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.43424999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.43799999999999994,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.43349999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43649999999999994,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.43274999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.43499999999999994,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.43199999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.43349999999999994,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.43124999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43199999999999994,
+      "recuperator_approach_K": 17.75,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.43049999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.43049999999999994,
+      "recuperator_approach_K": 18.0,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.42974999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.42899999999999994,
+      "recuperator_approach_K": 18.25,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.42899999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.65,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.46194999999999997,
+      "recuperator_approach_K": 12.5,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.44694999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.46044999999999997,
+      "recuperator_approach_K": 12.75,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4462,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.45894999999999997,
+      "recuperator_approach_K": 13.0,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.44544999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.45744999999999997,
+      "recuperator_approach_K": 13.25,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4447,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.45594999999999997,
+      "recuperator_approach_K": 13.5,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.44394999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.45444999999999997,
+      "recuperator_approach_K": 13.75,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4432,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.45294999999999996,
+      "recuperator_approach_K": 14.0,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.44244999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.45144999999999996,
+      "recuperator_approach_K": 14.25,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4417,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.44994999999999996,
+      "recuperator_approach_K": 14.5,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.44094999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.44844999999999996,
+      "recuperator_approach_K": 14.75,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4402,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.44694999999999996,
+      "recuperator_approach_K": 15.0,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.43944999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.44544999999999996,
+      "recuperator_approach_K": 15.25,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4387,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.44394999999999996,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.43794999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.44244999999999995,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.4372,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.44094999999999995,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.43644999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.43944999999999995,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.4357,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.43794999999999995,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.43494999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.43644999999999995,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.4342,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43494999999999995,
+      "recuperator_approach_K": 17.0,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.43344999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.43344999999999995,
+      "recuperator_approach_K": 17.25,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.4327,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43194999999999995,
+      "recuperator_approach_K": 17.5,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.43194999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.7000000000000001,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.4648,
+      "recuperator_approach_K": 11.75,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.4498,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.4633,
+      "recuperator_approach_K": 12.0,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.44905,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.4618,
+      "recuperator_approach_K": 12.25,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.4483,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.4603,
+      "recuperator_approach_K": 12.5,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.44755,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.4588,
+      "recuperator_approach_K": 12.75,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.4468,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.4573,
+      "recuperator_approach_K": 13.0,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.44605,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.4558,
+      "recuperator_approach_K": 13.25,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.4453,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.4543,
+      "recuperator_approach_K": 13.5,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.44455,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.4528,
+      "recuperator_approach_K": 13.75,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.4438,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.4513,
+      "recuperator_approach_K": 14.0,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.44305,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.4498,
+      "recuperator_approach_K": 14.25,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.44229999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.4483,
+      "recuperator_approach_K": 14.5,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.44155,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.4468,
+      "recuperator_approach_K": 14.75,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.44079999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.4453,
+      "recuperator_approach_K": 15.0,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.44005,
+      "feasible": true,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.4438,
+      "recuperator_approach_K": 15.25,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.43929999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.44229999999999997,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.43855,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.44079999999999997,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.43779999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.43929999999999997,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.43705,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43779999999999997,
+      "recuperator_approach_K": 16.25,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.43629999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.43629999999999997,
+      "recuperator_approach_K": 16.5,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.43555,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43479999999999996,
+      "recuperator_approach_K": 16.75,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.43479999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.75,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.46754999999999997,
+      "recuperator_approach_K": 11.0,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.45254999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.46604999999999996,
+      "recuperator_approach_K": 11.25,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4518,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.46454999999999996,
+      "recuperator_approach_K": 11.5,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.45104999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.46304999999999996,
+      "recuperator_approach_K": 11.75,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4503,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.46154999999999996,
+      "recuperator_approach_K": 12.0,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.44954999999999995,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.46004999999999996,
+      "recuperator_approach_K": 12.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4488,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.45854999999999996,
+      "recuperator_approach_K": 12.5,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.44804999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.45704999999999996,
+      "recuperator_approach_K": 12.75,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4473,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.45554999999999995,
+      "recuperator_approach_K": 13.0,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.44654999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.45404999999999995,
+      "recuperator_approach_K": 13.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4458,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.45254999999999995,
+      "recuperator_approach_K": 13.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.44504999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.45104999999999995,
+      "recuperator_approach_K": 13.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4443,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.44954999999999995,
+      "recuperator_approach_K": 14.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.44354999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.44804999999999995,
+      "recuperator_approach_K": 14.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.44279999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.44654999999999995,
+      "recuperator_approach_K": 14.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.44204999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.44504999999999995,
+      "recuperator_approach_K": 14.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.44129999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.44354999999999994,
+      "recuperator_approach_K": 15.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.44054999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.44204999999999994,
+      "recuperator_approach_K": 15.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.43979999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44054999999999994,
+      "recuperator_approach_K": 15.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.43904999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.43904999999999994,
+      "recuperator_approach_K": 15.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.43829999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.43754999999999994,
+      "recuperator_approach_K": 16.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.43754999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.8,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.47019999999999995,
+      "recuperator_approach_K": 10.249999999999998,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.45519999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.46869999999999995,
+      "recuperator_approach_K": 10.499999999999998,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.45444999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.46719999999999995,
+      "recuperator_approach_K": 10.749999999999998,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.45369999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.46569999999999995,
+      "recuperator_approach_K": 10.999999999999998,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.45294999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.46419999999999995,
+      "recuperator_approach_K": 11.249999999999998,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.45219999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.46269999999999994,
+      "recuperator_approach_K": 11.499999999999998,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.45144999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.46119999999999994,
+      "recuperator_approach_K": 11.749999999999998,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.45069999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.45969999999999994,
+      "recuperator_approach_K": 11.999999999999998,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.44994999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.45819999999999994,
+      "recuperator_approach_K": 12.249999999999998,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.44919999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.45669999999999994,
+      "recuperator_approach_K": 12.499999999999998,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.44844999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.45519999999999994,
+      "recuperator_approach_K": 12.749999999999998,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.44769999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.45369999999999994,
+      "recuperator_approach_K": 12.999999999999998,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.44694999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.45219999999999994,
+      "recuperator_approach_K": 13.249999999999998,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.44619999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45069999999999993,
+      "recuperator_approach_K": 13.499999999999998,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.44544999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.44919999999999993,
+      "recuperator_approach_K": 13.749999999999998,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.44469999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.44769999999999993,
+      "recuperator_approach_K": 13.999999999999998,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.44394999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.44619999999999993,
+      "recuperator_approach_K": 14.249999999999998,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.4431999999999999,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.44469999999999993,
+      "recuperator_approach_K": 14.499999999999998,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.44244999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4431999999999999,
+      "recuperator_approach_K": 14.749999999999998,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.4416999999999999,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.4416999999999999,
+      "recuperator_approach_K": 14.999999999999998,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.44094999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.4401999999999999,
+      "recuperator_approach_K": 15.249999999999998,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.4401999999999999,
+      "feasible": false,
+      "recompression_split_fraction": 0.8500000000000001,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.47275,
+      "recuperator_approach_K": 9.5,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.45775,
+      "feasible": false,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.47125,
+      "recuperator_approach_K": 9.75,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.457,
+      "feasible": false,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.46975,
+      "recuperator_approach_K": 10.0,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.45625,
+      "feasible": false,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.46825,
+      "recuperator_approach_K": 10.25,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4555,
+      "feasible": false,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.46675,
+      "recuperator_approach_K": 10.5,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.45475,
+      "feasible": false,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.46525,
+      "recuperator_approach_K": 10.75,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.454,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.46375,
+      "recuperator_approach_K": 11.0,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.45325,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.46225,
+      "recuperator_approach_K": 11.25,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4525,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.46075,
+      "recuperator_approach_K": 11.5,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.45175,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.45925,
+      "recuperator_approach_K": 11.75,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.451,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.45775,
+      "recuperator_approach_K": 12.0,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.45025,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.45625,
+      "recuperator_approach_K": 12.25,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4495,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.45475,
+      "recuperator_approach_K": 12.5,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.44875,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45325,
+      "recuperator_approach_K": 12.75,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.448,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.45175,
+      "recuperator_approach_K": 13.0,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.44725,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45025,
+      "recuperator_approach_K": 13.25,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.4465,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.44875,
+      "recuperator_approach_K": 13.5,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.44575,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.44725,
+      "recuperator_approach_K": 13.75,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.445,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44575,
+      "recuperator_approach_K": 14.0,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.44425,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.44425,
+      "recuperator_approach_K": 14.25,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.4435,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44275,
+      "recuperator_approach_K": 14.5,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.44275,
+      "feasible": true,
+      "recompression_split_fraction": 0.9,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.47519999999999996,
+      "recuperator_approach_K": 8.749999999999998,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.46019999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.47369999999999995,
+      "recuperator_approach_K": 8.999999999999998,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.45944999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.47219999999999995,
+      "recuperator_approach_K": 9.249999999999998,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.45869999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.47069999999999995,
+      "recuperator_approach_K": 9.499999999999998,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.45794999999999997,
+      "feasible": false,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.46919999999999995,
+      "recuperator_approach_K": 9.749999999999998,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.45719999999999994,
+      "feasible": false,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.46769999999999995,
+      "recuperator_approach_K": 9.999999999999998,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.45644999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.46619999999999995,
+      "recuperator_approach_K": 10.249999999999998,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.45569999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.46469999999999995,
+      "recuperator_approach_K": 10.499999999999998,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.45494999999999997,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.46319999999999995,
+      "recuperator_approach_K": 10.749999999999998,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.45419999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.46169999999999994,
+      "recuperator_approach_K": 10.999999999999998,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.45344999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.46019999999999994,
+      "recuperator_approach_K": 11.249999999999998,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.45269999999999994,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.45869999999999994,
+      "recuperator_approach_K": 11.499999999999998,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.45194999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.45719999999999994,
+      "recuperator_approach_K": 11.749999999999998,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.45119999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45569999999999994,
+      "recuperator_approach_K": 11.999999999999998,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.45044999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.45419999999999994,
+      "recuperator_approach_K": 12.249999999999998,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.44969999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45269999999999994,
+      "recuperator_approach_K": 12.499999999999998,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.44894999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.45119999999999993,
+      "recuperator_approach_K": 12.749999999999998,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.44819999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.44969999999999993,
+      "recuperator_approach_K": 12.999999999999998,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.44744999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44819999999999993,
+      "recuperator_approach_K": 13.249999999999998,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.44669999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.44669999999999993,
+      "recuperator_approach_K": 13.499999999999998,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.44594999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44519999999999993,
+      "recuperator_approach_K": 13.749999999999998,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.44519999999999993,
+      "feasible": true,
+      "recompression_split_fraction": 0.9500000000000001,
+      "dry_cooler_bypass_fraction": 1.0
+    },
+    {
+      "cycle_efficiency": 0.47755,
+      "recuperator_approach_K": 8.0,
+      "compressor_inlet_temperature_K": 325.0,
+      "dry_cooler_fan_kW": 30.0,
+      "objective": -0.46254999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.0
+    },
+    {
+      "cycle_efficiency": 0.47605,
+      "recuperator_approach_K": 8.25,
+      "compressor_inlet_temperature_K": 324.0,
+      "dry_cooler_fan_kW": 28.5,
+      "objective": -0.4618,
+      "feasible": false,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.05
+    },
+    {
+      "cycle_efficiency": 0.47454999999999997,
+      "recuperator_approach_K": 8.5,
+      "compressor_inlet_temperature_K": 323.0,
+      "dry_cooler_fan_kW": 27.0,
+      "objective": -0.46104999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.1
+    },
+    {
+      "cycle_efficiency": 0.47304999999999997,
+      "recuperator_approach_K": 8.75,
+      "compressor_inlet_temperature_K": 322.0,
+      "dry_cooler_fan_kW": 25.5,
+      "objective": -0.4603,
+      "feasible": false,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "cycle_efficiency": 0.47154999999999997,
+      "recuperator_approach_K": 9.0,
+      "compressor_inlet_temperature_K": 321.0,
+      "dry_cooler_fan_kW": 24.0,
+      "objective": -0.45954999999999996,
+      "feasible": false,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.2
+    },
+    {
+      "cycle_efficiency": 0.47004999999999997,
+      "recuperator_approach_K": 9.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5,
+      "objective": -0.4588,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.25
+    },
+    {
+      "cycle_efficiency": 0.46854999999999997,
+      "recuperator_approach_K": 9.5,
+      "compressor_inlet_temperature_K": 319.0,
+      "dry_cooler_fan_kW": 21.0,
+      "objective": -0.45804999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "cycle_efficiency": 0.46704999999999997,
+      "recuperator_approach_K": 9.75,
+      "compressor_inlet_temperature_K": 318.0,
+      "dry_cooler_fan_kW": 19.499999999999996,
+      "objective": -0.4573,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "cycle_efficiency": 0.46554999999999996,
+      "recuperator_approach_K": 10.0,
+      "compressor_inlet_temperature_K": 317.0,
+      "dry_cooler_fan_kW": 18.0,
+      "objective": -0.45654999999999996,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.4
+    },
+    {
+      "cycle_efficiency": 0.46404999999999996,
+      "recuperator_approach_K": 10.25,
+      "compressor_inlet_temperature_K": 316.0,
+      "dry_cooler_fan_kW": 16.5,
+      "objective": -0.4558,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.45
+    },
+    {
+      "cycle_efficiency": 0.46254999999999996,
+      "recuperator_approach_K": 10.5,
+      "compressor_inlet_temperature_K": 315.0,
+      "dry_cooler_fan_kW": 15.0,
+      "objective": -0.45504999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.5
+    },
+    {
+      "cycle_efficiency": 0.46104999999999996,
+      "recuperator_approach_K": 10.75,
+      "compressor_inlet_temperature_K": 314.0,
+      "dry_cooler_fan_kW": 13.499999999999998,
+      "objective": -0.4543,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.55
+    },
+    {
+      "cycle_efficiency": 0.45954999999999996,
+      "recuperator_approach_K": 11.0,
+      "compressor_inlet_temperature_K": 313.0,
+      "dry_cooler_fan_kW": 11.999999999999996,
+      "objective": -0.45354999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45804999999999996,
+      "recuperator_approach_K": 11.25,
+      "compressor_inlet_temperature_K": 312.0,
+      "dry_cooler_fan_kW": 10.5,
+      "objective": -0.4528,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.65
+    },
+    {
+      "cycle_efficiency": 0.45654999999999996,
+      "recuperator_approach_K": 11.5,
+      "compressor_inlet_temperature_K": 311.0,
+      "dry_cooler_fan_kW": 8.999999999999998,
+      "objective": -0.45204999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "cycle_efficiency": 0.45504999999999995,
+      "recuperator_approach_K": 11.75,
+      "compressor_inlet_temperature_K": 310.0,
+      "dry_cooler_fan_kW": 7.5,
+      "objective": -0.4513,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.75
+    },
+    {
+      "cycle_efficiency": 0.45354999999999995,
+      "recuperator_approach_K": 12.0,
+      "compressor_inlet_temperature_K": 309.0,
+      "dry_cooler_fan_kW": 5.999999999999998,
+      "objective": -0.45054999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.8
+    },
+    {
+      "cycle_efficiency": 0.45204999999999995,
+      "recuperator_approach_K": 12.25,
+      "compressor_inlet_temperature_K": 308.0,
+      "dry_cooler_fan_kW": 4.499999999999997,
+      "objective": -0.4498,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "cycle_efficiency": 0.45054999999999995,
+      "recuperator_approach_K": 12.5,
+      "compressor_inlet_temperature_K": 307.0,
+      "dry_cooler_fan_kW": 2.999999999999999,
+      "objective": -0.44904999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.9
+    },
+    {
+      "cycle_efficiency": 0.44904999999999995,
+      "recuperator_approach_K": 12.75,
+      "compressor_inlet_temperature_K": 306.0,
+      "dry_cooler_fan_kW": 1.499999999999998,
+      "objective": -0.4483,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "cycle_efficiency": 0.44754999999999995,
+      "recuperator_approach_K": 13.0,
+      "compressor_inlet_temperature_K": 305.0,
+      "dry_cooler_fan_kW": 0.0,
+      "objective": -0.44754999999999995,
+      "feasible": true,
+      "recompression_split_fraction": 1.0,
+      "dry_cooler_bypass_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo power and process-energy extension anchored to active registry parent",
+    "parent_case_key": "official_sco2_surrogate_flowsheet",
+    "chemical_distinction": "Adds a recompression branch and ambient-dependent heat-rejection bypass to the CO2 cycle."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

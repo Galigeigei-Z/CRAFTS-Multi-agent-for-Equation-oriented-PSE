@@ -1,0 +1,42 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "dispatches_nuclear_double_loop",
+  "official_reference_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "nuclear_flowsheet_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "nuclear_flowsheet_solve_optimal",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "nuclear_power_kw": 500000.0,
+  "grid_split_fraction": 0.99,
+  "pem_electricity_kw": 5000.000000000003,
+  "tank_holdup_mol": 38293.30800000002,
+  "turbine_work_w": -90756.45306026371,
+  "stream_values": {
+    "nuclear_to_splitter": {
+      "electricity_kw": 500000.0
+    },
+    "splitter_to_pem": {
+      "electricity_kw": 5000.000000000003
+    },
+    "h2_tank": {
+      "holdup_mol": 38293.30800000002
+    },
+    "h2_turbine": {
+      "work_w": -90756.45306026371
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/dispatches_nuclear_double_loop_notebook/source_root/nuclear_flowsheet.py"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

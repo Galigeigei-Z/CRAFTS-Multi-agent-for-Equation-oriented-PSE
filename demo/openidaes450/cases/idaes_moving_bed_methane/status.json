@@ -1,0 +1,58 @@
+{
+  "case_id": "idaes_moving_bed_methane",
+  "runner": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/release/openidaes450_executable/scripts_finish/module_runner.py",
+  "elapsed_seconds": 38.01,
+  "model_calls": 0,
+  "evidence_class": "fresh_registered_reference_model_export",
+  "report_pass": true,
+  "solver_optimal_observed": true,
+  "model_checks": {
+    "variable_count": 2279,
+    "missing_variable_values": 9,
+    "port_value_count": 24,
+    "missing_port_values": 0,
+    "unit_count": 1,
+    "property_package_count": 3,
+    "degrees_of_freedom": 0,
+    "constraint_count": 2241,
+    "constraint_residual_convention": "equation-terms/v2: violation/max(1,sum(abs(additive body terms)),abs(body),abs(bounds)); tolerance 1e-6; raw violations retained; not a substitute for engineering conservation audits",
+    "maximum_relative_constraint_violation": 2.515089969623574e-05,
+    "violations": [
+      {
+        "name": "fs.MB.solid_phase.reactions[0.0,0.015505].OC_conv_temp_eqn",
+        "absolute_violation": 1.1713758421572074e-05,
+        "relative_violation": 1.1713758421572074e-05,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.MB.solid_phase.reactions[0.0,0.064495].OC_conv_temp_eqn",
+        "absolute_violation": 2.515089969623574e-05,
+        "relative_violation": 2.515089969623574e-05,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.MB.solid_phase.reactions[0.0,0.1].OC_conv_temp_eqn",
+        "absolute_violation": 6.0622672437560254e-06,
+        "relative_violation": 6.0622672437560254e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.MB.solid_phase.reactions[0.0,0.115505].OC_conv_temp_eqn",
+        "absolute_violation": 2.143318744707301e-06,
+        "relative_violation": 2.143318744707301e-06,
+        "normalization_scale": 1.0
+      }
+    ],
+    "unevaluable_constraints": [],
+    "constraints_pass": false,
+    "idaes_model_present": true
+  },
+  "error": null,
+  "case_specific_specification_binding_verified": false,
+  "public_reference_complete": false,
+  "native_export_pass": false,
+  "model_fidelity": "native_IDAES",
+  "demo_accepted": true,
+  "residual_checks_are_warnings": true,
+  "streams_applicability": "actual_model_ports"
+}

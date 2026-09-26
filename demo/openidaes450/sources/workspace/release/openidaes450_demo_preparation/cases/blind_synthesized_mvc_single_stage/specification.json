@@ -1,0 +1,56 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_mvc_single_stage",
+  "family": "family_watertap_mvc_single_stage",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "salinity",
+      "value": 100.0,
+      "units": "g/kg",
+      "role": "official high-salinity feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "evaporator",
+      "variable": "recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "single-stage vapor recovery",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "compressor",
+      "variable": "pressure_ratio_initial",
+      "value": 1.6,
+      "units": "dimensionless",
+      "role": "initial compressor pressure ratio",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP mvc_single_stage main build, initialize_system, first solve, then LCOW optimization",
+    "solve_order": [
+      "feed",
+      "feed heat recovery",
+      "evaporator",
+      "compressor",
+      "condenser",
+      "product pumps",
+      "LCOW optimization"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_mvc",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_nf_dspmde_base",
+  "family": "family_watertap_nf_dspmde_base",
+  "source_url": "local://watertap/flowsheets/nf_dspmde/nf",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "total_hardness",
+      "value": "default WaterTAP NF feed",
+      "units": "mg/L as CaCO3",
+      "role": "official multi-ion hardness feed",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "area",
+      "value": "default WaterTAP NF sizing",
+      "units": "m^2",
+      "role": "DSPM-DE membrane area",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf"
+    },
+    {
+      "target": "NF_pump",
+      "variable": "outlet_pressure",
+      "value": "default WaterTAP NF pressure",
+      "units": "Pa",
+      "role": "NF feed pressure",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "nf.build, initialize NF block sequentially, solve square steady-state model",
+    "solve_order": [
+      "feed",
+      "NF feed",
+      "pump",
+      "DSPM-DE NF",
+      "product/disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

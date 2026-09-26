@@ -1,0 +1,205 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_coag_floc_sludge_seed_recycle",
+  "family": "family_coag_seed",
+  "process_type": "Coagulation-Flocculation with Sludge Seed Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent watertap_coagulation_flocculation_unit.",
+    "Adds a solids feedback loop that changes nucleation/floc growth and coagulant demand.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "turbidity_solids",
+        "coagulant",
+        "floc"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_coagulation_flocculation_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "turbidity_solids",
+      "coagulant",
+      "floc"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "turbid water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COAG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "coagulant",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "RapidMixer",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "coagulant and seed mixing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flocculator",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "floc growth",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CL101",
+      "kind": "Clarifier",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "solid/liquid separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "seed recycle and sludge purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "clarified water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SLUDGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "coag_seed",
+      "role": "waste sludge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.water",
+      "stage": "coag_seed",
+      "role": "raw water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "COAG.outlet",
+      "destination": "M101.coagulant",
+      "stage": "coag_seed",
+      "role": "coagulant",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "F101.inlet",
+      "stage": "coag_seed",
+      "role": "destabilized suspension",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "F101.outlet",
+      "destination": "CL101.inlet",
+      "stage": "coag_seed",
+      "role": "flocculated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CL101.sludge",
+      "destination": "S101.inlet",
+      "stage": "coag_seed",
+      "role": "settled sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.seed",
+      "destination": "M101.seed",
+      "stage": "coag_seed",
+      "role": "seed recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "SLUDGE.inlet",
+      "stage": "coag_seed",
+      "role": "sludge purge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CL101.overflow",
+      "destination": "PRODUCT.inlet",
+      "stage": "coag_seed",
+      "role": "clarified product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet",
+    "COAG.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "SLUDGE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_coagulation_flocculation_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_coagulation_flocculation_unit",
+    "chemical_change": "Adds a solids feedback loop that changes nucleation/floc growth and coagulant demand.",
+    "native_metrics": {
+      "turbidity_removal_fraction": 0.9521651105058017,
+      "effluent_solids_kg_s": 0.00047834889494198334,
+      "residual_metal_kg_s": 8.075e-05,
+      "sludge_kg_s": 0.009616651105058018
+    }
+  }
+}

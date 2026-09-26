@@ -1,0 +1,94 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_bsm2",
+  "family": "family_watertap_bsm2",
+  "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": 20648,
+      "units": "m^3/day",
+      "role": "official influent volumetric flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "FeedWater",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "official influent temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "FeedWater",
+      "variable": "pressure",
+      "value": 1,
+      "units": "atm",
+      "role": "official influent pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "R1/R2",
+      "variable": "volume",
+      "value": 1000,
+      "units": "m^3",
+      "role": "anoxic reactor volumes",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "R3/R4/R5",
+      "variable": "volume",
+      "value": 1333,
+      "units": "m^3",
+      "role": "aerobic reactor volumes",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "RADM",
+      "variable": "volume_liquid",
+      "value": 3400,
+      "units": "m^3",
+      "role": "anaerobic digester liquid volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    },
+    {
+      "target": "RADM",
+      "variable": "volume_vapor",
+      "value": 300,
+      "units": "m^3",
+      "role": "anaerobic digester vapor volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.2.0/technical_reference/flowsheets/BSM2.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [
+    "RADM.vapor_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP BSM2 build, set_operating_conditions, initialize_system, scale_system, scaled steady-state solve",
+    "solve_order": [
+      "primary",
+      "activated_sludge",
+      "secondary",
+      "sludge",
+      "digestion",
+      "dewatering",
+      "recycles"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

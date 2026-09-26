@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "dispatches_wind_battery_pem_tank_turbine",
+  "official_reference_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html",
+  "termination_condition": "optimization_result_returned",
+  "checks": [
+    {
+      "name": "one_period_dispatches_optimization_returned_result",
+      "pass": true
+    }
+  ],
+  "wind_mw": 846.9999920627725,
+  "battery_mw": 3.11458842363659e-07,
+  "pem_mw": 0.355,
+  "tank_kgH2": 0.5,
+  "turbine_mw": 0.001,
+  "npv": -102086812.19271052,
+  "annual_revenue_h2": 123186.95818387154,
+  "annual_revenue_electricity": -9128530.850745032,
+  "stream_values": {
+    "wind_to_splitter": {
+      "power_mw": 846.9999920627725
+    },
+    "pem_hydrogen": {
+      "pem_mw": 0.355
+    },
+    "h2_storage": {
+      "tank_kgH2": 0.5
+    },
+    "turbine_to_grid": {
+      "turbine_mw": 0.001
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/dispatches_wind_battery_pem_tank_turbine/source_root/renewables_case/wind_battery_PEM_tank_turbine_LMP.py"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_bfb_staged_air_flue_gas_recycle",
+  "family": "family_bfb_fgr",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "secondary_air_fraction",
+      "value": 0.3,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flue_gas_recycle_fraction",
+      "value": 0.05,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "bed_temperature_K",
+      "value": 1162.9999999987,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "nox_proxy",
+      "value": 7.183304178964179e-05,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_conversion",
+      "value": 0.970000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FUEL.outlet",
+    "AIR.outlet"
+  ],
+  "terminal_product_ports": [
+    "STACK.inlet",
+    "ASH.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_bfb_methane_combustion"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_bfb_methane_combustion",
+    "chemical_change": "Changes oxidant distribution and thermal dilution paths in the gas-solid reactor.",
+    "native_metrics": {
+      "bed_temperature_K": 1162.9999999987,
+      "nox_proxy": 7.183304178964179e-05,
+      "methane_conversion": 0.970000000001
+    }
+  }
+}

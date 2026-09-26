@@ -1,0 +1,75 @@
+{
+  "case_id": "expansion40__reflo_kbhdp_rpt2",
+  "case_key": "reflo_kbhdp_rpt2",
+  "execution_contract": "official KBHDP report train 2 main() optimization test",
+  "family": "reflo",
+  "schema_version": "expansion40-native-solve-v1",
+  "solver": "ipopt 3.13.2",
+  "source_commit": "dc05a96838424400deef1157a544109516924d60",
+  "source_path": "src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+  "specs": [
+    {
+      "role": "produced-water feed capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "Mgal/day",
+      "value": 4.0,
+      "variable": "flow_vol"
+    },
+    {
+      "role": "feed temperature",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "K",
+      "value": 293.0,
+      "variable": "temperature"
+    },
+    {
+      "role": "feed pressure",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "Pa",
+      "value": 101325.0,
+      "variable": "pressure"
+    },
+    {
+      "role": "fixed system water recovery",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "system",
+      "units": "dimensionless",
+      "value": 0.35,
+      "variable": "water_recovery"
+    },
+    {
+      "role": "purchased heat price",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "system",
+      "units": "USD/kWh",
+      "value": 0.005,
+      "variable": "heat_price"
+    },
+    {
+      "role": "initial solar-thermal capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "fpc",
+      "units": "MW",
+      "value": 50.0,
+      "variable": "system_capacity"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "sludge.inlet",
+    "uf_waste.inlet",
+    "product.inlet"
+  ],
+  "topology_ir_file": "validation/VectorEngine_qwen36_validation/expansion40__reflo_kbhdp_rpt2/expansion40__reflo_kbhdp_rpt2_topology_ir.json"
+}

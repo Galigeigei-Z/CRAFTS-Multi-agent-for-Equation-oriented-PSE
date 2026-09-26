@@ -1,0 +1,140 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_nanofiltration_membrane_schematic",
+  "family": "family_prommis_nanofiltration_membrane_schematic",
+  "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_volume",
+      "value": 12.5,
+      "units": "m^3/h",
+      "role": "official two-salt feed flow basis",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "feed",
+      "variable": "Li",
+      "value": 245.0,
+      "units": "mol/m^3",
+      "role": "official feed lithium concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "feed",
+      "variable": "Co",
+      "value": 288.0,
+      "units": "mol/m^3",
+      "role": "official feed cobalt concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "feed",
+      "variable": "Cl",
+      "value": 821.0,
+      "units": "mol/m^3",
+      "role": "official feed chloride concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "flow_volume",
+      "value": 3.75,
+      "units": "m^3/h",
+      "role": "official diafiltrate flow basis",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Li",
+      "value": 14.0,
+      "units": "mol/m^3",
+      "role": "official diafiltrate lithium concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Co",
+      "value": 3.0,
+      "units": "mol/m^3",
+      "role": "official diafiltrate cobalt concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Cl",
+      "value": 20.0,
+      "units": "mol/m^3",
+      "role": "official diafiltrate chloride concentration",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "membrane",
+      "variable": "total_module_length",
+      "value": "fixed default",
+      "units": "m",
+      "role": "official test fixes total module length",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "membrane",
+      "variable": "total_membrane_length",
+      "value": "fixed default",
+      "units": "m",
+      "role": "official test fixes total membrane length",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "membrane",
+      "variable": "applied_pressure",
+      "value": "fixed default",
+      "units": "bar",
+      "role": "official two-salt test fixes default applied pressure",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "membrane",
+      "variable": "membrane_fixed_charge",
+      "value": -44.0,
+      "units": "mol/m^3",
+      "role": "official fixed membrane charge parameter",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    },
+    {
+      "target": "membrane",
+      "variable": "include_boundary_layer",
+      "value": true,
+      "units": "dimensionless",
+      "role": "official boundary-layer two-salt variant",
+      "source": "reference",
+      "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/nanofiltration/membrane_schematic.png"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official MultiComponentDiafiltration default initializer, then scaled IPOPT solve",
+    "solve_order": [
+      "membrane"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

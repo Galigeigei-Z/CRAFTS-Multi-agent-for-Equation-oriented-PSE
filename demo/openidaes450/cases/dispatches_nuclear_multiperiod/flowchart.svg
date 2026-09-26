@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1011" viewBox="0 0 900 1011">
+  <title>DISPATCHES Nuclear Multiperiod source-derived topology</title>
+  <desc>Generated schematic derived from the official source. It is not a solved IDAES flowsheet visualization.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#4b6475"/></marker></defs>
+  <style>
+    svg { background: #f8fafb; font-family: Arial, sans-serif; }
+    rect { fill: #ffffff; stroke: #335b6b; stroke-width: 1.5; }
+    path { fill: none; stroke: #4b6475; stroke-width: 1.4; marker-end: url(#arrow); }
+    text { letter-spacing: 0; }
+    .title { fill: #173642; font-size: 20px; font-weight: 700; }
+    .note { fill: #52656e; font-size: 12px; }
+    .stage { fill: #52656e; font-size: 11px; font-weight: 700; }
+    .unit { fill: #173642; font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .kind { fill: #60737c; font-size: 10px; text-anchor: middle; }
+  </style>
+  <text x="24" y="30" class="title">DISPATCHES Nuclear Multiperiod</text>
+  <text x="24" y="51" class="note">Source-derived topology only; SpecIR, DOF closure, solve, and optimization are pending.</text>
+  <g><path d="M 245 163 L 245 163 L 245 251 L 245 251" aria-label="nuclear_to_splitter"/><path d="M 245 309 L 245 309 L 245 397 L 245 397" aria-label="splitter_to_grid"/><path d="M 245 309 L 245 309 L 245 543 L 245 543" aria-label="splitter_to_pem"/><path d="M 245 601 L 245 601 L 245 689 L 245 689" aria-label="pem_to_tank"/><path d="M 325 718 L 342 718 L 342 426 L 360 426" aria-label="tank_to_market"/><path d="M 245 747 L 245 747 L 245 835 L 245 835" aria-label="tank_state_to_link"/><path d="M 245 893 L 245 893 L 245 689 L 245 689" aria-label="link_to_next_tank"/><path d="M 520 864 L 537 864 L 537 864 L 555 864" aria-label="price_to_dispatch"/><path d="M 325 426 L 440 426 L 440 864 L 555 864" aria-label="grid_revenue"/><path d="M 520 426 L 537 426 L 537 864 L 555 864" aria-label="hydrogen_revenue"/></g>
+  <g><text x="24" y="138" class="stage">Generation</text><text x="24" y="284" class="stage">Dispatch</text><text x="24" y="430" class="stage">Market</text><text x="24" y="576" class="stage">Hydrogen</text><text x="24" y="722" class="stage">Storage</text><text x="24" y="868" class="stage">Multiperiod</text><g><rect x="165" y="105" width="160" height="58" rx="5"/><text x="245" y="130" class="unit">nuclear_plant</text><text x="245" y="149" class="kind">NuclearPlant</text></g><g><rect x="165" y="251" width="160" height="58" rx="5"/><text x="245" y="276" class="unit">power_splitter</text><text x="245" y="295" class="kind">Separator</text></g><g><rect x="165" y="397" width="160" height="58" rx="5"/><text x="245" y="422" class="unit">grid</text><text x="245" y="441" class="kind">ElectricalGrid</text></g><g><rect x="360" y="397" width="160" height="58" rx="5"/><text x="440" y="422" class="unit">hydrogen_market</text><text x="440" y="441" class="kind">Product</text></g><g><rect x="165" y="543" width="160" height="58" rx="5"/><text x="245" y="568" class="unit">pem</text><text x="245" y="587" class="kind">PEMElectrolyzer</text></g><g><rect x="165" y="689" width="160" height="58" rx="5"/><text x="245" y="714" class="unit">hydrogen_tank</text><text x="245" y="733" class="kind">StorageTank</text></g><g><rect x="165" y="835" width="160" height="58" rx="5"/><text x="245" y="860" class="unit">period_link</text><text x="245" y="879" class="kind">TemporalLink</text></g><g><rect x="360" y="835" width="160" height="58" rx="5"/><text x="440" y="860" class="unit">price_signal</text><text x="440" y="879" class="kind">MarketSignal</text></g><g><rect x="555" y="835" width="160" height="58" rx="5"/><text x="635" y="860" class="unit">dispatch_objective</text><text x="635" y="879" class="kind">OptimizationObjective</text></g></g>
+</svg>

@@ -1,0 +1,130 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_electrodialysis_conc_recirc",
+  "family": "family_watertap_electrodialysis_conc_recirc",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_h2o",
+      "value": 4.8,
+      "units": "mol/s",
+      "role": "family_default water molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_na",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default sodium molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_cl",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default chloride molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "sepa0",
+      "variable": "split_fraction_diluate",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default split to diluate branch",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "sepa1",
+      "variable": "split_fraction_disposal",
+      "value": 0.2,
+      "units": "dimensionless",
+      "role": "family_default concentrate bleed fraction",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "pump0",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default concentrate pump efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "pump1",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default diluate pump efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "EDstack",
+      "variable": "voltage_applied",
+      "value": 5.0,
+      "units": "V",
+      "role": "family_default constant voltage operation",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_pair_num",
+      "value": 100,
+      "units": "dimensionless",
+      "role": "family_default cell-pair count",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind ED concentrate-recirculation topology is compiled to BuildPlanIR and solved by the ED recirc sandbox template",
+    "solve_order": [
+      "feed",
+      "sepa0",
+      "pump1",
+      "mix0",
+      "pump0",
+      "EDstack",
+      "prod",
+      "sepa1",
+      "disp"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

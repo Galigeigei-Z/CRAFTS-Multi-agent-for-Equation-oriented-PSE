@@ -1,0 +1,691 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_hda_distillation",
+  "family": "family_hda_btx",
+  "process_type": "Blind-synthesized HDA hydrodealkylation recycle flowsheet with BTX translator and tray distillation column",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle HDA support cards.",
+    "No source URL, case id, run id, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: IDAES HDA BTX property and reaction packages",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: IDAES HDA BTX property and reaction packages (property_package) matched ['hda', 'hydrodealkylation', 'benzene', 'toluene']."
+  ],
+  "property_packages": {
+    "BTHM_params": {
+      "entry_id": "idaes_hda_btx_property_and_reaction_packages",
+      "components": [
+        "benzene",
+        "toluene",
+        "hydrogen",
+        "methane"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "M101",
+        "H101",
+        "R101",
+        "F101",
+        "S101",
+        "C101",
+        "translator.inlet"
+      ],
+      "source": "blind_rag_support"
+    },
+    "BT_params": {
+      "entry_id": "btx_activity_coeff_vle_package",
+      "components": [
+        "benzene",
+        "toluene"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "translator.outlet",
+        "H102",
+        "D101"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "reaction_loop": [
+      "benzene",
+      "toluene",
+      "hydrogen",
+      "methane"
+    ],
+    "distillation_section": [
+      "benzene",
+      "toluene"
+    ]
+  },
+  "units": [
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "mix toluene feed, hydrogen feed, and vapor recycle",
+      "constructor": {
+        "inlet_list": [
+          "toluene_feed",
+          "hydrogen_feed",
+          "vapor_recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "reactor preheater",
+      "constructor": {
+        "has_phase_equilibrium": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "CSTR",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "HDA reactor",
+      "constructor": {
+        "reaction_package": "reaction_params",
+        "has_heat_of_reaction": true,
+        "has_heat_transfer": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "separate non-condensibles from liquid benzene/toluene",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Splitter",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "split F101 vapor into purge and recycle",
+      "constructor": {
+        "ideal_separation": false,
+        "outlet_list": [
+          "purge",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "PressureChanger",
+      "package": "BTHM_params",
+      "stage": "recycle_section",
+      "role": "compress vapor recycle before M101",
+      "constructor": {
+        "compressor": true,
+        "thermodynamic_assumption": "isothermal"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "translator",
+      "kind": "Translator",
+      "package": "BTHM_params_to_BT_params",
+      "stage": "distillation_section",
+      "role": "map HDA liquid to two-component BTX package",
+      "constructor": {
+        "inlet_property_package": "BTHM_params",
+        "outlet_property_package": "BT_params"
+      },
+      "constraint_template": "hda_bthm_to_btx_v1"
+    },
+    {
+      "id": "H102",
+      "kind": "Heater",
+      "package": "BT_params",
+      "stage": "distillation_section",
+      "role": "condition BTX liquid stream before distillation",
+      "constructor": {
+        "has_pressure_change": true,
+        "has_phase_equilibrium": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "D101",
+      "kind": "TrayColumn",
+      "package": "BT_params",
+      "stage": "distillation_section",
+      "role": "benzene/toluene distillation column",
+      "constructor": {
+        "number_of_trays": 10,
+        "feed_tray_location": 5,
+        "condenser_type": "CondenserType.totalCondenser",
+        "condenser_temperature_spec": "TemperatureSpec.atBubblePoint"
+      },
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "H101.inlet",
+      "stage": "recycle_section",
+      "role": "mixed feed to heater",
+      "tear_candidate": true
+    },
+    {
+      "id": "s04",
+      "source": "H101.outlet",
+      "destination": "R101.inlet",
+      "stage": "recycle_section",
+      "role": "heated feed to reactor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "R101.outlet",
+      "destination": "F101.inlet",
+      "stage": "recycle_section",
+      "role": "reactor outlet to flash",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "F101.vap_outlet",
+      "destination": "S101.inlet",
+      "stage": "recycle_section",
+      "role": "flash vapor to purge/recycle splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S101.recycle",
+      "destination": "C101.inlet",
+      "stage": "recycle_section",
+      "role": "splitter recycle to compressor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "C101.outlet",
+      "destination": "M101.vapor_recycle",
+      "stage": "recycle_section",
+      "role": "compressed vapor recycle to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "F101.liq_outlet",
+      "destination": "translator.inlet",
+      "stage": "distillation_section",
+      "role": "flash liquid to property-package translator",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11_pre_column",
+      "source": "translator.outlet",
+      "destination": "H102.inlet",
+      "stage": "distillation_section",
+      "role": "translated BTX stream to heater",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11",
+      "source": "H102.outlet",
+      "destination": "D101.feed",
+      "stage": "distillation_section",
+      "role": "heated BTX stream to tray column",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "M101",
+      "variable": "toluene_feed.flow_mol_phase_comp[0, 'Liq', 'toluene']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "toluene feed molar flow"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'hydrogen']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "hydrogen feed molar flow"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'methane']",
+      "value": 0.02,
+      "units": "mol/s",
+      "role": "methane impurity in hydrogen feed"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "toluene feed temperature"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "hydrogen feed temperature"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "toluene feed pressure"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 600,
+      "units": "K",
+      "role": "reactor preheat target"
+    },
+    {
+      "target": "R101",
+      "variable": "conversion",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "toluene conversion target"
+    },
+    {
+      "target": "R101",
+      "variable": "heat_duty[0]",
+      "value": 0,
+      "units": "W",
+      "role": "adiabatic reactor duty"
+    },
+    {
+      "target": "F101",
+      "variable": "vap_outlet.temperature[0]",
+      "value": 325,
+      "units": "K",
+      "role": "first flash vapor temperature"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure drop"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0, 'purge']",
+      "value": 0.2,
+      "units": "dimensionless",
+      "role": "purge split fraction"
+    },
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "recycle compressor outlet pressure"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 375,
+      "units": "K",
+      "role": "BTX column feed conditioning target"
+    },
+    {
+      "target": "H102",
+      "variable": "deltaP[0]",
+      "value": -200000,
+      "units": "Pa",
+      "role": "BTX heater pressure drop"
+    },
+    {
+      "target": "D101",
+      "variable": "condenser.reflux_ratio",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "column reflux ratio"
+    },
+    {
+      "target": "D101",
+      "variable": "reboiler.boilup_ratio",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "column boilup ratio"
+    },
+    {
+      "target": "D101",
+      "variable": "condenser.condenser_pressure",
+      "value": 150000,
+      "units": "Pa",
+      "role": "column condenser pressure"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "M101.toluene_feed",
+    "M101.hydrogen_feed"
+  ],
+  "unconnected_product_ports": [
+    "S101.purge",
+    "D101.condenser.distillate",
+    "D101.reboiler.bottoms"
+  ],
+  "tear_streams": [
+    {
+      "arc_id": "s03",
+      "destination": "H101.inlet",
+      "method": "Wegstein",
+      "guesses": "blind HDA recycle tear guesses"
+    }
+  ],
+  "translator_constraint_templates": {
+    "hda_bthm_to_btx_v1": {
+      "translator": "translator",
+      "input_components": [
+        "benzene",
+        "toluene",
+        "hydrogen",
+        "methane"
+      ],
+      "output_components": [
+        "benzene",
+        "toluene"
+      ],
+      "phase": "Liq"
+    }
+  },
+  "translator_constraints": [
+    "translator.outlet.flow_mol[0] equals liquid benzene plus liquid toluene molar flow from translator.inlet",
+    "translator.outlet.temperature[0] equals translator.inlet.temperature[0]",
+    "translator.outlet.pressure[0] equals translator.inlet.pressure[0]",
+    "translator.outlet.mole_frac_comp[0, 'benzene'] is liquid benzene over liquid benzene plus liquid toluene",
+    "translator.outlet.mole_frac_comp[0, 'toluene'] is liquid toluene over liquid benzene plus liquid toluene"
+  ],
+  "initialization": {
+    "strategy": "SequentialDecomposition over recycle section, then add/initialize TrayColumn",
+    "solve_order": [
+      "M101",
+      "H101",
+      "R101",
+      "F101",
+      "S101",
+      "C101",
+      "translator",
+      "H102",
+      "D101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "idaes_hda_btx_property_and_reaction_packages",
+    "btx_activity_coeff_vle_package",
+    "Translator",
+    "TrayColumn"
+  ],
+  "notes_for_agent_a": [
+    "Use D101 TrayColumn for distillation; do not replace it with F102 flash.",
+    "Keep translator between F101 liquid outlet and H102/D101 BTX section."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_hda_distill_signalfix_20260605/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1280,
+      "height": 720,
+      "mode": "P"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": true,
+        "distillation": true,
+        "methanol_synthesis": false,
+        "recycle": true,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen web API test after signal fix. Build a compact IDAES hydrodealkylation of toluene flowsheet with hydrogen and toluene feeds, mixer, heater, HDA reactor, flash separator, vapor recycle with purge, and a benzene/toluene distillation column for product recovery. This is HDA with distillation, not methanol synthesis, not reverse osmosis, not electrodialysis, and not nanofiltration.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "idaes.props.hda_btx"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": true,
+        "distillation": true,
+        "methanol_synthesis": false,
+        "recycle": true,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "hda_distillation",
+        "qualified_templates": [
+          "hda_distillation"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": true,
+            "failures": []
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "forbidden signal distillation"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal hda",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal recycle",
+              "forbidden signal hda",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal hda",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.2
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "idaes.props.hda_btx",
+        "title": "IDAES HDA BTX property and reaction packages",
+        "kind": "property_package",
+        "score": 96.0,
+        "matched_triggers": [
+          "hda",
+          "hydrodealkylation",
+          "benzene",
+          "toluene"
+        ],
+        "source_url": "https://idaes-examples.readthedocs.io/en/2.4.0/docs/tut/core/hda_flowsheet_doc.html",
+        "text": "Use the HDA benzene/toluene/hydrogen/methane property and reaction packages for hydrodealkylation examples with mixer, heater, stoichiometric reactor, flash separators, splitter, and recycle compressor."
+      }
+    ]
+  }
+}

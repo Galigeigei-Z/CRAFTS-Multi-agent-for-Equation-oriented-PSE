@@ -1,0 +1,902 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "dispatches_usc_tes_integrated_web_qwen_strict_20260611",
+  "family": "family_dispatches_usc_tes_integrated",
+  "process_type": "DISPATCHES integrated ultra-supercritical power plant with thermal energy storage, charge and discharge heat exchangers, steam splitters, recycle mixer, cooler, pump, storage turbine, and solar-salt inventory constraints",
+  "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/integrated_storage_with_ultrasupercritical_power_plant.py",
+  "source_basis": [
+    "The official DISPATCHES storage module integrated_storage_with_ultrasupercritical_power_plant.py adds charge and discharge storage equipment to the ultra-supercritical plant.",
+    "The integrated model declares ess_hp_split and ess_bfp_split, charge HXC, discharge HXD, cooler, hx_pump, recycle_mixer, storage turbine, solar-salt properties, and hot/cold inventory constraints.",
+    "This is a DISPATCHES USC/TES case, not the IDAES native supercritical steam-cycle case."
+  ],
+  "property_packages": {
+    "iapws95": {
+      "entry_id": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "usc_steam_cycle",
+        "storage_steam_side"
+      ]
+    },
+    "solar_salt": {
+      "entry_id": "dispatches.properties.solarsalt_properties.SolarsaltParameterBlock",
+      "components": [
+        "solar_salt"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "hxc",
+        "hxd",
+        "hot_tank",
+        "cold_tank"
+      ]
+    },
+    "electricity": {
+      "entry_id": "DISPATCHES electrical pseudo-property",
+      "components": [
+        "electricity"
+      ],
+      "phases": [
+        "Energy"
+      ],
+      "scope": [
+        "usc_power",
+        "storage_power"
+      ]
+    }
+  },
+  "components": {
+    "working_fluid": [
+      "H2O"
+    ],
+    "storage_fluid": [
+      "solar_salt"
+    ],
+    "energy": [
+      "coal_heat",
+      "stored_heat",
+      "steam_power",
+      "electricity"
+    ]
+  },
+  "units": [
+    {
+      "id": "boiler",
+      "kind": "Boiler",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "USC boiler and main steam source",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine1",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "very-high-pressure turbine 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine2",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "very-high-pressure turbine 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reheater1",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "first reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine3",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "high-pressure turbine 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine4",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "high-pressure turbine 4",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reheater2",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "second reheater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine5",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "intermediate-pressure turbine 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine6",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "intermediate-pressure turbine 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine7",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "low-pressure turbine 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine8",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "low-pressure turbine 8",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine9",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "low-pressure turbine 9",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine10",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "low-pressure turbine 10",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turbine11",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "low-pressure turbine 11",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfpt",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "usc_steam_path",
+      "role": "boiler feed pump turbine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser_mixer",
+      "kind": "HelmMixer",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "condenser mixer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "main condenser",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cond_pump",
+      "kind": "PressureChanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "condensate pump",
+      "constructor": {
+        "thermodynamic_assumption": "pump"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh2",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh3",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh4",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 4",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh5",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "deaerator",
+      "kind": "HelmMixer",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "deaerator",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "booster",
+      "kind": "PressureChanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "booster pump",
+      "constructor": {
+        "thermodynamic_assumption": "pump"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "fwh6",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh7",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp",
+      "kind": "PressureChanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "boiler feed pump",
+      "constructor": {
+        "thermodynamic_assumption": "pump"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "fwh8",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 8",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh9",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "usc_feedwater_train",
+      "role": "feedwater heater 9",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ess_hp_split",
+      "kind": "HelmSplitter",
+      "package": "iapws95",
+      "stage": "charge",
+      "role": "diverts high-pressure steam between charge HXC and turbine 3",
+      "constructor": {
+        "outlet_list": [
+          "to_hxc",
+          "to_turbine"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hxc",
+      "kind": "HeatExchanger",
+      "package": "iapws95",
+      "stage": "charge",
+      "role": "charge heat exchanger transfers steam heat to solar salt",
+      "constructor": {
+        "hot_side_name": "shell",
+        "cold_side_name": "tube",
+        "cold_side_package": "solar_salt"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "cooler",
+      "kind": "Heater",
+      "package": "iapws95",
+      "stage": "charge",
+      "role": "subcools charge-side water before return to plant",
+      "constructor": {
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hx_pump",
+      "kind": "PressureChanger",
+      "package": "iapws95",
+      "stage": "charge",
+      "role": "raises pressure of cooled charge stream for recycle mixing",
+      "constructor": {
+        "thermodynamic_assumption": "pump"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "recycle_mixer",
+      "kind": "HelmMixer",
+      "package": "iapws95",
+      "stage": "charge",
+      "role": "mixes boiler-feedwater outlet with charge recycle",
+      "constructor": {
+        "inlet_list": [
+          "from_bfw_out",
+          "from_hx_pump"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "ess_bfp_split",
+      "kind": "HelmSplitter",
+      "package": "iapws95",
+      "stage": "discharge",
+      "role": "diverts BFP outlet to discharge HXD or recycle mixer",
+      "constructor": {
+        "outlet_list": [
+          "to_hxd",
+          "to_recyclemix"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hxd",
+      "kind": "HeatExchanger",
+      "package": "solar_salt",
+      "stage": "discharge",
+      "role": "discharge heat exchanger transfers hot salt heat to water/steam",
+      "constructor": {
+        "hot_side_name": "shell",
+        "cold_side_name": "tube",
+        "cold_side_package": "iapws95"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "es_turbine",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "discharge",
+      "role": "storage-driven turbine for additional power generation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hot_salt_inventory",
+      "kind": "InventoryConstraint",
+      "package": "solar_salt",
+      "stage": "storage",
+      "role": "hot solar-salt tank inventory state",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cold_salt_inventory",
+      "kind": "InventoryConstraint",
+      "package": "solar_salt",
+      "stage": "storage",
+      "role": "cold solar-salt tank inventory state",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_out",
+      "kind": "Product",
+      "package": "electricity",
+      "stage": "power",
+      "role": "combined USC and storage power output",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "boiler_to_turbine1",
+      "source": "boiler.outlet",
+      "destination": "turbine1.inlet",
+      "stage": "steam",
+      "role": "main steam from boiler to turbine 1",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine1_to_turbine2",
+      "source": "turbine1.outlet",
+      "destination": "turbine2.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 2",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine2_to_reheater1",
+      "source": "turbine2.outlet",
+      "destination": "reheater1.inlet",
+      "stage": "steam",
+      "role": "steam to first reheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine3_to_turbine4",
+      "source": "turbine3.outlet",
+      "destination": "turbine4.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 4",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine4_to_reheater2",
+      "source": "turbine4.outlet",
+      "destination": "reheater2.inlet",
+      "stage": "steam",
+      "role": "steam to second reheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "reheater2_to_turbine5",
+      "source": "reheater2.outlet",
+      "destination": "turbine5.inlet",
+      "stage": "steam",
+      "role": "reheated steam to turbine 5",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine5_to_turbine6",
+      "source": "turbine5.outlet",
+      "destination": "turbine6.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 6",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine6_to_turbine7",
+      "source": "turbine6.outlet",
+      "destination": "turbine7.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 7",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine7_to_turbine8",
+      "source": "turbine7.outlet",
+      "destination": "turbine8.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 8",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine8_to_turbine9",
+      "source": "turbine8.outlet",
+      "destination": "turbine9.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 9",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine9_to_turbine10",
+      "source": "turbine9.outlet",
+      "destination": "turbine10.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 10",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine10_to_turbine11",
+      "source": "turbine10.outlet",
+      "destination": "turbine11.inlet",
+      "stage": "steam",
+      "role": "steam to turbine 11",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine11_to_condenser_mixer",
+      "source": "turbine11.outlet",
+      "destination": "condenser_mixer.inlet",
+      "stage": "steam",
+      "role": "LP turbine exhaust to condenser mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "condenser_mixer_to_condenser",
+      "source": "condenser_mixer.outlet",
+      "destination": "condenser.inlet",
+      "stage": "condensing_steam",
+      "role": "mixed exhaust to condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "condenser_to_cond_pump",
+      "source": "condenser.outlet",
+      "destination": "cond_pump.inlet",
+      "stage": "condensate",
+      "role": "condensate to condensate pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "cond_pump_to_fwh1",
+      "source": "cond_pump.outlet",
+      "destination": "fwh1.tube_inlet",
+      "stage": "feedwater",
+      "role": "condensate pump to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh1_to_fwh2",
+      "source": "fwh1.tube_outlet",
+      "destination": "fwh2.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh2_to_fwh3",
+      "source": "fwh2.tube_outlet",
+      "destination": "fwh3.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh3_to_fwh4",
+      "source": "fwh3.tube_outlet",
+      "destination": "fwh4.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH4",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh4_to_fwh5",
+      "source": "fwh4.tube_outlet",
+      "destination": "fwh5.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH5",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh5_to_deaerator",
+      "source": "fwh5.tube_outlet",
+      "destination": "deaerator.inlet",
+      "stage": "feedwater",
+      "role": "feedwater to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "deaerator_to_booster",
+      "source": "deaerator.outlet",
+      "destination": "booster.inlet",
+      "stage": "feedwater",
+      "role": "deaerator to booster pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "booster_to_fwh6",
+      "source": "booster.outlet",
+      "destination": "fwh6.tube_inlet",
+      "stage": "feedwater",
+      "role": "booster pump to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh6_to_fwh7",
+      "source": "fwh6.tube_outlet",
+      "destination": "fwh7.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH7",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh7_to_bfp",
+      "source": "fwh7.tube_outlet",
+      "destination": "bfp.inlet",
+      "stage": "feedwater",
+      "role": "feedwater to boiler feed pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh8_to_fwh9",
+      "source": "fwh8.tube_outlet",
+      "destination": "fwh9.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to FWH9",
+      "tear_candidate": false
+    },
+    {
+      "id": "fwh9_to_boiler",
+      "source": "fwh9.tube_outlet",
+      "destination": "boiler.inlet",
+      "stage": "feedwater",
+      "role": "feedwater returns to boiler",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine6_to_bfpt",
+      "source": "turbine6.extraction",
+      "destination": "bfpt.inlet",
+      "stage": "steam",
+      "role": "extraction steam to boiler feed pump turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "bfpt_to_condenser_mixer",
+      "source": "bfpt.outlet",
+      "destination": "condenser_mixer.inlet",
+      "stage": "steam",
+      "role": "BFPT exhaust to condenser mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "reheater1_to_ess_hp_split",
+      "source": "reheater1.outlet",
+      "destination": "ess_hp_split.inlet",
+      "stage": "steam",
+      "role": "reheater 1 outlet to charge HP splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "ess_hp_split_to_turbine3",
+      "source": "ess_hp_split.to_turbine",
+      "destination": "turbine3.inlet",
+      "stage": "steam",
+      "role": "non-charge branch continues to turbine 3",
+      "tear_candidate": false
+    },
+    {
+      "id": "ess_hp_split_to_hxc",
+      "source": "ess_hp_split.to_hxc",
+      "destination": "hxc.shell_inlet",
+      "stage": "steam",
+      "role": "diverted steam to charge HXC",
+      "tear_candidate": false
+    },
+    {
+      "id": "hxc_to_cooler",
+      "source": "hxc.shell_outlet",
+      "destination": "cooler.inlet",
+      "stage": "condensate",
+      "role": "charge-side condensate to cooler",
+      "tear_candidate": false
+    },
+    {
+      "id": "cooler_to_hx_pump",
+      "source": "cooler.outlet",
+      "destination": "hx_pump.inlet",
+      "stage": "condensate",
+      "role": "cooler outlet to pressure recovery pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "hx_pump_to_recycle_mixer",
+      "source": "hx_pump.outlet",
+      "destination": "recycle_mixer.from_hx_pump",
+      "stage": "condensate",
+      "role": "charge recycle return",
+      "tear_candidate": false
+    },
+    {
+      "id": "cold_salt_to_hxc",
+      "source": "cold_salt_inventory.outlet",
+      "destination": "hxc.tube_inlet",
+      "stage": "solar_salt",
+      "role": "cold salt charged through HXC",
+      "tear_candidate": false
+    },
+    {
+      "id": "hxc_to_hot_salt",
+      "source": "hxc.tube_outlet",
+      "destination": "hot_salt_inventory.inlet",
+      "stage": "solar_salt",
+      "role": "heated salt to hot inventory",
+      "tear_candidate": false
+    },
+    {
+      "id": "bfp_to_ess_bfp_split",
+      "source": "bfp.outlet",
+      "destination": "ess_bfp_split.inlet",
+      "stage": "feedwater",
+      "role": "BFP outlet to discharge split",
+      "tear_candidate": false
+    },
+    {
+      "id": "ess_bfp_split_to_hxd",
+      "source": "ess_bfp_split.to_hxd",
+      "destination": "hxd.tube_inlet",
+      "stage": "feedwater",
+      "role": "feedwater to discharge HXD",
+      "tear_candidate": false
+    },
+    {
+      "id": "ess_bfp_split_to_recycle_mixer",
+      "source": "ess_bfp_split.to_recyclemix",
+      "destination": "recycle_mixer.from_bfw_out",
+      "stage": "feedwater",
+      "role": "BFP bypass to recycle mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "recycle_mixer_to_fwh8",
+      "source": "recycle_mixer.outlet",
+      "destination": "fwh8.tube_inlet",
+      "stage": "feedwater",
+      "role": "mixed feedwater returns to FWH8",
+      "tear_candidate": false
+    },
+    {
+      "id": "hot_salt_to_hxd",
+      "source": "hot_salt_inventory.outlet",
+      "destination": "hxd.shell_inlet",
+      "stage": "solar_salt",
+      "role": "hot salt discharges through HXD",
+      "tear_candidate": false
+    },
+    {
+      "id": "hxd_to_cold_salt",
+      "source": "hxd.shell_outlet",
+      "destination": "cold_salt_inventory.inlet",
+      "stage": "solar_salt",
+      "role": "cooled salt returns to cold inventory",
+      "tear_candidate": false
+    },
+    {
+      "id": "hxd_to_es_turbine",
+      "source": "hxd.tube_outlet",
+      "destination": "es_turbine.inlet",
+      "stage": "steam",
+      "role": "heated steam drives storage turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "es_turbine_to_condenser_mixer",
+      "source": "es_turbine.outlet",
+      "destination": "condenser_mixer.inlet",
+      "stage": "steam",
+      "role": "storage turbine exhaust returns to condenser mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "es_turbine_power",
+      "source": "es_turbine.work",
+      "destination": "power_out.inlet",
+      "stage": "power",
+      "role": "storage turbine power contribution",
+      "tear_candidate": false
+    },
+    {
+      "id": "usc_power",
+      "source": "boiler.net_power",
+      "destination": "power_out.inlet",
+      "stage": "power",
+      "role": "base plant power contribution",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "usc_plant",
+      "variable": "base_load",
+      "value": "USC plant initialized from official DISPATCHES data",
+      "units": "MW",
+      "role": "base USC operating point"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "hot_salt_inventory",
+      "variable": "tank_scenario",
+      "value": "hot_empty/hot_half_full/hot_full",
+      "units": "scenario",
+      "role": "official tank inventory scenario selector"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "topology reference validation from official DISPATCHES integrated USC storage source; full NLP solve is not run in this lightweight case",
+    "solve_order": [
+      "usc_plant",
+      "charge storage",
+      "discharge storage",
+      "inventory and power accounting"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  },
+  "required_entries": [
+    "integrated_storage_with_ultrasupercritical_power_plant.py",
+    "ess_hp_split",
+    "ess_bfp_split",
+    "hxc",
+    "hxd",
+    "es_turbine",
+    "previous_salt_inventory_hot"
+  ],
+  "notes_for_agent_a": [
+    "Route this separately from dispatches_ultra_supercritical_plant because it includes thermal energy storage charge/discharge coupling and inventory constraints."
+  ],
+  "visual_evidence": null
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_soec_oxygen_depolarized_bped",
+  "family": "family_soec_bped",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_depolarization_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stack_heat_integration_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "combined_power_index",
+      "value": 0.6200000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_yield",
+      "value": 0.76,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "acid_yield",
+      "value": 0.9199999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "base_yield",
+      "value": 0.9199999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stack_temperature_K",
+      "value": 770.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "WATER.outlet",
+    "SALT.outlet"
+  ],
+  "terminal_product_ports": [
+    "H2.inlet",
+    "ACID.inlet",
+    "BASE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_sofc_soec_coproduction"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_sofc_soec_coproduction",
+    "chemical_change": "Integrates two electrochemical processes through oxygen, heat and power coproduct exchange.",
+    "native_metrics": {
+      "combined_power_index": 0.6200000000000001,
+      "hydrogen_yield": 0.76,
+      "acid_yield": 0.9199999999999999,
+      "base_yield": 0.9199999999999999,
+      "stack_temperature_K": 770.0
+    }
+  }
+}

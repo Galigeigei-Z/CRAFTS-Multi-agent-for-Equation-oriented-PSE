@@ -1,0 +1,322 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_asm1_dewatering_unit",
+  "family": "family_watertap_sludge_dewatering",
+  "process_type": "Single-unit ASM1 waste activated sludge dewatering",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py",
+  "source_basis": [
+    "Uses the official WaterTAP DewateringUnit and ASM1ParameterBlock.",
+    "The official BSM2 benchmark feed is separated into clarified overflow and concentrated underflow cake.",
+    "Native correlations specify 98% suspended-solids capture and nominal 28 wt% cake dry solids."
+  ],
+  "property_packages": {
+    "ASM1": {
+      "components": [
+        "S_I",
+        "S_S",
+        "X_I",
+        "X_S",
+        "X_BH",
+        "X_BA",
+        "X_P",
+        "S_O",
+        "S_NO",
+        "S_NH",
+        "S_ND",
+        "X_ND"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "source": "watertap.property_models.unit_specific.activated_sludge.asm1_properties"
+    }
+  },
+  "components": {
+    "soluble": [
+      "S_I",
+      "S_S",
+      "S_O",
+      "S_NO",
+      "S_NH",
+      "S_ND"
+    ],
+    "particulate": [
+      "X_I",
+      "X_S",
+      "X_BH",
+      "X_BA",
+      "X_P",
+      "X_ND"
+    ]
+  },
+  "units": [
+    {
+      "id": "waste_sludge_feed",
+      "kind": "Feed",
+      "package": "ASM1",
+      "stage": "feed",
+      "role": "waste activated sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dewaterer",
+      "kind": "DewateringUnit",
+      "package": "ASM1",
+      "stage": "separation",
+      "role": "empirical BSM2 sludge dewaterer",
+      "constructor": {
+        "activated_sludge_model": "ASM1",
+        "split_basis": "componentFlow"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "filtrate",
+      "kind": "Product",
+      "package": "ASM1",
+      "stage": "product",
+      "role": "clarified liquid overflow",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sludge_cake",
+      "kind": "Product",
+      "package": "ASM1",
+      "stage": "product",
+      "role": "captured-solids underflow cake",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "waste_sludge_feed.outlet",
+      "destination": "dewaterer.inlet",
+      "stage": "feed",
+      "role": "waste activated sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "dewaterer.overflow",
+      "destination": "filtrate.inlet",
+      "stage": "product",
+      "role": "clarified filtrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "dewaterer.underflow",
+      "destination": "sludge_cake.inlet",
+      "stage": "product",
+      "role": "dewatered cake",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "dewaterer",
+      "variable": "inlet.flow_vol[0]",
+      "value": 178.4674,
+      "units": "m^3/day",
+      "role": "waste activated sludge flow",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.temperature[0]",
+      "value": 308.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.pressure[0]",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "feed pressure",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.alkalinity[0]",
+      "value": 97.8459,
+      "units": "mol/m^3",
+      "role": "feed alkalinity",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_I']",
+      "value": 130.867,
+      "units": "mg/L",
+      "role": "feed S_I",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_S']",
+      "value": 258.5789,
+      "units": "mg/L",
+      "role": "feed S_S",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_I']",
+      "value": 17216.2434,
+      "units": "mg/L",
+      "role": "feed X_I",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_S']",
+      "value": 2611.4843,
+      "units": "mg/L",
+      "role": "feed X_S",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_BH']",
+      "value": 1e-06,
+      "units": "mg/L",
+      "role": "feed X_BH",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_BA']",
+      "value": 1e-06,
+      "units": "mg/L",
+      "role": "feed X_BA",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_P']",
+      "value": 626.0652,
+      "units": "mg/L",
+      "role": "feed X_P",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_O']",
+      "value": 1e-06,
+      "units": "mg/L",
+      "role": "feed S_O",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_NO']",
+      "value": 1e-06,
+      "units": "mg/L",
+      "role": "feed S_NO",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_NH']",
+      "value": 1442.7882,
+      "units": "mg/L",
+      "role": "feed S_NH",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'S_ND']",
+      "value": 0.54323,
+      "units": "mg/L",
+      "role": "feed S_ND",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "inlet.conc_mass_comp[0,'X_ND']",
+      "value": 100.8668,
+      "units": "mg/L",
+      "role": "feed X_ND",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "dewaterer",
+      "variable": "TSS_rem",
+      "value": 0.98,
+      "units": "dimensionless",
+      "role": "suspended-solids capture fraction",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "p_dewat",
+      "value": 0.28,
+      "units": "dimensionless",
+      "role": "nominal cake dry-solids mass fraction",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "hydraulic_retention_time[0]",
+      "value": 1800.0,
+      "units": "s",
+      "role": "dewaterer residence time",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    },
+    {
+      "target": "dewaterer",
+      "variable": "energy_electric_flow_vol_inlet[0]",
+      "value": 0.026,
+      "units": "kWh/m^3",
+      "role": "specific electricity intensity",
+      "source": "official_bsm2_benchmark_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "waste_sludge_feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "filtrate.inlet",
+    "sludge_cake.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "initialize the native separator-based DewateringUnit",
+    "solve_order": [
+      "dewaterer"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

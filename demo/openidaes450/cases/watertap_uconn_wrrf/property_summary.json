@@ -1,0 +1,37 @@
+{
+  "case_id": "watertap_uconn_wrrf",
+  "applicability": "model_parameter_packages",
+  "package_count": 5,
+  "packages": [
+    {
+      "name": "fs.props_ASM1",
+      "class": "watertap.property_models.unit_specific.activated_sludge.asm1_properties.ASM1ParameterBlock",
+      "module": "watertap.property_models.unit_specific.activated_sludge.asm1_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.props_ADM1",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.props_vap",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ADM1_rxn_props",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ASM1_rxn_props",
+      "class": "watertap.property_models.unit_specific.activated_sludge.asm1_reactions.ASM1ReactionParameterBlock",
+      "module": "watertap.property_models.unit_specific.activated_sludge.asm1_reactions",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

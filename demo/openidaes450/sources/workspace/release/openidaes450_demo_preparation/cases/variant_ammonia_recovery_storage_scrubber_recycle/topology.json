@@ -1,0 +1,223 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_ammonia_recovery_storage_scrubber_recycle",
+  "family": "family_ammonia_storage_scrub",
+  "process_type": "Ammonia Recovery Storage with Emergency Acid Scrubber",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_ammonia_membrane_contactor_heat_recovery.",
+    "Adds vapor-liquid ammonia capture, acid reaction and recovered-salt return to product storage.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "NH3",
+        "acid",
+        "ammonium_salt",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery"
+    }
+  },
+  "components": {
+    "tracked": [
+      "NH3",
+      "acid",
+      "ammonium_salt",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FERT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "ammonium solution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TANK",
+      "kind": "StorageTank",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "fertilizer storage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "VENT",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "normal/emergency vent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "scrubber acid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SCRUB",
+      "kind": "AcidScrubber",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "NH3 capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EVAP",
+      "kind": "Evaporator",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "scrubber-liquor concentration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "salt return",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "ammonium fertilizer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STACK",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ammonia_storage_scrub",
+      "role": "clean vent",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FERT.outlet",
+      "destination": "TANK.inlet",
+      "stage": "ammonia_storage_scrub",
+      "role": "fertilizer solution",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "TANK.vent",
+      "destination": "VENT.inlet",
+      "stage": "ammonia_storage_scrub",
+      "role": "ammonia vent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "VENT.gas",
+      "destination": "SCRUB.gas",
+      "stage": "ammonia_storage_scrub",
+      "role": "emergency vent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "ACID.outlet",
+      "destination": "SCRUB.acid",
+      "stage": "ammonia_storage_scrub",
+      "role": "acid absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "SCRUB.gas_out",
+      "destination": "STACK.inlet",
+      "stage": "ammonia_storage_scrub",
+      "role": "clean vent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SCRUB.liquid",
+      "destination": "EVAP.inlet",
+      "stage": "ammonia_storage_scrub",
+      "role": "ammonium salt liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "EVAP.concentrate",
+      "destination": "M1.recovered",
+      "stage": "ammonia_storage_scrub",
+      "role": "recovered salt",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "TANK.product",
+      "destination": "M1.product",
+      "stage": "ammonia_storage_scrub",
+      "role": "stored fertilizer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "M1.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "ammonia_storage_scrub",
+      "role": "fertilizer product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FERT.outlet",
+    "ACID.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "STACK.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery",
+    "chemical_change": "Adds vapor-liquid ammonia capture, acid reaction and recovered-salt return to product storage.",
+    "native_metrics": {
+      "ammonia_vent_index": 0.004875000000000002,
+      "fertilizer_n_recovery": 0.9369999999999999,
+      "acid_index": 0.09500000000000001,
+      "clean_stack_index": 0.005,
+      "recovered_salt_index": 0.10687500000000001
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_leach_spill_neutralization_ree_recovery",
+  "family": "family_leach_spill_recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "lime_neutralization_fraction",
+      "value": 0.6000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ree_redissolution_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "neutralized_ph",
+      "value": 6.800000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ree_recovery",
+      "value": 0.95,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_acid_index",
+      "value": 0.039999999999999994,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "waste_sludge_index",
+      "value": 0.020000000000000018,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "water_ree_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "LIME.outlet"
+  ],
+  "terminal_product_ports": [
+    "REE.inlet",
+    "WATER.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_prommis_ree_leach_sx_bped_acid_loop"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_prommis_ree_leach_sx_bped_acid_loop",
+    "chemical_change": "Adds contained acid-base reaction, hydroxide precipitation and a metal-recovery return path.",
+    "native_metrics": {
+      "neutralized_ph": 6.800000000000001,
+      "ree_recovery": 0.95,
+      "residual_acid_index": 0.039999999999999994,
+      "waste_sludge_index": 0.020000000000000018,
+      "water_ree_index": 0.0
+    }
+  }
+}

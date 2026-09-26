@@ -1,0 +1,48 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_grid_integrated_rankine_surrogate",
+  "family": "family_dispatches_grid_integrated_rankine_surrogate",
+  "source_url": "local://dispatches/case_studies/simple_rankine_cycle/surrogate_design_keras.ipynb",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "market_inputs",
+      "variable": "pmax_bounds",
+      "value": [
+        175,
+        450
+      ],
+      "units": "MW",
+      "role": "official pmax design bounds from notebook",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/simple_rankine_cycle/surrogate_design_keras.ipynb"
+    },
+    {
+      "target": "keras_revenue_surrogate",
+      "variable": "formulation",
+      "value": "KerasSurrogate.Formulation.REDUCED_SPACE",
+      "units": "enum",
+      "role": "official surrogate formulation",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/simple_rankine_cycle/surrogate_design_keras.ipynb"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "topology reference validation for official DISPATCHES Rankine Keras surrogate notebook; TensorFlow training/loading is not run in this lightweight case",
+    "solve_order": [
+      "cap_fs",
+      "market inputs",
+      "KerasSurrogate wrappers",
+      "SurrogateBlock constraints",
+      "objective"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  }
+}

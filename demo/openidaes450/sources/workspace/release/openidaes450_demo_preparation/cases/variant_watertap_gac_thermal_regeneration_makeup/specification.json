@@ -1,0 +1,81 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_gac_thermal_regeneration_makeup",
+  "family": "family_gac_regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "carbon_use_cycles",
+      "value": 4.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "effective_capacity_kg_kg",
+      "value": 0.255,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbon_throughput_kg_s",
+      "value": 0.00392156862745098,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "virgin_makeup_kg_s",
+      "value": 0.0013921568627450979,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "regeneration_energy_kW",
+      "value": 0.005294117647058823,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet",
+    "MAKEUP.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "OFFGAS.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_gac_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_gac_unit",
+    "chemical_change": "Adds a second bed, spent-carbon withdrawal, regenerator, capacity decay and makeup loop rather than a replacement-fraction operating point.",
+    "native_metrics": {
+      "effective_capacity_kg_kg": 0.255,
+      "carbon_throughput_kg_s": 0.00392156862745098,
+      "virgin_makeup_kg_s": 0.0013921568627450979,
+      "regeneration_energy_kW": 0.005294117647058823
+    }
+  }
+}

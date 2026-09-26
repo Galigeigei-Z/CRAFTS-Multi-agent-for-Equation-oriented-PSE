@@ -1,0 +1,66 @@
+[
+  {
+    "name": "fs.prop_water",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.general_helmholtz.helmholtz_functions.HelmholtzParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "pure_component": "H2O",
+      "phase_presentation": {
+        "component": "MIX"
+      },
+      "state_vars": {
+        "component": "PH"
+      },
+      "amount_basis": {
+        "component": "MOLE"
+      }
+    },
+    "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+    "module": "idaes.models.properties.iapws95",
+    "data_class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_gas",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": [
+        "N2",
+        "O2",
+        "NO",
+        "CO2",
+        "H2O",
+        "SO2"
+      ]
+    },
+    "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock",
+    "module": "idaes.models_extra.power_generation.properties.flue_gas_ideal",
+    "data_class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/flue_gas_ideal.py"
+  }
+]

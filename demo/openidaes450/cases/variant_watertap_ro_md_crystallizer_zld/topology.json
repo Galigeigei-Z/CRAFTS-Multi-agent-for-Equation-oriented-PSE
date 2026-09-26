@@ -1,0 +1,215 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ro_md_crystallizer_zld",
+  "family": "family_ro_md_zld",
+  "process_type": "RO-MD-Crystallizer Zero-Liquid-Discharge Train",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_mdc_osmotic_crystallization.",
+    "Combines pressure-, thermal- and phase-change separations into a water/salt product train with no liquid purge.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NaCl",
+        "water_vapor",
+        "salt_crystal"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_mdc_osmotic_crystallization"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NaCl",
+      "water_vapor",
+      "salt_crystal"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "saline wastewater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO",
+      "kind": "ReverseOsmosis",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "bulk water recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MD",
+      "kind": "MembraneDistillation",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "brine concentration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CRYS",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "salt precipitation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "crystal harvest",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "mother liquor recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "recovered water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SALT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ro_md_zld",
+      "role": "salt",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "RO.feed",
+      "stage": "ro_md_zld",
+      "role": "saline feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "RO.permeate",
+      "destination": "WATER.ro",
+      "stage": "ro_md_zld",
+      "role": "RO water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "RO.retentate",
+      "destination": "MD.feed",
+      "stage": "ro_md_zld",
+      "role": "RO concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "MD.distillate",
+      "destination": "WATER.md",
+      "stage": "ro_md_zld",
+      "role": "MD water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "MD.concentrate",
+      "destination": "CRYS.feed",
+      "stage": "ro_md_zld",
+      "role": "supersaturated brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CRYS.slurry",
+      "destination": "CF.inlet",
+      "stage": "ro_md_zld",
+      "role": "crystal slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "CF.solid",
+      "destination": "SALT.inlet",
+      "stage": "ro_md_zld",
+      "role": "salt product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CF.liquid",
+      "destination": "S1.inlet",
+      "stage": "ro_md_zld",
+      "role": "mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "S1.recycle",
+      "destination": "MD.recycle",
+      "stage": "ro_md_zld",
+      "role": "brine recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "WATER.inlet",
+    "SALT.inlet"
+  ],
+  "tear_streams": [
+    "s09"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_mdc_osmotic_crystallization"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_mdc_osmotic_crystallization",
+    "chemical_change": "Combines pressure-, thermal- and phase-change separations into a water/salt product train with no liquid purge.",
+    "native_metrics": {
+      "water_recovery": 0.903,
+      "liquid_purge_fraction": 0.001999999999999999,
+      "scaling_index": 0.0216,
+      "salt_recovery": 0.915,
+      "energy_index": 4.300000000000001
+    }
+  }
+}

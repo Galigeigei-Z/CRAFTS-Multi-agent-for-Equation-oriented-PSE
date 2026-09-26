@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "idaes_formaldehyde_reactor_absorber",
+  "recipe": "reaction_separation",
+  "parent_case_key": "blind_synthesized_methanol_recycle",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "reaction_severity_fraction": 0.75,
+    "recovery_recycle_fraction": 0.8
+  },
+  "metrics": {
+    "reactant_conversion": 0.8505,
+    "product_recovery": 0.905,
+    "byproduct_purge_fraction": 0.060500000000000005,
+    "specific_energy_index": 0.484,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.648,
+      "byproduct_purge_fraction": 0.13,
+      "specific_energy_index": 0.16,
+      "objective": 0.21200000000000002,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.665,
+      "byproduct_purge_fraction": 0.13175,
+      "specific_energy_index": 0.169,
+      "objective": 0.2217,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.682,
+      "byproduct_purge_fraction": 0.1335,
+      "specific_energy_index": 0.178,
+      "objective": 0.2314,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.6990000000000001,
+      "byproduct_purge_fraction": 0.13525,
+      "specific_energy_index": 0.187,
+      "objective": 0.2411,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.716,
+      "byproduct_purge_fraction": 0.137,
+      "specific_energy_index": 0.196,
+      "objective": 0.2508,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.733,
+      "byproduct_purge_fraction": 0.13875,
+      "specific_energy_index": 0.20500000000000002,
+      "objective": 0.2605,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.75,
+      "byproduct_purge_fraction": 0.1405,
+      "specific_energy_index": 0.21400000000000002,
+      "objective": 0.27020000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.767,
+      "byproduct_purge_fraction": 0.14225000000000002,
+      "specific_energy_index": 0.223,
+      "objective": 0.27990000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.784,
+      "byproduct_purge_fraction": 0.14400000000000002,
+      "specific_energy_index": 0.23199999999999998,
+      "objective": 0.28959999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.801,
+      "byproduct_purge_fraction": 0.14575000000000002,
+      "specific_energy_index": 0.241,
+      "objective": 0.2993,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.8180000000000001,
+      "byproduct_purge_fraction": 0.14750000000000002,
+      "specific_energy_index": 0.25,
+      "objective": 0.309,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.8350000000000001,
+      "byproduct_purge_fraction": 0.14925,
+      "specific_energy_index": 0.259,
+      "objective": 0.3187,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.8520000000000001,
+      "byproduct_purge_fraction": 0.15100000000000002,
+      "specific_energy_index": 0.268,
+      "objective": 0.3284,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.869,
+      "byproduct_purge_fraction": 0.15275,
+      "specific_energy_index": 0.277,
+      "objective": 0.3381,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.8860000000000001,
+      "byproduct_purge_fraction": 0.1545,
+      "specific_energy_index": 0.28600000000000003,
+      "objective": 0.34780000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.903,
+      "byproduct_purge_fraction": 0.15625,
+      "specific_energy_index": 0.29500000000000004,
+      "objective": 0.35750000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.92,
+      "byproduct_purge_fraction": 0.158,
+      "specific_energy_index": 0.304,
+      "objective": 0.36719999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.937,
+      "byproduct_purge_fraction": 0.15975,
+      "specific_energy_index": 0.313,
+      "objective": 0.3769,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.9540000000000001,
+      "byproduct_purge_fraction": 0.1615,
+      "specific_energy_index": 0.322,
+      "objective": 0.3866,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.9710000000000001,
+      "byproduct_purge_fraction": 0.16325,
+      "specific_energy_index": 0.331,
+      "objective": 0.39630000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.558,
+      "product_recovery": 0.988,
+      "byproduct_purge_fraction": 0.165,
+      "specific_energy_index": 0.33999999999999997,
+      "objective": 0.40599999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.0,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.647,
+      "byproduct_purge_fraction": 0.1235,
+      "specific_energy_index": 0.17200000000000001,
+      "objective": 0.2214,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.664,
+      "byproduct_purge_fraction": 0.12525,
+      "specific_energy_index": 0.18100000000000002,
+      "objective": 0.23110000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.681,
+      "byproduct_purge_fraction": 0.127,
+      "specific_energy_index": 0.19,
+      "objective": 0.24080000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.6980000000000001,
+      "byproduct_purge_fraction": 0.12875,
+      "specific_energy_index": 0.199,
+      "objective": 0.2505,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.715,
+      "byproduct_purge_fraction": 0.1305,
+      "specific_energy_index": 0.20800000000000002,
+      "objective": 0.26020000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.732,
+      "byproduct_purge_fraction": 0.13225,
+      "specific_energy_index": 0.21700000000000003,
+      "objective": 0.26990000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.749,
+      "byproduct_purge_fraction": 0.134,
+      "specific_energy_index": 0.22600000000000003,
+      "objective": 0.27960000000000007,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.766,
+      "byproduct_purge_fraction": 0.13575,
+      "specific_energy_index": 0.23500000000000001,
+      "objective": 0.2893,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.783,
+      "byproduct_purge_fraction": 0.1375,
+      "specific_energy_index": 0.244,
+      "objective": 0.299,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.8,
+      "byproduct_purge_fraction": 0.13925,
+      "specific_energy_index": 0.253,
+      "objective": 0.30870000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.8170000000000001,
+      "byproduct_purge_fraction": 0.14100000000000001,
+      "specific_energy_index": 0.262,
+      "objective": 0.3184,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.8340000000000001,
+      "byproduct_purge_fraction": 0.14275,
+      "specific_energy_index": 0.271,
+      "objective": 0.3281,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.8510000000000001,
+      "byproduct_purge_fraction": 0.14450000000000002,
+      "specific_energy_index": 0.28,
+      "objective": 0.33780000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.868,
+      "byproduct_purge_fraction": 0.14625,
+      "specific_energy_index": 0.28900000000000003,
+      "objective": 0.34750000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.8850000000000001,
+      "byproduct_purge_fraction": 0.148,
+      "specific_energy_index": 0.29800000000000004,
+      "objective": 0.3572000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.902,
+      "byproduct_purge_fraction": 0.14975,
+      "specific_energy_index": 0.30700000000000005,
+      "objective": 0.36690000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.919,
+      "byproduct_purge_fraction": 0.1515,
+      "specific_energy_index": 0.316,
+      "objective": 0.3766,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.936,
+      "byproduct_purge_fraction": 0.15325,
+      "specific_energy_index": 0.325,
+      "objective": 0.38630000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.9530000000000001,
+      "byproduct_purge_fraction": 0.155,
+      "specific_energy_index": 0.334,
+      "objective": 0.396,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.9700000000000001,
+      "byproduct_purge_fraction": 0.15675,
+      "specific_energy_index": 0.343,
+      "objective": 0.40570000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.5789000000000001,
+      "product_recovery": 0.987,
+      "byproduct_purge_fraction": 0.1585,
+      "specific_energy_index": 0.352,
+      "objective": 0.4154,
+      "feasible": false,
+      "reaction_severity_fraction": 0.05,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.646,
+      "byproduct_purge_fraction": 0.117,
+      "specific_energy_index": 0.184,
+      "objective": 0.2308,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.663,
+      "byproduct_purge_fraction": 0.11875000000000001,
+      "specific_energy_index": 0.193,
+      "objective": 0.24050000000000002,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.68,
+      "byproduct_purge_fraction": 0.12050000000000001,
+      "specific_energy_index": 0.20199999999999999,
+      "objective": 0.2502,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.6970000000000001,
+      "byproduct_purge_fraction": 0.12225000000000001,
+      "specific_energy_index": 0.211,
+      "objective": 0.2599,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.714,
+      "byproduct_purge_fraction": 0.12400000000000001,
+      "specific_energy_index": 0.22,
+      "objective": 0.2696,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.731,
+      "byproduct_purge_fraction": 0.12575,
+      "specific_energy_index": 0.22899999999999998,
+      "objective": 0.2793,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.748,
+      "byproduct_purge_fraction": 0.1275,
+      "specific_energy_index": 0.238,
+      "objective": 0.289,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.765,
+      "byproduct_purge_fraction": 0.12925,
+      "specific_energy_index": 0.247,
+      "objective": 0.2987,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.782,
+      "byproduct_purge_fraction": 0.131,
+      "specific_energy_index": 0.256,
+      "objective": 0.3084,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.799,
+      "byproduct_purge_fraction": 0.13275,
+      "specific_energy_index": 0.265,
+      "objective": 0.31810000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.8160000000000001,
+      "byproduct_purge_fraction": 0.1345,
+      "specific_energy_index": 0.274,
+      "objective": 0.32780000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.8330000000000001,
+      "byproduct_purge_fraction": 0.13625,
+      "specific_energy_index": 0.28300000000000003,
+      "objective": 0.3375,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.8500000000000001,
+      "byproduct_purge_fraction": 0.138,
+      "specific_energy_index": 0.29200000000000004,
+      "objective": 0.34720000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.867,
+      "byproduct_purge_fraction": 0.13975,
+      "specific_energy_index": 0.301,
+      "objective": 0.3569,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.8840000000000001,
+      "byproduct_purge_fraction": 0.14150000000000001,
+      "specific_energy_index": 0.31,
+      "objective": 0.36660000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.901,
+      "byproduct_purge_fraction": 0.14325000000000002,
+      "specific_energy_index": 0.319,
+      "objective": 0.3763,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.918,
+      "byproduct_purge_fraction": 0.14500000000000002,
+      "specific_energy_index": 0.32799999999999996,
+      "objective": 0.38599999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.935,
+      "byproduct_purge_fraction": 0.14675000000000002,
+      "specific_energy_index": 0.33699999999999997,
+      "objective": 0.3957,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.9520000000000001,
+      "byproduct_purge_fraction": 0.14850000000000002,
+      "specific_energy_index": 0.346,
+      "objective": 0.4054,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.9690000000000001,
+      "byproduct_purge_fraction": 0.15025000000000002,
+      "specific_energy_index": 0.355,
+      "objective": 0.4151,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.5996000000000001,
+      "product_recovery": 0.986,
+      "byproduct_purge_fraction": 0.15200000000000002,
+      "specific_energy_index": 0.364,
+      "objective": 0.4248,
+      "feasible": false,
+      "reaction_severity_fraction": 0.1,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.645,
+      "byproduct_purge_fraction": 0.1105,
+      "specific_energy_index": 0.196,
+      "objective": 0.24020000000000002,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.662,
+      "byproduct_purge_fraction": 0.11225,
+      "specific_energy_index": 0.20500000000000002,
+      "objective": 0.2499,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.679,
+      "byproduct_purge_fraction": 0.114,
+      "specific_energy_index": 0.214,
+      "objective": 0.2596,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.6960000000000001,
+      "byproduct_purge_fraction": 0.11575,
+      "specific_energy_index": 0.223,
+      "objective": 0.2693,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.713,
+      "byproduct_purge_fraction": 0.11750000000000001,
+      "specific_energy_index": 0.232,
+      "objective": 0.279,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.73,
+      "byproduct_purge_fraction": 0.11925,
+      "specific_energy_index": 0.241,
+      "objective": 0.2887,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.747,
+      "byproduct_purge_fraction": 0.121,
+      "specific_energy_index": 0.25,
+      "objective": 0.2984,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.764,
+      "byproduct_purge_fraction": 0.12275,
+      "specific_energy_index": 0.259,
+      "objective": 0.30810000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.781,
+      "byproduct_purge_fraction": 0.1245,
+      "specific_energy_index": 0.268,
+      "objective": 0.3178,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.798,
+      "byproduct_purge_fraction": 0.12625,
+      "specific_energy_index": 0.277,
+      "objective": 0.3275,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.8150000000000001,
+      "byproduct_purge_fraction": 0.128,
+      "specific_energy_index": 0.28600000000000003,
+      "objective": 0.33720000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.8320000000000001,
+      "byproduct_purge_fraction": 0.12975,
+      "specific_energy_index": 0.29500000000000004,
+      "objective": 0.34690000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.8490000000000001,
+      "byproduct_purge_fraction": 0.1315,
+      "specific_energy_index": 0.30400000000000005,
+      "objective": 0.35660000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.866,
+      "byproduct_purge_fraction": 0.13325,
+      "specific_energy_index": 0.313,
+      "objective": 0.3663,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.8830000000000001,
+      "byproduct_purge_fraction": 0.135,
+      "specific_energy_index": 0.322,
+      "objective": 0.376,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.9,
+      "byproduct_purge_fraction": 0.13675,
+      "specific_energy_index": 0.331,
+      "objective": 0.38570000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.917,
+      "byproduct_purge_fraction": 0.1385,
+      "specific_energy_index": 0.33999999999999997,
+      "objective": 0.3954,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.934,
+      "byproduct_purge_fraction": 0.14025,
+      "specific_energy_index": 0.349,
+      "objective": 0.4051,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.9510000000000001,
+      "byproduct_purge_fraction": 0.14200000000000002,
+      "specific_energy_index": 0.358,
+      "objective": 0.4148,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.9680000000000001,
+      "byproduct_purge_fraction": 0.14375000000000002,
+      "specific_energy_index": 0.367,
+      "objective": 0.4245,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.6201,
+      "product_recovery": 0.985,
+      "byproduct_purge_fraction": 0.14550000000000002,
+      "specific_energy_index": 0.376,
+      "objective": 0.43420000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.15000000000000002,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.644,
+      "byproduct_purge_fraction": 0.10400000000000001,
+      "specific_energy_index": 0.20800000000000002,
+      "objective": 0.24960000000000002,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.661,
+      "byproduct_purge_fraction": 0.10575000000000001,
+      "specific_energy_index": 0.21700000000000003,
+      "objective": 0.25930000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.678,
+      "byproduct_purge_fraction": 0.10750000000000001,
+      "specific_energy_index": 0.226,
+      "objective": 0.269,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.6950000000000001,
+      "byproduct_purge_fraction": 0.10925000000000001,
+      "specific_energy_index": 0.23500000000000001,
+      "objective": 0.2787,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.712,
+      "byproduct_purge_fraction": 0.11100000000000002,
+      "specific_energy_index": 0.24400000000000002,
+      "objective": 0.28840000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.729,
+      "byproduct_purge_fraction": 0.11275000000000002,
+      "specific_energy_index": 0.253,
+      "objective": 0.29810000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.746,
+      "byproduct_purge_fraction": 0.11450000000000002,
+      "specific_energy_index": 0.262,
+      "objective": 0.3078,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.763,
+      "byproduct_purge_fraction": 0.11625,
+      "specific_energy_index": 0.271,
+      "objective": 0.3175,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.78,
+      "byproduct_purge_fraction": 0.11800000000000001,
+      "specific_energy_index": 0.28,
+      "objective": 0.32720000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.797,
+      "byproduct_purge_fraction": 0.11975000000000001,
+      "specific_energy_index": 0.28900000000000003,
+      "objective": 0.33690000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.8140000000000001,
+      "byproduct_purge_fraction": 0.12150000000000001,
+      "specific_energy_index": 0.29800000000000004,
+      "objective": 0.3466,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.8310000000000001,
+      "byproduct_purge_fraction": 0.12325000000000001,
+      "specific_energy_index": 0.30700000000000005,
+      "objective": 0.35630000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.8480000000000001,
+      "byproduct_purge_fraction": 0.125,
+      "specific_energy_index": 0.31600000000000006,
+      "objective": 0.36600000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.865,
+      "byproduct_purge_fraction": 0.12675,
+      "specific_energy_index": 0.325,
+      "objective": 0.37570000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.8820000000000001,
+      "byproduct_purge_fraction": 0.1285,
+      "specific_energy_index": 0.334,
+      "objective": 0.3854,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.899,
+      "byproduct_purge_fraction": 0.13025,
+      "specific_energy_index": 0.343,
+      "objective": 0.3951,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.916,
+      "byproduct_purge_fraction": 0.132,
+      "specific_energy_index": 0.352,
+      "objective": 0.4048,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.933,
+      "byproduct_purge_fraction": 0.13375,
+      "specific_energy_index": 0.361,
+      "objective": 0.4145,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.9500000000000001,
+      "byproduct_purge_fraction": 0.1355,
+      "specific_energy_index": 0.37,
+      "objective": 0.4242,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.9670000000000001,
+      "byproduct_purge_fraction": 0.13725,
+      "specific_energy_index": 0.379,
+      "objective": 0.4339,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.6404,
+      "product_recovery": 0.984,
+      "byproduct_purge_fraction": 0.139,
+      "specific_energy_index": 0.388,
+      "objective": 0.4436,
+      "feasible": false,
+      "reaction_severity_fraction": 0.2,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.643,
+      "byproduct_purge_fraction": 0.0975,
+      "specific_energy_index": 0.22,
+      "objective": 0.259,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.66,
+      "byproduct_purge_fraction": 0.09925,
+      "specific_energy_index": 0.229,
+      "objective": 0.2687,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.677,
+      "byproduct_purge_fraction": 0.101,
+      "specific_energy_index": 0.238,
+      "objective": 0.2784,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.6940000000000001,
+      "byproduct_purge_fraction": 0.10275000000000001,
+      "specific_energy_index": 0.247,
+      "objective": 0.2881,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.711,
+      "byproduct_purge_fraction": 0.10450000000000001,
+      "specific_energy_index": 0.256,
+      "objective": 0.2978,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.728,
+      "byproduct_purge_fraction": 0.10625000000000001,
+      "specific_energy_index": 0.265,
+      "objective": 0.3075,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.745,
+      "byproduct_purge_fraction": 0.10800000000000001,
+      "specific_energy_index": 0.274,
+      "objective": 0.31720000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.762,
+      "byproduct_purge_fraction": 0.10975,
+      "specific_energy_index": 0.28300000000000003,
+      "objective": 0.3269,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.779,
+      "byproduct_purge_fraction": 0.1115,
+      "specific_energy_index": 0.292,
+      "objective": 0.3366,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.796,
+      "byproduct_purge_fraction": 0.11325,
+      "specific_energy_index": 0.301,
+      "objective": 0.3463,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.8130000000000001,
+      "byproduct_purge_fraction": 0.115,
+      "specific_energy_index": 0.31,
+      "objective": 0.356,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.8300000000000001,
+      "byproduct_purge_fraction": 0.11675,
+      "specific_energy_index": 0.319,
+      "objective": 0.3657,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.8470000000000001,
+      "byproduct_purge_fraction": 0.11850000000000001,
+      "specific_energy_index": 0.328,
+      "objective": 0.3754,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.864,
+      "byproduct_purge_fraction": 0.12025000000000001,
+      "specific_energy_index": 0.33699999999999997,
+      "objective": 0.3851,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.8810000000000001,
+      "byproduct_purge_fraction": 0.12200000000000001,
+      "specific_energy_index": 0.346,
+      "objective": 0.3948,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.898,
+      "byproduct_purge_fraction": 0.12375,
+      "specific_energy_index": 0.355,
+      "objective": 0.40449999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.915,
+      "byproduct_purge_fraction": 0.1255,
+      "specific_energy_index": 0.364,
+      "objective": 0.4142,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.932,
+      "byproduct_purge_fraction": 0.12725,
+      "specific_energy_index": 0.373,
+      "objective": 0.4239,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.9490000000000001,
+      "byproduct_purge_fraction": 0.129,
+      "specific_energy_index": 0.382,
+      "objective": 0.4336,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.9660000000000001,
+      "byproduct_purge_fraction": 0.13075,
+      "specific_energy_index": 0.391,
+      "objective": 0.4433,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.6605000000000001,
+      "product_recovery": 0.983,
+      "byproduct_purge_fraction": 0.1325,
+      "specific_energy_index": 0.4,
+      "objective": 0.453,
+      "feasible": false,
+      "reaction_severity_fraction": 0.25,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.642,
+      "byproduct_purge_fraction": 0.091,
+      "specific_energy_index": 0.232,
+      "objective": 0.2684,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.659,
+      "byproduct_purge_fraction": 0.09275,
+      "specific_energy_index": 0.24100000000000002,
+      "objective": 0.2781,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.676,
+      "byproduct_purge_fraction": 0.0945,
+      "specific_energy_index": 0.25,
+      "objective": 0.2878,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.6930000000000001,
+      "byproduct_purge_fraction": 0.09625,
+      "specific_energy_index": 0.259,
+      "objective": 0.2975,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.71,
+      "byproduct_purge_fraction": 0.098,
+      "specific_energy_index": 0.268,
+      "objective": 0.30720000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.727,
+      "byproduct_purge_fraction": 0.09975,
+      "specific_energy_index": 0.277,
+      "objective": 0.3169,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.744,
+      "byproduct_purge_fraction": 0.1015,
+      "specific_energy_index": 0.28600000000000003,
+      "objective": 0.32660000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.761,
+      "byproduct_purge_fraction": 0.10325,
+      "specific_energy_index": 0.29500000000000004,
+      "objective": 0.33630000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.778,
+      "byproduct_purge_fraction": 0.105,
+      "specific_energy_index": 0.304,
+      "objective": 0.346,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.795,
+      "byproduct_purge_fraction": 0.10675,
+      "specific_energy_index": 0.313,
+      "objective": 0.3557,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.812,
+      "byproduct_purge_fraction": 0.1085,
+      "specific_energy_index": 0.322,
+      "objective": 0.3654,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.8290000000000001,
+      "byproduct_purge_fraction": 0.11025,
+      "specific_energy_index": 0.331,
+      "objective": 0.3751,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.8460000000000001,
+      "byproduct_purge_fraction": 0.112,
+      "specific_energy_index": 0.34,
+      "objective": 0.38480000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.863,
+      "byproduct_purge_fraction": 0.11375,
+      "specific_energy_index": 0.349,
+      "objective": 0.39449999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.8800000000000001,
+      "byproduct_purge_fraction": 0.1155,
+      "specific_energy_index": 0.358,
+      "objective": 0.4042,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.897,
+      "byproduct_purge_fraction": 0.11725,
+      "specific_energy_index": 0.367,
+      "objective": 0.4139,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.914,
+      "byproduct_purge_fraction": 0.119,
+      "specific_energy_index": 0.376,
+      "objective": 0.4236,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.931,
+      "byproduct_purge_fraction": 0.12075,
+      "specific_energy_index": 0.385,
+      "objective": 0.4333,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.9480000000000001,
+      "byproduct_purge_fraction": 0.1225,
+      "specific_energy_index": 0.394,
+      "objective": 0.443,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.9650000000000001,
+      "byproduct_purge_fraction": 0.12425,
+      "specific_energy_index": 0.403,
+      "objective": 0.45270000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.6804,
+      "product_recovery": 0.982,
+      "byproduct_purge_fraction": 0.126,
+      "specific_energy_index": 0.41200000000000003,
+      "objective": 0.46240000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.30000000000000004,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.641,
+      "byproduct_purge_fraction": 0.08449999999999999,
+      "specific_energy_index": 0.244,
+      "objective": 0.2778,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.658,
+      "byproduct_purge_fraction": 0.08625,
+      "specific_energy_index": 0.253,
+      "objective": 0.2875,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.675,
+      "byproduct_purge_fraction": 0.088,
+      "specific_energy_index": 0.262,
+      "objective": 0.2972,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.6920000000000001,
+      "byproduct_purge_fraction": 0.08975,
+      "specific_energy_index": 0.271,
+      "objective": 0.3069,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.709,
+      "byproduct_purge_fraction": 0.0915,
+      "specific_energy_index": 0.27999999999999997,
+      "objective": 0.3166,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.726,
+      "byproduct_purge_fraction": 0.09325,
+      "specific_energy_index": 0.289,
+      "objective": 0.3263,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.743,
+      "byproduct_purge_fraction": 0.095,
+      "specific_energy_index": 0.298,
+      "objective": 0.33599999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.76,
+      "byproduct_purge_fraction": 0.09674999999999999,
+      "specific_energy_index": 0.307,
+      "objective": 0.3457,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.777,
+      "byproduct_purge_fraction": 0.09849999999999999,
+      "specific_energy_index": 0.316,
+      "objective": 0.3554,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.794,
+      "byproduct_purge_fraction": 0.10024999999999999,
+      "specific_energy_index": 0.325,
+      "objective": 0.3651,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.811,
+      "byproduct_purge_fraction": 0.102,
+      "specific_energy_index": 0.33399999999999996,
+      "objective": 0.37479999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.8280000000000001,
+      "byproduct_purge_fraction": 0.10375,
+      "specific_energy_index": 0.34299999999999997,
+      "objective": 0.38449999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.8450000000000001,
+      "byproduct_purge_fraction": 0.1055,
+      "specific_energy_index": 0.352,
+      "objective": 0.3942,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.862,
+      "byproduct_purge_fraction": 0.10725,
+      "specific_energy_index": 0.361,
+      "objective": 0.4039,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.8790000000000001,
+      "byproduct_purge_fraction": 0.109,
+      "specific_energy_index": 0.37,
+      "objective": 0.41359999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.896,
+      "byproduct_purge_fraction": 0.11074999999999999,
+      "specific_energy_index": 0.379,
+      "objective": 0.4233,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.913,
+      "byproduct_purge_fraction": 0.11249999999999999,
+      "specific_energy_index": 0.388,
+      "objective": 0.433,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.93,
+      "byproduct_purge_fraction": 0.11424999999999999,
+      "specific_energy_index": 0.397,
+      "objective": 0.44270000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.9470000000000001,
+      "byproduct_purge_fraction": 0.11599999999999999,
+      "specific_energy_index": 0.406,
+      "objective": 0.4524,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.9640000000000001,
+      "byproduct_purge_fraction": 0.11775,
+      "specific_energy_index": 0.41500000000000004,
+      "objective": 0.46210000000000007,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.7001000000000001,
+      "product_recovery": 0.981,
+      "byproduct_purge_fraction": 0.1195,
+      "specific_energy_index": 0.424,
+      "objective": 0.4718,
+      "feasible": false,
+      "reaction_severity_fraction": 0.35000000000000003,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.64,
+      "byproduct_purge_fraction": 0.078,
+      "specific_energy_index": 0.256,
+      "objective": 0.2872,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.657,
+      "byproduct_purge_fraction": 0.07975,
+      "specific_energy_index": 0.265,
+      "objective": 0.2969,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.674,
+      "byproduct_purge_fraction": 0.0815,
+      "specific_energy_index": 0.274,
+      "objective": 0.30660000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.6910000000000001,
+      "byproduct_purge_fraction": 0.08325,
+      "specific_energy_index": 0.28300000000000003,
+      "objective": 0.3163,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.708,
+      "byproduct_purge_fraction": 0.085,
+      "specific_energy_index": 0.292,
+      "objective": 0.32599999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.725,
+      "byproduct_purge_fraction": 0.08675,
+      "specific_energy_index": 0.301,
+      "objective": 0.3357,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.742,
+      "byproduct_purge_fraction": 0.0885,
+      "specific_energy_index": 0.31,
+      "objective": 0.3454,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.759,
+      "byproduct_purge_fraction": 0.09025,
+      "specific_energy_index": 0.319,
+      "objective": 0.3551,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.776,
+      "byproduct_purge_fraction": 0.092,
+      "specific_energy_index": 0.328,
+      "objective": 0.3648,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.793,
+      "byproduct_purge_fraction": 0.09375,
+      "specific_energy_index": 0.337,
+      "objective": 0.37450000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.81,
+      "byproduct_purge_fraction": 0.0955,
+      "specific_energy_index": 0.346,
+      "objective": 0.3842,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.8270000000000001,
+      "byproduct_purge_fraction": 0.09725,
+      "specific_energy_index": 0.355,
+      "objective": 0.3939,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.8440000000000001,
+      "byproduct_purge_fraction": 0.099,
+      "specific_energy_index": 0.364,
+      "objective": 0.4036,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.861,
+      "byproduct_purge_fraction": 0.10075,
+      "specific_energy_index": 0.373,
+      "objective": 0.4133,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.8780000000000001,
+      "byproduct_purge_fraction": 0.10250000000000001,
+      "specific_energy_index": 0.382,
+      "objective": 0.42300000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.895,
+      "byproduct_purge_fraction": 0.10425000000000001,
+      "specific_energy_index": 0.391,
+      "objective": 0.43270000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.912,
+      "byproduct_purge_fraction": 0.10600000000000001,
+      "specific_energy_index": 0.4,
+      "objective": 0.4424,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.929,
+      "byproduct_purge_fraction": 0.10775000000000001,
+      "specific_energy_index": 0.40900000000000003,
+      "objective": 0.45210000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.9460000000000001,
+      "byproduct_purge_fraction": 0.10950000000000001,
+      "specific_energy_index": 0.41800000000000004,
+      "objective": 0.46180000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.9630000000000001,
+      "byproduct_purge_fraction": 0.11125000000000002,
+      "specific_energy_index": 0.42700000000000005,
+      "objective": 0.47150000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.7196000000000001,
+      "product_recovery": 0.98,
+      "byproduct_purge_fraction": 0.113,
+      "specific_energy_index": 0.436,
+      "objective": 0.4812,
+      "feasible": false,
+      "reaction_severity_fraction": 0.4,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.639,
+      "byproduct_purge_fraction": 0.07150000000000001,
+      "specific_energy_index": 0.268,
+      "objective": 0.29660000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.656,
+      "byproduct_purge_fraction": 0.07325000000000001,
+      "specific_energy_index": 0.277,
+      "objective": 0.3063,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.673,
+      "byproduct_purge_fraction": 0.07500000000000001,
+      "specific_energy_index": 0.28600000000000003,
+      "objective": 0.31600000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.6900000000000001,
+      "byproduct_purge_fraction": 0.07675000000000001,
+      "specific_energy_index": 0.29500000000000004,
+      "objective": 0.32570000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.707,
+      "byproduct_purge_fraction": 0.07850000000000001,
+      "specific_energy_index": 0.304,
+      "objective": 0.3354,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.724,
+      "byproduct_purge_fraction": 0.08025000000000002,
+      "specific_energy_index": 0.313,
+      "objective": 0.3451,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.741,
+      "byproduct_purge_fraction": 0.08200000000000002,
+      "specific_energy_index": 0.322,
+      "objective": 0.3548,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.758,
+      "byproduct_purge_fraction": 0.08375,
+      "specific_energy_index": 0.331,
+      "objective": 0.36450000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.775,
+      "byproduct_purge_fraction": 0.0855,
+      "specific_energy_index": 0.34,
+      "objective": 0.37420000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.792,
+      "byproduct_purge_fraction": 0.08725000000000001,
+      "specific_energy_index": 0.34900000000000003,
+      "objective": 0.3839,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.809,
+      "byproduct_purge_fraction": 0.08900000000000001,
+      "specific_energy_index": 0.358,
+      "objective": 0.3936,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.8260000000000001,
+      "byproduct_purge_fraction": 0.09075000000000001,
+      "specific_energy_index": 0.367,
+      "objective": 0.4033,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.8430000000000001,
+      "byproduct_purge_fraction": 0.09250000000000001,
+      "specific_energy_index": 0.376,
+      "objective": 0.41300000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.86,
+      "byproduct_purge_fraction": 0.09425000000000001,
+      "specific_energy_index": 0.385,
+      "objective": 0.4227,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.8770000000000001,
+      "byproduct_purge_fraction": 0.09600000000000002,
+      "specific_energy_index": 0.394,
+      "objective": 0.4324,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.894,
+      "byproduct_purge_fraction": 0.09775,
+      "specific_energy_index": 0.403,
+      "objective": 0.44210000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.911,
+      "byproduct_purge_fraction": 0.0995,
+      "specific_energy_index": 0.41200000000000003,
+      "objective": 0.45180000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.928,
+      "byproduct_purge_fraction": 0.10125,
+      "specific_energy_index": 0.42100000000000004,
+      "objective": 0.4615,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.9450000000000001,
+      "byproduct_purge_fraction": 0.10300000000000001,
+      "specific_energy_index": 0.43000000000000005,
+      "objective": 0.47120000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.9620000000000001,
+      "byproduct_purge_fraction": 0.10475000000000001,
+      "specific_energy_index": 0.43900000000000006,
+      "objective": 0.48090000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.7389000000000001,
+      "product_recovery": 0.979,
+      "byproduct_purge_fraction": 0.10650000000000001,
+      "specific_energy_index": 0.448,
+      "objective": 0.49060000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.45,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.638,
+      "byproduct_purge_fraction": 0.065,
+      "specific_energy_index": 0.28,
+      "objective": 0.30600000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.655,
+      "byproduct_purge_fraction": 0.06675,
+      "specific_energy_index": 0.28900000000000003,
+      "objective": 0.31570000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.672,
+      "byproduct_purge_fraction": 0.0685,
+      "specific_energy_index": 0.29800000000000004,
+      "objective": 0.3254,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.6890000000000001,
+      "byproduct_purge_fraction": 0.07025,
+      "specific_energy_index": 0.30700000000000005,
+      "objective": 0.33510000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.706,
+      "byproduct_purge_fraction": 0.07200000000000001,
+      "specific_energy_index": 0.316,
+      "objective": 0.3448,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.723,
+      "byproduct_purge_fraction": 0.07375000000000001,
+      "specific_energy_index": 0.325,
+      "objective": 0.35450000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.74,
+      "byproduct_purge_fraction": 0.07550000000000001,
+      "specific_energy_index": 0.334,
+      "objective": 0.3642,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.757,
+      "byproduct_purge_fraction": 0.07725,
+      "specific_energy_index": 0.343,
+      "objective": 0.3739,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.774,
+      "byproduct_purge_fraction": 0.079,
+      "specific_energy_index": 0.35200000000000004,
+      "objective": 0.38360000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.791,
+      "byproduct_purge_fraction": 0.08075,
+      "specific_energy_index": 0.36100000000000004,
+      "objective": 0.39330000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.808,
+      "byproduct_purge_fraction": 0.0825,
+      "specific_energy_index": 0.37,
+      "objective": 0.403,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.8250000000000001,
+      "byproduct_purge_fraction": 0.08425,
+      "specific_energy_index": 0.379,
+      "objective": 0.4127,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.8420000000000001,
+      "byproduct_purge_fraction": 0.08600000000000001,
+      "specific_energy_index": 0.388,
+      "objective": 0.4224,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.859,
+      "byproduct_purge_fraction": 0.08775000000000001,
+      "specific_energy_index": 0.397,
+      "objective": 0.43210000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.8760000000000001,
+      "byproduct_purge_fraction": 0.08950000000000001,
+      "specific_energy_index": 0.406,
+      "objective": 0.4418,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.893,
+      "byproduct_purge_fraction": 0.09125,
+      "specific_energy_index": 0.41500000000000004,
+      "objective": 0.4515,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.91,
+      "byproduct_purge_fraction": 0.093,
+      "specific_energy_index": 0.42400000000000004,
+      "objective": 0.46120000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.927,
+      "byproduct_purge_fraction": 0.09475,
+      "specific_energy_index": 0.43300000000000005,
+      "objective": 0.47090000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.9440000000000001,
+      "byproduct_purge_fraction": 0.0965,
+      "specific_energy_index": 0.44200000000000006,
+      "objective": 0.4806000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.9610000000000001,
+      "byproduct_purge_fraction": 0.09825,
+      "specific_energy_index": 0.45100000000000007,
+      "objective": 0.49030000000000007,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.758,
+      "product_recovery": 0.978,
+      "byproduct_purge_fraction": 0.1,
+      "specific_energy_index": 0.46,
+      "objective": 0.5,
+      "feasible": false,
+      "reaction_severity_fraction": 0.5,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.637,
+      "byproduct_purge_fraction": 0.058499999999999996,
+      "specific_energy_index": 0.29200000000000004,
+      "objective": 0.3154,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.654,
+      "byproduct_purge_fraction": 0.06025,
+      "specific_energy_index": 0.30100000000000005,
+      "objective": 0.32510000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.671,
+      "byproduct_purge_fraction": 0.062,
+      "specific_energy_index": 0.31000000000000005,
+      "objective": 0.33480000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.6880000000000001,
+      "byproduct_purge_fraction": 0.06375,
+      "specific_energy_index": 0.31900000000000006,
+      "objective": 0.3445000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.705,
+      "byproduct_purge_fraction": 0.0655,
+      "specific_energy_index": 0.328,
+      "objective": 0.3542,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.722,
+      "byproduct_purge_fraction": 0.06725,
+      "specific_energy_index": 0.337,
+      "objective": 0.3639,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.739,
+      "byproduct_purge_fraction": 0.069,
+      "specific_energy_index": 0.34600000000000003,
+      "objective": 0.37360000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.756,
+      "byproduct_purge_fraction": 0.07075,
+      "specific_energy_index": 0.35500000000000004,
+      "objective": 0.38330000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.773,
+      "byproduct_purge_fraction": 0.0725,
+      "specific_energy_index": 0.36400000000000005,
+      "objective": 0.393,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.79,
+      "byproduct_purge_fraction": 0.07425,
+      "specific_energy_index": 0.37300000000000005,
+      "objective": 0.40270000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.807,
+      "byproduct_purge_fraction": 0.076,
+      "specific_energy_index": 0.382,
+      "objective": 0.4124,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.8240000000000001,
+      "byproduct_purge_fraction": 0.07775,
+      "specific_energy_index": 0.391,
+      "objective": 0.42210000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.8410000000000001,
+      "byproduct_purge_fraction": 0.0795,
+      "specific_energy_index": 0.4,
+      "objective": 0.4318,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.858,
+      "byproduct_purge_fraction": 0.08125,
+      "specific_energy_index": 0.40900000000000003,
+      "objective": 0.4415,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.8750000000000001,
+      "byproduct_purge_fraction": 0.083,
+      "specific_energy_index": 0.41800000000000004,
+      "objective": 0.45120000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.892,
+      "byproduct_purge_fraction": 0.08474999999999999,
+      "specific_energy_index": 0.42700000000000005,
+      "objective": 0.46090000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.909,
+      "byproduct_purge_fraction": 0.0865,
+      "specific_energy_index": 0.43600000000000005,
+      "objective": 0.4706000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.926,
+      "byproduct_purge_fraction": 0.08825,
+      "specific_energy_index": 0.44500000000000006,
+      "objective": 0.48030000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.9430000000000001,
+      "byproduct_purge_fraction": 0.09,
+      "specific_energy_index": 0.45400000000000007,
+      "objective": 0.49000000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.9600000000000001,
+      "byproduct_purge_fraction": 0.09175,
+      "specific_energy_index": 0.4630000000000001,
+      "objective": 0.4997000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.7769,
+      "product_recovery": 0.977,
+      "byproduct_purge_fraction": 0.0935,
+      "specific_energy_index": 0.47200000000000003,
+      "objective": 0.5094000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.55,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.636,
+      "byproduct_purge_fraction": 0.05199999999999999,
+      "specific_energy_index": 0.30400000000000005,
+      "objective": 0.32480000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.653,
+      "byproduct_purge_fraction": 0.05374999999999999,
+      "specific_energy_index": 0.31300000000000006,
+      "objective": 0.3345000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.67,
+      "byproduct_purge_fraction": 0.055499999999999994,
+      "specific_energy_index": 0.32200000000000006,
+      "objective": 0.34420000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.687,
+      "byproduct_purge_fraction": 0.057249999999999995,
+      "specific_energy_index": 0.33100000000000007,
+      "objective": 0.35390000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.704,
+      "byproduct_purge_fraction": 0.05899999999999999,
+      "specific_energy_index": 0.34,
+      "objective": 0.36360000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.721,
+      "byproduct_purge_fraction": 0.06074999999999999,
+      "specific_energy_index": 0.34900000000000003,
+      "objective": 0.3733,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.738,
+      "byproduct_purge_fraction": 0.06249999999999999,
+      "specific_energy_index": 0.35800000000000004,
+      "objective": 0.38300000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.755,
+      "byproduct_purge_fraction": 0.06424999999999999,
+      "specific_energy_index": 0.36700000000000005,
+      "objective": 0.39270000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.772,
+      "byproduct_purge_fraction": 0.06599999999999999,
+      "specific_energy_index": 0.37600000000000006,
+      "objective": 0.40240000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.789,
+      "byproduct_purge_fraction": 0.06774999999999999,
+      "specific_energy_index": 0.38500000000000006,
+      "objective": 0.4121000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.806,
+      "byproduct_purge_fraction": 0.06949999999999999,
+      "specific_energy_index": 0.394,
+      "objective": 0.4218,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.8230000000000001,
+      "byproduct_purge_fraction": 0.07125,
+      "specific_energy_index": 0.403,
+      "objective": 0.4315,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.8400000000000001,
+      "byproduct_purge_fraction": 0.073,
+      "specific_energy_index": 0.41200000000000003,
+      "objective": 0.44120000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.857,
+      "byproduct_purge_fraction": 0.07475,
+      "specific_energy_index": 0.42100000000000004,
+      "objective": 0.4509,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.8740000000000001,
+      "byproduct_purge_fraction": 0.0765,
+      "specific_energy_index": 0.43000000000000005,
+      "objective": 0.46060000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.891,
+      "byproduct_purge_fraction": 0.07824999999999999,
+      "specific_energy_index": 0.43900000000000006,
+      "objective": 0.47030000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.908,
+      "byproduct_purge_fraction": 0.07999999999999999,
+      "specific_energy_index": 0.44800000000000006,
+      "objective": 0.48000000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.925,
+      "byproduct_purge_fraction": 0.08174999999999999,
+      "specific_energy_index": 0.4570000000000001,
+      "objective": 0.4897000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.9420000000000001,
+      "byproduct_purge_fraction": 0.08349999999999999,
+      "specific_energy_index": 0.4660000000000001,
+      "objective": 0.49940000000000007,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.9590000000000001,
+      "byproduct_purge_fraction": 0.08524999999999999,
+      "specific_energy_index": 0.4750000000000001,
+      "objective": 0.5091000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.7956000000000001,
+      "product_recovery": 0.976,
+      "byproduct_purge_fraction": 0.087,
+      "specific_energy_index": 0.48400000000000004,
+      "objective": 0.5188,
+      "feasible": false,
+      "reaction_severity_fraction": 0.6000000000000001,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.635,
+      "byproduct_purge_fraction": 0.0455,
+      "specific_energy_index": 0.316,
+      "objective": 0.3342,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.652,
+      "byproduct_purge_fraction": 0.04725,
+      "specific_energy_index": 0.325,
+      "objective": 0.3439,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.669,
+      "byproduct_purge_fraction": 0.049,
+      "specific_energy_index": 0.334,
+      "objective": 0.3536,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.686,
+      "byproduct_purge_fraction": 0.05075,
+      "specific_energy_index": 0.343,
+      "objective": 0.3633,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.703,
+      "byproduct_purge_fraction": 0.0525,
+      "specific_energy_index": 0.352,
+      "objective": 0.373,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.72,
+      "byproduct_purge_fraction": 0.05425,
+      "specific_energy_index": 0.361,
+      "objective": 0.3827,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.737,
+      "byproduct_purge_fraction": 0.056,
+      "specific_energy_index": 0.37,
+      "objective": 0.39239999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.754,
+      "byproduct_purge_fraction": 0.05775,
+      "specific_energy_index": 0.379,
+      "objective": 0.4021,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.771,
+      "byproduct_purge_fraction": 0.0595,
+      "specific_energy_index": 0.388,
+      "objective": 0.4118,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.788,
+      "byproduct_purge_fraction": 0.06125,
+      "specific_energy_index": 0.397,
+      "objective": 0.42150000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.805,
+      "byproduct_purge_fraction": 0.063,
+      "specific_energy_index": 0.406,
+      "objective": 0.4312,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.8220000000000001,
+      "byproduct_purge_fraction": 0.06475,
+      "specific_energy_index": 0.41500000000000004,
+      "objective": 0.4409,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.8390000000000001,
+      "byproduct_purge_fraction": 0.0665,
+      "specific_energy_index": 0.42400000000000004,
+      "objective": 0.45060000000000006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.856,
+      "byproduct_purge_fraction": 0.06825,
+      "specific_energy_index": 0.433,
+      "objective": 0.4603,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.8730000000000001,
+      "byproduct_purge_fraction": 0.07,
+      "specific_energy_index": 0.442,
+      "objective": 0.47000000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.89,
+      "byproduct_purge_fraction": 0.07175000000000001,
+      "specific_energy_index": 0.451,
+      "objective": 0.4797,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.907,
+      "byproduct_purge_fraction": 0.07350000000000001,
+      "specific_energy_index": 0.45999999999999996,
+      "objective": 0.48939999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.924,
+      "byproduct_purge_fraction": 0.07525000000000001,
+      "specific_energy_index": 0.469,
+      "objective": 0.4991,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.9410000000000001,
+      "byproduct_purge_fraction": 0.07700000000000001,
+      "specific_energy_index": 0.478,
+      "objective": 0.5088,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.9580000000000001,
+      "byproduct_purge_fraction": 0.07875000000000001,
+      "specific_energy_index": 0.487,
+      "objective": 0.5185,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.8141,
+      "product_recovery": 0.975,
+      "byproduct_purge_fraction": 0.0805,
+      "specific_energy_index": 0.496,
+      "objective": 0.5282,
+      "feasible": false,
+      "reaction_severity_fraction": 0.65,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.634,
+      "byproduct_purge_fraction": 0.03899999999999999,
+      "specific_energy_index": 0.328,
+      "objective": 0.3436,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.651,
+      "byproduct_purge_fraction": 0.040749999999999995,
+      "specific_energy_index": 0.337,
+      "objective": 0.3533,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.668,
+      "byproduct_purge_fraction": 0.042499999999999996,
+      "specific_energy_index": 0.34600000000000003,
+      "objective": 0.36300000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.685,
+      "byproduct_purge_fraction": 0.04425,
+      "specific_energy_index": 0.35500000000000004,
+      "objective": 0.37270000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.702,
+      "byproduct_purge_fraction": 0.04599999999999999,
+      "specific_energy_index": 0.364,
+      "objective": 0.38239999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.719,
+      "byproduct_purge_fraction": 0.047749999999999994,
+      "specific_energy_index": 0.373,
+      "objective": 0.3921,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.736,
+      "byproduct_purge_fraction": 0.049499999999999995,
+      "specific_energy_index": 0.382,
+      "objective": 0.4018,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.753,
+      "byproduct_purge_fraction": 0.05125,
+      "specific_energy_index": 0.391,
+      "objective": 0.41150000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.77,
+      "byproduct_purge_fraction": 0.05299999999999999,
+      "specific_energy_index": 0.4,
+      "objective": 0.4212,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.787,
+      "byproduct_purge_fraction": 0.05474999999999999,
+      "specific_energy_index": 0.40900000000000003,
+      "objective": 0.4309,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.804,
+      "byproduct_purge_fraction": 0.056499999999999995,
+      "specific_energy_index": 0.41800000000000004,
+      "objective": 0.44060000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.8210000000000001,
+      "byproduct_purge_fraction": 0.058249999999999996,
+      "specific_energy_index": 0.42700000000000005,
+      "objective": 0.45030000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.8380000000000001,
+      "byproduct_purge_fraction": 0.06,
+      "specific_energy_index": 0.43600000000000005,
+      "objective": 0.4600000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.855,
+      "byproduct_purge_fraction": 0.06175,
+      "specific_energy_index": 0.445,
+      "objective": 0.4697,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.8720000000000001,
+      "byproduct_purge_fraction": 0.0635,
+      "specific_energy_index": 0.454,
+      "objective": 0.4794,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.889,
+      "byproduct_purge_fraction": 0.06525,
+      "specific_energy_index": 0.463,
+      "objective": 0.48910000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.906,
+      "byproduct_purge_fraction": 0.067,
+      "specific_energy_index": 0.472,
+      "objective": 0.49879999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.923,
+      "byproduct_purge_fraction": 0.06875,
+      "specific_energy_index": 0.481,
+      "objective": 0.5085,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.9400000000000001,
+      "byproduct_purge_fraction": 0.07050000000000001,
+      "specific_energy_index": 0.49,
+      "objective": 0.5182,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.9570000000000001,
+      "byproduct_purge_fraction": 0.07225000000000001,
+      "specific_energy_index": 0.499,
+      "objective": 0.5279,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.8324,
+      "product_recovery": 0.974,
+      "byproduct_purge_fraction": 0.074,
+      "specific_energy_index": 0.508,
+      "objective": 0.5376,
+      "feasible": false,
+      "reaction_severity_fraction": 0.7000000000000001,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.633,
+      "byproduct_purge_fraction": 0.0325,
+      "specific_energy_index": 0.33999999999999997,
+      "objective": 0.353,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.65,
+      "byproduct_purge_fraction": 0.03425,
+      "specific_energy_index": 0.349,
+      "objective": 0.36269999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.667,
+      "byproduct_purge_fraction": 0.036000000000000004,
+      "specific_energy_index": 0.358,
+      "objective": 0.3724,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.684,
+      "byproduct_purge_fraction": 0.037750000000000006,
+      "specific_energy_index": 0.367,
+      "objective": 0.3821,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.701,
+      "byproduct_purge_fraction": 0.0395,
+      "specific_energy_index": 0.37599999999999995,
+      "objective": 0.3917999999999999,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.718,
+      "byproduct_purge_fraction": 0.04125,
+      "specific_energy_index": 0.38499999999999995,
+      "objective": 0.40149999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.735,
+      "byproduct_purge_fraction": 0.043000000000000003,
+      "specific_energy_index": 0.39399999999999996,
+      "objective": 0.41119999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.752,
+      "byproduct_purge_fraction": 0.044750000000000005,
+      "specific_energy_index": 0.40299999999999997,
+      "objective": 0.4209,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.769,
+      "byproduct_purge_fraction": 0.0465,
+      "specific_energy_index": 0.412,
+      "objective": 0.4306,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.786,
+      "byproduct_purge_fraction": 0.04825,
+      "specific_energy_index": 0.421,
+      "objective": 0.44029999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.803,
+      "byproduct_purge_fraction": 0.05,
+      "specific_energy_index": 0.42999999999999994,
+      "objective": 0.44999999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.8200000000000001,
+      "byproduct_purge_fraction": 0.051750000000000004,
+      "specific_energy_index": 0.43899999999999995,
+      "objective": 0.45969999999999994,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.8370000000000001,
+      "byproduct_purge_fraction": 0.053500000000000006,
+      "specific_energy_index": 0.44799999999999995,
+      "objective": 0.46939999999999993,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.854,
+      "byproduct_purge_fraction": 0.05525000000000001,
+      "specific_energy_index": 0.45699999999999996,
+      "objective": 0.47909999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.8710000000000001,
+      "byproduct_purge_fraction": 0.05700000000000001,
+      "specific_energy_index": 0.46599999999999997,
+      "objective": 0.48879999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.888,
+      "byproduct_purge_fraction": 0.058750000000000004,
+      "specific_energy_index": 0.475,
+      "objective": 0.4985,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.905,
+      "byproduct_purge_fraction": 0.060500000000000005,
+      "specific_energy_index": 0.484,
+      "objective": 0.5082,
+      "feasible": true,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.922,
+      "byproduct_purge_fraction": 0.06225000000000001,
+      "specific_energy_index": 0.493,
+      "objective": 0.5179,
+      "feasible": true,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.9390000000000001,
+      "byproduct_purge_fraction": 0.064,
+      "specific_energy_index": 0.502,
+      "objective": 0.5276,
+      "feasible": true,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.9560000000000001,
+      "byproduct_purge_fraction": 0.06575,
+      "specific_energy_index": 0.511,
+      "objective": 0.5373,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.8505,
+      "product_recovery": 0.973,
+      "byproduct_purge_fraction": 0.0675,
+      "specific_energy_index": 0.52,
+      "objective": 0.547,
+      "feasible": false,
+      "reaction_severity_fraction": 0.75,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.632,
+      "byproduct_purge_fraction": 0.025999999999999995,
+      "specific_energy_index": 0.352,
+      "objective": 0.3624,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.649,
+      "byproduct_purge_fraction": 0.027749999999999997,
+      "specific_energy_index": 0.361,
+      "objective": 0.3721,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.666,
+      "byproduct_purge_fraction": 0.029499999999999995,
+      "specific_energy_index": 0.37,
+      "objective": 0.3818,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.683,
+      "byproduct_purge_fraction": 0.031249999999999997,
+      "specific_energy_index": 0.379,
+      "objective": 0.3915,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.7,
+      "byproduct_purge_fraction": 0.032999999999999995,
+      "specific_energy_index": 0.38799999999999996,
+      "objective": 0.40119999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.717,
+      "byproduct_purge_fraction": 0.034749999999999996,
+      "specific_energy_index": 0.39699999999999996,
+      "objective": 0.4109,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.734,
+      "byproduct_purge_fraction": 0.0365,
+      "specific_energy_index": 0.40599999999999997,
+      "objective": 0.4206,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.751,
+      "byproduct_purge_fraction": 0.03825,
+      "specific_energy_index": 0.415,
+      "objective": 0.43029999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.768,
+      "byproduct_purge_fraction": 0.039999999999999994,
+      "specific_energy_index": 0.424,
+      "objective": 0.44,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.785,
+      "byproduct_purge_fraction": 0.041749999999999995,
+      "specific_energy_index": 0.433,
+      "objective": 0.4497,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.802,
+      "byproduct_purge_fraction": 0.0435,
+      "specific_energy_index": 0.44199999999999995,
+      "objective": 0.4593999999999999,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.8190000000000001,
+      "byproduct_purge_fraction": 0.04525,
+      "specific_energy_index": 0.45099999999999996,
+      "objective": 0.46909999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.8360000000000001,
+      "byproduct_purge_fraction": 0.047,
+      "specific_energy_index": 0.45999999999999996,
+      "objective": 0.47879999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.853,
+      "byproduct_purge_fraction": 0.04875,
+      "specific_energy_index": 0.469,
+      "objective": 0.4885,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.8700000000000001,
+      "byproduct_purge_fraction": 0.0505,
+      "specific_energy_index": 0.478,
+      "objective": 0.4982,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.887,
+      "byproduct_purge_fraction": 0.05225,
+      "specific_energy_index": 0.487,
+      "objective": 0.5079,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.904,
+      "byproduct_purge_fraction": 0.054,
+      "specific_energy_index": 0.496,
+      "objective": 0.5176,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.921,
+      "byproduct_purge_fraction": 0.05575,
+      "specific_energy_index": 0.505,
+      "objective": 0.5273,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.9380000000000001,
+      "byproduct_purge_fraction": 0.0575,
+      "specific_energy_index": 0.514,
+      "objective": 0.537,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.9550000000000001,
+      "byproduct_purge_fraction": 0.059250000000000004,
+      "specific_energy_index": 0.523,
+      "objective": 0.5467000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.8684000000000002,
+      "product_recovery": 0.972,
+      "byproduct_purge_fraction": 0.061,
+      "specific_energy_index": 0.532,
+      "objective": 0.5564,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.631,
+      "byproduct_purge_fraction": 0.01949999999999999,
+      "specific_energy_index": 0.364,
+      "objective": 0.37179999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.648,
+      "byproduct_purge_fraction": 0.02124999999999999,
+      "specific_energy_index": 0.373,
+      "objective": 0.3815,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.665,
+      "byproduct_purge_fraction": 0.02299999999999999,
+      "specific_energy_index": 0.382,
+      "objective": 0.3912,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.682,
+      "byproduct_purge_fraction": 0.02474999999999999,
+      "specific_energy_index": 0.391,
+      "objective": 0.40090000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.699,
+      "byproduct_purge_fraction": 0.02649999999999999,
+      "specific_energy_index": 0.39999999999999997,
+      "objective": 0.41059999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.716,
+      "byproduct_purge_fraction": 0.02824999999999999,
+      "specific_energy_index": 0.409,
+      "objective": 0.42029999999999995,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.733,
+      "byproduct_purge_fraction": 0.029999999999999992,
+      "specific_energy_index": 0.418,
+      "objective": 0.43,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.75,
+      "byproduct_purge_fraction": 0.031749999999999994,
+      "specific_energy_index": 0.427,
+      "objective": 0.4397,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.767,
+      "byproduct_purge_fraction": 0.03349999999999999,
+      "specific_energy_index": 0.436,
+      "objective": 0.4494,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.784,
+      "byproduct_purge_fraction": 0.03524999999999999,
+      "specific_energy_index": 0.445,
+      "objective": 0.4591,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.801,
+      "byproduct_purge_fraction": 0.03699999999999999,
+      "specific_energy_index": 0.45399999999999996,
+      "objective": 0.46879999999999994,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.8180000000000001,
+      "byproduct_purge_fraction": 0.03874999999999999,
+      "specific_energy_index": 0.46299999999999997,
+      "objective": 0.4785,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.8350000000000001,
+      "byproduct_purge_fraction": 0.040499999999999994,
+      "specific_energy_index": 0.472,
+      "objective": 0.48819999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.852,
+      "byproduct_purge_fraction": 0.042249999999999996,
+      "specific_energy_index": 0.481,
+      "objective": 0.4979,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.8690000000000001,
+      "byproduct_purge_fraction": 0.044,
+      "specific_energy_index": 0.49,
+      "objective": 0.5075999999999999,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.886,
+      "byproduct_purge_fraction": 0.04574999999999999,
+      "specific_energy_index": 0.499,
+      "objective": 0.5173,
+      "feasible": false,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.903,
+      "byproduct_purge_fraction": 0.047499999999999994,
+      "specific_energy_index": 0.508,
+      "objective": 0.527,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.92,
+      "byproduct_purge_fraction": 0.049249999999999995,
+      "specific_energy_index": 0.517,
+      "objective": 0.5367000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.937,
+      "byproduct_purge_fraction": 0.051,
+      "specific_energy_index": 0.526,
+      "objective": 0.5464,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.9540000000000001,
+      "byproduct_purge_fraction": 0.05275,
+      "specific_energy_index": 0.535,
+      "objective": 0.5561,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.8861,
+      "product_recovery": 0.971,
+      "byproduct_purge_fraction": 0.05449999999999999,
+      "specific_energy_index": 0.544,
+      "objective": 0.5658000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.8500000000000001,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.63,
+      "byproduct_purge_fraction": 0.012999999999999998,
+      "specific_energy_index": 0.376,
+      "objective": 0.3812,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.647,
+      "byproduct_purge_fraction": 0.014749999999999997,
+      "specific_energy_index": 0.385,
+      "objective": 0.3909,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.664,
+      "byproduct_purge_fraction": 0.016499999999999997,
+      "specific_energy_index": 0.394,
+      "objective": 0.4006,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.681,
+      "byproduct_purge_fraction": 0.01825,
+      "specific_energy_index": 0.403,
+      "objective": 0.4103,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.698,
+      "byproduct_purge_fraction": 0.019999999999999997,
+      "specific_energy_index": 0.412,
+      "objective": 0.42,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.715,
+      "byproduct_purge_fraction": 0.02175,
+      "specific_energy_index": 0.421,
+      "objective": 0.42969999999999997,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.732,
+      "byproduct_purge_fraction": 0.0235,
+      "specific_energy_index": 0.43,
+      "objective": 0.4394,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.749,
+      "byproduct_purge_fraction": 0.02525,
+      "specific_energy_index": 0.439,
+      "objective": 0.4491,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.766,
+      "byproduct_purge_fraction": 0.027,
+      "specific_energy_index": 0.448,
+      "objective": 0.4588,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.783,
+      "byproduct_purge_fraction": 0.02875,
+      "specific_energy_index": 0.457,
+      "objective": 0.4685,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.8,
+      "byproduct_purge_fraction": 0.0305,
+      "specific_energy_index": 0.46599999999999997,
+      "objective": 0.47819999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.8170000000000001,
+      "byproduct_purge_fraction": 0.03225,
+      "specific_energy_index": 0.475,
+      "objective": 0.4879,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.8340000000000001,
+      "byproduct_purge_fraction": 0.034,
+      "specific_energy_index": 0.484,
+      "objective": 0.4976,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.851,
+      "byproduct_purge_fraction": 0.035750000000000004,
+      "specific_energy_index": 0.493,
+      "objective": 0.5073,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.8680000000000001,
+      "byproduct_purge_fraction": 0.037500000000000006,
+      "specific_energy_index": 0.502,
+      "objective": 0.517,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.885,
+      "byproduct_purge_fraction": 0.03925,
+      "specific_energy_index": 0.511,
+      "objective": 0.5267000000000001,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.902,
+      "byproduct_purge_fraction": 0.041,
+      "specific_energy_index": 0.52,
+      "objective": 0.5364,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.919,
+      "byproduct_purge_fraction": 0.04275,
+      "specific_energy_index": 0.529,
+      "objective": 0.5461,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.936,
+      "byproduct_purge_fraction": 0.044500000000000005,
+      "specific_energy_index": 0.538,
+      "objective": 0.5558000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.9530000000000001,
+      "byproduct_purge_fraction": 0.046250000000000006,
+      "specific_energy_index": 0.547,
+      "objective": 0.5655,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.9036000000000001,
+      "product_recovery": 0.97,
+      "byproduct_purge_fraction": 0.048,
+      "specific_energy_index": 0.556,
+      "objective": 0.5752,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.629,
+      "byproduct_purge_fraction": 0.006499999999999992,
+      "specific_energy_index": 0.388,
+      "objective": 0.3906,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.646,
+      "byproduct_purge_fraction": 0.008249999999999992,
+      "specific_energy_index": 0.397,
+      "objective": 0.4003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.663,
+      "byproduct_purge_fraction": 0.009999999999999992,
+      "specific_energy_index": 0.406,
+      "objective": 0.41000000000000003,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.68,
+      "byproduct_purge_fraction": 0.011749999999999993,
+      "specific_energy_index": 0.41500000000000004,
+      "objective": 0.4197,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.697,
+      "byproduct_purge_fraction": 0.013499999999999993,
+      "specific_energy_index": 0.424,
+      "objective": 0.4294,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.714,
+      "byproduct_purge_fraction": 0.015249999999999993,
+      "specific_energy_index": 0.433,
+      "objective": 0.4391,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.731,
+      "byproduct_purge_fraction": 0.016999999999999994,
+      "specific_energy_index": 0.442,
+      "objective": 0.4488,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.748,
+      "byproduct_purge_fraction": 0.018749999999999996,
+      "specific_energy_index": 0.451,
+      "objective": 0.4585,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.765,
+      "byproduct_purge_fraction": 0.020499999999999994,
+      "specific_energy_index": 0.46,
+      "objective": 0.4682,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.782,
+      "byproduct_purge_fraction": 0.022249999999999995,
+      "specific_energy_index": 0.46900000000000003,
+      "objective": 0.47790000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.799,
+      "byproduct_purge_fraction": 0.023999999999999994,
+      "specific_energy_index": 0.478,
+      "objective": 0.4876,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.8160000000000001,
+      "byproduct_purge_fraction": 0.025749999999999995,
+      "specific_energy_index": 0.487,
+      "objective": 0.49729999999999996,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.8330000000000001,
+      "byproduct_purge_fraction": 0.027499999999999997,
+      "specific_energy_index": 0.496,
+      "objective": 0.507,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.85,
+      "byproduct_purge_fraction": 0.029249999999999995,
+      "specific_energy_index": 0.505,
+      "objective": 0.5167,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.8670000000000001,
+      "byproduct_purge_fraction": 0.030999999999999996,
+      "specific_energy_index": 0.514,
+      "objective": 0.5264,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.884,
+      "byproduct_purge_fraction": 0.032749999999999994,
+      "specific_energy_index": 0.523,
+      "objective": 0.5361,
+      "feasible": false,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.901,
+      "byproduct_purge_fraction": 0.034499999999999996,
+      "specific_energy_index": 0.532,
+      "objective": 0.5458000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.918,
+      "byproduct_purge_fraction": 0.03625,
+      "specific_energy_index": 0.541,
+      "objective": 0.5555,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.935,
+      "byproduct_purge_fraction": 0.038,
+      "specific_energy_index": 0.55,
+      "objective": 0.5652,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.9520000000000001,
+      "byproduct_purge_fraction": 0.03975,
+      "specific_energy_index": 0.559,
+      "objective": 0.5749000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.9209,
+      "product_recovery": 0.969,
+      "byproduct_purge_fraction": 0.041499999999999995,
+      "specific_energy_index": 0.5680000000000001,
+      "objective": 0.5846,
+      "feasible": true,
+      "reaction_severity_fraction": 0.9500000000000001,
+      "recovery_recycle_fraction": 1.0
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.628,
+      "byproduct_purge_fraction": 0.0,
+      "specific_energy_index": 0.4,
+      "objective": 0.4,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.0
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.645,
+      "byproduct_purge_fraction": 0.0017500000000000003,
+      "specific_energy_index": 0.40900000000000003,
+      "objective": 0.4097,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.05
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.662,
+      "byproduct_purge_fraction": 0.0035000000000000005,
+      "specific_energy_index": 0.41800000000000004,
+      "objective": 0.41940000000000005,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.1
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.679,
+      "byproduct_purge_fraction": 0.005250000000000001,
+      "specific_energy_index": 0.42700000000000005,
+      "objective": 0.42910000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.696,
+      "byproduct_purge_fraction": 0.007000000000000001,
+      "specific_energy_index": 0.436,
+      "objective": 0.4388,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.2
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.713,
+      "byproduct_purge_fraction": 0.00875,
+      "specific_energy_index": 0.445,
+      "objective": 0.4485,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.25
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.73,
+      "byproduct_purge_fraction": 0.010500000000000002,
+      "specific_energy_index": 0.454,
+      "objective": 0.4582,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.747,
+      "byproduct_purge_fraction": 0.012250000000000002,
+      "specific_energy_index": 0.463,
+      "objective": 0.46790000000000004,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.764,
+      "byproduct_purge_fraction": 0.014000000000000002,
+      "specific_energy_index": 0.47200000000000003,
+      "objective": 0.4776,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.4
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.781,
+      "byproduct_purge_fraction": 0.015750000000000004,
+      "specific_energy_index": 0.48100000000000004,
+      "objective": 0.48730000000000007,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.45
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.798,
+      "byproduct_purge_fraction": 0.0175,
+      "specific_energy_index": 0.49,
+      "objective": 0.497,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.5
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.8150000000000001,
+      "byproduct_purge_fraction": 0.019250000000000003,
+      "specific_energy_index": 0.499,
+      "objective": 0.5067,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.55
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.8320000000000001,
+      "byproduct_purge_fraction": 0.021000000000000005,
+      "specific_energy_index": 0.508,
+      "objective": 0.5164,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.849,
+      "byproduct_purge_fraction": 0.022750000000000003,
+      "specific_energy_index": 0.517,
+      "objective": 0.5261,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.65
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.8660000000000001,
+      "byproduct_purge_fraction": 0.024500000000000004,
+      "specific_energy_index": 0.526,
+      "objective": 0.5358,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.883,
+      "byproduct_purge_fraction": 0.026250000000000002,
+      "specific_energy_index": 0.535,
+      "objective": 0.5455,
+      "feasible": false,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.75
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.9,
+      "byproduct_purge_fraction": 0.028000000000000004,
+      "specific_energy_index": 0.544,
+      "objective": 0.5552,
+      "feasible": true,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.8
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.917,
+      "byproduct_purge_fraction": 0.029750000000000006,
+      "specific_energy_index": 0.553,
+      "objective": 0.5649000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.934,
+      "byproduct_purge_fraction": 0.03150000000000001,
+      "specific_energy_index": 0.562,
+      "objective": 0.5746000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.9
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.9510000000000001,
+      "byproduct_purge_fraction": 0.03325000000000001,
+      "specific_energy_index": 0.5710000000000001,
+      "objective": 0.5843,
+      "feasible": true,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "reactant_conversion": 0.938,
+      "product_recovery": 0.968,
+      "byproduct_purge_fraction": 0.035,
+      "specific_energy_index": 0.5800000000000001,
+      "objective": 0.5940000000000001,
+      "feasible": true,
+      "reaction_severity_fraction": 1.0,
+      "recovery_recycle_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "blind_synthesized_methanol_recycle",
+    "chemical_distinction": "Changes methanol service from synthesis to selective oxidation with oxygen-limited conversion and condensable product recovery.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "fs.s01",
+    "source": "fs.boiler.outlet",
+    "destination": "fs.turbine.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.turbine.outlet",
+    "destination": "fs.HTR_pseudo_shell.inlet"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.HTR_pseudo_shell.outlet",
+    "destination": "fs.LTR_pseudo_shell.inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.LTR_pseudo_shell.outlet",
+    "destination": "fs.splitter_1.inlet"
+  },
+  {
+    "name": "fs.s05",
+    "source": "fs.splitter_1.to_cooler",
+    "destination": "fs.co2_cooler.inlet"
+  },
+  {
+    "name": "fs.s06",
+    "source": "fs.splitter_1.bypass",
+    "destination": "fs.bypass_compressor.inlet"
+  },
+  {
+    "name": "fs.s07",
+    "source": "fs.co2_cooler.outlet",
+    "destination": "fs.main_compressor.inlet"
+  },
+  {
+    "name": "fs.s08",
+    "source": "fs.bypass_compressor.outlet",
+    "destination": "fs.mixer.bypass"
+  },
+  {
+    "name": "fs.s09",
+    "source": "fs.main_compressor.outlet",
+    "destination": "fs.splitter_2.inlet"
+  },
+  {
+    "name": "fs.s10",
+    "source": "fs.splitter_2.to_FG_cooler",
+    "destination": "fs.FG_cooler.inlet"
+  },
+  {
+    "name": "fs.s11",
+    "source": "fs.splitter_2.to_LTR",
+    "destination": "fs.LTR_pseudo_tube.inlet"
+  },
+  {
+    "name": "fs.s12",
+    "source": "fs.LTR_pseudo_tube.outlet",
+    "destination": "fs.mixer.LTR_out"
+  },
+  {
+    "name": "fs.s13",
+    "source": "fs.FG_cooler.outlet",
+    "destination": "fs.mixer.FG_out"
+  },
+  {
+    "name": "fs.s14",
+    "source": "fs.mixer.outlet",
+    "destination": "fs.HTR_pseudo_tube.inlet"
+  }
+]

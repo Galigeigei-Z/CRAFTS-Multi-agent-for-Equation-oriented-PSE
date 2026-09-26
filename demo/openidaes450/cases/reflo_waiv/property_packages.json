@@ -1,0 +1,81 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap_contrib.reflo.property_models.air_water_equilibrium_properties.AirWaterEqData"
+      },
+      {
+        "class": "watertap_contrib.reflo.property_models.air_water_equilibrium_properties.AirWaterEq"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "volatile_solute_list": [],
+      "non_volatile_solute_list": [
+        "TDS"
+      ],
+      "mw_data": {
+        "TDS": 0.0314038218
+      },
+      "diffusivity_data": {},
+      "molar_volume_data": {},
+      "pressure_vap_sat_data": 0.0,
+      "pressure_vap_data": 0.0,
+      "relative_humidity_data": 0.25,
+      "latent_heat_of_vaporization_data": 0.0,
+      "specific_heat_of_water_data": {
+        "Liq": 4184,
+        "Vap": 1996
+      },
+      "critical_molar_volume_data": {},
+      "density_data": {
+        "Liq": 998.2,
+        "Vap": 1.204
+      },
+      "dynamic_viscosity_data": {
+        "Liq": 0.001,
+        "Vap": 1.813e-05
+      },
+      "henry_constant_data": {},
+      "temp_adjust_henry": true,
+      "standard_enthalpy_change_data": {},
+      "temperature_boiling_data": {},
+      "charge_data": {},
+      "liq_diffus_calculation": {
+        "component": "HaydukLaudie"
+      },
+      "vap_diffus_calculation": {
+        "component": "WilkeLee"
+      },
+      "molar_volume_calculation": {
+        "component": "TynCalus"
+      },
+      "saturation_vapor_pressure_calculation": {
+        "component": "ArdenBuck"
+      },
+      "vapor_pressure_calculation": {
+        "component": "FromRelativeHumidity"
+      },
+      "relative_humidity_calculation": {
+        "component": "none"
+      },
+      "latent_heat_of_vaporization_calculation": {
+        "component": "Sharqawy"
+      },
+      "specific_heat_of_water_calculation": {
+        "component": "Sharqawy"
+      },
+      "density_calculation": {
+        "component": "calculated"
+      }
+    },
+    "class": "watertap_contrib.reflo.property_models.air_water_equilibrium_properties.AirWaterEq",
+    "module": "watertap_contrib.reflo.property_models.air_water_equilibrium_properties",
+    "data_class": null,
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

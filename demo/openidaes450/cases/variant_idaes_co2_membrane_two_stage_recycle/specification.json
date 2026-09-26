@@ -1,0 +1,79 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_co2_membrane_two_stage_recycle",
+  "family": "family_co2_membrane_two_stage",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "stage_one_area_fraction",
+      "value": 0.4,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "second_retentate_recycle_fraction",
+      "value": 0.5,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_recovery",
+      "value": 0.855,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_purity",
+      "value": 0.957,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "compression_power_kW",
+      "value": 176.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "CO2.inlet",
+    "RAFF.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_co2_membrane_1d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_co2_membrane_1d",
+    "chemical_change": "Adds membrane staging and a composition-changing recycle loop instead of an area or pressure point.",
+    "native_metrics": {
+      "co2_recovery": 0.855,
+      "co2_purity": 0.957,
+      "compression_power_kW": 176.0
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_bped_unit",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "bped_optimal",
+      "pass": true
+    },
+    {
+      "name": "bped_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "bped_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "bped_diluate_na_target_met",
+      "pass": true
+    },
+    {
+      "name": "bped_acidic_h_positive",
+      "pass": true
+    },
+    {
+      "name": "bped_basic_oh_positive",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "diluate_na_mol_s": 0.06896569075369346,
+  "acidic_h_mol_s": 0.07493658541621646,
+  "basic_oh_mol_s": 0.07493658541621645,
+  "current_A": null,
+  "electrical_power_W": null,
+  "stream_values": {
+    "inlet_diluate": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.24,
+      "flow_mol_Liq_Na_+_mol_s": 0.0738,
+      "flow_mol_Liq_Cl_-_mol_s": 0.0738,
+      "flow_mol_Liq_H_+_mol_s": 0.0,
+      "flow_mol_Liq_OH_-_mol_s": 0.0
+    },
+    "outlet_diluate": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.20021440066644366,
+      "flow_mol_Liq_Na_+_mol_s": 0.06896569075369346,
+      "flow_mol_Liq_Cl_-_mol_s": 0.0689642650857873,
+      "flow_mol_Liq_H_+_mol_s": 1.0000000000000751e-13,
+      "flow_mol_Liq_OH_-_mol_s": 1.0000000000000917e-13
+    },
+    "inlet_acidic": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.24,
+      "flow_mol_Liq_Na_+_mol_s": 0.0,
+      "flow_mol_Liq_Cl_-_mol_s": 0.0738,
+      "flow_mol_Liq_H_+_mol_s": 0.0738,
+      "flow_mol_Liq_OH_-_mol_s": 0.0
+    },
+    "outlet_acidic": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.27341018232929104,
+      "flow_mol_Liq_Na_+_mol_s": 0.002597012556919516,
+      "flow_mol_Liq_Cl_-_mol_s": 0.07603873636995594,
+      "flow_mol_Liq_H_+_mol_s": 0.07493658541621646,
+      "flow_mol_Liq_OH_-_mol_s": 8.389594070772593e-05
+    },
+    "inlet_basic": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.24,
+      "flow_mol_Liq_Na_+_mol_s": 0.0738,
+      "flow_mol_Liq_Cl_-_mol_s": 0.0,
+      "flow_mol_Liq_H_+_mol_s": 0.0,
+      "flow_mol_Liq_OH_-_mol_s": 0.0738
+    },
+    "outlet_basic": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O_mol_s": 0.24515493564734112,
+      "flow_mol_Liq_Na_+_mol_s": 0.07603729668938704,
+      "flow_mol_Liq_Cl_-_mol_s": 0.0025969985442567504,
+      "flow_mol_Liq_H_+_mol_s": 8.389594070772593e-05,
+      "flow_mol_Liq_OH_-_mol_s": 0.07493658541621645
+    }
+  },
+  "source_summary": {
+    "source": "watertap.unit_models.electrodialysis_bipolar_1D.Electrodialysis_Bipolar_1D",
+    "property_package": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

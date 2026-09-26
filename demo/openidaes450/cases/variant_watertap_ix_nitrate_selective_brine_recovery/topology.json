@@ -1,0 +1,228 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ix_nitrate_selective_brine_recovery",
+  "family": "family_ix_brine_denit",
+  "process_type": "Nitrate-Selective IX with Brine Denitrification and Reuse",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent watertap_ion_exchange.",
+    "Adds selective nitrate chemistry and destroys nitrate in the regenerant before salt reuse, closing the brine loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NO3",
+        "SO4",
+        "NaCl",
+        "N2",
+        "biomass"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_ion_exchange"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NO3",
+      "SO4",
+      "NaCl",
+      "N2",
+      "biomass"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "nitrate water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "IX",
+      "kind": "IonExchange",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "nitrate-selective resin",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "salt makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "REG",
+      "kind": "Regenerator",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "elute nitrate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BIO",
+      "kind": "AnoxicReactor",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "brine denitrification",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF101",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "remove biomass",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "brine recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "low-nitrate water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ix_brine_denit",
+      "role": "brine purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "IX.water",
+      "stage": "ix_brine_denit",
+      "role": "raw water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "IX.product",
+      "destination": "PRODUCT.inlet",
+      "stage": "ix_brine_denit",
+      "role": "treated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BRINE.outlet",
+      "destination": "REG.makeup",
+      "stage": "ix_brine_denit",
+      "role": "salt makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "REG.brine",
+      "destination": "IX.regenerant",
+      "stage": "ix_brine_denit",
+      "role": "regeneration brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "IX.spent_brine",
+      "destination": "BIO.inlet",
+      "stage": "ix_brine_denit",
+      "role": "nitrate brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "BIO.outlet",
+      "destination": "CF101.inlet",
+      "stage": "ix_brine_denit",
+      "role": "denitrified brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "CF101.liquid",
+      "destination": "S101.inlet",
+      "stage": "ix_brine_denit",
+      "role": "clarified brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S101.recycle",
+      "destination": "REG.recycle",
+      "stage": "ix_brine_denit",
+      "role": "salt reuse",
+      "tear_candidate": true
+    },
+    {
+      "id": "s09",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "ix_brine_denit",
+      "role": "salt purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet",
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s08"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_ion_exchange"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_ion_exchange",
+    "chemical_change": "Adds selective nitrate chemistry and destroys nitrate in the regenerant before salt reuse, closing the brine loop.",
+    "native_metrics": {
+      "product_nitrate_kg_s": 0.013799999999999995,
+      "fresh_salt_kg_s": 0.04,
+      "product_sulfate_kg_s": 0.06,
+      "carbon_dose_kg_s": 0.05
+    }
+  }
+}

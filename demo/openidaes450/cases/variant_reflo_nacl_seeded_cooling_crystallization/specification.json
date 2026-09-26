@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reflo_nacl_seeded_cooling_crystallization",
+  "family": "family_reflo_nacl_seeded_cooling_crystallization",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "crystallization_extent_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "seed_purge_control_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "crystal_recovery",
+      "value": 0.8700000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "crystal_purity",
+      "value": 0.982,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "mother_liquor_impurity_fraction",
+      "value": 0.028000000000000004,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "crystallization_duty_index",
+      "value": 0.396,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "max_component_balance_error",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "CRYSTAL.inlet",
+    "PURGE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_crystallizer_effect"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_crystallizer_effect",
+    "chemical_change": "Adds seed recycle and impurity control to a single crystallizer effect.",
+    "native_metrics": {
+      "crystal_recovery": 0.8700000000000001,
+      "crystal_purity": 0.982,
+      "mother_liquor_impurity_fraction": 0.028000000000000004,
+      "crystallization_duty_index": 0.396,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

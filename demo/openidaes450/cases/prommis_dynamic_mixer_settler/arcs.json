@@ -1,0 +1,22 @@
+[
+  {
+    "name": "fs.feed_stream",
+    "source": "fs.feed_block.outlet",
+    "destination": "fs.membrane.feed_inlet"
+  },
+  {
+    "name": "fs.diafiltrate_stream",
+    "source": "fs.diafiltrate_block.outlet",
+    "destination": "fs.membrane.diafiltrate_inlet"
+  },
+  {
+    "name": "fs.retentate_stream",
+    "source": "fs.membrane.retentate_outlet",
+    "destination": "fs.retentate_block.inlet"
+  },
+  {
+    "name": "fs.permeate_stream",
+    "source": "fs.membrane.permeate_outlet",
+    "destination": "fs.permeate_block.inlet"
+  }
+]

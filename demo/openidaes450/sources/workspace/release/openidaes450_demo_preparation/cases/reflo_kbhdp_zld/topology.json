@@ -1,0 +1,271 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__reflo_kbhdp_zld",
+  "family": "family_source_verified_reflo_kbhdp_zld",
+  "process_type": "KBHDP zero-liquid-discharge water treatment with renewable energy",
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/main/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_ZLD.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official REFLO KBHDP ZLD case source. No SpecIR, degrees-of-freedom closure, solve, costing, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "electrocoagulation",
+      "kind": "ElectrocoagulationZO",
+      "package": null,
+      "stage": "pretreatment",
+      "role": "Source-derived ElectrocoagulationZO node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ultrafiltration",
+      "kind": "UltrafiltrationZO",
+      "package": null,
+      "stage": "pretreatment",
+      "role": "Source-derived UltrafiltrationZO node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reverse_osmosis",
+      "kind": "ReverseOsmosis1D",
+      "package": null,
+      "stage": "desalination",
+      "role": "Source-derived ReverseOsmosis1D node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "membrane_distillation",
+      "kind": "MembraneDistillation",
+      "package": null,
+      "stage": "concentration",
+      "role": "Source-derived MembraneDistillation node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "crystallizer",
+      "kind": "Crystallization",
+      "package": null,
+      "stage": "zld",
+      "role": "Source-derived Crystallization node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "product_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "recovery",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "water_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "salt_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "sludge",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waste",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cst",
+      "kind": "SolarEnergy",
+      "package": null,
+      "stage": "energy",
+      "role": "Source-derived SolarEnergy node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pv",
+      "kind": "SolarPV",
+      "package": null,
+      "stage": "energy",
+      "role": "Source-derived SolarPV node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_ec",
+      "source": "feed.outlet",
+      "destination": "electrocoagulation.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ec_to_uf",
+      "source": "electrocoagulation.treated",
+      "destination": "ultrafiltration.inlet",
+      "source_port": "treated",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ec_sludge",
+      "source": "electrocoagulation.byproduct",
+      "destination": "sludge.inlet",
+      "source_port": "byproduct",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "uf_to_ro",
+      "source": "ultrafiltration.treated",
+      "destination": "reverse_osmosis.inlet",
+      "source_port": "treated",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "uf_waste",
+      "source": "ultrafiltration.byproduct",
+      "destination": "waste.inlet",
+      "source_port": "byproduct",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ro_permeate_to_mixer",
+      "source": "reverse_osmosis.permeate",
+      "destination": "product_mixer.inlet_1",
+      "source_port": "permeate",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ro_brine_to_md",
+      "source": "reverse_osmosis.retentate",
+      "destination": "membrane_distillation.inlet",
+      "source_port": "retentate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "md_product_to_mixer",
+      "source": "membrane_distillation.permeate",
+      "destination": "product_mixer.inlet_2",
+      "source_port": "permeate",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "md_brine_to_crystallizer",
+      "source": "membrane_distillation.concentrate",
+      "destination": "crystallizer.inlet",
+      "source_port": "concentrate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "crystal_water_to_mixer",
+      "source": "crystallizer.liquid",
+      "destination": "product_mixer.inlet_3",
+      "source_port": "liquid",
+      "destination_port": "inlet_3",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "crystal_salt",
+      "source": "crystallizer.solids",
+      "destination": "salt_product.inlet",
+      "source_port": "solids",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "mixer_to_product",
+      "source": "product_mixer.outlet",
+      "destination": "water_product.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "cst_to_md",
+      "source": "cst.heat",
+      "destination": "membrane_distillation.heat",
+      "source_port": "heat",
+      "destination_port": "heat",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pv_to_treatment",
+      "source": "pv.electricity",
+      "destination": "reverse_osmosis.electricity",
+      "source_port": "electricity",
+      "destination_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "feed",
+    "electrocoagulation",
+    "ultrafiltration",
+    "reverse_osmosis",
+    "membrane_distillation",
+    "crystallizer",
+    "product_mixer",
+    "water_product",
+    "salt_product",
+    "sludge",
+    "waste",
+    "cst",
+    "pv"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

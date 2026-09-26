@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_co2_electroreduction_gas_recycle",
+  "family": "family_co2_electroreduction",
+  "process_type": "CO2 Electroreduction with Gas Recycle and Carbonate Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent idaes_co2_membrane_1d.",
+    "Adds electrochemical CO2 conversion, gas recycle and electrolyte carbonate recovery.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "CO",
+        "H2",
+        "carbonate",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_co2_membrane_1d"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "CO",
+      "H2",
+      "carbonate",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "CO2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "captured CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "fresh/recycle gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EC",
+      "kind": "ElectrochemicalReactor",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "CO2-to-CO",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SEP",
+      "kind": "GasSeparator",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "CO/H2/CO2 split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "CO2 recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BMED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "carbonate recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "carbon monoxide",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "co2_electroreduction",
+      "role": "hydrogen coproduct",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "CO2.outlet",
+      "destination": "M1.fresh",
+      "stage": "co2_electroreduction",
+      "role": "CO2 feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M1.outlet",
+      "destination": "EC.gas",
+      "stage": "co2_electroreduction",
+      "role": "cathode gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "EC.gas_out",
+      "destination": "SEP.inlet",
+      "stage": "co2_electroreduction",
+      "role": "product gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SEP.co",
+      "destination": "CO.inlet",
+      "stage": "co2_electroreduction",
+      "role": "CO product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "SEP.hydrogen",
+      "destination": "H2.inlet",
+      "stage": "co2_electroreduction",
+      "role": "H2 coproduct",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SEP.co2",
+      "destination": "S1.inlet",
+      "stage": "co2_electroreduction",
+      "role": "unreacted CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S1.recycle",
+      "destination": "M1.recycle",
+      "stage": "co2_electroreduction",
+      "role": "CO2 recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "EC.carbonate",
+      "destination": "BMED.feed",
+      "stage": "co2_electroreduction",
+      "role": "carbonate crossover",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "BMED.co2",
+      "destination": "M1.recovered",
+      "stage": "co2_electroreduction",
+      "role": "recovered CO2",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "CO2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO.inlet",
+    "H2.inlet"
+  ],
+  "tear_streams": [
+    "s07"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_co2_membrane_1d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_co2_membrane_1d",
+    "chemical_change": "Adds electrochemical CO2 conversion, gas recycle and electrolyte carbonate recovery.",
+    "native_metrics": {
+      "co_selectivity": 0.821,
+      "co2_conversion": 0.958,
+      "hydrogen_fraction": 0.024999999999999994,
+      "carbonate_loss": 0.009,
+      "power_index": 4.7
+    }
+  }
+}

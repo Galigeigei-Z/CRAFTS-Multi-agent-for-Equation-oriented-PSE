@@ -1,0 +1,22 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_supercritical_steam_cycle",
+  "family": "family_supercritical_steam_cycle",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/supercritical/supercritical_steam_cycle_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official supercritical_steam_cycle.main()",
+    "solve_order": [
+      "steam_cycle"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,634 @@
+{
+  "case_id": "idaes_soc_pid_control",
+  "runner": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/release/openidaes450_executable/scripts_finish/notebook_runner.py",
+  "elapsed_seconds": 472.85,
+  "model_calls": 0,
+  "evidence_class": "fresh_registered_reference_model_export",
+  "report_pass": true,
+  "solver_optimal_observed": false,
+  "model_checks": {
+    "variable_count": 28356,
+    "missing_variable_values": 1500,
+    "port_value_count": 2760,
+    "missing_port_values": 0,
+    "unit_count": 31,
+    "property_package_count": 4,
+    "degrees_of_freedom": 0,
+    "constraint_count": 25959,
+    "constraint_residual_convention": "equation-terms/v2: violation/max(1,sum(abs(additive body terms)),abs(body),abs(bounds)); tolerance 1e-6; raw violations retained; not a substitute for engineering conservation audits",
+    "maximum_relative_constraint_violation": 1.0,
+    "violations": [
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,1]",
+        "absolute_violation": 1.7393525617967397e-06,
+        "relative_violation": 1.7393525617967397e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,2]",
+        "absolute_violation": 1.8440627998135778e-06,
+        "relative_violation": 1.8440627998135778e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,3]",
+        "absolute_violation": 1.6851466595831296e-06,
+        "relative_violation": 1.6851466595831296e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,4]",
+        "absolute_violation": 1.3431796695069924e-06,
+        "relative_violation": 1.3431796695069924e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,9]",
+        "absolute_violation": 1.413756853516653e-06,
+        "relative_violation": 1.413756853516653e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3600.0,1,10]",
+        "absolute_violation": 1.9183285482488622e-06,
+        "relative_violation": 1.9183285482488622e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,1]",
+        "absolute_violation": 0.17466506576504223,
+        "relative_violation": 0.17466506576504223,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,2]",
+        "absolute_violation": 0.10031228742974499,
+        "relative_violation": 0.10031228742974499,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,3]",
+        "absolute_violation": 0.33422652357699845,
+        "relative_violation": 0.33422652357699845,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,4]",
+        "absolute_violation": 0.5176664595005648,
+        "relative_violation": 0.5176664595005648,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,5]",
+        "absolute_violation": 0.6744465362149423,
+        "relative_violation": 0.6744465362149423,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,6]",
+        "absolute_violation": 0.8149823811004664,
+        "relative_violation": 0.8149823811004664,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,7]",
+        "absolute_violation": 0.9379123813320593,
+        "relative_violation": 0.9379123813320593,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,8]",
+        "absolute_violation": 1.031086867404786,
+        "relative_violation": 1.0,
+        "normalization_scale": 1.031086867404786
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,9]",
+        "absolute_violation": 1.069491960121746,
+        "relative_violation": 1.0,
+        "normalization_scale": 1.069491960121746
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[3900.0,1,10]",
+        "absolute_violation": 1.0202050934021418,
+        "relative_violation": 1.0,
+        "normalization_scale": 1.0202050934021418
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,1]",
+        "absolute_violation": 0.0012964712921561456,
+        "relative_violation": 0.0012964712921561456,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,2]",
+        "absolute_violation": 0.0023695528630089625,
+        "relative_violation": 0.0023695528630089625,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,3]",
+        "absolute_violation": 0.002865302471860982,
+        "relative_violation": 0.002865302471860982,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,4]",
+        "absolute_violation": 0.0031100378828551488,
+        "relative_violation": 0.0031100378828551488,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,5]",
+        "absolute_violation": 0.003216164144774842,
+        "relative_violation": 0.003216164144774842,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,6]",
+        "absolute_violation": 0.0032263669008139075,
+        "relative_violation": 0.0032263669008139075,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,7]",
+        "absolute_violation": 0.0031659150101376638,
+        "relative_violation": 0.0031659150101376638,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,8]",
+        "absolute_violation": 0.0030548455171023753,
+        "relative_violation": 0.0030548455171023753,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,9]",
+        "absolute_violation": 0.0029122769511616122,
+        "relative_violation": 0.0029122769511616122,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11100.0,1,10]",
+        "absolute_violation": 0.0027658781562058185,
+        "relative_violation": 0.0027658781562058185,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,1]",
+        "absolute_violation": 1.1832511141908713,
+        "relative_violation": 1.0,
+        "normalization_scale": 1.1832511141908713
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,2]",
+        "absolute_violation": 0.9957671835603833,
+        "relative_violation": 0.9957671835603833,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,3]",
+        "absolute_violation": 0.8469562032205059,
+        "relative_violation": 0.8469562032205059,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,4]",
+        "absolute_violation": 0.7541454896859304,
+        "relative_violation": 0.7541454896859304,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,5]",
+        "absolute_violation": 0.683852452088996,
+        "relative_violation": 0.683852452088996,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,6]",
+        "absolute_violation": 0.6246829755717865,
+        "relative_violation": 0.6246829755717865,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,7]",
+        "absolute_violation": 0.5818979201441863,
+        "relative_violation": 0.5818979201441863,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,8]",
+        "absolute_violation": 0.5697071078636216,
+        "relative_violation": 0.5697071078636216,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,9]",
+        "absolute_violation": 0.6064529353555256,
+        "relative_violation": 0.6064529353555256,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[11400.0,1,10]",
+        "absolute_violation": 0.6922301721076874,
+        "relative_violation": 0.6922301721076874,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,1]",
+        "absolute_violation": 0.0004653060846556334,
+        "relative_violation": 0.0004653060846556334,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,2]",
+        "absolute_violation": 0.0002814638349237567,
+        "relative_violation": 0.0002814638349237567,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,3]",
+        "absolute_violation": 0.00016362449800225198,
+        "relative_violation": 0.00016362449800225198,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,4]",
+        "absolute_violation": 7.608355201112631e-05,
+        "relative_violation": 7.608355201112631e-05,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,5]",
+        "absolute_violation": 4.2987659130970485e-06,
+        "relative_violation": 4.2987659130970485e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,6]",
+        "absolute_violation": 5.8000851302355405e-05,
+        "relative_violation": 5.8000851302355405e-05,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,7]",
+        "absolute_violation": 0.00011480154404598544,
+        "relative_violation": 0.00011480154404598544,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,8]",
+        "absolute_violation": 0.00016943868137164476,
+        "relative_violation": 0.00016943868137164476,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,9]",
+        "absolute_violation": 0.00022602215574351413,
+        "relative_violation": 0.00022602215574351413,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.energy_balance_solid_eqn[22200.0,1,10]",
+        "absolute_violation": 0.0002902656822924237,
+        "relative_violation": 0.0002902656822924237,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,4]",
+        "absolute_violation": 1.158921566895164e-06,
+        "relative_violation": 1.158921566895164e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,5]",
+        "absolute_violation": 1.4625842429880978e-06,
+        "relative_violation": 1.4625842429880978e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,6]",
+        "absolute_violation": 1.6336439082536903e-06,
+        "relative_violation": 1.6336439082536903e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,7]",
+        "absolute_violation": 1.6778735722225004e-06,
+        "relative_violation": 1.6778735722225004e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,8]",
+        "absolute_violation": 1.6199484488759936e-06,
+        "relative_violation": 1.6199484488759936e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,9]",
+        "absolute_violation": 1.5035884373491239e-06,
+        "relative_violation": 1.5035884373491239e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3600.0,1,10]",
+        "absolute_violation": 1.3702404333333704e-06,
+        "relative_violation": 1.3702404333333704e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,1]",
+        "absolute_violation": 0.8415474571985201,
+        "relative_violation": 0.8415474571985201,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,2]",
+        "absolute_violation": 0.7246083045538976,
+        "relative_violation": 0.7246083045538976,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,3]",
+        "absolute_violation": 0.5942686131141717,
+        "relative_violation": 0.5942686131141717,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,4]",
+        "absolute_violation": 0.48443765174611997,
+        "relative_violation": 0.48443765174611997,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,5]",
+        "absolute_violation": 0.42334672134485996,
+        "relative_violation": 0.42334672134485996,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,6]",
+        "absolute_violation": 0.37514775904586545,
+        "relative_violation": 0.37514775904586545,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,7]",
+        "absolute_violation": 0.30771014633945043,
+        "relative_violation": 0.30771014633945043,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,8]",
+        "absolute_violation": 0.18735553406301445,
+        "relative_violation": 0.18735553406301445,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,9]",
+        "absolute_violation": 0.015494506046682094,
+        "relative_violation": 0.015494506046682094,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[3900.0,1,10]",
+        "absolute_violation": 0.265222830834421,
+        "relative_violation": 0.265222830834421,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,1]",
+        "absolute_violation": 0.00387797167753438,
+        "relative_violation": 0.00387797167753438,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,2]",
+        "absolute_violation": 0.002233851227146403,
+        "relative_violation": 0.002233851227146403,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,3]",
+        "absolute_violation": 0.0010543730842586963,
+        "relative_violation": 0.0010543730842586963,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,4]",
+        "absolute_violation": 0.0004995902610433327,
+        "relative_violation": 0.0004995902610433327,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,5]",
+        "absolute_violation": 0.0001656403332866054,
+        "relative_violation": 0.0001656403332866054,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,6]",
+        "absolute_violation": 7.154950285642199e-05,
+        "relative_violation": 7.154950285642199e-05,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,7]",
+        "absolute_violation": 0.0002442284794253553,
+        "relative_violation": 0.0002442284794253553,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,8]",
+        "absolute_violation": 0.0003611540212762949,
+        "relative_violation": 0.0003611540212762949,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,9]",
+        "absolute_violation": 0.00041145924545429066,
+        "relative_violation": 0.00041145924545429066,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11100.0,1,10]",
+        "absolute_violation": 0.00042236693551820704,
+        "relative_violation": 0.00042236693551820704,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,1]",
+        "absolute_violation": 0.5889811767894907,
+        "relative_violation": 0.5889811767894907,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,2]",
+        "absolute_violation": 0.47884871821779107,
+        "relative_violation": 0.47884871821779107,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,3]",
+        "absolute_violation": 0.3440439763745924,
+        "relative_violation": 0.3440439763745924,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,4]",
+        "absolute_violation": 0.23224265255739288,
+        "relative_violation": 0.23224265255739288,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,5]",
+        "absolute_violation": 0.18434105577509383,
+        "relative_violation": 0.18434105577509383,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,6]",
+        "absolute_violation": 0.14517257129181899,
+        "relative_violation": 0.14517257129181899,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,7]",
+        "absolute_violation": 0.07827987556883816,
+        "relative_violation": 0.07827987556883816,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,8]",
+        "absolute_violation": 0.03496376893303219,
+        "relative_violation": 0.03496376893303219,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,9]",
+        "absolute_violation": 0.1744600062433991,
+        "relative_violation": 0.1744600062433991,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[11400.0,1,10]",
+        "absolute_violation": 0.31409118536426067,
+        "relative_violation": 0.31409118536426067,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,1]",
+        "absolute_violation": 0.0006175254364119153,
+        "relative_violation": 0.0006175254364119153,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,2]",
+        "absolute_violation": 0.0004295629710216736,
+        "relative_violation": 0.0004295629710216736,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,3]",
+        "absolute_violation": 0.00029244000413923234,
+        "relative_violation": 0.00029244000413923234,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,4]",
+        "absolute_violation": 0.00022686314933217727,
+        "relative_violation": 0.00022686314933217727,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,5]",
+        "absolute_violation": 0.00019092214177824263,
+        "relative_violation": 0.00019092214177824263,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,6]",
+        "absolute_violation": 0.00016958636272807454,
+        "relative_violation": 0.00016958636272807454,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,7]",
+        "absolute_violation": 0.00015867579431512016,
+        "relative_violation": 0.00015867579431512016,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,8]",
+        "absolute_violation": 0.00015836649802923768,
+        "relative_violation": 0.00015836649802923768,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,9]",
+        "absolute_violation": 0.0001720449896572343,
+        "relative_violation": 0.0001720449896572343,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.d2temperature_dzdt_dummy_eqn[22200.0,1,10]",
+        "absolute_violation": 0.00019385921291354303,
+        "relative_violation": 0.00019385921291354303,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,1]",
+        "absolute_violation": 2.986187078020829e-06,
+        "relative_violation": 2.986187078020829e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,2]",
+        "absolute_violation": 3.3014048276905645e-06,
+        "relative_violation": 3.3014048276905645e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,3]",
+        "absolute_violation": 3.2622317884024347e-06,
+        "relative_violation": 3.2622317884024347e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,4]",
+        "absolute_violation": 3.016892921161972e-06,
+        "relative_violation": 3.016892921161972e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,5]",
+        "absolute_violation": 2.635829886035253e-06,
+        "relative_violation": 2.635829886035253e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,6]",
+        "absolute_violation": 2.1603724098205656e-06,
+        "relative_violation": 2.1603724098205656e-06,
+        "normalization_scale": 1.0
+      },
+      {
+        "name": "fs.soc_module.solid_oxide_cell.fuel_electrode.dcedt_solid_disc_eq[3600.0,1,7]",
+        "absolute_violation": 1.6211180496457343e-06,
+        "relative_violation": 1.6211180496457343e-06,
+        "normalization_scale": 1.0
+      }
+    ],
+    "unevaluable_constraints": [],
+    "constraints_pass": false,
+    "idaes_model_present": true
+  },
+  "error": null,
+  "case_specific_specification_binding_verified": false,
+  "public_reference_complete": false,
+  "native_export_pass": false,
+  "model_fidelity": "native_IDAES",
+  "demo_accepted": true,
+  "residual_checks_are_warnings": true,
+  "streams_applicability": "actual_model_ports"
+}

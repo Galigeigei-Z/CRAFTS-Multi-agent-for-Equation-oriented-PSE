@@ -1,0 +1,68 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_pervaporation_two_stage_recycle",
+  "family": "family_pervaporation_two_stage_recycle",
+  "source_url": "local://examples/pervaporation_two_stage_recycle/source_root/model.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "stage1_membrane_area_m2",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://examples/pervaporation_two_stage_recycle/source_root/model.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stage2_membrane_area_m2",
+      "value": 9.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://examples/pervaporation_two_stage_recycle/source_root/model.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stage1_retentate_recycle_fraction",
+      "value": 0.02000004258088633,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://examples/pervaporation_two_stage_recycle/source_root/model.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "WATER.outlet",
+    "GLYCOL.outlet"
+  ],
+  "terminal_product_ports": [
+    "PERMEATE.inlet",
+    "RETENTATE.inlet"
+  ],
+  "initialization": {
+    "strategy": "simultaneous IPOPT solve",
+    "tear_destination": "M101.recycle"
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_skeleton_pervaporation",
+    "chemical_change": "Adds a second membrane stage, a retentate recycle loop, area allocation and a glycol-loss constraint.",
+    "native_metrics": {
+      "water_recovery_fraction": 0.6739703596793739,
+      "glycol_loss_fraction": 0.0006932941906615231,
+      "glycol_recovery_fraction": 0.9993067058093384,
+      "stage1_stage_cut": 0.030855714111829843,
+      "stage2_stage_cut": 0.28104570575332405,
+      "permeate_water_flow_mol_s": 0.3032873358260779,
+      "permeate_glycol_flow_mol_s": 0.0003813124981580284,
+      "retentate_glycol_flow_mol_s": 0.5496196875018421,
+      "total_condensation_duty_kw": 12.353359755833523
+    }
+  }
+}

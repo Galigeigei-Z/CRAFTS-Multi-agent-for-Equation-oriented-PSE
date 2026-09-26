@@ -1,0 +1,89 @@
+{
+  "arcs": [
+    {
+      "destination": "model.hard_water",
+      "destination_port": "hard_water",
+      "id": "hard_water_to_model",
+      "source": "hard_water.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.base",
+      "destination_port": "base",
+      "id": "base_to_model",
+      "source": "base.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "treated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_treated_water",
+      "source": "model.treated_water",
+      "source_port": "treated_water",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_simple_ion_exchange",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reaktoro_simple_ion_exchange",
+  "initialization_order": [
+    "hard_water",
+    "base",
+    "model",
+    "treated_water"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Simple Ion Exchange",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Reaktoro-PSE ion-exchange tests across seven Hessian strategies"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/examples/simple_ion_exchange.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "hard_water",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "base",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ReaktoroIonExchange",
+      "package": null,
+      "role": "Source-derived ReaktoroIonExchange node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

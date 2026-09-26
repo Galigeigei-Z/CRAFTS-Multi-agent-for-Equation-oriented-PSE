@@ -1,0 +1,267 @@
+[
+  {
+    "name": "fs.fo",
+    "class": "idaes.core.base.process_block._ScalarForwardOsmosisZO",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_water": {
+        "component": "fs.seawater_properties"
+      },
+      "property_package_draw_solution": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.HX1",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "product_water",
+      "cold_side_name": "weak_draw",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_underwood_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "product_water": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "weak_draw": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.HX2",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "reg_draw",
+      "cold_side_name": "weak_draw",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_underwood_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "reg_draw": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "weak_draw": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "RO_reject",
+        "NF_reject",
+        "fresh_water"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "componentFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "NF_reject",
+        "weak_draw"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "to_HX1",
+        "to_HX2"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.H1",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.H2",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.Cooler",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.draw_solution_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

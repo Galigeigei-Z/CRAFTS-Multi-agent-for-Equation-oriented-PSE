@@ -1,0 +1,35 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "pass": true,
+    "status": "optimized",
+    "stage": "gtep_variant_gdp_bigm_highs",
+    "termination_condition": "optimal",
+    "solver": "highs",
+    "metrics": {
+      "bus_count": 5,
+      "branch_count": 7,
+      "generator_count": 8,
+      "load_count": 3,
+      "storage_count": 0,
+      "variables_before_gdp_transform": 174,
+      "constraints_before_gdp_transform": 76,
+      "disjunctions_before_gdp_transform": 29,
+      "objective_value": 1080.880040155145
+    },
+    "configuration": {
+      "scenario": "line_derating",
+      "dataset": "5bus",
+      "flow_model": "DC",
+      "big_m": 1000000.0,
+      "compatibility_fixes": [],
+      "derated_branch": "branch_2_3",
+      "retained_rating_fraction": 0.4
+    },
+    "error": null
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

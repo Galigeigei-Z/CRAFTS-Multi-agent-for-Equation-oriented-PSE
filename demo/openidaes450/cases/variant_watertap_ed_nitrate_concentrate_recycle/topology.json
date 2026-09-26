@@ -1,0 +1,191 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ed_nitrate_concentrate_recycle",
+  "family": "family_watertap_ed_nitrate_concentrate_recycle",
+  "process_type": "Electrodialysis Nitrate Recovery with Concentrate Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_electrodialysis_1stack.",
+    "Changes the transported ion and closes a fertilizer-concentrate loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "NO3-",
+        "Na+",
+        "Cl-",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_electrodialysis_1stack"
+    }
+  },
+  "components": {
+    "tracked": [
+      "NO3-",
+      "Na+",
+      "Cl-",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "ionic process feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "feed conditioning and recycle mixing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EC101",
+      "kind": "Electrodialysis1D",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "selective ionic transport",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "concentrate recycle and product split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "recovered ionic product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DILUATE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "depleted treated stream",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "impurity-controlled purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.fresh",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "ionic feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "EC101.inlet",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "conditioned stack feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "EC101.concentrate",
+      "destination": "S101.inlet",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "concentrated product loop",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "concentrate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s05",
+      "source": "S101.product",
+      "destination": "PRODUCT.inlet",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "recovered ionic product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "EC101.diluate",
+      "destination": "DILUATE.inlet",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "treated diluate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "watertap_ed_nitrate_concentrate_recycle",
+      "role": "impurity purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "DILUATE.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s04"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack",
+    "chemical_change": "Changes the transported ion and closes a fertilizer-concentrate loop.",
+    "native_metrics": {
+      "ionic_product_recovery": 0.9105,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.45250000000000007,
+      "brine_purge_index": 0.025500000000000002,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

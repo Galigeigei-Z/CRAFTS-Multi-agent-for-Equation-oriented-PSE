@@ -1,0 +1,172 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ed_organic_acid_recovery",
+  "family": "family_ed_vfa",
+  "process_type": "Selective ED Recovery of Volatile Fatty Acids",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_electrodialysis_1stack.",
+    "Adds organic-acid ion separation and returns salt-depleted broth to fermentation.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "acetate",
+        "propionate",
+        "phosphate",
+        "water"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_electrodialysis_1stack"
+    }
+  },
+  "components": {
+    "tracked": [
+      "acetate",
+      "propionate",
+      "phosphate",
+      "water"
+    ]
+  },
+  "units": [
+    {
+      "id": "BROTH",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "VFA fermentation broth",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ED",
+      "kind": "Electrodialysis1D",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "VFA transfer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "acid concentrate recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FERM",
+      "kind": "Fermenter",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "VFA production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "VFA",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "concentrated organic acids",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RAFF",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ed_vfa",
+      "role": "salt-depleted broth",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BROTH.outlet",
+      "destination": "ED.feed",
+      "stage": "ed_vfa",
+      "role": "fermentation broth",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ED.concentrate",
+      "destination": "S1.inlet",
+      "stage": "ed_vfa",
+      "role": "VFA concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S1.product",
+      "destination": "VFA.inlet",
+      "stage": "ed_vfa",
+      "role": "acid product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S1.recycle",
+      "destination": "ED.recycle",
+      "stage": "ed_vfa",
+      "role": "concentrate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s05",
+      "source": "ED.diluate",
+      "destination": "FERM.return",
+      "stage": "ed_vfa",
+      "role": "broth return",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "FERM.bleed",
+      "destination": "RAFF.inlet",
+      "stage": "ed_vfa",
+      "role": "raffinate bleed",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BROTH.outlet"
+  ],
+  "unconnected_product_ports": [
+    "VFA.inlet",
+    "RAFF.inlet"
+  ],
+  "tear_streams": [
+    "s04"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_electrodialysis_1stack",
+    "chemical_change": "Adds organic-acid ion separation and returns salt-depleted broth to fermentation.",
+    "native_metrics": {
+      "vfa_recovery": 0.9045000000000001,
+      "phosphate_leakage": 0.01125,
+      "energy_index": 3.34,
+      "acid_concentration": 0.8150000000000001
+    }
+  }
+}

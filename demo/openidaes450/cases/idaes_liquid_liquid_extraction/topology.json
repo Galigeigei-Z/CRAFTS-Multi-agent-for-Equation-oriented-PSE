@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "extractor.organic_inlet",
+      "destination_port": "organic_inlet",
+      "id": "organic_to_extractor",
+      "source": "organic_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "extractor.aqueous_inlet",
+      "destination_port": "aqueous_inlet",
+      "id": "aqueous_to_extractor",
+      "source": "aqueous_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "organic_product.inlet",
+      "destination_port": "inlet",
+      "id": "extractor_to_organic",
+      "source": "extractor.organic_outlet",
+      "source_port": "organic_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "aqueous_product.inlet",
+      "destination_port": "inlet",
+      "id": "extractor_to_aqueous",
+      "source": "extractor.aqueous_outlet",
+      "source_port": "aqueous_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_liquid_liquid_extraction",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_liquid_liquid_extraction",
+  "initialization_order": [
+    "organic_feed",
+    "aqueous_feed",
+    "extractor",
+    "organic_product",
+    "aqueous_product"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Liquid-Liquid Extraction",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official flowsheet main() build, initialization, and solve"
+  ],
+  "source_url": "https://github.com/IDAES/examples/blob/7de78142bcaa41ff0f97cc2846af46c06f30305c/idaes_examples/notebooks/docs/unit_models/custom_unit_models/liquid_extraction/liq_liq_extractor_flowsheet.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "organic_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "aqueous_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "extractor",
+      "kind": "LiqExtraction",
+      "package": null,
+      "role": "Source-derived LiqExtraction node",
+      "stage": "extraction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "organic_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "aqueous_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

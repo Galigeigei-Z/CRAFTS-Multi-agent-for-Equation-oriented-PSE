@@ -1,0 +1,241 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_staged_hydrogen_quench_guard_bed",
+  "family": "family_hda_staged_h2",
+  "process_type": "HDA with Guard Bed and Staged Hydrogen Quench",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_hda_distillation.",
+    "Adds catalyst protection and a second hydrogen injection point, coupling reaction severity and hydrogen partial pressure.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "toluene",
+        "benzene",
+        "CH4",
+        "sulfur"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_hda_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "toluene",
+      "benzene",
+      "CH4",
+      "sulfur"
+    ]
+  },
+  "units": [
+    {
+      "id": "AROMATIC",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "toluene feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "fresh hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GB101",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "remove sulfur poisons",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "split staged hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "StoichiometricReactor",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "first HDA stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "interstage hydrogen quench",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R201",
+      "kind": "StoichiometricReactor",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "second HDA stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SEP",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "gas/liquid separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BENZENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "benzene product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_staged_h2",
+      "role": "methane-rich gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "AROMATIC.outlet",
+      "destination": "GB101.inlet",
+      "stage": "hda_staged_h2",
+      "role": "toluene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "GB101.outlet",
+      "destination": "R101.aromatic",
+      "stage": "hda_staged_h2",
+      "role": "clean aromatic",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "H2.outlet",
+      "destination": "S101.inlet",
+      "stage": "hda_staged_h2",
+      "role": "hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.front",
+      "destination": "R101.hydrogen",
+      "stage": "hda_staged_h2",
+      "role": "front hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "R101.outlet",
+      "destination": "M101.process",
+      "stage": "hda_staged_h2",
+      "role": "first-stage effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.quench",
+      "destination": "M101.hydrogen",
+      "stage": "hda_staged_h2",
+      "role": "quench hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "M101.outlet",
+      "destination": "R201.inlet",
+      "stage": "hda_staged_h2",
+      "role": "quenched feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "R201.outlet",
+      "destination": "SEP.inlet",
+      "stage": "hda_staged_h2",
+      "role": "HDA effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "SEP.liquid",
+      "destination": "BENZENE.inlet",
+      "stage": "hda_staged_h2",
+      "role": "benzene liquid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "SEP.vapor",
+      "destination": "GAS.inlet",
+      "stage": "hda_staged_h2",
+      "role": "H2/CH4 gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "AROMATIC.outlet",
+    "H2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "BENZENE.inlet",
+    "GAS.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Adds catalyst protection and a second hydrogen injection point, coupling reaction severity and hydrogen partial pressure.",
+    "native_metrics": {
+      "toluene_conversion": 0.9000000000000001,
+      "hydrogen_ratio": 1.1999999999997235,
+      "recycle_methane_fraction": 0.035714285714297564,
+      "benzene_purity": 0.9519999999999945
+    }
+  }
+}

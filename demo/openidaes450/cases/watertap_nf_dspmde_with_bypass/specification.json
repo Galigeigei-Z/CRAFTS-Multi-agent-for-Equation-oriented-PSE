@@ -1,0 +1,63 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_nf_dspmde_with_bypass",
+  "family": "family_watertap_nf_dspmde_with_bypass",
+  "source_url": "local://watertap/flowsheets/nf_dspmde/nf_with_bypass",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "total_hardness",
+      "value": "default WaterTAP NF feed",
+      "units": "mg/L as CaCO3",
+      "role": "official multi-ion hardness feed",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf_with_bypass"
+    },
+    {
+      "target": "by_pass_splitter",
+      "variable": "bypass_split_fraction",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "initial bypass split",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf_with_bypass"
+    },
+    {
+      "target": "NF_unit",
+      "variable": "area",
+      "value": "optimized/fixed by NF block defaults",
+      "units": "m^2",
+      "role": "DSPM-DE membrane area",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf_with_bypass"
+    },
+    {
+      "target": "product",
+      "variable": "total_hardness_limit",
+      "value": "enforced by add_hardness_constraint",
+      "units": "mg/L as CaCO3",
+      "role": "product hardness quality constraint",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/nf_dspmde/nf_with_bypass"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "nf_with_bypass.build, set_default_feed, initialize sequentially, solve square steady-state model",
+    "solve_order": [
+      "feed",
+      "splitter",
+      "NF block",
+      "product mixer",
+      "product/disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

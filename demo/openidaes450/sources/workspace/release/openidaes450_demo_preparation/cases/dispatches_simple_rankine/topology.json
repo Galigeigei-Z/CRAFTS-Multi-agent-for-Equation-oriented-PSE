@@ -1,0 +1,133 @@
+{
+  "arcs": [
+    {
+      "destination": "turbine.inlet",
+      "destination_port": "inlet",
+      "id": "boiler_to_turbine",
+      "source": "boiler.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "precondenser.inlet",
+      "destination_port": "inlet",
+      "id": "turbine_to_precondenser",
+      "source": "turbine.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "condenser.inlet",
+      "destination_port": "inlet",
+      "id": "precondenser_to_condenser",
+      "source": "precondenser.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "pump.inlet",
+      "destination_port": "inlet",
+      "id": "condenser_to_pump",
+      "source": "condenser.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "feedwater_heater.inlet",
+      "destination_port": "inlet",
+      "id": "pump_to_fwh",
+      "source": "pump.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "boiler.inlet",
+      "destination_port": "inlet",
+      "id": "fwh_to_boiler",
+      "source": "feedwater_heater.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__dispatches_simple_rankine",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_dispatches_simple_rankine",
+  "initialization_order": [
+    "boiler",
+    "turbine",
+    "precondenser",
+    "condenser",
+    "pump",
+    "feedwater_heater"
+  ],
+  "open_decisions": [],
+  "process_type": "DISPATCHES Simple Rankine Cycle",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official simple Rankine main() build, initialization, recycle solve, and design calculation"
+  ],
+  "source_url": "https://github.com/gmlc-dispatches/dispatches/blob/a9e9b7a7d132f53cd47d63e62c8b0a8722e7fd37/dispatches/case_studies/simple_rankine_cycle/simple_rankine_cycle.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "boiler",
+      "kind": "Heater",
+      "package": null,
+      "role": "Source-derived Heater node",
+      "stage": "steam_generation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "turbine",
+      "kind": "PressureChanger",
+      "package": null,
+      "role": "Source-derived PressureChanger node",
+      "stage": "power_generation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "precondenser",
+      "kind": "Heater",
+      "package": null,
+      "role": "Source-derived Heater node",
+      "stage": "heat_rejection"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "condenser",
+      "kind": "Heater",
+      "package": null,
+      "role": "Source-derived Heater node",
+      "stage": "condensation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pump",
+      "kind": "PressureChanger",
+      "package": null,
+      "role": "Source-derived PressureChanger node",
+      "stage": "pressurization"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feedwater_heater",
+      "kind": "Heater",
+      "package": null,
+      "role": "Source-derived Heater node",
+      "stage": "heat_recovery"
+    }
+  ]
+}

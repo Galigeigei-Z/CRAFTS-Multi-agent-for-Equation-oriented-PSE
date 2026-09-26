@@ -1,0 +1,97 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_hda_psa_tailgas_furnace_heat_recovery",
+  "family": "family_hda_psa_furnace",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "psa_hydrogen_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "tailgas_heat_recovery_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_recovery",
+      "value": 0.97,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_slip",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "external_steam_index",
+      "value": 0.4149999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "stack_temperature_K",
+      "value": 390.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "benzene_purity",
+      "value": 0.99,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [
+    "BENZENE.inlet",
+    "STACK.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_hda_psa_hydrogen_recovery_tailgas_fuel",
+    "chemical_change": "Connects separator gas purification, reactor hydrogen recycle and fuel/steam utility paths.",
+    "native_metrics": {
+      "hydrogen_recovery": 0.97,
+      "methane_slip": 0.0,
+      "external_steam_index": 0.4149999999999999,
+      "stack_temperature_K": 390.0,
+      "benzene_purity": 0.99
+    }
+  }
+}

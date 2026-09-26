@@ -1,0 +1,85 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "idaes_steady_feedwater_heater",
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py",
+  "verification_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/tests/test_feedwater_heater.py",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "optimal_termination",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "units_consistent",
+      "pass": true
+    },
+    {
+      "name": "official_extraction_flow_reproduced",
+      "pass": true
+    },
+    {
+      "name": "feedwater_is_heated",
+      "pass": true
+    },
+    {
+      "name": "three_zone_duty_closes",
+      "pass": true
+    }
+  ],
+  "metrics": {
+    "extraction_steam_flow_mol_s": 98.33576426409225,
+    "feedwater_flow_mol_s": 400.0,
+    "extraction_to_feedwater_molar_ratio": 0.24583941066023063,
+    "feedwater_heat_gain_W": 5437579.821927298,
+    "zone_heat_duties": {
+      "desuperheating_W": 1104873.2306730268,
+      "condensing_W": 3910486.002218943,
+      "drain_cooling_W": 422220.58903532877
+    },
+    "zone_duty_sum_W": 5437579.821927298,
+    "relative_duty_residual": 0.0,
+    "feedwater_enthalpy_rise_J_mol": 13593.949554818246
+  },
+  "stream_values": {
+    "extraction_steam_inlet": {
+      "flow_mol_mol_s": 98.33576426409225,
+      "pressure_Pa": 201325.0,
+      "enthalpy_mol_J_mol": 60000.0
+    },
+    "cascade_drain_inlet": {
+      "flow_mol_mol_s": 1.0,
+      "pressure_Pa": 201325.0,
+      "enthalpy_mol_J_mol": 20000.0
+    },
+    "feedwater_inlet": {
+      "flow_mol_mol_s": 400.0,
+      "pressure_Pa": 101325.0,
+      "enthalpy_mol_J_mol": 3000.0
+    },
+    "heated_feedwater_outlet": {
+      "flow_mol_mol_s": 400.0,
+      "pressure_Pa": 101325.0,
+      "enthalpy_mol_J_mol": 16593.949554818246
+    },
+    "cooled_drain_outlet": {
+      "flow_mol_mol_s": 99.33576426409225,
+      "pressure_Pa": 201325.0,
+      "enthalpy_mol_J_mol": 4857.928435878298
+    }
+  },
+  "evidence_boundary": "Native steady-state FWH0D solve with IAPWS95, three heat-transfer zones, and drain mixing. Dynamic holdup and control response are outside this case.",
+  "stdout_tail": "",
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fs.dewaterer",
+    "class": "idaes.core.base.process_block._ScalarDewateringUnit",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "underflow",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "componentFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true,
+      "activated_sludge_model": {
+        "component": "ASM1"
+      }
+    }
+  }
+]

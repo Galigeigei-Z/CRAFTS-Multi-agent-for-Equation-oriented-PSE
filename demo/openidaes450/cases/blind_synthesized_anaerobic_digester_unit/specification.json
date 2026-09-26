@@ -1,0 +1,77 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_anaerobic_digester_unit",
+  "family": "family_watertap_anaerobic_digester_unit",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.0019675925925925924,
+      "units": "m^3/s",
+      "role": "family_default AD feed volume flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "family_default AD feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default AD feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_liquid",
+      "value": 3400.0,
+      "units": "m^3",
+      "role": "family_default liquid volume",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_vapor",
+      "value": 300.0,
+      "units": "m^3",
+      "role": "family_default vapor headspace volume",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "liquid_outlet_temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "family_default outlet temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind AD topology is compiled to BuildPlanIR and solved by the AD sandbox template",
+    "solve_order": [
+      "anaerobic_digester"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

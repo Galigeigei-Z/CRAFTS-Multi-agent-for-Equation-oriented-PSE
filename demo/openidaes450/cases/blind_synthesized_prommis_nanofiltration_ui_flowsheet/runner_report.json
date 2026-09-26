@@ -1,0 +1,165 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_nanofiltration_ui_flowsheet",
+  "official_reference_url": "https://github.com/prommis/prommis/blob/main/docs/tutorials/nf_ui.png",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "nanofiltration_ui_official_figure_exists",
+      "pass": true,
+      "actual": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/docs/tutorials/nf_ui.png"
+    },
+    {
+      "name": "nf_brine_advanced_costing_degrees_of_freedom_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "nf_brine_advanced_costing_total_BEC_positive",
+      "pass": true,
+      "actual": 0.0035218040126026163
+    },
+    {
+      "name": "nf_brine_advanced_costing_total_plant_cost_positive",
+      "pass": true,
+      "actual": 0.010459757918430306
+    },
+    {
+      "name": "nf_brine_advanced_costing_fixed_OM_positive",
+      "pass": true,
+      "actual": 5.175617013154657
+    },
+    {
+      "name": "nf_brine_advanced_costing_variable_OM_positive",
+      "pass": true,
+      "actual": 3.996755481332363
+    },
+    {
+      "name": "nf_brine_advanced_costing_watertap_fixed_costs_positive",
+      "pass": true,
+      "actual": 0.00035218040126027783
+    },
+    {
+      "name": "nf_brine_advanced_costing_stream_values_available",
+      "pass": true,
+      "actual": 8
+    }
+  ],
+  "total_BEC": 0.0035218040126026163,
+  "total_installation_cost": 0.006937953904827508,
+  "total_plant_cost": 0.010459757918430306,
+  "total_fixed_OM_cost": 5.175617013154657,
+  "total_variable_OM_cost": 3.996755481332363,
+  "watertap_fixed_costs": 0.00035218040126027783,
+  "total_sales_revenue": 6.939214075402541e-12,
+  "stream_values": {
+    "feed.outlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 55.555555552763884,
+        "Liq.Li_+": 0.2034302700395198,
+        "Liq.Mg_2+": 0.3592717942084725,
+        "Liq.Cl_-": 0.9219738584555871
+      },
+      "flow_mol": 57.040231475467465,
+      "flow_mol_s": 57.040231475467465,
+      "temperature": 298.15,
+      "pressure": 101325.0
+    },
+    "permeate.inlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 0.566617168245621,
+        "Liq.Li_+": 0.0019892606228134055,
+        "Liq.Mg_2+": 0.0034066182532773975,
+        "Liq.Cl_-": 0.008802359427182702
+      },
+      "flow_mol": 0.5808154065488945,
+      "flow_mol_s": 0.5808154065488945,
+      "temperature": 298.1500000000176,
+      "pressure": 101325.0
+    },
+    "retentate.inlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 54.98893838447903,
+        "Liq.Li_+": 0.20144100941872048,
+        "Liq.Mg_2+": 0.3558651759557617,
+        "Liq.Cl_-": 0.9131714990284644
+      },
+      "flow_mol": 56.45941606888198,
+      "flow_mol_s": 56.45941606888198,
+      "temperature": 298.15000000001754,
+      "pressure": 200000.00000000006
+    },
+    "pump.inlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 55.55555555275404,
+        "Liq.Li_+": 0.2034302700395211,
+        "Liq.Mg_2+": 0.3592717942084722,
+        "Liq.Cl_-": 0.9219738584554814
+      },
+      "flow_mol": 57.04023147545752,
+      "flow_mol_s": 57.04023147545752,
+      "temperature": 298.15,
+      "pressure": 101325.0
+    },
+    "pump.outlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 55.55555555274422,
+        "Liq.Li_+": 0.20343027003952233,
+        "Liq.Mg_2+": 0.35927179420847194,
+        "Liq.Cl_-": 0.9219738584553756
+      },
+      "flow_mol": 57.04023147544759,
+      "flow_mol_s": 57.04023147544759,
+      "temperature": 298.15000000000884,
+      "pressure": 200000.0
+    },
+    "unit.inlet": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 55.55555555273439,
+        "Liq.Li_+": 0.20343027003952363,
+        "Liq.Mg_2+": 0.35927179420847166,
+        "Liq.Cl_-": 0.9219738584552699
+      },
+      "flow_mol": 57.04023147543766,
+      "flow_mol_s": 57.04023147543766,
+      "temperature": 298.1500000000176,
+      "pressure": 200000.00000000006
+    },
+    "unit.retentate": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 54.98893838447903,
+        "Liq.Li_+": 0.20144100941872048,
+        "Liq.Mg_2+": 0.3558651759557617,
+        "Liq.Cl_-": 0.9131714990284644
+      },
+      "flow_mol": 56.45941606888198,
+      "flow_mol_s": 56.45941606888198,
+      "temperature": 298.15000000001754,
+      "pressure": 200000.00000000006
+    },
+    "unit.permeate": {
+      "flow_mol_phase_comp": {
+        "Liq.H2O": 0.5666171682456211,
+        "Liq.Li_+": 0.001989260622813405,
+        "Liq.Mg_2+": 0.003406618253277397,
+        "Liq.Cl_-": 0.008802359427182693
+      },
+      "flow_mol": 0.5808154065488946,
+      "flow_mol_s": 0.5808154065488946,
+      "temperature": 298.1500000000176,
+      "pressure": 101325.0
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/docs/tutorials/costing_advanced_features-solution.ipynb",
+    "base_flowsheet_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/nf_brine.py",
+    "source_flowchart": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/docs/tutorials/nf_ui.png",
+    "stdout_tail": "inequality constraint evaluations          = 0\nNumber of equality constraint Jacobian evaluations   = 4\nNumber of inequality constraint Jacobian evaluations = 0\nNumber of Lagrangian Hessian evaluations             = 3\nTotal CPU secs in IPOPT (w/o function evaluations)   =      0.005\nTotal CPU secs in NLP function evaluations           =      0.000\n\nEXIT: Optimal Solution Found.\nipopt-watertap: ipopt with user variable scaling and IDAES jacobian constraint scaling\nIpopt 3.13.2: tol=1e-08\nconstr_viol_tol=1e-08\nacceptable_constr_viol_tol=1e-08\nbound_relax_factor=0.0\nhonor_original_bounds=no\nnlp_scaling_method=user-scaling\n\n\n******************************************************************************\nThis program contains Ipopt, a library for large-scale nonlinear optimization.\n Ipopt is released as open source code under the Eclipse Public License (EPL).\n         For more information visit http://projects.coin-or.org/Ipopt\n\nThis version of Ipopt was compiled from source code available at\n    https://github.com/IDAES/Ipopt as part of the Institute for the Design of\n    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE\n    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.\n\nThis version of Ipopt was compiled using HSL, a collection of Fortran codes\n    for large-scale scientific computation.  All technical papers, sales and\n    publicity material resulting from use of the HSL codes within IPOPT must\n    contain the following acknowledgement:\n        HSL, a collection of Fortran codes for large-scale scientific\n        computation. See http://www.hsl.rl.ac.uk.\n******************************************************************************\n\nThis is Ipopt version 3.13.2, running with linear solver ma27.\n\nNumber of nonzeros in equality constraint Jacobian...:     1140\nNumber of nonzeros in inequality constraint Jacobian.:        0\nNumber of nonzeros in Lagrangian Hessian.............:      528\n\nTotal number of variables............................:      378\n                     variables with only lower bounds:      218\n                variables with lower and upper bounds:      144\n                     variables with only upper bounds:        0\nTotal number of equality constraints.................:      378\nTotal number of inequality constraints...............:        0\n        inequality constraints with only lower bounds:        0\n   inequality constraints with lower and upper bounds:        0\n        inequality constraints with only upper bounds:        0\n\niter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls\n   0  0.0000000e+00 1.53e+01 1.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0\n   1  0.0000000e+00 5.49e-01 9.66e+02  -1.0 1.03e-02    -  9.90e-01 9.64e-01h  1\n   2  0.0000000e+00 6.94e-07 8.99e+01  -1.0 4.68e-04    -  1.00e+00 1.00e+00h  1\n   3  0.0000000e+00 1.42e-14 6.61e-04  -1.0 6.32e-07    -  1.00e+00 1.00e+00h  1\n\nNumber of Iterations....: 3\n\n                                   (scaled)                 (unscaled)\nObjective...............:   0.0000000000000000e+00    0.0000000000000000e+00\nDual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00\nConstraint violation....:   1.4210854715202004e-14    1.4210854715202004e-14\nComplementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00\nOverall NLP error.......:   1.4210854715202004e-14    1.4210854715202004e-14\n\n\nNumber of objective function evaluations             = 4\nNumber of objective gradient evaluations             = 4\nNumber of equality constraint evaluations            = 4\nNumber of inequality constraint evaluations          = 0\nNumber of equality constraint Jacobian evaluations   = 4\nNumber of inequality constraint Jacobian evaluations = 0\nNumber of Lagrangian Hessian evaluations             = 3\nTotal CPU secs in IPOPT (w/o function evaluations)   =      0.007\nTotal CPU secs in NLP function evaluations           =      0.000\n\nEXIT: Optimal Solution Found.\n",
+    "official_reference_figure": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/docs/tutorials/nf_ui.png",
+    "ui_figure_focus": "official PrOMMiS nanofiltration tutorial nf_ui.png"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

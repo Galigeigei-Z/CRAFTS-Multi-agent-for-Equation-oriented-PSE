@@ -1,0 +1,79 @@
+{
+  "case_id": "idaes_ngcc_soec",
+  "applicability": "model_parameter_packages",
+  "package_count": 12,
+  "packages": [
+    {
+      "name": "fs.ngcc.gt.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.gt.air_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.gt.cmb_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.gt.flue_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.gt.gas_combustion",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.hrsg.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.hrsg.prop_gas",
+      "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock",
+      "module": "idaes.models_extra.power_generation.properties.flue_gas_ideal",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.ngcc.st.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.soec.steam_prop_params",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.soec.o2_side_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.soec.h2_side_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.soec.h2_pure_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_heat_mass_extension_solve",
+  "case_family": "hx_pcm",
+  "parent_case_key": "idaes_heat_exchanger_2d",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "pcm_melt_fraction": 0.8,
+    "process_bypass_fraction": 0.65
+  },
+  "metrics": {
+    "process_outlet_temperature_K": 370.0,
+    "stored_heat_fraction": 0.8200000000000001,
+    "pcm_solid_fraction": 0.5075,
+    "pump_power_kW": 29.75
+  },
+  "search_results": [
+    {
+      "process_outlet_temperature_K": 385.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.85,
+      "pump_power_kW": 20.0,
+      "objective": 16.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 386.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.8574999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 17.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 387.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.865,
+      "pump_power_kW": 21.5,
+      "objective": 18.075,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 388.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.8724999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 19.1125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 389.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.88,
+      "pump_power_kW": 23.0,
+      "objective": 20.15,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 390.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.8875,
+      "pump_power_kW": 23.75,
+      "objective": 21.1875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 391.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.895,
+      "pump_power_kW": 24.5,
+      "objective": 22.225,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 392.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9025,
+      "pump_power_kW": 25.25,
+      "objective": 23.2625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 393.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9099999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 24.3,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 394.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9175,
+      "pump_power_kW": 26.75,
+      "objective": 25.3375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 395.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9249999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 26.375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 396.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9325,
+      "pump_power_kW": 28.25,
+      "objective": 27.4125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 397.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.94,
+      "pump_power_kW": 29.0,
+      "objective": 28.45,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 398.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9475,
+      "pump_power_kW": 29.75,
+      "objective": 29.4875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 399.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.955,
+      "pump_power_kW": 30.5,
+      "objective": 30.525,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 400.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9624999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 31.5625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 401.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.97,
+      "pump_power_kW": 32.0,
+      "objective": 32.6,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 402.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9775,
+      "pump_power_kW": 32.75,
+      "objective": 33.6375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 403.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.985,
+      "pump_power_kW": 33.5,
+      "objective": 34.675,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 404.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 0.9924999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 35.7125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 405.0,
+      "stored_heat_fraction": 0.3,
+      "pcm_solid_fraction": 1.0,
+      "pump_power_kW": 35.0,
+      "objective": 36.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.0,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 383.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8225,
+      "pump_power_kW": 20.0,
+      "objective": 14.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 384.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.83,
+      "pump_power_kW": 20.75,
+      "objective": 15.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 385.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8375,
+      "pump_power_kW": 21.5,
+      "objective": 16.325,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 386.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.845,
+      "pump_power_kW": 22.25,
+      "objective": 17.3625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 387.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8525,
+      "pump_power_kW": 23.0,
+      "objective": 18.4,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 388.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.86,
+      "pump_power_kW": 23.75,
+      "objective": 19.4375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 389.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8675,
+      "pump_power_kW": 24.5,
+      "objective": 20.475,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 390.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.875,
+      "pump_power_kW": 25.25,
+      "objective": 21.5125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 391.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8825000000000001,
+      "pump_power_kW": 26.0,
+      "objective": 22.55,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 392.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.89,
+      "pump_power_kW": 26.75,
+      "objective": 23.5875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 393.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.8975,
+      "pump_power_kW": 27.5,
+      "objective": 24.625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 394.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.905,
+      "pump_power_kW": 28.25,
+      "objective": 25.6625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 395.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9125,
+      "pump_power_kW": 29.0,
+      "objective": 26.7,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 396.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.92,
+      "pump_power_kW": 29.75,
+      "objective": 27.7375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 397.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9275,
+      "pump_power_kW": 30.5,
+      "objective": 28.775,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 398.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.935,
+      "pump_power_kW": 31.25,
+      "objective": 29.8125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 399.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9425,
+      "pump_power_kW": 32.0,
+      "objective": 30.85,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 400.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.95,
+      "pump_power_kW": 32.75,
+      "objective": 31.8875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 401.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9575,
+      "pump_power_kW": 33.5,
+      "objective": 32.925,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 402.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9650000000000001,
+      "pump_power_kW": 34.25,
+      "objective": 33.9625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 403.25,
+      "stored_heat_fraction": 0.3325,
+      "pcm_solid_fraction": 0.9725,
+      "pump_power_kW": 35.0,
+      "objective": 35.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.05,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 381.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.7949999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 12.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 382.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8024999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 13.5375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 383.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8099999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 14.575,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 384.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8174999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 15.6125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 385.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.825,
+      "pump_power_kW": 23.0,
+      "objective": 16.65,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 386.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8324999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 17.6875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 387.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.84,
+      "pump_power_kW": 24.5,
+      "objective": 18.725,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 388.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8474999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 19.7625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 389.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.855,
+      "pump_power_kW": 26.0,
+      "objective": 20.8,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 390.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8624999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 21.8375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 391.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8699999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 22.875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 392.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8775,
+      "pump_power_kW": 28.25,
+      "objective": 23.9125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 393.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8849999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 24.95,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 394.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8925,
+      "pump_power_kW": 29.75,
+      "objective": 25.9875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 395.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.8999999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 27.025,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 396.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.9075,
+      "pump_power_kW": 31.25,
+      "objective": 28.0625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 397.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.9149999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 29.1,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 398.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.9224999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 30.1375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 399.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.9299999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 31.175,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 400.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.9375,
+      "pump_power_kW": 34.25,
+      "objective": 32.2125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 401.5,
+      "stored_heat_fraction": 0.365,
+      "pcm_solid_fraction": 0.945,
+      "pump_power_kW": 35.0,
+      "objective": 33.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.1,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 379.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.7675,
+      "pump_power_kW": 20.0,
+      "objective": 10.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 380.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.7749999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 11.7875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 381.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.7825,
+      "pump_power_kW": 21.5,
+      "objective": 12.825,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 382.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.7899999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 13.8625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 383.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.7975,
+      "pump_power_kW": 23.0,
+      "objective": 14.9,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 384.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8049999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 15.9375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 385.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8125,
+      "pump_power_kW": 24.5,
+      "objective": 16.975,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 386.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.82,
+      "pump_power_kW": 25.25,
+      "objective": 18.0125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 387.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8274999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 19.05,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 388.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.835,
+      "pump_power_kW": 26.75,
+      "objective": 20.0875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 389.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8424999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 21.125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 390.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.85,
+      "pump_power_kW": 28.25,
+      "objective": 22.1625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 391.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8574999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 23.2,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 392.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.865,
+      "pump_power_kW": 29.75,
+      "objective": 24.2375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 393.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8724999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 25.275,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 394.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8799999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 26.3125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 395.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.8875,
+      "pump_power_kW": 32.0,
+      "objective": 27.35,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 396.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.895,
+      "pump_power_kW": 32.75,
+      "objective": 28.3875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 397.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.9025,
+      "pump_power_kW": 33.5,
+      "objective": 29.425,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 398.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.9099999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 30.4625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 399.75,
+      "stored_heat_fraction": 0.3975,
+      "pcm_solid_fraction": 0.9175,
+      "pump_power_kW": 35.0,
+      "objective": 31.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.15000000000000002,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 378.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.74,
+      "pump_power_kW": 20.0,
+      "objective": 9.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 379.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.7474999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 10.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 380.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.755,
+      "pump_power_kW": 21.5,
+      "objective": 11.075,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 381.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.7625,
+      "pump_power_kW": 22.25,
+      "objective": 12.1125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 382.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.77,
+      "pump_power_kW": 23.0,
+      "objective": 13.15,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 383.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.7775,
+      "pump_power_kW": 23.75,
+      "objective": 14.1875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 384.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.785,
+      "pump_power_kW": 24.5,
+      "objective": 15.225,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 385.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.7925,
+      "pump_power_kW": 25.25,
+      "objective": 16.2625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 386.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8,
+      "pump_power_kW": 26.0,
+      "objective": 17.3,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 387.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8075,
+      "pump_power_kW": 26.75,
+      "objective": 18.3375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 388.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.815,
+      "pump_power_kW": 27.5,
+      "objective": 19.375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 389.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8225,
+      "pump_power_kW": 28.25,
+      "objective": 20.4125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 390.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.83,
+      "pump_power_kW": 29.0,
+      "objective": 21.45,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 391.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8375,
+      "pump_power_kW": 29.75,
+      "objective": 22.4875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 392.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.845,
+      "pump_power_kW": 30.5,
+      "objective": 23.525,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 393.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8525,
+      "pump_power_kW": 31.25,
+      "objective": 24.5625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 394.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.86,
+      "pump_power_kW": 32.0,
+      "objective": 25.6,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 395.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8674999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 26.6375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 396.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.875,
+      "pump_power_kW": 33.5,
+      "objective": 27.675,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 397.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.8825000000000001,
+      "pump_power_kW": 34.25,
+      "objective": 28.7125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 398.0,
+      "stored_heat_fraction": 0.43,
+      "pcm_solid_fraction": 0.89,
+      "pump_power_kW": 35.0,
+      "objective": 29.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.2,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 376.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7124999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 7.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 377.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7199999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 8.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 378.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7274999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 9.325,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 379.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7349999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 10.3625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 380.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7424999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 11.4,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 381.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7499999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 12.4375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 382.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7575,
+      "pump_power_kW": 24.5,
+      "objective": 13.475,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 383.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7649999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 14.5125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 384.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7725,
+      "pump_power_kW": 26.0,
+      "objective": 15.55,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 385.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7799999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 16.5875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 386.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7874999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 17.625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 387.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.7949999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 18.6625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 388.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8024999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 19.7,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 389.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8099999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 20.7375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 390.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8174999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 21.775,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 391.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.825,
+      "pump_power_kW": 31.25,
+      "objective": 22.8125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 392.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8324999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 23.85,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 393.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8399999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 24.8875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 394.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8474999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 25.925,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 395.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.855,
+      "pump_power_kW": 34.25,
+      "objective": 26.9625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 396.25,
+      "stored_heat_fraction": 0.4625,
+      "pcm_solid_fraction": 0.8624999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 28.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.25,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 374.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.6849999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 5.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 375.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.6924999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 6.5375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 376.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7,
+      "pump_power_kW": 21.5,
+      "objective": 7.575,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 377.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7074999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 8.6125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 378.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.715,
+      "pump_power_kW": 23.0,
+      "objective": 9.65,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 379.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7224999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 10.6875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 380.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.73,
+      "pump_power_kW": 24.5,
+      "objective": 11.725,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 381.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7374999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 12.7625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 382.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7449999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 13.8,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 383.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7525,
+      "pump_power_kW": 26.75,
+      "objective": 14.8375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 384.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7599999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 15.875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 385.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7675,
+      "pump_power_kW": 28.25,
+      "objective": 16.9125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 386.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7749999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 17.95,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 387.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7825,
+      "pump_power_kW": 29.75,
+      "objective": 18.9875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 388.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7899999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 20.025,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 389.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.7974999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 21.0625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 390.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.8049999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 22.1,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 391.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.8125,
+      "pump_power_kW": 32.75,
+      "objective": 23.1375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 392.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.82,
+      "pump_power_kW": 33.5,
+      "objective": 24.175,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 393.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.8274999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 25.2125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 394.5,
+      "stored_heat_fraction": 0.495,
+      "pcm_solid_fraction": 0.835,
+      "pump_power_kW": 35.0,
+      "objective": 26.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.30000000000000004,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 372.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.6575,
+      "pump_power_kW": 20.0,
+      "objective": 3.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 373.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.6649999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 4.7875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 374.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.6725,
+      "pump_power_kW": 21.5,
+      "objective": 5.825,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 375.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.6799999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 6.8625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 376.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.6875,
+      "pump_power_kW": 23.0,
+      "objective": 7.9,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 377.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.695,
+      "pump_power_kW": 23.75,
+      "objective": 8.9375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 378.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7025,
+      "pump_power_kW": 24.5,
+      "objective": 9.975,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 379.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.71,
+      "pump_power_kW": 25.25,
+      "objective": 11.0125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 380.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7175,
+      "pump_power_kW": 26.0,
+      "objective": 12.05,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 381.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.725,
+      "pump_power_kW": 26.75,
+      "objective": 13.0875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 382.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7324999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 14.125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 383.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.74,
+      "pump_power_kW": 28.25,
+      "objective": 15.1625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 384.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7474999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 16.2,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 385.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.755,
+      "pump_power_kW": 29.75,
+      "objective": 17.2375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 386.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7625,
+      "pump_power_kW": 30.5,
+      "objective": 18.275,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 387.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.77,
+      "pump_power_kW": 31.25,
+      "objective": 19.3125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 388.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7775,
+      "pump_power_kW": 32.0,
+      "objective": 20.35,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 389.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7849999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 21.3875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 390.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.7925,
+      "pump_power_kW": 33.5,
+      "objective": 22.425,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 391.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.8,
+      "pump_power_kW": 34.25,
+      "objective": 23.4625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 392.75,
+      "stored_heat_fraction": 0.5275000000000001,
+      "pcm_solid_fraction": 0.8075,
+      "pump_power_kW": 35.0,
+      "objective": 24.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.35000000000000003,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 371.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6299999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 2.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 372.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6374999999999998,
+      "pump_power_kW": 20.75,
+      "objective": 3.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 373.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6449999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 4.075,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 374.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6524999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 5.1125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 375.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6599999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 6.15,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 376.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6674999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 7.1875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 377.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6749999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 8.225,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 378.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6824999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 9.2625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 379.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.69,
+      "pump_power_kW": 26.0,
+      "objective": 10.3,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 380.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.6974999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 11.3375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 381.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7049999999999998,
+      "pump_power_kW": 27.5,
+      "objective": 12.375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 382.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7124999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 13.4125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 383.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7199999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 14.45,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 384.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7274999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 15.4875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 385.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7349999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 16.525,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 386.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7424999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 17.5625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 387.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7499999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 18.6,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 388.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7574999999999998,
+      "pump_power_kW": 32.75,
+      "objective": 19.6375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 389.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7649999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 20.675,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 390.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7725,
+      "pump_power_kW": 34.25,
+      "objective": 21.7125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 391.0,
+      "stored_heat_fraction": 0.56,
+      "pcm_solid_fraction": 0.7799999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 22.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.4,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 369.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6024999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 1.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 370.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6099999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 1.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 371.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6174999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 2.325,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 372.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6249999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 3.3625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 373.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6325,
+      "pump_power_kW": 23.0,
+      "objective": 4.4,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 374.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6399999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 5.4375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 375.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6475,
+      "pump_power_kW": 24.5,
+      "objective": 6.475,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 376.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6549999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 7.5125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 377.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6624999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 8.55,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 378.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6699999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 9.5875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 379.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6774999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 10.625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 380.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6849999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 11.6625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 381.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.6924999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 12.7,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 382.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7,
+      "pump_power_kW": 29.75,
+      "objective": 13.7375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 383.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7074999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 14.775,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 384.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7149999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 15.8125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 385.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7224999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 16.85,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 386.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.73,
+      "pump_power_kW": 32.75,
+      "objective": 17.8875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 387.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7374999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 18.925,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 388.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7449999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 19.9625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 389.25,
+      "stored_heat_fraction": 0.5925,
+      "pcm_solid_fraction": 0.7525,
+      "pump_power_kW": 35.0,
+      "objective": 21.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.45,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 367.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.575,
+      "pump_power_kW": 20.0,
+      "objective": 3.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 368.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.5824999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 2.5375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 369.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.59,
+      "pump_power_kW": 21.5,
+      "objective": 1.575,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 370.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.5974999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 1.6125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 371.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.605,
+      "pump_power_kW": 23.0,
+      "objective": 2.6500000000000004,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 372.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6124999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 3.6875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 373.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.62,
+      "pump_power_kW": 24.5,
+      "objective": 4.725,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 374.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6275,
+      "pump_power_kW": 25.25,
+      "objective": 5.7625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 375.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.635,
+      "pump_power_kW": 26.0,
+      "objective": 6.8,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 376.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6425,
+      "pump_power_kW": 26.75,
+      "objective": 7.8375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 377.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6499999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 8.875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 378.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6575,
+      "pump_power_kW": 28.25,
+      "objective": 9.9125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 379.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6649999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 10.95,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 380.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6725,
+      "pump_power_kW": 29.75,
+      "objective": 11.9875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 381.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6799999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 13.025,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 382.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.6875,
+      "pump_power_kW": 31.25,
+      "objective": 14.0625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 383.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.695,
+      "pump_power_kW": 32.0,
+      "objective": 15.1,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 384.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.7024999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 16.1375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 385.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.71,
+      "pump_power_kW": 33.5,
+      "objective": 17.175,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 386.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.7175,
+      "pump_power_kW": 34.25,
+      "objective": 18.2125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 387.5,
+      "stored_heat_fraction": 0.625,
+      "pcm_solid_fraction": 0.725,
+      "pump_power_kW": 35.0,
+      "objective": 19.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.5,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 365.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5474999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 5.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 366.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5549999999999998,
+      "pump_power_kW": 20.75,
+      "objective": 4.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 367.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5624999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 3.325,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 368.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5699999999999998,
+      "pump_power_kW": 22.25,
+      "objective": 2.3625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 369.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5774999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 1.4000000000000001,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 370.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5849999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 1.9375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 371.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5924999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 2.975,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 372.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.5999999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 4.0125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 373.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6074999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 5.05,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 374.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6149999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 6.0875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 375.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6224999999999998,
+      "pump_power_kW": 27.5,
+      "objective": 7.125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 376.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6299999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 8.1625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 377.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6374999999999998,
+      "pump_power_kW": 29.0,
+      "objective": 9.2,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 378.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6449999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 10.2375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 379.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6524999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 11.275,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 380.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6599999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 12.3125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 381.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6674999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 13.35,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 382.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6749999999999998,
+      "pump_power_kW": 32.75,
+      "objective": 14.3875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 383.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6824999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 15.425,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 384.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.69,
+      "pump_power_kW": 34.25,
+      "objective": 16.4625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 385.75,
+      "stored_heat_fraction": 0.6575,
+      "pcm_solid_fraction": 0.6974999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 17.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.55,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 364.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5199999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 7.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 365.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5274999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 6.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 366.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5349999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 5.075,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 367.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5424999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 4.1125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 368.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5499999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 3.1500000000000004,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 369.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5574999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 2.1875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 370.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.565,
+      "pump_power_kW": 24.5,
+      "objective": 1.225,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 371.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5724999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 2.2625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 372.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5799999999999998,
+      "pump_power_kW": 26.0,
+      "objective": 3.3,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 373.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5874999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 4.3375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 374.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.5949999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 5.375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 375.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6024999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 6.4125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 376.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6099999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 7.45,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 377.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6174999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 8.4875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 378.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6249999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 9.525,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 379.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6324999999999998,
+      "pump_power_kW": 31.25,
+      "objective": 10.5625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 380.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6399999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 11.6,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 381.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6475,
+      "pump_power_kW": 32.75,
+      "objective": 12.6375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 382.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6549999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 13.675,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 383.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6624999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 14.7125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 384.0,
+      "stored_heat_fraction": 0.6900000000000001,
+      "pcm_solid_fraction": 0.6699999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 15.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.6000000000000001,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 362.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.49249999999999994,
+      "pump_power_kW": 20.0,
+      "objective": 8.75,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 363.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.49999999999999994,
+      "pump_power_kW": 20.75,
+      "objective": 7.7875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 364.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5075,
+      "pump_power_kW": 21.5,
+      "objective": 6.825,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 365.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5149999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 5.8625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 366.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5225,
+      "pump_power_kW": 23.0,
+      "objective": 4.9,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 367.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5299999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 3.9375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 368.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5375,
+      "pump_power_kW": 24.5,
+      "objective": 2.975,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 369.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5449999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 2.0125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 370.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5525,
+      "pump_power_kW": 26.0,
+      "objective": 1.55,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 371.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5599999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 2.5875000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 372.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5674999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 3.625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 373.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.575,
+      "pump_power_kW": 28.25,
+      "objective": 4.6625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 374.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5824999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 5.7,
+      "feasible": true,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 375.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.59,
+      "pump_power_kW": 29.75,
+      "objective": 6.7375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 376.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.5974999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 7.775,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 377.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.605,
+      "pump_power_kW": 31.25,
+      "objective": 8.8125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 378.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.6124999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 9.85,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 379.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.6199999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 10.8875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 380.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.6275,
+      "pump_power_kW": 33.5,
+      "objective": 11.925,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 381.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.635,
+      "pump_power_kW": 34.25,
+      "objective": 12.9625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 382.25,
+      "stored_heat_fraction": 0.7225,
+      "pcm_solid_fraction": 0.6425,
+      "pump_power_kW": 35.0,
+      "objective": 14.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.65,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 360.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.4649999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 10.5,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 361.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.4724999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 9.5375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 362.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.4799999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 8.575,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 363.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.48749999999999993,
+      "pump_power_kW": 22.25,
+      "objective": 7.6125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 364.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.4949999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 6.65,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 365.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5025,
+      "pump_power_kW": 23.75,
+      "objective": 5.6875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 366.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5099999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 4.725,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 367.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5175,
+      "pump_power_kW": 25.25,
+      "objective": 3.7625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 368.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5249999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 2.8,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 369.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5325,
+      "pump_power_kW": 26.75,
+      "objective": 1.8375000000000001,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 370.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5399999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 1.875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 371.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5474999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 2.9125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 372.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5549999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 3.95,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 373.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5624999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 4.9875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 374.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.57,
+      "pump_power_kW": 30.5,
+      "objective": 6.025,
+      "feasible": true,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 375.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5774999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 7.0625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 376.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.585,
+      "pump_power_kW": 32.0,
+      "objective": 8.1,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 377.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5924999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 9.1375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 378.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.5999999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 10.175,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 379.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.6074999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 11.2125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 380.5,
+      "stored_heat_fraction": 0.7550000000000001,
+      "pcm_solid_fraction": 0.6149999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 12.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.7000000000000001,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 358.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.43749999999999994,
+      "pump_power_kW": 20.0,
+      "objective": 12.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 359.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.44499999999999995,
+      "pump_power_kW": 20.75,
+      "objective": 11.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 360.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.45249999999999996,
+      "pump_power_kW": 21.5,
+      "objective": 10.325,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 361.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.45999999999999996,
+      "pump_power_kW": 22.25,
+      "objective": 9.3625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 362.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.4674999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 8.4,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 363.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.4749999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 7.4375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 364.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.48249999999999993,
+      "pump_power_kW": 24.5,
+      "objective": 6.475,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 365.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.48999999999999994,
+      "pump_power_kW": 25.25,
+      "objective": 5.5125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 366.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.49749999999999994,
+      "pump_power_kW": 26.0,
+      "objective": 4.55,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 367.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5049999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 3.5875000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 368.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5125,
+      "pump_power_kW": 27.5,
+      "objective": 2.625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 369.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5199999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 1.6625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 370.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5275,
+      "pump_power_kW": 29.0,
+      "objective": 2.2,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 371.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5349999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 3.2375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 372.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5425,
+      "pump_power_kW": 30.5,
+      "objective": 4.275,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 373.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5499999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 5.3125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 374.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5574999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 6.35,
+      "feasible": true,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 375.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.565,
+      "pump_power_kW": 32.75,
+      "objective": 7.3875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 376.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5725,
+      "pump_power_kW": 33.5,
+      "objective": 8.425,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 377.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.58,
+      "pump_power_kW": 34.25,
+      "objective": 9.4625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 378.75,
+      "stored_heat_fraction": 0.7875000000000001,
+      "pcm_solid_fraction": 0.5874999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 10.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.75,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 357.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4099999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 14.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 358.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4174999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 13.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 359.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.42499999999999993,
+      "pump_power_kW": 21.5,
+      "objective": 12.075,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 360.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.43249999999999994,
+      "pump_power_kW": 22.25,
+      "objective": 11.1125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 361.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.43999999999999995,
+      "pump_power_kW": 23.0,
+      "objective": 10.15,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 362.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4474999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 9.1875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 363.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4549999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 8.225,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 364.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4624999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 7.2625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 365.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4699999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 6.3,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 366.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.4774999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 5.3375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 367.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.48499999999999993,
+      "pump_power_kW": 27.5,
+      "objective": 4.375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 368.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.49249999999999994,
+      "pump_power_kW": 28.25,
+      "objective": 3.4125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 369.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.49999999999999994,
+      "pump_power_kW": 29.0,
+      "objective": 2.45,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 370.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5075,
+      "pump_power_kW": 29.75,
+      "objective": 1.4875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 371.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5149999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 2.5250000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 372.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5225,
+      "pump_power_kW": 31.25,
+      "objective": 3.5625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 373.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5299999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 4.6,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 374.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5374999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 5.6375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 375.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5449999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 6.675,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 376.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5525,
+      "pump_power_kW": 34.25,
+      "objective": 7.7125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 377.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5599999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 8.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 355.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.3824999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 15.75,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 356.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.3899999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 14.7875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 357.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.3974999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 13.825,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 358.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4049999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 12.8625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 359.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.41249999999999987,
+      "pump_power_kW": 23.0,
+      "objective": 11.9,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 360.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4199999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 10.9375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 361.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4274999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 9.975,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 362.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4349999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 9.0125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 363.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4424999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 8.05,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 364.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4499999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 7.0875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 365.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4574999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 6.125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 366.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4649999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 5.1625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 367.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4724999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 4.2,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 368.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.47999999999999987,
+      "pump_power_kW": 29.75,
+      "objective": 3.2375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 369.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.48749999999999993,
+      "pump_power_kW": 30.5,
+      "objective": 2.2750000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 370.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.4949999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 1.8125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 371.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.5025,
+      "pump_power_kW": 32.0,
+      "objective": 2.85,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 372.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.5099999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 3.8875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 373.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.5174999999999998,
+      "pump_power_kW": 33.5,
+      "objective": 4.925,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 374.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.5249999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 5.9625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 375.25,
+      "stored_heat_fraction": 0.8525,
+      "pcm_solid_fraction": 0.5324999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 7.0,
+      "feasible": false,
+      "pcm_melt_fraction": 0.8500000000000001,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 353.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.3549999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 17.5,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 354.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.36249999999999993,
+      "pump_power_kW": 20.75,
+      "objective": 16.5375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 355.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.36999999999999994,
+      "pump_power_kW": 21.5,
+      "objective": 15.575,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 356.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.37749999999999995,
+      "pump_power_kW": 22.25,
+      "objective": 14.6125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 357.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.3849999999999999,
+      "pump_power_kW": 23.0,
+      "objective": 13.65,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 358.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.3924999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 12.6875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 359.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.3999999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 11.725,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 360.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.4074999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 10.7625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 361.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.4149999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 9.8,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 362.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.42249999999999993,
+      "pump_power_kW": 26.75,
+      "objective": 8.8375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 363.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.42999999999999994,
+      "pump_power_kW": 27.5,
+      "objective": 7.875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 364.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.43749999999999994,
+      "pump_power_kW": 28.25,
+      "objective": 6.9125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 365.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.44499999999999995,
+      "pump_power_kW": 29.0,
+      "objective": 5.95,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 366.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.4524999999999999,
+      "pump_power_kW": 29.75,
+      "objective": 4.9875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 367.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.45999999999999996,
+      "pump_power_kW": 30.5,
+      "objective": 4.025,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 368.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.4674999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 3.0625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 369.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.4749999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 2.1,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 370.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.48249999999999993,
+      "pump_power_kW": 32.75,
+      "objective": 2.1375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 371.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.48999999999999994,
+      "pump_power_kW": 33.5,
+      "objective": 3.175,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 372.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.49749999999999994,
+      "pump_power_kW": 34.25,
+      "objective": 4.2125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 373.5,
+      "stored_heat_fraction": 0.885,
+      "pcm_solid_fraction": 0.5049999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 5.25,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 351.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3274999999999999,
+      "pump_power_kW": 20.0,
+      "objective": 19.25,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 352.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3349999999999999,
+      "pump_power_kW": 20.75,
+      "objective": 18.2875,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 353.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3424999999999999,
+      "pump_power_kW": 21.5,
+      "objective": 17.325,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 354.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3499999999999999,
+      "pump_power_kW": 22.25,
+      "objective": 16.3625,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 355.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.35749999999999993,
+      "pump_power_kW": 23.0,
+      "objective": 15.4,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 356.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3649999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 14.4375,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 357.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3724999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 13.475,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 358.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3799999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 12.5125,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 359.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3874999999999999,
+      "pump_power_kW": 26.0,
+      "objective": 11.55,
+      "feasible": false,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 360.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.3949999999999999,
+      "pump_power_kW": 26.75,
+      "objective": 10.5875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 361.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4024999999999999,
+      "pump_power_kW": 27.5,
+      "objective": 9.625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 362.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4099999999999999,
+      "pump_power_kW": 28.25,
+      "objective": 8.6625,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 363.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4174999999999999,
+      "pump_power_kW": 29.0,
+      "objective": 7.7,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 364.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.42499999999999993,
+      "pump_power_kW": 29.75,
+      "objective": 6.7375,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 365.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4324999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 5.775,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 366.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4399999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 4.8125,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 367.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4474999999999999,
+      "pump_power_kW": 32.0,
+      "objective": 3.85,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 368.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4549999999999999,
+      "pump_power_kW": 32.75,
+      "objective": 2.8875,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 369.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4624999999999999,
+      "pump_power_kW": 33.5,
+      "objective": 1.925,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 370.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4699999999999999,
+      "pump_power_kW": 34.25,
+      "objective": 2.4625000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 371.75,
+      "stored_heat_fraction": 0.9175,
+      "pcm_solid_fraction": 0.4774999999999999,
+      "pump_power_kW": 35.0,
+      "objective": 3.5,
+      "feasible": true,
+      "pcm_melt_fraction": 0.9500000000000001,
+      "process_bypass_fraction": 1.0
+    },
+    {
+      "process_outlet_temperature_K": 350.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.29999999999999993,
+      "pump_power_kW": 20.0,
+      "objective": 21.0,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.0
+    },
+    {
+      "process_outlet_temperature_K": 351.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.30749999999999994,
+      "pump_power_kW": 20.75,
+      "objective": 20.0375,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.05
+    },
+    {
+      "process_outlet_temperature_K": 352.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.31499999999999995,
+      "pump_power_kW": 21.5,
+      "objective": 19.075,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.1
+    },
+    {
+      "process_outlet_temperature_K": 353.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.32249999999999995,
+      "pump_power_kW": 22.25,
+      "objective": 18.1125,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.15000000000000002
+    },
+    {
+      "process_outlet_temperature_K": 354.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.32999999999999996,
+      "pump_power_kW": 23.0,
+      "objective": 17.15,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.2
+    },
+    {
+      "process_outlet_temperature_K": 355.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.3374999999999999,
+      "pump_power_kW": 23.75,
+      "objective": 16.1875,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.25
+    },
+    {
+      "process_outlet_temperature_K": 356.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.3449999999999999,
+      "pump_power_kW": 24.5,
+      "objective": 15.225,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.30000000000000004
+    },
+    {
+      "process_outlet_temperature_K": 357.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.3524999999999999,
+      "pump_power_kW": 25.25,
+      "objective": 14.2625,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.35000000000000003
+    },
+    {
+      "process_outlet_temperature_K": 358.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.35999999999999993,
+      "pump_power_kW": 26.0,
+      "objective": 13.3,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.4
+    },
+    {
+      "process_outlet_temperature_K": 359.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.36749999999999994,
+      "pump_power_kW": 26.75,
+      "objective": 12.3375,
+      "feasible": false,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.45
+    },
+    {
+      "process_outlet_temperature_K": 360.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.37499999999999994,
+      "pump_power_kW": 27.5,
+      "objective": 11.375,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.5
+    },
+    {
+      "process_outlet_temperature_K": 361.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.38249999999999995,
+      "pump_power_kW": 28.25,
+      "objective": 10.4125,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.55
+    },
+    {
+      "process_outlet_temperature_K": 362.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.38999999999999996,
+      "pump_power_kW": 29.0,
+      "objective": 9.45,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.6000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 363.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.39749999999999996,
+      "pump_power_kW": 29.75,
+      "objective": 8.4875,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.65
+    },
+    {
+      "process_outlet_temperature_K": 364.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.4049999999999999,
+      "pump_power_kW": 30.5,
+      "objective": 7.525,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.7000000000000001
+    },
+    {
+      "process_outlet_temperature_K": 365.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.4124999999999999,
+      "pump_power_kW": 31.25,
+      "objective": 6.5625,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.75
+    },
+    {
+      "process_outlet_temperature_K": 366.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.41999999999999993,
+      "pump_power_kW": 32.0,
+      "objective": 5.6,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.8
+    },
+    {
+      "process_outlet_temperature_K": 367.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.42749999999999994,
+      "pump_power_kW": 32.75,
+      "objective": 4.6375,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.8500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 368.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.43499999999999994,
+      "pump_power_kW": 33.5,
+      "objective": 3.675,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.9
+    },
+    {
+      "process_outlet_temperature_K": 369.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.44249999999999995,
+      "pump_power_kW": 34.25,
+      "objective": 2.7125000000000004,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 0.9500000000000001
+    },
+    {
+      "process_outlet_temperature_K": 370.0,
+      "stored_heat_fraction": 0.95,
+      "pcm_solid_fraction": 0.44999999999999996,
+      "pump_power_kW": 35.0,
+      "objective": 1.75,
+      "feasible": true,
+      "pcm_melt_fraction": 1.0,
+      "process_bypass_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo heat/mass-transfer extension anchored to active registry parent",
+    "parent_case_key": "idaes_heat_exchanger_2d",
+    "chemical_distinction": "Adds latent-heat storage and a bypass/recombine path around a spatial heat exchanger."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,740 @@
+[
+  {
+    "name": "fs.treatment.feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.product",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.md.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.md.permeate",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.md.concentrate",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit",
+    "class": "idaes.core.base.process_block._ScalarVAGMDBatchSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "model_input": {
+        "dt": null,
+        "system_capacity": 12113.3177088,
+        "feed_flow_rate": 750,
+        "evap_inlet_temp": 80,
+        "cond_inlet_temp": 20,
+        "feed_temp": 25,
+        "feed_salinity": 12.0,
+        "initial_batch_volume": 50,
+        "module_type": "AS26C7.2L",
+        "cooling_system_type": "closed",
+        "cooling_inlet_temp": 25,
+        "recovery_ratio": 0.8
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[0].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[0].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[0].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[1].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[1].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[1].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[2].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[2].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[2].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[3].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[3].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[3].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[4].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[4].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[4].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[5].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[5].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[5].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[6].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[6].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[6].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[7].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[7].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[7].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[8].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[8].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[8].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[9].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[9].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[9].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[10].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[10].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[10].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[11].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[11].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[11].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[12].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[12].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[12].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[13].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[13].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[13].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[14].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[14].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[14].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[15].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[15].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[15].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[16].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[16].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[16].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[17].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[17].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[17].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[18].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[18].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[18].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[19].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[19].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[19].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[20].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[20].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[20].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[21].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[21].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[21].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[22].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[22].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[22].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[23].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[23].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[23].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[24].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[24].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[24].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[25].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[25].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[25].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.md.unit.mp.blocks[26].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.treatment.md.unit.mp.blocks[26].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.treatment.md.unit.mp.blocks[26].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.treatment.dwi.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.dwi.unit",
+    "class": "idaes.core.base.process_block._ScalarDeepWellInjection",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "injection_well_depth": 2500
+    }
+  },
+  {
+    "name": "fs.energy.FPC.unit",
+    "class": "idaes.core.base.process_block._ScalarFlatPlateSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "solar_model_type": "surrogate",
+      "surrogate_model_type": "rbf",
+      "surrogate_model_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/flowsheets/KBHDP/data/fpc/kbhdp_fpc_surrogate.json",
+      "surrogate_filename_save": null,
+      "dataset_filename": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/flowsheets/KBHDP/data/fpc/kbhdp_fpc_surrogate_data.pkl",
+      "input_variables": {
+        "labels": [
+          "system_capacity"
+        ],
+        "bounds": {
+          "system_capacity": [
+            0.5,
+            200
+          ]
+        },
+        "units": {
+          "system_capacity": "MW"
+        }
+      },
+      "output_variables": {
+        "labels": [
+          "heat_annual",
+          "electricity_annual"
+        ],
+        "units": {
+          "heat_annual": "kWh/year",
+          "electricity_annual": "kWh/year"
+        }
+      },
+      "scale_training_data": true,
+      "training_fraction": 0.8,
+      "rbf_basis_function": "gaussian",
+      "rbf_solution_method": "algebraic",
+      "rbf_regularization": true,
+      "maximum_polynomial_order": 2
+    }
+  }
+]

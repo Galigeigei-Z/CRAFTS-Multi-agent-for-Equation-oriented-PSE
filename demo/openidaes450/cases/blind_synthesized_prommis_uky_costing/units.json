@@ -1,0 +1,1129 @@
+[
+  {
+    "name": "fs.leach",
+    "class": "idaes.core.base.process_block._ScalarLeachingTrain",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "liquid_phase": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solid_phase": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.leach_rxns"
+      },
+      "reaction_package_args": null,
+      "number_of_tanks": 2
+    }
+  },
+  {
+    "name": "fs.sl_sep1",
+    "class": "idaes.core.base.process_block._ScalarSLSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "solid_property_package": {
+        "component": "fs.coal"
+      },
+      "solid_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "liquid_property_package": {
+        "component": "fs.leach_soln"
+      },
+      "liquid_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.scrubber_HCl_leach_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslatorHClLeach",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "inlet_property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.leach_soln"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false
+    }
+  },
+  {
+    "name": "fs.leach_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "load_recycle",
+        "scrub_recycle",
+        "feed"
+      ],
+      "num_inlets": 3,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.leach_liquid_feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.leach_solid_feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.coal"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.leach_filter_cake",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.coal"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.leach_filter_cake_liquid",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.rougher_org_make_up",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_rougher_load",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.acid_feed1",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_rougher_scrub",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.acid_feed2",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_rougher_strip",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 2,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.rougher_sep",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recycle",
+        "purge"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.rougher_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "make_up",
+        "recycle"
+      ],
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.load_sep",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recycle",
+        "purge"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.scrub_sep",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recycle",
+        "purge"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.rougher_organic_purge",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_cleaner_load",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.solex_cleaner_strip",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.cleaner_org_make_up",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.cleaner_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "make_up",
+        "recycle"
+      ],
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.cleaner_sep",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recycle",
+        "purge"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.cleaner_HCl_leach_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslatorHClLeach",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "inlet_property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.leach_soln"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false
+    }
+  },
+  {
+    "name": "fs.leach_sx_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "leach",
+        "cleaner"
+      ],
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.acid_feed3",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.cleaner_organic_purge",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_o"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.precipitator",
+    "class": "idaes.core.base.process_block._ScalarPrecipitator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_aqueous": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args_aqueous": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "property_package_precipitate": {
+        "component": "fs.properties_solid"
+      },
+      "property_package_args_precipitate": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_equilibrium_reactions": false,
+      "has_phase_equilibrium": false,
+      "has_heat_of_reaction": false,
+      "reaction_package": null,
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "make_volume_balance_constraint": false
+    }
+  },
+  {
+    "name": "fs.sl_sep2",
+    "class": "idaes.core.base.process_block._ScalarSLSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "solid_property_package": {
+        "component": "fs.properties_solid"
+      },
+      "solid_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "liquid_property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "liquid_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.precip_sep",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recycle",
+        "purge"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.precip_sx_mixer",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "precip",
+        "rougher"
+      ],
+      "num_inlets": 2,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "none"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.precip_purge",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.roaster",
+    "class": "idaes.core.base.process_block._ScalarREEOxalateRoaster",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_gas": {
+        "component": "fs.prop_gas"
+      },
+      "property_package_args_gas": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "property_package_precipitate_solid": {
+        "component": "fs.prop_solid"
+      },
+      "property_package_args_precipitate_solid": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "property_package_precipitate_liquid": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args_precipitate_liquid": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "metal_list": [
+        "Al",
+        "Fe",
+        "Ca",
+        "Sc",
+        "Y",
+        "La",
+        "Ce",
+        "Pr",
+        "Nd",
+        "Sm",
+        "Gd",
+        "Dy"
+      ]
+    }
+  },
+  {
+    "name": "fs.leach_pump",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.leach_solution_heater",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.rougher_solex_tank",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.rougher_pump",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.rougher_solex_settler",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.cleaner_solex_tank",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.cleaner_pump",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.cleaner_solex_settler",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.precipitator_mixer",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.precipitator_pump",
+    "class": "idaes.core.base.process_block._ScalarUnitModelBlock",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false
+    }
+  },
+  {
+    "name": "fs.leach.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 2,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.leach_rxns"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.sl_sep1.split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.leach_soln"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recovered",
+        "retained"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.sl_sep1.liquid_inlet_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.solex_rougher_load.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_rougher_scrub.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 1,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_rougher_strip.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 2,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_cleaner_load.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.solex_cleaner_strip.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.sl_sep2.split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.HCl_stripping_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "recovered",
+        "retained"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "momentum_balance_type": {
+        "component": "none"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "none"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.sl_sep2.liquid_inlet_state"
+      },
+      "construct_ports": true
+    }
+  }
+]

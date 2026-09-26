@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_tsa_dual_bed_heat_recovery",
+  "family": "family_tsa_heat_recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "adsorption_cycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "bed_heat_recovery_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_recovery",
+      "value": 0.98,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "breakthrough_fraction",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "regeneration_temperature_K",
+      "value": 450.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "specific_energy_index",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "CO2.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_temperature_swing_adsorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_temperature_swing_adsorption",
+    "chemical_change": "Adds parallel bed switching and sensible-heat exchange between adsorption and regeneration beds, changing both material scheduling and heat paths.",
+    "native_metrics": {
+      "co2_recovery": 0.98,
+      "breakthrough_fraction": 0.0,
+      "regeneration_temperature_K": 450.0,
+      "specific_energy_index": 1.0
+    }
+  }
+}

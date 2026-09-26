@@ -1,0 +1,68 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_superstructure_pathway_npv",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/superstructure/superstructure_function_documentation.html",
+  "termination_condition": "optimal",
+  "final_dof": null,
+  "build_contract_pass": true,
+  "solver_attempts": [
+    {
+      "solver": "gurobi",
+      "available": true,
+      "piecewise_repn": "SOS2",
+      "error_type": "GurobiError",
+      "message": "License expired 2025-11-24"
+    },
+    {
+      "solver": "appsi_highs",
+      "available": true,
+      "piecewise_repn": "CC",
+      "termination_condition": "optimal"
+    }
+  ],
+  "net_present_value": -16440490.523955548,
+  "objective_value": -16440490.523955548,
+  "checks": [
+    {
+      "name": "superstructure_official_model_builds",
+      "pass": true,
+      "actual": {
+        "stages": 3,
+        "tracked_components": [
+          "Nd",
+          "Fe"
+        ],
+        "objective_function_choice": "1",
+        "has_net_present_value": true,
+        "option_count": 6
+      }
+    },
+    {
+      "name": "superstructure_milp_solver_available",
+      "pass": true,
+      "actual": [
+        {
+          "solver": "gurobi",
+          "available": true,
+          "piecewise_repn": "SOS2",
+          "error_type": "GurobiError",
+          "message": "License expired 2025-11-24"
+        },
+        {
+          "solver": "appsi_highs",
+          "available": true,
+          "piecewise_repn": "CC",
+          "termination_condition": "optimal"
+        }
+      ]
+    }
+  ],
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/superstructure/superstructure_function.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/superstructure/tests/test_superstructure_function.py",
+    "solver_note": "The official test uses Gurobi with SOS2 piecewise constraints. This runner preserves that path first, then rebuilds with Pyomo CC piecewise linearization for HiGHS when Gurobi is unavailable."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

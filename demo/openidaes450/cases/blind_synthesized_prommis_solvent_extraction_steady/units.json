@@ -1,0 +1,45 @@
+[
+  {
+    "name": "fs.solex",
+    "class": "idaes.core.base.process_block._ScalarSolventExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "aqueous_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "organic_stream": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "heterogeneous_reaction_package": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reaction_package_args": null,
+      "create_hydrostatic_pressure_terms": false
+    }
+  },
+  {
+    "name": "fs.solex.mscontactor",
+    "class": "idaes.core.base.process_block._ScalarMSContactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "streams": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_of_finite_elements": 3,
+      "interacting_streams": null,
+      "heterogeneous_reactions": {
+        "component": "fs.reaxn"
+      },
+      "heterogeneous_reactions_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

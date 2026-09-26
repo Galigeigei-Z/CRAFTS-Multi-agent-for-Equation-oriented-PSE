@@ -1,0 +1,41 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "ngcc_gas_turbine_subflowsheet",
+  "family": "family_ngcc_gas_turbine_subflowsheet",
+  "source_url": "local://idaes_examples/power_gen/ngcc/gas_turbine_subflowsheet",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "GasTurbineFlowsheet",
+      "variable": "gt_power",
+      "value": -477,
+      "units": "MW",
+      "role": "official gas turbine power output",
+      "source": "reference",
+      "source_url": "local://idaes_examples/power_gen/ngcc/gas_turbine_subflowsheet"
+    }
+  ],
+  "terminal_feed_ports": [
+    "ng_preheat.hot_side_inlet"
+  ],
+  "terminal_product_ports": [
+    "ng_preheat.hot_side_outlet",
+    "exhaust_1.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "GasTurbineFlowsheet(dynamic=False), load gas_turbine_init.json.gz, solve square steady-state model",
+    "solve_order": [
+      "compression",
+      "fuel preheat",
+      "combustion",
+      "expansion",
+      "exhaust"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

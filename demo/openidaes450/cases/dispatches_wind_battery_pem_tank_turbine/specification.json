@@ -1,0 +1,65 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_wind_battery_pem_tank_turbine",
+  "family": "family_dispatches_wind_battery_pem_tank_turbine",
+  "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "wind",
+      "variable": "wind_mw",
+      "value": 200.0,
+      "units": "MW",
+      "role": "documented example wind capacity",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html"
+    },
+    {
+      "target": "pem",
+      "variable": "pem_bar",
+      "value": 1.01325,
+      "units": "bar",
+      "role": "documented PEM pressure",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html"
+    },
+    {
+      "target": "battery",
+      "variable": "batt_mw",
+      "value": 50.0,
+      "units": "MW",
+      "role": "documented example battery capacity",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html"
+    },
+    {
+      "target": "h2_turbine",
+      "variable": "turb_inlet_bar",
+      "value": 24.7,
+      "units": "bar",
+      "role": "documented turbine inlet pressure",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "DISPATCHES one-period wind_battery_pem_tank_turb_optimize",
+    "solve_order": [
+      "wind",
+      "splitter",
+      "pem",
+      "h2_tank",
+      "h2_turbine",
+      "battery",
+      "market optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": "optimization_result"
+  }
+}

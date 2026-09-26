@@ -1,0 +1,35 @@
+{
+  "case_id": "watertap_oaro_multi",
+  "runner": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/stage3_specs_solve/run_watertap_oaro_multi_reference_solve.py",
+  "elapsed_seconds": 45.4,
+  "model_calls": 0,
+  "evidence_class": "fresh_registered_reference_model_export",
+  "report_pass": true,
+  "solver_optimal_observed": true,
+  "model_checks": {
+    "variable_count": 859,
+    "missing_variable_values": 0,
+    "port_value_count": 200,
+    "missing_port_values": 0,
+    "unit_count": 20,
+    "property_package_count": 1,
+    "degrees_of_freedom": 0,
+    "constraint_count": 807,
+    "constraint_residual_convention": "violation/max(1,abs(body),abs(bounds)); tolerance 1e-6; not a substitute for engineering conservation audits",
+    "maximum_relative_constraint_violation": 0.9972181058548013,
+    "violations": [
+      {
+        "name": "fs.disposal.properties[0.0].eq_flow_vol_phase[Liq]",
+        "absolute_violation": 0.9972181058548013,
+        "relative_violation": 0.9972181058548013
+      }
+    ],
+    "unevaluable_constraints": [],
+    "constraints_pass": false,
+    "idaes_model_present": true
+  },
+  "error": null,
+  "case_specific_specification_binding_verified": false,
+  "public_reference_complete": false,
+  "native_export_pass": false
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_dispatches_pem_oxygen_coproduct_methanation",
+  "family": "family_pem_methanation",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "power_to_hydrogen_fraction",
+      "value": 0.25,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_to_methanation_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "electric_dispatch_index",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_product_index",
+      "value": 0.175,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "oxygen_product_index",
+      "value": 0.125,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_conversion",
+      "value": 0.97,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recovered_heat_index",
+      "value": 0.0625,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "WIND.outlet",
+    "WATER.outlet",
+    "CO2.outlet"
+  ],
+  "terminal_product_ports": [
+    "CH4.inlet",
+    "O2.inlet",
+    "POWER.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "dispatches_wind_battery_pem_tank_turbine"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "dispatches_wind_battery_pem_tank_turbine",
+    "chemical_change": "Adds Sabatier chemistry and oxygen coproduct recovery to the electricity-hydrogen storage chain.",
+    "native_metrics": {
+      "electric_dispatch_index": 0.75,
+      "methane_product_index": 0.175,
+      "oxygen_product_index": 0.125,
+      "co2_conversion": 0.97,
+      "recovered_heat_index": 0.0625
+    }
+  }
+}

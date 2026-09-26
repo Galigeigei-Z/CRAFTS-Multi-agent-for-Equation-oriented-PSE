@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.mineral_feed",
+      "destination_port": "mineral_feed",
+      "id": "mineral_feed_to_model",
+      "source": "mineral_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.heat",
+      "destination_port": "heat",
+      "id": "heat_to_model",
+      "source": "heat.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "treated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_treated_water",
+      "source": "model.treated_water",
+      "source_port": "treated_water",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "precipitate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_precipitate",
+      "source": "model.precipitate",
+      "source_port": "precipitate",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_thermal_precipitation",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reaktoro_thermal_precipitation",
+  "initialization_order": [
+    "mineral_feed",
+    "heat",
+    "model",
+    "treated_water",
+    "precipitate"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Thermal Precipitation",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Reaktoro-PSE thermal-precipitation tests across seven Hessian strategies"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/examples/thermal_precipitation.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "mineral_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "heat",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ReaktoroThermalPrecipitator",
+      "package": null,
+      "role": "Source-derived ReaktoroThermalPrecipitator node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "precipitate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

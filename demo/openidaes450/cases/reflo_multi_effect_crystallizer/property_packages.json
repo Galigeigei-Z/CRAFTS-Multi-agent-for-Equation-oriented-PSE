@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.cryst_prop_pack.NaClParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.cryst_prop_pack.NaClParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "heat_of_crystallization_model": {
+        "component": "constant"
+      }
+    },
+    "class": "watertap.property_models.unit_specific.cryst_prop_pack.NaClParameterBlock",
+    "module": "watertap.property_models.unit_specific.cryst_prop_pack",
+    "data_class": "watertap.property_models.unit_specific.cryst_prop_pack.NaClParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.vapor_properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.water_prop_pack.WaterParameterData"
+      },
+      {
+        "class": "watertap.property_models.water_prop_pack.WaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.water_prop_pack.WaterParameterBlock",
+    "module": "watertap.property_models.water_prop_pack",
+    "data_class": "watertap.property_models.water_prop_pack.WaterParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_usc_tes_charge_superstructure",
+  "family": "family_dispatches_usc_tes_charge_superstructure",
+  "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/charge_design_ultra_supercritical_power_plant.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "selected_steam_source",
+      "variable": "source_location",
+      "value": "vhp_source_disjunct or hp_source_disjunct",
+      "units": "choice",
+      "role": "GDP steam-source selection",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/charge_design_ultra_supercritical_power_plant.py"
+    },
+    {
+      "target": "selected_storage_media",
+      "variable": "material_choice",
+      "value": "solar_salt/hitec_salt/thermal_oil",
+      "units": "choice",
+      "role": "GDP storage material selection",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/charge_design_ultra_supercritical_power_plant.py"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "topology reference validation for official DISPATCHES USC charge superstructure",
+    "solve_order": [
+      "charge_block",
+      "selected storage disjunct",
+      "selected source disjunct",
+      "HXC/cooler/pump/mixer"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  }
+}

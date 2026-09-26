@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_dac_humidity_swing_calciner_recovery",
+  "family": "family_dac_humidity",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "humidity_swing_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "calciner_heat_recovery_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_capture_fraction",
+      "value": 0.8624999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "sorbent_conversion",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "net_energy_index",
+      "value": 6.125,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "dryer_temperature_K",
+      "value": 371.25,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "AIR.outlet"
+  ],
+  "terminal_product_ports": [
+    "CO2.inlet",
+    "CLEAN.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_co2_adsorption_desorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_co2_adsorption_desorption",
+    "chemical_change": "Adds water-driven sorbent release, carbonate calcination and exhaust-to-dryer heat integration.",
+    "native_metrics": {
+      "co2_capture_fraction": 0.8624999999999999,
+      "sorbent_conversion": 0.9,
+      "net_energy_index": 6.125,
+      "dryer_temperature_K": 371.25
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "question": "Strict web qwen rerun SMR Gibbs. Flowchart text: methane and steam feed enter mixer, compressor, heater, then Gibbs reactor producing hydrogen-rich syngas. This is SMR Gibbs, not equilibrium reactor.",
+  "case_id": "web_qwen_strict_rerun_smr_gibbs_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_rerun_smr_gibbs_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_methanol_single\",\n  \"family\": \"family_methanol_single\",\n  \"units\": 11,\n  \"arcs\": 10\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 11,\n    \"arc_count\": 10,\n    \"units\": [\n      \"H2\",\n      \"CO\",\n      \"M101\",\n      \"C101\",\n      \"H101\",\n      \"R101\",\n      \"T101\",\n      \"H102\",\n      \"F101\",\n      \"EXHAUST\",\n      \"CH3OH\"\n    ],\n    \"arcs\": [\n      \"s01\",\n      \"s02\",\n      \"s03\",\n      \"s04\",\n      \"s05\",\n      \"s06\",\n      \"s07\",\n      \"s08\",\n      \"s09\",\n      \"s10\"\n    ]\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/web_qwen_strict_rerun_smr_gibbs_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 13\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_methanol_single\",\n  \"family\": \"family_methanol_single\",\n  \"spec_count\": 13,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 11,\n  \"arc_count\": 10\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_smr_gibbs_20260606/native_solve_report.json",
+      "output_tail": ": 5100000.0,\n      \"enth_mol\": -36847.91964492031,\n      \"mole_frac_comp\": {\n        \"H2\": 0.6679228566087887,\n        \"CO\": 0.33207514339721134,\n        \"CH3OH\": 9.99997000009e-07,\n        \"CH4\": 9.99997000009e-07\n      }\n    },\n    \"s05\": {\n      \"flow_mol\": 954.002862,\n      \"temperature\": null,\n      \"pressure\": 5100000.0,\n      \"enth_mol\": -31156.73504763736,\n      \"mole_frac_comp\": {\n        \"H2\": 0.6679228566087887,\n        \"CO\": 0.33207514339721134,\n        \"CH3OH\": 9.99997000009e-07,\n        \"CH4\": 9.99997000009e-07\n      }\n    },\n    \"s06\": {\n      \"flow_mol\": 478.80190619999996,\n      \"temperature\": null,\n      \"pressure\": 5100000.0,\n      \"enth_mol\": -111542.34079018397,\n      \"mole_frac_comp\": {\n        \"H2\": 0.33834318306228994,\n        \"CO\": 0.16541320799779224,\n        \"CH3OH\": 0.49624161646664733,\n        \"CH4\": 1.992473270566942e-06\n      }\n    },\n    \"s07\": {\n      \"flow_mol\": 478.80190619999996,\n      \"temperature\": null,\n      \"pressure\": 3100000.0,\n      \"enth_mol\": -113345.5942211915,\n      \"mole_frac_comp\": {\n        \"H2\": 0.33834318306228994,\n        \"CO\": 0.16541320799779224,\n        \"CH3OH\": 0.49624161646664733,\n        \"CH4\": 1.992473270566942e-06\n      }\n    },\n    \"s08\": {\n      \"flow_mol\": 478.80190619999996,\n      \"temperature\": null,\n      \"pressure\": 3100000.0,\n      \"enth_mol\": -115811.8931917193,\n      \"mole_frac_comp\": {\n        \"H2\": 0.3383431830622899,\n        \"CO\": 0.16541320799779222,\n        \"CH3OH\": 0.49624161646664733,\n        \"CH4\": 1.992473270566942e-06\n      }\n    },\n    \"EXHAUST\": {\n      \"flow_mol\": 336.23052100954584,\n      \"temperature\": null,\n      \"pressure\": 3100000.0,\n      \"enth_mol\": -80217.7410760699,\n      \"mole_frac_comp\": {\n        \"H2\": 0.48181039756173905,\n        \"CO\": 0.23555315282562184,\n        \"CH3OH\": 0.28263361227355066,\n        \"CH4\": 2.837339088478869e-06\n      }\n    },\n    \"CH3OH\": {\n      \"flow_mol\": 142.57138519045412,\n      \"temperature\": null,\n      \"pressure\": 3100000.0,\n      \"enth_mol\": -238130.00384974477,\n      \"mole_frac_comp\": {\n        \"H2\": 1e-08,\n        \"CO\": 1e-08,\n        \"CH3OH\": 1.0,\n        \"CH4\": 1e-08\n      }\n    }\n  },\n  \"build_plan_sha256\": \"5455665d20dc186ae5cf9ae282a5c3fb7918378f624f1f3978b8c663d4b57efc\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_methanol_single\",\n    \"plan_derived_params\": [\n      \"H2.outlet.flow_mol\",\n      \"CO.outlet.flow_mol\",\n      \"C101.outlet.pressure\",\n      \"H101.outlet.temperature\",\n      \"R101.co_conversion\",\n      \"R101.outlet.temperature\",\n      \"T101.deltaP\",\n      \"H102.outlet.temperature\",\n      \"F101.outlet.temperature\"\n    ],\n    \"fixed_template_params\": [\n      \"methanol ideal vapor/VLE property packages\",\n      \"methanol reaction package\",\n      \"StoichiometricReactor CO conversion constraint\",\n      \"sequential unit initialization\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

@@ -1,0 +1,176 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "methanol_recycle",
+  "official_reference_url": "local://examples/methanol_recycle",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "reactor_co_conversion": 0.75,
+  "purge_split_fraction": 0.9999,
+  "stream_values": {
+    "s01_H2_feed": {
+      "flow_mol": 637.2,
+      "temperature": null,
+      "pressure": 3000000.0,
+      "enth_mol": -142.4,
+      "mole_frac_comp": {
+        "H2": 1.0,
+        "CO": 1e-06,
+        "CH3OH": 1e-06,
+        "CH4": 1e-06
+      }
+    },
+    "s02_CO_feed": {
+      "flow_mol": 316.8,
+      "temperature": null,
+      "pressure": 3000000.0,
+      "enth_mol": -110676.4,
+      "mole_frac_comp": {
+        "H2": 1e-06,
+        "CO": 1.0,
+        "CH3OH": 1e-06,
+        "CH4": 1e-06
+      }
+    },
+    "s03_fresh_syngas": {
+      "flow_mol": 954.002862,
+      "temperature": null,
+      "pressure": 2999999.9995,
+      "enth_mol": -36847.9196449203,
+      "mole_frac_comp": {
+        "H2": 0.6679228566087886,
+        "CO": 0.33207514339721134,
+        "CH3OH": 9.999970000090004e-07,
+        "CH4": 9.999970000090004e-07
+      }
+    },
+    "s04_mixed_recycle_feed": {
+      "flow_mol": 954.0364859303405,
+      "temperature": null,
+      "pressure": 2999999.9995,
+      "enth_mol": -36849.448163899295,
+      "mole_frac_comp": {
+        "H2": 0.6679162972962351,
+        "CO": 0.33207174158019287,
+        "CH3OH": 1.096106180970949e-05,
+        "CH4": 1.0000617624296051e-06
+      }
+    },
+    "s05_compressor_outlet": {
+      "flow_mol": 954.0364859303362,
+      "temperature": null,
+      "pressure": 5100000.0,
+      "enth_mol": -36849.4481638988,
+      "mole_frac_comp": {
+        "H2": 0.6679162972962381,
+        "CO": 0.33207174158019437,
+        "CH3OH": 1.0961061807361867e-05,
+        "CH4": 1.0000617600795965e-06
+      }
+    },
+    "s06_reactor_feed": {
+      "flow_mol": 954.0364859303363,
+      "temperature": null,
+      "pressure": 5100000.0,
+      "enth_mol": -31158.359293042737,
+      "mole_frac_comp": {
+        "H2": 0.6679162972962381,
+        "CO": 0.33207174158019437,
+        "CH3OH": 1.0961061807361865e-05,
+        "CH4": 1.000061760079596e-06
+      }
+    },
+    "s07_reactor_effluent": {
+      "flow_mol": 478.8236498094473,
+      "temperature": null,
+      "pressure": 5100000.0,
+      "enth_mol": -111543.91359461987,
+      "mole_frac_comp": {
+        "H2": 0.33833684094691796,
+        "CO": 0.16540983175121593,
+        "CH3OH": 0.49625133471980365,
+        "CH4": 1.992582062428679e-06
+      }
+    },
+    "s08_turbine_outlet": {
+      "flow_mol": 478.8236498094473,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -113347.16757444297,
+      "mole_frac_comp": {
+        "H2": 0.33833684094691796,
+        "CO": 0.16540983175121593,
+        "CH3OH": 0.4962513347198037,
+        "CH4": 1.992582062428679e-06
+      }
+    },
+    "s09_flash_feed": {
+      "flow_mol": 478.8236498094473,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -115813.49212176951,
+      "mole_frac_comp": {
+        "H2": 0.33833684094691796,
+        "CO": 0.16540983175121593,
+        "CH3OH": 0.4962513347198037,
+        "CH4": 1.992582062428679e-06
+      }
+    },
+    "s10_flash_vapor": {
+      "flow_mol": 336.2393034061138,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -80217.71195118387,
+      "mole_frac_comp": {
+        "H2": 0.48181066105627685,
+        "CO": 0.23555288912142003,
+        "CH3OH": 0.2826336122735501,
+        "CH4": 2.837548748350608e-06
+      }
+    },
+    "s11_recycle": {
+      "flow_mol": 0.03362393034060776,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -80217.7119511842,
+      "mole_frac_comp": {
+        "H2": 0.4818106610562756,
+        "CO": 0.23555288912141945,
+        "CH3OH": 0.2826336122735494,
+        "CH4": 2.8375487555802805e-06
+      }
+    },
+    "s12_purge": {
+      "flow_mol": 336.205679475774,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -80217.7119511842,
+      "mole_frac_comp": {
+        "H2": 0.4818106610562757,
+        "CO": 0.2355528891214194,
+        "CH3OH": 0.2826336122735494,
+        "CH4": 2.8375487555802814e-06
+      }
+    },
+    "s13_methanol_product": {
+      "flow_mol": 142.5843464033336,
+      "temperature": null,
+      "pressure": 3100000.0,
+      "enth_mol": -238130.00384974363,
+      "mole_frac_comp": {
+        "H2": 1.0000000000000328e-08,
+        "CO": 1.0000000000000328e-08,
+        "CH3OH": 0.9999999999999952,
+        "CH4": 1.0000000000000328e-08
+      }
+    }
+  },
+  "source_binding": {
+    "kind": "explicit_legacy_artifact_root",
+    "legacy_artifact_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+    "relative_path": "examples/methanol_recycle/source_root/notebook_build.py",
+    "module_namespace": "methanol_recycle_registered_notebook_build"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

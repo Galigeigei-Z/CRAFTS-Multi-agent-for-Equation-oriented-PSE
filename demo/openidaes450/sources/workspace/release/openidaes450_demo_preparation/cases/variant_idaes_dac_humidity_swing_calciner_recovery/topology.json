@@ -1,0 +1,212 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_dac_humidity_swing_calciner_recovery",
+  "family": "family_dac_humidity",
+  "process_type": "Humidity-Swing DAC with Calciner Heat Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent official_co2_adsorption_desorption.",
+    "Adds water-driven sorbent release, carbonate calcination and exhaust-to-dryer heat integration.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "N2",
+        "H2O",
+        "carbonate_sorbent"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_co2_adsorption_desorption"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "N2",
+      "H2O",
+      "carbonate_sorbent"
+    ]
+  },
+  "units": [
+    {
+      "id": "AIR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "ambient air",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CONT",
+      "kind": "Contactor",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "dry sorbent CO2 uptake",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HUM",
+      "kind": "Humidifier",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "release carbonate species",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CALC",
+      "kind": "Calciner",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "produce concentrated CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "recover calciner heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DRY",
+      "kind": "Dryer",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "restore dry sorbent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "DAC CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLEAN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "dac_humidity",
+      "role": "CO2-depleted air",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "AIR.outlet",
+      "destination": "CONT.air",
+      "stage": "dac_humidity",
+      "role": "ambient air",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "CONT.clean",
+      "destination": "CLEAN.inlet",
+      "stage": "dac_humidity",
+      "role": "clean air",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "CONT.loaded",
+      "destination": "HUM.inlet",
+      "stage": "dac_humidity",
+      "role": "loaded sorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "HUM.slurry",
+      "destination": "CALC.inlet",
+      "stage": "dac_humidity",
+      "role": "released carbonate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CALC.co2",
+      "destination": "CO2.inlet",
+      "stage": "dac_humidity",
+      "role": "CO2 product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CALC.exhaust",
+      "destination": "HX101.hot_inlet",
+      "stage": "dac_humidity",
+      "role": "hot exhaust",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX101.heat",
+      "destination": "DRY.heat",
+      "stage": "dac_humidity",
+      "role": "recovered drying heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CALC.sorbent",
+      "destination": "DRY.inlet",
+      "stage": "dac_humidity",
+      "role": "wet regenerated sorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "DRY.outlet",
+      "destination": "CONT.sorbent",
+      "stage": "dac_humidity",
+      "role": "dry sorbent recycle",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "AIR.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO2.inlet",
+    "CLEAN.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_co2_adsorption_desorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_co2_adsorption_desorption",
+    "chemical_change": "Adds water-driven sorbent release, carbonate calcination and exhaust-to-dryer heat integration.",
+    "native_metrics": {
+      "co2_capture_fraction": 0.8624999999999999,
+      "sorbent_conversion": 0.9,
+      "net_energy_index": 6.125,
+      "dryer_temperature_K": 371.25
+    }
+  }
+}

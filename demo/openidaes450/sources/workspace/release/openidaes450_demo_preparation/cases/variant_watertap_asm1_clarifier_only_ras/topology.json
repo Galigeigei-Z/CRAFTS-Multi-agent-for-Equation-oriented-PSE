@@ -1,0 +1,343 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_asm1_clarifier_only_ras",
+  "family": "family_watertap_activated_sludge",
+  "process_type": "ASM1 predenitrification train with clarifier-only return activated sludge",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py",
+  "source_basis": [
+    "The official WaterTAP ASM1 property and reaction packages and five-reactor train are retained.",
+    "Unlike the official baseline, all R5 effluent passes through the ideal secondary clarifier.",
+    "Only clarifier underflow is divided into return activated sludge and waste activated sludge; the modeled direct R5 recycle branch is fixed to zero flow."
+  ],
+  "property_packages": {
+    "ASM1": {
+      "components": [
+        "H2O",
+        "S_I",
+        "S_S",
+        "X_I",
+        "X_S",
+        "X_BH",
+        "X_BA",
+        "X_P",
+        "S_O",
+        "S_NO",
+        "S_NH",
+        "S_ND",
+        "X_ND",
+        "S_ALK"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "source": "watertap.property_models.unit_specific.activated_sludge.asm1_properties.ASM1ParameterBlock"
+    }
+  },
+  "units": [
+    {
+      "id": "FeedWater",
+      "kind": "Feed",
+      "package": "ASM1",
+      "stage": "feed",
+      "role": "municipal wastewater feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MX1",
+      "kind": "Mixer",
+      "package": "ASM1",
+      "stage": "headworks",
+      "role": "mix feed with clarifier RAS",
+      "constructor": {
+        "inlets": [
+          "feed_water",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "R1",
+      "kind": "CSTR",
+      "package": "ASM1",
+      "stage": "anoxic",
+      "role": "first anoxic reactor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R2",
+      "kind": "CSTR",
+      "package": "ASM1",
+      "stage": "anoxic",
+      "role": "second anoxic reactor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R3",
+      "kind": "CSTR_Injection",
+      "package": "ASM1",
+      "stage": "aerobic",
+      "role": "first aerobic reactor",
+      "constructor": {},
+      "constraint_template": "oxygen_mass_transfer"
+    },
+    {
+      "id": "R4",
+      "kind": "CSTR_Injection",
+      "package": "ASM1",
+      "stage": "aerobic",
+      "role": "second aerobic reactor",
+      "constructor": {},
+      "constraint_template": "oxygen_mass_transfer"
+    },
+    {
+      "id": "R5",
+      "kind": "CSTR_Injection",
+      "package": "ASM1",
+      "stage": "aerobic",
+      "role": "third aerobic reactor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SP5",
+      "kind": "Separator",
+      "package": "ASM1",
+      "stage": "secondary_separation",
+      "role": "routes 100 percent of R5 effluent to clarifier; direct recycle outlet is disabled",
+      "constructor": {
+        "split_basis": "totalFlow"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "CL1",
+      "kind": "Separator",
+      "package": "ASM1",
+      "stage": "secondary_separation",
+      "role": "ideal component-split secondary clarifier",
+      "constructor": {
+        "split_basis": "componentFlow"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "SP6",
+      "kind": "Separator",
+      "package": "ASM1",
+      "stage": "sludge_handling",
+      "role": "RAS and WAS split",
+      "constructor": {
+        "split_basis": "totalFlow"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "P1",
+      "kind": "PressureChanger",
+      "package": "ASM1",
+      "stage": "recycle",
+      "role": "bounds recycle-loop pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Treated",
+      "kind": "Product",
+      "package": "ASM1",
+      "stage": "product",
+      "role": "treated effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Sludge",
+      "kind": "Product",
+      "package": "ASM1",
+      "stage": "product",
+      "role": "waste activated sludge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FeedWater.outlet",
+      "destination": "MX1.feed_water",
+      "stage": "feed",
+      "role": "influent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "MX1.outlet",
+      "destination": "R1.inlet",
+      "stage": "biological",
+      "role": "mixed liquor feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R1.outlet",
+      "destination": "R2.inlet",
+      "stage": "anoxic",
+      "role": "anoxic interstage",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "R2.outlet",
+      "destination": "R3.inlet",
+      "stage": "biological",
+      "role": "anoxic to aerobic",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "R3.outlet",
+      "destination": "R4.inlet",
+      "stage": "aerobic",
+      "role": "aerobic interstage",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "R4.outlet",
+      "destination": "R5.inlet",
+      "stage": "aerobic",
+      "role": "aerobic interstage",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "R5.outlet",
+      "destination": "SP5.inlet",
+      "stage": "secondary_separation",
+      "role": "final mixed liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SP5.overflow",
+      "destination": "CL1.inlet",
+      "stage": "secondary_separation",
+      "role": "all mixed liquor to clarifier",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "CL1.effluent",
+      "destination": "Treated.inlet",
+      "stage": "product",
+      "role": "treated effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11",
+      "source": "CL1.underflow",
+      "destination": "SP6.inlet",
+      "stage": "sludge_handling",
+      "role": "settled sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s12",
+      "source": "SP6.waste",
+      "destination": "Sludge.inlet",
+      "stage": "product",
+      "role": "waste activated sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s13",
+      "source": "SP6.recycle",
+      "destination": "P1.inlet",
+      "stage": "recycle",
+      "role": "return activated sludge pressure conditioning",
+      "tear_candidate": true
+    },
+    {
+      "id": "s15",
+      "source": "P1.outlet",
+      "destination": "MX1.recycle",
+      "stage": "recycle",
+      "role": "RAS return to headworks",
+      "tear_candidate": true
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": 18446,
+      "units": "m3/day",
+      "role": "influent flow",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "SP5",
+      "variable": "split_fraction[0,'underflow']",
+      "value": 0.0,
+      "units": "dimensionless",
+      "role": "close direct R5 recycle branch",
+      "source": "native_variant_configuration",
+      "source_url": "local://stage3_specs_solve/watertap_asm1_clarifier_only_ras_model.py"
+    },
+    {
+      "target": "SP6",
+      "variable": "split_fraction[0,'recycle']",
+      "value": 0.97955,
+      "units": "dimensionless",
+      "role": "clarifier underflow RAS fraction",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FeedWater.outlet"
+  ],
+  "unconnected_product_ports": [
+    "Treated.inlet",
+    "Sludge.inlet"
+  ],
+  "tear_streams": [
+    "s13",
+    "s15"
+  ],
+  "translator_constraint_templates": {
+    "oxygen_mass_transfer": "injection_O2 = KLa * volume * (S_O_eq - outlet_S_O)"
+  },
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official ASM1 sequential decomposition followed by direct-recycle split continuation",
+    "solve_order": [
+      "official_ASM1_baseline",
+      "SP5_continuation_0.50_to_0.00"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Mixer",
+    "CSTR",
+    "CSTR_Injection",
+    "Separator",
+    "PressureChanger",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep SP5 underflow at zero for this variant.",
+    "Do not report estimated aeration electricity as native blower power."
+  ]
+}

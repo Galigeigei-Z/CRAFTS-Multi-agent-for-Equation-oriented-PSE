@@ -1,0 +1,594 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_boron_removal_unit",
+  "family": "family_watertap_boron_removal",
+  "process_type": "WaterTAP boron removal unit model with MCAS aqueous speciation, caustic dosing, pH shift, boron/borate equilibrium, and outlet boron target",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle WaterTAP boron-removal support cards.",
+    "No source URL, case id, run id, image filename, solved report, family registry, or legacy lookup routing was used.",
+    "Retrieved support cards: WaterTAP boron removal unit; WaterTAP MCAS aqueous property package",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: WaterTAP boron removal unit (unit_model) matched ['boron removal', 'boron', 'caustic dosing'].",
+    "Blind support hint: WaterTAP MCAS aqueous property package (property_package) matched ['boron', 'boron removal']."
+  ],
+  "property_packages": {
+    "mcas_boron": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "B[OH]3",
+        "B[OH]4_-",
+        "Na_+",
+        "H_+",
+        "OH_-"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "boron removal feed, caustic dosing, treated outlet"
+      ]
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "B[OH]3",
+      "B[OH]4_-",
+      "Na_+",
+      "H_+",
+      "OH_-"
+    ],
+    "controlled_species": [
+      "B[OH]3",
+      "B[OH]4_-"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas_boron",
+      "stage": "feed",
+      "role": "raw water feed with dissolved boron species",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "caustic_dosing",
+      "kind": "Mixer",
+      "package": "mcas_boron",
+      "stage": "dosing",
+      "role": "NaOH caustic dosing boundary",
+      "constructor": {
+        "inlet_list": [
+          "feed",
+          "caustic"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "boron_removal",
+      "kind": "CSTR",
+      "package": "mcas_boron",
+      "stage": "speciation",
+      "role": "official BoronRemoval unit model surrogate in topology IR",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treated",
+      "kind": "Product",
+      "package": "mcas_boron",
+      "stage": "product",
+      "role": "treated outlet meeting boron target",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_dosing",
+      "source": "feed.outlet",
+      "destination": "caustic_dosing.feed",
+      "stage": "feed",
+      "role": "feed water to caustic dosing",
+      "tear_candidate": false
+    },
+    {
+      "id": "dosing_to_boron_removal",
+      "source": "caustic_dosing.outlet",
+      "destination": "boron_removal.inlet",
+      "stage": "speciation",
+      "role": "dosed water to boron removal unit",
+      "tear_candidate": false
+    },
+    {
+      "id": "boron_removal_to_treated",
+      "source": "boron_removal.outlet",
+      "destination": "treated.inlet",
+      "stage": "product",
+      "role": "treated water outlet",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp['Liq','H2O']",
+      "value": 55.5,
+      "units": "mol/s",
+      "role": "water feed"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp['Liq','B[OH]3']",
+      "value": 0.00023106,
+      "units": "mol/s",
+      "role": "feed boric acid concentration basis"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "boron_removal",
+      "variable": "outlet.flow_mol_phase_comp['Liq','B[OH]3']",
+      "value": 1.98677e-05,
+      "units": "mol/s",
+      "role": "outlet neutral boron target"
+    },
+    {
+      "target": "boron_removal",
+      "variable": "reactor_volume",
+      "value": 1.0,
+      "units": "m^3",
+      "role": "steady-state unit volume"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "caustic_dosing.caustic"
+  ],
+  "unconnected_product_ports": [
+    "treated.outlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "Build official BoronRemoval unit with MCASParameterBlock, fix feed and target outlet B[OH]3, unfix caustic dose, initialize, then solve.",
+    "solve_order": [
+      "feed",
+      "caustic dosing",
+      "boron speciation",
+      "treated outlet"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_boron_removal",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.unit_models.boron_removal.BoronRemoval",
+    "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized compact topology, not a verified official case topology.",
+    "Keep caustic_dosing.caustic as an external terminal feed and treated as the product outlet.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_boron_removal_20260606/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1846,
+      "height": 541,
+      "mode": "P"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": true,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict web qwen rerun WaterTAP boron removal unit. Flowchart text: feed water and caustic dosing enter boron removal unit, treated product exits. This is boron removal, not reverse osmosis.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "watertap.props.mcas",
+        "watertap.unit.boron_removal"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": true,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "boron_removal_unit",
+        "qualified_templates": [
+          "boron_removal_unit"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "missing required support doc watertap.unit.ion_exchange_0d"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "missing required support doc watertap.unit.gac"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": true,
+            "failures": []
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal boron_removal",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.4
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "watertap.unit.boron_removal",
+        "title": "WaterTAP boron removal unit",
+        "kind": "unit_model",
+        "score": 80.0,
+        "matched_triggers": [
+          "boron removal",
+          "boron",
+          "caustic dosing"
+        ],
+        "source_url": "local://watertap/unit_models/boron_removal",
+        "text": "Use BoronRemoval for aqueous boron chemistry/speciation with feed, caustic dosing, boron removal unit, and treated outlet meeting an outlet boron target."
+      },
+      {
+        "doc_id": "watertap.props.mcas",
+        "title": "WaterTAP MCAS aqueous property package",
+        "kind": "property_package",
+        "score": 52.0,
+        "matched_triggers": [
+          "boron",
+          "boron removal"
+        ],
+        "source_url": "",
+        "text": "Use MCASParameterBlock for compact aqueous treatment examples such as ion exchange and GAC with H2O plus target solutes or ions."
+      }
+    ]
+  }
+}

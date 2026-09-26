@@ -1,0 +1,100 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_mea_absorber_flash_regeneration",
+  "family": "family_idaes_mea_absorber_flash_regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "solvent_circulation_fraction",
+      "value": 0.8500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "regeneration_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "contaminant_removal",
+      "value": 0.9235,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "lean_solvent_quality",
+      "value": 0.90875,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_slip_fraction",
+      "value": 0.010559999999999993,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "regeneration_duty_index",
+      "value": 0.6485000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "max_component_balance_error",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "CLEAN.inlet",
+    "RECOVERED.inlet",
+    "PURGE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture",
+    "chemical_change": "Uses aqueous MEA chemistry and a rich/lean loop distinct from the registered piperazine AFS topology.",
+    "native_metrics": {
+      "contaminant_removal": 0.9235,
+      "lean_solvent_quality": 0.90875,
+      "product_slip_fraction": 0.010559999999999993,
+      "regeneration_duty_index": 0.6485000000000001,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

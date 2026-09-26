@@ -1,0 +1,19 @@
+{
+  "case_id": "blind_synthesized_prommis_hydrogen_decrepitation_furnace",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.prop_gas",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_solid",
+      "class": "prommis.hydrogen_decrepitation.repm_solids_properties.REPMParameters",
+      "module": "prommis.hydrogen_decrepitation.repm_solids_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

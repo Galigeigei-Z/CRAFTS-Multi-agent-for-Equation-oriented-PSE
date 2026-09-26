@@ -1,0 +1,203 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_distillation_heat_pump",
+  "family": "family_hda_heat_pump",
+  "process_type": "HDA Benzene Distillation with Overhead Heat Pump",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_hda_distillation.",
+    "Adds overhead compression and heat return from condenser to reboiler, changing the column energy path.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "benzene",
+        "toluene",
+        "water_vapor"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_hda_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "benzene",
+      "toluene",
+      "water_vapor"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "HDA liquid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COL1",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "benzene/toluene split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "overhead product and heat-pump vapor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "compress overhead vapor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "return condensation heat to reboiler",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BENZENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "benzene distillate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BOTTOMS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "toluene-rich bottoms",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_heat_pump",
+      "role": "heat-pump condensate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "COL1.feed",
+      "stage": "hda_heat_pump",
+      "role": "column feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "COL1.distillate",
+      "destination": "S101.inlet",
+      "stage": "hda_heat_pump",
+      "role": "benzene overhead",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S101.product",
+      "destination": "BENZENE.inlet",
+      "stage": "hda_heat_pump",
+      "role": "benzene product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.heat_pump",
+      "destination": "C101.inlet",
+      "stage": "hda_heat_pump",
+      "role": "vapor heat-pump branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "C101.outlet",
+      "destination": "HX101.hot_inlet",
+      "stage": "hda_heat_pump",
+      "role": "compressed vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HX101.heat",
+      "destination": "COL1.reboiler",
+      "stage": "hda_heat_pump",
+      "role": "reboiler heat return",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX101.condensate",
+      "destination": "COND.inlet",
+      "stage": "hda_heat_pump",
+      "role": "condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "COL1.bottoms",
+      "destination": "BOTTOMS.inlet",
+      "stage": "hda_heat_pump",
+      "role": "toluene bottoms",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "BENZENE.inlet",
+    "BOTTOMS.inlet",
+    "COND.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Adds overhead compression and heat return from condenser to reboiler, changing the column energy path.",
+    "native_metrics": {
+      "compressor_power_kW": 90.00000000000028,
+      "recovered_reboiler_heat_kW": 250.0000000000014,
+      "external_steam_kW": 649.9999999999986,
+      "benzene_purity": 0.9650000000000001
+    }
+  }
+}

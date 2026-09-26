@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "idaes_co2_electrolysis_gas_recycle_small",
+  "recipe": "electrochemical_recycle",
+  "parent_case_key": "variant_idaes_co2_electroreduction_gas_recycle",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "current_utilization_fraction": 0.8500000000000001,
+    "concentrate_recycle_fraction": 1.0
+  },
+  "metrics": {
+    "ionic_product_recovery": 0.9185,
+    "ionic_product_purity": 0.98,
+    "specific_electricity_index": 0.45250000000000007,
+    "brine_purge_index": 0.025500000000000002,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.25,
+      "brine_purge_index": 0.16,
+      "objective": 0.41000000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.241,
+      "brine_purge_index": 0.152,
+      "objective": 0.393,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.232,
+      "brine_purge_index": 0.14400000000000002,
+      "objective": 0.376,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.223,
+      "brine_purge_index": 0.136,
+      "objective": 0.359,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.214,
+      "brine_purge_index": 0.128,
+      "objective": 0.34199999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.20500000000000002,
+      "brine_purge_index": 0.12,
+      "objective": 0.325,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.196,
+      "brine_purge_index": 0.11199999999999999,
+      "objective": 0.308,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.187,
+      "brine_purge_index": 0.10399999999999998,
+      "objective": 0.291,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.178,
+      "brine_purge_index": 0.096,
+      "objective": 0.274,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.16899999999999998,
+      "brine_purge_index": 0.08800000000000001,
+      "objective": 0.257,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.16,
+      "brine_purge_index": 0.08,
+      "objective": 0.24,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.151,
+      "brine_purge_index": 0.072,
+      "objective": 0.22299999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.142,
+      "brine_purge_index": 0.06399999999999999,
+      "objective": 0.20599999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.133,
+      "brine_purge_index": 0.055999999999999994,
+      "objective": 0.189,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.124,
+      "brine_purge_index": 0.04799999999999999,
+      "objective": 0.172,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.11499999999999999,
+      "brine_purge_index": 0.04,
+      "objective": 0.155,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.10600000000000001,
+      "brine_purge_index": 0.031999999999999994,
+      "objective": 0.138,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.097,
+      "brine_purge_index": 0.023999999999999987,
+      "objective": 0.121,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.088,
+      "brine_purge_index": 0.015999999999999997,
+      "objective": 0.104,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.07899999999999999,
+      "brine_purge_index": 0.00799999999999999,
+      "objective": 0.08699999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.604,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.07,
+      "brine_purge_index": 0.0,
+      "objective": 0.07,
+      "feasible": false,
+      "current_utilization_fraction": 0.0,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.2725,
+      "brine_purge_index": 0.1615,
+      "objective": 0.43400000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.2635,
+      "brine_purge_index": 0.1535,
+      "objective": 0.41700000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.2545,
+      "brine_purge_index": 0.14550000000000002,
+      "objective": 0.4,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.24550000000000002,
+      "brine_purge_index": 0.1375,
+      "objective": 0.383,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.23650000000000002,
+      "brine_purge_index": 0.1295,
+      "objective": 0.366,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.22750000000000004,
+      "brine_purge_index": 0.1215,
+      "objective": 0.34900000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.21850000000000003,
+      "brine_purge_index": 0.11349999999999999,
+      "objective": 0.332,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.20950000000000002,
+      "brine_purge_index": 0.10549999999999998,
+      "objective": 0.315,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.2005,
+      "brine_purge_index": 0.0975,
+      "objective": 0.29800000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.1915,
+      "brine_purge_index": 0.08950000000000001,
+      "objective": 0.281,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.18250000000000002,
+      "brine_purge_index": 0.0815,
+      "objective": 0.264,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.17350000000000002,
+      "brine_purge_index": 0.0735,
+      "objective": 0.247,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.1645,
+      "brine_purge_index": 0.06549999999999999,
+      "objective": 0.22999999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.15550000000000003,
+      "brine_purge_index": 0.057499999999999996,
+      "objective": 0.21300000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.14650000000000002,
+      "brine_purge_index": 0.04949999999999999,
+      "objective": 0.196,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.1375,
+      "brine_purge_index": 0.0415,
+      "objective": 0.17900000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.12850000000000003,
+      "brine_purge_index": 0.033499999999999995,
+      "objective": 0.16200000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.11950000000000002,
+      "brine_purge_index": 0.025499999999999988,
+      "objective": 0.14500000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.11050000000000001,
+      "brine_purge_index": 0.017499999999999998,
+      "objective": 0.128,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.1015,
+      "brine_purge_index": 0.00949999999999999,
+      "objective": 0.111,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6224999999999999,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.09250000000000003,
+      "brine_purge_index": 0.0015,
+      "objective": 0.09400000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.05,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.295,
+      "brine_purge_index": 0.163,
+      "objective": 0.45799999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.286,
+      "brine_purge_index": 0.155,
+      "objective": 0.44099999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.27699999999999997,
+      "brine_purge_index": 0.14700000000000002,
+      "objective": 0.424,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.26799999999999996,
+      "brine_purge_index": 0.139,
+      "objective": 0.407,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.259,
+      "brine_purge_index": 0.131,
+      "objective": 0.39,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.25,
+      "brine_purge_index": 0.123,
+      "objective": 0.373,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.241,
+      "brine_purge_index": 0.11499999999999999,
+      "objective": 0.356,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.23199999999999998,
+      "brine_purge_index": 0.10699999999999998,
+      "objective": 0.33899999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.22299999999999998,
+      "brine_purge_index": 0.099,
+      "objective": 0.32199999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.21399999999999997,
+      "brine_purge_index": 0.09100000000000001,
+      "objective": 0.305,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.205,
+      "brine_purge_index": 0.083,
+      "objective": 0.288,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.19599999999999998,
+      "brine_purge_index": 0.075,
+      "objective": 0.27099999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.18699999999999997,
+      "brine_purge_index": 0.06699999999999999,
+      "objective": 0.25399999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.178,
+      "brine_purge_index": 0.059,
+      "objective": 0.237,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.16899999999999998,
+      "brine_purge_index": 0.05099999999999999,
+      "objective": 0.21999999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.15999999999999998,
+      "brine_purge_index": 0.043000000000000003,
+      "objective": 0.20299999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.151,
+      "brine_purge_index": 0.034999999999999996,
+      "objective": 0.186,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.142,
+      "brine_purge_index": 0.026999999999999986,
+      "objective": 0.16899999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.13299999999999998,
+      "brine_purge_index": 0.018999999999999996,
+      "objective": 0.15199999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.12399999999999997,
+      "brine_purge_index": 0.010999999999999989,
+      "objective": 0.13499999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.641,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.11499999999999999,
+      "brine_purge_index": 0.003,
+      "objective": 0.118,
+      "feasible": false,
+      "current_utilization_fraction": 0.1,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.3175,
+      "brine_purge_index": 0.1645,
+      "objective": 0.482,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.3085,
+      "brine_purge_index": 0.1565,
+      "objective": 0.46499999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.2995,
+      "brine_purge_index": 0.14850000000000002,
+      "objective": 0.448,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.2905,
+      "brine_purge_index": 0.1405,
+      "objective": 0.431,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.28150000000000003,
+      "brine_purge_index": 0.1325,
+      "objective": 0.41400000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.2725,
+      "brine_purge_index": 0.1245,
+      "objective": 0.397,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.2635,
+      "brine_purge_index": 0.11649999999999999,
+      "objective": 0.38,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.2545,
+      "brine_purge_index": 0.10849999999999999,
+      "objective": 0.363,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.2455,
+      "brine_purge_index": 0.1005,
+      "objective": 0.346,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.2365,
+      "brine_purge_index": 0.09250000000000001,
+      "objective": 0.329,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.2275,
+      "brine_purge_index": 0.0845,
+      "objective": 0.312,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.2185,
+      "brine_purge_index": 0.0765,
+      "objective": 0.295,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.2095,
+      "brine_purge_index": 0.06849999999999999,
+      "objective": 0.27799999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.2005,
+      "brine_purge_index": 0.0605,
+      "objective": 0.261,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.1915,
+      "brine_purge_index": 0.05249999999999999,
+      "objective": 0.244,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.1825,
+      "brine_purge_index": 0.0445,
+      "objective": 0.22699999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.17350000000000002,
+      "brine_purge_index": 0.03649999999999999,
+      "objective": 0.21000000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.1645,
+      "brine_purge_index": 0.028499999999999987,
+      "objective": 0.193,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.1555,
+      "brine_purge_index": 0.020499999999999997,
+      "objective": 0.176,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.1465,
+      "brine_purge_index": 0.01249999999999999,
+      "objective": 0.15899999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6595,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.1375,
+      "brine_purge_index": 0.0045000000000000005,
+      "objective": 0.14200000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.15000000000000002,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.34,
+      "brine_purge_index": 0.166,
+      "objective": 0.506,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.331,
+      "brine_purge_index": 0.158,
+      "objective": 0.489,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.322,
+      "brine_purge_index": 0.15000000000000002,
+      "objective": 0.47200000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.313,
+      "brine_purge_index": 0.14200000000000002,
+      "objective": 0.455,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.30400000000000005,
+      "brine_purge_index": 0.134,
+      "objective": 0.43800000000000006,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.29500000000000004,
+      "brine_purge_index": 0.126,
+      "objective": 0.42100000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.28600000000000003,
+      "brine_purge_index": 0.118,
+      "objective": 0.404,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.277,
+      "brine_purge_index": 0.10999999999999999,
+      "objective": 0.387,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.268,
+      "brine_purge_index": 0.10200000000000001,
+      "objective": 0.37,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.259,
+      "brine_purge_index": 0.09400000000000001,
+      "objective": 0.35300000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.25,
+      "brine_purge_index": 0.08600000000000001,
+      "objective": 0.336,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.24100000000000002,
+      "brine_purge_index": 0.078,
+      "objective": 0.319,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.232,
+      "brine_purge_index": 0.06999999999999999,
+      "objective": 0.302,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.22300000000000003,
+      "brine_purge_index": 0.06199999999999999,
+      "objective": 0.28500000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.21400000000000002,
+      "brine_purge_index": 0.053999999999999986,
+      "objective": 0.268,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.20500000000000002,
+      "brine_purge_index": 0.046,
+      "objective": 0.251,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.19600000000000004,
+      "brine_purge_index": 0.03799999999999999,
+      "objective": 0.23400000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.18700000000000003,
+      "brine_purge_index": 0.029999999999999985,
+      "objective": 0.21700000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.17800000000000002,
+      "brine_purge_index": 0.022,
+      "objective": 0.2,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.169,
+      "brine_purge_index": 0.01399999999999999,
+      "objective": 0.183,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6779999999999999,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.16000000000000003,
+      "brine_purge_index": 0.006,
+      "objective": 0.16600000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.2,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.3625,
+      "brine_purge_index": 0.1675,
+      "objective": 0.53,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.3535,
+      "brine_purge_index": 0.1595,
+      "objective": 0.513,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.3445,
+      "brine_purge_index": 0.15150000000000002,
+      "objective": 0.496,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.33549999999999996,
+      "brine_purge_index": 0.14350000000000002,
+      "objective": 0.479,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.3265,
+      "brine_purge_index": 0.1355,
+      "objective": 0.462,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.3175,
+      "brine_purge_index": 0.1275,
+      "objective": 0.445,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.3085,
+      "brine_purge_index": 0.1195,
+      "objective": 0.428,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.2995,
+      "brine_purge_index": 0.11149999999999999,
+      "objective": 0.411,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.2905,
+      "brine_purge_index": 0.10350000000000001,
+      "objective": 0.394,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.2815,
+      "brine_purge_index": 0.0955,
+      "objective": 0.377,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.27249999999999996,
+      "brine_purge_index": 0.0875,
+      "objective": 0.36,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.26349999999999996,
+      "brine_purge_index": 0.07949999999999999,
+      "objective": 0.34299999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.25449999999999995,
+      "brine_purge_index": 0.07149999999999998,
+      "objective": 0.32599999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.2455,
+      "brine_purge_index": 0.0635,
+      "objective": 0.309,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.2365,
+      "brine_purge_index": 0.05549999999999999,
+      "objective": 0.292,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.22749999999999998,
+      "brine_purge_index": 0.0475,
+      "objective": 0.27499999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.2185,
+      "brine_purge_index": 0.03949999999999999,
+      "objective": 0.258,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.2095,
+      "brine_purge_index": 0.031499999999999986,
+      "objective": 0.241,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.20049999999999998,
+      "brine_purge_index": 0.023499999999999997,
+      "objective": 0.22399999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.19149999999999998,
+      "brine_purge_index": 0.01549999999999999,
+      "objective": 0.20699999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.6965,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.1825,
+      "brine_purge_index": 0.0075,
+      "objective": 0.19,
+      "feasible": false,
+      "current_utilization_fraction": 0.25,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.385,
+      "brine_purge_index": 0.169,
+      "objective": 0.554,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.376,
+      "brine_purge_index": 0.161,
+      "objective": 0.537,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.367,
+      "brine_purge_index": 0.15300000000000002,
+      "objective": 0.52,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.358,
+      "brine_purge_index": 0.14500000000000002,
+      "objective": 0.503,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.34900000000000003,
+      "brine_purge_index": 0.137,
+      "objective": 0.48600000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.34,
+      "brine_purge_index": 0.129,
+      "objective": 0.46900000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.331,
+      "brine_purge_index": 0.121,
+      "objective": 0.452,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.322,
+      "brine_purge_index": 0.11299999999999999,
+      "objective": 0.435,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.313,
+      "brine_purge_index": 0.10500000000000001,
+      "objective": 0.41800000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.304,
+      "brine_purge_index": 0.097,
+      "objective": 0.401,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.29500000000000004,
+      "brine_purge_index": 0.089,
+      "objective": 0.384,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.28600000000000003,
+      "brine_purge_index": 0.08099999999999999,
+      "objective": 0.367,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.277,
+      "brine_purge_index": 0.07299999999999998,
+      "objective": 0.35,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.268,
+      "brine_purge_index": 0.065,
+      "objective": 0.333,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.259,
+      "brine_purge_index": 0.05699999999999999,
+      "objective": 0.316,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.25,
+      "brine_purge_index": 0.049,
+      "objective": 0.299,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.24100000000000002,
+      "brine_purge_index": 0.040999999999999995,
+      "objective": 0.28200000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.232,
+      "brine_purge_index": 0.03299999999999999,
+      "objective": 0.265,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.223,
+      "brine_purge_index": 0.024999999999999998,
+      "objective": 0.248,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.214,
+      "brine_purge_index": 0.01699999999999999,
+      "objective": 0.23099999999999998,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.715,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.20500000000000002,
+      "brine_purge_index": 0.009000000000000001,
+      "objective": 0.21400000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.30000000000000004,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.40750000000000003,
+      "brine_purge_index": 0.1705,
+      "objective": 0.5780000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.3985,
+      "brine_purge_index": 0.1625,
+      "objective": 0.561,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.3895,
+      "brine_purge_index": 0.15450000000000003,
+      "objective": 0.544,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.3805,
+      "brine_purge_index": 0.14650000000000002,
+      "objective": 0.527,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.37150000000000005,
+      "brine_purge_index": 0.1385,
+      "objective": 0.51,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.36250000000000004,
+      "brine_purge_index": 0.1305,
+      "objective": 0.49300000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.35350000000000004,
+      "brine_purge_index": 0.12249999999999998,
+      "objective": 0.47600000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.34450000000000003,
+      "brine_purge_index": 0.11449999999999998,
+      "objective": 0.459,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.3355,
+      "brine_purge_index": 0.1065,
+      "objective": 0.442,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.3265,
+      "brine_purge_index": 0.0985,
+      "objective": 0.42500000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.3175,
+      "brine_purge_index": 0.0905,
+      "objective": 0.40800000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.3085,
+      "brine_purge_index": 0.08249999999999999,
+      "objective": 0.391,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.2995,
+      "brine_purge_index": 0.07449999999999998,
+      "objective": 0.374,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.29050000000000004,
+      "brine_purge_index": 0.06649999999999999,
+      "objective": 0.35700000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.28150000000000003,
+      "brine_purge_index": 0.05849999999999999,
+      "objective": 0.34,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.2725,
+      "brine_purge_index": 0.0505,
+      "objective": 0.323,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.26350000000000007,
+      "brine_purge_index": 0.042499999999999996,
+      "objective": 0.30600000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.25450000000000006,
+      "brine_purge_index": 0.03449999999999999,
+      "objective": 0.28900000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.24550000000000002,
+      "brine_purge_index": 0.026499999999999996,
+      "objective": 0.272,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.23650000000000002,
+      "brine_purge_index": 0.01849999999999999,
+      "objective": 0.255,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7335,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.22750000000000004,
+      "brine_purge_index": 0.0105,
+      "objective": 0.23800000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.35000000000000003,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.43000000000000005,
+      "brine_purge_index": 0.17200000000000001,
+      "objective": 0.6020000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.42100000000000004,
+      "brine_purge_index": 0.164,
+      "objective": 0.5850000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.41200000000000003,
+      "brine_purge_index": 0.15600000000000003,
+      "objective": 0.5680000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.403,
+      "brine_purge_index": 0.14800000000000002,
+      "objective": 0.551,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.3940000000000001,
+      "brine_purge_index": 0.14,
+      "objective": 0.534,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.38500000000000006,
+      "brine_purge_index": 0.132,
+      "objective": 0.5170000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.37600000000000006,
+      "brine_purge_index": 0.12399999999999999,
+      "objective": 0.5,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.36700000000000005,
+      "brine_purge_index": 0.11599999999999998,
+      "objective": 0.48300000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.35800000000000004,
+      "brine_purge_index": 0.108,
+      "objective": 0.466,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.34900000000000003,
+      "brine_purge_index": 0.1,
+      "objective": 0.44900000000000007,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.3400000000000001,
+      "brine_purge_index": 0.092,
+      "objective": 0.43200000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.33100000000000007,
+      "brine_purge_index": 0.08399999999999999,
+      "objective": 0.41500000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.32200000000000006,
+      "brine_purge_index": 0.07599999999999998,
+      "objective": 0.398,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.31300000000000006,
+      "brine_purge_index": 0.06799999999999999,
+      "objective": 0.38100000000000006,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.30400000000000005,
+      "brine_purge_index": 0.059999999999999984,
+      "objective": 0.36400000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.29500000000000004,
+      "brine_purge_index": 0.052000000000000005,
+      "objective": 0.34700000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.28600000000000003,
+      "brine_purge_index": 0.044,
+      "objective": 0.33,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.277,
+      "brine_purge_index": 0.03599999999999999,
+      "objective": 0.313,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.268,
+      "brine_purge_index": 0.027999999999999997,
+      "objective": 0.29600000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.259,
+      "brine_purge_index": 0.01999999999999999,
+      "objective": 0.279,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.752,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.25000000000000006,
+      "brine_purge_index": 0.012,
+      "objective": 0.26200000000000007,
+      "feasible": false,
+      "current_utilization_fraction": 0.4,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.4525,
+      "brine_purge_index": 0.17350000000000002,
+      "objective": 0.626,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.4435,
+      "brine_purge_index": 0.1655,
+      "objective": 0.609,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.4345,
+      "brine_purge_index": 0.15750000000000003,
+      "objective": 0.5920000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.4255,
+      "brine_purge_index": 0.14950000000000002,
+      "objective": 0.575,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.41650000000000004,
+      "brine_purge_index": 0.14150000000000001,
+      "objective": 0.558,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.40750000000000003,
+      "brine_purge_index": 0.1335,
+      "objective": 0.541,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.3985,
+      "brine_purge_index": 0.1255,
+      "objective": 0.524,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.3895,
+      "brine_purge_index": 0.11749999999999998,
+      "objective": 0.507,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.3805,
+      "brine_purge_index": 0.1095,
+      "objective": 0.49,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.3715,
+      "brine_purge_index": 0.1015,
+      "objective": 0.473,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.36250000000000004,
+      "brine_purge_index": 0.0935,
+      "objective": 0.45600000000000007,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.35350000000000004,
+      "brine_purge_index": 0.08549999999999999,
+      "objective": 0.43900000000000006,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.34450000000000003,
+      "brine_purge_index": 0.07749999999999999,
+      "objective": 0.42200000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.3355,
+      "brine_purge_index": 0.06949999999999999,
+      "objective": 0.405,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.3265,
+      "brine_purge_index": 0.061499999999999985,
+      "objective": 0.388,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.3175,
+      "brine_purge_index": 0.0535,
+      "objective": 0.371,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.3085,
+      "brine_purge_index": 0.04549999999999999,
+      "objective": 0.354,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.2995,
+      "brine_purge_index": 0.037499999999999985,
+      "objective": 0.33699999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.2905,
+      "brine_purge_index": 0.0295,
+      "objective": 0.31999999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.2815,
+      "brine_purge_index": 0.02149999999999999,
+      "objective": 0.30299999999999994,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7705,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.2725,
+      "brine_purge_index": 0.0135,
+      "objective": 0.28600000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.45,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.475,
+      "brine_purge_index": 0.175,
+      "objective": 0.6499999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.46599999999999997,
+      "brine_purge_index": 0.16699999999999998,
+      "objective": 0.633,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.45699999999999996,
+      "brine_purge_index": 0.15900000000000003,
+      "objective": 0.616,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.44799999999999995,
+      "brine_purge_index": 0.15100000000000002,
+      "objective": 0.599,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.439,
+      "brine_purge_index": 0.14300000000000002,
+      "objective": 0.5820000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.43,
+      "brine_purge_index": 0.135,
+      "objective": 0.565,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.421,
+      "brine_purge_index": 0.127,
+      "objective": 0.548,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.412,
+      "brine_purge_index": 0.11899999999999998,
+      "objective": 0.5309999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.40299999999999997,
+      "brine_purge_index": 0.111,
+      "objective": 0.514,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.39399999999999996,
+      "brine_purge_index": 0.10300000000000001,
+      "objective": 0.497,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.385,
+      "brine_purge_index": 0.095,
+      "objective": 0.48,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.376,
+      "brine_purge_index": 0.087,
+      "objective": 0.46299999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.367,
+      "brine_purge_index": 0.07899999999999999,
+      "objective": 0.44599999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.358,
+      "brine_purge_index": 0.071,
+      "objective": 0.429,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.349,
+      "brine_purge_index": 0.06299999999999999,
+      "objective": 0.412,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.33999999999999997,
+      "brine_purge_index": 0.055,
+      "objective": 0.39499999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.33099999999999996,
+      "brine_purge_index": 0.04699999999999999,
+      "objective": 0.37799999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.32199999999999995,
+      "brine_purge_index": 0.038999999999999986,
+      "objective": 0.36099999999999993,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.31299999999999994,
+      "brine_purge_index": 0.030999999999999996,
+      "objective": 0.3439999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.30399999999999994,
+      "brine_purge_index": 0.02299999999999999,
+      "objective": 0.3269999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.7889999999999999,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.295,
+      "brine_purge_index": 0.015,
+      "objective": 0.31,
+      "feasible": false,
+      "current_utilization_fraction": 0.5,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.49750000000000005,
+      "brine_purge_index": 0.1765,
+      "objective": 0.674,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.48850000000000005,
+      "brine_purge_index": 0.16849999999999998,
+      "objective": 0.657,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.47950000000000004,
+      "brine_purge_index": 0.16050000000000003,
+      "objective": 0.6400000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.47050000000000003,
+      "brine_purge_index": 0.15250000000000002,
+      "objective": 0.623,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.4615000000000001,
+      "brine_purge_index": 0.14450000000000002,
+      "objective": 0.6060000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.45250000000000007,
+      "brine_purge_index": 0.1365,
+      "objective": 0.5890000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.44350000000000006,
+      "brine_purge_index": 0.1285,
+      "objective": 0.5720000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.43450000000000005,
+      "brine_purge_index": 0.12049999999999998,
+      "objective": 0.555,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.42550000000000004,
+      "brine_purge_index": 0.1125,
+      "objective": 0.538,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.41650000000000004,
+      "brine_purge_index": 0.10450000000000001,
+      "objective": 0.521,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.4075000000000001,
+      "brine_purge_index": 0.0965,
+      "objective": 0.5040000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.3985000000000001,
+      "brine_purge_index": 0.0885,
+      "objective": 0.4870000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.38950000000000007,
+      "brine_purge_index": 0.08049999999999999,
+      "objective": 0.4700000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.38050000000000006,
+      "brine_purge_index": 0.0725,
+      "objective": 0.45300000000000007,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.37150000000000005,
+      "brine_purge_index": 0.06449999999999999,
+      "objective": 0.43600000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.36250000000000004,
+      "brine_purge_index": 0.0565,
+      "objective": 0.41900000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.35350000000000004,
+      "brine_purge_index": 0.048499999999999995,
+      "objective": 0.402,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.34450000000000003,
+      "brine_purge_index": 0.04049999999999999,
+      "objective": 0.385,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.3355,
+      "brine_purge_index": 0.0325,
+      "objective": 0.368,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.3265,
+      "brine_purge_index": 0.02449999999999999,
+      "objective": 0.351,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8075,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.31750000000000006,
+      "brine_purge_index": 0.0165,
+      "objective": 0.3340000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.55,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.52,
+      "brine_purge_index": 0.178,
+      "objective": 0.698,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.511,
+      "brine_purge_index": 0.16999999999999998,
+      "objective": 0.681,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.502,
+      "brine_purge_index": 0.16200000000000003,
+      "objective": 0.664,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.493,
+      "brine_purge_index": 0.15400000000000003,
+      "objective": 0.647,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.48400000000000004,
+      "brine_purge_index": 0.14600000000000002,
+      "objective": 0.6300000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.47500000000000003,
+      "brine_purge_index": 0.138,
+      "objective": 0.613,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.466,
+      "brine_purge_index": 0.13,
+      "objective": 0.5960000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.457,
+      "brine_purge_index": 0.12199999999999998,
+      "objective": 0.579,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.448,
+      "brine_purge_index": 0.114,
+      "objective": 0.562,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.439,
+      "brine_purge_index": 0.10600000000000001,
+      "objective": 0.545,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.43000000000000005,
+      "brine_purge_index": 0.098,
+      "objective": 0.528,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.42100000000000004,
+      "brine_purge_index": 0.09,
+      "objective": 0.511,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.41200000000000003,
+      "brine_purge_index": 0.08199999999999999,
+      "objective": 0.494,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.403,
+      "brine_purge_index": 0.074,
+      "objective": 0.47700000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.394,
+      "brine_purge_index": 0.06599999999999999,
+      "objective": 0.46,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.385,
+      "brine_purge_index": 0.058,
+      "objective": 0.443,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.376,
+      "brine_purge_index": 0.049999999999999996,
+      "objective": 0.426,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.367,
+      "brine_purge_index": 0.04199999999999999,
+      "objective": 0.409,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.358,
+      "brine_purge_index": 0.034,
+      "objective": 0.392,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.349,
+      "brine_purge_index": 0.025999999999999992,
+      "objective": 0.37499999999999994,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8260000000000001,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.34,
+      "brine_purge_index": 0.018000000000000002,
+      "objective": 0.35800000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.6000000000000001,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.5425,
+      "brine_purge_index": 0.1795,
+      "objective": 0.722,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.5335,
+      "brine_purge_index": 0.17149999999999999,
+      "objective": 0.705,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.5245,
+      "brine_purge_index": 0.1635,
+      "objective": 0.688,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.5155,
+      "brine_purge_index": 0.1555,
+      "objective": 0.6709999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.5065,
+      "brine_purge_index": 0.1475,
+      "objective": 0.6539999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.4975,
+      "brine_purge_index": 0.13949999999999999,
+      "objective": 0.637,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.4885,
+      "brine_purge_index": 0.13149999999999998,
+      "objective": 0.62,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.4795,
+      "brine_purge_index": 0.12349999999999998,
+      "objective": 0.603,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.4705,
+      "brine_purge_index": 0.1155,
+      "objective": 0.586,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.46149999999999997,
+      "brine_purge_index": 0.10750000000000001,
+      "objective": 0.569,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.4525,
+      "brine_purge_index": 0.0995,
+      "objective": 0.552,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.4435,
+      "brine_purge_index": 0.0915,
+      "objective": 0.535,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.4345,
+      "brine_purge_index": 0.08349999999999999,
+      "objective": 0.518,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.4255,
+      "brine_purge_index": 0.0755,
+      "objective": 0.501,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.4165,
+      "brine_purge_index": 0.06749999999999999,
+      "objective": 0.484,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.4075,
+      "brine_purge_index": 0.0595,
+      "objective": 0.46699999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.39849999999999997,
+      "brine_purge_index": 0.05149999999999999,
+      "objective": 0.44999999999999996,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.38949999999999996,
+      "brine_purge_index": 0.04349999999999998,
+      "objective": 0.43299999999999994,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.38049999999999995,
+      "brine_purge_index": 0.0355,
+      "objective": 0.4159999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.37149999999999994,
+      "brine_purge_index": 0.02749999999999999,
+      "objective": 0.3989999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8445,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.3625,
+      "brine_purge_index": 0.0195,
+      "objective": 0.382,
+      "feasible": false,
+      "current_utilization_fraction": 0.65,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.5650000000000001,
+      "brine_purge_index": 0.181,
+      "objective": 0.746,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.556,
+      "brine_purge_index": 0.173,
+      "objective": 0.7290000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.547,
+      "brine_purge_index": 0.165,
+      "objective": 0.7120000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.538,
+      "brine_purge_index": 0.157,
+      "objective": 0.6950000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.529,
+      "brine_purge_index": 0.149,
+      "objective": 0.678,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.52,
+      "brine_purge_index": 0.141,
+      "objective": 0.661,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.511,
+      "brine_purge_index": 0.13299999999999998,
+      "objective": 0.644,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.502,
+      "brine_purge_index": 0.12499999999999999,
+      "objective": 0.627,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.49300000000000005,
+      "brine_purge_index": 0.117,
+      "objective": 0.6100000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.48400000000000004,
+      "brine_purge_index": 0.10900000000000001,
+      "objective": 0.5930000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.4750000000000001,
+      "brine_purge_index": 0.101,
+      "objective": 0.5760000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.4660000000000001,
+      "brine_purge_index": 0.093,
+      "objective": 0.559,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.4570000000000001,
+      "brine_purge_index": 0.08499999999999999,
+      "objective": 0.542,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.44800000000000006,
+      "brine_purge_index": 0.077,
+      "objective": 0.525,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.43900000000000006,
+      "brine_purge_index": 0.06899999999999999,
+      "objective": 0.508,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.43000000000000005,
+      "brine_purge_index": 0.061,
+      "objective": 0.49100000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.42100000000000004,
+      "brine_purge_index": 0.05299999999999999,
+      "objective": 0.47400000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.41200000000000003,
+      "brine_purge_index": 0.044999999999999984,
+      "objective": 0.457,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.403,
+      "brine_purge_index": 0.037,
+      "objective": 0.44,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.394,
+      "brine_purge_index": 0.02899999999999999,
+      "objective": 0.423,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.863,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.38500000000000006,
+      "brine_purge_index": 0.021,
+      "objective": 0.4060000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.7000000000000001,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.5875,
+      "brine_purge_index": 0.1825,
+      "objective": 0.77,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.5785,
+      "brine_purge_index": 0.1745,
+      "objective": 0.753,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.5695,
+      "brine_purge_index": 0.1665,
+      "objective": 0.736,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.5605,
+      "brine_purge_index": 0.1585,
+      "objective": 0.719,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.5515,
+      "brine_purge_index": 0.1505,
+      "objective": 0.702,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.5425,
+      "brine_purge_index": 0.1425,
+      "objective": 0.6849999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.5335,
+      "brine_purge_index": 0.13449999999999998,
+      "objective": 0.6679999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.5245,
+      "brine_purge_index": 0.12649999999999997,
+      "objective": 0.6509999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.5155000000000001,
+      "brine_purge_index": 0.1185,
+      "objective": 0.6340000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.5065000000000001,
+      "brine_purge_index": 0.11050000000000001,
+      "objective": 0.6170000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.49750000000000005,
+      "brine_purge_index": 0.10250000000000001,
+      "objective": 0.6000000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.48850000000000005,
+      "brine_purge_index": 0.0945,
+      "objective": 0.5830000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.47950000000000004,
+      "brine_purge_index": 0.0865,
+      "objective": 0.5660000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.47050000000000003,
+      "brine_purge_index": 0.07849999999999999,
+      "objective": 0.549,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.4615,
+      "brine_purge_index": 0.07049999999999998,
+      "objective": 0.532,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.4525,
+      "brine_purge_index": 0.0625,
+      "objective": 0.515,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.4435,
+      "brine_purge_index": 0.05449999999999999,
+      "objective": 0.498,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.4345,
+      "brine_purge_index": 0.046499999999999986,
+      "objective": 0.481,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.4255,
+      "brine_purge_index": 0.03849999999999999,
+      "objective": 0.46399999999999997,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.4165,
+      "brine_purge_index": 0.03049999999999999,
+      "objective": 0.44699999999999995,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8815,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.40750000000000003,
+      "brine_purge_index": 0.0225,
+      "objective": 0.43000000000000005,
+      "feasible": false,
+      "current_utilization_fraction": 0.75,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.6100000000000001,
+      "brine_purge_index": 0.184,
+      "objective": 0.794,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.6010000000000001,
+      "brine_purge_index": 0.176,
+      "objective": 0.7770000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.5920000000000001,
+      "brine_purge_index": 0.168,
+      "objective": 0.7600000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.5830000000000001,
+      "brine_purge_index": 0.16,
+      "objective": 0.7430000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.5740000000000001,
+      "brine_purge_index": 0.152,
+      "objective": 0.7260000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.5650000000000001,
+      "brine_purge_index": 0.144,
+      "objective": 0.7090000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.556,
+      "brine_purge_index": 0.13599999999999998,
+      "objective": 0.6920000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.5470000000000002,
+      "brine_purge_index": 0.12799999999999997,
+      "objective": 0.6750000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.5380000000000001,
+      "brine_purge_index": 0.12,
+      "objective": 0.6580000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.5290000000000001,
+      "brine_purge_index": 0.11200000000000002,
+      "objective": 0.6410000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.5200000000000001,
+      "brine_purge_index": 0.10400000000000001,
+      "objective": 0.6240000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.5110000000000001,
+      "brine_purge_index": 0.096,
+      "objective": 0.6070000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.5020000000000001,
+      "brine_purge_index": 0.088,
+      "objective": 0.5900000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.4930000000000001,
+      "brine_purge_index": 0.07999999999999999,
+      "objective": 0.5730000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.4840000000000001,
+      "brine_purge_index": 0.07199999999999998,
+      "objective": 0.556,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.4750000000000001,
+      "brine_purge_index": 0.064,
+      "objective": 0.5390000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.4660000000000001,
+      "brine_purge_index": 0.055999999999999994,
+      "objective": 0.522,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.4570000000000001,
+      "brine_purge_index": 0.04799999999999999,
+      "objective": 0.5050000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.44800000000000006,
+      "brine_purge_index": 0.039999999999999994,
+      "objective": 0.48800000000000004,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.43900000000000006,
+      "brine_purge_index": 0.03199999999999999,
+      "objective": 0.47100000000000003,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.8999999999999999,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.4300000000000001,
+      "brine_purge_index": 0.024,
+      "objective": 0.4540000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.6325000000000001,
+      "brine_purge_index": 0.1855,
+      "objective": 0.8180000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.6235,
+      "brine_purge_index": 0.1775,
+      "objective": 0.801,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.6145,
+      "brine_purge_index": 0.1695,
+      "objective": 0.784,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.6055,
+      "brine_purge_index": 0.1615,
+      "objective": 0.767,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.5965,
+      "brine_purge_index": 0.1535,
+      "objective": 0.75,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.5875,
+      "brine_purge_index": 0.1455,
+      "objective": 0.733,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.5785,
+      "brine_purge_index": 0.13749999999999998,
+      "objective": 0.716,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.5695000000000001,
+      "brine_purge_index": 0.12949999999999998,
+      "objective": 0.6990000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.5605000000000001,
+      "brine_purge_index": 0.1215,
+      "objective": 0.6820000000000002,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.5515000000000001,
+      "brine_purge_index": 0.11350000000000002,
+      "objective": 0.6650000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.5425000000000001,
+      "brine_purge_index": 0.10550000000000001,
+      "objective": 0.6480000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.5335000000000001,
+      "brine_purge_index": 0.0975,
+      "objective": 0.6310000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.5245000000000001,
+      "brine_purge_index": 0.0895,
+      "objective": 0.6140000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.5155000000000001,
+      "brine_purge_index": 0.08149999999999999,
+      "objective": 0.5970000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.5065000000000001,
+      "brine_purge_index": 0.07349999999999998,
+      "objective": 0.5800000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.49750000000000005,
+      "brine_purge_index": 0.0655,
+      "objective": 0.5630000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.48850000000000005,
+      "brine_purge_index": 0.057499999999999996,
+      "objective": 0.546,
+      "feasible": true,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.47950000000000004,
+      "brine_purge_index": 0.04949999999999999,
+      "objective": 0.529,
+      "feasible": true,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.47050000000000003,
+      "brine_purge_index": 0.041499999999999995,
+      "objective": 0.512,
+      "feasible": true,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.4615,
+      "brine_purge_index": 0.03349999999999999,
+      "objective": 0.495,
+      "feasible": true,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9185,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.45250000000000007,
+      "brine_purge_index": 0.025500000000000002,
+      "objective": 0.4780000000000001,
+      "feasible": true,
+      "current_utilization_fraction": 0.8500000000000001,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.655,
+      "brine_purge_index": 0.187,
+      "objective": 0.8420000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.646,
+      "brine_purge_index": 0.179,
+      "objective": 0.825,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.637,
+      "brine_purge_index": 0.171,
+      "objective": 0.808,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.628,
+      "brine_purge_index": 0.163,
+      "objective": 0.791,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.619,
+      "brine_purge_index": 0.155,
+      "objective": 0.774,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.61,
+      "brine_purge_index": 0.147,
+      "objective": 0.757,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.601,
+      "brine_purge_index": 0.13899999999999998,
+      "objective": 0.74,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.5920000000000001,
+      "brine_purge_index": 0.13099999999999998,
+      "objective": 0.7230000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.5830000000000001,
+      "brine_purge_index": 0.123,
+      "objective": 0.7060000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.5740000000000001,
+      "brine_purge_index": 0.115,
+      "objective": 0.6890000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.5650000000000001,
+      "brine_purge_index": 0.107,
+      "objective": 0.672,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.556,
+      "brine_purge_index": 0.09899999999999999,
+      "objective": 0.655,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.547,
+      "brine_purge_index": 0.09099999999999998,
+      "objective": 0.638,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.538,
+      "brine_purge_index": 0.08299999999999999,
+      "objective": 0.621,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.529,
+      "brine_purge_index": 0.07499999999999998,
+      "objective": 0.604,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.52,
+      "brine_purge_index": 0.067,
+      "objective": 0.587,
+      "feasible": false,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.511,
+      "brine_purge_index": 0.059,
+      "objective": 0.5700000000000001,
+      "feasible": true,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.502,
+      "brine_purge_index": 0.05099999999999999,
+      "objective": 0.5529999999999999,
+      "feasible": true,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.493,
+      "brine_purge_index": 0.043,
+      "objective": 0.536,
+      "feasible": true,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.484,
+      "brine_purge_index": 0.03499999999999999,
+      "objective": 0.519,
+      "feasible": true,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.937,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.47500000000000003,
+      "brine_purge_index": 0.027,
+      "objective": 0.502,
+      "feasible": true,
+      "current_utilization_fraction": 0.9,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.6775,
+      "brine_purge_index": 0.1885,
+      "objective": 0.866,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.6685,
+      "brine_purge_index": 0.1805,
+      "objective": 0.849,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.6595,
+      "brine_purge_index": 0.17250000000000001,
+      "objective": 0.832,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.6505,
+      "brine_purge_index": 0.1645,
+      "objective": 0.815,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.6415,
+      "brine_purge_index": 0.1565,
+      "objective": 0.7979999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.6325,
+      "brine_purge_index": 0.1485,
+      "objective": 0.7809999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.6234999999999999,
+      "brine_purge_index": 0.14049999999999999,
+      "objective": 0.7639999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.6145,
+      "brine_purge_index": 0.13249999999999998,
+      "objective": 0.747,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.6055,
+      "brine_purge_index": 0.1245,
+      "objective": 0.73,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.5965,
+      "brine_purge_index": 0.1165,
+      "objective": 0.7130000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.5875,
+      "brine_purge_index": 0.1085,
+      "objective": 0.6960000000000001,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.5785,
+      "brine_purge_index": 0.10049999999999999,
+      "objective": 0.679,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.5695,
+      "brine_purge_index": 0.09249999999999999,
+      "objective": 0.662,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.5605,
+      "brine_purge_index": 0.08449999999999999,
+      "objective": 0.645,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.5515,
+      "brine_purge_index": 0.07649999999999998,
+      "objective": 0.628,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.5425,
+      "brine_purge_index": 0.0685,
+      "objective": 0.611,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.5335,
+      "brine_purge_index": 0.0605,
+      "objective": 0.594,
+      "feasible": false,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.5245,
+      "brine_purge_index": 0.05249999999999999,
+      "objective": 0.577,
+      "feasible": true,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.5155,
+      "brine_purge_index": 0.0445,
+      "objective": 0.5599999999999999,
+      "feasible": true,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.5065,
+      "brine_purge_index": 0.03649999999999999,
+      "objective": 0.5429999999999999,
+      "feasible": true,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.9555,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.4975,
+      "brine_purge_index": 0.0285,
+      "objective": 0.526,
+      "feasible": true,
+      "current_utilization_fraction": 0.9500000000000001,
+      "concentrate_recycle_fraction": 1.0
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.7,
+      "specific_electricity_index": 0.7,
+      "brine_purge_index": 0.19,
+      "objective": 0.8899999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.0
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.714,
+      "specific_electricity_index": 0.691,
+      "brine_purge_index": 0.182,
+      "objective": 0.873,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.05
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.728,
+      "specific_electricity_index": 0.6819999999999999,
+      "brine_purge_index": 0.17400000000000002,
+      "objective": 0.856,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.1
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.742,
+      "specific_electricity_index": 0.6729999999999999,
+      "brine_purge_index": 0.166,
+      "objective": 0.839,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.15000000000000002
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.756,
+      "specific_electricity_index": 0.6639999999999999,
+      "brine_purge_index": 0.158,
+      "objective": 0.822,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.2
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.77,
+      "specific_electricity_index": 0.6549999999999999,
+      "brine_purge_index": 0.15,
+      "objective": 0.8049999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.25
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.784,
+      "specific_electricity_index": 0.6459999999999999,
+      "brine_purge_index": 0.142,
+      "objective": 0.7879999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.30000000000000004
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.7979999999999999,
+      "specific_electricity_index": 0.637,
+      "brine_purge_index": 0.13399999999999998,
+      "objective": 0.771,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.35000000000000003
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.8119999999999999,
+      "specific_electricity_index": 0.628,
+      "brine_purge_index": 0.126,
+      "objective": 0.754,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.4
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.826,
+      "specific_electricity_index": 0.619,
+      "brine_purge_index": 0.11800000000000001,
+      "objective": 0.737,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.45
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.84,
+      "specific_electricity_index": 0.61,
+      "brine_purge_index": 0.11,
+      "objective": 0.72,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.5
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.854,
+      "specific_electricity_index": 0.601,
+      "brine_purge_index": 0.102,
+      "objective": 0.703,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.55
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.868,
+      "specific_electricity_index": 0.592,
+      "brine_purge_index": 0.09399999999999999,
+      "objective": 0.6859999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.6000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.882,
+      "specific_electricity_index": 0.583,
+      "brine_purge_index": 0.086,
+      "objective": 0.6689999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.65
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.896,
+      "specific_electricity_index": 0.574,
+      "brine_purge_index": 0.07799999999999999,
+      "objective": 0.6519999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.7000000000000001
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.9099999999999999,
+      "specific_electricity_index": 0.565,
+      "brine_purge_index": 0.07,
+      "objective": 0.635,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.75
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.9239999999999999,
+      "specific_electricity_index": 0.5559999999999999,
+      "brine_purge_index": 0.06199999999999999,
+      "objective": 0.6179999999999999,
+      "feasible": false,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.8
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.938,
+      "specific_electricity_index": 0.5469999999999999,
+      "brine_purge_index": 0.053999999999999986,
+      "objective": 0.6009999999999999,
+      "feasible": true,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.8500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.952,
+      "specific_electricity_index": 0.5379999999999999,
+      "brine_purge_index": 0.046,
+      "objective": 0.584,
+      "feasible": true,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.9
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.966,
+      "specific_electricity_index": 0.5289999999999999,
+      "brine_purge_index": 0.03799999999999999,
+      "objective": 0.567,
+      "feasible": true,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 0.9500000000000001
+    },
+    {
+      "ionic_product_recovery": 0.974,
+      "ionic_product_purity": 0.98,
+      "specific_electricity_index": 0.52,
+      "brine_purge_index": 0.03,
+      "objective": 0.55,
+      "feasible": true,
+      "current_utilization_fraction": 1.0,
+      "concentrate_recycle_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "variant_idaes_co2_electroreduction_gas_recycle",
+    "chemical_distinction": "Focuses on carbon conversion and carbonate closure around one electrochemical stack.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

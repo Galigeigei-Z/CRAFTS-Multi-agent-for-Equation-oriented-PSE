@@ -1,0 +1,76 @@
+[
+  {
+    "name": "fs.prop_prtrt",
+    "implementation": [
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlockData"
+      },
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": null,
+      "water_source": null,
+      "solute_list": [
+        "tds",
+        "tss"
+      ]
+    },
+    "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+    "module": "watertap.core.zero_order_properties",
+    "data_class": "watertap.core.zero_order_properties.WaterParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_psttrt",
+    "implementation": [
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlockData"
+      },
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": null,
+      "water_source": null,
+      "solute_list": [
+        "tds"
+      ]
+    },
+    "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+    "module": "watertap.core.zero_order_properties",
+    "data_class": "watertap.core.zero_order_properties.WaterParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_desal",
+    "implementation": [
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData"
+      },
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+    "module": "watertap.property_models.seawater_prop_pack",
+    "data_class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

@@ -1,0 +1,115 @@
+[
+  {
+    "name": "fs.prop_nf",
+    "implementation": [
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlockData"
+      },
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": null,
+      "water_source": null,
+      "solute_list": [
+        "tds",
+        "dye"
+      ]
+    },
+    "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+    "module": "watertap.core.zero_order_properties",
+    "data_class": "watertap.core.zero_order_properties.WaterParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_ro",
+    "implementation": [
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData"
+      },
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+    "module": "watertap.property_models.seawater_prop_pack",
+    "data_class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_gac",
+    "implementation": [
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData"
+      },
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solute_list": [
+        "tds",
+        "dye"
+      ],
+      "stokes_radius_data": {},
+      "diffusivity_data": {
+        "('Liq', 'tds')": 1e-09,
+        "('Liq', 'dye')": 1e-11
+      },
+      "molar_volume_data": {},
+      "mw_data": {
+        "H2O": 0.018,
+        "tds": 0.05844,
+        "dye": 0.696665
+      },
+      "elec_mobility_data": {},
+      "trans_num_data": {},
+      "equiv_conductivity_phase_data": {},
+      "charge": {
+        "tds": 0,
+        "dye": 0
+      },
+      "ignore_neutral_charge": true,
+      "activity_coefficient_model": {
+        "component": "ideal"
+      },
+      "density_calculation": {
+        "component": "constant"
+      },
+      "diffus_calculation": {
+        "component": "none"
+      },
+      "elec_mobility_calculation": {
+        "component": "none"
+      },
+      "trans_num_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "equiv_conductivity_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "material_flow_basis": {
+        "component": "mass"
+      }
+    },
+    "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+    "data_class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

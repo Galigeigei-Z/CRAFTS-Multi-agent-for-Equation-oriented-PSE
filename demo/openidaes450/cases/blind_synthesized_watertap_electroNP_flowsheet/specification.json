@@ -1,0 +1,88 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_electroNP_flowsheet",
+  "family": "family_watertap_electroNP_flowsheet",
+  "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "adm1_feed",
+      "variable": "flow_vol",
+      "value": 170.0,
+      "units": "m^3/day",
+      "role": "official ElectroNP AD feed flow",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "adm1_feed",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "official feed temperature",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "adm1_feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official feed pressure",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "AD",
+      "variable": "volume_liquid",
+      "value": 3400.0,
+      "units": "m^3",
+      "role": "official AD liquid volume",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "AD",
+      "variable": "volume_vapor",
+      "value": 300.0,
+      "units": "m^3",
+      "role": "official AD vapor volume",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "electroNP",
+      "variable": "energy_electric_flow_mass",
+      "value": 0.044,
+      "units": "kWh/kg",
+      "role": "official ElectroNP energy intensity",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    },
+    {
+      "target": "electroNP",
+      "variable": "magnesium_chloride_dosage",
+      "value": 0.388,
+      "units": "dimensionless",
+      "role": "official magnesium chloride dosage",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/electroNP/electroNP_flowsheet"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "electroNP_flowsheet.build_flowsheet initializes AD, ADM1/ASM2d translator, ElectroNPZO, costing, and solves with ipopt-watertap",
+    "solve_order": [
+      "AD",
+      "translator_adm1_asm2d",
+      "electroNP"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

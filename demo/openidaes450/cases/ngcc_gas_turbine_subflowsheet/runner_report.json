@@ -1,0 +1,855 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "ngcc_gas_turbine_subflowsheet",
+  "official_reference_url": "local://idaes_examples/power_gen/ngcc/gas_turbine_subflowsheet",
+  "termination_condition": "optimal",
+  "solver_status": "ok",
+  "final_dof": 0,
+  "gt_power_mw": 477.0,
+  "stream_values": {
+    "feed_air1.outlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.2074,
+        "H2O": 0.0099
+      },
+      "temperature": 288.15,
+      "pressure": 103421.0
+    },
+    "feed_fuel1.outlet": {
+      "flow_mol": 1462.6963265854288,
+      "mole_frac_comp": {
+        "C2H6": 0.032,
+        "C4H10": 0.004,
+        "N2": 0.016,
+        "C3H8": 0.007,
+        "CO2": 0.01,
+        "Ar": 1e-19,
+        "O2": 1e-19,
+        "H2O": 1e-19,
+        "CH4": 0.931
+      },
+      "temperature": 299.817,
+      "pressure": 3102640.0
+    },
+    "exhaust_1.inlet": {
+      "flow_mol": 37851.051965606144,
+      "mole_frac_comp": {
+        "N2": 0.7430726628068769,
+        "CO2": 0.04055457573360205,
+        "Ar": 0.008834169914297195,
+        "O2": 0.1205134379290327,
+        "H2O": 0.08702515361619124
+      },
+      "temperature": 898.0,
+      "pressure": 110000.0
+    },
+    "vsv.inlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 288.15,
+      "pressure": 103421.0
+    },
+    "vsv.outlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 288.16501162232436,
+      "pressure": 108269.76797689972
+    },
+    "cmp1.inlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 288.16501162232436,
+      "pressure": 108269.76797689972
+    },
+    "cmp1.outlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "splt1.inlet": {
+      "flow_mol": 36345.93744554974,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "splt1.air04": {
+      "flow_mol": 33171.24902090163,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "splt1.air05": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "splt1.air07": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "splt1.air09": {
+      "flow_mol": 352.49313991169754,
+      "mole_frac_comp": {
+        "N2": 0.7731999999999999,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "valve01.inlet": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "valve01.outlet": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6363555459432,
+      "pressure": 706069.5804239322
+    },
+    "valve02.inlet": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "valve02.outlet": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6258820461285,
+      "pressure": 278027.42796588456
+    },
+    "valve03.inlet": {
+      "flow_mol": 352.49313991169754,
+      "mole_frac_comp": {
+        "N2": 0.7731999999999999,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "valve03.outlet": {
+      "flow_mol": 352.4931399116975,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20740000000000003,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.6210549485016,
+      "pressure": 110000.0
+    },
+    "inject_translator.inlet": {
+      "flow_mol": 33171.24902090163,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "inject_translator.outlet": {
+      "flow_mol": 33171.24902090164,
+      "mole_frac_comp": {
+        "C2H6": 1e-20,
+        "C4H10": 1e-20,
+        "N2": 0.7731999999999999,
+        "C3H8": 1e-20,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999,
+        "CH4": 2.9115698770682507e-19
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "ng_preheat.hot_side_inlet": {
+      "flow_mol": 850.0,
+      "enth_mol": 14000.0,
+      "pressure": 4200000.0
+    },
+    "ng_preheat.cold_side_inlet": {
+      "flow_mol": 1462.6963265854288,
+      "mole_frac_comp": {
+        "C2H6": 0.032,
+        "C4H10": 0.004,
+        "N2": 0.016,
+        "C3H8": 0.007,
+        "CO2": 0.01,
+        "Ar": 9.999965096165863e-20,
+        "O2": 9.999965096165863e-20,
+        "H2O": 1.0001341524705151e-19,
+        "CH4": 0.931
+      },
+      "temperature": 299.817,
+      "pressure": 3102640.0
+    },
+    "ng_preheat.hot_side_outlet": {
+      "flow_mol": 850.0,
+      "enth_mol": 3651.198921993369,
+      "pressure": 4200000.0
+    },
+    "ng_preheat.cold_side_outlet": {
+      "flow_mol": 1462.696326585429,
+      "mole_frac_comp": {
+        "C2H6": 0.03199999999999999,
+        "C4H10": 0.003999999999999998,
+        "N2": 0.015999999999999993,
+        "C3H8": 0.006999999999999999,
+        "CO2": 0.009999999999999997,
+        "Ar": 9.999859217047457e-20,
+        "O2": 9.99975333792905e-20,
+        "H2O": 1.0001341524705151e-19,
+        "CH4": 0.9309999999999998
+      },
+      "temperature": 441.30146505576874,
+      "pressure": 3102640.0
+    },
+    "inject1.gas": {
+      "flow_mol": 1462.696326585429,
+      "mole_frac_comp": {
+        "C2H6": 0.03199999999999999,
+        "C4H10": 0.003999999999999998,
+        "N2": 0.015999999999999993,
+        "C3H8": 0.006999999999999999,
+        "CO2": 0.009999999999999997,
+        "Ar": 9.999859217047457e-20,
+        "O2": 9.999647458810643e-20,
+        "H2O": 1.0001341524705151e-19,
+        "CH4": 0.9309999999999998
+      },
+      "temperature": 441.30146505576874,
+      "pressure": 3102640.0
+    },
+    "inject1.air": {
+      "flow_mol": 33171.24902090164,
+      "mole_frac_comp": {
+        "C2H6": 1e-20,
+        "C4H10": 1e-20,
+        "N2": 0.7731999999999999,
+        "C3H8": 1e-20,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20739999999999997,
+        "H2O": 0.009899999999999999,
+        "CH4": 2.9115698770682507e-19
+      },
+      "temperature": 674.651983563144,
+      "pressure": 1894720.9395957452
+    },
+    "inject1.outlet": {
+      "flow_mol": 34633.94534748707,
+      "mole_frac_comp": {
+        "C2H6": 0.0013514568433113793,
+        "C4H10": 0.00016893210541392244,
+        "N2": 0.7412211524451444,
+        "C3H8": 0.00029563118447436425,
+        "CO2": 0.0007096603556287619,
+        "Ar": 0.008811456157547977,
+        "O2": 0.19864087033428807,
+        "H2O": 0.00948189303910054,
+        "CH4": 0.03931894753509045
+      },
+      "temperature": 658.6084056385254,
+      "pressure": 1894720.9395957452
+    },
+    "translator1.inlet": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6363555459432,
+      "pressure": 706069.5804239322
+    },
+    "translator1.outlet": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6363555459432,
+      "pressure": 706069.5804239322
+    },
+    "mx1.gas": {
+      "flow_mol": 34676.363540958046,
+      "mole_frac_comp": {
+        "N2": 0.7403144465787102,
+        "CO2": 0.04423996031753172,
+        "Ar": 0.00880067745949879,
+        "O2": 0.11255880443528808,
+        "H2O": 0.0940861112089713
+      },
+      "temperature": 1361.6553274487874,
+      "pressure": 706069.5804239322
+    },
+    "mx1.air": {
+      "flow_mol": 2314.446226731366,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6363555459432,
+      "pressure": 706069.5804239322
+    },
+    "mx1.outlet": {
+      "flow_mol": 36990.80976768941,
+      "mole_frac_comp": {
+        "N2": 0.7423720345446907,
+        "CO2": 0.04149071865458043,
+        "Ar": 0.00882566232879243,
+        "O2": 0.11849284179732417,
+        "H2O": 0.08881874267461218
+      },
+      "temperature": 1322.4960807412192,
+      "pressure": 706069.5804239322
+    },
+    "translator2.inlet": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6258820461285,
+      "pressure": 278027.42796588456
+    },
+    "translator2.outlet": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6258820461285,
+      "pressure": 278027.42796588456
+    },
+    "mx2.gas": {
+      "flow_mol": 36990.8097676894,
+      "mole_frac_comp": {
+        "N2": 0.7423720345446908,
+        "CO2": 0.04149071865458043,
+        "Ar": 0.008825662328792432,
+        "O2": 0.11849284179732417,
+        "H2O": 0.0888187426746122
+      },
+      "temperature": 1096.5128064748988,
+      "pressure": 278027.42796588456
+    },
+    "mx2.air": {
+      "flow_mol": 507.7490580050421,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0002999999999999999,
+        "Ar": 0.009199999999999998,
+        "O2": 0.20739999999999997,
+        "H2O": 0.0099
+      },
+      "temperature": 674.6258820461285,
+      "pressure": 278027.42796588456
+    },
+    "mx2.outlet": {
+      "flow_mol": 37498.55882569446,
+      "mole_frac_comp": {
+        "N2": 0.7427894604647881,
+        "CO2": 0.04093297592391624,
+        "Ar": 0.008830731046254746,
+        "O2": 0.11969668875147381,
+        "H2O": 0.0877501438135669
+      },
+      "temperature": 1091.2316254096575,
+      "pressure": 278027.42796588456
+    },
+    "translator3.inlet": {
+      "flow_mol": 352.4931399116975,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20740000000000003,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.6210549485016,
+      "pressure": 110000.0
+    },
+    "translator3.outlet": {
+      "flow_mol": 352.4931399116975,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20740000000000003,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.6210549485016,
+      "pressure": 110000.0
+    },
+    "mx3.gas": {
+      "flow_mol": 37498.55882569446,
+      "mole_frac_comp": {
+        "N2": 0.7427894604647881,
+        "CO2": 0.04093297592391624,
+        "Ar": 0.008830731046254746,
+        "O2": 0.11969668875147381,
+        "H2O": 0.0877501438135669
+      },
+      "temperature": 899.9749778614977,
+      "pressure": 110000.0
+    },
+    "mx3.air": {
+      "flow_mol": 352.4931399116975,
+      "mole_frac_comp": {
+        "N2": 0.7732,
+        "CO2": 0.0003,
+        "Ar": 0.0092,
+        "O2": 0.20740000000000003,
+        "H2O": 0.009899999999999999
+      },
+      "temperature": 674.6210549485016,
+      "pressure": 110000.0
+    },
+    "mx3.outlet": {
+      "flow_mol": 37851.051965606144,
+      "mole_frac_comp": {
+        "N2": 0.7430726628068769,
+        "CO2": 0.04055457573360205,
+        "Ar": 0.008834169914297195,
+        "O2": 0.1205134379290327,
+        "H2O": 0.08702515361619124
+      },
+      "temperature": 898.0,
+      "pressure": 110000.0
+    },
+    "cmb1.inlet": {
+      "flow_mol": 34633.94534748707,
+      "mole_frac_comp": {
+        "C2H6": 0.0013514568433113793,
+        "C4H10": 0.00016893210541392244,
+        "N2": 0.7412211524451444,
+        "C3H8": 0.00029563118447436425,
+        "CO2": 0.0007096603556287619,
+        "Ar": 0.008811456157547977,
+        "O2": 0.19864087033428807,
+        "H2O": 0.00948189303910054,
+        "CH4": 0.03931894753509045
+      },
+      "temperature": 658.6084056385254,
+      "pressure": 1894720.9395957452
+    },
+    "cmb1.outlet": {
+      "flow_mol": 34676.363540958046,
+      "mole_frac_comp": {
+        "C2H6": 3.2645719166276643e-19,
+        "C4H10": 1e-20,
+        "N2": 0.7403144465787102,
+        "C3H8": 1e-20,
+        "CO2": 0.04423996031753171,
+        "Ar": 0.008800677459498788,
+        "O2": 0.11255880443528808,
+        "H2O": 0.0940861112089713,
+        "CH4": 1e-20
+      },
+      "temperature": 1632.6679061348982,
+      "pressure": 1799984.8926159581
+    },
+    "flue_translator.inlet": {
+      "flow_mol": 34676.363540958046,
+      "mole_frac_comp": {
+        "C2H6": 3.2645729754188486e-19,
+        "C4H10": 1e-20,
+        "N2": 0.7403144465787102,
+        "C3H8": 1e-20,
+        "CO2": 0.04423996031753171,
+        "Ar": 0.008800677459498788,
+        "O2": 0.11255880443528808,
+        "H2O": 0.0940861112089713,
+        "CH4": 1e-20
+      },
+      "temperature": 1632.6679061348982,
+      "pressure": 1799984.8926159581
+    },
+    "flue_translator.outlet": {
+      "flow_mol": 34676.363540958046,
+      "mole_frac_comp": {
+        "N2": 0.7403144465787102,
+        "CO2": 0.04423996031753171,
+        "Ar": 0.008800677459498788,
+        "O2": 0.11255880443528805,
+        "H2O": 0.0940861112089713
+      },
+      "temperature": 1632.6679061348982,
+      "pressure": 1799984.8926159581
+    },
+    "gts1.inlet": {
+      "flow_mol": 34676.36354095804,
+      "mole_frac_comp": {
+        "N2": 0.7403144465787102,
+        "CO2": 0.04423996031753171,
+        "Ar": 0.008800677459498788,
+        "O2": 0.11255880443528805,
+        "H2O": 0.0940861112089713
+      },
+      "temperature": 1632.6679061348982,
+      "pressure": 1799984.8926159581
+    },
+    "gts1.outlet": {
+      "flow_mol": 34676.36354095804,
+      "mole_frac_comp": {
+        "N2": 0.7403144465787102,
+        "CO2": 0.04423996031753172,
+        "Ar": 0.00880067745949879,
+        "O2": 0.11255880443528808,
+        "H2O": 0.0940861112089713
+      },
+      "temperature": 1361.6553274487874,
+      "pressure": 706069.5804239322
+    },
+    "gts2.inlet": {
+      "flow_mol": 36990.80976768941,
+      "mole_frac_comp": {
+        "N2": 0.7423720345446907,
+        "CO2": 0.04149071865458043,
+        "Ar": 0.00882566232879243,
+        "O2": 0.11849284179732417,
+        "H2O": 0.08881874267461218
+      },
+      "temperature": 1322.4960807412192,
+      "pressure": 706069.5804239322
+    },
+    "gts2.outlet": {
+      "flow_mol": 36990.8097676894,
+      "mole_frac_comp": {
+        "N2": 0.7423720345446908,
+        "CO2": 0.04149071865458043,
+        "Ar": 0.008825662328792432,
+        "O2": 0.11849284179732417,
+        "H2O": 0.0888187426746122
+      },
+      "temperature": 1096.5128064748988,
+      "pressure": 278027.42796588456
+    },
+    "gts3.inlet": {
+      "flow_mol": 37498.558825694454,
+      "mole_frac_comp": {
+        "N2": 0.7427894604647881,
+        "CO2": 0.04093297592391624,
+        "Ar": 0.008830731046254746,
+        "O2": 0.11969668875147381,
+        "H2O": 0.0877501438135669
+      },
+      "temperature": 1091.2316254096575,
+      "pressure": 278027.42796588456
+    },
+    "gts3.outlet": {
+      "flow_mol": 37498.558825694454,
+      "mole_frac_comp": {
+        "N2": 0.7427894604647881,
+        "CO2": 0.04093297592391624,
+        "Ar": 0.008830731046254746,
+        "O2": 0.11969668875147381,
+        "H2O": 0.0877501438135669
+      },
+      "temperature": 899.9749778614977,
+      "pressure": 110000.0
+    }
+  },
+  "native_topology_binding": {
+    "schema_version": "native-topology-probe/1",
+    "units": {
+      "feed_air1": {
+        "model_component": "fs.feed_air1",
+        "exists": true
+      },
+      "vsv": {
+        "model_component": "fs.vsv",
+        "exists": true
+      },
+      "cmp1": {
+        "model_component": "fs.cmp1",
+        "exists": true
+      },
+      "splt1": {
+        "model_component": "fs.splt1",
+        "exists": true
+      },
+      "feed_fuel1": {
+        "model_component": "fs.feed_fuel1",
+        "exists": true
+      },
+      "ng_preheat": {
+        "model_component": "fs.ng_preheat",
+        "exists": true
+      },
+      "inject1": {
+        "model_component": "fs.inject1",
+        "exists": true
+      },
+      "cmb1": {
+        "model_component": "fs.cmb1",
+        "exists": true
+      },
+      "gts1": {
+        "model_component": "fs.gts1",
+        "exists": true
+      },
+      "mx1": {
+        "model_component": "fs.mx1",
+        "exists": true
+      },
+      "gts2": {
+        "model_component": "fs.gts2",
+        "exists": true
+      },
+      "mx2": {
+        "model_component": "fs.mx2",
+        "exists": true
+      },
+      "gts3": {
+        "model_component": "fs.gts3",
+        "exists": true
+      },
+      "mx3": {
+        "model_component": "fs.mx3",
+        "exists": true
+      },
+      "exhaust_1": {
+        "model_component": "fs.exhaust_1",
+        "exists": true
+      }
+    },
+    "arcs": {
+      "air_to_vsv": {
+        "source_component": "fs.feed_air1.outlet",
+        "destination_component": "fs.vsv.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.feed_air1.outlet->fs.vsv.inlet"
+      },
+      "vsv_to_cmp": {
+        "source_component": "fs.vsv.outlet",
+        "destination_component": "fs.cmp1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.vsv.outlet->fs.cmp1.inlet"
+      },
+      "cmp_to_split": {
+        "source_component": "fs.cmp1.outlet",
+        "destination_component": "fs.splt1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.cmp1.outlet->fs.splt1.inlet"
+      },
+      "fuel_to_preheat": {
+        "source_component": "fs.feed_fuel1.outlet",
+        "destination_component": "fs.ng_preheat.cold_side_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.feed_fuel1.outlet->fs.ng_preheat.cold_side_inlet"
+      },
+      "preheat_to_mixer": {
+        "source_component": "fs.ng_preheat.cold_side_outlet",
+        "destination_component": "fs.inject1.gas",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.ng_preheat.cold_side_outlet->fs.inject1.gas"
+      },
+      "air_to_mixer": {
+        "source_component": "fs.splt1.air04",
+        "destination_component": "fs.inject1.air",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splt1.air04->fs.inject1.air"
+      },
+      "mixer_to_combustor": {
+        "source_component": "fs.inject1.outlet",
+        "destination_component": "fs.cmb1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.inject1.outlet->fs.cmb1.inlet"
+      },
+      "combustor_to_stage1": {
+        "source_component": "fs.cmb1.outlet",
+        "destination_component": "fs.gts1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.cmb1.outlet->fs.gts1.inlet"
+      },
+      "stage1_to_mx1": {
+        "source_component": "fs.gts1.outlet",
+        "destination_component": "fs.mx1.gas",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.gts1.outlet->fs.mx1.gas"
+      },
+      "cool1_to_mx1": {
+        "source_component": "fs.splt1.air05",
+        "destination_component": "fs.mx1.air",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splt1.air05->fs.mx1.air"
+      },
+      "mx1_to_stage2": {
+        "source_component": "fs.mx1.outlet",
+        "destination_component": "fs.gts2.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mx1.outlet->fs.gts2.inlet"
+      },
+      "stage2_to_mx2": {
+        "source_component": "fs.gts2.outlet",
+        "destination_component": "fs.mx2.gas",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.gts2.outlet->fs.mx2.gas"
+      },
+      "cool2_to_mx2": {
+        "source_component": "fs.splt1.air07",
+        "destination_component": "fs.mx2.air",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splt1.air07->fs.mx2.air"
+      },
+      "mx2_to_stage3": {
+        "source_component": "fs.mx2.outlet",
+        "destination_component": "fs.gts3.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mx2.outlet->fs.gts3.inlet"
+      },
+      "stage3_to_mx3": {
+        "source_component": "fs.gts3.outlet",
+        "destination_component": "fs.mx3.gas",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.gts3.outlet->fs.mx3.gas"
+      },
+      "cool3_to_mx3": {
+        "source_component": "fs.splt1.air09",
+        "destination_component": "fs.mx3.air",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splt1.air09->fs.mx3.air"
+      },
+      "mx3_to_exhaust": {
+        "source_component": "fs.mx3.outlet",
+        "destination_component": "fs.exhaust_1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mx3.outlet->fs.exhaust_1.inlet"
+      }
+    },
+    "passed": true
+  },
+  "source_summary": {
+    "source": "idaes_examples.mod.power_gen.gas_turbine.GasTurbineFlowsheet",
+    "init_json": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/examples/github_examples/clones/examples/src/Examples/Flowsheets/power_generation/ngcc/gas_turbine_init.json.gz"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

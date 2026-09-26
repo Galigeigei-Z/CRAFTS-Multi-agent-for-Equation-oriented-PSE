@@ -1,0 +1,222 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_sco2_recompression_dry_cooling",
+  "family": "family_sco2_recompression",
+  "process_type": "Recompression sCO2 Cycle with Dry-Cooler Bypass",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent official_sco2_surrogate_flowsheet.",
+    "Adds a recompression branch and ambient-dependent heat-rejection bypass to the CO2 cycle.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_sco2_surrogate_flowsheet"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "HEAT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "high-temperature heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HTR",
+      "kind": "Recuperator",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "high-temperature recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TURB",
+      "kind": "Turbine",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "sCO2 expansion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LTR",
+      "kind": "Recuperator",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "low-temperature recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "recompression split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RC",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "recompressor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MC",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "main compressor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DRY",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "dry heat rejection",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "sco2_recompression",
+      "role": "close cycle",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "HEAT.outlet",
+      "destination": "HTR.heat",
+      "stage": "sco2_recompression",
+      "role": "heat input",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HTR.hot_outlet",
+      "destination": "TURB.inlet",
+      "stage": "sco2_recompression",
+      "role": "hot sCO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "TURB.outlet",
+      "destination": "LTR.hot_inlet",
+      "stage": "sco2_recompression",
+      "role": "turbine exhaust",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "LTR.hot_outlet",
+      "destination": "S1.inlet",
+      "stage": "sco2_recompression",
+      "role": "cooled CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S1.recompress",
+      "destination": "RC.inlet",
+      "stage": "sco2_recompression",
+      "role": "recompression branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.cool",
+      "destination": "DRY.inlet",
+      "stage": "sco2_recompression",
+      "role": "cooling branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "DRY.outlet",
+      "destination": "MC.inlet",
+      "stage": "sco2_recompression",
+      "role": "main compression",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "RC.outlet",
+      "destination": "M1.recompress",
+      "stage": "sco2_recompression",
+      "role": "recompressed CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "MC.outlet",
+      "destination": "M1.main",
+      "stage": "sco2_recompression",
+      "role": "main CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "M1.outlet",
+      "destination": "HTR.cold_inlet",
+      "stage": "sco2_recompression",
+      "role": "cycle return",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "HEAT.outlet"
+  ],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_sco2_surrogate_flowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_sco2_surrogate_flowsheet",
+    "chemical_change": "Adds a recompression branch and ambient-dependent heat-rejection bypass to the CO2 cycle.",
+    "native_metrics": {
+      "cycle_efficiency": 0.47004999999999997,
+      "recuperator_approach_K": 9.25,
+      "compressor_inlet_temperature_K": 320.0,
+      "dry_cooler_fan_kW": 22.5
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "mvo_v2_legacy_platform_retrofit",
+  "family": "family_idaes_mvo",
+  "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "mvo",
+      "variable": "decision_type",
+      "value": "retrofit",
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "max_common_designs",
+      "value": {
+        "Evaporator Area": 2,
+        "Condenser Area": 2,
+        "Compressor Design Flow": 2
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "policy",
+      "value": {
+        "fixed_evaporator_area": 80.0,
+        "fixed_condenser_area": 25.0,
+        "fixed_compressor_flow": 120.0
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "fixed_modules",
+      "value": {
+        "Evaporator Area": 80.0,
+        "Condenser Area": 25.0,
+        "Compressor Design Flow": 120.0
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    }
+  ],
+  "terminal_feed_ports": [
+    "requirements.outlet"
+  ],
+  "terminal_product_ports": [
+    "family.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "load official design table, construct process-family MILP, solve or preserve official notebook evidence",
+    "solve_order": [
+      "requirements",
+      "alternatives",
+      "decision_policy",
+      "platform",
+      "selection",
+      "objective",
+      "family"
+    ]
+  },
+  "solve": {
+    "solver": "appsi_highs",
+    "steady_state": false,
+    "expected_dof": null
+  }
+}

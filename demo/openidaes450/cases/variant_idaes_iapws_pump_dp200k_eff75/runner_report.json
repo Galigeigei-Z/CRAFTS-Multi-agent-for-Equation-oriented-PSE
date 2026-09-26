@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "case_id": "variant_idaes_iapws_pump_dp200k_eff75",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "specification_binding": [
+    {
+      "specification": {
+        "target": "feed",
+        "variable": "flow_mol",
+        "value": 100,
+        "units": "mol/s",
+        "role": "water feed",
+        "source": "derived_local_variant",
+        "source_url": "local://examples/pump/source_root/notebook_build.py"
+      },
+      "target": "('feed', 'flow_mol')",
+      "value": 100.0
+    },
+    {
+      "specification": {
+        "target": "feed",
+        "variable": "temperature",
+        "value": 298.15,
+        "units": "K",
+        "role": "water feed temperature",
+        "source": "derived_local_variant",
+        "source_url": "local://examples/pump/source_root/notebook_build.py"
+      },
+      "target": "('feed', 'temperature')",
+      "value": 298.15
+    },
+    {
+      "specification": {
+        "target": "pump",
+        "variable": "deltaP",
+        "value": 200000,
+        "units": "Pa",
+        "role": "pressure lift",
+        "source": "derived_local_variant",
+        "source_url": "local://examples/pump/source_root/notebook_build.py"
+      },
+      "target": "('pump', 'deltaP')",
+      "value": 200000.0
+    },
+    {
+      "specification": {
+        "target": "pump",
+        "variable": "efficiency_pump",
+        "value": 0.75,
+        "units": "dimensionless",
+        "role": "pump efficiency",
+        "source": "derived_local_variant",
+        "source_url": "local://examples/pump/source_root/notebook_build.py"
+      },
+      "target": "('pump', 'efficiency_pump')",
+      "value": 0.75
+    }
+  ],
+  "all_specifications_consumed": true,
+  "fidelity": "native IDAES unit equations with physical Feed/Product boundaries",
+  "solver_summary_file": "solver_summary.json"
+}

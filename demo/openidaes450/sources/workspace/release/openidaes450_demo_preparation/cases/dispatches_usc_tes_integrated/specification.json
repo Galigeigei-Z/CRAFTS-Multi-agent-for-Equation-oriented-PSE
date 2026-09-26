@@ -1,0 +1,44 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_usc_tes_integrated",
+  "family": "family_dispatches_usc_tes_integrated",
+  "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/integrated_storage_with_ultrasupercritical_power_plant.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "usc_plant",
+      "variable": "base_load",
+      "value": "USC plant initialized from official DISPATCHES data",
+      "units": "MW",
+      "role": "base USC operating point",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/integrated_storage_with_ultrasupercritical_power_plant.py"
+    },
+    {
+      "target": "hot_salt_inventory",
+      "variable": "tank_scenario",
+      "value": "hot_empty/hot_half_full/hot_full",
+      "units": "scenario",
+      "role": "official tank inventory scenario selector",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant/storage/integrated_storage_with_ultrasupercritical_power_plant.py"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "topology reference validation from official DISPATCHES integrated USC storage source; full NLP solve is not run in this lightweight case",
+    "solve_order": [
+      "usc_plant",
+      "charge storage",
+      "discharge storage",
+      "inventory and power accounting"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  }
+}

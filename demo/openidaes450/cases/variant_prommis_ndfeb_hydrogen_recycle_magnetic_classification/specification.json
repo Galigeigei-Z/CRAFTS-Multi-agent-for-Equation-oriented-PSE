@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_ndfeb_hydrogen_recycle_magnetic_classification",
+  "family": "family_ndfeb_hydrogen",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "magnetic_cut_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "nd_rich_recovery",
+      "value": 0.8899999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_oxygen_fraction",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fresh_hydrogen_index",
+      "value": 0.01,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fines_fraction",
+      "value": 0.09999999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "MAGNET.outlet",
+    "H2.outlet"
+  ],
+  "terminal_product_ports": [
+    "ND.inlet",
+    "FE.inlet",
+    "FINES.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet",
+    "chemical_change": "Adds hydrogen cleanup/recycle and a magnetic product split after decrepitation.",
+    "native_metrics": {
+      "nd_rich_recovery": 0.8899999999999999,
+      "product_oxygen_fraction": 0.0,
+      "fresh_hydrogen_index": 0.01,
+      "fines_fraction": 0.09999999999999999
+    }
+  }
+}

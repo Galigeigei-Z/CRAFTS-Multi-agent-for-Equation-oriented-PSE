@@ -1,0 +1,225 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_ndfeb_hydrogen_recycle_magnetic_classification",
+  "family": "family_ndfeb_hydrogen",
+  "process_type": "NdFeB Hydrogen Decrepitation with H2 Recycle and Magnetic Classification",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_hydrogen_decrepitation_flowsheet.",
+    "Adds hydrogen cleanup/recycle and a magnetic product split after decrepitation.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "NdFeB",
+        "H2",
+        "Nd_rich_alloy",
+        "Fe_rich_alloy"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet"
+    }
+  },
+  "components": {
+    "tracked": [
+      "NdFeB",
+      "H2",
+      "Nd_rich_alloy",
+      "Fe_rich_alloy"
+    ]
+  },
+  "units": [
+    {
+      "id": "MAGNET",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "waste NdFeB magnets",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "hydrogen makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HD",
+      "kind": "HydrogenDecrepitationFurnace",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "fragment magnets",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CY1",
+      "kind": "Cyclone",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "remove fines",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MAG",
+      "kind": "MagneticSeparator",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "Nd-rich classification",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "hydrogen recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ND",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "Nd-rich alloy",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "iron-rich fraction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FINES",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ndfeb_hydrogen",
+      "role": "oxidized fines",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "MAGNET.outlet",
+      "destination": "HD.solid",
+      "stage": "ndfeb_hydrogen",
+      "role": "magnet feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "H2.outlet",
+      "destination": "HD.gas",
+      "stage": "ndfeb_hydrogen",
+      "role": "hydrogen makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "HD.solid_out",
+      "destination": "CY1.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "decrepitated powder",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CY1.coarse",
+      "destination": "MAG.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "coarse alloy",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CY1.fines",
+      "destination": "FINES.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "fines",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "MAG.magnetic",
+      "destination": "ND.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "Nd-rich product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "MAG.nonmagnetic",
+      "destination": "FE.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "iron-rich product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "HD.gas_out",
+      "destination": "S1.inlet",
+      "stage": "ndfeb_hydrogen",
+      "role": "used hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "S1.recycle",
+      "destination": "HD.recycle",
+      "stage": "ndfeb_hydrogen",
+      "role": "clean H2 recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "MAGNET.outlet",
+    "H2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "ND.inlet",
+    "FE.inlet",
+    "FINES.inlet"
+  ],
+  "tear_streams": [
+    "s09"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet",
+    "chemical_change": "Adds hydrogen cleanup/recycle and a magnetic product split after decrepitation.",
+    "native_metrics": {
+      "nd_rich_recovery": 0.8899999999999999,
+      "product_oxygen_fraction": 0.0,
+      "fresh_hydrogen_index": 0.01,
+      "fines_fraction": 0.09999999999999999
+    }
+  }
+}

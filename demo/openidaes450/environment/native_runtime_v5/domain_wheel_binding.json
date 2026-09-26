@@ -1,0 +1,19 @@
+{
+  "schema_version": "nc-v5-domain-wheel-binding/1",
+  "source_manifest": "experiment/environments/native_runtime_v3/wheelhouse/manifest.json",
+  "wheels": [
+    {
+      "path": "experiment/environments/native_runtime_v3/wheelhouse/watertap-1.7.dev0-py3-none-any.whl"
+    },
+    {
+      "path": "experiment/environments/native_runtime_v3/wheelhouse/prommis-0.0+g57e405ece-py3-none-any.whl"
+    },
+    {
+      "path": "experiment/environments/native_runtime_v3/wheelhouse/dispatches-1.3.dev0-py3-none-any.whl"
+    },
+    {
+      "path": "experiment/environments/native_runtime_v5/wheelhouse/gridx_prescient-2.2.2-py3-none-any.whl"
+    }
+  ],
+  "reason": "pytest is an explicit runtime dependency because the frozen PrOMMiS wheel imports it transitively during native branch construction"
+}

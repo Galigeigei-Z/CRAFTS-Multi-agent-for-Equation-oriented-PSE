@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:topology-ir/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "family", "units", "arcs"],
+  "properties": {
+    "schema_version": {"const": "topology_ir/1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "family": {"type": "string", "minLength": 1},
+    "process_type": {"type": "string"},
+    "source_url": {"type": "string"},
+    "source_basis": {"type": "array"},
+    "property_packages": {"type": "object"},
+    "components": {"type": "object"},
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "package", "stage", "constructor"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string", "minLength": 1},
+          "package": {"type": "string", "minLength": 1},
+          "stage": {"type": "string"},
+          "role": {"type": "string"},
+          "constructor": {"type": "object"},
+          "constraint_template": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "arcs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "source", "destination", "stage"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1},
+          "destination": {"type": "string", "minLength": 1},
+          "stage": {"type": "string"},
+          "role": {"type": "string"},
+          "is_recycle": {"type": "boolean"},
+          "tear_candidate": {"type": "boolean"}
+        }
+      }
+    },
+    "feed_specs": {"type": "array"},
+    "unit_specs": {"type": "array"},
+    "unconnected_feed_ports": {"type": "array"},
+    "unconnected_product_ports": {"type": "array"},
+    "tear_streams": {"type": "array"},
+    "translator_constraint_templates": {"type": "object"},
+    "translator_constraints": {"type": "array"},
+    "initialization": {"type": "object"},
+    "solve": {"type": "object"},
+    "required_entries": {"type": "array"},
+    "notes_for_agent_a": {"type": "array"},
+    "visual_evidence": {"type": "object"}
+  }
+}

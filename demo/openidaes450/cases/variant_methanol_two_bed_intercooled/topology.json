@@ -1,0 +1,459 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_two_bed_intercooled",
+  "family": "family_methanol_synthesis",
+  "process_type": "Two-bed methanol synthesis with interstage cooling and product flash",
+  "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py",
+  "source_basis": [
+    "Topology-distinct variant of the existing methanol single-pass case.",
+    "Two 50% per-bed conversions yield approximately 75% overall fresh-CO conversion.",
+    "Interstage cooling resets the second-bed inlet to 488.15 K and distributes exothermic heat removal."
+  ],
+  "property_packages": {
+    "methanol_vapor": {
+      "components": [
+        "H2",
+        "CO",
+        "CH3OH",
+        "CH4"
+      ],
+      "phases": [
+        "Vap"
+      ]
+    },
+    "methanol_VLE": {
+      "components": [
+        "H2",
+        "CO",
+        "CH3OH",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ]
+    }
+  },
+  "components": {
+    "synthesis": [
+      "H2",
+      "CO",
+      "CH3OH",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "methanol_vapor",
+      "stage": "feed",
+      "role": "hydrogen feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO",
+      "kind": "Feed",
+      "package": "methanol_vapor",
+      "stage": "feed",
+      "role": "carbon monoxide feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "methanol_vapor",
+      "stage": "feed",
+      "role": "combine fresh syngas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "methanol_vapor",
+      "stage": "feed",
+      "role": "raise synthesis-loop pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "methanol_vapor",
+      "stage": "reaction",
+      "role": "set first-bed inlet temperature",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "StoichiometricReactor",
+      "package": "methanol_vapor",
+      "stage": "reaction",
+      "role": "first methanol synthesis bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H103",
+      "kind": "Heater",
+      "package": "methanol_vapor",
+      "stage": "reaction",
+      "role": "remove heat between catalyst beds",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R102",
+      "kind": "StoichiometricReactor",
+      "package": "methanol_vapor",
+      "stage": "reaction",
+      "role": "second methanol synthesis bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "T101",
+      "kind": "Turbine",
+      "package": "methanol_vapor",
+      "stage": "recovery",
+      "role": "recover pressure work",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H102",
+      "kind": "Heater",
+      "package": "methanol_vapor",
+      "stage": "separation",
+      "role": "cool reactor product before condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "methanol_VLE",
+      "stage": "separation",
+      "role": "condense methanol product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EXHAUST",
+      "kind": "Product",
+      "package": "methanol_VLE",
+      "stage": "product",
+      "role": "uncondensed gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CH3OH",
+      "kind": "Product",
+      "package": "methanol_VLE",
+      "stage": "product",
+      "role": "liquid methanol-rich product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "H2.outlet",
+      "destination": "M101.H2_feed",
+      "stage": "feed",
+      "role": "hydrogen to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "CO.outlet",
+      "destination": "M101.CO_feed",
+      "stage": "feed",
+      "role": "CO to mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "C101.inlet",
+      "stage": "feed",
+      "role": "fresh syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "C101.outlet",
+      "destination": "H101.inlet",
+      "stage": "feed",
+      "role": "compressed syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "H101.outlet",
+      "destination": "R101.inlet",
+      "stage": "reaction",
+      "role": "first-bed feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "R101.outlet",
+      "destination": "H103.inlet",
+      "stage": "reaction",
+      "role": "hot first-bed effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "H103.outlet",
+      "destination": "R102.inlet",
+      "stage": "reaction",
+      "role": "intercooled second-bed feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "R102.outlet",
+      "destination": "T101.inlet",
+      "stage": "recovery",
+      "role": "second-bed effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "T101.outlet",
+      "destination": "H102.inlet",
+      "stage": "separation",
+      "role": "depressurized product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "H102.outlet",
+      "destination": "F101.inlet",
+      "stage": "separation",
+      "role": "cooled flash feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11",
+      "source": "F101.vap_outlet",
+      "destination": "EXHAUST.inlet",
+      "stage": "product",
+      "role": "uncondensed gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s12",
+      "source": "F101.liq_outlet",
+      "destination": "CH3OH.inlet",
+      "stage": "product",
+      "role": "methanol-rich liquid",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "H2",
+      "variable": "outlet.flow_mol[0]",
+      "value": 637.2,
+      "units": "mol/s",
+      "role": "fresh hydrogen flow",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.flow_mol[0]",
+      "value": 316.8,
+      "units": "mol/s",
+      "role": "fresh CO flow",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H2",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "CO feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 5100000,
+      "units": "Pa",
+      "role": "synthesis pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "first-bed inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "co_conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "first-bed CO conversion",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "first-bed outlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H103",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "second-bed inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R102",
+      "variable": "co_conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "second-bed CO conversion on remaining CO",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R102",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "second-bed outlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "T101",
+      "variable": "deltaP[0]",
+      "value": -2000000,
+      "units": "Pa",
+      "role": "expander pressure drop",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "T101",
+      "variable": "efficiency_isentropic[0]",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "expander efficiency",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure change",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "methanol condensation temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "H2.outlet",
+    "CO.outlet"
+  ],
+  "unconnected_product_ports": [
+    "EXHAUST.inlet",
+    "CH3OH.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "acyclic unit-by-unit propagation followed by simultaneous solve",
+    "tear_destination": null,
+    "solve_order": [
+      "H2",
+      "CO",
+      "M101",
+      "C101",
+      "H101",
+      "R101",
+      "H103",
+      "R102",
+      "T101",
+      "H102",
+      "F101",
+      "EXHAUST",
+      "CH3OH"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Mixer",
+    "Compressor",
+    "Heater",
+    "StoichiometricReactor",
+    "Turbine",
+    "Flash",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep the two reactor beds and H103 as separate units.",
+    "Do not describe the case as recycle synthesis; all uncondensed gas exits as exhaust."
+  ]
+}

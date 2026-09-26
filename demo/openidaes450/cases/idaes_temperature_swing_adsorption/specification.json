@@ -1,0 +1,59 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_fixed_bed_tsa0d",
+  "family": "family_fixed_bed_tsa0d",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "tsa",
+      "variable": "adsorption_temperature",
+      "value": 310.0,
+      "units": "K",
+      "role": "official default adsorption temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "tsa",
+      "variable": "desorption_temperature",
+      "value": 430.0,
+      "units": "K",
+      "role": "official default desorption temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "tsa",
+      "variable": "heating_temperature",
+      "value": 440.0,
+      "units": "K",
+      "role": "official default heating fluid temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "tsa",
+      "variable": "cooling_temperature",
+      "value": 300.0,
+      "units": "K",
+      "role": "official default cooling fluid temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official FixedBedTSA0D initializer false-position step sequence",
+    "solve_order": [
+      "tsa"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_official_fixed_bed_tsa0d",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_natural_gas_glycol_dehydration",
+  "family": "family_gas_dehydration",
+  "process_type": "Natural-Gas Pipeline with TEG Dehydration and Regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent idaes_natural_gas_pipeline_network.",
+    "Adds water-selective absorption and a closed TEG regeneration loop to protect the pipeline from hydrates/corrosion.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "H2O",
+        "TEG"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_natural_gas_pipeline_network"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "H2O",
+      "TEG"
+    ]
+  },
+  "units": [
+    {
+      "id": "WETGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "wet natural gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "TEG water absorption",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DRYGAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "dry pipeline gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLASH",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "remove absorbed hydrocarbons",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "REG",
+      "kind": "Stripper",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "regenerate rich TEG",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "lean TEG recycle and makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TEG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "TEG makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "gas_dehydration",
+      "role": "removed water",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WETGAS.outlet",
+      "destination": "ABS.gas",
+      "stage": "gas_dehydration",
+      "role": "wet gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ABS.dry_gas",
+      "destination": "DRYGAS.inlet",
+      "stage": "gas_dehydration",
+      "role": "dry gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ABS.rich_teg",
+      "destination": "FLASH.inlet",
+      "stage": "gas_dehydration",
+      "role": "rich TEG",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "FLASH.liquid",
+      "destination": "REG.inlet",
+      "stage": "gas_dehydration",
+      "role": "flashed rich TEG",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "REG.water",
+      "destination": "WATER.inlet",
+      "stage": "gas_dehydration",
+      "role": "water overhead",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "REG.lean_teg",
+      "destination": "S101.inlet",
+      "stage": "gas_dehydration",
+      "role": "lean TEG",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.recycle",
+      "destination": "ABS.teg",
+      "stage": "gas_dehydration",
+      "role": "TEG recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "TEG.outlet",
+      "destination": "S101.makeup",
+      "stage": "gas_dehydration",
+      "role": "TEG makeup",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "WETGAS.outlet",
+    "TEG.outlet"
+  ],
+  "unconnected_product_ports": [
+    "DRYGAS.inlet",
+    "WATER.inlet"
+  ],
+  "tear_streams": [
+    "s07"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_natural_gas_pipeline_network"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_natural_gas_pipeline_network",
+    "chemical_change": "Adds water-selective absorption and a closed TEG regeneration loop to protect the pipeline from hydrates/corrosion.",
+    "native_metrics": {
+      "water_removal_fraction": 0.9903423023724622,
+      "dry_gas_water_kg_s": 9.657697627537782e-06,
+      "teg_loss_kg_s": 0.000116,
+      "regenerator_duty_kW": 174.0
+    }
+  }
+}

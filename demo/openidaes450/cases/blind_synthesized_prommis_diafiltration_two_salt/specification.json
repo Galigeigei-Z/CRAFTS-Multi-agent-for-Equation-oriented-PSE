@@ -1,0 +1,22 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_diafiltration_two_salt",
+  "family": "family_prommis_diafiltration_two_salt",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.nanofiltration.diafiltration_flowsheet_two_salt.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official MultiComponentDiafiltration default initializer",
+    "solve_order": [
+      "membrane"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "local_btx_flash_canary",
+  "family": "family_btx_flash_canary",
+  "source_url": "local://examples/official_structfs_flash_flowsheet",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flash.inlet",
+      "variable": "flow_mol[0]",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "BTX feed molar flow",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "temperature[0]",
+      "value": 368.0,
+      "units": "K",
+      "role": "BTX feed temperature",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "pressure[0]",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "BTX feed pressure",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "mole_frac_comp[0, 'benzene']",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "feed benzene mole fraction",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash.inlet",
+      "variable": "mole_frac_comp[0, 'toluene']",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "feed toluene mole fraction",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash",
+      "variable": "heat_duty[0]",
+      "value": 0.0,
+      "units": "W",
+      "role": "adiabatic flash duty",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    },
+    {
+      "target": "flash",
+      "variable": "deltaP[0]",
+      "value": 0.0,
+      "units": "Pa",
+      "role": "flash pressure drop",
+      "source": "reference",
+      "source_url": "local://examples/official_structfs_flash_flowsheet"
+    }
+  ],
+  "terminal_feed_ports": [
+    "flash.inlet"
+  ],
+  "terminal_product_ports": [
+    "flash.vap_outlet",
+    "flash.liq_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "direct Flash.initialize()",
+    "solve_order": [
+      "flash"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

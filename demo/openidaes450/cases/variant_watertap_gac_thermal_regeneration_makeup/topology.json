@@ -1,0 +1,203 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_gac_thermal_regeneration_makeup",
+  "family": "family_gac_regeneration",
+  "process_type": "Lead-Lag GAC with Thermal Regeneration and Carbon Makeup",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_gac_unit.",
+    "Adds a second bed, spent-carbon withdrawal, regenerator, capacity decay and makeup loop rather than a replacement-fraction operating point.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "organic_contaminant",
+        "activated_carbon"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_gac_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "organic_contaminant",
+      "activated_carbon"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "organic-contaminant water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GAC1",
+      "kind": "GAC",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "lead adsorber",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GAC2",
+      "kind": "GAC",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "lag adsorber",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "treated water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RG101",
+      "kind": "ThermalRegenerator",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "desorb spent carbon",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "regenerated and virgin carbon",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MAKEUP",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "virgin GAC makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "OFFGAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "gac_regeneration",
+      "role": "regeneration offgas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "GAC1.inlet",
+      "stage": "gac_regeneration",
+      "role": "contaminated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "GAC1.outlet",
+      "destination": "GAC2.inlet",
+      "stage": "gac_regeneration",
+      "role": "lead-bed effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "GAC2.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "gac_regeneration",
+      "role": "treated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "GAC1.spent_carbon",
+      "destination": "RG101.inlet",
+      "stage": "gac_regeneration",
+      "role": "spent carbon",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RG101.regenerated",
+      "destination": "M101.regenerated",
+      "stage": "gac_regeneration",
+      "role": "regenerated GAC",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "MAKEUP.outlet",
+      "destination": "M101.makeup",
+      "stage": "gac_regeneration",
+      "role": "virgin carbon",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "M101.outlet",
+      "destination": "GAC2.carbon",
+      "stage": "gac_regeneration",
+      "role": "restored lag bed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "RG101.offgas",
+      "destination": "OFFGAS.inlet",
+      "stage": "gac_regeneration",
+      "role": "desorbed contaminant",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet",
+    "MAKEUP.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "OFFGAS.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_gac_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_gac_unit",
+    "chemical_change": "Adds a second bed, spent-carbon withdrawal, regenerator, capacity decay and makeup loop rather than a replacement-fraction operating point.",
+    "native_metrics": {
+      "effective_capacity_kg_kg": 0.255,
+      "carbon_throughput_kg_s": 0.00392156862745098,
+      "virgin_makeup_kg_s": 0.0013921568627450979,
+      "regeneration_energy_kW": 0.005294117647058823
+    }
+  }
+}

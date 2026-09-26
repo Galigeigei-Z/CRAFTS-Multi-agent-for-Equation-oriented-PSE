@@ -1,0 +1,220 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_md_multistage_condensation",
+  "family": "family_md_condensation_cascade",
+  "process_type": "Vacuum MD with Multistage Condensation Heat Cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent watertap_membrane_distillation.",
+    "Adds vapor condensation staging and feed-heat cascade rather than changing only membrane temperature.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NaCl",
+        "water_vapor",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_membrane_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NaCl",
+      "water_vapor",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "hot saline feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MD",
+      "kind": "MembraneDistillation",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "vacuum vapor transfer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "vapor split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C1",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "high-temperature condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C2",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "low-temperature condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "feed preheat cascade",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "distillate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CONC",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "md_condensation_cascade",
+      "role": "concentrate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "HX1.cold_inlet",
+      "stage": "md_condensation_cascade",
+      "role": "cold feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HX1.cold_outlet",
+      "destination": "MD.feed",
+      "stage": "md_condensation_cascade",
+      "role": "preheated brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "MD.vapor",
+      "destination": "S1.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "water vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S1.high",
+      "destination": "C1.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "high-T vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S1.low",
+      "destination": "C2.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "low-T vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "C1.heat",
+      "destination": "HX1.hot1",
+      "stage": "md_condensation_cascade",
+      "role": "high-grade latent heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "C2.heat",
+      "destination": "HX1.hot2",
+      "stage": "md_condensation_cascade",
+      "role": "low-grade latent heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "C1.liquid",
+      "destination": "WATER.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "distillate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "C2.liquid",
+      "destination": "WATER.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "distillate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "MD.retentate",
+      "destination": "CONC.inlet",
+      "stage": "md_condensation_cascade",
+      "role": "concentrate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "WATER.inlet",
+    "CONC.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_membrane_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_membrane_distillation",
+    "chemical_change": "Adds vapor condensation staging and feed-heat cascade rather than changing only membrane temperature.",
+    "native_metrics": {
+      "water_recovery": 0.8575,
+      "distillate_salinity": 0.00047999999999999985,
+      "vacuum_power_kW": 51.25,
+      "external_heat_index": 0.425
+    }
+  }
+}

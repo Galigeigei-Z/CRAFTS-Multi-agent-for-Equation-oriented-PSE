@@ -1,0 +1,213 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "official_subcritical_boiler",
+  "family": "family_subcritical_boiler",
+  "process_type": "Official IDAES subcritical boiler recirculation system with drum, downcomer, and waterwall sections",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/subcritical/subcritical_boiler_doc.html",
+  "source_basis": [
+    "Official IDAES Subcritical Boiler example displays sub_boiler_1.png.",
+    "The official description states the model includes drum, downcomer, and waterwall sections.",
+    "Drum liquid outlet connects to downcomer; downcomer outlet connects to the first waterwall section; waterwall sections connect upward; final waterwall outlet returns to drum water_steam_inlet."
+  ],
+  "property_packages": {
+    "prop_water": {
+      "entry_id": "iapws95_water_steam",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Mix"
+      ],
+      "scope": [
+        "drum",
+        "downcomer",
+        "Waterwalls"
+      ]
+    },
+    "prop_gas": {
+      "entry_id": "flue_gas_ideal",
+      "components": [
+        "N2",
+        "O2",
+        "CO2",
+        "H2O",
+        "SO2"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "waterwall fireside placeholders"
+      ]
+    }
+  },
+  "components": {
+    "water_steam": [
+      "H2O"
+    ],
+    "flue_gas": [
+      "N2",
+      "O2",
+      "CO2",
+      "H2O",
+      "SO2"
+    ]
+  },
+  "units": [
+    {
+      "id": "feedwater_source",
+      "kind": "Feed",
+      "package": "prop_water",
+      "stage": "feedwater",
+      "role": "economizer feedwater boundary",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "drum",
+      "kind": "Drum",
+      "package": "prop_water",
+      "stage": "recirculation_loop",
+      "role": "steam drum separator with feedwater inlet, liquid outlet, water-steam inlet, and steam outlet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "downcomer",
+      "kind": "Downcomer",
+      "package": "prop_water",
+      "stage": "recirculation_loop",
+      "role": "natural-circulation downcomer tube/pipe model",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waterwall_01",
+      "kind": "WaterwallSection",
+      "package": "prop_water",
+      "stage": "waterwall_train",
+      "role": "first lower waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waterwall_02",
+      "kind": "WaterwallSection",
+      "package": "prop_water",
+      "stage": "waterwall_train",
+      "role": "intermediate waterwall section",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waterwall_10",
+      "kind": "WaterwallSection",
+      "package": "prop_water",
+      "stage": "waterwall_train",
+      "role": "final upper waterwall section returning to drum",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "steam_outlet",
+      "kind": "Product",
+      "package": "prop_water",
+      "stage": "steam_product",
+      "role": "drum vapor steam outlet",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feedwater_to_drum",
+      "source": "feedwater_source.outlet",
+      "destination": "drum.feedwater_inlet",
+      "stage": "feedwater",
+      "role": "feedwater from economizer to drum",
+      "tear_candidate": false
+    },
+    {
+      "id": "drum_to_downcomer",
+      "source": "drum.liquid_outlet",
+      "destination": "downcomer.inlet",
+      "stage": "recirculation_loop",
+      "role": "drum liquid outlet to downcomer",
+      "tear_candidate": false
+    },
+    {
+      "id": "downcomer_to_waterwall_01",
+      "source": "downcomer.outlet",
+      "destination": "waterwall_01.inlet",
+      "stage": "recirculation_loop",
+      "role": "downcomer outlet to first waterwall",
+      "tear_candidate": false
+    },
+    {
+      "id": "waterwall_01_to_02",
+      "source": "waterwall_01.outlet",
+      "destination": "waterwall_02.inlet",
+      "stage": "waterwall_train",
+      "role": "waterwall section connection",
+      "tear_candidate": false
+    },
+    {
+      "id": "waterwall_02_to_10",
+      "source": "waterwall_02.outlet",
+      "destination": "waterwall_10.inlet",
+      "stage": "waterwall_train",
+      "role": "compressed representation of remaining waterwall sections",
+      "tear_candidate": false
+    },
+    {
+      "id": "waterwall_10_to_drum",
+      "source": "waterwall_10.outlet",
+      "destination": "drum.water_steam_inlet",
+      "stage": "recirculation_loop",
+      "role": "final waterwall outlet returns to drum",
+      "tear_candidate": false
+    },
+    {
+      "id": "drum_steam_to_product",
+      "source": "drum.steam_outlet",
+      "destination": "steam_outlet.inlet",
+      "stage": "steam_product",
+      "role": "steam product from drum",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official subcritical_boiler.create_model/set_inputs/initialize",
+    "solve_order": [
+      "drum",
+      "downcomer",
+      "waterwall_sections"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0,
+    "web_test_mode": "topology_only"
+  },
+  "required_entries": [
+    "official_subcritical_boiler",
+    "sub_boiler_1.png",
+    "Drum",
+    "Downcomer",
+    "WaterwallSection",
+    "iapws95_water_steam"
+  ],
+  "notes_for_agent_a": [
+    "Topology-only web regression until the full official solve runner is wired."
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_ethanol_dehydration_water_knockout",
+  "family": "family_idaes_ethanol_dehydration_water_knockout",
+  "process_type": "Ethanol Dehydration with Water Knockout and Ethylene Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_hda_flash.",
+    "Couples equilibrium conversion to water condensation and unreacted-ethanol recycle.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "ethanol",
+        "ethylene",
+        "H2O",
+        "ether"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_hda_flash"
+    }
+  },
+  "components": {
+    "tracked": [
+      "ethanol",
+      "ethylene",
+      "H2O",
+      "ether"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "reactant feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "combine fresh and recovered reactants",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "chemically reactive conversion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E101",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "condition reactor effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "V101",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "recover product and unconverted reactants",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "purified chemical product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "byproduct and inert purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.fresh",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "fresh reactants",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "R101.inlet",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "reactor feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R101.outlet",
+      "destination": "E101.inlet",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "hot reactor effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "E101.outlet",
+      "destination": "V101.inlet",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "conditioned two-phase effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "V101.product",
+      "destination": "PRODUCT.inlet",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "recovered product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "V101.recycle",
+      "destination": "M101.recycle",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "unconverted reactant recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "V101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "idaes_ethanol_dehydration_water_knockout",
+      "role": "byproduct purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_flash"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_flash",
+    "chemical_change": "Couples equilibrium conversion to water condensation and unreacted-ethanol recycle.",
+    "native_metrics": {
+      "reactant_conversion": 0.8564000000000002,
+      "product_recovery": 0.892,
+      "byproduct_purge_fraction": 0.054,
+      "specific_energy_index": 0.496,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

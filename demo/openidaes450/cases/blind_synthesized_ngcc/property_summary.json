@@ -1,0 +1,55 @@
+{
+  "case_id": "blind_synthesized_ngcc",
+  "applicability": "model_parameter_packages",
+  "package_count": 8,
+  "packages": [
+    {
+      "name": "fs.gt.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.gt.air_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.gt.cmb_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.gt.flue_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.gt.gas_combustion",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.hrsg.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.hrsg.prop_gas",
+      "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock",
+      "module": "idaes.models_extra.power_generation.properties.flue_gas_ideal",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.st.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

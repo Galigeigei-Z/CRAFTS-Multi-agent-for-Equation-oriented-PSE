@@ -1,0 +1,124 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_membrane_distillation",
+  "family": "family_watertap_membrane_distillation",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "feed_flow_mass",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "official default total feed mass flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "feed",
+      "variable": "feed_mass_frac_TDS",
+      "value": 0.035,
+      "units": "mass fraction",
+      "role": "official default feed salinity",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "system",
+      "variable": "overall_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "official default overall water recovery",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "MD",
+      "variable": "permeability_coef",
+      "value": 1e-10,
+      "units": "kg/m/s/Pa",
+      "role": "official membrane permeability coefficient",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "MD",
+      "variable": "membrane_thickness",
+      "value": 0.0001,
+      "units": "m",
+      "role": "official membrane thickness",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "MD",
+      "variable": "membrane_thermal_conductivity",
+      "value": 0.2,
+      "units": "W/m/K",
+      "role": "official membrane thermal conductivity",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "hx",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 2000.0,
+      "units": "W/m^2/K",
+      "role": "official heat exchanger coefficient",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "heater",
+      "variable": "max_outlet_temperature",
+      "value": 363.15,
+      "units": "K",
+      "role": "optimization upper bound from official case",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "chiller",
+      "variable": "min_outlet_temperature",
+      "value": 283.15,
+      "units": "K",
+      "role": "optimization lower bound from official case",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "final WaterTAP optimization objective",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP MD build, set_operating_conditions, initialize_system through hot and cold recycle loops, simulation solve, then optimize_set_up and LCOW solve",
+    "solve_order": [
+      "feed",
+      "MD",
+      "concentrate separator",
+      "feed pump",
+      "mixer",
+      "heat exchanger",
+      "brine pump",
+      "heater",
+      "permeate separator",
+      "permeate pump",
+      "chiller",
+      "LCOW optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": "0 for simulation, 6 for optimization"
+  }
+}

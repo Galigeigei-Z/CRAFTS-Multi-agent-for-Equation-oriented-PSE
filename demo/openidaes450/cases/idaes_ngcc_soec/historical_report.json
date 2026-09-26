@@ -1,0 +1,35 @@
+{
+  "case_family": "idaes_ngcc_soec",
+  "checks": [
+    {
+      "name": "official_source_model_executed",
+      "pass": true
+    },
+    {
+      "actual": "optimal",
+      "name": "solver_termination_accepted",
+      "pass": true
+    },
+    {
+      "actual": 3,
+      "name": "official_assertions_passed",
+      "pass": true
+    }
+  ],
+  "claim_boundary": "Official source model/test completed with its solver and assertions.",
+  "executed_at": "2026-07-11T02:40:00+08:00",
+  "execution": "official IDAES NGCC-SOEC integrated flowsheet solve",
+  "final_dof": 0,
+  "outputs": {
+    "constraints": 4285,
+    "net_power_mw": -73.25446675404191,
+    "variables": 4285
+  },
+  "pass": true,
+  "solver": "ipopt 3.13.2 ma57",
+  "source_commit": null,
+  "source_url": "https://github.com/IDAES/examples/blob/main/idaes_examples/mod/power_gen/ngcc_soec.py",
+  "stage": "native_official_source_solve",
+  "status": "solved",
+  "termination_condition": "optimal"
+}

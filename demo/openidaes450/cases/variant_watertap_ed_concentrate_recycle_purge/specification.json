@@ -1,0 +1,100 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_ed_concentrate_recycle_purge",
+  "family": "family_ed_recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "concentrate_recycle_fraction",
+      "value": 0.18,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "loop_water_kg_s",
+      "value": 0.9826883910386965,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "loop_solute_kg_s",
+      "value": 0.040887850467289724,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_water_kg_s",
+      "value": 0.8844195519348269,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_solute_kg_s",
+      "value": 0.008177570093457943,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_water_kg_s",
+      "value": 0.08058044806517313,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_solute_kg_s",
+      "value": 0.026822429906542065,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "DILUATE.inlet",
+    "CONC.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_electrodialysis_conc_recirc"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_electrodialysis_conc_recirc",
+    "chemical_change": "Makes concentrate recycle a binding electrochemical/material-loop decision instead of a fixed recirculation ratio.",
+    "native_metrics": {
+      "loop_water_kg_s": 0.9826883910386965,
+      "loop_solute_kg_s": 0.040887850467289724,
+      "product_water_kg_s": 0.8844195519348269,
+      "product_solute_kg_s": 0.008177570093457943,
+      "purge_water_kg_s": 0.08058044806517313,
+      "purge_solute_kg_s": 0.026822429906542065
+    }
+  }
+}

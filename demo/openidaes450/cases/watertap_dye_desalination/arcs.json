@@ -1,0 +1,87 @@
+[
+  {
+    "name": "fs.s_feed",
+    "source": "fs.feed.outlet",
+    "destination": "fs.dye_separation.P1.inlet"
+  },
+  {
+    "name": "fs.s01",
+    "source": "fs.dye_separation.nanofiltration.byproduct",
+    "destination": "fs.tb_nf_gac.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.tb_nf_gac.outlet",
+    "destination": "fs.gac.inlet"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.gac.outlet",
+    "destination": "fs.treated.inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.gac.adsorbed",
+    "destination": "fs.concentrated_dye.inlet"
+  },
+  {
+    "name": "fs.s_nf",
+    "source": "fs.dye_separation.nanofiltration.treated",
+    "destination": "fs.tb_nf_ro.inlet"
+  },
+  {
+    "name": "fs.s_ro",
+    "source": "fs.tb_nf_ro.outlet",
+    "destination": "fs.desalination.S1.inlet"
+  },
+  {
+    "name": "fs.s_disposal",
+    "source": "fs.desalination.PXR.brine_outlet",
+    "destination": "fs.brine.inlet"
+  },
+  {
+    "name": "fs.s_permeate",
+    "source": "fs.desalination.RO.permeate",
+    "destination": "fs.permeate.inlet"
+  },
+  {
+    "name": "fs.dye_separation.s01",
+    "source": "fs.dye_separation.P1.outlet",
+    "destination": "fs.dye_separation.nanofiltration.inlet"
+  },
+  {
+    "name": "fs.desalination.s01",
+    "source": "fs.desalination.S1.P2",
+    "destination": "fs.desalination.P2.inlet"
+  },
+  {
+    "name": "fs.desalination.s02",
+    "source": "fs.desalination.P2.outlet",
+    "destination": "fs.desalination.M1.P2"
+  },
+  {
+    "name": "fs.desalination.s03",
+    "source": "fs.desalination.M1.outlet",
+    "destination": "fs.desalination.RO.inlet"
+  },
+  {
+    "name": "fs.desalination.s04",
+    "source": "fs.desalination.RO.retentate",
+    "destination": "fs.desalination.PXR.brine_inlet"
+  },
+  {
+    "name": "fs.desalination.s05",
+    "source": "fs.desalination.S1.PXR",
+    "destination": "fs.desalination.PXR.feed_inlet"
+  },
+  {
+    "name": "fs.desalination.s06",
+    "source": "fs.desalination.PXR.feed_outlet",
+    "destination": "fs.desalination.P3.inlet"
+  },
+  {
+    "name": "fs.desalination.s07",
+    "source": "fs.desalination.P3.outlet",
+    "destination": "fs.desalination.M1.P3"
+  }
+]

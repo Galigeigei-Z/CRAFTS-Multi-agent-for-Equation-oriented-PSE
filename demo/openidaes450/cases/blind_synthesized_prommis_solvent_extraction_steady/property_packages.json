@@ -1,0 +1,44 @@
+[
+  {
+    "name": "fs.prop_o",
+    "implementation": [
+      {
+        "class": "prommis.solvent_extraction.ree_og_distribution.REESolExOgParameterData"
+      },
+      {
+        "class": "prommis.solvent_extraction.ree_og_distribution.REESolExOgParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.solvent_extraction.ree_og_distribution.REESolExOgParameters",
+    "module": "prommis.solvent_extraction.ree_og_distribution",
+    "data_class": "prommis.solvent_extraction.ree_og_distribution.REESolExOgParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.leach_soln",
+    "implementation": [
+      {
+        "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameterData"
+      },
+      {
+        "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameters",
+    "module": "prommis.properties.sulfuric_acid_leaching_properties",
+    "data_class": "prommis.properties.sulfuric_acid_leaching_properties.SulfuricAcidLeachingParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

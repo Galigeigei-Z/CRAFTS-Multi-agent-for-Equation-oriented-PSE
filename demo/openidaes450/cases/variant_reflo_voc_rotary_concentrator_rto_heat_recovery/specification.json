@@ -1,0 +1,89 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reflo_voc_rotary_concentrator_rto_heat_recovery",
+  "family": "family_voc_rto",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "voc_concentration_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "rto_heat_recovery_fraction",
+      "value": 0.65,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "voc_destruction",
+      "value": 0.981,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "rto_temperature_K",
+      "value": 810.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "supplemental_fuel_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "wheel_temperature_K",
+      "value": 379.25,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "OFFGAS.outlet"
+  ],
+  "terminal_product_ports": [
+    "STACK.inlet",
+    "CLEAN.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_reflo_air_stripping_offgas_gac_polishing"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_reflo_air_stripping_offgas_gac_polishing",
+    "chemical_change": "Replaces disposable polishing with cyclic adsorption/desorption, concentrated oxidation and regenerative heat exchange.",
+    "native_metrics": {
+      "voc_destruction": 0.981,
+      "rto_temperature_K": 810.0,
+      "supplemental_fuel_index": 0.0,
+      "wheel_temperature_K": 379.25
+    }
+  }
+}

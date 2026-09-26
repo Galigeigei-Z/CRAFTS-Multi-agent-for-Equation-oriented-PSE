@@ -1,0 +1,211 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_sofc_anode_recycle_oxyfuel_capture",
+  "family": "family_sofc_anode_capture",
+  "process_type": "SOFC Anode Recycle with Oxyfuel Tail-Gas CO2 Capture",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_sofc_power_plant.",
+    "Adds electrochemical fuel recycle and oxygen combustion/condensation of anode tail gas.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "H2",
+        "CO",
+        "CO2",
+        "H2O",
+        "O2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_sofc_power_plant"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "H2",
+      "CO",
+      "CO2",
+      "H2O",
+      "O2"
+    ]
+  },
+  "units": [
+    {
+      "id": "FUEL",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "natural gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SOFC",
+      "kind": "FuelCell",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "electrochemical conversion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "anode recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "O2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "oxygen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "OX",
+      "kind": "Combustor",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "tail-gas oxy-combustion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "water removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "captured CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POWER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "sofc_anode_capture",
+      "role": "electricity",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FUEL.outlet",
+      "destination": "SOFC.fuel",
+      "stage": "sofc_anode_capture",
+      "role": "fuel",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SOFC.anode",
+      "destination": "S1.inlet",
+      "stage": "sofc_anode_capture",
+      "role": "anode exhaust",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S1.recycle",
+      "destination": "SOFC.recycle",
+      "stage": "sofc_anode_capture",
+      "role": "anode recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s04",
+      "source": "S1.purge",
+      "destination": "OX.fuel",
+      "stage": "sofc_anode_capture",
+      "role": "tail-gas purge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "O2.outlet",
+      "destination": "OX.oxygen",
+      "stage": "sofc_anode_capture",
+      "role": "oxygen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "OX.outlet",
+      "destination": "COND.inlet",
+      "stage": "sofc_anode_capture",
+      "role": "CO2/water gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "COND.gas",
+      "destination": "CO2.inlet",
+      "stage": "sofc_anode_capture",
+      "role": "dry CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SOFC.power",
+      "destination": "POWER.inlet",
+      "stage": "sofc_anode_capture",
+      "role": "electricity",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FUEL.outlet",
+    "O2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO2.inlet",
+    "POWER.inlet"
+  ],
+  "tear_streams": [
+    "s03"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_sofc_power_plant"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_sofc_power_plant",
+    "chemical_change": "Adds electrochemical fuel recycle and oxygen combustion/condensation of anode tail gas.",
+    "native_metrics": {
+      "electrical_efficiency": 0.573,
+      "co2_capture": 0.9570000000000001,
+      "carbon_deposition_index": 0.004999999999999999,
+      "oxygen_index": 0.108
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_asm1_clarifier_only_ras",
+  "family": "family_watertap_activated_sludge",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": 18446,
+      "units": "m3/day",
+      "role": "influent flow",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R1",
+      "variable": "volume",
+      "value": 1000,
+      "units": "m3",
+      "role": "anoxic reactor volume",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R2",
+      "variable": "volume",
+      "value": 1000,
+      "units": "m3",
+      "role": "anoxic reactor volume",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R3",
+      "variable": "volume",
+      "value": 1333,
+      "units": "m3",
+      "role": "aerobic reactor volume",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R4",
+      "variable": "volume",
+      "value": 1333,
+      "units": "m3",
+      "role": "aerobic reactor volume",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R5",
+      "variable": "volume",
+      "value": 1333,
+      "units": "m3",
+      "role": "aerobic reactor volume",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R3",
+      "variable": "KLa",
+      "value": 10,
+      "units": "1/hour",
+      "role": "oxygen transfer coefficient",
+      "source": "official_ASM1_control_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R4",
+      "variable": "KLa",
+      "value": 10,
+      "units": "1/hour",
+      "role": "oxygen transfer coefficient",
+      "source": "official_ASM1_control_configuration",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "R5",
+      "variable": "outlet.conc_mass_comp[0,'S_O']",
+      "value": 0.000449,
+      "units": "kg/m3",
+      "role": "R5 dissolved oxygen setpoint",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "SP5",
+      "variable": "split_fraction[0,'underflow']",
+      "value": 0.0,
+      "units": "dimensionless",
+      "role": "close direct R5 recycle branch",
+      "source": "native_variant_configuration",
+      "source_url": "local://stage3_specs_solve/watertap_asm1_clarifier_only_ras_model.py"
+    },
+    {
+      "target": "SP6",
+      "variable": "split_fraction[0,'recycle']",
+      "value": 0.97955,
+      "units": "dimensionless",
+      "role": "clarifier underflow RAS fraction",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    },
+    {
+      "target": "P1",
+      "variable": "outlet.pressure",
+      "value": 101325,
+      "units": "Pa",
+      "role": "recycle-loop pressure boundary",
+      "source": "official_ASM1_baseline",
+      "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FeedWater.outlet"
+  ],
+  "terminal_product_ports": [
+    "Treated.inlet",
+    "Sludge.inlet"
+  ],
+  "translator_constraint_templates": {
+    "oxygen_mass_transfer": "injection_O2 = KLa * volume * (S_O_eq - outlet_S_O)"
+  },
+  "initialization": {
+    "strategy": "solve official ASM1 then continue SP5 direct-recycle split through 0.50, 0.40, 0.30, 0.20, 0.10, 0.05, 0.02, 0.01, 0.005, 0.001, 0.00",
+    "solve_order": [
+      "official_ASM1_baseline",
+      "direct_recycle_continuation"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

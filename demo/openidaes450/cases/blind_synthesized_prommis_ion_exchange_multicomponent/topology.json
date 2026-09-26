@@ -1,0 +1,873 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_prommis_ion_exchange_multicomponent",
+  "family": "family_prommis_ion_exchange_multicomponent",
+  "process_type": "PrOMMiS multicomponent ion exchange column for REE removal and breakthrough optimization",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=official_svg_text_layer. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle PrOMMiS multicomponent ion exchange support cards.",
+    "No source URL, case id, run id, image filename, solved report, family registry, or legacy lookup routing was used.",
+    "Retrieved support cards: WaterTAP ion exchange unit; PrOMMiS multicomponent ion exchange; WaterTAP MCAS aqueous property package",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: WaterTAP ion exchange unit (unit_model) matched ['ion exchange', 'ix'].",
+    "Blind support hint: PrOMMiS multicomponent ion exchange (unit_model) matched ['ix freundlich multicomponent'].",
+    "Blind support hint: WaterTAP MCAS aqueous property package (property_package) matched ['ion exchange'].",
+    "Official workflow solves the fully specified DoF=0 model, then releases seven design variables and solves a cost-minus-REE-profit optimization."
+  ],
+  "property_packages": {
+    "mcas": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "La",
+        "Dy",
+        "Ho",
+        "Er",
+        "Yb",
+        "Sm"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "unit_ix",
+        "treated"
+      ]
+    }
+  },
+  "components": {
+    "aqueous_ree_solution": [
+      "La",
+      "Dy",
+      "Ho",
+      "Er",
+      "Yb",
+      "Sm"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas",
+      "stage": "feed",
+      "role": "REE-bearing aqueous feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "unit_ix",
+      "kind": "IonExchangeMultiComp",
+      "package": "mcas",
+      "stage": "adsorption",
+      "role": "multicomponent ion exchange column",
+      "constructor": {
+        "resin": "S950",
+        "target_component": "La"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "treated",
+      "kind": "Product",
+      "package": "mcas",
+      "stage": "product",
+      "role": "treated effluent after ion exchange",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_ix",
+      "source": "feed.outlet",
+      "destination": "unit_ix.inlet",
+      "stage": "feed",
+      "role": "feed to ion exchange column",
+      "tear_candidate": false
+    },
+    {
+      "id": "ix_to_treated",
+      "source": "unit_ix.outlet",
+      "destination": "treated.inlet",
+      "stage": "product",
+      "role": "treated outlet",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "unit_ix",
+      "variable": "inlet.pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "aqueous feed pressure",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "inlet.temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "aqueous feed temperature",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "unit_ix",
+      "variable": "resin",
+      "value": "S950",
+      "units": "categorical",
+      "role": "chelating resin selection",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "target_component",
+      "value": "La",
+      "units": "categorical",
+      "role": "optimization target REE",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "number_of_trapezoids",
+      "value": 30,
+      "units": "count",
+      "role": "breakthrough integration resolution",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "bed_porosity",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "fixed bed porosity",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "target_breakthrough_ratio",
+      "value": 0.999,
+      "units": "dimensionless",
+      "role": "La breakthrough design constraint",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    },
+    {
+      "target": "unit_ix",
+      "variable": "other_ree_breakthrough_ratio_min",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "minimum breakthrough constraint for other REEs",
+      "source": "official_prommis_example",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official IXMC initialization and costing solve",
+    "solve_order": [
+      "unit_ix"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt_v2",
+    "steady_state": true,
+    "expected_dof": 7,
+    "mode": "design_optimization"
+  },
+  "required_entries": [
+    "prommis.ion_exchange.ix_freundlich_multicomponent_example",
+    "IonExchangeMultiComp"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized compact topology, not a verified official case topology.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_strict_prommis_ion_exchange_multicomponent_20260607/source_flowchart.svg",
+    "suffix": ".svg",
+    "mode": "official_svg_text_layer",
+    "descriptor_agent": "svg_text_reader",
+    "labels": [
+      "PrOMMiS IXMC",
+      "Multicomponent ion exchange example",
+      "Official PrOMMiS API documentation source"
+    ],
+    "description": "Official SVG flowchart text labels: PrOMMiS IXMC; Multicomponent ion exchange example; Official PrOMMiS API documentation source",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": true,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "subcritical_power_plant": false,
+        "co2_adsorption_desorption": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_ion_exchange_multicomponent": true,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build PrOMMiS multicomponent ion exchange IX Freundlich REE breakthrough optimization case from the official ix_freundlich_multicomponent_example API documentation.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "prommis.unit.ion_exchange_multicomponent",
+        "watertap.props.mcas",
+        "watertap.unit.ion_exchange_0d"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": true,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "subcritical_power_plant": false,
+        "co2_adsorption_desorption": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": false,
+        "prommis_ion_exchange_multicomponent": true,
+        "prommis_cmi_opt_based_precipitator": false,
+        "prommis_leach_train_unit": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "prommis_ion_exchange_multicomponent",
+        "qualified_templates": [
+          "prommis_ion_exchange_multicomponent"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc",
+              "missing required support doc idaes.flowsheet.ngcc"
+            ]
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "fixed_bed_tsa0d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal fixed_bed_tsa0d",
+              "missing required support doc idaes.flowsheet.fixed_bed_tsa0d"
+            ]
+          },
+          "subcritical_power_plant": {
+            "qualified": false,
+            "failures": [
+              "missing required signal subcritical_power_plant",
+              "missing required support doc idaes.flowsheet.subcritical_power_plant"
+            ]
+          },
+          "prommis_diafiltration_byproduct_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_byproduct_recovery",
+              "missing required support doc prommis.flowsheet.diafiltration_byproduct_recovery"
+            ]
+          },
+          "prommis_diafiltration_two_salt": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_two_salt",
+              "missing required support doc prommis.flowsheet.diafiltration_two_salt"
+            ]
+          },
+          "prommis_diafiltration_cost_optimization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_cost_optimization",
+              "missing required support doc prommis.flowsheet.diafiltration_cost_optimization"
+            ]
+          },
+          "prommis_diafiltration_uq_reduced": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_reduced",
+              "missing required support doc prommis.flowsheet.diafiltration_uq_reduced"
+            ]
+          },
+          "prommis_nf_brine_advanced_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nf_brine_advanced_costing",
+              "missing required support doc prommis.flowsheet.nf_brine_advanced_costing"
+            ]
+          },
+          "prommis_ion_exchange_multicomponent": {
+            "qualified": true,
+            "failures": []
+          },
+          "prommis_cmi_opt_based_precipitator": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_opt_based_precipitator",
+              "missing required support doc prommis.unit.cmi_opt_based_precipitator"
+            ]
+          },
+          "prommis_leach_train_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_train_unit",
+              "missing required support doc prommis.unit.leach_train"
+            ]
+          },
+          "prommis_superstructure_pathway_npv": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_pathway_npv",
+              "missing required support doc prommis.superstructure.pathway_npv"
+            ]
+          },
+          "prommis_diafiltration": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required support doc prommis.flowsheet.diafiltration"
+            ]
+          },
+          "prommis_cmi_process": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.cmi_process"
+            ]
+          },
+          "prommis_uky_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required signal prommis_uky_costing",
+              "missing required support doc prommis.flowsheet.uky_costing"
+            ]
+          },
+          "prommis_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required support doc prommis.flowsheet.uky"
+            ]
+          },
+          "electronp_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electronp",
+              "missing required support doc watertap.flowsheet.electroNP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "bsm2_electronp_no_biop": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_electronp_no_biop",
+              "missing required support doc watertap.flowsheet.bsm2_electroNP_no_bioP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal prommis_ion_exchange_multicomponent",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal prommis_ion_exchange_multicomponent",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "forbidden signal prommis_ion_exchange_multicomponent"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "forbidden signal ion_exchange",
+              "missing required support doc watertap.unit.gac"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal ion_exchange",
+              "missing required support doc watertap.unit.boron_removal"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal ion_exchange",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.6000000000000001
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "watertap.unit.ion_exchange_0d",
+        "title": "WaterTAP ion exchange unit",
+        "kind": "unit_model",
+        "score": 52.0,
+        "matched_triggers": [
+          "ion exchange",
+          "ix"
+        ],
+        "source_url": "https://watertap.readthedocs.io/en/1.4.0rc0/technical_reference/flowsheets/ion_exchange.html",
+        "text": "Use IonExchange0D for source water treatment with a feed, ion-exchange bed, treated product outlet, and regenerant or regeneration waste outlet."
+      },
+      {
+        "doc_id": "prommis.unit.ion_exchange_multicomponent",
+        "title": "PrOMMiS multicomponent ion exchange",
+        "kind": "unit_model",
+        "score": 32.0,
+        "matched_triggers": [
+          "ix freundlich multicomponent"
+        ],
+        "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.ion_exchange.ix_freundlich_multicomponent_example.html",
+        "text": "Use the official PrOMMiS IX Freundlich multicomponent example for REE removal: a feed stream enters IonExchangeMultiComp, costing is added, and bed depth/diameter are optimized against breakthrough constraints."
+      },
+      {
+        "doc_id": "watertap.props.mcas",
+        "title": "WaterTAP MCAS aqueous property package",
+        "kind": "property_package",
+        "score": 28.0,
+        "matched_triggers": [
+          "ion exchange"
+        ],
+        "source_url": "",
+        "text": "Use MCASParameterBlock for compact aqueous treatment examples such as ion exchange and GAC with H2O plus target solutes or ions."
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "pass": true,
+  "stage": "optimization_solver",
+  "case_family": "prommis_membrane_cascade_flowsheet",
+  "official_reference_url": "https://github.com/prommis/prommis/tree/main/src/prommis/nanofiltration/membrane_cascade_flowsheet",
+  "termination_condition": "optimal",
+  "final_dof": 13,
+  "checks": [
+    {
+      "name": "membrane_cascade_termination_optimal",
+      "pass": true,
+      "actual": "optimal"
+    },
+    {
+      "name": "membrane_cascade_optimization_dof_13",
+      "pass": true,
+      "actual": 13
+    },
+    {
+      "name": "membrane_cascade_overall_li_recovery_matches_official_test",
+      "pass": true,
+      "actual": 0.7999999900243796
+    },
+    {
+      "name": "membrane_cascade_overall_co_recovery_matches_official_test",
+      "pass": true,
+      "actual": 0.5256935600570685
+    },
+    {
+      "name": "membrane_cascade_membrane_li_recovery_matches_official_test",
+      "pass": true,
+      "actual": 0.9353628815837843
+    },
+    {
+      "name": "membrane_cascade_membrane_co_recovery_matches_official_test",
+      "pass": true,
+      "actual": 0.5178372512505357
+    },
+    {
+      "name": "membrane_cascade_stage_1_length_matches_official_test",
+      "pass": true,
+      "actual": 1105.38892546081
+    },
+    {
+      "name": "membrane_cascade_retentate_solid_co_matches_official_test",
+      "pass": true,
+      "actual": 893.6790520970164
+    },
+    {
+      "name": "membrane_cascade_permeate_solid_li_matches_official_test",
+      "pass": true,
+      "actual": 135.99999830414453
+    },
+    {
+      "name": "membrane_cascade_waste_solvent_matches_official_test",
+      "pass": true,
+      "actual": 100.00000001999996
+    }
+  ],
+  "outputs": {
+    "optimization_dof": 13,
+    "final_dof": 13,
+    "membrane_recovery_li": 0.9353628815837843,
+    "membrane_recovery_co": 0.5178372512505357,
+    "overall_recovery_li": 0.7999999900243796,
+    "overall_recovery_co": 0.5256935600570685,
+    "stage_1_length": 1105.38892546081,
+    "retentate_solid_co": 893.6790520970164,
+    "retentate_solid_li": 2.320522246077882,
+    "permeate_solid_co": 9.349576441557433,
+    "permeate_solid_li": 135.99999830414453,
+    "waste_solvent_flow_vol": 100.00000001999996,
+    "waste_co": 796.9713714814258,
+    "waste_li": 31.679479469777583
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/membrane_cascade_flowsheet/diafiltration_flowsheet_model.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/membrane_cascade_flowsheet/tests/test_flowsheet.py",
+    "official_reference_figure": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/membrane_cascade_flowsheet/flowsheet.png",
+    "official_module": "prommis.nanofiltration.membrane_cascade_flowsheet.diafiltration_flowsheet_model"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

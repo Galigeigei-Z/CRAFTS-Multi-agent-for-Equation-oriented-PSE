@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "pass": true,
+    "status": "optimized",
+    "stage": "gtep_variant_gdp_bigm_highs",
+    "termination_condition": "optimal",
+    "solver": "highs",
+    "metrics": {
+      "bus_count": 123,
+      "branch_count": 255,
+      "generator_count": 907,
+      "load_count": 123,
+      "storage_count": 0,
+      "variables_before_gdp_transform": 5916,
+      "constraints_before_gdp_transform": 2735,
+      "disjunctions_before_gdp_transform": 745,
+      "objective_value": 201514.48131416878
+    },
+    "configuration": {
+      "scenario": "high_growth_coal",
+      "dataset": "123_Bus_Coal",
+      "flow_model": "CP",
+      "big_m": 1000000.0,
+      "compatibility_fixes": [],
+      "load_growth_factor": 1.15,
+      "repaired_ramp_rows": 581,
+      "candidate_generator_count": 326
+    },
+    "error": null
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

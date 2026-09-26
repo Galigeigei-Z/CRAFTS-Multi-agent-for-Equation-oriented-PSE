@@ -1,0 +1,25 @@
+{
+  "case_id": "blind_synthesized_prommis_ree_oxalate_roaster",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.prop_gas",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_solid",
+      "class": "prommis.properties.ree_oxalate_properties.REEOxalateParameterBlock",
+      "module": "prommis.properties.ree_oxalate_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_liquid",
+      "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterBlock",
+      "module": "prommis.properties.hcl_stripping_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

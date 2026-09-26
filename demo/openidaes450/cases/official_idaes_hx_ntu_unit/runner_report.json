@@ -1,0 +1,44 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "hx_ntu_unit",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "termination_condition": "optimal",
+  "stream_values": {
+    "hot_side_outlet": {
+      "flow_mol": 60.548790000000004,
+      "temperature": 343.99562433400996,
+      "pressure": 200650.0,
+      "mole_frac_comp": {
+        "CO2": 0.0158,
+        "H2O": 0.8746999999999999,
+        "MEA": 0.10949999999999999
+      }
+    },
+    "cold_side_outlet": {
+      "flow_mol": 63.0191,
+      "temperature": 374.3333991769731,
+      "pressure": 200650.0,
+      "mole_frac_comp": {
+        "CO2": 0.0414,
+        "H2O": 0.8509,
+        "MEA": 0.1077
+      }
+    }
+  },
+  "native_topology_binding": {
+    "schema_version": "native-topology-probe/1",
+    "units": {
+      "heat_exchanger": {
+        "model_component": "fs.heat_exchanger",
+        "exists": true
+      }
+    },
+    "arcs": {},
+    "passed": true
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

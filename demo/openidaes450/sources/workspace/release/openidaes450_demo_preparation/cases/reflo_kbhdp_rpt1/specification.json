@@ -1,0 +1,84 @@
+{
+  "case_id": "expansion40__reflo_kbhdp_rpt1",
+  "case_key": "reflo_kbhdp_rpt1",
+  "execution_contract": "official KBHDP report train 1 main() optimization test",
+  "family": "reflo",
+  "schema_version": "expansion40-native-solve-v1",
+  "solver": "ipopt 3.13.2",
+  "source_commit": "dc05a96838424400deef1157a544109516924d60",
+  "source_path": "src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+  "specs": [
+    {
+      "role": "produced-water feed capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "Mgal/day",
+      "value": 4.0,
+      "variable": "flow_vol"
+    },
+    {
+      "role": "feed temperature",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "K",
+      "value": 293.0,
+      "variable": "temperature"
+    },
+    {
+      "role": "feed pressure",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "Pa",
+      "value": 101325.0,
+      "variable": "pressure"
+    },
+    {
+      "role": "RO feed-pump efficiency",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "pump",
+      "units": "dimensionless",
+      "value": 0.8,
+      "variable": "efficiency_pump"
+    },
+    {
+      "role": "fixed installed RO membrane area",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "ro",
+      "units": "m^2",
+      "value": 20000.0,
+      "variable": "total_membrane_area"
+    },
+    {
+      "role": "fixed system water recovery",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "system",
+      "units": "dimensionless",
+      "value": 0.8,
+      "variable": "water_recovery"
+    },
+    {
+      "role": "grid electricity price",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "system",
+      "units": "USD/kWh",
+      "value": 0.15,
+      "variable": "electricity_price"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "sludge.inlet",
+    "uf_waste.inlet",
+    "product.inlet"
+  ],
+  "topology_ir_file": "validation/VectorEngine_qwen36_validation/expansion40__reflo_kbhdp_rpt1/expansion40__reflo_kbhdp_rpt1_topology_ir.json"
+}

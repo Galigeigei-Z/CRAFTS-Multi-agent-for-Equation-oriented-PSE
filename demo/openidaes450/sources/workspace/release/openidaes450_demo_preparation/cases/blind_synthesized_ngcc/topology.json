@@ -1,0 +1,714 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_ngcc",
+  "family": "family_ngcc",
+  "process_type": "Official IDAES natural gas combined cycle with gas turbine, HRSG, steam turbine, and capture/economic surrogate variables",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=official_svg_text_layer. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle IDAES NGCC support cards.",
+    "No source URL, case id, run id, image filename, solved report, family registry, or legacy lookup routing was used.",
+    "Retrieved support cards: IDAES NGCC full flowsheet",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: IDAES NGCC full flowsheet (flowsheet) matched ['ngcc', 'natural gas combined cycle', 'combined cycle']."
+  ],
+  "property_packages": {
+    "ngcc_properties": {
+      "entry_id": "official_ngcc_properties",
+      "components": [
+        "natural_gas",
+        "air",
+        "flue_gas",
+        "water_steam"
+      ],
+      "phases": [
+        "Vap",
+        "Liq"
+      ],
+      "scope": [
+        "NGCC"
+      ]
+    }
+  },
+  "components": {
+    "natural_gas": [
+      "CH4",
+      "C2H6",
+      "C3H8",
+      "C4H10",
+      "CO2",
+      "N2"
+    ],
+    "air": [
+      "O2",
+      "N2"
+    ],
+    "water_steam": [
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "gt",
+      "kind": "GasTurbineFlowsheet",
+      "package": "ngcc_properties",
+      "stage": "gas_turbine",
+      "role": "official self.gt gas turbine subflowsheet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fg_translate",
+      "kind": "Translator",
+      "package": "ngcc_properties",
+      "stage": "gas_to_hrsg_translation",
+      "role": "official self.fg_translate flue-gas property translator",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hrsg",
+      "kind": "HrsgFlowsheet",
+      "package": "ngcc_properties",
+      "stage": "heat_recovery",
+      "role": "official self.hrsg heat recovery steam generator subflowsheet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "st",
+      "kind": "SteamTurbineFlowsheet",
+      "package": "ngcc_properties",
+      "stage": "steam_cycle",
+      "role": "official self.st steam turbine subflowsheet",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "g08a",
+      "source": "gt.mx3.outlet",
+      "destination": "fg_translate.inlet",
+      "stage": "gas_turbine_to_hrsg",
+      "role": "official NgccFlowsheetData.g08a",
+      "tear_candidate": false
+    },
+    {
+      "id": "g08b",
+      "source": "fg_translate.outlet",
+      "destination": "hrsg.sh_hp4.shell_inlet",
+      "stage": "gas_turbine_to_hrsg",
+      "role": "official NgccFlowsheetData.g08b",
+      "tear_candidate": false
+    },
+    {
+      "id": "t05a",
+      "source": "hrsg.sh_lp.tube_outlet",
+      "destination": "st.steam_turbine_lp_mix.hrsg",
+      "stage": "steam_cycle",
+      "role": "official NgccFlowsheetData.t05a",
+      "tear_candidate": false
+    },
+    {
+      "id": "t02a",
+      "source": "st.steam_turbine.hp_stages[7].outlet",
+      "destination": "hrsg.splitter_ip2.inlet",
+      "stage": "reheat_loop",
+      "role": "official NgccFlowsheetData.t02a",
+      "tear_candidate": false
+    },
+    {
+      "id": "t03a",
+      "source": "hrsg.sh_ip3.tube_outlet",
+      "destination": "st.steam_turbine.ip_stages[1].inlet",
+      "stage": "reheat_loop",
+      "role": "official NgccFlowsheetData.t03a",
+      "tear_candidate": false
+    },
+    {
+      "id": "t11a",
+      "source": "st.return_mix.outlet",
+      "destination": "hrsg.econ_lp.tube_inlet",
+      "stage": "condensate_return",
+      "role": "official NgccFlowsheetData.t11a",
+      "tear_candidate": true
+    },
+    {
+      "id": "t01a",
+      "source": "hrsg.sh_hp4.tube_outlet",
+      "destination": "st.steam_turbine.inlet_split.inlet",
+      "stage": "main_steam",
+      "role": "official NgccFlowsheetData.t01a",
+      "tear_candidate": false
+    },
+    {
+      "id": "st01a",
+      "source": "hrsg.splitter_ip1.toNGPH",
+      "destination": "gt.ng_preheat.shell_inlet",
+      "stage": "natural_gas_preheat",
+      "role": "official NgccFlowsheetData.st01a",
+      "tear_candidate": false
+    },
+    {
+      "id": "st02a",
+      "source": "gt.ng_preheat.shell_outlet",
+      "destination": "hrsg.mixer1.Preheater",
+      "stage": "natural_gas_preheat",
+      "role": "official NgccFlowsheetData.st02a",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [
+    {
+      "arc_id": "t11a",
+      "destination": "hrsg.econ_lp.tube_inlet",
+      "role": "condensate return closure"
+    }
+  ],
+  "translator_constraint_templates": {},
+  "translator_constraints": [
+    {
+      "unit": "fg_translate",
+      "name": "flow_mol",
+      "source": "gt.mx3.outlet.flow_mol",
+      "target": "fg_translate.outlet.flow_mol",
+      "basis": "official ngcc.py Translator constraint"
+    },
+    {
+      "unit": "fg_translate",
+      "name": "temperature",
+      "source": "gt.mx3.outlet.temperature",
+      "target": "fg_translate.outlet.temperature",
+      "basis": "official ngcc.py Translator constraint"
+    },
+    {
+      "unit": "fg_translate",
+      "name": "pressure",
+      "source": "gt.mx3.outlet.pressure",
+      "target": "fg_translate.outlet.pressure",
+      "basis": "official ngcc.py Translator constraint"
+    },
+    {
+      "unit": "fg_translate",
+      "name": "mole_frac_comp",
+      "source": "gt flue gas component mole fractions",
+      "target": "hrsg flue gas component mole fractions",
+      "basis": "official ngcc.py component mapping"
+    }
+  ],
+  "initialization": {
+    "strategy": "official NgccFlowsheetData.initialize(load_from='ngcc_init.json.gz'); web test is topology-only",
+    "solve_order": [
+      "gt",
+      "fg_translate",
+      "hrsg",
+      "st"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_official_ngcc",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "idaes_examples.mod.power_gen.ngcc.NgccFlowsheet",
+    "ngcc.py:NgccFlowsheetData",
+    "ngcc_init.json.gz"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized compact topology, not a verified official case topology.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/source_flowchart.svg",
+    "suffix": ".svg",
+    "mode": "official_svg_text_layer",
+    "descriptor_agent": "svg_text_reader",
+    "labels": [
+      "IDAES NGCC reference PFDs",
+      "Gas Turbine Section",
+      "HRSG Section",
+      "Steam Turbine Section"
+    ],
+    "description": "Official SVG flowchart text labels: IDAES NGCC reference PFDs; Gas Turbine Section; HRSG Section; Steam Turbine Section",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "co2_adsorption_desorption": false,
+        "methanol_synthesis": false,
+        "ngcc": true,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build a natural gas combined cycle NGCC flowsheet with gas turbine, flue-gas translator, HRSG heat recovery, and steam turbine power block.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "idaes.flowsheet.ngcc"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "co2_adsorption_desorption": false,
+        "methanol_synthesis": false,
+        "ngcc": true,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "ngcc",
+        "qualified_templates": [
+          "ngcc"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": true,
+            "failures": []
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.2
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "idaes.flowsheet.ngcc",
+        "title": "IDAES NGCC full flowsheet",
+        "kind": "flowsheet",
+        "score": 88.0,
+        "matched_triggers": [
+          "ngcc",
+          "natural gas combined cycle",
+          "combined cycle"
+        ],
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html",
+        "text": "Use the official IDAES NGCC flowsheet for natural gas combined cycle cases with gas turbine, flue-gas translator, HRSG, steam turbine, and CO2 capture/economic surrogate constraints. The top-level IDAES model exposes gt, fg_translate, hrsg, and st subflowsheet blocks."
+      }
+    ]
+  }
+}

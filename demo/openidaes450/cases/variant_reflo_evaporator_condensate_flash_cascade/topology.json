@@ -1,0 +1,212 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_reflo_evaporator_condensate_flash_cascade",
+  "family": "family_evap_flash_cascade",
+  "process_type": "Multi-Effect Evaporator with Condensate Flash Cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent reflo_multi_effect_crystallizer.",
+    "Adds condensate flash vapor as a secondary heating medium across evaporation effects.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "salt",
+        "steam",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "reflo_multi_effect_crystallizer"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "salt",
+      "steam",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "concentrated brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E1",
+      "kind": "Evaporator",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "first effect",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F1",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "first condensate flash",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E2",
+      "kind": "Evaporator",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "second effect",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F2",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "second condensate flash",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CRYS",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "salt product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SALT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "evap_flash_cascade",
+      "role": "condensate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "E1.feed",
+      "stage": "evap_flash_cascade",
+      "role": "brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "E1.liquid",
+      "destination": "E2.feed",
+      "stage": "evap_flash_cascade",
+      "role": "first concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "E1.condensate",
+      "destination": "F1.inlet",
+      "stage": "evap_flash_cascade",
+      "role": "hot condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "F1.vapor",
+      "destination": "E2.heat",
+      "stage": "evap_flash_cascade",
+      "role": "flash heating vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "E2.liquid",
+      "destination": "CRYS.feed",
+      "stage": "evap_flash_cascade",
+      "role": "second concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "E2.condensate",
+      "destination": "F2.inlet",
+      "stage": "evap_flash_cascade",
+      "role": "second condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "F2.vapor",
+      "destination": "CRYS.heat",
+      "stage": "evap_flash_cascade",
+      "role": "crystallizer heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CRYS.solid",
+      "destination": "SALT.inlet",
+      "stage": "evap_flash_cascade",
+      "role": "salt",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "F2.liquid",
+      "destination": "COND.inlet",
+      "stage": "evap_flash_cascade",
+      "role": "condensate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "SALT.inlet",
+    "COND.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_multi_effect_crystallizer"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_multi_effect_crystallizer",
+    "chemical_change": "Adds condensate flash vapor as a secondary heating medium across evaporation effects.",
+    "native_metrics": {
+      "live_steam_index": 0.49999999999999994,
+      "supersaturation_ratio": 1.016,
+      "salt_yield": 0.956,
+      "entrainment_fraction": 0.024
+    }
+  }
+}

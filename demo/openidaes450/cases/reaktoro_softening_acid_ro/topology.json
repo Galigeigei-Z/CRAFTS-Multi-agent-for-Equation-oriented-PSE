@@ -1,0 +1,125 @@
+{
+  "arcs": [
+    {
+      "destination": "softening.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_softening",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "acid_dosing.inlet",
+      "destination_port": "inlet",
+      "id": "softening_to_acid",
+      "source": "softening.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ro.inlet",
+      "destination_port": "inlet",
+      "id": "acid_to_ro",
+      "source": "acid_dosing.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_product",
+      "source": "ro.permeate",
+      "source_port": "permeate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "brine.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_brine",
+      "source": "ro.retentate",
+      "source_port": "retentate",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_softening_acid_ro",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reaktoro_softening_acid_ro",
+  "initialization_order": [
+    "feed",
+    "softening",
+    "acid_dosing",
+    "ro",
+    "product",
+    "brine"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Softening-Acid-RO Train",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official softening-acid-RO tutorial notebook executed to completion with nbmake"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/tutorials/softening_acid_ro_example.ipynb",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "softening",
+      "kind": "ReaktoroSoftening",
+      "package": null,
+      "role": "Source-derived ReaktoroSoftening node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid_dosing",
+      "kind": "ReaktoroAcidification",
+      "package": null,
+      "role": "Source-derived ReaktoroAcidification node",
+      "stage": "conditioning"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ro",
+      "kind": "ReverseOsmosis",
+      "package": null,
+      "role": "Source-derived ReverseOsmosis node",
+      "stage": "desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "brine",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

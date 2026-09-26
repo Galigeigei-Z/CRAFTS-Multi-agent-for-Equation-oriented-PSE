@@ -1,0 +1,19 @@
+{
+  "case_id": "variant_idaes_hx_lumped_a45_ua70_cf65",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.properties_shell",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.properties_tube",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

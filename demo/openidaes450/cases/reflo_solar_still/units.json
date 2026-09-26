@@ -1,0 +1,24 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarSolarStill",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "water_yield_calculation_args": {
+        "input_weather_file_path": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/unit_models/tests/solar_still_test_data.csv",
+        "initial_salinity": 120,
+        "initial_water_depth": 0.01,
+        "length_basin": 0.6,
+        "irradiance_threshold": 20
+      }
+    }
+  }
+]

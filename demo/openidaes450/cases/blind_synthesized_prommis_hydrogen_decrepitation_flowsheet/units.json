@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fs.shredder",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.prop_solid"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.hydrogen_decrepitation_furnace",
+    "class": "idaes.core.base.process_block._ScalarREPMHydrogenDecrepitationFurnace",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "gas_property_package": {
+        "component": "fs.prop_gas"
+      },
+      "gas_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solid_property_package": {
+        "component": "fs.prop_solid"
+      },
+      "solid_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "number_of_units": 1
+    }
+  }
+]

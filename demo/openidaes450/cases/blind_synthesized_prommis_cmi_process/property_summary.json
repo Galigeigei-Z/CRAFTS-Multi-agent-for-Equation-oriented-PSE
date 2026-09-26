@@ -1,0 +1,49 @@
+{
+  "case_id": "blind_synthesized_prommis_cmi_process",
+  "applicability": "model_parameter_packages",
+  "package_count": 7,
+  "packages": [
+    {
+      "name": "fs.thermo_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.dissolution_reaction_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.adjustment_reaction_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.precipitation_reaction_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_gas",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_solid",
+      "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParameters",
+      "module": "prommis.precipitate.precipitate_solids_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_liquid",
+      "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterBlock",
+      "module": "prommis.properties.hcl_stripping_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

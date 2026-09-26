@@ -1,0 +1,38 @@
+[
+  {
+    "name": "fs.valve",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  }
+]

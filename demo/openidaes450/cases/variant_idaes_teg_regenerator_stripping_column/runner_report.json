@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "idaes_teg_regenerator_stripping_column",
+  "recipe": "distillation_heat_integration",
+  "parent_case_key": "variant_idaes_natural_gas_glycol_dehydration",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "separation_intensity_fraction": 0.8,
+    "heat_recovery_fraction": 1.0
+  },
+  "metrics": {
+    "light_product_purity": 0.946,
+    "light_product_recovery": 0.9299999999999999,
+    "net_reboiler_duty_index": 0.5700000000000001,
+    "minimum_temperature_approach_K": 18.4,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.72,
+      "net_reboiler_duty_index": 0.6,
+      "minimum_temperature_approach_K": 8.0,
+      "objective": 0.6,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7185,
+      "net_reboiler_duty_index": 0.5825,
+      "minimum_temperature_approach_K": 7.8,
+      "objective": 0.5825,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.717,
+      "net_reboiler_duty_index": 0.565,
+      "minimum_temperature_approach_K": 7.6,
+      "objective": 0.565,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7155,
+      "net_reboiler_duty_index": 0.5475,
+      "minimum_temperature_approach_K": 7.4,
+      "objective": 0.5475,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.714,
+      "net_reboiler_duty_index": 0.53,
+      "minimum_temperature_approach_K": 7.2,
+      "objective": 0.53,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7125,
+      "net_reboiler_duty_index": 0.5125,
+      "minimum_temperature_approach_K": 7.0,
+      "objective": 0.5125,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.711,
+      "net_reboiler_duty_index": 0.495,
+      "minimum_temperature_approach_K": 6.8,
+      "objective": 0.495,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7095,
+      "net_reboiler_duty_index": 0.4775,
+      "minimum_temperature_approach_K": 6.6,
+      "objective": 0.4775,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.708,
+      "net_reboiler_duty_index": 0.45999999999999996,
+      "minimum_temperature_approach_K": 6.4,
+      "objective": 0.45999999999999996,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7065,
+      "net_reboiler_duty_index": 0.4425,
+      "minimum_temperature_approach_K": 6.2,
+      "objective": 0.4425,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.705,
+      "net_reboiler_duty_index": 0.425,
+      "minimum_temperature_approach_K": 6.0,
+      "objective": 0.425,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7035,
+      "net_reboiler_duty_index": 0.4075,
+      "minimum_temperature_approach_K": 5.8,
+      "objective": 0.4075,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.702,
+      "net_reboiler_duty_index": 0.38999999999999996,
+      "minimum_temperature_approach_K": 5.6,
+      "objective": 0.38999999999999996,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.7005,
+      "net_reboiler_duty_index": 0.3725,
+      "minimum_temperature_approach_K": 5.4,
+      "objective": 0.3725,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.699,
+      "net_reboiler_duty_index": 0.355,
+      "minimum_temperature_approach_K": 5.199999999999999,
+      "objective": 0.355,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.6975,
+      "net_reboiler_duty_index": 0.3375,
+      "minimum_temperature_approach_K": 5.0,
+      "objective": 0.3375,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.696,
+      "net_reboiler_duty_index": 0.32,
+      "minimum_temperature_approach_K": 4.8,
+      "objective": 0.32,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.6945,
+      "net_reboiler_duty_index": 0.3025,
+      "minimum_temperature_approach_K": 4.6,
+      "objective": 0.3025,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.693,
+      "net_reboiler_duty_index": 0.285,
+      "minimum_temperature_approach_K": 4.4,
+      "objective": 0.285,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.6915,
+      "net_reboiler_duty_index": 0.26749999999999996,
+      "minimum_temperature_approach_K": 4.199999999999999,
+      "objective": 0.26749999999999996,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.754,
+      "light_product_recovery": 0.69,
+      "net_reboiler_duty_index": 0.25,
+      "minimum_temperature_approach_K": 4.0,
+      "objective": 0.25,
+      "feasible": false,
+      "separation_intensity_fraction": 0.0,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.735,
+      "net_reboiler_duty_index": 0.62,
+      "minimum_temperature_approach_K": 8.9,
+      "objective": 0.624,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7335,
+      "net_reboiler_duty_index": 0.6025,
+      "minimum_temperature_approach_K": 8.700000000000001,
+      "objective": 0.6065,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.732,
+      "net_reboiler_duty_index": 0.585,
+      "minimum_temperature_approach_K": 8.5,
+      "objective": 0.589,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7305,
+      "net_reboiler_duty_index": 0.5675,
+      "minimum_temperature_approach_K": 8.3,
+      "objective": 0.5715,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.729,
+      "net_reboiler_duty_index": 0.55,
+      "minimum_temperature_approach_K": 8.1,
+      "objective": 0.554,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7275,
+      "net_reboiler_duty_index": 0.5325,
+      "minimum_temperature_approach_K": 7.9,
+      "objective": 0.5365,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.726,
+      "net_reboiler_duty_index": 0.515,
+      "minimum_temperature_approach_K": 7.7,
+      "objective": 0.519,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7245,
+      "net_reboiler_duty_index": 0.4975,
+      "minimum_temperature_approach_K": 7.5,
+      "objective": 0.5015,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.723,
+      "net_reboiler_duty_index": 0.48,
+      "minimum_temperature_approach_K": 7.300000000000001,
+      "objective": 0.484,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7215,
+      "net_reboiler_duty_index": 0.4625,
+      "minimum_temperature_approach_K": 7.1000000000000005,
+      "objective": 0.4665,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.72,
+      "net_reboiler_duty_index": 0.445,
+      "minimum_temperature_approach_K": 6.9,
+      "objective": 0.449,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7185,
+      "net_reboiler_duty_index": 0.4275,
+      "minimum_temperature_approach_K": 6.7,
+      "objective": 0.4315,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.717,
+      "net_reboiler_duty_index": 0.41,
+      "minimum_temperature_approach_K": 6.5,
+      "objective": 0.414,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7155,
+      "net_reboiler_duty_index": 0.3925,
+      "minimum_temperature_approach_K": 6.300000000000001,
+      "objective": 0.3965,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.714,
+      "net_reboiler_duty_index": 0.375,
+      "minimum_temperature_approach_K": 6.1,
+      "objective": 0.379,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7125,
+      "net_reboiler_duty_index": 0.35750000000000004,
+      "minimum_temperature_approach_K": 5.9,
+      "objective": 0.36150000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.711,
+      "net_reboiler_duty_index": 0.34,
+      "minimum_temperature_approach_K": 5.7,
+      "objective": 0.34400000000000003,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7095,
+      "net_reboiler_duty_index": 0.3225,
+      "minimum_temperature_approach_K": 5.5,
+      "objective": 0.3265,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.708,
+      "net_reboiler_duty_index": 0.305,
+      "minimum_temperature_approach_K": 5.300000000000001,
+      "objective": 0.309,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.7065,
+      "net_reboiler_duty_index": 0.2875,
+      "minimum_temperature_approach_K": 5.1,
+      "objective": 0.2915,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.766,
+      "light_product_recovery": 0.705,
+      "net_reboiler_duty_index": 0.27,
+      "minimum_temperature_approach_K": 4.9,
+      "objective": 0.274,
+      "feasible": false,
+      "separation_intensity_fraction": 0.05,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.75,
+      "net_reboiler_duty_index": 0.64,
+      "minimum_temperature_approach_K": 9.8,
+      "objective": 0.648,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7485,
+      "net_reboiler_duty_index": 0.6225,
+      "minimum_temperature_approach_K": 9.600000000000001,
+      "objective": 0.6305000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.747,
+      "net_reboiler_duty_index": 0.605,
+      "minimum_temperature_approach_K": 9.4,
+      "objective": 0.613,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7455,
+      "net_reboiler_duty_index": 0.5875,
+      "minimum_temperature_approach_K": 9.200000000000001,
+      "objective": 0.5955,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.744,
+      "net_reboiler_duty_index": 0.5700000000000001,
+      "minimum_temperature_approach_K": 9.0,
+      "objective": 0.5780000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7425,
+      "net_reboiler_duty_index": 0.5525,
+      "minimum_temperature_approach_K": 8.8,
+      "objective": 0.5605,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.741,
+      "net_reboiler_duty_index": 0.535,
+      "minimum_temperature_approach_K": 8.600000000000001,
+      "objective": 0.543,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7395,
+      "net_reboiler_duty_index": 0.5175000000000001,
+      "minimum_temperature_approach_K": 8.4,
+      "objective": 0.5255000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.738,
+      "net_reboiler_duty_index": 0.5,
+      "minimum_temperature_approach_K": 8.200000000000001,
+      "objective": 0.508,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7365,
+      "net_reboiler_duty_index": 0.48250000000000004,
+      "minimum_temperature_approach_K": 8.0,
+      "objective": 0.49050000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.735,
+      "net_reboiler_duty_index": 0.465,
+      "minimum_temperature_approach_K": 7.800000000000001,
+      "objective": 0.47300000000000003,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7335,
+      "net_reboiler_duty_index": 0.4475,
+      "minimum_temperature_approach_K": 7.6000000000000005,
+      "objective": 0.4555,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.732,
+      "net_reboiler_duty_index": 0.43,
+      "minimum_temperature_approach_K": 7.4,
+      "objective": 0.438,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7305,
+      "net_reboiler_duty_index": 0.41250000000000003,
+      "minimum_temperature_approach_K": 7.200000000000001,
+      "objective": 0.42050000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.729,
+      "net_reboiler_duty_index": 0.395,
+      "minimum_temperature_approach_K": 7.0,
+      "objective": 0.403,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7275,
+      "net_reboiler_duty_index": 0.37750000000000006,
+      "minimum_temperature_approach_K": 6.800000000000001,
+      "objective": 0.38550000000000006,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.726,
+      "net_reboiler_duty_index": 0.36000000000000004,
+      "minimum_temperature_approach_K": 6.6000000000000005,
+      "objective": 0.36800000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7245,
+      "net_reboiler_duty_index": 0.3425,
+      "minimum_temperature_approach_K": 6.4,
+      "objective": 0.35050000000000003,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.723,
+      "net_reboiler_duty_index": 0.325,
+      "minimum_temperature_approach_K": 6.200000000000001,
+      "objective": 0.333,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.7215,
+      "net_reboiler_duty_index": 0.3075,
+      "minimum_temperature_approach_K": 6.0,
+      "objective": 0.3155,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.778,
+      "light_product_recovery": 0.72,
+      "net_reboiler_duty_index": 0.29000000000000004,
+      "minimum_temperature_approach_K": 5.800000000000001,
+      "objective": 0.29800000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.1,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.765,
+      "net_reboiler_duty_index": 0.66,
+      "minimum_temperature_approach_K": 10.7,
+      "objective": 0.672,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7635000000000001,
+      "net_reboiler_duty_index": 0.6425000000000001,
+      "minimum_temperature_approach_K": 10.5,
+      "objective": 0.6545000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.762,
+      "net_reboiler_duty_index": 0.625,
+      "minimum_temperature_approach_K": 10.299999999999999,
+      "objective": 0.637,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7605000000000001,
+      "net_reboiler_duty_index": 0.6075,
+      "minimum_temperature_approach_K": 10.1,
+      "objective": 0.6195,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.759,
+      "net_reboiler_duty_index": 0.5900000000000001,
+      "minimum_temperature_approach_K": 9.899999999999999,
+      "objective": 0.6020000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7575000000000001,
+      "net_reboiler_duty_index": 0.5725,
+      "minimum_temperature_approach_K": 9.7,
+      "objective": 0.5845,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.756,
+      "net_reboiler_duty_index": 0.555,
+      "minimum_temperature_approach_K": 9.5,
+      "objective": 0.5670000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7545000000000001,
+      "net_reboiler_duty_index": 0.5375000000000001,
+      "minimum_temperature_approach_K": 9.299999999999999,
+      "objective": 0.5495000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.753,
+      "net_reboiler_duty_index": 0.52,
+      "minimum_temperature_approach_K": 9.1,
+      "objective": 0.532,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7515000000000001,
+      "net_reboiler_duty_index": 0.5025000000000001,
+      "minimum_temperature_approach_K": 8.899999999999999,
+      "objective": 0.5145000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.75,
+      "net_reboiler_duty_index": 0.48500000000000004,
+      "minimum_temperature_approach_K": 8.7,
+      "objective": 0.49700000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7485,
+      "net_reboiler_duty_index": 0.4675,
+      "minimum_temperature_approach_K": 8.5,
+      "objective": 0.47950000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.747,
+      "net_reboiler_duty_index": 0.45,
+      "minimum_temperature_approach_K": 8.299999999999999,
+      "objective": 0.462,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7455,
+      "net_reboiler_duty_index": 0.43250000000000005,
+      "minimum_temperature_approach_K": 8.1,
+      "objective": 0.44450000000000006,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.744,
+      "net_reboiler_duty_index": 0.41500000000000004,
+      "minimum_temperature_approach_K": 7.899999999999999,
+      "objective": 0.42700000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7425,
+      "net_reboiler_duty_index": 0.3975000000000001,
+      "minimum_temperature_approach_K": 7.699999999999999,
+      "objective": 0.4095000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.741,
+      "net_reboiler_duty_index": 0.38000000000000006,
+      "minimum_temperature_approach_K": 7.499999999999999,
+      "objective": 0.39200000000000007,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7395,
+      "net_reboiler_duty_index": 0.36250000000000004,
+      "minimum_temperature_approach_K": 7.299999999999999,
+      "objective": 0.37450000000000006,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.738,
+      "net_reboiler_duty_index": 0.34500000000000003,
+      "minimum_temperature_approach_K": 7.1,
+      "objective": 0.35700000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.7365,
+      "net_reboiler_duty_index": 0.3275,
+      "minimum_temperature_approach_K": 6.899999999999999,
+      "objective": 0.3395,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.79,
+      "light_product_recovery": 0.735,
+      "net_reboiler_duty_index": 0.31000000000000005,
+      "minimum_temperature_approach_K": 6.699999999999999,
+      "objective": 0.32200000000000006,
+      "feasible": false,
+      "separation_intensity_fraction": 0.15000000000000002,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.78,
+      "net_reboiler_duty_index": 0.6799999999999999,
+      "minimum_temperature_approach_K": 11.6,
+      "objective": 0.696,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7785000000000001,
+      "net_reboiler_duty_index": 0.6625,
+      "minimum_temperature_approach_K": 11.4,
+      "objective": 0.6785,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.777,
+      "net_reboiler_duty_index": 0.6449999999999999,
+      "minimum_temperature_approach_K": 11.2,
+      "objective": 0.6609999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7755000000000001,
+      "net_reboiler_duty_index": 0.6275,
+      "minimum_temperature_approach_K": 11.0,
+      "objective": 0.6435,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.774,
+      "net_reboiler_duty_index": 0.61,
+      "minimum_temperature_approach_K": 10.799999999999999,
+      "objective": 0.626,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7725000000000001,
+      "net_reboiler_duty_index": 0.5924999999999999,
+      "minimum_temperature_approach_K": 10.6,
+      "objective": 0.6084999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.771,
+      "net_reboiler_duty_index": 0.575,
+      "minimum_temperature_approach_K": 10.399999999999999,
+      "objective": 0.591,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7695000000000001,
+      "net_reboiler_duty_index": 0.5574999999999999,
+      "minimum_temperature_approach_K": 10.2,
+      "objective": 0.5734999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.768,
+      "net_reboiler_duty_index": 0.5399999999999999,
+      "minimum_temperature_approach_K": 10.0,
+      "objective": 0.5559999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7665000000000001,
+      "net_reboiler_duty_index": 0.5225,
+      "minimum_temperature_approach_K": 9.799999999999999,
+      "objective": 0.5385,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.765,
+      "net_reboiler_duty_index": 0.5049999999999999,
+      "minimum_temperature_approach_K": 9.6,
+      "objective": 0.5209999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7635000000000001,
+      "net_reboiler_duty_index": 0.48749999999999993,
+      "minimum_temperature_approach_K": 9.399999999999999,
+      "objective": 0.5035,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.762,
+      "net_reboiler_duty_index": 0.4699999999999999,
+      "minimum_temperature_approach_K": 9.2,
+      "objective": 0.48599999999999993,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7605000000000001,
+      "net_reboiler_duty_index": 0.45249999999999996,
+      "minimum_temperature_approach_K": 9.0,
+      "objective": 0.46849999999999997,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.759,
+      "net_reboiler_duty_index": 0.43499999999999994,
+      "minimum_temperature_approach_K": 8.799999999999999,
+      "objective": 0.45099999999999996,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7575000000000001,
+      "net_reboiler_duty_index": 0.4175,
+      "minimum_temperature_approach_K": 8.6,
+      "objective": 0.4335,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.756,
+      "net_reboiler_duty_index": 0.39999999999999997,
+      "minimum_temperature_approach_K": 8.399999999999999,
+      "objective": 0.416,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7545000000000001,
+      "net_reboiler_duty_index": 0.38249999999999995,
+      "minimum_temperature_approach_K": 8.2,
+      "objective": 0.39849999999999997,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.753,
+      "net_reboiler_duty_index": 0.36499999999999994,
+      "minimum_temperature_approach_K": 8.0,
+      "objective": 0.38099999999999995,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.7515000000000001,
+      "net_reboiler_duty_index": 0.3474999999999999,
+      "minimum_temperature_approach_K": 7.799999999999999,
+      "objective": 0.36349999999999993,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.802,
+      "light_product_recovery": 0.75,
+      "net_reboiler_duty_index": 0.32999999999999996,
+      "minimum_temperature_approach_K": 7.6,
+      "objective": 0.346,
+      "feasible": false,
+      "separation_intensity_fraction": 0.2,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7949999999999999,
+      "net_reboiler_duty_index": 0.7,
+      "minimum_temperature_approach_K": 12.5,
+      "objective": 0.72,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7935,
+      "net_reboiler_duty_index": 0.6825,
+      "minimum_temperature_approach_K": 12.3,
+      "objective": 0.7025,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7919999999999999,
+      "net_reboiler_duty_index": 0.6649999999999999,
+      "minimum_temperature_approach_K": 12.1,
+      "objective": 0.6849999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7905,
+      "net_reboiler_duty_index": 0.6475,
+      "minimum_temperature_approach_K": 11.9,
+      "objective": 0.6675,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7889999999999999,
+      "net_reboiler_duty_index": 0.63,
+      "minimum_temperature_approach_K": 11.7,
+      "objective": 0.65,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7875,
+      "net_reboiler_duty_index": 0.6124999999999999,
+      "minimum_temperature_approach_K": 11.5,
+      "objective": 0.6325,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7859999999999999,
+      "net_reboiler_duty_index": 0.595,
+      "minimum_temperature_approach_K": 11.3,
+      "objective": 0.615,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7845,
+      "net_reboiler_duty_index": 0.5774999999999999,
+      "minimum_temperature_approach_K": 11.1,
+      "objective": 0.5974999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7829999999999999,
+      "net_reboiler_duty_index": 0.5599999999999999,
+      "minimum_temperature_approach_K": 10.9,
+      "objective": 0.58,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7815,
+      "net_reboiler_duty_index": 0.5425,
+      "minimum_temperature_approach_K": 10.7,
+      "objective": 0.5625,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7799999999999999,
+      "net_reboiler_duty_index": 0.5249999999999999,
+      "minimum_temperature_approach_K": 10.5,
+      "objective": 0.5449999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7785,
+      "net_reboiler_duty_index": 0.5075,
+      "minimum_temperature_approach_K": 10.3,
+      "objective": 0.5275,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7769999999999999,
+      "net_reboiler_duty_index": 0.48999999999999994,
+      "minimum_temperature_approach_K": 10.1,
+      "objective": 0.5099999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7755,
+      "net_reboiler_duty_index": 0.4725,
+      "minimum_temperature_approach_K": 9.9,
+      "objective": 0.4925,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7739999999999999,
+      "net_reboiler_duty_index": 0.45499999999999996,
+      "minimum_temperature_approach_K": 9.7,
+      "objective": 0.475,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7725,
+      "net_reboiler_duty_index": 0.4375,
+      "minimum_temperature_approach_K": 9.5,
+      "objective": 0.4575,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7709999999999999,
+      "net_reboiler_duty_index": 0.42,
+      "minimum_temperature_approach_K": 9.3,
+      "objective": 0.44,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7695,
+      "net_reboiler_duty_index": 0.40249999999999997,
+      "minimum_temperature_approach_K": 9.1,
+      "objective": 0.4225,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7679999999999999,
+      "net_reboiler_duty_index": 0.38499999999999995,
+      "minimum_temperature_approach_K": 8.9,
+      "objective": 0.40499999999999997,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7665,
+      "net_reboiler_duty_index": 0.36749999999999994,
+      "minimum_temperature_approach_K": 8.7,
+      "objective": 0.38749999999999996,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.8140000000000001,
+      "light_product_recovery": 0.7649999999999999,
+      "net_reboiler_duty_index": 0.35,
+      "minimum_temperature_approach_K": 8.5,
+      "objective": 0.37,
+      "feasible": false,
+      "separation_intensity_fraction": 0.25,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8099999999999999,
+      "net_reboiler_duty_index": 0.72,
+      "minimum_temperature_approach_K": 13.4,
+      "objective": 0.744,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8085,
+      "net_reboiler_duty_index": 0.7025,
+      "minimum_temperature_approach_K": 13.200000000000001,
+      "objective": 0.7265,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8069999999999999,
+      "net_reboiler_duty_index": 0.6849999999999999,
+      "minimum_temperature_approach_K": 13.0,
+      "objective": 0.709,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8055,
+      "net_reboiler_duty_index": 0.6675,
+      "minimum_temperature_approach_K": 12.8,
+      "objective": 0.6915,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8039999999999999,
+      "net_reboiler_duty_index": 0.65,
+      "minimum_temperature_approach_K": 12.6,
+      "objective": 0.674,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8025,
+      "net_reboiler_duty_index": 0.6325,
+      "minimum_temperature_approach_K": 12.4,
+      "objective": 0.6565,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.8009999999999999,
+      "net_reboiler_duty_index": 0.615,
+      "minimum_temperature_approach_K": 12.2,
+      "objective": 0.639,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7995,
+      "net_reboiler_duty_index": 0.5974999999999999,
+      "minimum_temperature_approach_K": 12.0,
+      "objective": 0.6214999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7979999999999999,
+      "net_reboiler_duty_index": 0.58,
+      "minimum_temperature_approach_K": 11.8,
+      "objective": 0.604,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7965,
+      "net_reboiler_duty_index": 0.5625,
+      "minimum_temperature_approach_K": 11.6,
+      "objective": 0.5865,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7949999999999999,
+      "net_reboiler_duty_index": 0.5449999999999999,
+      "minimum_temperature_approach_K": 11.4,
+      "objective": 0.569,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7935,
+      "net_reboiler_duty_index": 0.5275,
+      "minimum_temperature_approach_K": 11.2,
+      "objective": 0.5515,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7919999999999999,
+      "net_reboiler_duty_index": 0.51,
+      "minimum_temperature_approach_K": 11.0,
+      "objective": 0.534,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7905,
+      "net_reboiler_duty_index": 0.4925,
+      "minimum_temperature_approach_K": 10.8,
+      "objective": 0.5165,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7889999999999999,
+      "net_reboiler_duty_index": 0.475,
+      "minimum_temperature_approach_K": 10.6,
+      "objective": 0.499,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7875,
+      "net_reboiler_duty_index": 0.4575,
+      "minimum_temperature_approach_K": 10.4,
+      "objective": 0.48150000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7859999999999999,
+      "net_reboiler_duty_index": 0.44,
+      "minimum_temperature_approach_K": 10.2,
+      "objective": 0.464,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7845,
+      "net_reboiler_duty_index": 0.4225,
+      "minimum_temperature_approach_K": 10.0,
+      "objective": 0.4465,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7829999999999999,
+      "net_reboiler_duty_index": 0.40499999999999997,
+      "minimum_temperature_approach_K": 9.8,
+      "objective": 0.429,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7815,
+      "net_reboiler_duty_index": 0.38749999999999996,
+      "minimum_temperature_approach_K": 9.6,
+      "objective": 0.4115,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.8260000000000001,
+      "light_product_recovery": 0.7799999999999999,
+      "net_reboiler_duty_index": 0.37,
+      "minimum_temperature_approach_K": 9.4,
+      "objective": 0.394,
+      "feasible": false,
+      "separation_intensity_fraction": 0.30000000000000004,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.825,
+      "net_reboiler_duty_index": 0.74,
+      "minimum_temperature_approach_K": 14.3,
+      "objective": 0.768,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8235,
+      "net_reboiler_duty_index": 0.7225,
+      "minimum_temperature_approach_K": 14.100000000000001,
+      "objective": 0.7505000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.822,
+      "net_reboiler_duty_index": 0.705,
+      "minimum_temperature_approach_K": 13.9,
+      "objective": 0.733,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8205,
+      "net_reboiler_duty_index": 0.6875,
+      "minimum_temperature_approach_K": 13.700000000000001,
+      "objective": 0.7155,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.819,
+      "net_reboiler_duty_index": 0.67,
+      "minimum_temperature_approach_K": 13.5,
+      "objective": 0.6980000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8175,
+      "net_reboiler_duty_index": 0.6525,
+      "minimum_temperature_approach_K": 13.3,
+      "objective": 0.6805,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.816,
+      "net_reboiler_duty_index": 0.635,
+      "minimum_temperature_approach_K": 13.100000000000001,
+      "objective": 0.663,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8145,
+      "net_reboiler_duty_index": 0.6174999999999999,
+      "minimum_temperature_approach_K": 12.9,
+      "objective": 0.6455,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.813,
+      "net_reboiler_duty_index": 0.6,
+      "minimum_temperature_approach_K": 12.700000000000001,
+      "objective": 0.628,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8115,
+      "net_reboiler_duty_index": 0.5825,
+      "minimum_temperature_approach_K": 12.5,
+      "objective": 0.6105,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8099999999999999,
+      "net_reboiler_duty_index": 0.565,
+      "minimum_temperature_approach_K": 12.3,
+      "objective": 0.593,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8085,
+      "net_reboiler_duty_index": 0.5475,
+      "minimum_temperature_approach_K": 12.100000000000001,
+      "objective": 0.5755,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8069999999999999,
+      "net_reboiler_duty_index": 0.53,
+      "minimum_temperature_approach_K": 11.9,
+      "objective": 0.558,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8055,
+      "net_reboiler_duty_index": 0.5125,
+      "minimum_temperature_approach_K": 11.700000000000001,
+      "objective": 0.5405,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8039999999999999,
+      "net_reboiler_duty_index": 0.495,
+      "minimum_temperature_approach_K": 11.5,
+      "objective": 0.523,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8025,
+      "net_reboiler_duty_index": 0.47750000000000004,
+      "minimum_temperature_approach_K": 11.3,
+      "objective": 0.5055000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.8009999999999999,
+      "net_reboiler_duty_index": 0.46,
+      "minimum_temperature_approach_K": 11.100000000000001,
+      "objective": 0.48800000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.7995,
+      "net_reboiler_duty_index": 0.4425,
+      "minimum_temperature_approach_K": 10.9,
+      "objective": 0.47050000000000003,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.7979999999999999,
+      "net_reboiler_duty_index": 0.425,
+      "minimum_temperature_approach_K": 10.700000000000001,
+      "objective": 0.453,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.7965,
+      "net_reboiler_duty_index": 0.4075,
+      "minimum_temperature_approach_K": 10.5,
+      "objective": 0.4355,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.838,
+      "light_product_recovery": 0.7949999999999999,
+      "net_reboiler_duty_index": 0.39,
+      "minimum_temperature_approach_K": 10.3,
+      "objective": 0.41800000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.35000000000000003,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.84,
+      "net_reboiler_duty_index": 0.76,
+      "minimum_temperature_approach_K": 15.2,
+      "objective": 0.792,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8385,
+      "net_reboiler_duty_index": 0.7425,
+      "minimum_temperature_approach_K": 15.0,
+      "objective": 0.7745000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.837,
+      "net_reboiler_duty_index": 0.725,
+      "minimum_temperature_approach_K": 14.799999999999999,
+      "objective": 0.757,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8355,
+      "net_reboiler_duty_index": 0.7075,
+      "minimum_temperature_approach_K": 14.6,
+      "objective": 0.7395,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.834,
+      "net_reboiler_duty_index": 0.6900000000000001,
+      "minimum_temperature_approach_K": 14.399999999999999,
+      "objective": 0.7220000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8325,
+      "net_reboiler_duty_index": 0.6725,
+      "minimum_temperature_approach_K": 14.2,
+      "objective": 0.7045,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.831,
+      "net_reboiler_duty_index": 0.655,
+      "minimum_temperature_approach_K": 14.0,
+      "objective": 0.687,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8295,
+      "net_reboiler_duty_index": 0.6375,
+      "minimum_temperature_approach_K": 13.799999999999999,
+      "objective": 0.6695,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.828,
+      "net_reboiler_duty_index": 0.62,
+      "minimum_temperature_approach_K": 13.6,
+      "objective": 0.652,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8265,
+      "net_reboiler_duty_index": 0.6025,
+      "minimum_temperature_approach_K": 13.399999999999999,
+      "objective": 0.6345000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.825,
+      "net_reboiler_duty_index": 0.585,
+      "minimum_temperature_approach_K": 13.2,
+      "objective": 0.617,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8235,
+      "net_reboiler_duty_index": 0.5675,
+      "minimum_temperature_approach_K": 13.0,
+      "objective": 0.5995,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.822,
+      "net_reboiler_duty_index": 0.55,
+      "minimum_temperature_approach_K": 12.799999999999999,
+      "objective": 0.5820000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8205,
+      "net_reboiler_duty_index": 0.5325,
+      "minimum_temperature_approach_K": 12.6,
+      "objective": 0.5645,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.819,
+      "net_reboiler_duty_index": 0.515,
+      "minimum_temperature_approach_K": 12.399999999999999,
+      "objective": 0.547,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8175,
+      "net_reboiler_duty_index": 0.49750000000000005,
+      "minimum_temperature_approach_K": 12.2,
+      "objective": 0.5295000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.816,
+      "net_reboiler_duty_index": 0.48000000000000004,
+      "minimum_temperature_approach_K": 12.0,
+      "objective": 0.512,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8145,
+      "net_reboiler_duty_index": 0.4625,
+      "minimum_temperature_approach_K": 11.799999999999999,
+      "objective": 0.49450000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.813,
+      "net_reboiler_duty_index": 0.445,
+      "minimum_temperature_approach_K": 11.6,
+      "objective": 0.477,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8115,
+      "net_reboiler_duty_index": 0.4275,
+      "minimum_temperature_approach_K": 11.399999999999999,
+      "objective": 0.4595,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.85,
+      "light_product_recovery": 0.8099999999999999,
+      "net_reboiler_duty_index": 0.41000000000000003,
+      "minimum_temperature_approach_K": 11.2,
+      "objective": 0.44200000000000006,
+      "feasible": false,
+      "separation_intensity_fraction": 0.4,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.855,
+      "net_reboiler_duty_index": 0.78,
+      "minimum_temperature_approach_K": 16.1,
+      "objective": 0.8160000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8535,
+      "net_reboiler_duty_index": 0.7625000000000001,
+      "minimum_temperature_approach_K": 15.900000000000002,
+      "objective": 0.7985000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.852,
+      "net_reboiler_duty_index": 0.745,
+      "minimum_temperature_approach_K": 15.700000000000001,
+      "objective": 0.781,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8505,
+      "net_reboiler_duty_index": 0.7275,
+      "minimum_temperature_approach_K": 15.500000000000002,
+      "objective": 0.7635000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.849,
+      "net_reboiler_duty_index": 0.7100000000000001,
+      "minimum_temperature_approach_K": 15.3,
+      "objective": 0.7460000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8475,
+      "net_reboiler_duty_index": 0.6925,
+      "minimum_temperature_approach_K": 15.100000000000001,
+      "objective": 0.7285,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.846,
+      "net_reboiler_duty_index": 0.675,
+      "minimum_temperature_approach_K": 14.900000000000002,
+      "objective": 0.7110000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8445,
+      "net_reboiler_duty_index": 0.6575,
+      "minimum_temperature_approach_K": 14.700000000000001,
+      "objective": 0.6935,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.843,
+      "net_reboiler_duty_index": 0.64,
+      "minimum_temperature_approach_K": 14.500000000000002,
+      "objective": 0.676,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8415,
+      "net_reboiler_duty_index": 0.6225,
+      "minimum_temperature_approach_K": 14.3,
+      "objective": 0.6585000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.84,
+      "net_reboiler_duty_index": 0.605,
+      "minimum_temperature_approach_K": 14.100000000000001,
+      "objective": 0.641,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8385,
+      "net_reboiler_duty_index": 0.5875,
+      "minimum_temperature_approach_K": 13.900000000000002,
+      "objective": 0.6235,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.837,
+      "net_reboiler_duty_index": 0.5700000000000001,
+      "minimum_temperature_approach_K": 13.700000000000001,
+      "objective": 0.6060000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8355,
+      "net_reboiler_duty_index": 0.5525,
+      "minimum_temperature_approach_K": 13.500000000000002,
+      "objective": 0.5885,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.834,
+      "net_reboiler_duty_index": 0.535,
+      "minimum_temperature_approach_K": 13.3,
+      "objective": 0.5710000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8325,
+      "net_reboiler_duty_index": 0.5175000000000001,
+      "minimum_temperature_approach_K": 13.100000000000001,
+      "objective": 0.5535000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.831,
+      "net_reboiler_duty_index": 0.5,
+      "minimum_temperature_approach_K": 12.900000000000002,
+      "objective": 0.536,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8295,
+      "net_reboiler_duty_index": 0.48250000000000004,
+      "minimum_temperature_approach_K": 12.700000000000001,
+      "objective": 0.5185000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.828,
+      "net_reboiler_duty_index": 0.465,
+      "minimum_temperature_approach_K": 12.500000000000002,
+      "objective": 0.501,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.8265,
+      "net_reboiler_duty_index": 0.4475,
+      "minimum_temperature_approach_K": 12.3,
+      "objective": 0.48350000000000004,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.862,
+      "light_product_recovery": 0.825,
+      "net_reboiler_duty_index": 0.43000000000000005,
+      "minimum_temperature_approach_K": 12.100000000000001,
+      "objective": 0.4660000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.45,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.87,
+      "net_reboiler_duty_index": 0.8,
+      "minimum_temperature_approach_K": 17.0,
+      "objective": 0.8400000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8685,
+      "net_reboiler_duty_index": 0.7825000000000001,
+      "minimum_temperature_approach_K": 16.8,
+      "objective": 0.8225000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.867,
+      "net_reboiler_duty_index": 0.765,
+      "minimum_temperature_approach_K": 16.6,
+      "objective": 0.805,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8655,
+      "net_reboiler_duty_index": 0.7475,
+      "minimum_temperature_approach_K": 16.4,
+      "objective": 0.7875000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.864,
+      "net_reboiler_duty_index": 0.7300000000000001,
+      "minimum_temperature_approach_K": 16.2,
+      "objective": 0.7700000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8625,
+      "net_reboiler_duty_index": 0.7125,
+      "minimum_temperature_approach_K": 16.0,
+      "objective": 0.7525000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.861,
+      "net_reboiler_duty_index": 0.6950000000000001,
+      "minimum_temperature_approach_K": 15.8,
+      "objective": 0.7350000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8595,
+      "net_reboiler_duty_index": 0.6775,
+      "minimum_temperature_approach_K": 15.6,
+      "objective": 0.7175,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.858,
+      "net_reboiler_duty_index": 0.66,
+      "minimum_temperature_approach_K": 15.4,
+      "objective": 0.7000000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8565,
+      "net_reboiler_duty_index": 0.6425000000000001,
+      "minimum_temperature_approach_K": 15.2,
+      "objective": 0.6825000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.855,
+      "net_reboiler_duty_index": 0.625,
+      "minimum_temperature_approach_K": 15.0,
+      "objective": 0.665,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8535,
+      "net_reboiler_duty_index": 0.6075,
+      "minimum_temperature_approach_K": 14.8,
+      "objective": 0.6475000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.852,
+      "net_reboiler_duty_index": 0.5900000000000001,
+      "minimum_temperature_approach_K": 14.6,
+      "objective": 0.6300000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8505,
+      "net_reboiler_duty_index": 0.5725,
+      "minimum_temperature_approach_K": 14.4,
+      "objective": 0.6125,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.849,
+      "net_reboiler_duty_index": 0.555,
+      "minimum_temperature_approach_K": 14.2,
+      "objective": 0.5950000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8475,
+      "net_reboiler_duty_index": 0.5375000000000001,
+      "minimum_temperature_approach_K": 14.0,
+      "objective": 0.5775000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.846,
+      "net_reboiler_duty_index": 0.52,
+      "minimum_temperature_approach_K": 13.8,
+      "objective": 0.56,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8445,
+      "net_reboiler_duty_index": 0.5025000000000001,
+      "minimum_temperature_approach_K": 13.6,
+      "objective": 0.5425000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.843,
+      "net_reboiler_duty_index": 0.48500000000000004,
+      "minimum_temperature_approach_K": 13.4,
+      "objective": 0.525,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.8415,
+      "net_reboiler_duty_index": 0.4675,
+      "minimum_temperature_approach_K": 13.2,
+      "objective": 0.5075000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.874,
+      "light_product_recovery": 0.84,
+      "net_reboiler_duty_index": 0.45000000000000007,
+      "minimum_temperature_approach_K": 13.0,
+      "objective": 0.49000000000000005,
+      "feasible": false,
+      "separation_intensity_fraction": 0.5,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.885,
+      "net_reboiler_duty_index": 0.8200000000000001,
+      "minimum_temperature_approach_K": 17.9,
+      "objective": 0.8640000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8835000000000001,
+      "net_reboiler_duty_index": 0.8025000000000001,
+      "minimum_temperature_approach_K": 17.7,
+      "objective": 0.8465000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.882,
+      "net_reboiler_duty_index": 0.785,
+      "minimum_temperature_approach_K": 17.5,
+      "objective": 0.8290000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8805000000000001,
+      "net_reboiler_duty_index": 0.7675000000000001,
+      "minimum_temperature_approach_K": 17.299999999999997,
+      "objective": 0.8115000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.879,
+      "net_reboiler_duty_index": 0.7500000000000001,
+      "minimum_temperature_approach_K": 17.099999999999998,
+      "objective": 0.7940000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8775000000000001,
+      "net_reboiler_duty_index": 0.7325,
+      "minimum_temperature_approach_K": 16.9,
+      "objective": 0.7765000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.876,
+      "net_reboiler_duty_index": 0.7150000000000001,
+      "minimum_temperature_approach_K": 16.7,
+      "objective": 0.7590000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8745,
+      "net_reboiler_duty_index": 0.6975,
+      "minimum_temperature_approach_K": 16.5,
+      "objective": 0.7415,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.873,
+      "net_reboiler_duty_index": 0.68,
+      "minimum_temperature_approach_K": 16.299999999999997,
+      "objective": 0.7240000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8715,
+      "net_reboiler_duty_index": 0.6625000000000001,
+      "minimum_temperature_approach_K": 16.099999999999998,
+      "objective": 0.7065000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.87,
+      "net_reboiler_duty_index": 0.645,
+      "minimum_temperature_approach_K": 15.899999999999999,
+      "objective": 0.6890000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8685,
+      "net_reboiler_duty_index": 0.6275000000000001,
+      "minimum_temperature_approach_K": 15.7,
+      "objective": 0.6715000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.867,
+      "net_reboiler_duty_index": 0.6100000000000001,
+      "minimum_temperature_approach_K": 15.499999999999998,
+      "objective": 0.6540000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8655,
+      "net_reboiler_duty_index": 0.5925,
+      "minimum_temperature_approach_K": 15.299999999999999,
+      "objective": 0.6365000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.864,
+      "net_reboiler_duty_index": 0.5750000000000001,
+      "minimum_temperature_approach_K": 15.099999999999998,
+      "objective": 0.6190000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8625,
+      "net_reboiler_duty_index": 0.5575000000000001,
+      "minimum_temperature_approach_K": 14.899999999999999,
+      "objective": 0.6015000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.861,
+      "net_reboiler_duty_index": 0.54,
+      "minimum_temperature_approach_K": 14.7,
+      "objective": 0.5840000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8595,
+      "net_reboiler_duty_index": 0.5225000000000001,
+      "minimum_temperature_approach_K": 14.499999999999998,
+      "objective": 0.5665000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.858,
+      "net_reboiler_duty_index": 0.5050000000000001,
+      "minimum_temperature_approach_K": 14.299999999999999,
+      "objective": 0.5490000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.8565,
+      "net_reboiler_duty_index": 0.48750000000000004,
+      "minimum_temperature_approach_K": 14.099999999999998,
+      "objective": 0.5315000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.886,
+      "light_product_recovery": 0.855,
+      "net_reboiler_duty_index": 0.4700000000000001,
+      "minimum_temperature_approach_K": 13.899999999999999,
+      "objective": 0.5140000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.55,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.9,
+      "net_reboiler_duty_index": 0.8400000000000001,
+      "minimum_temperature_approach_K": 18.8,
+      "objective": 0.8880000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8985000000000001,
+      "net_reboiler_duty_index": 0.8225000000000001,
+      "minimum_temperature_approach_K": 18.6,
+      "objective": 0.8705000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.897,
+      "net_reboiler_duty_index": 0.805,
+      "minimum_temperature_approach_K": 18.400000000000002,
+      "objective": 0.8530000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8955000000000001,
+      "net_reboiler_duty_index": 0.7875000000000001,
+      "minimum_temperature_approach_K": 18.2,
+      "objective": 0.8355000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.894,
+      "net_reboiler_duty_index": 0.7700000000000001,
+      "minimum_temperature_approach_K": 18.0,
+      "objective": 0.8180000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8925000000000001,
+      "net_reboiler_duty_index": 0.7525000000000001,
+      "minimum_temperature_approach_K": 17.8,
+      "objective": 0.8005000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.891,
+      "net_reboiler_duty_index": 0.7350000000000001,
+      "minimum_temperature_approach_K": 17.6,
+      "objective": 0.7830000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8895000000000001,
+      "net_reboiler_duty_index": 0.7175,
+      "minimum_temperature_approach_K": 17.400000000000002,
+      "objective": 0.7655000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.888,
+      "net_reboiler_duty_index": 0.7000000000000001,
+      "minimum_temperature_approach_K": 17.2,
+      "objective": 0.7480000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8865000000000001,
+      "net_reboiler_duty_index": 0.6825000000000001,
+      "minimum_temperature_approach_K": 17.0,
+      "objective": 0.7305000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.885,
+      "net_reboiler_duty_index": 0.665,
+      "minimum_temperature_approach_K": 16.8,
+      "objective": 0.7130000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8835000000000001,
+      "net_reboiler_duty_index": 0.6475000000000001,
+      "minimum_temperature_approach_K": 16.6,
+      "objective": 0.6955000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.882,
+      "net_reboiler_duty_index": 0.6300000000000001,
+      "minimum_temperature_approach_K": 16.4,
+      "objective": 0.6780000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8805000000000001,
+      "net_reboiler_duty_index": 0.6125,
+      "minimum_temperature_approach_K": 16.2,
+      "objective": 0.6605000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.879,
+      "net_reboiler_duty_index": 0.5950000000000001,
+      "minimum_temperature_approach_K": 16.0,
+      "objective": 0.6430000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8775000000000001,
+      "net_reboiler_duty_index": 0.5775000000000001,
+      "minimum_temperature_approach_K": 15.8,
+      "objective": 0.6255000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.876,
+      "net_reboiler_duty_index": 0.56,
+      "minimum_temperature_approach_K": 15.600000000000001,
+      "objective": 0.6080000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8745,
+      "net_reboiler_duty_index": 0.5425000000000001,
+      "minimum_temperature_approach_K": 15.4,
+      "objective": 0.5905000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.873,
+      "net_reboiler_duty_index": 0.5250000000000001,
+      "minimum_temperature_approach_K": 15.200000000000001,
+      "objective": 0.5730000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.8715,
+      "net_reboiler_duty_index": 0.5075000000000001,
+      "minimum_temperature_approach_K": 15.0,
+      "objective": 0.5555000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.898,
+      "light_product_recovery": 0.87,
+      "net_reboiler_duty_index": 0.4900000000000001,
+      "minimum_temperature_approach_K": 14.8,
+      "objective": 0.5380000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.6000000000000001,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.915,
+      "net_reboiler_duty_index": 0.86,
+      "minimum_temperature_approach_K": 19.700000000000003,
+      "objective": 0.912,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9135000000000001,
+      "net_reboiler_duty_index": 0.8425,
+      "minimum_temperature_approach_K": 19.500000000000004,
+      "objective": 0.8945000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.912,
+      "net_reboiler_duty_index": 0.825,
+      "minimum_temperature_approach_K": 19.300000000000004,
+      "objective": 0.877,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9105000000000001,
+      "net_reboiler_duty_index": 0.8075,
+      "minimum_temperature_approach_K": 19.1,
+      "objective": 0.8595,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.909,
+      "net_reboiler_duty_index": 0.79,
+      "minimum_temperature_approach_K": 18.900000000000002,
+      "objective": 0.8420000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9075000000000001,
+      "net_reboiler_duty_index": 0.7725,
+      "minimum_temperature_approach_K": 18.700000000000003,
+      "objective": 0.8245,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.906,
+      "net_reboiler_duty_index": 0.755,
+      "minimum_temperature_approach_K": 18.500000000000004,
+      "objective": 0.807,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9045000000000001,
+      "net_reboiler_duty_index": 0.7375,
+      "minimum_temperature_approach_K": 18.300000000000004,
+      "objective": 0.7895000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.903,
+      "net_reboiler_duty_index": 0.72,
+      "minimum_temperature_approach_K": 18.1,
+      "objective": 0.772,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9015000000000001,
+      "net_reboiler_duty_index": 0.7025,
+      "minimum_temperature_approach_K": 17.900000000000002,
+      "objective": 0.7545000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.9,
+      "net_reboiler_duty_index": 0.685,
+      "minimum_temperature_approach_K": 17.700000000000003,
+      "objective": 0.7370000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.8985000000000001,
+      "net_reboiler_duty_index": 0.6675,
+      "minimum_temperature_approach_K": 17.500000000000004,
+      "objective": 0.7195,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.897,
+      "net_reboiler_duty_index": 0.6499999999999999,
+      "minimum_temperature_approach_K": 17.300000000000004,
+      "objective": 0.702,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.8955000000000001,
+      "net_reboiler_duty_index": 0.6325000000000001,
+      "minimum_temperature_approach_K": 17.1,
+      "objective": 0.6845000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.894,
+      "net_reboiler_duty_index": 0.615,
+      "minimum_temperature_approach_K": 16.900000000000002,
+      "objective": 0.667,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.8925000000000001,
+      "net_reboiler_duty_index": 0.5975,
+      "minimum_temperature_approach_K": 16.700000000000003,
+      "objective": 0.6495000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.891,
+      "net_reboiler_duty_index": 0.5800000000000001,
+      "minimum_temperature_approach_K": 16.500000000000004,
+      "objective": 0.6320000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.8895000000000001,
+      "net_reboiler_duty_index": 0.5625,
+      "minimum_temperature_approach_K": 16.300000000000004,
+      "objective": 0.6145,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.888,
+      "net_reboiler_duty_index": 0.5449999999999999,
+      "minimum_temperature_approach_K": 16.1,
+      "objective": 0.597,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.8865000000000001,
+      "net_reboiler_duty_index": 0.5275,
+      "minimum_temperature_approach_K": 15.900000000000002,
+      "objective": 0.5795,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.91,
+      "light_product_recovery": 0.885,
+      "net_reboiler_duty_index": 0.51,
+      "minimum_temperature_approach_K": 15.700000000000003,
+      "objective": 0.562,
+      "feasible": false,
+      "separation_intensity_fraction": 0.65,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9299999999999999,
+      "net_reboiler_duty_index": 0.88,
+      "minimum_temperature_approach_K": 20.6,
+      "objective": 0.936,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9285,
+      "net_reboiler_duty_index": 0.8625,
+      "minimum_temperature_approach_K": 20.400000000000002,
+      "objective": 0.9185000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9269999999999999,
+      "net_reboiler_duty_index": 0.845,
+      "minimum_temperature_approach_K": 20.200000000000003,
+      "objective": 0.901,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9255,
+      "net_reboiler_duty_index": 0.8275,
+      "minimum_temperature_approach_K": 20.0,
+      "objective": 0.8835000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9239999999999999,
+      "net_reboiler_duty_index": 0.81,
+      "minimum_temperature_approach_K": 19.8,
+      "objective": 0.8660000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9225,
+      "net_reboiler_duty_index": 0.7925,
+      "minimum_temperature_approach_K": 19.6,
+      "objective": 0.8485,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9209999999999999,
+      "net_reboiler_duty_index": 0.775,
+      "minimum_temperature_approach_K": 19.400000000000002,
+      "objective": 0.8310000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9195,
+      "net_reboiler_duty_index": 0.7575000000000001,
+      "minimum_temperature_approach_K": 19.200000000000003,
+      "objective": 0.8135000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9179999999999999,
+      "net_reboiler_duty_index": 0.74,
+      "minimum_temperature_approach_K": 19.0,
+      "objective": 0.796,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9165,
+      "net_reboiler_duty_index": 0.7225,
+      "minimum_temperature_approach_K": 18.8,
+      "objective": 0.7785000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9149999999999999,
+      "net_reboiler_duty_index": 0.7050000000000001,
+      "minimum_temperature_approach_K": 18.6,
+      "objective": 0.7610000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9135,
+      "net_reboiler_duty_index": 0.6875,
+      "minimum_temperature_approach_K": 18.400000000000002,
+      "objective": 0.7435,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9119999999999999,
+      "net_reboiler_duty_index": 0.6699999999999999,
+      "minimum_temperature_approach_K": 18.200000000000003,
+      "objective": 0.726,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9105,
+      "net_reboiler_duty_index": 0.6525000000000001,
+      "minimum_temperature_approach_K": 18.0,
+      "objective": 0.7085000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9089999999999999,
+      "net_reboiler_duty_index": 0.635,
+      "minimum_temperature_approach_K": 17.8,
+      "objective": 0.6910000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9075,
+      "net_reboiler_duty_index": 0.6175,
+      "minimum_temperature_approach_K": 17.6,
+      "objective": 0.6735000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9059999999999999,
+      "net_reboiler_duty_index": 0.6000000000000001,
+      "minimum_temperature_approach_K": 17.400000000000002,
+      "objective": 0.6560000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9045,
+      "net_reboiler_duty_index": 0.5825,
+      "minimum_temperature_approach_K": 17.200000000000003,
+      "objective": 0.6385000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9029999999999999,
+      "net_reboiler_duty_index": 0.565,
+      "minimum_temperature_approach_K": 17.0,
+      "objective": 0.621,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.9015,
+      "net_reboiler_duty_index": 0.5475,
+      "minimum_temperature_approach_K": 16.8,
+      "objective": 0.6035,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.922,
+      "light_product_recovery": 0.8999999999999999,
+      "net_reboiler_duty_index": 0.53,
+      "minimum_temperature_approach_K": 16.6,
+      "objective": 0.5860000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.7000000000000001,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.945,
+      "net_reboiler_duty_index": 0.9,
+      "minimum_temperature_approach_K": 21.5,
+      "objective": 0.96,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9435,
+      "net_reboiler_duty_index": 0.8825000000000001,
+      "minimum_temperature_approach_K": 21.3,
+      "objective": 0.9425000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.942,
+      "net_reboiler_duty_index": 0.865,
+      "minimum_temperature_approach_K": 21.1,
+      "objective": 0.925,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9405,
+      "net_reboiler_duty_index": 0.8475,
+      "minimum_temperature_approach_K": 20.9,
+      "objective": 0.9075,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.939,
+      "net_reboiler_duty_index": 0.8300000000000001,
+      "minimum_temperature_approach_K": 20.7,
+      "objective": 0.8900000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9375,
+      "net_reboiler_duty_index": 0.8125,
+      "minimum_temperature_approach_K": 20.5,
+      "objective": 0.8725,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9359999999999999,
+      "net_reboiler_duty_index": 0.795,
+      "minimum_temperature_approach_K": 20.3,
+      "objective": 0.855,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9345,
+      "net_reboiler_duty_index": 0.7775000000000001,
+      "minimum_temperature_approach_K": 20.1,
+      "objective": 0.8375000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9329999999999999,
+      "net_reboiler_duty_index": 0.76,
+      "minimum_temperature_approach_K": 19.9,
+      "objective": 0.8200000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9315,
+      "net_reboiler_duty_index": 0.7425,
+      "minimum_temperature_approach_K": 19.7,
+      "objective": 0.8025,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9299999999999999,
+      "net_reboiler_duty_index": 0.7250000000000001,
+      "minimum_temperature_approach_K": 19.5,
+      "objective": 0.7850000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9285,
+      "net_reboiler_duty_index": 0.7075,
+      "minimum_temperature_approach_K": 19.3,
+      "objective": 0.7675000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9269999999999999,
+      "net_reboiler_duty_index": 0.69,
+      "minimum_temperature_approach_K": 19.1,
+      "objective": 0.75,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9255,
+      "net_reboiler_duty_index": 0.6725000000000001,
+      "minimum_temperature_approach_K": 18.9,
+      "objective": 0.7325000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9239999999999999,
+      "net_reboiler_duty_index": 0.655,
+      "minimum_temperature_approach_K": 18.7,
+      "objective": 0.7150000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9225,
+      "net_reboiler_duty_index": 0.6375000000000001,
+      "minimum_temperature_approach_K": 18.5,
+      "objective": 0.6975,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9209999999999999,
+      "net_reboiler_duty_index": 0.6200000000000001,
+      "minimum_temperature_approach_K": 18.3,
+      "objective": 0.6800000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9195,
+      "net_reboiler_duty_index": 0.6025,
+      "minimum_temperature_approach_K": 18.1,
+      "objective": 0.6625000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9179999999999999,
+      "net_reboiler_duty_index": 0.585,
+      "minimum_temperature_approach_K": 17.9,
+      "objective": 0.645,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9165,
+      "net_reboiler_duty_index": 0.5675,
+      "minimum_temperature_approach_K": 17.7,
+      "objective": 0.6275,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.9339999999999999,
+      "light_product_recovery": 0.9149999999999999,
+      "net_reboiler_duty_index": 0.55,
+      "minimum_temperature_approach_K": 17.5,
+      "objective": 0.6100000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.75,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.96,
+      "net_reboiler_duty_index": 0.92,
+      "minimum_temperature_approach_K": 22.4,
+      "objective": 0.984,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9585,
+      "net_reboiler_duty_index": 0.9025000000000001,
+      "minimum_temperature_approach_K": 22.2,
+      "objective": 0.9665000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.957,
+      "net_reboiler_duty_index": 0.885,
+      "minimum_temperature_approach_K": 22.0,
+      "objective": 0.9490000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9555,
+      "net_reboiler_duty_index": 0.8675,
+      "minimum_temperature_approach_K": 21.799999999999997,
+      "objective": 0.9315,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.954,
+      "net_reboiler_duty_index": 0.8500000000000001,
+      "minimum_temperature_approach_K": 21.599999999999998,
+      "objective": 0.9140000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9525,
+      "net_reboiler_duty_index": 0.8325,
+      "minimum_temperature_approach_K": 21.4,
+      "objective": 0.8965000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.951,
+      "net_reboiler_duty_index": 0.8150000000000001,
+      "minimum_temperature_approach_K": 21.2,
+      "objective": 0.879,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9495,
+      "net_reboiler_duty_index": 0.7975000000000001,
+      "minimum_temperature_approach_K": 21.0,
+      "objective": 0.8615000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.948,
+      "net_reboiler_duty_index": 0.78,
+      "minimum_temperature_approach_K": 20.799999999999997,
+      "objective": 0.8440000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9465,
+      "net_reboiler_duty_index": 0.7625000000000001,
+      "minimum_temperature_approach_K": 20.599999999999998,
+      "objective": 0.8265,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.945,
+      "net_reboiler_duty_index": 0.7450000000000001,
+      "minimum_temperature_approach_K": 20.4,
+      "objective": 0.8090000000000002,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9435,
+      "net_reboiler_duty_index": 0.7275,
+      "minimum_temperature_approach_K": 20.2,
+      "objective": 0.7915000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.942,
+      "net_reboiler_duty_index": 0.71,
+      "minimum_temperature_approach_K": 20.0,
+      "objective": 0.774,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9405,
+      "net_reboiler_duty_index": 0.6925000000000001,
+      "minimum_temperature_approach_K": 19.799999999999997,
+      "objective": 0.7565000000000002,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.939,
+      "net_reboiler_duty_index": 0.675,
+      "minimum_temperature_approach_K": 19.599999999999998,
+      "objective": 0.7390000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9375,
+      "net_reboiler_duty_index": 0.6575000000000001,
+      "minimum_temperature_approach_K": 19.4,
+      "objective": 0.7215,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9359999999999999,
+      "net_reboiler_duty_index": 0.6400000000000001,
+      "minimum_temperature_approach_K": 19.2,
+      "objective": 0.7040000000000002,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9345,
+      "net_reboiler_duty_index": 0.6225,
+      "minimum_temperature_approach_K": 19.0,
+      "objective": 0.6865000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9329999999999999,
+      "net_reboiler_duty_index": 0.605,
+      "minimum_temperature_approach_K": 18.799999999999997,
+      "objective": 0.669,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9315,
+      "net_reboiler_duty_index": 0.5875,
+      "minimum_temperature_approach_K": 18.599999999999998,
+      "objective": 0.6515,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.946,
+      "light_product_recovery": 0.9299999999999999,
+      "net_reboiler_duty_index": 0.5700000000000001,
+      "minimum_temperature_approach_K": 18.4,
+      "objective": 0.6340000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.975,
+      "net_reboiler_duty_index": 0.9400000000000001,
+      "minimum_temperature_approach_K": 23.3,
+      "objective": 1.008,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9735,
+      "net_reboiler_duty_index": 0.9225000000000001,
+      "minimum_temperature_approach_K": 23.1,
+      "objective": 0.9905000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.972,
+      "net_reboiler_duty_index": 0.905,
+      "minimum_temperature_approach_K": 22.900000000000002,
+      "objective": 0.9730000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9705,
+      "net_reboiler_duty_index": 0.8875000000000001,
+      "minimum_temperature_approach_K": 22.7,
+      "objective": 0.9555,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.969,
+      "net_reboiler_duty_index": 0.8700000000000001,
+      "minimum_temperature_approach_K": 22.5,
+      "objective": 0.9380000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9675,
+      "net_reboiler_duty_index": 0.8525,
+      "minimum_temperature_approach_K": 22.3,
+      "objective": 0.9205000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.966,
+      "net_reboiler_duty_index": 0.8350000000000001,
+      "minimum_temperature_approach_K": 22.1,
+      "objective": 0.903,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9645,
+      "net_reboiler_duty_index": 0.8175000000000001,
+      "minimum_temperature_approach_K": 21.900000000000002,
+      "objective": 0.8855000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.963,
+      "net_reboiler_duty_index": 0.8,
+      "minimum_temperature_approach_K": 21.7,
+      "objective": 0.8680000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9615,
+      "net_reboiler_duty_index": 0.7825000000000001,
+      "minimum_temperature_approach_K": 21.5,
+      "objective": 0.8505,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.96,
+      "net_reboiler_duty_index": 0.7650000000000001,
+      "minimum_temperature_approach_K": 21.3,
+      "objective": 0.8330000000000002,
+      "feasible": false,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9585,
+      "net_reboiler_duty_index": 0.7475,
+      "minimum_temperature_approach_K": 21.1,
+      "objective": 0.8155000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.957,
+      "net_reboiler_duty_index": 0.73,
+      "minimum_temperature_approach_K": 20.9,
+      "objective": 0.798,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9555,
+      "net_reboiler_duty_index": 0.7125000000000001,
+      "minimum_temperature_approach_K": 20.7,
+      "objective": 0.7805000000000002,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.954,
+      "net_reboiler_duty_index": 0.6950000000000001,
+      "minimum_temperature_approach_K": 20.5,
+      "objective": 0.7630000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9525,
+      "net_reboiler_duty_index": 0.6775000000000001,
+      "minimum_temperature_approach_K": 20.3,
+      "objective": 0.7455,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.951,
+      "net_reboiler_duty_index": 0.6600000000000001,
+      "minimum_temperature_approach_K": 20.1,
+      "objective": 0.7280000000000002,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9495,
+      "net_reboiler_duty_index": 0.6425000000000001,
+      "minimum_temperature_approach_K": 19.9,
+      "objective": 0.7105000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.948,
+      "net_reboiler_duty_index": 0.625,
+      "minimum_temperature_approach_K": 19.7,
+      "objective": 0.6930000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.9465,
+      "net_reboiler_duty_index": 0.6075,
+      "minimum_temperature_approach_K": 19.5,
+      "objective": 0.6755,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.958,
+      "light_product_recovery": 0.945,
+      "net_reboiler_duty_index": 0.5900000000000001,
+      "minimum_temperature_approach_K": 19.3,
+      "objective": 0.6580000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.8500000000000001,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.99,
+      "net_reboiler_duty_index": 0.96,
+      "minimum_temperature_approach_K": 24.2,
+      "objective": 1.032,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9885,
+      "net_reboiler_duty_index": 0.9425,
+      "minimum_temperature_approach_K": 24.0,
+      "objective": 1.0145,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.987,
+      "net_reboiler_duty_index": 0.9249999999999999,
+      "minimum_temperature_approach_K": 23.8,
+      "objective": 0.9969999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9855,
+      "net_reboiler_duty_index": 0.9075,
+      "minimum_temperature_approach_K": 23.599999999999998,
+      "objective": 0.9795,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.984,
+      "net_reboiler_duty_index": 0.89,
+      "minimum_temperature_approach_K": 23.4,
+      "objective": 0.962,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9825,
+      "net_reboiler_duty_index": 0.8724999999999999,
+      "minimum_temperature_approach_K": 23.2,
+      "objective": 0.9444999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.981,
+      "net_reboiler_duty_index": 0.855,
+      "minimum_temperature_approach_K": 23.0,
+      "objective": 0.927,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9795,
+      "net_reboiler_duty_index": 0.8374999999999999,
+      "minimum_temperature_approach_K": 22.8,
+      "objective": 0.9095,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.978,
+      "net_reboiler_duty_index": 0.82,
+      "minimum_temperature_approach_K": 22.599999999999998,
+      "objective": 0.8919999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9765,
+      "net_reboiler_duty_index": 0.8025,
+      "minimum_temperature_approach_K": 22.4,
+      "objective": 0.8745,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.975,
+      "net_reboiler_duty_index": 0.7849999999999999,
+      "minimum_temperature_approach_K": 22.2,
+      "objective": 0.857,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9735,
+      "net_reboiler_duty_index": 0.7675,
+      "minimum_temperature_approach_K": 22.0,
+      "objective": 0.8394999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.972,
+      "net_reboiler_duty_index": 0.75,
+      "minimum_temperature_approach_K": 21.799999999999997,
+      "objective": 0.8220000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9705,
+      "net_reboiler_duty_index": 0.7324999999999999,
+      "minimum_temperature_approach_K": 21.599999999999998,
+      "objective": 0.8045,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.969,
+      "net_reboiler_duty_index": 0.715,
+      "minimum_temperature_approach_K": 21.4,
+      "objective": 0.7869999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9675,
+      "net_reboiler_duty_index": 0.6975,
+      "minimum_temperature_approach_K": 21.2,
+      "objective": 0.7695000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.966,
+      "net_reboiler_duty_index": 0.6799999999999999,
+      "minimum_temperature_approach_K": 21.0,
+      "objective": 0.752,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9645,
+      "net_reboiler_duty_index": 0.6625,
+      "minimum_temperature_approach_K": 20.799999999999997,
+      "objective": 0.7344999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.963,
+      "net_reboiler_duty_index": 0.645,
+      "minimum_temperature_approach_K": 20.599999999999998,
+      "objective": 0.7170000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.9615,
+      "net_reboiler_duty_index": 0.6275,
+      "minimum_temperature_approach_K": 20.4,
+      "objective": 0.6995,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.97,
+      "light_product_recovery": 0.96,
+      "net_reboiler_duty_index": 0.61,
+      "minimum_temperature_approach_K": 20.2,
+      "objective": 0.6819999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 1.005,
+      "net_reboiler_duty_index": 0.98,
+      "minimum_temperature_approach_K": 25.1,
+      "objective": 1.056,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 1.0034999999999998,
+      "net_reboiler_duty_index": 0.9625,
+      "minimum_temperature_approach_K": 24.900000000000002,
+      "objective": 1.0385,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 1.002,
+      "net_reboiler_duty_index": 0.945,
+      "minimum_temperature_approach_K": 24.700000000000003,
+      "objective": 1.021,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 1.0005,
+      "net_reboiler_duty_index": 0.9275,
+      "minimum_temperature_approach_K": 24.5,
+      "objective": 1.0035,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9989999999999999,
+      "net_reboiler_duty_index": 0.91,
+      "minimum_temperature_approach_K": 24.3,
+      "objective": 0.986,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9974999999999999,
+      "net_reboiler_duty_index": 0.8925,
+      "minimum_temperature_approach_K": 24.1,
+      "objective": 0.9684999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9959999999999999,
+      "net_reboiler_duty_index": 0.875,
+      "minimum_temperature_approach_K": 23.900000000000002,
+      "objective": 0.9510000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9944999999999999,
+      "net_reboiler_duty_index": 0.8574999999999999,
+      "minimum_temperature_approach_K": 23.700000000000003,
+      "objective": 0.9335,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9929999999999999,
+      "net_reboiler_duty_index": 0.84,
+      "minimum_temperature_approach_K": 23.5,
+      "objective": 0.9159999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9914999999999999,
+      "net_reboiler_duty_index": 0.8225,
+      "minimum_temperature_approach_K": 23.3,
+      "objective": 0.8985000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9899999999999999,
+      "net_reboiler_duty_index": 0.8049999999999999,
+      "minimum_temperature_approach_K": 23.1,
+      "objective": 0.881,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9884999999999999,
+      "net_reboiler_duty_index": 0.7875,
+      "minimum_temperature_approach_K": 22.900000000000002,
+      "objective": 0.8634999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9869999999999999,
+      "net_reboiler_duty_index": 0.77,
+      "minimum_temperature_approach_K": 22.700000000000003,
+      "objective": 0.8460000000000001,
+      "feasible": false,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9854999999999999,
+      "net_reboiler_duty_index": 0.7525,
+      "minimum_temperature_approach_K": 22.5,
+      "objective": 0.8285,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9839999999999999,
+      "net_reboiler_duty_index": 0.735,
+      "minimum_temperature_approach_K": 22.3,
+      "objective": 0.8109999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9824999999999999,
+      "net_reboiler_duty_index": 0.7175,
+      "minimum_temperature_approach_K": 22.1,
+      "objective": 0.7935000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9809999999999999,
+      "net_reboiler_duty_index": 0.7,
+      "minimum_temperature_approach_K": 21.900000000000002,
+      "objective": 0.776,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9794999999999999,
+      "net_reboiler_duty_index": 0.6825,
+      "minimum_temperature_approach_K": 21.700000000000003,
+      "objective": 0.7585,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9779999999999999,
+      "net_reboiler_duty_index": 0.665,
+      "minimum_temperature_approach_K": 21.5,
+      "objective": 0.7410000000000001,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9764999999999999,
+      "net_reboiler_duty_index": 0.6475,
+      "minimum_temperature_approach_K": 21.3,
+      "objective": 0.7235,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.982,
+      "light_product_recovery": 0.9749999999999999,
+      "net_reboiler_duty_index": 0.63,
+      "minimum_temperature_approach_K": 21.1,
+      "objective": 0.706,
+      "feasible": true,
+      "separation_intensity_fraction": 0.9500000000000001,
+      "heat_recovery_fraction": 1.0
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.02,
+      "net_reboiler_duty_index": 1.0,
+      "minimum_temperature_approach_K": 26.0,
+      "objective": 1.08,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.0
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0185,
+      "net_reboiler_duty_index": 0.9825,
+      "minimum_temperature_approach_K": 25.8,
+      "objective": 1.0625,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.05
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0170000000000001,
+      "net_reboiler_duty_index": 0.965,
+      "minimum_temperature_approach_K": 25.6,
+      "objective": 1.045,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.1
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0155,
+      "net_reboiler_duty_index": 0.9475,
+      "minimum_temperature_approach_K": 25.4,
+      "objective": 1.0275,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.15000000000000002
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.014,
+      "net_reboiler_duty_index": 0.93,
+      "minimum_temperature_approach_K": 25.2,
+      "objective": 1.01,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.2
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0125,
+      "net_reboiler_duty_index": 0.9125,
+      "minimum_temperature_approach_K": 25.0,
+      "objective": 0.9924999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.25
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0110000000000001,
+      "net_reboiler_duty_index": 0.895,
+      "minimum_temperature_approach_K": 24.8,
+      "objective": 0.975,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.30000000000000004
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0095,
+      "net_reboiler_duty_index": 0.8775,
+      "minimum_temperature_approach_K": 24.6,
+      "objective": 0.9574999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.35000000000000003
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.008,
+      "net_reboiler_duty_index": 0.86,
+      "minimum_temperature_approach_K": 24.4,
+      "objective": 0.94,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.4
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0065,
+      "net_reboiler_duty_index": 0.8425,
+      "minimum_temperature_approach_K": 24.2,
+      "objective": 0.9225,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.45
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0050000000000001,
+      "net_reboiler_duty_index": 0.825,
+      "minimum_temperature_approach_K": 24.0,
+      "objective": 0.9049999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.5
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0035,
+      "net_reboiler_duty_index": 0.8075,
+      "minimum_temperature_approach_K": 23.8,
+      "objective": 0.8875,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.55
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.002,
+      "net_reboiler_duty_index": 0.79,
+      "minimum_temperature_approach_K": 23.6,
+      "objective": 0.87,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.6000000000000001
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 1.0005,
+      "net_reboiler_duty_index": 0.7725,
+      "minimum_temperature_approach_K": 23.4,
+      "objective": 0.8524999999999999,
+      "feasible": false,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.65
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.999,
+      "net_reboiler_duty_index": 0.755,
+      "minimum_temperature_approach_K": 23.2,
+      "objective": 0.835,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.7000000000000001
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.9975,
+      "net_reboiler_duty_index": 0.7375,
+      "minimum_temperature_approach_K": 23.0,
+      "objective": 0.8175,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.75
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.996,
+      "net_reboiler_duty_index": 0.72,
+      "minimum_temperature_approach_K": 22.8,
+      "objective": 0.7999999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.8
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.9945,
+      "net_reboiler_duty_index": 0.7025,
+      "minimum_temperature_approach_K": 22.6,
+      "objective": 0.7825,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.8500000000000001
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.993,
+      "net_reboiler_duty_index": 0.685,
+      "minimum_temperature_approach_K": 22.4,
+      "objective": 0.765,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.9
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.9915,
+      "net_reboiler_duty_index": 0.6675,
+      "minimum_temperature_approach_K": 22.2,
+      "objective": 0.7474999999999999,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 0.9500000000000001
+    },
+    {
+      "light_product_purity": 0.994,
+      "light_product_recovery": 0.99,
+      "net_reboiler_duty_index": 0.65,
+      "minimum_temperature_approach_K": 22.0,
+      "objective": 0.73,
+      "feasible": true,
+      "separation_intensity_fraction": 1.0,
+      "heat_recovery_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "variant_idaes_natural_gas_glycol_dehydration",
+    "chemical_distinction": "Focuses on the glycol-water fractionation subflowsheet and heat recovery.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

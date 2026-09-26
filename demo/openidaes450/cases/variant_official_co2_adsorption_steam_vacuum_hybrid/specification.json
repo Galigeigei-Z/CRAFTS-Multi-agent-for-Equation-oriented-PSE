@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_official_co2_adsorption_steam_vacuum_hybrid",
+  "family": "family_steam_vacuum",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "steam_displacement_fraction",
+      "value": 0.30000000000000004,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "vacuum_regeneration_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_recovery",
+      "value": 0.964,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_purity",
+      "value": 0.9790000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_loading",
+      "value": 0.069,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "equivalent_energy_index",
+      "value": 2.58,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FLUE.outlet",
+    "STEAM.outlet"
+  ],
+  "terminal_product_ports": [
+    "CO2.inlet",
+    "CLEAN.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_co2_adsorption_desorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_co2_adsorption_desorption",
+    "chemical_change": "Combines steam stripping with vacuum desorption and condensate separation instead of changing a single desorption temperature.",
+    "native_metrics": {
+      "co2_recovery": 0.964,
+      "co2_purity": 0.9790000000000001,
+      "residual_loading": 0.069,
+      "equivalent_energy_index": 2.58
+    }
+  }
+}

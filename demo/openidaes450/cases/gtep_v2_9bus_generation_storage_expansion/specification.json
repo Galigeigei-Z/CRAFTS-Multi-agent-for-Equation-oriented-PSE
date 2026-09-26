@@ -1,0 +1,87 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "gtep_v2_9bus_generation_storage_expansion",
+  "family": "family_idaes_gtep",
+  "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "gtep",
+      "variable": "scenario",
+      "value": "generation_storage",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    },
+    {
+      "target": "gtep",
+      "variable": "dataset",
+      "value": "9_bus_GTEP_dir",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    },
+    {
+      "target": "gtep",
+      "variable": "flow_model",
+      "value": "DC",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    },
+    {
+      "target": "gtep",
+      "variable": "big_m",
+      "value": 1000000.0,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    },
+    {
+      "target": "gtep",
+      "variable": "official_storage_candidate_count",
+      "value": 12,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    },
+    {
+      "target": "gtep",
+      "variable": "candidate_generator_count",
+      "value": 21,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/9_bus_GTEP_dir/storage.csv"
+    }
+  ],
+  "terminal_feed_ports": [
+    "data.outlet"
+  ],
+  "terminal_product_ports": [
+    "plan.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official data load, recorded scenario mutation, GDP Big-M, HiGHS",
+    "solve_order": [
+      "data",
+      "investment",
+      "commitment",
+      "dispatch",
+      "network",
+      "storage",
+      "plan"
+    ]
+  },
+  "solve": {
+    "solver": "highs",
+    "steady_state": false,
+    "expected_dof": null
+  }
+}

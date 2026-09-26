@@ -1,0 +1,100 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_wrrf_ad_struvite_chp_cascade",
+  "family": "family_wrrf_resource_cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "sludge_to_digestion_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "centrate_to_struvite_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "energy_self_supply",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "phosphorus_recovery",
+      "value": 0.9299999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "return_tn_index",
+      "value": 0.018000000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methane_yield",
+      "value": 0.95,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recovered_heat_index",
+      "value": 0.4,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "SLUDGE.outlet"
+  ],
+  "terminal_product_ports": [
+    "FERT.inlet",
+    "POWER.inlet",
+    "CAKE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_bsm2_p_extension"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_bsm2_p_extension",
+    "chemical_change": "Couples carbon, phosphorus, nitrogen and heat recovery across sludge and centrate processing.",
+    "native_metrics": {
+      "energy_self_supply": 0.9,
+      "phosphorus_recovery": 0.9299999999999999,
+      "return_tn_index": 0.018000000000000002,
+      "methane_yield": 0.95,
+      "recovered_heat_index": 0.4
+    }
+  }
+}

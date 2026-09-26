@@ -1,0 +1,25 @@
+[
+  {
+    "name": "fs.heat_exchanger",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger1D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "finite_elements": 20,
+      "collocation_points": 5,
+      "flow_type": {
+        "component": "cocurrent"
+      },
+      "hot_side_name": "shell",
+      "cold_side_name": "tube"
+    }
+  }
+]

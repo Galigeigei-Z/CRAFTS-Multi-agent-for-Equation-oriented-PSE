@@ -1,0 +1,201 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_evaporation_pond_staged_salt_harvest",
+  "family": "family_pond_salt_harvest",
+  "process_type": "Staged Evaporation Pond with Gypsum and Halite Harvest",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_evaporation_pond_unit.",
+    "Splits a single pond into mineral-specific precipitation stages with bittern transfer and crystal harvesting.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Na+",
+        "Cl-",
+        "Ca2+",
+        "SO4",
+        "Li+",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_evaporation_pond_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Na+",
+      "Cl-",
+      "Ca2+",
+      "SO4",
+      "Li+",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "concentrated brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POND1",
+      "kind": "EvaporationPond",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF1",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum harvest",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POND2",
+      "kind": "EvaporationPond",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "halite stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF2",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "halite harvest",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GYPSUM",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HALITE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "halite",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BITTERN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pond_salt_harvest",
+      "role": "Li-rich bittern",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "POND1.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "POND1.slurry",
+      "destination": "CF1.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "CF1.solids",
+      "destination": "GYPSUM.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CF1.liquid",
+      "destination": "POND2.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "gypsum-free brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "POND2.slurry",
+      "destination": "CF2.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "halite slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CF2.solids",
+      "destination": "HALITE.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "halite product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "CF2.liquid",
+      "destination": "BITTERN.inlet",
+      "stage": "pond_salt_harvest",
+      "role": "Li-rich bittern",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "GYPSUM.inlet",
+    "HALITE.inlet",
+    "BITTERN.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_evaporation_pond_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_evaporation_pond_unit",
+    "chemical_change": "Splits a single pond into mineral-specific precipitation stages with bittern transfer and crystal harvesting.",
+    "native_metrics": {
+      "gypsum_recovery": 0.9040000000000001,
+      "halite_recovery": 0.909,
+      "lithium_coprecipitation": 0.045500000000000006,
+      "pond_area_index": 1.8900000000000001
+    }
+  }
+}

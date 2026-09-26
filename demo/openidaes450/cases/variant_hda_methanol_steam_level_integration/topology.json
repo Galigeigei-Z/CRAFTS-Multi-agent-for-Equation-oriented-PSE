@@ -1,0 +1,202 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_methanol_steam_level_integration",
+  "family": "family_site_steam_integration",
+  "process_type": "HDA-Methanol Site Steam-Level Integration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent variant_hda_distillation_heat_pump.",
+    "Creates a site-wide utility network that transfers reaction heat and condensate across two chemically distinct process trains.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "steam",
+        "heat",
+        "methanol",
+        "benzene"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_hda_distillation_heat_pump"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "steam",
+      "heat",
+      "methanol",
+      "benzene"
+    ]
+  },
+  "units": [
+    {
+      "id": "MEOH_R",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "exothermic methanol synthesis",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WHB",
+      "kind": "WasteHeatBoiler",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "generate HP steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HP",
+      "kind": "SteamHeader",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "HP steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LET",
+      "kind": "BackpressureTurbine",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "HP-to-MP letdown",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MP",
+      "kind": "SteamHeader",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "MP steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HDA_C",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "HDA benzene column",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LP",
+      "kind": "SteamHeader",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "LP steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "CondensateTank",
+      "package": "process_extension",
+      "stage": "site_steam_integration",
+      "role": "condensate return",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "MEOH_R.heat",
+      "destination": "WHB.hot_inlet",
+      "stage": "site_steam_integration",
+      "role": "reaction heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "WHB.steam",
+      "destination": "HP.inlet",
+      "stage": "site_steam_integration",
+      "role": "HP steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "HP.outlet",
+      "destination": "LET.inlet",
+      "stage": "site_steam_integration",
+      "role": "HP letdown",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "LET.outlet",
+      "destination": "MP.inlet",
+      "stage": "site_steam_integration",
+      "role": "MP steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "MP.outlet",
+      "destination": "HDA_C.reboiler",
+      "stage": "site_steam_integration",
+      "role": "HDA reboiler steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HDA_C.condensate",
+      "destination": "COND.inlet",
+      "stage": "site_steam_integration",
+      "role": "HDA condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "LET.exhaust",
+      "destination": "LP.inlet",
+      "stage": "site_steam_integration",
+      "role": "LP utility steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "COND.outlet",
+      "destination": "WHB.water",
+      "stage": "site_steam_integration",
+      "role": "boiler-water return",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_hda_distillation_heat_pump"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_hda_distillation_heat_pump",
+    "chemical_change": "Creates a site-wide utility network that transfers reaction heat and condensate across two chemically distinct process trains.",
+    "native_metrics": {
+      "hda_steam_supply": 1.0,
+      "site_fuel_index": 0.39999999999999997,
+      "letdown_power_index": 0.1,
+      "fresh_boiler_water_index": 0.0,
+      "steam_balance": 0.95
+    }
+  }
+}

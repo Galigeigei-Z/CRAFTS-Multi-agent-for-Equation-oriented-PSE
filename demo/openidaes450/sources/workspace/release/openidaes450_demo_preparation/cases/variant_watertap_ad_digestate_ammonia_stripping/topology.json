@@ -1,0 +1,184 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ad_digestate_ammonia_stripping",
+  "family": "family_digestate_strip",
+  "process_type": "Anaerobic Digestate Ammonia Stripping and Ammonium-Sulfate Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_anaerobic_digester_unit.",
+    "Adds ammonia volatilization and a recovered ammonium-sulfate product to digestate handling.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NH4",
+        "NH3",
+        "NaOH",
+        "H2SO4",
+        "ammonium_sulfate"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_anaerobic_digester_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NH4",
+      "NH3",
+      "NaOH",
+      "H2SO4",
+      "ammonium_sulfate"
+    ]
+  },
+  "units": [
+    {
+      "id": "DIGESTATE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "ammonia-rich digestate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NAOH",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "pH adjustment",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "raise stripping temperature",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "T101",
+      "kind": "AirStripper",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "transfer NH3 to gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SCRUB",
+      "kind": "AcidScrubber",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "capture ammonia",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FERT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "ammonium sulfate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LIQUID",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "digestate_strip",
+      "role": "low-ammonia digestate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "DIGESTATE.outlet",
+      "destination": "H101.inlet",
+      "stage": "digestate_strip",
+      "role": "digestate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "NAOH.outlet",
+      "destination": "H101.caustic",
+      "stage": "digestate_strip",
+      "role": "pH adjustment",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "H101.outlet",
+      "destination": "T101.liquid",
+      "stage": "digestate_strip",
+      "role": "conditioned digestate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "T101.offgas",
+      "destination": "SCRUB.gas",
+      "stage": "digestate_strip",
+      "role": "ammonia offgas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "SCRUB.product",
+      "destination": "FERT.inlet",
+      "stage": "digestate_strip",
+      "role": "ammonium sulfate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "T101.liquid_outlet",
+      "destination": "LIQUID.inlet",
+      "stage": "digestate_strip",
+      "role": "treated digestate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "DIGESTATE.outlet",
+    "NAOH.outlet"
+  ],
+  "unconnected_product_ports": [
+    "FERT.inlet",
+    "LIQUID.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_anaerobic_digester_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_anaerobic_digester_unit",
+    "chemical_change": "Adds ammonia volatilization and a recovered ammonium-sulfate product to digestate handling.",
+    "native_metrics": {
+      "ammonia_recovery_fraction": 0.8628768678648766,
+      "effluent_ammonium_kg_s": 0.00013712313213512344,
+      "ammonium_sulfate_n_kg_s": 0.0008628768678648766,
+      "energy_reagent_index": 202.5
+    }
+  }
+}

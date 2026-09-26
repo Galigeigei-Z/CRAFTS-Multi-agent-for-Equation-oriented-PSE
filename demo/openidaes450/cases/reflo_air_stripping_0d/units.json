@@ -1,0 +1,28 @@
+[
+  {
+    "name": "fs.ax",
+    "class": "idaes.core.base.process_block._ScalarAirStripping0D",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "target": "DCP",
+      "packing_material": "PVC"
+    }
+  }
+]

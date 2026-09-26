@@ -1,0 +1,181 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_modified_asm2d_primary_fermentation",
+  "family": "family_asm2d_fermentation",
+  "process_type": "Modified ASM2d with Primary-Sludge Fermentation Carbon",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent watertap_modified_asm2d.",
+    "Creates an internal renewable VFA carbon source, changing carbon partitioning and biological N/P removal.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "primary_solids",
+        "VFA",
+        "NO3",
+        "PO4",
+        "biomass"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_modified_asm2d"
+    }
+  },
+  "components": {
+    "tracked": [
+      "primary_solids",
+      "VFA",
+      "NO3",
+      "PO4",
+      "biomass"
+    ]
+  },
+  "units": [
+    {
+      "id": "PRIMARY",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "primary sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "sludge fermentation diversion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Fermenter",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "produce volatile fatty acids",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AX",
+      "kind": "AnoxicEBPRReactor",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "denitrification and P uptake",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AE",
+      "kind": "AerobicReactor",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "nitrification",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SLUDGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "residual primary sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "asm2d_fermentation",
+      "role": "N/P-compliant effluent",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "PRIMARY.outlet",
+      "destination": "S101.inlet",
+      "stage": "asm2d_fermentation",
+      "role": "primary sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "S101.ferment",
+      "destination": "F101.inlet",
+      "stage": "asm2d_fermentation",
+      "role": "fermenter feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "F101.vfa",
+      "destination": "AX.carbon",
+      "stage": "asm2d_fermentation",
+      "role": "VFA carbon return",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.direct",
+      "destination": "SLUDGE.inlet",
+      "stage": "asm2d_fermentation",
+      "role": "unfermented sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "AX.outlet",
+      "destination": "AE.inlet",
+      "stage": "asm2d_fermentation",
+      "role": "anoxic effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "AE.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "asm2d_fermentation",
+      "role": "treated effluent",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "PRIMARY.outlet"
+  ],
+  "unconnected_product_ports": [
+    "SLUDGE.inlet",
+    "PRODUCT.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_modified_asm2d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_modified_asm2d",
+    "chemical_change": "Creates an internal renewable VFA carbon source, changing carbon partitioning and biological N/P removal.",
+    "native_metrics": {
+      "vfa_return_kg_s": 0.000612,
+      "nitrogen_removal_fraction": 0.8244,
+      "phosphorus_removal_fraction": 0.9039999999999999,
+      "fermented_solids_kg_s": 0.00102
+    }
+  }
+}

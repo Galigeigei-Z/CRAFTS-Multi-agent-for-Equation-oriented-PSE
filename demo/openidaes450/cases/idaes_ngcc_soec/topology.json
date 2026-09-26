@@ -1,0 +1,209 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__idaes_ngcc_soec",
+  "family": "family_source_verified_idaes_ngcc_soec",
+  "process_type": "Natural-gas combined cycle integrated with solid-oxide electrolysis",
+  "source_url": "https://github.com/IDAES/examples/blob/main/idaes_examples/mod/power_gen/ngcc_soec.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official IDAES NGCC-SOEC example source. No full subflowsheet expansion, SpecIR, initialization, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "ngcc_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "ngcc",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gas_turbine",
+      "kind": "GasTurbine",
+      "package": null,
+      "stage": "ngcc",
+      "role": "Source-derived GasTurbine node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hrsg",
+      "kind": "HeatRecoverySteamGenerator",
+      "package": null,
+      "stage": "ngcc",
+      "role": "Source-derived HeatRecoverySteamGenerator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "steam_turbine",
+      "kind": "SteamTurbine",
+      "package": null,
+      "stage": "ngcc",
+      "role": "Source-derived SteamTurbine node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "steam_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "integration",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "soec_feed_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "soec",
+      "role": "Source-derived HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "soec_module",
+      "kind": "SolidOxideElectrolyzer",
+      "package": null,
+      "stage": "soec",
+      "role": "Source-derived SolidOxideElectrolyzer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "soec_makeup_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "integration",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_gt",
+      "source": "ngcc_feed.outlet",
+      "destination": "gas_turbine.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "gt_to_hrsg",
+      "source": "gas_turbine.exhaust",
+      "destination": "hrsg.flue_gas_inlet",
+      "source_port": "exhaust",
+      "destination_port": "flue_gas_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hrsg_to_st",
+      "source": "hrsg.steam_outlet",
+      "destination": "steam_turbine.inlet",
+      "source_port": "steam_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "st_to_splitter",
+      "source": "steam_turbine.lp_steam",
+      "destination": "steam_splitter.inlet",
+      "source_port": "lp_steam",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "steam_to_soec_hx",
+      "source": "steam_splitter.soec",
+      "destination": "soec_feed_hx.tube_inlet",
+      "source_port": "soec",
+      "destination_port": "tube_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hx_to_soec",
+      "source": "soec_feed_hx.tube_outlet",
+      "destination": "soec_module.steam_inlet",
+      "source_port": "tube_outlet",
+      "destination_port": "steam_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "soec_hydrogen",
+      "source": "soec_module.hydrogen_outlet",
+      "destination": "hydrogen_product.inlet",
+      "source_port": "hydrogen_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "soec_makeup_return",
+      "source": "soec_makeup_mixer.outlet",
+      "destination": "hrsg.soec_makeup",
+      "source_port": "outlet",
+      "destination_port": "soec_makeup",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "gt_power",
+      "source": "gas_turbine.power",
+      "destination": "power_product.inlet",
+      "source_port": "power",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "st_power",
+      "source": "steam_turbine.power",
+      "destination": "power_product.inlet",
+      "source_port": "power",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "ngcc_feed",
+    "gas_turbine",
+    "hrsg",
+    "steam_turbine",
+    "steam_splitter",
+    "soec_feed_hx",
+    "soec_module",
+    "soec_makeup_mixer",
+    "hydrogen_product",
+    "power_product"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

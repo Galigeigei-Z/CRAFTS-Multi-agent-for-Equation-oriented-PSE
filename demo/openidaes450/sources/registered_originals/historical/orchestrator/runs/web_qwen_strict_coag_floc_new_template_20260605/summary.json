@@ -1,0 +1,76 @@
+{
+  "question": "Strict Qwen web API test for new template. Build a compact WaterTAP coagulation flocculation treatment unit with raw water feed containing TSS and TDS, alum and polymer chemical dosing, rapid mixer, CoagulationFlocculation unit, and clarified treated outlet. This is coagulation flocculation only, not boron removal, not granular activated carbon, not ion exchange, not reverse osmosis, and not nanofiltration.",
+  "case_id": "web_qwen_strict_coag_floc_new_template_20260605",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_coag_floc_new_template_20260605",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_coag_floc_unit\",\n  \"family\": \"family_watertap_coagulation_flocculation_unit\",\n  \"units\": 5,\n  \"arcs\": 4\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 5,\n    \"arc_count\": 4,\n    \"units\": [\n      \"feed\",\n      \"chemical_dosing\",\n      \"rapid_mixer\",\n      \"flocculator\",\n      \"treated\"\n    ],\n    \"arcs\": [\n      \"feed_to_dosing\",\n      \"dosing_to_rapid_mixer\",\n      \"rapid_mixer_to_flocculator\",\n      \"flocculator_to_treated\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/web_qwen_strict_coag_floc_new_template_20260605_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 8\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_coag_floc_unit\",\n  \"family\": \"family_watertap_coagulation_flocculation_unit\",\n  \"spec_count\": 8,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 5,\n  \"arc_count\": 4\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_coag_floc_new_template_20260605/native_solve_report.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"sandbox_buildplan_solve\",\n  \"solver_boundary\": \"build_plan_only\",\n  \"solver_scope\": \"compact_coag_floc_template\",\n  \"case_id_seen_but_not_routed\": true,\n  \"source_url_seen_but_not_routed\": true,\n  \"termination_condition\": \"optimal\",\n  \"checks\": [\n    {\n      \"name\": \"sandbox_coag_floc_pattern_supported\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"sandbox_coag_floc_final_dof_zero\",\n      \"pass\": true,\n      \"actual\": 0\n    },\n    {\n      \"name\": \"sandbox_coag_floc_tss_reduced\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"sandbox_coag_floc_sludge_positive\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"sandbox_coag_floc_energy_proxy_positive\",\n      \"pass\": true\n    }\n  ],\n  \"final_dof\": 0,\n  \"feed_h2o_kg_s\": 1.0,\n  \"feed_tds_kg_s\": 0.01,\n  \"feed_tss_kg_s\": 0.01,\n  \"treated_tss_kg_s\": 0.0005000000000000004,\n  \"sludge_flow_kg_s\": 0.009515,\n  \"tss_removal_fraction\": 0.95,\n  \"mixing_energy_proxy_kw\": 0.21000000000000002,\n  \"stream_values\": {\n    \"feed_to_dosing\": {\n      \"H2O_kg_s\": 1.0,\n      \"TDS_kg_s\": 0.01,\n      \"TSS_kg_s\": 0.01\n    },\n    \"dosing_to_rapid_mixer\": {\n      \"H2O_kg_s\": 1.0,\n      \"TDS_kg_s\": 0.01,\n      \"TSS_kg_s\": 0.01,\n      \"Alum_mg_L\": 10.0,\n      \"Poly_mg_L\": 5.0\n    },\n    \"rapid_mixer_to_flocculator\": {\n      \"H2O_kg_s\": 1.0,\n      \"TDS_kg_s\": 0.01,\n      \"TSS_kg_s\": 0.01\n    },\n    \"flocculator_to_treated\": {\n      \"H2O_kg_s\": 1.0,\n      \"TDS_kg_s\": 0.01,\n      \"TSS_kg_s\": 0.0005000000000000004,\n      \"sludge_kg_s\": 0.009515\n    }\n  },\n  \"build_plan_sha256\": \"159d506231b33c3eadc8bd0a07462056a49a557fe2f3151ba1ba78d52c3b977d\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_coag_floc\",\n    \"plan_derived_params\": [\n      \"feed.H2O_flow_mass\",\n      \"feed.TDS_flow_mass\",\n      \"feed.TSS_flow_mass\",\n      \"flocculator.final_turbidity_ntu\",\n      \"chemical_dosing.Alum_dose\",\n      \"chemical_dosing.Poly_dose\",\n      \"rapid_mixer.retention_time\",\n      \"flocculator.floc_retention_time\"\n    ],\n    \"fixed_template_params\": [\n      \"compact turbidity-to-TSS removal relation\",\n      \"sludge proxy includes captured TSS and chemical additive mass\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

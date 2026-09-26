@@ -1,0 +1,52 @@
+[
+  {
+    "name": "fs.HX1_cold_inlet",
+    "source": "fs.S1.to_HX1",
+    "destination": "fs.HX1.cold_side_inlet"
+  },
+  {
+    "name": "fs.HX1_hot_inlet",
+    "source": "fs.fo.product",
+    "destination": "fs.HX1.hot_side_inlet"
+  },
+  {
+    "name": "fs.HX2_cold_inlet",
+    "source": "fs.S1.to_HX2",
+    "destination": "fs.HX2.cold_side_inlet"
+  },
+  {
+    "name": "fs.HX2_hot_inlet",
+    "source": "fs.fo.reg_draw",
+    "destination": "fs.HX2.hot_side_inlet"
+  },
+  {
+    "name": "fs.S2_inlet",
+    "source": "fs.HX1.hot_side_outlet",
+    "destination": "fs.S2.inlet"
+  },
+  {
+    "name": "fs.NF_reject_to_M1",
+    "source": "fs.S2.NF_reject",
+    "destination": "fs.M1.NF_reject"
+  },
+  {
+    "name": "fs.weak_draw_to_M1",
+    "source": "fs.fo.weak_draw",
+    "destination": "fs.M1.weak_draw"
+  },
+  {
+    "name": "fs.HX1_to_H1",
+    "source": "fs.HX1.cold_side_outlet",
+    "destination": "fs.H1.inlet"
+  },
+  {
+    "name": "fs.HX2_to_H2",
+    "source": "fs.HX2.cold_side_outlet",
+    "destination": "fs.H2.inlet"
+  },
+  {
+    "name": "fs.HX2_to_Cooler",
+    "source": "fs.HX2.hot_side_outlet",
+    "destination": "fs.Cooler.inlet"
+  }
+]

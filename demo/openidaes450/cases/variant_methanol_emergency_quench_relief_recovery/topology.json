@@ -1,0 +1,210 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_emergency_quench_relief_recovery",
+  "family": "family_methanol_quench_relief",
+  "process_type": "Methanol Reactor Emergency Quench and Relief Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent variant_methanol_two_reactor_intercooling.",
+    "Adds chemically active quench dilution, emergency depressuring and condensable-product recovery.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "CO",
+        "CO2",
+        "CH3OH",
+        "H2O",
+        "N2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_methanol_two_reactor_intercooling"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "CO",
+      "CO2",
+      "CH3OH",
+      "H2O",
+      "N2"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "syngas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R1",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "methanol synthesis",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Q1",
+      "kind": "QuenchMixer",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "cold recycle quench",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RV",
+      "kind": "ReliefValve",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "emergency depressuring",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "relief condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SEP",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "liquid/gas recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MEOH",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "recovered methanol",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLARE",
+      "kind": "Flare",
+      "package": "process_extension",
+      "stage": "methanol_quench_relief",
+      "role": "noncondensable destruction",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "R1.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "R1.outlet",
+      "destination": "Q1.process",
+      "stage": "methanol_quench_relief",
+      "role": "hot reactor gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "Q1.outlet",
+      "destination": "R1.recycle",
+      "stage": "methanol_quench_relief",
+      "role": "quenched recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s04",
+      "source": "R1.relief",
+      "destination": "RV.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "runaway relief",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RV.outlet",
+      "destination": "COND.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "depressured gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "COND.outlet",
+      "destination": "SEP.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "two-phase relief",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SEP.liquid",
+      "destination": "MEOH.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "recovered methanol",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SEP.gas",
+      "destination": "FLARE.inlet",
+      "stage": "methanol_quench_relief",
+      "role": "flare gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "MEOH.inlet"
+  ],
+  "tear_streams": [
+    "s03"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_methanol_two_reactor_intercooling"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_methanol_two_reactor_intercooling",
+    "chemical_change": "Adds chemically active quench dilution, emergency depressuring and condensable-product recovery.",
+    "native_metrics": {
+      "runaway_peak_temperature_K": 477.0,
+      "relief_pressure_bar": 71.5,
+      "methanol_recovery": 0.95,
+      "flare_load_index": 0.0,
+      "quench_inventory_index": 0.10500000000000001
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_ree_oxalate_roaster",
+  "family": "family_prommis_ree_oxalate_roaster",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "gas_feed",
+      "variable": "flow_mol",
+      "value": 0.00781,
+      "units": "mol/s",
+      "role": "official gas feed flow",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "gas_feed",
+      "variable": "temperature",
+      "value": 1330.0,
+      "units": "K",
+      "role": "official gas feed temperature",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "gas_feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official gas feed pressure",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "solid_feed",
+      "variable": "temperature",
+      "value": 299.15,
+      "units": "K",
+      "role": "official solid feed temperature",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "solid_feed",
+      "variable": "flow_mol_comp[*]",
+      "value": 6.1e-05,
+      "units": "mol/s",
+      "role": "official equal metal oxalate feed fixture",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "roaster",
+      "variable": "gas_outlet_temperature",
+      "value": 873.15,
+      "units": "K",
+      "role": "official gas outlet temperature",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "roaster",
+      "variable": "deltaP",
+      "value": 0.0,
+      "units": "Pa",
+      "role": "official pressure drop",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    },
+    {
+      "target": "roaster",
+      "variable": "frac_comp_recovery",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "official recovery",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official BlockTriangularizationInitializer after official scaling",
+    "solve_order": [
+      "roaster"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

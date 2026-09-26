@@ -1,0 +1,238 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "mvo_official_transcritical_co2_surrogate_gbdt",
+  "family": "family_idaes_mvo",
+  "process_type": "MVO Official Transcritical CO2 GBDT Surrogate Family",
+  "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/surrogates.ipynb",
+  "source_basis": [
+    "Official IDAES-MVO repository at commit 4af5203a41319fea9f9ee994abe9f681fa0cadb1.",
+    "Official notebook result figure extracted from example/surrogates.ipynb, cell 22."
+  ],
+  "property_packages": {
+    "idaes_mvo": {
+      "dataset": "transcritical-co2-data.csv",
+      "method": "surrogate_gbdt"
+    }
+  },
+  "components": {
+    "shared_modules": [
+      "evaporator",
+      "condenser",
+      "compressor"
+    ],
+    "variant_descriptors": [
+      "capacity",
+      "outside_air_temperature"
+    ]
+  },
+  "units": [
+    {
+      "id": "requirements",
+      "kind": "ProcessVariantSet",
+      "package": "pandas",
+      "stage": "data",
+      "role": "capacity and outside-air-temperature requirements for the process family",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "alternatives",
+      "kind": "FeasibleAlternativeLibrary",
+      "package": "idaes_mvo",
+      "stage": "data",
+      "role": "feasible transcritical CO2 equipment alternatives and annualized cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feasibility_surrogate",
+      "kind": "SurrogateFeasibility",
+      "package": "omlt",
+      "stage": "surrogate",
+      "role": "GBDT feasibility classifier embedded as MILP",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cost_surrogate",
+      "kind": "SurrogateCost",
+      "package": "omlt",
+      "stage": "surrogate",
+      "role": "GBDT annualized-cost surrogate embedded as MILP",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "platform",
+      "kind": "SharedModulePlatform",
+      "package": "idaes_mvo",
+      "stage": "design",
+      "role": "shared evaporator, condenser, and compressor module designs",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "selection",
+      "kind": "AlternativeSelection",
+      "package": "pyomo",
+      "stage": "design",
+      "role": "one feasible equipment alternative per process variant",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "objective",
+      "kind": "FamilyCostObjective",
+      "package": "pyomo",
+      "stage": "optimization",
+      "role": "minimum total annualized process-family cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "family",
+      "kind": "ProcessFamilyDesign",
+      "package": "idaes_mvo",
+      "stage": "solution",
+      "role": "optimized standardized process family",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "requirements_to_alternatives",
+      "source": "requirements.outlet",
+      "destination": "alternatives.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "alternatives_to_feasibility_surrogate",
+      "source": "alternatives.outlet",
+      "destination": "feasibility_surrogate.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "feasibility_surrogate_to_cost_surrogate",
+      "source": "feasibility_surrogate.outlet",
+      "destination": "cost_surrogate.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "cost_surrogate_to_platform",
+      "source": "cost_surrogate.outlet",
+      "destination": "platform.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "platform_to_selection",
+      "source": "platform.outlet",
+      "destination": "selection.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "selection_to_objective",
+      "source": "selection.outlet",
+      "destination": "objective.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "objective_to_family",
+      "source": "objective.outlet",
+      "destination": "family.inlet",
+      "stage": "optimization_link",
+      "role": "MVO model linkage",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "mvo",
+      "variable": "classification_surrogate",
+      "value": "GBDT",
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/surrogates.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "cost_surrogate",
+      "value": "GBDT",
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/surrogates.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "classification_threshold",
+      "value": 0.99,
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/surrogates.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "max_common_designs",
+      "value": {
+        "Evaporator Area": 2,
+        "Condenser Area": 2,
+        "Compressor Design Flow": 2
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/surrogates.ipynb"
+    }
+  ],
+  "unit_specs": [],
+  "unconnected_feed_ports": [
+    "requirements.outlet"
+  ],
+  "unconnected_product_ports": [
+    "family.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "load official design table, construct process-family MILP, solve or preserve official notebook evidence",
+    "solve_order": [
+      "requirements",
+      "alternatives",
+      "feasibility_surrogate",
+      "cost_surrogate",
+      "platform",
+      "selection",
+      "objective",
+      "family"
+    ]
+  },
+  "solve": {
+    "solver": "gurobi_12.0.1_official_notebook",
+    "steady_state": false,
+    "expected_dof": null
+  },
+  "required_entries": [
+    "ProcessFamilyBase",
+    "SurrogatesProcessFamily"
+  ],
+  "notes_for_agent_a": [
+    "This is a process-family design optimization, not a physical stream flowsheet.",
+    "source_flowchart.png is an official notebook result figure; the repository contains no official architecture flowchart."
+  ]
+}

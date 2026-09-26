@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_boiler_startup_fuel_transition_fgr",
+  "family": "family_boiler_startup_transition",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "biomass_transition_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "startup_fgr_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flame_stability",
+      "value": 1.0099999999999998,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co_index",
+      "value": 0.008,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "nox_index",
+      "value": 0.025,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "steam_temperature_K",
+      "value": 720.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "NG.outlet",
+    "BIO.outlet",
+    "AIR.outlet"
+  ],
+  "terminal_product_ports": [
+    "STEAM.inlet",
+    "STACK.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr",
+    "chemical_change": "Adds time-ordered fuel chemistry transition and flue-gas dilution during cold startup.",
+    "native_metrics": {
+      "flame_stability": 1.0099999999999998,
+      "co_index": 0.008,
+      "nox_index": 0.025,
+      "steam_temperature_K": 720.0
+    }
+  }
+}

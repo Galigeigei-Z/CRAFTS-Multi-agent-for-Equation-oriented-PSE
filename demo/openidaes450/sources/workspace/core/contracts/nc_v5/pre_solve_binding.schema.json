@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:pre-solve-binding/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "topology_sha256",
+    "spec_sha256",
+    "build_plan_sha256",
+    "unit_ids",
+    "arc_ids",
+    "spec_record_sha256",
+    "semantic_section_sha256",
+    "checks",
+    "passed",
+    "failed_checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "pre-solve-binding/v5"
+    },
+    "unit_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "arc_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "failed_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {}
+}

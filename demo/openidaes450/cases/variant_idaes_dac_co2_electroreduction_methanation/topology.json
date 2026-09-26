@@ -1,0 +1,226 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_dac_co2_electroreduction_methanation",
+  "family": "family_dac_co_methanation",
+  "process_type": "DAC-CO Electroreduction with Methanation Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_idaes_dac_humidity_swing_calciner_recovery.",
+    "Creates a carbon utilization chain with electrochemical CO, Sabatier chemistry and gas recycle.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "CO",
+        "H2",
+        "CH4",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_idaes_dac_humidity_swing_calciner_recovery"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "CO",
+      "H2",
+      "CH4",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "AIR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "ambient air",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DAC",
+      "kind": "Contactor",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "CO2 capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EC",
+      "kind": "ElectrochemicalReactor",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "CO2-to-CO",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "renewable hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MET",
+      "kind": "MethanationReactor",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "CO/CO2 methanation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SEP",
+      "kind": "GasSeparator",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "methane purification",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "syngas recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CH4",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "renewable methane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLEAN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "dac_co_methanation",
+      "role": "CO2-depleted air",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "AIR.outlet",
+      "destination": "DAC.air",
+      "stage": "dac_co_methanation",
+      "role": "ambient air",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "DAC.clean",
+      "destination": "CLEAN.inlet",
+      "stage": "dac_co_methanation",
+      "role": "clean air",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "DAC.co2",
+      "destination": "EC.feed",
+      "stage": "dac_co_methanation",
+      "role": "captured CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "EC.co",
+      "destination": "MET.carbon",
+      "stage": "dac_co_methanation",
+      "role": "CO-rich gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "H2.outlet",
+      "destination": "MET.hydrogen",
+      "stage": "dac_co_methanation",
+      "role": "renewable H2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "MET.outlet",
+      "destination": "SEP.inlet",
+      "stage": "dac_co_methanation",
+      "role": "methanation gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SEP.methane",
+      "destination": "CH4.inlet",
+      "stage": "dac_co_methanation",
+      "role": "methane product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SEP.unconverted",
+      "destination": "S1.inlet",
+      "stage": "dac_co_methanation",
+      "role": "unconverted syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "S1.recycle",
+      "destination": "MET.recycle",
+      "stage": "dac_co_methanation",
+      "role": "syngas recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "AIR.outlet",
+    "H2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CH4.inlet",
+    "CLEAN.inlet"
+  ],
+  "tear_streams": [
+    "s09"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_dac_humidity_swing_calciner_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_dac_humidity_swing_calciner_recovery",
+    "chemical_change": "Creates a carbon utilization chain with electrochemical CO, Sabatier chemistry and gas recycle.",
+    "native_metrics": {
+      "carbon_utilization": 0.944,
+      "methane_yield": 0.924,
+      "hydrogen_utilization": 0.7245,
+      "power_index": 4.375
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fs.roaster",
+    "class": "idaes.core.base.process_block._ScalarREEOxalateRoaster",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_gas": {
+        "component": "fs.prop_gas"
+      },
+      "property_package_args_gas": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "property_package_precipitate_solid": {
+        "component": "fs.prop_solid"
+      },
+      "property_package_args_precipitate_solid": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "property_package_precipitate_liquid": {
+        "component": "fs.prop_liquid"
+      },
+      "property_package_args_precipitate_liquid": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "metal_list": [
+        "Al",
+        "Fe",
+        "Ca",
+        "Sc",
+        "Y",
+        "La",
+        "Ce",
+        "Pr",
+        "Nd",
+        "Sm",
+        "Gd",
+        "Dy"
+      ]
+    }
+  }
+]

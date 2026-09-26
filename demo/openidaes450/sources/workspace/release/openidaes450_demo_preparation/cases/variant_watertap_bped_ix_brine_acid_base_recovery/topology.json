@@ -1,0 +1,183 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_bped_ix_brine_acid_base_recovery",
+  "family": "family_bped_ix_brine",
+  "process_type": "Bipolar ED Recovery of Acid/Base from IX Brine",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_ix_regeneration_recycle.",
+    "Converts waste salt to reusable acid/base and closes the ion-exchange regenerant loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Na+",
+        "Cl-",
+        "H+",
+        "OH-",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_ix_regeneration_recycle"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Na+",
+      "Cl-",
+      "H+",
+      "OH-",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "spent IX brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BPED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "salt splitting",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "recovered acid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BASE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "recovered base",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "residual brine recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "IX",
+      "kind": "IonExchange",
+      "package": "process_extension",
+      "stage": "bped_ix_brine",
+      "role": "regeneration consumer",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "BPED.feed",
+      "stage": "bped_ix_brine",
+      "role": "spent brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BPED.acid",
+      "destination": "ACID.inlet",
+      "stage": "bped_ix_brine",
+      "role": "acid product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BPED.base",
+      "destination": "BASE.inlet",
+      "stage": "bped_ix_brine",
+      "role": "base product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "BPED.residual",
+      "destination": "S1.inlet",
+      "stage": "bped_ix_brine",
+      "role": "residual salt",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S1.recycle",
+      "destination": "BPED.recycle",
+      "stage": "bped_ix_brine",
+      "role": "salt recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s06",
+      "source": "ACID.outlet",
+      "destination": "IX.acid",
+      "stage": "bped_ix_brine",
+      "role": "acid regenerant",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "BASE.outlet",
+      "destination": "IX.base",
+      "stage": "bped_ix_brine",
+      "role": "base regenerant",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "ACID.inlet",
+    "BASE.inlet"
+  ],
+  "tear_streams": [
+    "s05"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ix_regeneration_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ix_regeneration_recycle",
+    "chemical_change": "Converts waste salt to reusable acid/base and closes the ion-exchange regenerant loop.",
+    "native_metrics": {
+      "acid_recovery": 0.915,
+      "base_recovery": 0.913,
+      "product_impurity": 0.014999999999999998,
+      "stack_voltage_V": 41.0,
+      "fresh_brine_index": 0.05999999999999999
+    }
+  }
+}

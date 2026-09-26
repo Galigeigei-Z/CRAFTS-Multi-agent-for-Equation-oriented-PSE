@@ -1,0 +1,98 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_methanol_emergency_quench_relief_recovery",
+  "family": "family_methanol_quench_relief",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "cold_gas_quench_fraction",
+      "value": 0.7000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "relief_condensation_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "runaway_peak_temperature_K",
+      "value": 477.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "relief_pressure_bar",
+      "value": 71.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "methanol_recovery",
+      "value": 0.95,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "flare_load_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "quench_inventory_index",
+      "value": 0.10500000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "MEOH.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_methanol_two_reactor_intercooling"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_methanol_two_reactor_intercooling",
+    "chemical_change": "Adds chemically active quench dilution, emergency depressuring and condensable-product recovery.",
+    "native_metrics": {
+      "runaway_peak_temperature_K": 477.0,
+      "relief_pressure_bar": 71.5,
+      "methanol_recovery": 0.95,
+      "flare_load_index": 0.0,
+      "quench_inventory_index": 0.10500000000000001
+    }
+  }
+}

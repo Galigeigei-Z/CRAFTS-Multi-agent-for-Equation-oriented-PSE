@@ -1,0 +1,119 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_ion_exchange_unit",
+  "family": "family_watertap_ion_exchange",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol_phase_Liq",
+      "value": 0.05,
+      "units": "m^3/s",
+      "role": "official default feed volumetric flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "Ca_2+_conc_mass",
+      "value": 0.1,
+      "units": "kg/m^3",
+      "role": "official default calcium feed concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.0,
+      "units": "K",
+      "role": "official default feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official default feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "langmuir_Ca_2+",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "Langmuir equilibrium coefficient",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "resin_max_capacity",
+      "value": 3.0,
+      "units": "mol/kg",
+      "role": "resin capacity",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "service_flow_rate",
+      "value": 15.0,
+      "units": "1/hr",
+      "role": "service flow rate in bed volumes per hour",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "number_columns_simulation",
+      "value": 4.0,
+      "units": "dimensionless",
+      "role": "fixed number of columns for simulation",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "bed_depth_simulation",
+      "value": 1.7,
+      "units": "m",
+      "role": "fixed bed depth for simulation",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ion_exchange",
+      "variable": "product_Ca_2+_target",
+      "value": 0.025,
+      "units": "kg/m^3",
+      "role": "compact effluent calcium concentration target",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP IX ix_build, set_operating_conditions, initialize_system, simulation solve, optimize_system for LCOW and target effluent concentration, then integer-round number_columns and resolve",
+    "solve_order": [
+      "feed",
+      "ion_exchange",
+      "product",
+      "regen",
+      "costing",
+      "LCOW optimization",
+      "integer-rounded column solve"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_ion_exchange",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

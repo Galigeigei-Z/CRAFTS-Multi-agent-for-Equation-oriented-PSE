@@ -1,0 +1,89 @@
+{
+  "arcs": [
+    {
+      "destination": "tga.gas_state",
+      "destination_port": "gas_state",
+      "id": "gas_to_tga",
+      "source": "gas_boundary.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "tga.initial_solid",
+      "destination_port": "initial_solid",
+      "id": "solid_to_tga",
+      "source": "initial_solid.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "solid_history.inlet",
+      "destination_port": "inlet",
+      "id": "tga_to_history",
+      "source": "tga.solid_state",
+      "source_port": "solid_state",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_dynamic_tga",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_dynamic_tga",
+  "initialization_order": [
+    "gas_boundary",
+    "initial_solid",
+    "tga",
+    "solid_history"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Dynamic TGA Gas-Solid Reaction",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official dynamic TGA main() with 100 finite-element initialization solves and final solve"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/gas_solid_contactors/flowsheets/dyn_TGA_example.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "gas_boundary",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "initial_solid",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tga",
+      "kind": "FixedBed0D",
+      "package": null,
+      "role": "Source-derived FixedBed0D node",
+      "stage": "dynamic_reaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "solid_history",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

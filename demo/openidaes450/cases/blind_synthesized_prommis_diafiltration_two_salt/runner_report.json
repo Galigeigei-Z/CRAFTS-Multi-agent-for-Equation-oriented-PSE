@@ -1,0 +1,113 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_diafiltration_two_salt",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.nanofiltration.diafiltration_flowsheet_two_salt.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "two_salt_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "two_salt_retentate_flow_positive",
+      "pass": true,
+      "actual": 6.085368612838512
+    },
+    {
+      "name": "two_salt_permeate_flow_positive",
+      "pass": true,
+      "actual": 10.035194429805227
+    },
+    {
+      "name": "two_salt_retentate_li_matches_official_test",
+      "pass": true,
+      "actual": 190.89136217048585
+    },
+    {
+      "name": "two_salt_permeate_co_matches_official_test",
+      "pass": true,
+      "actual": 222.48212106253186
+    }
+  ],
+  "retentate_flow_volume": 6.085368612838512,
+  "permeate_flow_volume": 10.035194429805227,
+  "retentate_li_mol_m3": 190.89136217048585,
+  "permeate_co_mol_m3": 222.48212106253186,
+  "stream_values": {
+    "feed_block.outlet": {
+      "volumetric_flow": 12.5,
+      "conc_mol_comp": {
+        "Li": 245.0,
+        "Co": 288.0,
+        "Cl": 821.0
+      }
+    },
+    "diafiltrate_block.outlet": {
+      "volumetric_flow": 3.75,
+      "conc_mol_comp": {
+        "Li": 14.0,
+        "Co": 3.0,
+        "Cl": 20.0
+      }
+    },
+    "membrane.feed_inlet": {
+      "volumetric_flow": 12.5,
+      "conc_mol_comp": {
+        "Li": 245.0,
+        "Co": 288.0,
+        "Cl": 821.0
+      }
+    },
+    "membrane.diafiltrate_inlet": {
+      "volumetric_flow": 3.75,
+      "conc_mol_comp": {
+        "Li": 14.0,
+        "Co": 3.0,
+        "Cl": 20.0
+      }
+    },
+    "membrane.retentate_outlet": {
+      "volumetric_flow": 6.085368612838512,
+      "conc_mol_comp": {
+        "Li": 190.89136217048585,
+        "Co": 239.83178338656685,
+        "Cl": 670.5549289436195
+      }
+    },
+    "membrane.permeate_outlet": {
+      "volumetric_flow": 10.035194429805227,
+      "conc_mol_comp": {
+        "Li": 191.7016388935353,
+        "Co": 222.48212106253186,
+        "Cl": 636.665881018599
+      }
+    },
+    "retentate_block.inlet": {
+      "volumetric_flow": 6.085368612838512,
+      "conc_mol_comp": {
+        "Li": 190.89136217048585,
+        "Co": 239.83178338656685,
+        "Cl": 670.5549289436195
+      }
+    },
+    "permeate_block.inlet": {
+      "volumetric_flow": 10.035194429805227,
+      "conc_mol_comp": {
+        "Li": 191.7016388935353,
+        "Co": 222.48212106253186,
+        "Cl": 636.665881018599
+      }
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/diafiltration_flowsheet_two_salt.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/nanofiltration/tests/test_diafiltration_flowsheet_two_salt.py",
+    "source_flowchart": "https://prommis.readthedocs.io/en/latest/_images/diafiltration_pfd.png",
+    "stdout_tail": "Ipopt 3.13.2: \n\n******************************************************************************\nThis program contains Ipopt, a library for large-scale nonlinear optimization.\n Ipopt is released as open source code under the Eclipse Public License (EPL).\n         For more information visit http://projects.coin-or.org/Ipopt\n\nThis version of Ipopt was compiled from source code available at\n    https://github.com/IDAES/Ipopt as part of the Institute for the Design of\n    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE\n    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.\n\nThis version of Ipopt was compiled using HSL, a collection of Fortran codes\n    for large-scale scientific computation.  All technical papers, sales and\n    publicity material resulting from use of the HSL codes within IPOPT must\n    contain the following acknowledgement:\n        HSL, a collection of Fortran codes for large-scale scientific\n        computation. See http://www.hsl.rl.ac.uk.\n******************************************************************************\n\nThis is Ipopt version 3.13.2, running with linear solver ma27.\n\nNumber of nonzeros in equality constraint Jacobian...:     7015\nNumber of nonzeros in inequality constraint Jacobian.:        0\nNumber of nonzeros in Lagrangian Hessian.............:     1680\n\nTotal number of variables............................:     2135\n                     variables with only lower bounds:      542\n                variables with lower and upper bounds:        0\n                     variables with only upper bounds:        0\nTotal number of equality constraints.................:     2135\nTotal number of inequality constraints...............:        0\n        inequality constraints with only lower bounds:        0\n   inequality constraints with lower and upper bounds:        0\n        inequality constraints with only upper bounds:        0\n\niter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls\n   0  0.0000000e+00 8.21e+02 1.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0\n   1  0.0000000e+00 8.21e+00 8.13e+04  -1.0 8.21e+02    -  1.21e-05 9.90e-01h  1\n   2  0.0000000e+00 8.13e-02 8.05e+02  -1.0 8.21e+00    -  9.81e-01 9.90e-01h  1\n   3  0.0000000e+00 1.46e-11 2.50e+02  -1.0 8.13e-02    -  9.97e-01 1.00e+00h  1\n\nNumber of Iterations....: 3\n\n                                   (scaled)                 (unscaled)\nObjective...............:   0.0000000000000000e+00    0.0000000000000000e+00\nDual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00\nConstraint violation....:   9.0949470177292824e-13    1.4551915228366852e-11\nComplementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00\nOverall NLP error.......:   9.0949470177292824e-13    1.4551915228366852e-11\n\n\nNumber of objective function evaluations             = 4\nNumber of objective gradient evaluations             = 4\nNumber of equality constraint evaluations            = 4\nNumber of inequality constraint evaluations          = 0\nNumber of equality constraint Jacobian evaluations   = 4\nNumber of inequality constraint Jacobian evaluations = 0\nNumber of Lagrangian Hessian evaluations             = 3\nTotal CPU secs in IPOPT (w/o function evaluations)   =      0.016\nTotal CPU secs in NLP function evaluations           =      0.001\n\nEXIT: Optimal Solution Found.\n\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

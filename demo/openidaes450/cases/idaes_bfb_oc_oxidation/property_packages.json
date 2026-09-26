@@ -1,0 +1,74 @@
+[
+  {
+    "name": "fs.gas_properties",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.gas_phase_thermo.GasPhaseParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.gas_phase_thermo.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.gas_phase_thermo.GasPhaseParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.gas_phase_thermo",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.gas_phase_thermo.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/gas_phase_thermo.py"
+  },
+  {
+    "name": "fs.solid_properties",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.solid_phase_thermo.SolidPhaseParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.solid_phase_thermo.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.solid_phase_thermo.SolidPhaseParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.solid_phase_thermo",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.solid_phase_thermo.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/solid_phase_thermo.py"
+  },
+  {
+    "name": "fs.hetero_reactions",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.hetero_reactions.HeteroReactionParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.hetero_reactions.ReactionParameterData"
+      }
+    ],
+    "configuration": {
+      "gas_property_package": {
+        "component": "fs.gas_properties"
+      },
+      "solid_property_package": {
+        "component": "fs.solid_properties"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.hetero_reactions.HeteroReactionParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.hetero_reactions",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.oxygen_iron_OC_oxidation.hetero_reactions.ReactionParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/hetero_reactions.py"
+  }
+]

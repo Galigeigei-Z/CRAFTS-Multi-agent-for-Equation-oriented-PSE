@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_ree_leach_sx_bped_acid_loop",
+  "family": "family_ree_acid_loop",
+  "process_type": "REE Leach-SX with BPED Acid Regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_prommis_ree_staged_leach_acid_recycle.",
+    "Integrates hydrometallurgical separation with electrochemical reagent regeneration.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "REE_mineral",
+        "REE3+",
+        "acid",
+        "extractant",
+        "salt"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_prommis_ree_staged_leach_acid_recycle"
+    }
+  },
+  "components": {
+    "tracked": [
+      "REE_mineral",
+      "REE3+",
+      "acid",
+      "extractant",
+      "salt"
+    ]
+  },
+  "units": [
+    {
+      "id": "ORE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "REE ore",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LEACH",
+      "kind": "LeachReactor",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "acid dissolution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SX",
+      "kind": "MixerSettler",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "REE extraction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRIP",
+      "kind": "MixerSettler",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "REE stripping",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BPED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "acid regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "organic recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "REE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "REE concentrate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RES",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ree_acid_loop",
+      "role": "leach residue",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "ORE.outlet",
+      "destination": "LEACH.ore",
+      "stage": "ree_acid_loop",
+      "role": "ore",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "LEACH.pls",
+      "destination": "SX.aqueous",
+      "stage": "ree_acid_loop",
+      "role": "pregnant liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "SX.loaded",
+      "destination": "STRIP.organic",
+      "stage": "ree_acid_loop",
+      "role": "loaded organic",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "STRIP.product",
+      "destination": "REE.inlet",
+      "stage": "ree_acid_loop",
+      "role": "REE concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "STRIP.organic",
+      "destination": "S1.inlet",
+      "stage": "ree_acid_loop",
+      "role": "lean organic",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.recycle",
+      "destination": "SX.organic",
+      "stage": "ree_acid_loop",
+      "role": "organic recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "SX.raffinate",
+      "destination": "BPED.salt",
+      "stage": "ree_acid_loop",
+      "role": "acid-depleted raffinate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "BPED.acid",
+      "destination": "LEACH.acid",
+      "stage": "ree_acid_loop",
+      "role": "regenerated acid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "LEACH.residue",
+      "destination": "RES.inlet",
+      "stage": "ree_acid_loop",
+      "role": "residue",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "ORE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "REE.inlet",
+    "RES.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_prommis_ree_staged_leach_acid_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_prommis_ree_staged_leach_acid_recycle",
+    "chemical_change": "Integrates hydrometallurgical separation with electrochemical reagent regeneration.",
+    "native_metrics": {
+      "acid_recovery": 0.903,
+      "ree_recovery": 0.97,
+      "iron_in_product": 0.0,
+      "organic_loss": 0.0,
+      "bped_voltage_V": 36.25
+    }
+  }
+}

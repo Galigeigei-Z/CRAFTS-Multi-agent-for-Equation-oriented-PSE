@@ -1,0 +1,149 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_generic_desalination_train",
+  "family": "family_watertap_generic_desalination_train",
+  "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "H2O_flow_mass",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "official default water mass flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "feed",
+      "variable": "TDS_conc_mass",
+      "value": 3.5,
+      "units": "kg/m^3",
+      "role": "official default TDS concentration",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "feed",
+      "variable": "X_conc_mass",
+      "value": 0.3,
+      "units": "kg/m^3",
+      "role": "official default tracked solute concentration",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "official default feed temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official default feed pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "Pretreatment",
+      "variable": "base_cost",
+      "value": 0.1,
+      "units": "$/m^3",
+      "role": "official default pretreatment base cost",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "Desal_1",
+      "variable": "water_recovery_simulation",
+      "value": 85.0,
+      "units": "%",
+      "role": "default first-stage recovery",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "Desal_2",
+      "variable": "water_recovery_simulation",
+      "value": 50.0,
+      "units": "%",
+      "role": "default second-stage recovery",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "Desal_3",
+      "variable": "water_recovery_simulation",
+      "value": 90.0,
+      "units": "%",
+      "role": "default third-stage recovery",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_1_water_recovery",
+      "value": 80.0,
+      "units": "%",
+      "role": "official main() fixed recovery for Desal_1",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_2_water_recovery",
+      "value": 50.0,
+      "units": "%",
+      "role": "official main() fixed recovery for Desal_2",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "Desal_3_brine_water_mass_percent",
+      "value": 80.0,
+      "units": "%",
+      "role": "official main() final concentration specification",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "active generic treatment train cost objective",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP generic_train build and fully specified simulation solve; optimization follows official initialize(), main() specification fixes, and final solve",
+    "solve_order": [
+      "feed",
+      "Pretreatment",
+      "Desal_1",
+      "Desal_2",
+      "Desal_3",
+      "Valorizer",
+      "product_mixer",
+      "disposal_mixer",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

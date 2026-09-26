@@ -1,0 +1,115 @@
+{
+  "arcs": [
+    {
+      "destination": "treatment_link.inlet",
+      "destination_port": "inlet",
+      "id": "network_to_link",
+      "source": "production_network.treatment_flow",
+      "source_port": "treatment_flow",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "mvr.feed",
+      "destination_port": "feed",
+      "id": "link_to_mvr",
+      "source": "treatment_link.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "recovered_water.inlet",
+      "destination_port": "inlet",
+      "id": "mvr_to_water",
+      "source": "mvr.distillate",
+      "source_port": "distillate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "concentrate.inlet",
+      "destination_port": "inlet",
+      "id": "mvr_to_concentrate",
+      "source": "mvr.brine",
+      "source_port": "brine",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "production_network.treatment_cost",
+      "destination_port": "treatment_cost",
+      "id": "mvr_cost_to_network",
+      "source": "mvr.costing",
+      "source_port": "costing",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__pareto_integrated_mvr",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_pareto_integrated_mvr",
+  "initialization_order": [
+    "production_network",
+    "treatment_link",
+    "mvr",
+    "recovered_water",
+    "concentrate"
+  ],
+  "open_decisions": [],
+  "process_type": "PARETO Network with Integrated MVR",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official PARETO integrated MVR tests for one- and two-stage treatment, including final Ipopt optimality assertions"
+  ],
+  "source_url": "https://github.com/project-pareto/project-pareto/blob/2f4dfa3680ec9f6462bbd981b08c21919797279c/pareto/models_extra/integrate_desal/integrated_models/integrated_optimization_mvr.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "production_network",
+      "kind": "PARETONetwork",
+      "package": null,
+      "role": "Source-derived PARETONetwork node",
+      "stage": "produced_water_network"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treatment_link",
+      "kind": "TreatmentInterface",
+      "package": null,
+      "role": "Source-derived TreatmentInterface node",
+      "stage": "integration"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "mvr",
+      "kind": "MEE_MVR",
+      "package": null,
+      "role": "Source-derived MEE_MVR node",
+      "stage": "desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "recovered_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "concentrate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

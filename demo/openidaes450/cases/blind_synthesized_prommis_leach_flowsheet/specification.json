@@ -1,0 +1,32 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_leach_flowsheet",
+  "family": "family_prommis_leach_flowsheet",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.leaching.leach_flowsheet.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "leach_flowsheet",
+      "variable": "number_of_tanks",
+      "value": 1,
+      "units": "dimensionless",
+      "role": "official default one-tank fixture",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.leaching.leach_flowsheet.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official default initializer after scale_model",
+    "solve_order": [
+      "leach_flowsheet"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt_v2",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

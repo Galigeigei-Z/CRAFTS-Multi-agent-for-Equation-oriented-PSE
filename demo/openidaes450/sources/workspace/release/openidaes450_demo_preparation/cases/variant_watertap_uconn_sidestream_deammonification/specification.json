@@ -1,0 +1,69 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_uconn_sidestream_deammonification",
+  "family": "family_uconn_anammox",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "sidestream_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "nitrogen_removal_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "tn_return_kg_s",
+      "value": 0.00010000000000000005,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "aeration_index",
+      "value": 20.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "CENTRATE.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_uconn_wrrf"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_uconn_wrrf",
+    "chemical_change": "Adds partial nitritation/anammox chemistry on a high-ammonia return rather than increasing main-line aeration.",
+    "native_metrics": {
+      "nitrogen_removal_fraction": 0.9,
+      "tn_return_kg_s": 0.00010000000000000005,
+      "aeration_index": 20.0
+    }
+  }
+}

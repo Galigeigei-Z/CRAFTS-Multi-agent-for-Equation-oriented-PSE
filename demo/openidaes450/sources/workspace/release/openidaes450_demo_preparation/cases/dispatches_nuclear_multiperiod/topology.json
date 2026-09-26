@@ -1,0 +1,199 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__dispatches_nuclear_multiperiod",
+  "family": "family_source_verified_dispatches_nuclear_multiperiod",
+  "process_type": "Multiperiod nuclear power and hydrogen market dispatch",
+  "source_url": "https://github.com/gmlc-dispatches/dispatches/blob/main/dispatches/case_studies/nuclear_case/nuclear_flowsheet_multiperiod_class.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology and temporal coupling are derived from the official DISPATCHES nuclear multiperiod source. No horizon data, SpecIR, solve, market dispatch, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "nuclear_plant",
+      "kind": "NuclearPlant",
+      "package": null,
+      "stage": "generation",
+      "role": "Source-derived NuclearPlant node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "dispatch",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "grid",
+      "kind": "ElectricalGrid",
+      "package": null,
+      "stage": "market",
+      "role": "Source-derived ElectricalGrid node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pem",
+      "kind": "PEMElectrolyzer",
+      "package": null,
+      "stage": "hydrogen",
+      "role": "Source-derived PEMElectrolyzer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_tank",
+      "kind": "StorageTank",
+      "package": null,
+      "stage": "storage",
+      "role": "Source-derived StorageTank node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hydrogen_market",
+      "kind": "Product",
+      "package": null,
+      "stage": "market",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "period_link",
+      "kind": "TemporalLink",
+      "package": null,
+      "stage": "multiperiod",
+      "role": "Source-derived TemporalLink node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "price_signal",
+      "kind": "MarketSignal",
+      "package": null,
+      "stage": "multiperiod",
+      "role": "Source-derived MarketSignal node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dispatch_objective",
+      "kind": "OptimizationObjective",
+      "package": null,
+      "stage": "multiperiod",
+      "role": "Source-derived OptimizationObjective node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "nuclear_to_splitter",
+      "source": "nuclear_plant.electricity",
+      "destination": "power_splitter.inlet",
+      "source_port": "electricity",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_grid",
+      "source": "power_splitter.grid",
+      "destination": "grid.inlet",
+      "source_port": "grid",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "splitter_to_pem",
+      "source": "power_splitter.pem",
+      "destination": "pem.electricity",
+      "source_port": "pem",
+      "destination_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pem_to_tank",
+      "source": "pem.hydrogen",
+      "destination": "hydrogen_tank.inlet",
+      "source_port": "hydrogen",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "tank_to_market",
+      "source": "hydrogen_tank.outlet",
+      "destination": "hydrogen_market.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "tank_state_to_link",
+      "source": "hydrogen_tank.holdup",
+      "destination": "period_link.current_state",
+      "source_port": "holdup",
+      "destination_port": "current_state",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "link_to_next_tank",
+      "source": "period_link.next_state",
+      "destination": "hydrogen_tank.initial_state",
+      "source_port": "next_state",
+      "destination_port": "initial_state",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "price_to_dispatch",
+      "source": "price_signal.value",
+      "destination": "dispatch_objective.price",
+      "source_port": "value",
+      "destination_port": "price",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "grid_revenue",
+      "source": "grid.power_sales",
+      "destination": "dispatch_objective.grid_revenue",
+      "source_port": "power_sales",
+      "destination_port": "grid_revenue",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hydrogen_revenue",
+      "source": "hydrogen_market.sales",
+      "destination": "dispatch_objective.hydrogen_revenue",
+      "source_port": "sales",
+      "destination_port": "hydrogen_revenue",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "nuclear_plant",
+    "power_splitter",
+    "grid",
+    "pem",
+    "hydrogen_tank",
+    "hydrogen_market",
+    "period_link",
+    "price_signal",
+    "dispatch_objective"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

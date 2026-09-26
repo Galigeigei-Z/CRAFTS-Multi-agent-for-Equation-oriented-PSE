@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "pipeline_1.inlet",
+      "destination_port": "inlet",
+      "id": "supply_to_pipeline",
+      "source": "supply.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "junction.inlet",
+      "destination_port": "inlet",
+      "id": "pipeline_to_junction",
+      "source": "pipeline_1.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "pipeline_2.inlet",
+      "destination_port": "inlet",
+      "id": "junction_to_pipeline",
+      "source": "junction.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "demand.inlet",
+      "destination_port": "inlet",
+      "id": "pipeline_to_demand",
+      "source": "pipeline_2.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_natural_gas_pipeline_network",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_natural_gas_pipeline_network",
+  "initialization_order": [
+    "supply",
+    "pipeline_1",
+    "junction",
+    "pipeline_2",
+    "demand"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Natural-Gas Pipeline Network",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official gas-distribution flowsheet test module"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/gas_distribution/unit_models/tests/test_flowsheet.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "supply",
+      "kind": "GasNode",
+      "package": null,
+      "role": "Source-derived GasNode node",
+      "stage": "supply"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pipeline_1",
+      "kind": "GasPipeline",
+      "package": null,
+      "role": "Source-derived GasPipeline node",
+      "stage": "transport"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "junction",
+      "kind": "GasNode",
+      "package": null,
+      "role": "Source-derived GasNode node",
+      "stage": "network"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pipeline_2",
+      "kind": "GasPipeline",
+      "package": null,
+      "role": "Source-derived GasPipeline node",
+      "stage": "transport"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "demand",
+      "kind": "GasNode",
+      "package": null,
+      "role": "Source-derived GasNode node",
+      "stage": "demand"
+    }
+  ]
+}

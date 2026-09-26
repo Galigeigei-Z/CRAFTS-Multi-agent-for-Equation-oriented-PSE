@@ -1,0 +1,59 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_crusher_unit",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "crusher_initializer_ok",
+      "pass": true,
+      "actual": "InitializationStatus.Ok"
+    },
+    {
+      "name": "crusher_termination_optimal",
+      "pass": true,
+      "actual": "optimal"
+    },
+    {
+      "name": "crusher_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "crusher_feed_p80_matches_official_test",
+      "pass": true,
+      "actual": 114.31300926539438
+    },
+    {
+      "name": "crusher_prod_p80_matches_official_test",
+      "pass": true,
+      "actual": 82.87693171741094
+    },
+    {
+      "name": "crusher_work_matches_official_test",
+      "pass": true,
+      "actual": 3915.710574717145
+    },
+    {
+      "name": "crusher_mass_flow_conserved",
+      "pass": true,
+      "actual": 2000.0
+    }
+  ],
+  "outputs": {
+    "feed_flow_mass": 2000.0,
+    "product_flow_mass": 2000.0,
+    "feed_p80": 114.31300926539438,
+    "prod_p80": 82.87693171741094,
+    "work": 3915.710574717145
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/solid_handling/crusher.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/solid_handling/tests/test_crusher.py",
+    "official_module": "prommis.solid_handling.crusher"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

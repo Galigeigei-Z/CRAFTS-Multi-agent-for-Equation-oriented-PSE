@@ -1,0 +1,172 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_prommis_membrane_cascade_flowsheet",
+  "family": "family_prommis_membrane_cascade_flowsheet",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "solvent",
+      "value": 100.0,
+      "units": "m^3/h",
+      "role": "official fresh water feed basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "Li",
+      "value": 170.0,
+      "units": "kg/h",
+      "role": "official lithium feed basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "Co",
+      "value": 1700.0,
+      "units": "kg/h",
+      "role": "official cobalt feed basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "solvent",
+      "value": 30.0,
+      "units": "m^3/h",
+      "role": "official diafiltrate water basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Li",
+      "value": 3.0,
+      "units": "kg/h",
+      "role": "official diafiltrate lithium basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diafiltrate_feed",
+      "variable": "Co",
+      "value": 6.0,
+      "units": "kg/h",
+      "role": "official diafiltrate cobalt basis",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_1",
+      "variable": "number_of_tubes",
+      "value": 5,
+      "units": "dimensionless",
+      "role": "official solver test size",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_2",
+      "variable": "number_of_tubes",
+      "value": 5,
+      "units": "dimensionless",
+      "role": "official solver test size",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_1",
+      "variable": "flux",
+      "value": 0.1,
+      "units": "m/h",
+      "role": "official flux parameter",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_2",
+      "variable": "flux",
+      "value": 0.1,
+      "units": "m/h",
+      "role": "official flux parameter",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_1",
+      "variable": "sieving_Li",
+      "value": 1.3,
+      "units": "dimensionless",
+      "role": "official lithium sieving coefficient",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "stage_1",
+      "variable": "sieving_Co",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "official cobalt sieving coefficient",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "retentate_precipitator",
+      "variable": "volume",
+      "value": 500.0,
+      "units": "m^3",
+      "role": "fixed official solver test volume",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "permeate_precipitator",
+      "variable": "volume",
+      "value": 500.0,
+      "units": "m^3",
+      "role": "fixed official solver test volume",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "permeate_precipitator",
+      "variable": "Li_yield",
+      "value": 0.81,
+      "units": "dimensionless",
+      "role": "official precipitate yield",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "retentate_precipitator",
+      "variable": "Co_yield",
+      "value": 0.89,
+      "units": "dimensionless",
+      "role": "official precipitate yield",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official DiafiltrationModel.build_flowsheet, initialize fixed-point recycles, unfix_dof, then solve optimization",
+    "solve_order": [
+      "feed_splitter",
+      "stage_1",
+      "stage_2",
+      "product_mixers",
+      "precipitators",
+      "precipitate_recycle"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_official_prommis_membrane_cascade_flowsheet",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

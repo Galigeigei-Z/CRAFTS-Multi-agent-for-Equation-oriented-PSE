@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.feed",
+      "destination_port": "feed",
+      "id": "feed_to_model",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.sweep",
+      "destination_port": "sweep",
+      "id": "sweep_to_model",
+      "source": "sweep.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "retentate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_retentate",
+      "source": "model.retentate",
+      "source_port": "retentate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "permeate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_permeate",
+      "source": "model.permeate",
+      "source_port": "permeate",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_co2_membrane_1d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_co2_membrane_1d",
+  "initialization_order": [
+    "feed",
+    "sweep",
+    "model",
+    "retentate",
+    "permeate"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES CO2 Membrane 1D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Membrane1D test module"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/co2_capture_and_utilization/unit_models/membrane_1d.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "sweep",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "Membrane1D",
+      "package": null,
+      "role": "Source-derived Membrane1D node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "retentate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "permeate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

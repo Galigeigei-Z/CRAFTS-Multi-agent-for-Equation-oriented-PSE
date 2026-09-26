@@ -1,0 +1,27 @@
+[
+  {
+    "name": "fs.feed_to_lead",
+    "source": "fs.feed.outlet",
+    "destination": "fs.lead_bed.inlet"
+  },
+  {
+    "name": "fs.lead_to_lag",
+    "source": "fs.lead_bed.outlet",
+    "destination": "fs.lag_bed.inlet"
+  },
+  {
+    "name": "fs.lag_to_product",
+    "source": "fs.lag_bed.outlet",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.lead_to_removed",
+    "source": "fs.lead_bed.adsorbed",
+    "destination": "fs.lead_adsorbed.inlet"
+  },
+  {
+    "name": "fs.lag_to_removed",
+    "source": "fs.lag_bed.adsorbed",
+    "destination": "fs.lag_adsorbed.inlet"
+  }
+]

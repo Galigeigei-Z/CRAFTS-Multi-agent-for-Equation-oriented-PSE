@@ -1,0 +1,175 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_hx2d_pcm_thermal_buffer",
+  "family": "family_hx_pcm",
+  "process_type": "2D Heat Exchanger with Phase-Change Thermal Buffer",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent idaes_heat_exchanger_2d.",
+    "Adds latent-heat storage and a bypass/recombine path around a spatial heat exchanger.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "process_fluid",
+        "phase_change_material",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_heat_exchanger_2d"
+    }
+  },
+  "components": {
+    "tracked": [
+      "process_fluid",
+      "phase_change_material",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "HOT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "variable reactor effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "process bypass",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX2D",
+      "kind": "HeatExchanger2D",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "spatial heat transfer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PCM",
+      "kind": "ThermalStorage",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "phase-change medium",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "temperature trim",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hx_pcm",
+      "role": "buffered process stream",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "HOT.outlet",
+      "destination": "S1.inlet",
+      "stage": "hx_pcm",
+      "role": "hot effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "S1.exchange",
+      "destination": "HX2D.hot_inlet",
+      "stage": "hx_pcm",
+      "role": "heat-exchange branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "HX2D.heat",
+      "destination": "PCM.inlet",
+      "stage": "hx_pcm",
+      "role": "latent heat charge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "PCM.heat",
+      "destination": "HX2D.cold_inlet",
+      "stage": "hx_pcm",
+      "role": "latent heat discharge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "HX2D.hot_outlet",
+      "destination": "M1.cooled",
+      "stage": "hx_pcm",
+      "role": "conditioned branch",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.bypass",
+      "destination": "M1.bypass",
+      "stage": "hx_pcm",
+      "role": "bypass",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "M1.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "hx_pcm",
+      "role": "buffered outlet",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "HOT.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_heat_exchanger_2d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_heat_exchanger_2d",
+    "chemical_change": "Adds latent-heat storage and a bypass/recombine path around a spatial heat exchanger.",
+    "native_metrics": {
+      "process_outlet_temperature_K": 370.0,
+      "stored_heat_fraction": 0.8200000000000001,
+      "pcm_solid_fraction": 0.5075,
+      "pump_power_kW": 29.75
+    }
+  }
+}

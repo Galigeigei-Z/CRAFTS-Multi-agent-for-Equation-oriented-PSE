@@ -1,0 +1,120 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reflo_crystallizer_mother_liquor_recycle",
+  "family": "family_crystallizer_recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "mother_liquor_recycle_fraction",
+      "value": 0.83,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "loop_water_kg_s",
+      "value": 1.782868525896414,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "loop_solute_kg_s",
+      "value": 0.14970059880239522,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_water_kg_s",
+      "value": 0.7131474103585657,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "product_solute_kg_s",
+      "value": 0.08982035928143711,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_water_kg_s",
+      "value": 0.18185258964143428,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_solute_kg_s",
+      "value": 0.010179640718562878,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "salt_crystal_kg_s",
+      "value": 0.08982035928143711,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "impurity_purge_kg_s",
+      "value": 0.004719573752103197,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "SALT.inlet",
+    "PURGE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_crystallizer_effect"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_crystallizer_effect",
+    "chemical_change": "Adds a solid/liquid separator, mother-liquor recycle and binding impurity purge, coupling yield to impurity buildup.",
+    "native_metrics": {
+      "loop_water_kg_s": 1.782868525896414,
+      "loop_solute_kg_s": 0.14970059880239522,
+      "product_water_kg_s": 0.7131474103585657,
+      "product_solute_kg_s": 0.08982035928143711,
+      "purge_water_kg_s": 0.18185258964143428,
+      "purge_solute_kg_s": 0.010179640718562878,
+      "salt_crystal_kg_s": 0.08982035928143711,
+      "impurity_purge_kg_s": 0.004719573752103197
+    }
+  }
+}

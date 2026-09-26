@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "watertap_ammonia_acid_absorption_crystallization",
+  "recipe": "absorption_regeneration",
+  "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "solvent_circulation_fraction": 0.8,
+    "regeneration_fraction": 0.8
+  },
+  "metrics": {
+    "contaminant_removal": 0.92,
+    "lean_solvent_quality": 0.9099999999999999,
+    "product_slip_fraction": 0.014079999999999995,
+    "regeneration_duty_index": 0.636,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.69,
+      "product_slip_fraction": 0.11,
+      "regeneration_duty_index": 0.18,
+      "objective": 0.4,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.705,
+      "product_slip_fraction": 0.10752500000000001,
+      "regeneration_duty_index": 0.196,
+      "objective": 0.41105,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.72,
+      "product_slip_fraction": 0.10504999999999999,
+      "regeneration_duty_index": 0.212,
+      "objective": 0.4221,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.735,
+      "product_slip_fraction": 0.102575,
+      "regeneration_duty_index": 0.228,
+      "objective": 0.43315000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.75,
+      "product_slip_fraction": 0.10010000000000001,
+      "regeneration_duty_index": 0.244,
+      "objective": 0.44420000000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.7649999999999999,
+      "product_slip_fraction": 0.09762499999999999,
+      "regeneration_duty_index": 0.26,
+      "objective": 0.45525,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.7799999999999999,
+      "product_slip_fraction": 0.09515,
+      "regeneration_duty_index": 0.276,
+      "objective": 0.46630000000000005,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.7949999999999999,
+      "product_slip_fraction": 0.09267500000000001,
+      "regeneration_duty_index": 0.29200000000000004,
+      "objective": 0.47735000000000005,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.8099999999999999,
+      "product_slip_fraction": 0.09019999999999999,
+      "regeneration_duty_index": 0.308,
+      "objective": 0.48839999999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.825,
+      "product_slip_fraction": 0.087725,
+      "regeneration_duty_index": 0.324,
+      "objective": 0.49945,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.84,
+      "product_slip_fraction": 0.08525,
+      "regeneration_duty_index": 0.33999999999999997,
+      "objective": 0.5105,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.855,
+      "product_slip_fraction": 0.082775,
+      "regeneration_duty_index": 0.356,
+      "objective": 0.52155,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.87,
+      "product_slip_fraction": 0.0803,
+      "regeneration_duty_index": 0.372,
+      "objective": 0.5326,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.885,
+      "product_slip_fraction": 0.077825,
+      "regeneration_duty_index": 0.388,
+      "objective": 0.54365,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.8999999999999999,
+      "product_slip_fraction": 0.07535,
+      "regeneration_duty_index": 0.404,
+      "objective": 0.5547,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.9149999999999999,
+      "product_slip_fraction": 0.072875,
+      "regeneration_duty_index": 0.42,
+      "objective": 0.56575,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.9299999999999999,
+      "product_slip_fraction": 0.07039999999999999,
+      "regeneration_duty_index": 0.436,
+      "objective": 0.5768,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.945,
+      "product_slip_fraction": 0.067925,
+      "regeneration_duty_index": 0.452,
+      "objective": 0.58785,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.96,
+      "product_slip_fraction": 0.06545,
+      "regeneration_duty_index": 0.468,
+      "objective": 0.5989,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.975,
+      "product_slip_fraction": 0.062975,
+      "regeneration_duty_index": 0.48400000000000004,
+      "objective": 0.60995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.608,
+      "lean_solvent_quality": 0.99,
+      "product_slip_fraction": 0.060500000000000005,
+      "regeneration_duty_index": 0.5,
+      "objective": 0.621,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.0,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.68875,
+      "product_slip_fraction": 0.1045,
+      "regeneration_duty_index": 0.1925,
+      "objective": 0.40149999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.70375,
+      "product_slip_fraction": 0.10214875,
+      "regeneration_duty_index": 0.20850000000000002,
+      "objective": 0.41279750000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.71875,
+      "product_slip_fraction": 0.0997975,
+      "regeneration_duty_index": 0.2245,
+      "objective": 0.424095,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.73375,
+      "product_slip_fraction": 0.09744625,
+      "regeneration_duty_index": 0.24050000000000002,
+      "objective": 0.4353925,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.74875,
+      "product_slip_fraction": 0.095095,
+      "regeneration_duty_index": 0.2565,
+      "objective": 0.44669000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.7637499999999999,
+      "product_slip_fraction": 0.09274374999999999,
+      "regeneration_duty_index": 0.2725,
+      "objective": 0.4579875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.7787499999999999,
+      "product_slip_fraction": 0.0903925,
+      "regeneration_duty_index": 0.28850000000000003,
+      "objective": 0.46928500000000006,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.79375,
+      "product_slip_fraction": 0.08804125,
+      "regeneration_duty_index": 0.3045,
+      "objective": 0.4805825,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.80875,
+      "product_slip_fraction": 0.08568999999999999,
+      "regeneration_duty_index": 0.3205,
+      "objective": 0.49188,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.82375,
+      "product_slip_fraction": 0.08333874999999999,
+      "regeneration_duty_index": 0.3365,
+      "objective": 0.5031775,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.83875,
+      "product_slip_fraction": 0.0809875,
+      "regeneration_duty_index": 0.35250000000000004,
+      "objective": 0.514475,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.85375,
+      "product_slip_fraction": 0.07863624999999999,
+      "regeneration_duty_index": 0.36850000000000005,
+      "objective": 0.5257725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.86875,
+      "product_slip_fraction": 0.07628499999999999,
+      "regeneration_duty_index": 0.38450000000000006,
+      "objective": 0.53707,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.88375,
+      "product_slip_fraction": 0.07393374999999999,
+      "regeneration_duty_index": 0.4005,
+      "objective": 0.5483675,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.8987499999999999,
+      "product_slip_fraction": 0.0715825,
+      "regeneration_duty_index": 0.41650000000000004,
+      "objective": 0.5596650000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.91375,
+      "product_slip_fraction": 0.06923125,
+      "regeneration_duty_index": 0.4325,
+      "objective": 0.5709625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.92875,
+      "product_slip_fraction": 0.06687999999999998,
+      "regeneration_duty_index": 0.4485,
+      "objective": 0.58226,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.94375,
+      "product_slip_fraction": 0.06452875,
+      "regeneration_duty_index": 0.4645,
+      "objective": 0.5935575,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.95875,
+      "product_slip_fraction": 0.0621775,
+      "regeneration_duty_index": 0.48050000000000004,
+      "objective": 0.604855,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.97375,
+      "product_slip_fraction": 0.05982625,
+      "regeneration_duty_index": 0.49650000000000005,
+      "objective": 0.6161525000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.6275,
+      "lean_solvent_quality": 0.98875,
+      "product_slip_fraction": 0.057475000000000005,
+      "regeneration_duty_index": 0.5125,
+      "objective": 0.62745,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.05,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.6875,
+      "product_slip_fraction": 0.099,
+      "regeneration_duty_index": 0.205,
+      "objective": 0.403,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7025,
+      "product_slip_fraction": 0.09677250000000001,
+      "regeneration_duty_index": 0.22099999999999997,
+      "objective": 0.414545,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7175,
+      "product_slip_fraction": 0.094545,
+      "regeneration_duty_index": 0.237,
+      "objective": 0.42608999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7325,
+      "product_slip_fraction": 0.09231750000000001,
+      "regeneration_duty_index": 0.253,
+      "objective": 0.437635,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7475,
+      "product_slip_fraction": 0.09009,
+      "regeneration_duty_index": 0.269,
+      "objective": 0.44918,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7625,
+      "product_slip_fraction": 0.0878625,
+      "regeneration_duty_index": 0.285,
+      "objective": 0.46072499999999994,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7775,
+      "product_slip_fraction": 0.085635,
+      "regeneration_duty_index": 0.301,
+      "objective": 0.47226999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.7925,
+      "product_slip_fraction": 0.08340750000000001,
+      "regeneration_duty_index": 0.317,
+      "objective": 0.483815,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8075,
+      "product_slip_fraction": 0.08118,
+      "regeneration_duty_index": 0.33299999999999996,
+      "objective": 0.49535999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8225,
+      "product_slip_fraction": 0.07895250000000001,
+      "regeneration_duty_index": 0.349,
+      "objective": 0.5069049999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8375,
+      "product_slip_fraction": 0.076725,
+      "regeneration_duty_index": 0.365,
+      "objective": 0.51845,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8525,
+      "product_slip_fraction": 0.0744975,
+      "regeneration_duty_index": 0.381,
+      "objective": 0.529995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8675,
+      "product_slip_fraction": 0.07227,
+      "regeneration_duty_index": 0.397,
+      "objective": 0.54154,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8825000000000001,
+      "product_slip_fraction": 0.07004250000000001,
+      "regeneration_duty_index": 0.41300000000000003,
+      "objective": 0.553085,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.8975,
+      "product_slip_fraction": 0.067815,
+      "regeneration_duty_index": 0.42900000000000005,
+      "objective": 0.5646300000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9125,
+      "product_slip_fraction": 0.0655875,
+      "regeneration_duty_index": 0.44499999999999995,
+      "objective": 0.576175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9275,
+      "product_slip_fraction": 0.06336,
+      "regeneration_duty_index": 0.46099999999999997,
+      "objective": 0.58772,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9425,
+      "product_slip_fraction": 0.0611325,
+      "regeneration_duty_index": 0.477,
+      "objective": 0.5992649999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9575,
+      "product_slip_fraction": 0.058905,
+      "regeneration_duty_index": 0.493,
+      "objective": 0.61081,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9725,
+      "product_slip_fraction": 0.056677500000000006,
+      "regeneration_duty_index": 0.509,
+      "objective": 0.622355,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.647,
+      "lean_solvent_quality": 0.9875,
+      "product_slip_fraction": 0.054450000000000005,
+      "regeneration_duty_index": 0.525,
+      "objective": 0.6339,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.1,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.6862499999999999,
+      "product_slip_fraction": 0.0935,
+      "regeneration_duty_index": 0.2175,
+      "objective": 0.40449999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.7012499999999999,
+      "product_slip_fraction": 0.09139625,
+      "regeneration_duty_index": 0.23349999999999999,
+      "objective": 0.41629249999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.7162499999999999,
+      "product_slip_fraction": 0.0892925,
+      "regeneration_duty_index": 0.2495,
+      "objective": 0.428085,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.73125,
+      "product_slip_fraction": 0.08718875,
+      "regeneration_duty_index": 0.2655,
+      "objective": 0.43987750000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.74625,
+      "product_slip_fraction": 0.08508500000000001,
+      "regeneration_duty_index": 0.2815,
+      "objective": 0.45167,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.7612499999999999,
+      "product_slip_fraction": 0.08298124999999999,
+      "regeneration_duty_index": 0.2975,
+      "objective": 0.4634625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.7762499999999999,
+      "product_slip_fraction": 0.0808775,
+      "regeneration_duty_index": 0.3135,
+      "objective": 0.475255,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.7912499999999999,
+      "product_slip_fraction": 0.07877375,
+      "regeneration_duty_index": 0.3295,
+      "objective": 0.4870475,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.8062499999999999,
+      "product_slip_fraction": 0.07667,
+      "regeneration_duty_index": 0.34550000000000003,
+      "objective": 0.49884000000000006,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.8212499999999999,
+      "product_slip_fraction": 0.07456625,
+      "regeneration_duty_index": 0.36150000000000004,
+      "objective": 0.5106325,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.8362499999999999,
+      "product_slip_fraction": 0.0724625,
+      "regeneration_duty_index": 0.3775,
+      "objective": 0.522425,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.85125,
+      "product_slip_fraction": 0.07035875,
+      "regeneration_duty_index": 0.3935,
+      "objective": 0.5342175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.86625,
+      "product_slip_fraction": 0.068255,
+      "regeneration_duty_index": 0.40950000000000003,
+      "objective": 0.54601,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.88125,
+      "product_slip_fraction": 0.06615125,
+      "regeneration_duty_index": 0.4255,
+      "objective": 0.5578025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.8962499999999999,
+      "product_slip_fraction": 0.0640475,
+      "regeneration_duty_index": 0.4415,
+      "objective": 0.569595,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.9112499999999999,
+      "product_slip_fraction": 0.06194375,
+      "regeneration_duty_index": 0.4575,
+      "objective": 0.5813875000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.9262499999999999,
+      "product_slip_fraction": 0.05983999999999999,
+      "regeneration_duty_index": 0.47350000000000003,
+      "objective": 0.59318,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.9412499999999999,
+      "product_slip_fraction": 0.057736249999999996,
+      "regeneration_duty_index": 0.48950000000000005,
+      "objective": 0.6049725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.9562499999999999,
+      "product_slip_fraction": 0.055632499999999994,
+      "regeneration_duty_index": 0.5055000000000001,
+      "objective": 0.616765,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.97125,
+      "product_slip_fraction": 0.05352875,
+      "regeneration_duty_index": 0.5215000000000001,
+      "objective": 0.6285575000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.6665,
+      "lean_solvent_quality": 0.98625,
+      "product_slip_fraction": 0.051425000000000005,
+      "regeneration_duty_index": 0.5375,
+      "objective": 0.64035,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.15000000000000002,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.6849999999999999,
+      "product_slip_fraction": 0.08800000000000001,
+      "regeneration_duty_index": 0.22999999999999998,
+      "objective": 0.406,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.7,
+      "product_slip_fraction": 0.08602000000000001,
+      "regeneration_duty_index": 0.246,
+      "objective": 0.41804,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.715,
+      "product_slip_fraction": 0.08404,
+      "regeneration_duty_index": 0.262,
+      "objective": 0.43008,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.73,
+      "product_slip_fraction": 0.08206000000000001,
+      "regeneration_duty_index": 0.27799999999999997,
+      "objective": 0.44211999999999996,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.745,
+      "product_slip_fraction": 0.08008000000000001,
+      "regeneration_duty_index": 0.294,
+      "objective": 0.45416,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.7599999999999999,
+      "product_slip_fraction": 0.0781,
+      "regeneration_duty_index": 0.31,
+      "objective": 0.4662,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.7749999999999999,
+      "product_slip_fraction": 0.07612000000000001,
+      "regeneration_duty_index": 0.326,
+      "objective": 0.47824,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.7899999999999999,
+      "product_slip_fraction": 0.07414000000000001,
+      "regeneration_duty_index": 0.34199999999999997,
+      "objective": 0.49028,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.8049999999999999,
+      "product_slip_fraction": 0.07216,
+      "regeneration_duty_index": 0.358,
+      "objective": 0.50232,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.82,
+      "product_slip_fraction": 0.07018,
+      "regeneration_duty_index": 0.374,
+      "objective": 0.51436,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.835,
+      "product_slip_fraction": 0.06820000000000001,
+      "regeneration_duty_index": 0.39,
+      "objective": 0.5264,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.85,
+      "product_slip_fraction": 0.06622,
+      "regeneration_duty_index": 0.406,
+      "objective": 0.53844,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.865,
+      "product_slip_fraction": 0.06424,
+      "regeneration_duty_index": 0.42200000000000004,
+      "objective": 0.5504800000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.88,
+      "product_slip_fraction": 0.06226000000000001,
+      "regeneration_duty_index": 0.438,
+      "objective": 0.56252,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.8949999999999999,
+      "product_slip_fraction": 0.06028,
+      "regeneration_duty_index": 0.454,
+      "objective": 0.57456,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.9099999999999999,
+      "product_slip_fraction": 0.058300000000000005,
+      "regeneration_duty_index": 0.47,
+      "objective": 0.5866,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.9249999999999999,
+      "product_slip_fraction": 0.056319999999999995,
+      "regeneration_duty_index": 0.486,
+      "objective": 0.59864,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.94,
+      "product_slip_fraction": 0.05434,
+      "regeneration_duty_index": 0.502,
+      "objective": 0.61068,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.955,
+      "product_slip_fraction": 0.052360000000000004,
+      "regeneration_duty_index": 0.518,
+      "objective": 0.62272,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.97,
+      "product_slip_fraction": 0.05038000000000001,
+      "regeneration_duty_index": 0.534,
+      "objective": 0.63476,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.6859999999999999,
+      "lean_solvent_quality": 0.985,
+      "product_slip_fraction": 0.048400000000000006,
+      "regeneration_duty_index": 0.55,
+      "objective": 0.6468,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.2,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.68375,
+      "product_slip_fraction": 0.0825,
+      "regeneration_duty_index": 0.2425,
+      "objective": 0.4075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.69875,
+      "product_slip_fraction": 0.08064375,
+      "regeneration_duty_index": 0.2585,
+      "objective": 0.4197875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.71375,
+      "product_slip_fraction": 0.0787875,
+      "regeneration_duty_index": 0.27449999999999997,
+      "objective": 0.432075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.72875,
+      "product_slip_fraction": 0.07693125,
+      "regeneration_duty_index": 0.2905,
+      "objective": 0.4443625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.74375,
+      "product_slip_fraction": 0.075075,
+      "regeneration_duty_index": 0.3065,
+      "objective": 0.45665,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.7587499999999999,
+      "product_slip_fraction": 0.07321875,
+      "regeneration_duty_index": 0.3225,
+      "objective": 0.4689375,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.7737499999999999,
+      "product_slip_fraction": 0.07136250000000001,
+      "regeneration_duty_index": 0.3385,
+      "objective": 0.481225,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.78875,
+      "product_slip_fraction": 0.06950625,
+      "regeneration_duty_index": 0.35450000000000004,
+      "objective": 0.4935125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.80375,
+      "product_slip_fraction": 0.06765,
+      "regeneration_duty_index": 0.3705,
+      "objective": 0.5058,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.81875,
+      "product_slip_fraction": 0.06579375,
+      "regeneration_duty_index": 0.3865,
+      "objective": 0.5180875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.83375,
+      "product_slip_fraction": 0.06393750000000001,
+      "regeneration_duty_index": 0.40249999999999997,
+      "objective": 0.530375,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.84875,
+      "product_slip_fraction": 0.06208125,
+      "regeneration_duty_index": 0.4185,
+      "objective": 0.5426624999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.86375,
+      "product_slip_fraction": 0.060225,
+      "regeneration_duty_index": 0.4345,
+      "objective": 0.55495,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.87875,
+      "product_slip_fraction": 0.058368750000000004,
+      "regeneration_duty_index": 0.4505,
+      "objective": 0.5672375000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.8937499999999999,
+      "product_slip_fraction": 0.0565125,
+      "regeneration_duty_index": 0.4665,
+      "objective": 0.5795250000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.90875,
+      "product_slip_fraction": 0.05465625,
+      "regeneration_duty_index": 0.4825,
+      "objective": 0.5918125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.92375,
+      "product_slip_fraction": 0.05279999999999999,
+      "regeneration_duty_index": 0.4985,
+      "objective": 0.6041,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.93875,
+      "product_slip_fraction": 0.050943749999999996,
+      "regeneration_duty_index": 0.5145,
+      "objective": 0.6163875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.95375,
+      "product_slip_fraction": 0.0490875,
+      "regeneration_duty_index": 0.5305,
+      "objective": 0.628675,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.96875,
+      "product_slip_fraction": 0.04723125,
+      "regeneration_duty_index": 0.5465,
+      "objective": 0.6409625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.7055,
+      "lean_solvent_quality": 0.98375,
+      "product_slip_fraction": 0.045375000000000006,
+      "regeneration_duty_index": 0.5625,
+      "objective": 0.65325,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.25,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.6825,
+      "product_slip_fraction": 0.077,
+      "regeneration_duty_index": 0.255,
+      "objective": 0.40900000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.6975,
+      "product_slip_fraction": 0.0752675,
+      "regeneration_duty_index": 0.271,
+      "objective": 0.421535,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7125,
+      "product_slip_fraction": 0.07353499999999999,
+      "regeneration_duty_index": 0.28700000000000003,
+      "objective": 0.43407,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7275,
+      "product_slip_fraction": 0.0718025,
+      "regeneration_duty_index": 0.303,
+      "objective": 0.44660500000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7425,
+      "product_slip_fraction": 0.07007000000000001,
+      "regeneration_duty_index": 0.319,
+      "objective": 0.45914,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7575,
+      "product_slip_fraction": 0.0683375,
+      "regeneration_duty_index": 0.335,
+      "objective": 0.471675,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7725,
+      "product_slip_fraction": 0.066605,
+      "regeneration_duty_index": 0.35100000000000003,
+      "objective": 0.48421000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.7875,
+      "product_slip_fraction": 0.0648725,
+      "regeneration_duty_index": 0.367,
+      "objective": 0.496745,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8025,
+      "product_slip_fraction": 0.06314,
+      "regeneration_duty_index": 0.383,
+      "objective": 0.50928,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8175,
+      "product_slip_fraction": 0.0614075,
+      "regeneration_duty_index": 0.399,
+      "objective": 0.521815,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8325,
+      "product_slip_fraction": 0.059675,
+      "regeneration_duty_index": 0.41500000000000004,
+      "objective": 0.53435,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8475,
+      "product_slip_fraction": 0.057942499999999994,
+      "regeneration_duty_index": 0.43100000000000005,
+      "objective": 0.5468850000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8625,
+      "product_slip_fraction": 0.056209999999999996,
+      "regeneration_duty_index": 0.44700000000000006,
+      "objective": 0.55942,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8775000000000001,
+      "product_slip_fraction": 0.0544775,
+      "regeneration_duty_index": 0.463,
+      "objective": 0.571955,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.8925,
+      "product_slip_fraction": 0.05274499999999999,
+      "regeneration_duty_index": 0.47900000000000004,
+      "objective": 0.5844900000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9075,
+      "product_slip_fraction": 0.051012499999999995,
+      "regeneration_duty_index": 0.495,
+      "objective": 0.597025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9225,
+      "product_slip_fraction": 0.04927999999999999,
+      "regeneration_duty_index": 0.511,
+      "objective": 0.60956,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9375,
+      "product_slip_fraction": 0.04754749999999999,
+      "regeneration_duty_index": 0.527,
+      "objective": 0.6220950000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9525,
+      "product_slip_fraction": 0.045814999999999995,
+      "regeneration_duty_index": 0.543,
+      "objective": 0.63463,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9675,
+      "product_slip_fraction": 0.0440825,
+      "regeneration_duty_index": 0.559,
+      "objective": 0.647165,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.725,
+      "lean_solvent_quality": 0.9825,
+      "product_slip_fraction": 0.042350000000000006,
+      "regeneration_duty_index": 0.575,
+      "objective": 0.6597,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.30000000000000004,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.6812499999999999,
+      "product_slip_fraction": 0.0715,
+      "regeneration_duty_index": 0.2675,
+      "objective": 0.4105,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.6962499999999999,
+      "product_slip_fraction": 0.06989125,
+      "regeneration_duty_index": 0.28350000000000003,
+      "objective": 0.4232825,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.7112499999999999,
+      "product_slip_fraction": 0.0682825,
+      "regeneration_duty_index": 0.2995,
+      "objective": 0.436065,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.72625,
+      "product_slip_fraction": 0.06667374999999999,
+      "regeneration_duty_index": 0.3155,
+      "objective": 0.44884749999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.74125,
+      "product_slip_fraction": 0.065065,
+      "regeneration_duty_index": 0.3315,
+      "objective": 0.46163,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.7562499999999999,
+      "product_slip_fraction": 0.06345624999999999,
+      "regeneration_duty_index": 0.34750000000000003,
+      "objective": 0.4744125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.7712499999999999,
+      "product_slip_fraction": 0.06184749999999999,
+      "regeneration_duty_index": 0.36350000000000005,
+      "objective": 0.48719500000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.7862499999999999,
+      "product_slip_fraction": 0.060238749999999994,
+      "regeneration_duty_index": 0.37950000000000006,
+      "objective": 0.4999775000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.8012499999999999,
+      "product_slip_fraction": 0.058629999999999995,
+      "regeneration_duty_index": 0.3955,
+      "objective": 0.51276,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.8162499999999999,
+      "product_slip_fraction": 0.057021249999999996,
+      "regeneration_duty_index": 0.41150000000000003,
+      "objective": 0.5255425,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.8312499999999999,
+      "product_slip_fraction": 0.055412499999999996,
+      "regeneration_duty_index": 0.4275,
+      "objective": 0.5383249999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.84625,
+      "product_slip_fraction": 0.05380374999999999,
+      "regeneration_duty_index": 0.4435,
+      "objective": 0.5511075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.86125,
+      "product_slip_fraction": 0.05219499999999999,
+      "regeneration_duty_index": 0.4595,
+      "objective": 0.56389,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.87625,
+      "product_slip_fraction": 0.05058625,
+      "regeneration_duty_index": 0.47550000000000003,
+      "objective": 0.5766725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.8912499999999999,
+      "product_slip_fraction": 0.04897749999999999,
+      "regeneration_duty_index": 0.49150000000000005,
+      "objective": 0.5894550000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.9062499999999999,
+      "product_slip_fraction": 0.047368749999999994,
+      "regeneration_duty_index": 0.5075000000000001,
+      "objective": 0.6022375000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.9212499999999999,
+      "product_slip_fraction": 0.04575999999999999,
+      "regeneration_duty_index": 0.5235000000000001,
+      "objective": 0.61502,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.9362499999999999,
+      "product_slip_fraction": 0.04415124999999999,
+      "regeneration_duty_index": 0.5395000000000001,
+      "objective": 0.6278025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.9512499999999999,
+      "product_slip_fraction": 0.0425425,
+      "regeneration_duty_index": 0.5555000000000001,
+      "objective": 0.6405850000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.9662499999999999,
+      "product_slip_fraction": 0.04093375,
+      "regeneration_duty_index": 0.5715000000000001,
+      "objective": 0.6533675000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.7444999999999999,
+      "lean_solvent_quality": 0.98125,
+      "product_slip_fraction": 0.039325,
+      "regeneration_duty_index": 0.5875,
+      "objective": 0.66615,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.35000000000000003,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.6799999999999999,
+      "product_slip_fraction": 0.066,
+      "regeneration_duty_index": 0.28,
+      "objective": 0.41200000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.695,
+      "product_slip_fraction": 0.064515,
+      "regeneration_duty_index": 0.29600000000000004,
+      "objective": 0.42503,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.71,
+      "product_slip_fraction": 0.06303,
+      "regeneration_duty_index": 0.31200000000000006,
+      "objective": 0.43806000000000006,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.725,
+      "product_slip_fraction": 0.061545,
+      "regeneration_duty_index": 0.328,
+      "objective": 0.45109,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.74,
+      "product_slip_fraction": 0.06006,
+      "regeneration_duty_index": 0.34400000000000003,
+      "objective": 0.46412000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.7549999999999999,
+      "product_slip_fraction": 0.058575,
+      "regeneration_duty_index": 0.36000000000000004,
+      "objective": 0.4771500000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.7699999999999999,
+      "product_slip_fraction": 0.05709,
+      "regeneration_duty_index": 0.37600000000000006,
+      "objective": 0.49018000000000006,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.7849999999999999,
+      "product_slip_fraction": 0.055605,
+      "regeneration_duty_index": 0.392,
+      "objective": 0.50321,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.7999999999999999,
+      "product_slip_fraction": 0.05412,
+      "regeneration_duty_index": 0.40800000000000003,
+      "objective": 0.51624,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.815,
+      "product_slip_fraction": 0.052635,
+      "regeneration_duty_index": 0.42400000000000004,
+      "objective": 0.52927,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.83,
+      "product_slip_fraction": 0.05115,
+      "regeneration_duty_index": 0.44000000000000006,
+      "objective": 0.5423,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.845,
+      "product_slip_fraction": 0.049665,
+      "regeneration_duty_index": 0.45600000000000007,
+      "objective": 0.5553300000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.86,
+      "product_slip_fraction": 0.04818,
+      "regeneration_duty_index": 0.4720000000000001,
+      "objective": 0.5683600000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.875,
+      "product_slip_fraction": 0.046695,
+      "regeneration_duty_index": 0.48800000000000004,
+      "objective": 0.5813900000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.8899999999999999,
+      "product_slip_fraction": 0.04521,
+      "regeneration_duty_index": 0.504,
+      "objective": 0.59442,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.9049999999999999,
+      "product_slip_fraction": 0.043725,
+      "regeneration_duty_index": 0.52,
+      "objective": 0.60745,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.9199999999999999,
+      "product_slip_fraction": 0.04223999999999999,
+      "regeneration_duty_index": 0.536,
+      "objective": 0.62048,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.9349999999999999,
+      "product_slip_fraction": 0.040755,
+      "regeneration_duty_index": 0.552,
+      "objective": 0.63351,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.95,
+      "product_slip_fraction": 0.03927,
+      "regeneration_duty_index": 0.5680000000000001,
+      "objective": 0.6465400000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.965,
+      "product_slip_fraction": 0.037785,
+      "regeneration_duty_index": 0.5840000000000001,
+      "objective": 0.6595700000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.764,
+      "lean_solvent_quality": 0.98,
+      "product_slip_fraction": 0.036300000000000006,
+      "regeneration_duty_index": 0.6000000000000001,
+      "objective": 0.6726000000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.4,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.67875,
+      "product_slip_fraction": 0.060500000000000005,
+      "regeneration_duty_index": 0.2925,
+      "objective": 0.4135,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.69375,
+      "product_slip_fraction": 0.059138750000000004,
+      "regeneration_duty_index": 0.3085,
+      "objective": 0.42677750000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.70875,
+      "product_slip_fraction": 0.0577775,
+      "regeneration_duty_index": 0.3245,
+      "objective": 0.44005500000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.72375,
+      "product_slip_fraction": 0.05641625,
+      "regeneration_duty_index": 0.34049999999999997,
+      "objective": 0.45333249999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.73875,
+      "product_slip_fraction": 0.05505500000000001,
+      "regeneration_duty_index": 0.3565,
+      "objective": 0.46660999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.7537499999999999,
+      "product_slip_fraction": 0.053693750000000005,
+      "regeneration_duty_index": 0.3725,
+      "objective": 0.4798875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.7687499999999999,
+      "product_slip_fraction": 0.052332500000000004,
+      "regeneration_duty_index": 0.3885,
+      "objective": 0.493165,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.78375,
+      "product_slip_fraction": 0.05097125,
+      "regeneration_duty_index": 0.40449999999999997,
+      "objective": 0.5064425,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.79875,
+      "product_slip_fraction": 0.04961,
+      "regeneration_duty_index": 0.4205,
+      "objective": 0.51972,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.81375,
+      "product_slip_fraction": 0.04824875,
+      "regeneration_duty_index": 0.4365,
+      "objective": 0.5329975,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.82875,
+      "product_slip_fraction": 0.046887500000000006,
+      "regeneration_duty_index": 0.4525,
+      "objective": 0.5462750000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.84375,
+      "product_slip_fraction": 0.04552625,
+      "regeneration_duty_index": 0.4685,
+      "objective": 0.5595525,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.85875,
+      "product_slip_fraction": 0.044165,
+      "regeneration_duty_index": 0.48450000000000004,
+      "objective": 0.5728300000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.87375,
+      "product_slip_fraction": 0.04280375,
+      "regeneration_duty_index": 0.5005,
+      "objective": 0.5861075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.8887499999999999,
+      "product_slip_fraction": 0.0414425,
+      "regeneration_duty_index": 0.5165,
+      "objective": 0.599385,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.9037499999999999,
+      "product_slip_fraction": 0.04008125,
+      "regeneration_duty_index": 0.5325,
+      "objective": 0.6126625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.91875,
+      "product_slip_fraction": 0.03872,
+      "regeneration_duty_index": 0.5485,
+      "objective": 0.6259399999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.93375,
+      "product_slip_fraction": 0.037358749999999996,
+      "regeneration_duty_index": 0.5645,
+      "objective": 0.6392175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.94875,
+      "product_slip_fraction": 0.0359975,
+      "regeneration_duty_index": 0.5805,
+      "objective": 0.652495,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.96375,
+      "product_slip_fraction": 0.03463625,
+      "regeneration_duty_index": 0.5965,
+      "objective": 0.6657725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.7835,
+      "lean_solvent_quality": 0.97875,
+      "product_slip_fraction": 0.033275000000000006,
+      "regeneration_duty_index": 0.6125,
+      "objective": 0.67905,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.45,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.6775,
+      "product_slip_fraction": 0.055,
+      "regeneration_duty_index": 0.305,
+      "objective": 0.415,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.6925,
+      "product_slip_fraction": 0.053762500000000005,
+      "regeneration_duty_index": 0.321,
+      "objective": 0.42852500000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7075,
+      "product_slip_fraction": 0.052524999999999995,
+      "regeneration_duty_index": 0.33699999999999997,
+      "objective": 0.44204999999999994,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7225,
+      "product_slip_fraction": 0.0512875,
+      "regeneration_duty_index": 0.353,
+      "objective": 0.45557499999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7375,
+      "product_slip_fraction": 0.050050000000000004,
+      "regeneration_duty_index": 0.369,
+      "objective": 0.4691,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7525,
+      "product_slip_fraction": 0.048812499999999995,
+      "regeneration_duty_index": 0.385,
+      "objective": 0.48262499999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7675,
+      "product_slip_fraction": 0.047575,
+      "regeneration_duty_index": 0.401,
+      "objective": 0.49615000000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7825,
+      "product_slip_fraction": 0.046337500000000004,
+      "regeneration_duty_index": 0.41700000000000004,
+      "objective": 0.5096750000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.7975,
+      "product_slip_fraction": 0.045099999999999994,
+      "regeneration_duty_index": 0.433,
+      "objective": 0.5232,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8125,
+      "product_slip_fraction": 0.0438625,
+      "regeneration_duty_index": 0.449,
+      "objective": 0.536725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8275,
+      "product_slip_fraction": 0.042625,
+      "regeneration_duty_index": 0.46499999999999997,
+      "objective": 0.55025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8425,
+      "product_slip_fraction": 0.0413875,
+      "regeneration_duty_index": 0.481,
+      "objective": 0.563775,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8575,
+      "product_slip_fraction": 0.04015,
+      "regeneration_duty_index": 0.497,
+      "objective": 0.5773,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8725,
+      "product_slip_fraction": 0.0389125,
+      "regeneration_duty_index": 0.513,
+      "objective": 0.590825,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.8875,
+      "product_slip_fraction": 0.037675,
+      "regeneration_duty_index": 0.529,
+      "objective": 0.60435,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9025,
+      "product_slip_fraction": 0.0364375,
+      "regeneration_duty_index": 0.5449999999999999,
+      "objective": 0.617875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9175,
+      "product_slip_fraction": 0.035199999999999995,
+      "regeneration_duty_index": 0.5609999999999999,
+      "objective": 0.6314,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9325,
+      "product_slip_fraction": 0.0339625,
+      "regeneration_duty_index": 0.577,
+      "objective": 0.644925,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9475,
+      "product_slip_fraction": 0.032725,
+      "regeneration_duty_index": 0.593,
+      "objective": 0.65845,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9625,
+      "product_slip_fraction": 0.0314875,
+      "regeneration_duty_index": 0.609,
+      "objective": 0.671975,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.8029999999999999,
+      "lean_solvent_quality": 0.9775,
+      "product_slip_fraction": 0.030250000000000003,
+      "regeneration_duty_index": 0.625,
+      "objective": 0.6855,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.5,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.6762499999999999,
+      "product_slip_fraction": 0.049499999999999995,
+      "regeneration_duty_index": 0.3175,
+      "objective": 0.4165,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.6912499999999999,
+      "product_slip_fraction": 0.04838625,
+      "regeneration_duty_index": 0.3335,
+      "objective": 0.4302725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.7062499999999999,
+      "product_slip_fraction": 0.047272499999999995,
+      "regeneration_duty_index": 0.34950000000000003,
+      "objective": 0.444045,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.72125,
+      "product_slip_fraction": 0.04615875,
+      "regeneration_duty_index": 0.3655,
+      "objective": 0.4578175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.73625,
+      "product_slip_fraction": 0.045044999999999995,
+      "regeneration_duty_index": 0.3815,
+      "objective": 0.47159,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.7512499999999999,
+      "product_slip_fraction": 0.04393124999999999,
+      "regeneration_duty_index": 0.3975,
+      "objective": 0.48536250000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.7662499999999999,
+      "product_slip_fraction": 0.042817499999999994,
+      "regeneration_duty_index": 0.41350000000000003,
+      "objective": 0.499135,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.7812499999999999,
+      "product_slip_fraction": 0.04170375,
+      "regeneration_duty_index": 0.4295,
+      "objective": 0.5129075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.7962499999999999,
+      "product_slip_fraction": 0.040589999999999994,
+      "regeneration_duty_index": 0.4455,
+      "objective": 0.52668,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.8112499999999999,
+      "product_slip_fraction": 0.03947625,
+      "regeneration_duty_index": 0.4615,
+      "objective": 0.5404525,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.8262499999999999,
+      "product_slip_fraction": 0.0383625,
+      "regeneration_duty_index": 0.47750000000000004,
+      "objective": 0.5542250000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.8412499999999999,
+      "product_slip_fraction": 0.03724875,
+      "regeneration_duty_index": 0.49350000000000005,
+      "objective": 0.5679975,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.85625,
+      "product_slip_fraction": 0.036134999999999994,
+      "regeneration_duty_index": 0.5095000000000001,
+      "objective": 0.58177,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.87125,
+      "product_slip_fraction": 0.03502125,
+      "regeneration_duty_index": 0.5255000000000001,
+      "objective": 0.5955425000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.8862499999999999,
+      "product_slip_fraction": 0.03390749999999999,
+      "regeneration_duty_index": 0.5415000000000001,
+      "objective": 0.609315,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.9012499999999999,
+      "product_slip_fraction": 0.032793749999999997,
+      "regeneration_duty_index": 0.5575,
+      "objective": 0.6230875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.9162499999999999,
+      "product_slip_fraction": 0.03167999999999999,
+      "regeneration_duty_index": 0.5735,
+      "objective": 0.63686,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.9312499999999999,
+      "product_slip_fraction": 0.030566249999999993,
+      "regeneration_duty_index": 0.5895,
+      "objective": 0.6506325000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.9462499999999999,
+      "product_slip_fraction": 0.029452499999999996,
+      "regeneration_duty_index": 0.6055,
+      "objective": 0.664405,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.9612499999999999,
+      "product_slip_fraction": 0.02833875,
+      "regeneration_duty_index": 0.6215,
+      "objective": 0.6781775000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.8225,
+      "lean_solvent_quality": 0.97625,
+      "product_slip_fraction": 0.027225,
+      "regeneration_duty_index": 0.6375,
+      "objective": 0.69195,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.55,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.6749999999999999,
+      "product_slip_fraction": 0.04399999999999999,
+      "regeneration_duty_index": 0.33,
+      "objective": 0.418,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.69,
+      "product_slip_fraction": 0.04300999999999999,
+      "regeneration_duty_index": 0.34600000000000003,
+      "objective": 0.43202,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.705,
+      "product_slip_fraction": 0.04201999999999999,
+      "regeneration_duty_index": 0.362,
+      "objective": 0.44604,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.72,
+      "product_slip_fraction": 0.04102999999999999,
+      "regeneration_duty_index": 0.378,
+      "objective": 0.46005999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.735,
+      "product_slip_fraction": 0.04003999999999999,
+      "regeneration_duty_index": 0.394,
+      "objective": 0.47408,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.7499999999999999,
+      "product_slip_fraction": 0.03904999999999999,
+      "regeneration_duty_index": 0.41000000000000003,
+      "objective": 0.4881,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.7649999999999999,
+      "product_slip_fraction": 0.03805999999999999,
+      "regeneration_duty_index": 0.42600000000000005,
+      "objective": 0.50212,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.7799999999999999,
+      "product_slip_fraction": 0.03706999999999999,
+      "regeneration_duty_index": 0.44200000000000006,
+      "objective": 0.51614,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.7949999999999999,
+      "product_slip_fraction": 0.03607999999999999,
+      "regeneration_duty_index": 0.458,
+      "objective": 0.53016,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.8099999999999999,
+      "product_slip_fraction": 0.03508999999999999,
+      "regeneration_duty_index": 0.47400000000000003,
+      "objective": 0.54418,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.825,
+      "product_slip_fraction": 0.03409999999999999,
+      "regeneration_duty_index": 0.49,
+      "objective": 0.5582,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.84,
+      "product_slip_fraction": 0.033109999999999994,
+      "regeneration_duty_index": 0.506,
+      "objective": 0.57222,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.855,
+      "product_slip_fraction": 0.03211999999999999,
+      "regeneration_duty_index": 0.522,
+      "objective": 0.58624,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.87,
+      "product_slip_fraction": 0.031129999999999994,
+      "regeneration_duty_index": 0.538,
+      "objective": 0.60026,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.8849999999999999,
+      "product_slip_fraction": 0.03013999999999999,
+      "regeneration_duty_index": 0.554,
+      "objective": 0.61428,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.8999999999999999,
+      "product_slip_fraction": 0.029149999999999992,
+      "regeneration_duty_index": 0.5700000000000001,
+      "objective": 0.6283000000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.9149999999999999,
+      "product_slip_fraction": 0.02815999999999999,
+      "regeneration_duty_index": 0.5860000000000001,
+      "objective": 0.64232,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.9299999999999999,
+      "product_slip_fraction": 0.027169999999999993,
+      "regeneration_duty_index": 0.6020000000000001,
+      "objective": 0.65634,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.945,
+      "product_slip_fraction": 0.02617999999999999,
+      "regeneration_duty_index": 0.6180000000000001,
+      "objective": 0.6703600000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.96,
+      "product_slip_fraction": 0.025189999999999994,
+      "regeneration_duty_index": 0.6340000000000001,
+      "objective": 0.6843800000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.8420000000000001,
+      "lean_solvent_quality": 0.975,
+      "product_slip_fraction": 0.024199999999999996,
+      "regeneration_duty_index": 0.65,
+      "objective": 0.6984,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.6000000000000001,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.67375,
+      "product_slip_fraction": 0.0385,
+      "regeneration_duty_index": 0.3425,
+      "objective": 0.41950000000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.68875,
+      "product_slip_fraction": 0.03763375,
+      "regeneration_duty_index": 0.35850000000000004,
+      "objective": 0.43376750000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.70375,
+      "product_slip_fraction": 0.036767499999999995,
+      "regeneration_duty_index": 0.37450000000000006,
+      "objective": 0.44803500000000007,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.71875,
+      "product_slip_fraction": 0.03590125,
+      "regeneration_duty_index": 0.3905,
+      "objective": 0.4623025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.73375,
+      "product_slip_fraction": 0.035035000000000004,
+      "regeneration_duty_index": 0.40650000000000003,
+      "objective": 0.47657000000000005,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.7487499999999999,
+      "product_slip_fraction": 0.03416875,
+      "regeneration_duty_index": 0.42250000000000004,
+      "objective": 0.49083750000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.7637499999999999,
+      "product_slip_fraction": 0.0333025,
+      "regeneration_duty_index": 0.43850000000000006,
+      "objective": 0.505105,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.7787499999999999,
+      "product_slip_fraction": 0.03243625,
+      "regeneration_duty_index": 0.4545,
+      "objective": 0.5193725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.79375,
+      "product_slip_fraction": 0.03157,
+      "regeneration_duty_index": 0.47050000000000003,
+      "objective": 0.53364,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.80875,
+      "product_slip_fraction": 0.03070375,
+      "regeneration_duty_index": 0.48650000000000004,
+      "objective": 0.5479075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.82375,
+      "product_slip_fraction": 0.0298375,
+      "regeneration_duty_index": 0.5025000000000001,
+      "objective": 0.5621750000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.83875,
+      "product_slip_fraction": 0.028971249999999997,
+      "regeneration_duty_index": 0.5185000000000001,
+      "objective": 0.5764425000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.85375,
+      "product_slip_fraction": 0.028104999999999998,
+      "regeneration_duty_index": 0.5345000000000001,
+      "objective": 0.5907100000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.86875,
+      "product_slip_fraction": 0.02723875,
+      "regeneration_duty_index": 0.5505,
+      "objective": 0.6049775,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.8837499999999999,
+      "product_slip_fraction": 0.026372499999999997,
+      "regeneration_duty_index": 0.5665,
+      "objective": 0.619245,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.8987499999999999,
+      "product_slip_fraction": 0.025506249999999998,
+      "regeneration_duty_index": 0.5825,
+      "objective": 0.6335125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.91375,
+      "product_slip_fraction": 0.024639999999999995,
+      "regeneration_duty_index": 0.5985,
+      "objective": 0.64778,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.92875,
+      "product_slip_fraction": 0.023773749999999996,
+      "regeneration_duty_index": 0.6145,
+      "objective": 0.6620475,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.94375,
+      "product_slip_fraction": 0.022907499999999997,
+      "regeneration_duty_index": 0.6305000000000001,
+      "objective": 0.676315,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.95875,
+      "product_slip_fraction": 0.02204125,
+      "regeneration_duty_index": 0.6465000000000001,
+      "objective": 0.6905825000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.8614999999999999,
+      "lean_solvent_quality": 0.97375,
+      "product_slip_fraction": 0.021175000000000003,
+      "regeneration_duty_index": 0.6625000000000001,
+      "objective": 0.7048500000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.65,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.6725,
+      "product_slip_fraction": 0.032999999999999995,
+      "regeneration_duty_index": 0.355,
+      "objective": 0.421,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.6875,
+      "product_slip_fraction": 0.032257499999999995,
+      "regeneration_duty_index": 0.371,
+      "objective": 0.435515,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7025,
+      "product_slip_fraction": 0.031514999999999994,
+      "regeneration_duty_index": 0.387,
+      "objective": 0.45003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7175,
+      "product_slip_fraction": 0.030772499999999994,
+      "regeneration_duty_index": 0.40299999999999997,
+      "objective": 0.464545,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7325,
+      "product_slip_fraction": 0.030029999999999998,
+      "regeneration_duty_index": 0.419,
+      "objective": 0.47906,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7474999999999999,
+      "product_slip_fraction": 0.029287499999999994,
+      "regeneration_duty_index": 0.435,
+      "objective": 0.493575,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7625,
+      "product_slip_fraction": 0.028544999999999994,
+      "regeneration_duty_index": 0.451,
+      "objective": 0.50809,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7775,
+      "product_slip_fraction": 0.027802499999999997,
+      "regeneration_duty_index": 0.46699999999999997,
+      "objective": 0.522605,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.7925,
+      "product_slip_fraction": 0.027059999999999994,
+      "regeneration_duty_index": 0.483,
+      "objective": 0.5371199999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8075,
+      "product_slip_fraction": 0.026317499999999994,
+      "regeneration_duty_index": 0.499,
+      "objective": 0.551635,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8225,
+      "product_slip_fraction": 0.025574999999999997,
+      "regeneration_duty_index": 0.515,
+      "objective": 0.56615,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8375,
+      "product_slip_fraction": 0.024832499999999993,
+      "regeneration_duty_index": 0.531,
+      "objective": 0.580665,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8525,
+      "product_slip_fraction": 0.024089999999999997,
+      "regeneration_duty_index": 0.547,
+      "objective": 0.59518,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8675,
+      "product_slip_fraction": 0.023347499999999997,
+      "regeneration_duty_index": 0.563,
+      "objective": 0.609695,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8825,
+      "product_slip_fraction": 0.022604999999999993,
+      "regeneration_duty_index": 0.579,
+      "objective": 0.6242099999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.8975,
+      "product_slip_fraction": 0.021862499999999997,
+      "regeneration_duty_index": 0.595,
+      "objective": 0.638725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.9125,
+      "product_slip_fraction": 0.021119999999999993,
+      "regeneration_duty_index": 0.611,
+      "objective": 0.6532399999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.9275,
+      "product_slip_fraction": 0.020377499999999996,
+      "regeneration_duty_index": 0.627,
+      "objective": 0.667755,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.9425,
+      "product_slip_fraction": 0.019634999999999996,
+      "regeneration_duty_index": 0.643,
+      "objective": 0.68227,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.9575,
+      "product_slip_fraction": 0.018892499999999996,
+      "regeneration_duty_index": 0.659,
+      "objective": 0.696785,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.881,
+      "lean_solvent_quality": 0.9725,
+      "product_slip_fraction": 0.01815,
+      "regeneration_duty_index": 0.675,
+      "objective": 0.7113,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.7000000000000001,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.6712499999999999,
+      "product_slip_fraction": 0.0275,
+      "regeneration_duty_index": 0.3675,
+      "objective": 0.4225,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.6862499999999999,
+      "product_slip_fraction": 0.026881250000000002,
+      "regeneration_duty_index": 0.3835,
+      "objective": 0.4372625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7012499999999999,
+      "product_slip_fraction": 0.026262499999999998,
+      "regeneration_duty_index": 0.39949999999999997,
+      "objective": 0.45202499999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7162499999999999,
+      "product_slip_fraction": 0.02564375,
+      "regeneration_duty_index": 0.4155,
+      "objective": 0.46678749999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.73125,
+      "product_slip_fraction": 0.025025000000000002,
+      "regeneration_duty_index": 0.4315,
+      "objective": 0.48155,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7462499999999999,
+      "product_slip_fraction": 0.024406249999999997,
+      "regeneration_duty_index": 0.4475,
+      "objective": 0.4963125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7612499999999999,
+      "product_slip_fraction": 0.0237875,
+      "regeneration_duty_index": 0.4635,
+      "objective": 0.5110750000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7762499999999999,
+      "product_slip_fraction": 0.023168750000000002,
+      "regeneration_duty_index": 0.47950000000000004,
+      "objective": 0.5258375000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.7912499999999999,
+      "product_slip_fraction": 0.022549999999999997,
+      "regeneration_duty_index": 0.4955,
+      "objective": 0.5406,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.8062499999999999,
+      "product_slip_fraction": 0.02193125,
+      "regeneration_duty_index": 0.5115000000000001,
+      "objective": 0.5553625000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.8212499999999999,
+      "product_slip_fraction": 0.0213125,
+      "regeneration_duty_index": 0.5275,
+      "objective": 0.570125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.8362499999999999,
+      "product_slip_fraction": 0.02069375,
+      "regeneration_duty_index": 0.5435,
+      "objective": 0.5848875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.85125,
+      "product_slip_fraction": 0.020075,
+      "regeneration_duty_index": 0.5595,
+      "objective": 0.59965,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.86625,
+      "product_slip_fraction": 0.01945625,
+      "regeneration_duty_index": 0.5755,
+      "objective": 0.6144125,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.8812499999999999,
+      "product_slip_fraction": 0.0188375,
+      "regeneration_duty_index": 0.5915,
+      "objective": 0.629175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.8962499999999999,
+      "product_slip_fraction": 0.01821875,
+      "regeneration_duty_index": 0.6074999999999999,
+      "objective": 0.6439374999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.9112499999999999,
+      "product_slip_fraction": 0.017599999999999998,
+      "regeneration_duty_index": 0.6234999999999999,
+      "objective": 0.6587,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.9262499999999999,
+      "product_slip_fraction": 0.01698125,
+      "regeneration_duty_index": 0.6395,
+      "objective": 0.6734625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.9412499999999999,
+      "product_slip_fraction": 0.0163625,
+      "regeneration_duty_index": 0.6555,
+      "objective": 0.688225,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.9562499999999999,
+      "product_slip_fraction": 0.01574375,
+      "regeneration_duty_index": 0.6715,
+      "objective": 0.7029875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.9005,
+      "lean_solvent_quality": 0.97125,
+      "product_slip_fraction": 0.015125000000000001,
+      "regeneration_duty_index": 0.6875,
+      "objective": 0.71775,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.75,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.6699999999999999,
+      "product_slip_fraction": 0.021999999999999995,
+      "regeneration_duty_index": 0.38,
+      "objective": 0.424,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.6849999999999999,
+      "product_slip_fraction": 0.021504999999999996,
+      "regeneration_duty_index": 0.396,
+      "objective": 0.43901,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.7,
+      "product_slip_fraction": 0.021009999999999994,
+      "regeneration_duty_index": 0.41200000000000003,
+      "objective": 0.45402000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.715,
+      "product_slip_fraction": 0.020514999999999995,
+      "regeneration_duty_index": 0.428,
+      "objective": 0.46903,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.73,
+      "product_slip_fraction": 0.020019999999999996,
+      "regeneration_duty_index": 0.444,
+      "objective": 0.48404,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.7449999999999999,
+      "product_slip_fraction": 0.019524999999999994,
+      "regeneration_duty_index": 0.46,
+      "objective": 0.49905,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.7599999999999999,
+      "product_slip_fraction": 0.019029999999999995,
+      "regeneration_duty_index": 0.47600000000000003,
+      "objective": 0.5140600000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.7749999999999999,
+      "product_slip_fraction": 0.018534999999999996,
+      "regeneration_duty_index": 0.492,
+      "objective": 0.5290699999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.7899999999999999,
+      "product_slip_fraction": 0.018039999999999994,
+      "regeneration_duty_index": 0.508,
+      "objective": 0.54408,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.8049999999999999,
+      "product_slip_fraction": 0.017544999999999995,
+      "regeneration_duty_index": 0.524,
+      "objective": 0.55909,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.82,
+      "product_slip_fraction": 0.017049999999999996,
+      "regeneration_duty_index": 0.54,
+      "objective": 0.5741,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.835,
+      "product_slip_fraction": 0.016554999999999997,
+      "regeneration_duty_index": 0.556,
+      "objective": 0.58911,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.85,
+      "product_slip_fraction": 0.016059999999999994,
+      "regeneration_duty_index": 0.5720000000000001,
+      "objective": 0.6041200000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.865,
+      "product_slip_fraction": 0.015564999999999997,
+      "regeneration_duty_index": 0.5880000000000001,
+      "objective": 0.6191300000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.8799999999999999,
+      "product_slip_fraction": 0.015069999999999995,
+      "regeneration_duty_index": 0.6040000000000001,
+      "objective": 0.63414,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.8949999999999999,
+      "product_slip_fraction": 0.014574999999999996,
+      "regeneration_duty_index": 0.62,
+      "objective": 0.64915,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.9099999999999999,
+      "product_slip_fraction": 0.014079999999999995,
+      "regeneration_duty_index": 0.636,
+      "objective": 0.66416,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.9249999999999999,
+      "product_slip_fraction": 0.013584999999999996,
+      "regeneration_duty_index": 0.652,
+      "objective": 0.67917,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.94,
+      "product_slip_fraction": 0.013089999999999996,
+      "regeneration_duty_index": 0.668,
+      "objective": 0.69418,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.955,
+      "product_slip_fraction": 0.012594999999999997,
+      "regeneration_duty_index": 0.684,
+      "objective": 0.7091900000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.92,
+      "lean_solvent_quality": 0.97,
+      "product_slip_fraction": 0.012099999999999998,
+      "regeneration_duty_index": 0.7,
+      "objective": 0.7242,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.66875,
+      "product_slip_fraction": 0.01649999999999999,
+      "regeneration_duty_index": 0.3925,
+      "objective": 0.4255,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.68375,
+      "product_slip_fraction": 0.01612874999999999,
+      "regeneration_duty_index": 0.40850000000000003,
+      "objective": 0.4407575,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.69875,
+      "product_slip_fraction": 0.01575749999999999,
+      "regeneration_duty_index": 0.4245,
+      "objective": 0.45601499999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.71375,
+      "product_slip_fraction": 0.01538624999999999,
+      "regeneration_duty_index": 0.4405,
+      "objective": 0.4712725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.72875,
+      "product_slip_fraction": 0.015014999999999992,
+      "regeneration_duty_index": 0.4565,
+      "objective": 0.48653,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.7437499999999999,
+      "product_slip_fraction": 0.01464374999999999,
+      "regeneration_duty_index": 0.47250000000000003,
+      "objective": 0.5017875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.7587499999999999,
+      "product_slip_fraction": 0.014272499999999992,
+      "regeneration_duty_index": 0.48850000000000005,
+      "objective": 0.517045,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.7737499999999999,
+      "product_slip_fraction": 0.013901249999999992,
+      "regeneration_duty_index": 0.5045000000000001,
+      "objective": 0.5323025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.78875,
+      "product_slip_fraction": 0.013529999999999992,
+      "regeneration_duty_index": 0.5205,
+      "objective": 0.5475599999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.80375,
+      "product_slip_fraction": 0.013158749999999992,
+      "regeneration_duty_index": 0.5365,
+      "objective": 0.5628175,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.81875,
+      "product_slip_fraction": 0.012787499999999993,
+      "regeneration_duty_index": 0.5525,
+      "objective": 0.578075,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.83375,
+      "product_slip_fraction": 0.012416249999999992,
+      "regeneration_duty_index": 0.5685,
+      "objective": 0.5933325,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.84875,
+      "product_slip_fraction": 0.012044999999999993,
+      "regeneration_duty_index": 0.5845,
+      "objective": 0.60859,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.86375,
+      "product_slip_fraction": 0.011673749999999993,
+      "regeneration_duty_index": 0.6005,
+      "objective": 0.6238475,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.8787499999999999,
+      "product_slip_fraction": 0.011302499999999993,
+      "regeneration_duty_index": 0.6165,
+      "objective": 0.639105,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.8937499999999999,
+      "product_slip_fraction": 0.010931249999999993,
+      "regeneration_duty_index": 0.6325000000000001,
+      "objective": 0.6543625000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.90875,
+      "product_slip_fraction": 0.010559999999999993,
+      "regeneration_duty_index": 0.6485000000000001,
+      "objective": 0.6696200000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.92375,
+      "product_slip_fraction": 0.010188749999999993,
+      "regeneration_duty_index": 0.6645000000000001,
+      "objective": 0.6848775,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.93875,
+      "product_slip_fraction": 0.009817499999999995,
+      "regeneration_duty_index": 0.6805000000000001,
+      "objective": 0.7001350000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.95375,
+      "product_slip_fraction": 0.009446249999999995,
+      "regeneration_duty_index": 0.6965000000000001,
+      "objective": 0.7153925000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.9395,
+      "lean_solvent_quality": 0.96875,
+      "product_slip_fraction": 0.009074999999999996,
+      "regeneration_duty_index": 0.7125,
+      "objective": 0.73065,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.8500000000000001,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.6675,
+      "product_slip_fraction": 0.010999999999999998,
+      "regeneration_duty_index": 0.405,
+      "objective": 0.42700000000000005,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.6825,
+      "product_slip_fraction": 0.010752499999999998,
+      "regeneration_duty_index": 0.42100000000000004,
+      "objective": 0.44250500000000004,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.6975,
+      "product_slip_fraction": 0.010504999999999997,
+      "regeneration_duty_index": 0.43700000000000006,
+      "objective": 0.45801000000000003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7125,
+      "product_slip_fraction": 0.010257499999999998,
+      "regeneration_duty_index": 0.453,
+      "objective": 0.473515,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7275,
+      "product_slip_fraction": 0.010009999999999998,
+      "regeneration_duty_index": 0.46900000000000003,
+      "objective": 0.48902,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7424999999999999,
+      "product_slip_fraction": 0.009762499999999997,
+      "regeneration_duty_index": 0.48500000000000004,
+      "objective": 0.504525,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7575,
+      "product_slip_fraction": 0.009514999999999997,
+      "regeneration_duty_index": 0.501,
+      "objective": 0.52003,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7725,
+      "product_slip_fraction": 0.009267499999999998,
+      "regeneration_duty_index": 0.517,
+      "objective": 0.535535,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.7875,
+      "product_slip_fraction": 0.009019999999999997,
+      "regeneration_duty_index": 0.533,
+      "objective": 0.55104,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8025,
+      "product_slip_fraction": 0.008772499999999997,
+      "regeneration_duty_index": 0.549,
+      "objective": 0.5665450000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8175,
+      "product_slip_fraction": 0.008524999999999998,
+      "regeneration_duty_index": 0.5650000000000001,
+      "objective": 0.5820500000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8325,
+      "product_slip_fraction": 0.008277499999999998,
+      "regeneration_duty_index": 0.5810000000000001,
+      "objective": 0.5975550000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8475,
+      "product_slip_fraction": 0.008029999999999997,
+      "regeneration_duty_index": 0.5970000000000001,
+      "objective": 0.61306,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8625,
+      "product_slip_fraction": 0.007782499999999999,
+      "regeneration_duty_index": 0.613,
+      "objective": 0.628565,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8775,
+      "product_slip_fraction": 0.007534999999999997,
+      "regeneration_duty_index": 0.629,
+      "objective": 0.64407,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.8925,
+      "product_slip_fraction": 0.007287499999999998,
+      "regeneration_duty_index": 0.645,
+      "objective": 0.659575,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.9075,
+      "product_slip_fraction": 0.007039999999999998,
+      "regeneration_duty_index": 0.661,
+      "objective": 0.67508,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.9225,
+      "product_slip_fraction": 0.006792499999999998,
+      "regeneration_duty_index": 0.677,
+      "objective": 0.690585,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.9375,
+      "product_slip_fraction": 0.006544999999999998,
+      "regeneration_duty_index": 0.6930000000000001,
+      "objective": 0.7060900000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.9525,
+      "product_slip_fraction": 0.006297499999999998,
+      "regeneration_duty_index": 0.7090000000000001,
+      "objective": 0.7215950000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.9590000000000001,
+      "lean_solvent_quality": 0.9675,
+      "product_slip_fraction": 0.006049999999999999,
+      "regeneration_duty_index": 0.7250000000000001,
+      "objective": 0.7371000000000001,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.6662499999999999,
+      "product_slip_fraction": 0.005499999999999993,
+      "regeneration_duty_index": 0.4175,
+      "objective": 0.4285,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.6812499999999999,
+      "product_slip_fraction": 0.005376249999999993,
+      "regeneration_duty_index": 0.4335,
+      "objective": 0.4442525,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.6962499999999999,
+      "product_slip_fraction": 0.005252499999999992,
+      "regeneration_duty_index": 0.4495,
+      "objective": 0.460005,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.7112499999999999,
+      "product_slip_fraction": 0.0051287499999999936,
+      "regeneration_duty_index": 0.46549999999999997,
+      "objective": 0.47575749999999994,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.72625,
+      "product_slip_fraction": 0.005004999999999994,
+      "regeneration_duty_index": 0.4815,
+      "objective": 0.49150999999999995,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.7412499999999999,
+      "product_slip_fraction": 0.004881249999999993,
+      "regeneration_duty_index": 0.4975,
+      "objective": 0.5072625,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.7562499999999999,
+      "product_slip_fraction": 0.0047574999999999935,
+      "regeneration_duty_index": 0.5135,
+      "objective": 0.5230149999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.7712499999999999,
+      "product_slip_fraction": 0.004633749999999994,
+      "regeneration_duty_index": 0.5295,
+      "objective": 0.5387675,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.7862499999999999,
+      "product_slip_fraction": 0.004509999999999994,
+      "regeneration_duty_index": 0.5455,
+      "objective": 0.55452,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.8012499999999999,
+      "product_slip_fraction": 0.004386249999999994,
+      "regeneration_duty_index": 0.5615,
+      "objective": 0.5702725,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.8162499999999999,
+      "product_slip_fraction": 0.004262499999999995,
+      "regeneration_duty_index": 0.5775,
+      "objective": 0.586025,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.8312499999999999,
+      "product_slip_fraction": 0.004138749999999994,
+      "regeneration_duty_index": 0.5935,
+      "objective": 0.6017775,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.84625,
+      "product_slip_fraction": 0.004014999999999994,
+      "regeneration_duty_index": 0.6095,
+      "objective": 0.61753,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.86125,
+      "product_slip_fraction": 0.003891249999999995,
+      "regeneration_duty_index": 0.6255,
+      "objective": 0.6332825,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.8762499999999999,
+      "product_slip_fraction": 0.003767499999999995,
+      "regeneration_duty_index": 0.6415,
+      "objective": 0.6490349999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.8912499999999999,
+      "product_slip_fraction": 0.003643749999999995,
+      "regeneration_duty_index": 0.6575,
+      "objective": 0.6647875,
+      "feasible": false,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.9062499999999999,
+      "product_slip_fraction": 0.003519999999999995,
+      "regeneration_duty_index": 0.6735,
+      "objective": 0.6805399999999999,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.9212499999999999,
+      "product_slip_fraction": 0.003396249999999995,
+      "regeneration_duty_index": 0.6895,
+      "objective": 0.6962925,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.9362499999999999,
+      "product_slip_fraction": 0.0032724999999999955,
+      "regeneration_duty_index": 0.7055,
+      "objective": 0.712045,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.9512499999999999,
+      "product_slip_fraction": 0.0031487499999999957,
+      "regeneration_duty_index": 0.7215,
+      "objective": 0.7277975,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.9785,
+      "lean_solvent_quality": 0.9662499999999999,
+      "product_slip_fraction": 0.0030249999999999964,
+      "regeneration_duty_index": 0.7375,
+      "objective": 0.74355,
+      "feasible": true,
+      "solvent_circulation_fraction": 0.9500000000000001,
+      "regeneration_fraction": 1.0
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.6649999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.43,
+      "objective": 0.43,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.0
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.6799999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.446,
+      "objective": 0.446,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.05
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.695,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.46199999999999997,
+      "objective": 0.46199999999999997,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.1
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.71,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.478,
+      "objective": 0.478,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.15000000000000002
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.725,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.494,
+      "objective": 0.494,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.2
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.7399999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.51,
+      "objective": 0.51,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.25
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.7549999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.526,
+      "objective": 0.526,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.30000000000000004
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.7699999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.542,
+      "objective": 0.542,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.35000000000000003
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.7849999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.558,
+      "objective": 0.558,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.4
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.7999999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.5740000000000001,
+      "objective": 0.5740000000000001,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.45
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.815,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.59,
+      "objective": 0.59,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.5
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.83,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.606,
+      "objective": 0.606,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.55
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.845,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.622,
+      "objective": 0.622,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.6000000000000001
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.86,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.638,
+      "objective": 0.638,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.65
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.8749999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.654,
+      "objective": 0.654,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.7000000000000001
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.8899999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.6699999999999999,
+      "objective": 0.6699999999999999,
+      "feasible": false,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.75
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.9049999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.6859999999999999,
+      "objective": 0.6859999999999999,
+      "feasible": true,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.8
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.9199999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.702,
+      "objective": 0.702,
+      "feasible": true,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.8500000000000001
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.9349999999999999,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.718,
+      "objective": 0.718,
+      "feasible": true,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.9
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.95,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.734,
+      "objective": 0.734,
+      "feasible": true,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 0.9500000000000001
+    },
+    {
+      "contaminant_removal": 0.998,
+      "lean_solvent_quality": 0.965,
+      "product_slip_fraction": 0.0,
+      "regeneration_duty_index": 0.75,
+      "objective": 0.75,
+      "feasible": true,
+      "solvent_circulation_fraction": 1.0,
+      "regeneration_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery",
+    "chemical_distinction": "Adds acid-base capture chemistry, absorbent recycle and a bounded salt-product purge.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

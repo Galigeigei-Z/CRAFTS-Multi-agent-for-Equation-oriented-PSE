@@ -1,0 +1,121 @@
+{
+  "pass": true,
+  "stage": "native_process_extension_solve",
+  "case_family": "gac_regeneration",
+  "parent_case_key": "blind_synthesized_gac_unit",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "carbon_use_cycles": 4.0
+  },
+  "metrics": {
+    "effective_capacity_kg_kg": 0.255,
+    "carbon_throughput_kg_s": 0.00392156862745098,
+    "virgin_makeup_kg_s": 0.0013921568627450979,
+    "regeneration_energy_kW": 0.005294117647058823
+  },
+  "search_results": [
+    {
+      "carbon_use_cycles": 1,
+      "effective_capacity_kg_kg": 0.3,
+      "virgin_makeup_kg_s": 0.0033333333333333335,
+      "regeneration_energy_kW": 0.0,
+      "objective": 0.01,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 2,
+      "effective_capacity_kg_kg": 0.285,
+      "virgin_makeup_kg_s": 0.0018771929824561407,
+      "regeneration_energy_kW": 0.0015789473684210528,
+      "objective": 0.005821052631578949,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 3,
+      "effective_capacity_kg_kg": 0.27,
+      "virgin_makeup_kg_s": 0.001493827160493827,
+      "regeneration_energy_kW": 0.003333333333333333,
+      "objective": 0.0048814814814814814,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 4,
+      "effective_capacity_kg_kg": 0.255,
+      "virgin_makeup_kg_s": 0.0013921568627450979,
+      "regeneration_energy_kW": 0.005294117647058824,
+      "objective": 0.004811764705882352,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 5,
+      "effective_capacity_kg_kg": 0.24,
+      "virgin_makeup_kg_s": 0.0014166666666666668,
+      "regeneration_energy_kW": 0.0075,
+      "objective": 0.00515,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 6,
+      "effective_capacity_kg_kg": 0.22499999999999998,
+      "virgin_makeup_kg_s": 0.0015185185185185189,
+      "regeneration_energy_kW": 0.010000000000000002,
+      "objective": 0.005755555555555557,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 7,
+      "effective_capacity_kg_kg": 0.21,
+      "virgin_makeup_kg_s": 0.0016802721088435377,
+      "regeneration_energy_kW": 0.012857142857142859,
+      "objective": 0.006583673469387756,
+      "feasible": true
+    },
+    {
+      "carbon_use_cycles": 8,
+      "effective_capacity_kg_kg": 0.19499999999999998,
+      "virgin_makeup_kg_s": 0.0018974358974358978,
+      "regeneration_energy_kW": 0.016153846153846158,
+      "objective": 0.007630769230769233,
+      "feasible": false
+    },
+    {
+      "carbon_use_cycles": 9,
+      "effective_capacity_kg_kg": 0.18,
+      "virgin_makeup_kg_s": 0.0021728395061728395,
+      "regeneration_energy_kW": 0.02,
+      "objective": 0.008918518518518518,
+      "feasible": false
+    },
+    {
+      "carbon_use_cycles": 10,
+      "effective_capacity_kg_kg": 0.165,
+      "virgin_makeup_kg_s": 0.0025151515151515154,
+      "regeneration_energy_kW": 0.024545454545454547,
+      "objective": 0.010490909090909092,
+      "feasible": false
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo material/energy extension anchored to active registry parent",
+    "parent_case_key": "blind_synthesized_gac_unit",
+    "chemical_distinction": "Adds a second bed, spent-carbon withdrawal, regenerator, capacity decay and makeup loop rather than a replacement-fraction operating point."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

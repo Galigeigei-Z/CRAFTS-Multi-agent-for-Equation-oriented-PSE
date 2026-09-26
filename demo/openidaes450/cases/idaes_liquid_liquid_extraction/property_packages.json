@@ -1,0 +1,46 @@
+[
+  {
+    "name": "fs.org_properties",
+    "implementation": [
+      {
+        "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.organic_property.OrgPhase"
+      },
+      {
+        "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.organic_property.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.organic_property.OrgPhase",
+    "module": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.organic_property",
+    "data_class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.organic_property.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/organic_property.py"
+  },
+  {
+    "name": "fs.aq_properties",
+    "implementation": [
+      {
+        "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.aqueous_property.AqPhase"
+      },
+      {
+        "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.aqueous_property.AqPhaseData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.aqueous_property.AqPhase",
+    "module": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.aqueous_property",
+    "data_class": "idaes_examples.notebooks.docs.unit_models.custom_unit_models.liquid_extraction.aqueous_property.AqPhaseData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/aqueous_property.py"
+  }
+]

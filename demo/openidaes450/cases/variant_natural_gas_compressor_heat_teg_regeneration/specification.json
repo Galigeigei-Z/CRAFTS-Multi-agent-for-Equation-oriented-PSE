@@ -1,0 +1,98 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_natural_gas_compressor_heat_teg_regeneration",
+  "family": "family_compressor_teg_heat",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "intercooling_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "teg_heat_recovery_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "dry_gas_water_index",
+      "value": 0.0015000000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recovered_heat_kW",
+      "value": 150.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "compressor_discharge_temperature_K",
+      "value": 320.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "external_reboiler_kW",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "teg_loss_index",
+      "value": 0.0002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "WET.outlet"
+  ],
+  "terminal_product_ports": [
+    "DRY.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_natural_gas_glycol_dehydration"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_natural_gas_glycol_dehydration",
+    "chemical_change": "Couples pipeline compression waste heat to solvent regeneration, replacing external reboiler fuel.",
+    "native_metrics": {
+      "dry_gas_water_index": 0.0015000000000000002,
+      "recovered_heat_kW": 150.0,
+      "compressor_discharge_temperature_K": 320.0,
+      "external_reboiler_kW": 0.0,
+      "teg_loss_index": 0.0002
+    }
+  }
+}

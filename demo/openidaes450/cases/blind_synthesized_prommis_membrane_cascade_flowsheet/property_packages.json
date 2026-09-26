@@ -1,0 +1,27 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property.SoluteParameterData"
+      },
+      {
+        "class": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property.SoluteParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solutes": [
+        "Li",
+        "Co"
+      ]
+    },
+    "class": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property.SoluteParameters",
+    "module": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property",
+    "data_class": "prommis.nanofiltration.membrane_cascade_flowsheet.solute_property.SoluteParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_idaes_smr_equilibrium_flowsheet",
+  "family": "family_smr_equilibrium_flowsheet",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "CH4.outlet",
+      "variable": "flow_mol",
+      "value": 75.0,
+      "units": "mol/s",
+      "role": "official methane feed",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    },
+    {
+      "target": "H2O.outlet",
+      "variable": "flow_mol",
+      "value": 234.0,
+      "units": "mol/s",
+      "role": "official steam feed",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    },
+    {
+      "target": "C101",
+      "variable": "outlet.pressure",
+      "value": 2.0,
+      "units": "bar",
+      "role": "official compressor outlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    },
+    {
+      "target": "C101",
+      "variable": "efficiency_isentropic",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "official compressor efficiency",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature",
+      "value": 500.0,
+      "units": "K",
+      "role": "official heater outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    },
+    {
+      "target": "R101",
+      "variable": "conversion",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "official methane conversion",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/equilibrium_reactor_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official sequential initialization then IPOPT solve",
+    "solve_order": [
+      "CH4",
+      "H2O",
+      "M101",
+      "C101",
+      "H101",
+      "R101",
+      "PROD"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

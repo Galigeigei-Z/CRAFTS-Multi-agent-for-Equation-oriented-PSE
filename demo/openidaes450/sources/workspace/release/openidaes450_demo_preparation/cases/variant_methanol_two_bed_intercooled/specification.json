@@ -1,0 +1,186 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_methanol_two_bed_intercooled",
+  "family": "family_methanol_synthesis",
+  "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "H2",
+      "variable": "outlet.flow_mol[0]",
+      "value": 637.2,
+      "units": "mol/s",
+      "role": "fresh hydrogen flow",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.flow_mol[0]",
+      "value": 316.8,
+      "units": "mol/s",
+      "role": "fresh CO flow",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H2",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "CO feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 5100000,
+      "units": "Pa",
+      "role": "synthesis pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "first-bed inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "co_conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "first-bed CO conversion",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "first-bed outlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H103",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "second-bed inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R102",
+      "variable": "co_conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "second-bed CO conversion on remaining CO",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "R102",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "second-bed outlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "T101",
+      "variable": "deltaP[0]",
+      "value": -2000000,
+      "units": "Pa",
+      "role": "expander pressure drop",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "T101",
+      "variable": "efficiency_isentropic[0]",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "expander efficiency",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure change",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "methanol condensation temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/methanol_two_bed/source_root/notebook_build.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "H2.outlet",
+    "CO.outlet"
+  ],
+  "terminal_product_ports": [
+    "EXHAUST.inlet",
+    "CH3OH.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "acyclic unit-by-unit propagation followed by simultaneous solve",
+    "tear_destination": null,
+    "solve_order": [
+      "H2",
+      "CO",
+      "M101",
+      "C101",
+      "H101",
+      "R101",
+      "H103",
+      "R102",
+      "T101",
+      "H102",
+      "F101",
+      "EXHAUST",
+      "CH3OH"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

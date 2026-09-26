@@ -1,0 +1,176 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_sco2_surrogate_flowsheet",
+  "family": "family_sco2_surrogate_flowsheet",
+  "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "boiler.inlet",
+      "variable": "flow_mol",
+      "value": 121.1,
+      "units": "mol/s",
+      "role": "NETL baseline boiler inlet molar flow",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "boiler.inlet",
+      "variable": "temperature",
+      "value": 685.15,
+      "units": "K",
+      "role": "NETL baseline boiler inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "boiler.inlet",
+      "variable": "pressure",
+      "value": 34.51,
+      "units": "MPa",
+      "role": "NETL baseline boiler inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "boiler.outlet",
+      "variable": "temperature",
+      "value": 893.15,
+      "units": "K",
+      "role": "official turbine inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "boiler",
+      "variable": "deltaP",
+      "value": -0.21,
+      "units": "MPa",
+      "role": "official boiler pressure drop",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "turbine",
+      "variable": "ratioP",
+      "value": 0.2717391304347826,
+      "units": "dimensionless",
+      "role": "official turbine pressure ratio",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "turbine",
+      "variable": "efficiency_isentropic",
+      "value": 0.927,
+      "units": "dimensionless",
+      "role": "official turbine efficiency",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "HTR_pseudo_shell.outlet",
+      "variable": "temperature",
+      "value": 489.15,
+      "units": "K",
+      "role": "official HTR hot-side outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "LTR_pseudo_shell.outlet",
+      "variable": "temperature",
+      "value": 354.15,
+      "units": "K",
+      "role": "official LTR hot-side outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "splitter_1",
+      "variable": "split_fraction[bypass]",
+      "value": 0.25,
+      "units": "dimensionless",
+      "role": "official bypass split fraction",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "co2_cooler.outlet",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "official CO2 cooler outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "main_compressor",
+      "variable": "ratioP",
+      "value": 3.8,
+      "units": "dimensionless",
+      "role": "official main compressor pressure ratio",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "bypass_compressor",
+      "variable": "ratioP",
+      "value": 3.8,
+      "units": "dimensionless",
+      "role": "official bypass compressor pressure ratio",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "splitter_2",
+      "variable": "split_fraction[to_FG_cooler]",
+      "value": 0.046,
+      "units": "dimensionless",
+      "role": "official FG cooler branch split fraction",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    },
+    {
+      "target": "FG_cooler.outlet",
+      "variable": "temperature",
+      "value": 483.15,
+      "units": "K",
+      "role": "official FG cooler outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes-examples.readthedocs.io/en/stable/docs/surrogates/sco2/pysmo/flowsheet_optimization_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "boiler.inlet"
+  ],
+  "terminal_product_ports": [
+    "HTR_pseudo_tube.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official sequential unit initialization with propagate_state then network.expand_arcs",
+    "solve_order": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06",
+      "s07",
+      "s08",
+      "s09",
+      "s10",
+      "s11",
+      "s12",
+      "s13",
+      "s14"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0,
+    "objective": "calculate total net work"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "case_id": "variant_watertap_ad_biogas_chp_heat_integrated",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.props",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.props_vap",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.rxn_props",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

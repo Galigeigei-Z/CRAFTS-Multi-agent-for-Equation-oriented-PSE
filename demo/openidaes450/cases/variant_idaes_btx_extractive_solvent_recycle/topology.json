@@ -1,0 +1,196 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_btx_extractive_solvent_recycle",
+  "family": "family_idaes_btx_extractive_solvent_recycle",
+  "process_type": "BTX Extractive Distillation with Solvent Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent variant_idaes_btx_extractive_distillation_solvent_recycle.",
+    "Retains explicit solvent-enhanced relative volatility while reducing the topology to one column and recycle loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "benzene",
+        "toluene",
+        "xylene",
+        "sulfolane"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_idaes_btx_extractive_distillation_solvent_recycle"
+    }
+  },
+  "components": {
+    "tracked": [
+      "benzene",
+      "toluene",
+      "xylene",
+      "sulfolane"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "multicomponent distillation feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "T101",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "fractionation column",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E101",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "overhead condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E102",
+      "kind": "Reboiler",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "bottoms vaporization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "reflux and distillate split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DISTILLATE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "light product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BOTTOMS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "heavy product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "T101.feed",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "column feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "T101.overhead",
+      "destination": "E101.inlet",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "overhead vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "E101.liquid",
+      "destination": "S101.inlet",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "condensed overhead",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.reflux",
+      "destination": "T101.reflux",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "column reflux",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S101.product",
+      "destination": "DISTILLATE.inlet",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "distillate product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "T101.bottoms",
+      "destination": "E102.inlet",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "bottom liquid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "E102.vapor",
+      "destination": "T101.boilup",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "reboiler vapor return",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "E102.product",
+      "destination": "BOTTOMS.inlet",
+      "stage": "idaes_btx_extractive_solvent_recycle",
+      "role": "bottoms product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "DISTILLATE.inlet",
+    "BOTTOMS.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_btx_extractive_distillation_solvent_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_btx_extractive_distillation_solvent_recycle",
+    "chemical_change": "Retains explicit solvent-enhanced relative volatility while reducing the topology to one column and recycle loop.",
+    "native_metrics": {
+      "light_product_purity": 0.942,
+      "light_product_recovery": 0.9299999999999999,
+      "net_reboiler_duty_index": 0.5700000000000001,
+      "minimum_temperature_approach_K": 18.4,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

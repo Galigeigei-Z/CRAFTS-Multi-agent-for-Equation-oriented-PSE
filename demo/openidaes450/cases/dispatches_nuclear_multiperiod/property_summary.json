@@ -1,0 +1,25 @@
+{
+  "case_id": "dispatches_nuclear_multiperiod",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "blocks[0].process.fs.h2ideal_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "blocks[0].process.fs.h2turbine_props",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "blocks[0].process.fs.reaction_params",
+      "class": "dispatches.properties.h2_reaction.H2ReactionParameterBlock",
+      "module": "dispatches.properties.h2_reaction",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

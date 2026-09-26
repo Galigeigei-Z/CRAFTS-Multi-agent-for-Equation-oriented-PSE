@@ -1,0 +1,111 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__idaes_bfb_oc_oxidation",
+  "family": "family_source_verified_idaes_bfb_oc_oxidation",
+  "process_type": "Bubbling fluidized bed oxygen-carrier oxidation",
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/main/idaes/models_extra/gas_solid_contactors/flowsheets/ss_BFB_OC_oxidation.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is source-verified against the official IDAES models_extra BFB oxidation flowsheet and local FV export. No new SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "gas_inlet_1",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solid_inlet_1",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfb",
+      "kind": "BubblingFluidizedBed",
+      "package": null,
+      "stage": "reaction",
+      "role": "Source-derived BubblingFluidizedBed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gas_outlet_1",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solid_outlet_1",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "gas_feed",
+      "source": "gas_inlet_1.outlet",
+      "destination": "bfb.gas_inlet",
+      "source_port": "outlet",
+      "destination_port": "gas_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solid_feed",
+      "source": "solid_inlet_1.outlet",
+      "destination": "bfb.solid_inlet",
+      "source_port": "outlet",
+      "destination_port": "solid_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "gas_product",
+      "source": "bfb.gas_outlet",
+      "destination": "gas_outlet_1.inlet",
+      "source_port": "gas_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solid_product",
+      "source": "bfb.solid_outlet",
+      "destination": "solid_outlet_1.inlet",
+      "source_port": "solid_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "gas_inlet_1",
+    "solid_inlet_1",
+    "bfb",
+    "gas_outlet_1",
+    "solid_outlet_1"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

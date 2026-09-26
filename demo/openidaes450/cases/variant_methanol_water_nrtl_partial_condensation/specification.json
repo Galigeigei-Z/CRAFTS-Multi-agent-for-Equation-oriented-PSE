@@ -1,0 +1,27 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_methanol_water_nrtl_partial_condensation",
+  "family": "family_methanol_purification",
+  "source_url": "https://github.com/CalebBell/thermo/tree/0.6.0",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {"target": "F101", "variable": "inlet.flow_mol[0]", "value": 100.0, "units": "mol/s", "role": "crude feed flow", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "inlet.mole_frac_comp[0,'methanol']", "value": 0.9, "units": "dimensionless", "role": "crude methanol fraction", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "inlet.mole_frac_comp[0,'water']", "value": 0.1, "units": "dimensionless", "role": "crude water fraction", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "inlet.temperature[0]", "value": 340.0, "units": "K", "role": "vaporized feed temperature", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "inlet.pressure[0]", "value": 101325.0, "units": "Pa", "role": "operating pressure", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "heat_duty[0]", "value": 0.0, "units": "W", "role": "adiabatic primary flash", "source": "native_variant_configuration"},
+    {"target": "F101", "variable": "deltaP[0]", "value": 0.0, "units": "Pa", "role": "primary pressure drop", "source": "native_variant_configuration"},
+    {"target": "F102", "variable": "outlet.temperature[0]", "value": 333.0, "units": "K", "role": "partial condenser temperature", "source": "native_variant_configuration"},
+    {"target": "F102", "variable": "deltaP[0]", "value": 0.0, "units": "Pa", "role": "polisher pressure drop", "source": "native_variant_configuration"}
+  ],
+  "terminal_feed_ports": ["crude_methanol_feed.outlet"],
+  "terminal_product_ports": ["primary_liquid_knockout.inlet", "secondary_water_cut.inlet", "purified_methanol.inlet"],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "ideal-liquid initialization followed by four-step continuation to full ChemSep NRTL parameters",
+    "solve_order": ["F101", "F102", "NRTL_0.25", "NRTL_0.50", "NRTL_0.75", "NRTL_1.00"]
+  },
+  "solve": {"solver": "ipopt", "steady_state": true, "expected_dof": 0},
+  "claim_boundary": "Binary steady-state MeOH-H2O VLE only; downstream total product condensation and nonbinary crude-methanol impurities are outside scope."
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_water_nrtl_partial_condensation",
+  "family": "family_methanol_purification",
+  "process_type": "Two-stage methanol-water flash and partial-condensation rectification",
+  "source_url": "https://github.com/CalebBell/thermo/tree/0.6.0",
+  "source_basis": [
+    "Methanol and water are both explicit components in every equilibrium stage.",
+    "The ideal-vapor/nonideal-liquid VLE model uses temperature-dependent ChemSep NRTL parameters tau_ij=b_ij/T.",
+    "The 340 K feed is fully vaporized before partial condensation; no synthetic-gas methanol property package is reused."
+  ],
+  "property_packages": {
+    "MeOH_H2O_NRTL": {
+      "components": [
+        "methanol",
+        "water"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "vapor_model": "ideal gas",
+      "liquid_model": "NRTL",
+      "source": "thermo 0.6.0 ChemSep NRTL",
+      "source_version": "0.6.0",
+      "license": "MIT"
+    }
+  },
+  "units": [
+    {
+      "id": "crude_methanol_feed",
+      "kind": "Feed",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "feed",
+      "role": "aqueous crude methanol feed",
+      "constructor": {}
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "feed_vaporization",
+      "role": "adiabatic vapor-state feed flash",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true
+      }
+    },
+    {
+      "id": "primary_liquid_knockout",
+      "kind": "Product",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "feed_vaporization",
+      "role": "explicit trace liquid knockout",
+      "constructor": {}
+    },
+    {
+      "id": "F102",
+      "kind": "Flash",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "vapor_polishing",
+      "role": "partial condenser and second equilibrium water rejection",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true
+      }
+    },
+    {
+      "id": "secondary_water_cut",
+      "kind": "Product",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "vapor_polishing",
+      "role": "water-enriched secondary condensate",
+      "constructor": {}
+    },
+    {
+      "id": "purified_methanol",
+      "kind": "Product",
+      "package": "MeOH_H2O_NRTL",
+      "stage": "product",
+      "role": "methanol-rich vapor product before utility condensation",
+      "constructor": {}
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "crude_methanol_feed.outlet",
+      "destination": "F101.inlet",
+      "stage": "feed",
+      "role": "crude methanol",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "F101.liq_outlet",
+      "destination": "primary_liquid_knockout.inlet",
+      "stage": "feed_vaporization",
+      "role": "trace liquid knockout",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "F101.vap_outlet",
+      "destination": "F102.inlet",
+      "stage": "interstage",
+      "role": "methanol-enriched vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "F102.liq_outlet",
+      "destination": "secondary_water_cut.inlet",
+      "stage": "vapor_polishing",
+      "role": "secondary water-rich condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "F102.vap_outlet",
+      "destination": "purified_methanol.inlet",
+      "stage": "product",
+      "role": "purified methanol vapor",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "F101",
+      "variable": "inlet.flow_mol[0]",
+      "value": 100.0,
+      "units": "mol/s",
+      "role": "crude feed flow",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F101",
+      "variable": "inlet.mole_frac_comp[0,'methanol']",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "crude methanol fraction",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F101",
+      "variable": "inlet.mole_frac_comp[0,'water']",
+      "value": 0.1,
+      "units": "dimensionless",
+      "role": "crude water fraction",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F101",
+      "variable": "inlet.temperature[0]",
+      "value": 340.0,
+      "units": "K",
+      "role": "vaporized feed temperature",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F101",
+      "variable": "inlet.pressure[0]",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "operating pressure",
+      "source": "native_variant_configuration"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "F101",
+      "variable": "heat_duty[0]",
+      "value": 0.0,
+      "units": "W",
+      "role": "adiabatic primary flash",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0.0,
+      "units": "Pa",
+      "role": "primary pressure drop",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F102",
+      "variable": "outlet.temperature[0]",
+      "value": 333.0,
+      "units": "K",
+      "role": "partial-condensation temperature",
+      "source": "native_variant_configuration"
+    },
+    {
+      "target": "F102",
+      "variable": "deltaP[0]",
+      "value": 0.0,
+      "units": "Pa",
+      "role": "polisher pressure drop",
+      "source": "native_variant_configuration"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "crude_methanol_feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "primary_liquid_knockout.inlet",
+    "secondary_water_cut.inlet",
+    "purified_methanol.inlet"
+  ],
+  "topology_checks": {
+    "expected_unit_count": 6,
+    "expected_arc_count": 5,
+    "has_recycle": false,
+    "contains_explicit_water": true
+  }
+}

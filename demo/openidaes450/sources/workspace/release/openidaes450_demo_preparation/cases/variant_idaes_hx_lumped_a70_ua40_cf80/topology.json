@@ -1,0 +1,213 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_hx_lumped_a70_ua40_cf80",
+  "family": "family_idaes_hx_lumped_capacitance",
+  "process_type": "Single lumped crossflow exchanger at area 70 m2, UA 40000 W/K, factor 0.80",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html",
+  "source_basis": [
+    "Compact local engineering variant derived from an existing native IDAES case.",
+    "Operating-point matrix case; area, UA, and crossflow correction vary together."
+  ],
+  "property_packages": {
+    "iapws_btx": {
+      "components": [
+        "H2O",
+        "benzene",
+        "toluene"
+      ],
+      "scope": [
+        "hot_feed",
+        "cold_feed",
+        "heat_exchanger",
+        "hot_product",
+        "cold_product"
+      ],
+      "source": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    }
+  },
+  "components": {
+    "process": [
+      "H2O",
+      "benzene",
+      "toluene"
+    ]
+  },
+  "units": [
+    {
+      "id": "hot_feed",
+      "kind": "Feed",
+      "package": "iapws_btx",
+      "stage": "feed",
+      "role": "hot IAPWS steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cold_feed",
+      "kind": "Feed",
+      "package": "iapws_btx",
+      "stage": "feed",
+      "role": "cold BTX feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "heat_exchanger",
+      "kind": "HeatExchangerLumpedCapacitance",
+      "package": "iapws_btx",
+      "stage": "unit_operation",
+      "role": "crossflow lumped exchanger",
+      "constructor": {
+        "flow_pattern": "crossflow",
+        "dynamic_heat_balance": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hot_product",
+      "kind": "Product",
+      "package": "iapws_btx",
+      "stage": "product",
+      "role": "steam-side product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cold_product",
+      "kind": "Product",
+      "package": "iapws_btx",
+      "stage": "product",
+      "role": "BTX-side product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "steam_feed_to_hx",
+      "source": "hot_feed.outlet",
+      "destination": "heat_exchanger.shell_inlet",
+      "stage": "feed",
+      "role": "steam feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "btx_feed_to_hx",
+      "source": "cold_feed.outlet",
+      "destination": "heat_exchanger.tube_inlet",
+      "stage": "feed",
+      "role": "BTX feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "hx_to_steam_product",
+      "source": "heat_exchanger.shell_outlet",
+      "destination": "hot_product.inlet",
+      "stage": "product",
+      "role": "steam product",
+      "tear_candidate": false
+    },
+    {
+      "id": "hx_to_btx_product",
+      "source": "heat_exchanger.tube_outlet",
+      "destination": "cold_product.inlet",
+      "stage": "product",
+      "role": "BTX product",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "hot_feed",
+      "variable": "temperature",
+      "value": 400,
+      "units": "K",
+      "role": "steam feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "cold_feed",
+      "variable": "temperature",
+      "value": 380,
+      "units": "K",
+      "role": "BTX feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 70,
+      "units": "m^2",
+      "role": "area",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "ua_hot_side",
+      "value": 40000,
+      "units": "W/K",
+      "role": "hot UA",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "ua_cold_side",
+      "value": 40000,
+      "units": "W/K",
+      "role": "cold UA",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "crossflow_factor",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "crossflow factor",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "hot_feed.outlet",
+    "cold_feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "hot_product.inlet",
+    "cold_product.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "hot_feed",
+      "cold_feed",
+      "heat_exchanger",
+      "hot_product",
+      "cold_product"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Feed",
+    "HeatExchangerLumpedCapacitance",
+    "Product",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Operating-point matrix case; area, UA, and crossflow correction vary together."
+  ]
+}

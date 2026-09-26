@@ -1,0 +1,79 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData"
+      },
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solute_list": [
+        "Na_+",
+        "Cl_-",
+        "H_+",
+        "OH_-"
+      ],
+      "stokes_radius_data": {},
+      "diffusivity_data": {
+        "('Liq', 'Na_+')": 1.33e-09,
+        "('Liq', 'Cl_-')": 2.03e-09,
+        "('Liq', 'H_+')": 9.31e-09,
+        "('Liq', 'OH_-')": 5.27e-09
+      },
+      "molar_volume_data": {},
+      "mw_data": {
+        "Na_+": 0.023,
+        "Cl_-": 0.0355,
+        "H_+": 0.001,
+        "OH_-": 0.017
+      },
+      "elec_mobility_data": {
+        "('Liq', 'Na_+')": 5.19e-08,
+        "('Liq', 'Cl_-')": 7.92e-08,
+        "('Liq', 'H_+')": 3.623e-07,
+        "('Liq', 'OH_-')": 2.064e-07
+      },
+      "trans_num_data": {},
+      "equiv_conductivity_phase_data": {},
+      "charge": {
+        "Na_+": 1,
+        "Cl_-": -1,
+        "H_+": 1,
+        "OH_-": -1
+      },
+      "ignore_neutral_charge": false,
+      "activity_coefficient_model": {
+        "component": "ideal"
+      },
+      "density_calculation": {
+        "component": "constant"
+      },
+      "diffus_calculation": {
+        "component": "none"
+      },
+      "elec_mobility_calculation": {
+        "component": "none"
+      },
+      "trans_num_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "equiv_conductivity_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "material_flow_basis": {
+        "component": "molar"
+      }
+    },
+    "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+    "data_class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

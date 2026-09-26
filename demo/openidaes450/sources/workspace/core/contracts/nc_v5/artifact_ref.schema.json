@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:artifact-ref/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "path",
+    "file_sha256",
+    "canonical_json_sha256",
+    "artifact_schema_version",
+    "owning_stage",
+    "attempt_index",
+    "visibility_class",
+    "created_at_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "artifact-ref/v5"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+    },
+    "artifact_schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owning_stage": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "attempt_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "visibility_class": {
+      "enum": [
+        "model_visible",
+        "controller_private",
+        "compiler_private",
+        "evaluator_only",
+        "public_release"
+      ]
+    },
+    "created_at_utc": {
+      "type": "string",
+      "pattern": "Z$"
+    }
+  },
+  "$defs": {}
+}

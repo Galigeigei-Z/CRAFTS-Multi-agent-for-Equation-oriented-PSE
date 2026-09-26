@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_copper_leach_sxew_raffinate_recycle",
+  "family": "family_copper_sxew",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "leach_acidity_fraction",
+      "value": 0.55,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "raffinate_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "copper_recovery",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "pls_iron_fraction",
+      "value": 0.0176,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "cathode_efficiency",
+      "value": 0.864,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fresh_water_index",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "ORE.outlet",
+    "ACID.outlet"
+  ],
+  "terminal_product_ports": [
+    "CU.inlet",
+    "RES.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_cmi_process"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_cmi_process",
+    "chemical_change": "Connects copper leaching to SX-EW and returns acidic raffinate, closing acid and water paths.",
+    "native_metrics": {
+      "copper_recovery": 0.9,
+      "pls_iron_fraction": 0.0176,
+      "cathode_efficiency": 0.864,
+      "fresh_water_index": 0.0
+    }
+  }
+}

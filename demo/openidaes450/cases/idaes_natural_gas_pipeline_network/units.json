@@ -1,0 +1,129 @@
+[
+  {
+    "name": "fs.pipeline[0]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.pipeline.GasPipelineData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "transformation_method": "dae.finite_difference",
+      "transformation_scheme": "FORWARD",
+      "finite_elements": 2,
+      "collocation_points": null
+    }
+  },
+  {
+    "name": "fs.pipeline[1]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.pipeline.GasPipelineData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "transformation_method": "dae.finite_difference",
+      "transformation_scheme": "FORWARD",
+      "finite_elements": 2,
+      "collocation_points": null
+    }
+  },
+  {
+    "name": "fs.pipeline[2]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.pipeline.GasPipelineData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "transformation_method": "dae.finite_difference",
+      "transformation_scheme": "FORWARD",
+      "finite_elements": 2,
+      "collocation_points": null
+    }
+  },
+  {
+    "name": "fs.node[0]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.node.PipelineNodeData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "n_inlet_pipelines": 0,
+      "n_outlet_pipelines": 1,
+      "n_supplies": 1,
+      "n_demands": 0
+    }
+  },
+  {
+    "name": "fs.node[1]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.node.PipelineNodeData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "n_inlet_pipelines": 1,
+      "n_outlet_pipelines": 1,
+      "n_supplies": 0,
+      "n_demands": 1
+    }
+  },
+  {
+    "name": "fs.node[2]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.node.PipelineNodeData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "n_inlet_pipelines": 1,
+      "n_outlet_pipelines": 1,
+      "n_supplies": 1,
+      "n_demands": 0
+    }
+  },
+  {
+    "name": "fs.node[3]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.node.PipelineNodeData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "n_inlet_pipelines": 1,
+      "n_outlet_pipelines": 0,
+      "n_supplies": 0,
+      "n_demands": 1
+    }
+  },
+  {
+    "name": "fs.compressor[0]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.compressor.IsothermalCompressorData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      }
+    }
+  },
+  {
+    "name": "fs.compressor[1]",
+    "class": "idaes.models_extra.gas_distribution.unit_models.compressor.IsothermalCompressorData",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "property_package": {
+        "component": "fs.properties"
+      }
+    }
+  }
+]

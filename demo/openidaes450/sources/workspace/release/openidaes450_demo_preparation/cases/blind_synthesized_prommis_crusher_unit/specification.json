@@ -1,0 +1,77 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_crusher_unit",
+  "family": "family_prommis_crusher_unit",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "solid_feed",
+      "variable": "flow_mass",
+      "value": 2000.0,
+      "units": "kg/hr",
+      "role": "official crusher feed mass flow",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    },
+    {
+      "target": "solid_feed",
+      "variable": "mass_frac_comp[*]",
+      "value": 0.1,
+      "units": "dimensionless",
+      "role": "official equal mass-fraction fixture",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    },
+    {
+      "target": "solid_feed",
+      "variable": "particle_size_median",
+      "value": 80.0,
+      "units": "um",
+      "role": "official feed median particle size",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    },
+    {
+      "target": "solid_feed",
+      "variable": "particle_size_width",
+      "value": 1.5,
+      "units": "dimensionless",
+      "role": "official feed particle-size width",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    },
+    {
+      "target": "crusher",
+      "variable": "product_particle_size_median",
+      "value": 58.0,
+      "units": "um",
+      "role": "official product median particle size",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    },
+    {
+      "target": "crusher",
+      "variable": "product_particle_size_width",
+      "value": 1.5,
+      "units": "dimensionless",
+      "role": "official product particle-size width",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solid_handling.crusher.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official BlockTriangularizationInitializer",
+    "solve_order": [
+      "crusher"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

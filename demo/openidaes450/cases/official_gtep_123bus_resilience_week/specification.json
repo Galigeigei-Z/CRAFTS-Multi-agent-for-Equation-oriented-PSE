@@ -1,0 +1,122 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_gtep_123bus_resilience_week",
+  "family": "family_idaes_gtep",
+  "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "gtep",
+      "variable": "dataset",
+      "value": "123_Bus_Resil_Week",
+      "units": "categorical",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "stages",
+      "value": 3,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "representative_periods",
+      "value": 4,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "representative_period_length",
+      "value": 24,
+      "units": "h",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "commitment_periods",
+      "value": 24,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "dispatch_periods_per_commitment",
+      "value": 1,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "flow_model",
+      "value": "DC",
+      "units": "categorical",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "transmission_investment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "include_investment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "include_commitment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_resil_week.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "data.outlet"
+  ],
+  "terminal_product_ports": [
+    "plan.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official data load, GDP model build, Big-M transformation, MILP solve",
+    "solve_order": [
+      "data",
+      "investment",
+      "commitment",
+      "dispatch",
+      "network",
+      "plan"
+    ]
+  },
+  "solve": {
+    "solver": "highs_or_official_gurobi",
+    "steady_state": false,
+    "expected_dof": null
+  }
+}

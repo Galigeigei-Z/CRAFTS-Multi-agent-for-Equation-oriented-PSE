@@ -1,0 +1,81 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_uky_flowsheet",
+  "family": "family_prommis_uky_flowsheet",
+  "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "leach_solid_feed.outlet",
+      "variable": "coal_refuse_feed",
+      "value": 1.0,
+      "units": "basis",
+      "role": "official UKy coal refuse feed basis",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    },
+    {
+      "target": "leach_liquid_feed.outlet",
+      "variable": "sulfuric_acid_leach_solution",
+      "value": 1.0,
+      "units": "basis",
+      "role": "official leach solution feed basis",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    },
+    {
+      "target": "acid_feed1.outlet",
+      "variable": "HCl",
+      "value": "fixed",
+      "units": "basis",
+      "role": "rougher scrub acid feed",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    },
+    {
+      "target": "acid_feed2.outlet",
+      "variable": "HCl",
+      "value": "fixed",
+      "units": "basis",
+      "role": "rougher strip acid feed",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    },
+    {
+      "target": "acid_feed3.outlet",
+      "variable": "HCl",
+      "value": "fixed",
+      "units": "basis",
+      "role": "cleaner strip acid feed",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    },
+    {
+      "target": "leach",
+      "variable": "number_of_tanks",
+      "value": 2,
+      "units": "dimensionless",
+      "role": "official two-tank leaching train",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/stable/tutorials/uky_flowsheet-solution.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official UKy build, set_operating_conditions, set_scaling, initialize_system, solve_system, fix_organic_recycle, final solve",
+    "solve_order": [
+      "leach",
+      "rougher solvent extraction",
+      "cleaner solvent extraction",
+      "precipitator",
+      "roaster"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData"
+      },
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solute_list": [
+        "Li_+",
+        "Mg_2+",
+        "Cl_-"
+      ],
+      "stokes_radius_data": {
+        "Li_+": 3.61e-10,
+        "Cl_-": 1.21e-10,
+        "Mg_2+": 3.47e-10
+      },
+      "diffusivity_data": {
+        "('Liq', 'Li_+')": 1.03e-09,
+        "('Liq', 'Mg_2+')": 7.05e-10,
+        "('Liq', 'Cl_-')": 2.03e-09
+      },
+      "molar_volume_data": {},
+      "mw_data": {
+        "H2O": 0.018,
+        "Li_+": 0.0069,
+        "Mg_2+": 0.024,
+        "Cl_-": 0.035
+      },
+      "elec_mobility_data": {},
+      "trans_num_data": {},
+      "equiv_conductivity_phase_data": {},
+      "charge": {
+        "Li_+": 1,
+        "Mg_2+": 2,
+        "Cl_-": -1
+      },
+      "ignore_neutral_charge": false,
+      "activity_coefficient_model": {
+        "component": "ideal"
+      },
+      "density_calculation": {
+        "component": "constant"
+      },
+      "diffus_calculation": {
+        "component": "none"
+      },
+      "elec_mobility_calculation": {
+        "component": "none"
+      },
+      "trans_num_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "equiv_conductivity_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "material_flow_basis": {
+        "component": "molar"
+      }
+    },
+    "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+    "data_class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

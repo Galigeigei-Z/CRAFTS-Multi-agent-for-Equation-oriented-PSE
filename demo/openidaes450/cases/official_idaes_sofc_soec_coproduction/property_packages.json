@@ -1,0 +1,3207 @@
+[
+  {
+    "name": "fs.cmb_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "CH4": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "C": 1,
+            "H": 4
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0160425,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4600000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              190.4,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.011,
+            "cp_mol_ig_comp_coeff": {
+              "A": -0.703029,
+              "B": 108.4773,
+              "C": -42.52157,
+              "D": 5.862788,
+              "E": 0.678565,
+              "F": -76.84376,
+              "G": 158.7163,
+              "H": -74.8731
+            },
+            "lennard_jones_sigma": [
+              3.758,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              148.6,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "C2H6": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "C": 2,
+            "H": 6
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.030069,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4880000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              305.4,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.099,
+            "cp_mol_ig_comp_coeff": {
+              "A": 5.409,
+              "B": 0.1781,
+              "C": -6.938e-05,
+              "D": 8.713e-09
+            },
+            "enth_mol_form_vap_comp_ref": [
+              -84000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_vap_comp_ref": [
+              229.2,
+              {
+                "component": "div"
+              }
+            ],
+            "lennard_jones_sigma": [
+              4.443,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              215.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "C3H8": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "C": 3,
+            "H": 8
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0320849,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4250000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              369.8,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.153,
+            "cp_mol_ig_comp_coeff": {
+              "A": -4.224,
+              "B": 0.3063,
+              "C": -0.0001586,
+              "D": 3.215e-08
+            },
+            "enth_mol_form_vap_comp_ref": [
+              -104700,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_vap_comp_ref": [
+              270.3,
+              {
+                "component": "div"
+              }
+            ],
+            "lennard_jones_sigma": [
+              5.118,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              237.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "C4H10": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "C": 4,
+            "H": 10
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP5.RPP5",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP5.RPP5",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP5.RPP5",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.058123,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3796000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              425.12,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.2,
+            "cp_mol_ig_comp_coeff": {
+              "a0": 5.547,
+              "a1": 0.005536,
+              "a2": 8.057e-05,
+              "a3": -1.0571e-07,
+              "a4": 4.134e-11
+            },
+            "enth_mol_form_vap_comp_ref": [
+              -125790,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_vap_comp_ref": [
+              310.23,
+              {
+                "component": "div"
+              }
+            ],
+            "lennard_jones_sigma": [
+              4.687,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              531.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "CO": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "C": 1,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280101,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3500000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              132.9,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.066,
+            "cp_mol_ig_comp_coeff": {
+              "A": 25.56759,
+              "B": 6.09613,
+              "C": 4.054656,
+              "D": -2.671301,
+              "E": 0.131021,
+              "F": -118.0089,
+              "G": 227.3665,
+              "H": -110.5271
+            },
+            "lennard_jones_sigma": [
+              3.69,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              91.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "CO2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "C": 1,
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.04401,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              7380000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              304.1,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.239,
+            "cp_mol_ig_comp_coeff": {
+              "A": 24.99735,
+              "B": 55.18696,
+              "C": -33.69137,
+              "D": 7.948387,
+              "E": -0.136638,
+              "F": -403.6075,
+              "G": 228.2431,
+              "H": -393.5224
+            },
+            "lennard_jones_sigma": [
+              3.941,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              195.2,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "H": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0020159,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              1300000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              33.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": -0.218,
+            "cp_mol_ig_comp_coeff": {
+              "A": 33.066178,
+              "B": -11.363417,
+              "C": 11.432816,
+              "D": -2.772874,
+              "E": -0.158558,
+              "F": -9.980797,
+              "G": 172.707974,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              2.826,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              59.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          }
+        },
+        "N2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "N": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280134,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3390000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              126.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.039,
+            "cp_mol_ig_comp_coeff": {
+              "A": 19.50583,
+              "B": 19.88705,
+              "C": -8.598535,
+              "D": 1.369784,
+              "E": 0.527601,
+              "F": -4.935202,
+              "G": 212.39,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.798,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              71.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031998,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5040000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.6,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.03235,
+              "B": 8.772972,
+              "C": -3.988133,
+              "D": 0.788313,
+              "E": -0.741599,
+              "F": -11.32468,
+              "G": 236.1663,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.467,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              106.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "Ar": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "Ar": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.039948,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4870000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              150.8,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.001,
+            "cp_mol_ig_comp_coeff": {
+              "A": 20.786,
+              "B": 2.825911e-07,
+              "C": -1.464191e-07,
+              "D": 1.092131e-08,
+              "E": -3.661371e-08,
+              "F": -6.19735,
+              "G": 179.999,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.542,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              93.3,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('CH4', 'CH4')": 0,
+          "('CH4', 'C2H6')": 0,
+          "('CH4', 'C3H8')": 0,
+          "('CH4', 'C4H10')": 0,
+          "('CH4', 'CO')": 0,
+          "('CH4', 'CO2')": 0,
+          "('CH4', 'H2')": 0,
+          "('CH4', 'H2O')": 0,
+          "('CH4', 'N2')": 0,
+          "('CH4', 'O2')": 0,
+          "('CH4', 'Ar')": 0,
+          "('C2H6', 'CH4')": 0,
+          "('C2H6', 'C2H6')": 0,
+          "('C2H6', 'C3H8')": 0,
+          "('C2H6', 'C4H10')": 0,
+          "('C2H6', 'CO')": 0,
+          "('C2H6', 'CO2')": 0,
+          "('C2H6', 'H2')": 0,
+          "('C2H6', 'H2O')": 0,
+          "('C2H6', 'N2')": 0,
+          "('C2H6', 'O2')": 0,
+          "('C2H6', 'Ar')": 0,
+          "('C3H8', 'CH4')": 0,
+          "('C3H8', 'C2H6')": 0,
+          "('C3H8', 'C3H8')": 0,
+          "('C3H8', 'C4H10')": 0,
+          "('C3H8', 'CO')": 0,
+          "('C3H8', 'CO2')": 0,
+          "('C3H8', 'H2')": 0,
+          "('C3H8', 'H2O')": 0,
+          "('C3H8', 'N2')": 0,
+          "('C3H8', 'O2')": 0,
+          "('C3H8', 'Ar')": 0,
+          "('C4H10', 'CH4')": 0,
+          "('C4H10', 'C2H6')": 0,
+          "('C4H10', 'C3H8')": 0,
+          "('C4H10', 'C4H10')": 0,
+          "('C4H10', 'CO')": 0,
+          "('C4H10', 'CO2')": 0,
+          "('C4H10', 'H2')": 0,
+          "('C4H10', 'H2O')": 0,
+          "('C4H10', 'N2')": 0,
+          "('C4H10', 'O2')": 0,
+          "('C4H10', 'Ar')": 0,
+          "('CO', 'CH4')": 0,
+          "('CO', 'C2H6')": 0,
+          "('CO', 'C3H8')": 0,
+          "('CO', 'C4H10')": 0,
+          "('CO', 'CO')": 0,
+          "('CO', 'CO2')": 0,
+          "('CO', 'H2')": 0,
+          "('CO', 'H2O')": 0,
+          "('CO', 'N2')": 0,
+          "('CO', 'O2')": 0,
+          "('CO', 'Ar')": 0,
+          "('CO2', 'CH4')": 0,
+          "('CO2', 'C2H6')": 0,
+          "('CO2', 'C3H8')": 0,
+          "('CO2', 'C4H10')": 0,
+          "('CO2', 'CO')": 0,
+          "('CO2', 'CO2')": 0,
+          "('CO2', 'H2')": 0,
+          "('CO2', 'H2O')": 0,
+          "('CO2', 'N2')": 0,
+          "('CO2', 'O2')": 0,
+          "('CO2', 'Ar')": 0,
+          "('H2', 'CH4')": 0,
+          "('H2', 'C2H6')": 0,
+          "('H2', 'C3H8')": 0,
+          "('H2', 'C4H10')": 0,
+          "('H2', 'CO')": 0,
+          "('H2', 'CO2')": 0,
+          "('H2', 'H2')": 0,
+          "('H2', 'H2O')": 0,
+          "('H2', 'N2')": 0,
+          "('H2', 'O2')": 0,
+          "('H2', 'Ar')": 0,
+          "('H2O', 'CH4')": 0,
+          "('H2O', 'C2H6')": 0,
+          "('H2O', 'C3H8')": 0,
+          "('H2O', 'C4H10')": 0,
+          "('H2O', 'CO')": 0,
+          "('H2O', 'CO2')": 0,
+          "('H2O', 'H2')": 0,
+          "('H2O', 'H2O')": 0,
+          "('H2O', 'N2')": 0,
+          "('H2O', 'O2')": 0,
+          "('H2O', 'Ar')": 0,
+          "('N2', 'CH4')": 0,
+          "('N2', 'C2H6')": 0,
+          "('N2', 'C3H8')": 0,
+          "('N2', 'C4H10')": 0,
+          "('N2', 'CO')": 0,
+          "('N2', 'CO2')": 0,
+          "('N2', 'H2')": 0,
+          "('N2', 'H2O')": 0,
+          "('N2', 'N2')": 0,
+          "('N2', 'O2')": 0,
+          "('N2', 'Ar')": 0,
+          "('O2', 'CH4')": 0,
+          "('O2', 'C2H6')": 0,
+          "('O2', 'C3H8')": 0,
+          "('O2', 'C4H10')": 0,
+          "('O2', 'CO')": 0,
+          "('O2', 'CO2')": 0,
+          "('O2', 'H2')": 0,
+          "('O2', 'H2O')": 0,
+          "('O2', 'N2')": 0,
+          "('O2', 'O2')": 0,
+          "('O2', 'Ar')": 0,
+          "('Ar', 'CH4')": 0,
+          "('Ar', 'C2H6')": 0,
+          "('Ar', 'C3H8')": 0,
+          "('Ar', 'C4H10')": 0,
+          "('Ar', 'CO')": 0,
+          "('Ar', 'CO2')": 0,
+          "('Ar', 'H2')": 0,
+          "('Ar', 'H2O')": 0,
+          "('Ar', 'N2')": 0,
+          "('Ar', 'O2')": 0,
+          "('Ar', 'Ar')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.air_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "CO2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "C": 1,
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.04401,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              7380000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              304.1,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.239,
+            "cp_mol_ig_comp_coeff": {
+              "A": 24.99735,
+              "B": 55.18696,
+              "C": -33.69137,
+              "D": 7.948387,
+              "E": -0.136638,
+              "F": -403.6075,
+              "G": 228.2431,
+              "H": -393.5224
+            },
+            "lennard_jones_sigma": [
+              3.941,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              195.2,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          }
+        },
+        "N2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "N": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280134,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3390000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              126.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.039,
+            "cp_mol_ig_comp_coeff": {
+              "A": 19.50583,
+              "B": 19.88705,
+              "C": -8.598535,
+              "D": 1.369784,
+              "E": 0.527601,
+              "F": -4.935202,
+              "G": 212.39,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.798,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              71.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031998,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5040000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.6,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.03235,
+              "B": 8.772972,
+              "C": -3.988133,
+              "D": 0.788313,
+              "E": -0.741599,
+              "F": -11.32468,
+              "G": 236.1663,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.467,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              106.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "Ar": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "Ar": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.039948,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4870000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              150.8,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.001,
+            "cp_mol_ig_comp_coeff": {
+              "A": 20.786,
+              "B": 2.825911e-07,
+              "C": -1.464191e-07,
+              "D": 1.092131e-08,
+              "E": -3.661371e-08,
+              "F": -6.19735,
+              "G": 179.999,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.542,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              93.3,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('CO2', 'CO2')": 0,
+          "('CO2', 'H2O')": 0,
+          "('CO2', 'N2')": 0,
+          "('CO2', 'O2')": 0,
+          "('CO2', 'Ar')": 0,
+          "('H2O', 'CO2')": 0,
+          "('H2O', 'H2O')": 0,
+          "('H2O', 'N2')": 0,
+          "('H2O', 'O2')": 0,
+          "('H2O', 'Ar')": 0,
+          "('N2', 'CO2')": 0,
+          "('N2', 'H2O')": 0,
+          "('N2', 'N2')": 0,
+          "('N2', 'O2')": 0,
+          "('N2', 'Ar')": 0,
+          "('O2', 'CO2')": 0,
+          "('O2', 'H2O')": 0,
+          "('O2', 'N2')": 0,
+          "('O2', 'O2')": 0,
+          "('O2', 'Ar')": 0,
+          "('Ar', 'CO2')": 0,
+          "('Ar', 'H2O')": 0,
+          "('Ar', 'N2')": 0,
+          "('Ar', 'O2')": 0,
+          "('Ar', 'Ar')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.flue_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "CO2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "C": 1,
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.04401,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              7380000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              304.1,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.239,
+            "cp_mol_ig_comp_coeff": {
+              "A": 24.99735,
+              "B": 55.18696,
+              "C": -33.69137,
+              "D": 7.948387,
+              "E": -0.136638,
+              "F": -403.6075,
+              "G": 228.2431,
+              "H": -393.5224
+            },
+            "lennard_jones_sigma": [
+              3.941,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              195.2,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          }
+        },
+        "N2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "N": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280134,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3390000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              126.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.039,
+            "cp_mol_ig_comp_coeff": {
+              "A": 19.50583,
+              "B": 19.88705,
+              "C": -8.598535,
+              "D": 1.369784,
+              "E": 0.527601,
+              "F": -4.935202,
+              "G": 212.39,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.798,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              71.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031998,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5040000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.6,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.03235,
+              "B": 8.772972,
+              "C": -3.988133,
+              "D": 0.788313,
+              "E": -0.741599,
+              "F": -11.32468,
+              "G": 236.1663,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.467,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              106.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "Ar": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "Ar": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.039948,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4870000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              150.8,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.001,
+            "cp_mol_ig_comp_coeff": {
+              "A": 20.786,
+              "B": 2.825911e-07,
+              "C": -1.464191e-07,
+              "D": 1.092131e-08,
+              "E": -3.661371e-08,
+              "F": -6.19735,
+              "G": 179.999,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.542,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              93.3,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('CO2', 'CO2')": 0,
+          "('CO2', 'H2O')": 0,
+          "('CO2', 'N2')": 0,
+          "('CO2', 'O2')": 0,
+          "('CO2', 'Ar')": 0,
+          "('H2O', 'CO2')": 0,
+          "('H2O', 'H2O')": 0,
+          "('H2O', 'N2')": 0,
+          "('H2O', 'O2')": 0,
+          "('H2O', 'Ar')": 0,
+          "('N2', 'CO2')": 0,
+          "('N2', 'H2O')": 0,
+          "('N2', 'N2')": 0,
+          "('N2', 'O2')": 0,
+          "('N2', 'Ar')": 0,
+          "('O2', 'CO2')": 0,
+          "('O2', 'H2O')": 0,
+          "('O2', 'N2')": 0,
+          "('O2', 'O2')": 0,
+          "('O2', 'Ar')": 0,
+          "('Ar', 'CO2')": 0,
+          "('Ar', 'H2O')": 0,
+          "('Ar', 'N2')": 0,
+          "('Ar', 'O2')": 0,
+          "('Ar', 'Ar')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.flue_props_vle",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "CO2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "C": 1,
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.04401,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              7380000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              304.1,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.239,
+            "cp_mol_ig_comp_coeff": {
+              "A": 24.99735,
+              "B": 55.18696,
+              "C": -33.69137,
+              "D": 7.948387,
+              "E": -0.136638,
+              "F": -403.6075,
+              "G": 228.2431,
+              "H": -393.5224
+            },
+            "lennard_jones_sigma": [
+              3.941,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              195.2,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones",
+            "Liq": null
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken",
+            "Liq": null
+          }
+        },
+        "N2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "N": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280134,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3390000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              126.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.039,
+            "cp_mol_ig_comp_coeff": {
+              "A": 19.50583,
+              "B": 19.88705,
+              "C": -8.598535,
+              "D": 1.369784,
+              "E": 0.527601,
+              "F": -4.935202,
+              "G": 212.39,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.798,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              71.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031998,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5040000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.6,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.03235,
+              "B": 8.772972,
+              "C": -3.988133,
+              "D": 0.788313,
+              "E": -0.741599,
+              "F": -11.32468,
+              "G": 236.1663,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.467,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              106.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "Ar": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "Ar": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.039948,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              4870000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              150.8,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.001,
+            "cp_mol_ig_comp_coeff": {
+              "A": 20.786,
+              "B": 2.825911e-07,
+              "C": -1.464191e-07,
+              "D": 1.092131e-08,
+              "E": -3.661371e-08,
+              "F": -6.19735,
+              "G": 179.999,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.542,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              93.3,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        },
+        "Liq": {
+          "type": "idaes.core.base.phases.LiquidPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.no_method.NoMethod",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.no_method.NoMethod"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": [
+        [
+          "Vap",
+          "Liq"
+        ]
+      ],
+      "phase_equilibrium_state": {
+        "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.smooth_VLE.SmoothVLE"
+      },
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('CO2', 'CO2')": 0,
+          "('CO2', 'H2O')": 0,
+          "('CO2', 'N2')": 0,
+          "('CO2', 'O2')": 0,
+          "('CO2', 'Ar')": 0,
+          "('H2O', 'CO2')": 0,
+          "('H2O', 'H2O')": 0,
+          "('H2O', 'N2')": 0,
+          "('H2O', 'O2')": 0,
+          "('H2O', 'Ar')": 0,
+          "('N2', 'CO2')": 0,
+          "('N2', 'H2O')": 0,
+          "('N2', 'N2')": 0,
+          "('N2', 'O2')": 0,
+          "('N2', 'Ar')": 0,
+          "('O2', 'CO2')": 0,
+          "('O2', 'H2O')": 0,
+          "('O2', 'N2')": 0,
+          "('O2', 'O2')": 0,
+          "('O2', 'Ar')": 0,
+          "('Ar', 'CO2')": 0,
+          "('Ar', 'H2O')": 0,
+          "('Ar', 'N2')": 0,
+          "('Ar', 'O2')": 0,
+          "('Ar', 'Ar')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "Mg"
+        },
+        "amount": {
+          "component": "kmol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.h2_side_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "H2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "H": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0020159,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              1300000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              33.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": -0.218,
+            "cp_mol_ig_comp_coeff": {
+              "A": 33.066178,
+              "B": -11.363417,
+              "C": 11.432816,
+              "D": -2.772874,
+              "E": -0.158558,
+              "F": -9.980797,
+              "G": 172.707974,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              2.826,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              59.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('H2', 'H2')": 0,
+          "('H2', 'H2O')": 0,
+          "('H2O', 'H2')": 0,
+          "('H2O', 'H2O')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.h2_side_props_vle",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "H2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "H": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0020159,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              1300000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              33.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": -0.218,
+            "cp_mol_ig_comp_coeff": {
+              "A": 33.066178,
+              "B": -11.363417,
+              "C": 11.432816,
+              "D": -2.772874,
+              "E": -0.158558,
+              "F": -9.980797,
+              "G": 172.707974,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              2.826,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              59.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones",
+            "Liq": null
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken",
+            "Liq": null
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        },
+        "Liq": {
+          "type": "idaes.core.base.phases.LiquidPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.no_method.NoMethod",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.no_method.NoMethod"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": [
+        [
+          "Vap",
+          "Liq"
+        ]
+      ],
+      "phase_equilibrium_state": {
+        "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.smooth_VLE.SmoothVLE"
+      },
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('H2', 'H2')": 0,
+          "('H2', 'H2O')": 0,
+          "('H2O', 'H2')": 0,
+          "('H2O', 'H2O')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "Mg"
+        },
+        "amount": {
+          "component": "kmol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.h2_pure_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "H2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "H": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0020159,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              1300000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              33.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": -0.218,
+            "cp_mol_ig_comp_coeff": {
+              "A": 33.066178,
+              "B": -11.363417,
+              "C": 11.432816,
+              "D": -2.772874,
+              "E": -0.158558,
+              "F": -9.980797,
+              "G": 172.707974,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              2.826,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              59.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ceos.Cubic",
+          "equation_of_state_options": {
+            "type": {
+              "component": "PR"
+            }
+          },
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('H2', 'H2')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.steam_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.general_helmholtz.helmholtz_functions.HelmholtzParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "pure_component": "H2O",
+      "phase_presentation": {
+        "component": "MIX"
+      },
+      "state_vars": {
+        "component": "PH"
+      },
+      "amount_basis": {
+        "component": "MOLE"
+      }
+    },
+    "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+    "module": "idaes.models.properties.iapws95",
+    "data_class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.rxn_props",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.cmb_props"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "rate_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "equilibrium_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

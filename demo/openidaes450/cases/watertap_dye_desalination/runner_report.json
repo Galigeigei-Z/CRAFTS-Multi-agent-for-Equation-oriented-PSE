@@ -1,0 +1,419 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_dye_desalination",
+  "official_reference_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "dye_desalination_initial_solve_optimal",
+      "pass": true
+    },
+    {
+      "name": "dye_desalination_final_solve_optimal",
+      "pass": true
+    },
+    {
+      "name": "dye_desalination_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "dye_desalination_permeate_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "dye_desalination_lcow_available",
+      "pass": true
+    },
+    {
+      "name": "dye_desalination_streams_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "final_dof_before_solve": 0,
+  "feed_flow_m3_s": 0.07777777777777778,
+  "treated_gac_flow_m3_s": 0.007783770295710984,
+  "concentrated_dye_flow_m3_s": 1.4907148733455837e-05,
+  "permeate_flow_m3_s": 0.03504635649671829,
+  "brine_flow_m3_s": 0.03504650250347444,
+  "feed_dye_conc_kg_m3": 0.20000000000000007,
+  "treated_dye_conc_kg_m3": 0.06531626741103422,
+  "permeate_tds_conc_kg_m3": 0.008666828504693495,
+  "brine_tds_conc_kg_m3": 3.7891539265208207,
+  "gac_bed_volume_m3": 4.679206466666663,
+  "gac_bed_mass_kg": 1403.761939999999,
+  "ro_area_m2": 1299.7286268945634,
+  "ro_recovery_vol_liq": 0.5,
+  "levelized_cost_of_treatment": 0.06474201720491085,
+  "levelized_cost_of_water": 1.3675688844315703,
+  "specific_energy_intensity": 1.2271861680468477,
+  "total_capital_cost": 2839440.9939251044,
+  "total_operating_cost": 398383.85414003156,
+  "stream_values": {
+    "s_feed": {
+      "flow_mass_comp": {
+        "H2O": 77.60666666666668,
+        "tds": 0.15555555555555559,
+        "dye": 0.01555555555555556
+      },
+      "mass_flow": 77.77777777777779,
+      "flow_kg_s": 77.77777777777779,
+      "mass_frac_comp": {
+        "H2O": 0.9978000000000001,
+        "tds": 0.002,
+        "dye": 0.00020000000000000004
+      },
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.dye_separation.P1.inlet"
+    },
+    "s01": {
+      "flow_mass_comp": {
+        "H2O": 7.76066666666666,
+        "tds": 0.02259522222222223,
+        "dye": 0.01541555555555556
+      },
+      "mass_flow": 7.798677444444437,
+      "flow_kg_s": 7.798677444444437,
+      "mass_frac_comp": {
+        "H2O": 0.9951259969336397,
+        "tds": 0.0028973146258688314,
+        "dye": 0.0019766884404915576
+      },
+      "source_port": "fs.dye_separation.nanofiltration.byproduct",
+      "destination_port": "fs.tb_nf_gac.inlet"
+    },
+    "s02": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.76066666666666,
+        "Liq/tds": 0.022595222222222232,
+        "Liq/dye": 0.01541555555555556
+      },
+      "mass_flow": 7.798677444444437,
+      "flow_kg_s": 7.798677444444437,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9951259969336397,
+        "Liq/tds": 0.002897314625868832,
+        "Liq/dye": 0.0019766884404915576
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.tb_nf_gac.outlet",
+      "destination_port": "fs.gac.inlet"
+    },
+    "s03": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.76066666666666,
+        "Liq/tds": 0.022595222222222232,
+        "Liq/dye": 0.0005084068221007235
+      },
+      "mass_flow": 7.7837702957109824,
+      "flow_kg_s": 7.7837702957109824,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9970318202918895,
+        "Liq/tds": 0.002902863440699511,
+        "Liq/dye": 6.531626741103423e-05
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.gac.outlet",
+      "destination_port": "fs.treated.inlet"
+    },
+    "s04": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.0,
+        "Liq/tds": 0.0,
+        "Liq/dye": 0.014907148733454839
+      },
+      "mass_flow": 0.014907148733454839,
+      "flow_kg_s": 0.014907148733454839,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.0,
+        "Liq/tds": 0.0,
+        "Liq/dye": 1.0
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.gac.adsorbed",
+      "destination_port": "fs.concentrated_dye.inlet"
+    },
+    "s_nf": {
+      "flow_mass_comp": {
+        "H2O": 69.84600000000002,
+        "tds": 0.13296033333333335,
+        "dye": 0.00014000000000000018
+      },
+      "mass_flow": 69.97910033333335,
+      "flow_kg_s": 69.97910033333335,
+      "mass_frac_comp": {
+        "H2O": 0.9980979987925062,
+        "tds": 0.0019000006101821797,
+        "dye": 2.00059731167069e-06
+      },
+      "source_port": "fs.dye_separation.nanofiltration.treated",
+      "destination_port": "fs.tb_nf_ro.inlet"
+    },
+    "s_ro": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 69.84600000000002,
+        "Liq/TDS": 0.13310033333333335
+      },
+      "mass_flow": 69.97910033333335,
+      "flow_kg_s": 69.97910033333335,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925062,
+        "Liq/TDS": 0.0019020012074938506
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.tb_nf_ro.outlet",
+      "destination_port": "fs.desalination.S1.inlet"
+    },
+    "s_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.907325680468745,
+        "Liq/TDS": 0.13279659257186197
+      },
+      "mass_flow": 35.04012227304061,
+      "flow_kg_s": 35.04012227304061,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9962101561308182,
+        "Liq/TDS": 0.0037898438691817537
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.desalination.PXR.brine_outlet",
+      "destination_port": "fs.brine.inlet"
+    },
+    "s_permeate": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.93867431953127,
+        "Liq/TDS": 0.0003037407614713983
+      },
+      "mass_flow": 34.93897806029275,
+      "flow_kg_s": 34.93897806029275,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9999913065356133,
+        "Liq/TDS": 8.693464386601276e-06
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.desalination.RO.permeate",
+      "destination_port": "fs.permeate.inlet"
+    },
+    "fs.dye_separation.s01": {
+      "flow_mass_comp": {
+        "H2O": 77.60666666666668,
+        "tds": 0.15555555555555559,
+        "dye": 0.01555555555555556
+      },
+      "mass_flow": 77.77777777777779,
+      "flow_kg_s": 77.77777777777779,
+      "mass_frac_comp": {
+        "H2O": 0.9978000000000001,
+        "tds": 0.002,
+        "dye": 0.00020000000000000004
+      },
+      "source_port": "fs.dye_separation.P1.outlet",
+      "destination_port": "fs.dye_separation.nanofiltration.inlet"
+    },
+    "fs.desalination.s01": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.92285450715982,
+        "Liq/TDS": 0.0665498894117698
+      },
+      "mass_flow": 34.98940439657159,
+      "flow_kg_s": 34.98940439657159,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925063,
+        "Liq/TDS": 0.0019020012074938506
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.desalination.S1.P2",
+      "destination_port": "fs.desalination.P2.inlet"
+    },
+    "fs.desalination.s02": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.92285450715982,
+        "Liq/TDS": 0.0665498894117698
+      },
+      "mass_flow": 34.98940439657159,
+      "flow_kg_s": 34.98940439657159,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925063,
+        "Liq/TDS": 0.0019020012074938506
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.P2.outlet",
+      "destination_port": "fs.desalination.M1.P2"
+    },
+    "fs.desalination.s03": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 69.84600000000002,
+        "Liq/TDS": 0.13310033333333335
+      },
+      "mass_flow": 69.97910033333335,
+      "flow_kg_s": 69.97910033333335,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925062,
+        "Liq/TDS": 0.0019020012074938506
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.M1.outlet",
+      "destination_port": "fs.desalination.RO.inlet"
+    },
+    "fs.desalination.s04": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.907325680468745,
+        "Liq/TDS": 0.13279659257186197
+      },
+      "mass_flow": 35.04012227304061,
+      "flow_kg_s": 35.04012227304061,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9962101561308182,
+        "Liq/TDS": 0.0037898438691817537
+      },
+      "temperature": 298.0,
+      "pressure": 6954855.4607831,
+      "source_port": "fs.desalination.RO.retentate",
+      "destination_port": "fs.desalination.PXR.brine_inlet"
+    },
+    "s05": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.9231454928402,
+        "Liq/TDS": 0.06655044392156356
+      },
+      "mass_flow": 34.98969593676176,
+      "flow_kg_s": 34.98969593676176,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925062,
+        "Liq/TDS": 0.001902001207493851
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.desalination.S1.PXR",
+      "destination_port": "fs.desalination.PXR.feed_inlet"
+    },
+    "s06": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.9231454928402,
+        "Liq/TDS": 0.06655044392156356
+      },
+      "mass_flow": 34.98969593676176,
+      "flow_kg_s": 34.98969593676176,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925062,
+        "Liq/TDS": 0.001902001207493851
+      },
+      "temperature": 298.0,
+      "pressure": 6612178.937743943,
+      "source_port": "fs.desalination.PXR.feed_outlet",
+      "destination_port": "fs.desalination.P3.inlet"
+    },
+    "s07": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.9231454928402,
+        "Liq/TDS": 0.06655044392156356
+      },
+      "mass_flow": 34.98969593676176,
+      "flow_kg_s": 34.98969593676176,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9980979987925062,
+        "Liq/TDS": 0.001902001207493851
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.P3.outlet",
+      "destination_port": "fs.desalination.M1.P3"
+    },
+    "feed": {
+      "flow_mass_comp": {
+        "H2O": 77.60666666666668,
+        "tds": 0.15555555555555559,
+        "dye": 0.01555555555555556
+      },
+      "mass_flow": 77.77777777777779,
+      "flow_kg_s": 77.77777777777779,
+      "mass_frac_comp": {
+        "H2O": 0.9978000000000001,
+        "tds": 0.002,
+        "dye": 0.00020000000000000004
+      },
+      "source_port": "fs.feed.outlet"
+    },
+    "treated_gac_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.76066666666666,
+        "Liq/tds": 0.022595222222222232,
+        "Liq/dye": 0.0005084068221007235
+      },
+      "mass_flow": 7.7837702957109824,
+      "flow_kg_s": 7.7837702957109824,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9970318202918895,
+        "Liq/tds": 0.002902863440699511,
+        "Liq/dye": 6.531626741103423e-05
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.treated.inlet"
+    },
+    "concentrated_dye_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0000000000001642e-18,
+        "Liq/tds": 1.0000000000001642e-18,
+        "Liq/dye": 0.014907148733454839
+      },
+      "mass_flow": 0.01490714873345484,
+      "flow_kg_s": 0.01490714873345484,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 6.708190934970345e-17,
+        "Liq/tds": 6.708190934970345e-17,
+        "Liq/dye": 0.9999999999999999
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.concentrated_dye.inlet"
+    },
+    "ro_permeate_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.93867431953127,
+        "Liq/TDS": 0.00030374076147140816
+      },
+      "mass_flow": 34.93897806029275,
+      "flow_kg_s": 34.93897806029275,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9999913065356133,
+        "Liq/TDS": 8.693464386601557e-06
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.permeate.inlet"
+    },
+    "ro_brine_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 34.907325680468745,
+        "Liq/TDS": 0.13279659257186197
+      },
+      "mass_flow": 35.04012227304061,
+      "flow_kg_s": 35.04012227304061,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9962101561308182,
+        "Liq/TDS": 0.0037898438691817537
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.brine.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.dye_desalination.dye_desalination",
+    "configuration": "RO_1D=False, include_RO=True, include_gac=True, no operation optimization",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

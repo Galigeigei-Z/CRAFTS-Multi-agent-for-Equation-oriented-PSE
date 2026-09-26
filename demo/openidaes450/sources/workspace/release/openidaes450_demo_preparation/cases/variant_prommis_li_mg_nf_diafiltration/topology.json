@@ -1,0 +1,192 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_li_mg_nf_diafiltration",
+  "family": "family_prommis_li_mg_nf_diafiltration",
+  "process_type": "Lithium-Magnesium NF with Diafiltration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_nanofiltration_membrane_schematic.",
+    "Adds wash-water diafiltration and Li/Mg selectivity to the membrane cascade.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Li+",
+        "Mg++",
+        "Na+",
+        "Cl-",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_nanofiltration_membrane_schematic"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Li+",
+      "Mg++",
+      "Na+",
+      "Cl-",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "multicomponent membrane feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P101",
+      "kind": "Pump",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "first-stage pressure lift",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Membrane1D",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "first membrane separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M201",
+      "kind": "Nanofiltration",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "selective polishing stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "retentate recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "purified permeate product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BRINE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "controlled concentrate purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "P101.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "membrane feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "P101.outlet",
+      "destination": "M101.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "pressurized feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.permeate",
+      "destination": "M201.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "first-stage permeate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "M201.permeate",
+      "destination": "PRODUCT.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "polished product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "M101.retentate",
+      "destination": "S101.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "first-stage concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "P101.recycle",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "concentrate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "BRINE.inlet",
+      "stage": "prommis_li_mg_nf_diafiltration",
+      "role": "concentrate purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "BRINE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_nanofiltration_membrane_schematic"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_nanofiltration_membrane_schematic",
+    "chemical_change": "Adds wash-water diafiltration and Li/Mg selectivity to the membrane cascade.",
+    "native_metrics": {
+      "water_or_product_recovery": 0.8540000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.537,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

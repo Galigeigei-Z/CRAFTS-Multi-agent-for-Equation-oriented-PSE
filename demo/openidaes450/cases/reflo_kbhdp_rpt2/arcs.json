@@ -1,0 +1,97 @@
+[
+  {
+    "name": "fs.treatment.feed_to_translator",
+    "source": "fs.treatment.feed.outlet",
+    "destination": "fs.treatment.MCAS_to_ZOTDS_translator.inlet"
+  },
+  {
+    "name": "fs.treatment.translator_to_EC",
+    "source": "fs.treatment.MCAS_to_ZOTDS_translator.outlet",
+    "destination": "fs.treatment.EC.feed.inlet"
+  },
+  {
+    "name": "fs.treatment.EC_to_UF",
+    "source": "fs.treatment.EC.product.outlet",
+    "destination": "fs.treatment.UF.feed.inlet"
+  },
+  {
+    "name": "fs.treatment.EC_to_sludge",
+    "source": "fs.treatment.EC.disposal.outlet",
+    "destination": "fs.treatment.sludge.inlet"
+  },
+  {
+    "name": "fs.treatment.UF_to_translator3",
+    "source": "fs.treatment.UF.product.outlet",
+    "destination": "fs.treatment.ZOTDS_to_TDS_translator.inlet"
+  },
+  {
+    "name": "fs.treatment.UF_to_waste",
+    "source": "fs.treatment.UF.disposal.outlet",
+    "destination": "fs.treatment.UF_waste.inlet"
+  },
+  {
+    "name": "fs.treatment.translator_to_LTMED",
+    "source": "fs.treatment.ZOTDS_to_TDS_translator.outlet",
+    "destination": "fs.treatment.LTMED.feed.inlet"
+  },
+  {
+    "name": "fs.treatment.LTMED_to_product",
+    "source": "fs.treatment.LTMED.product.outlet",
+    "destination": "fs.treatment.product.inlet"
+  },
+  {
+    "name": "fs.treatment.LTMED_to_dwi",
+    "source": "fs.treatment.LTMED.disposal.outlet",
+    "destination": "fs.treatment.DWI.feed.inlet"
+  },
+  {
+    "name": "fs.treatment.EC.feed_to_unit",
+    "source": "fs.treatment.EC.feed.outlet",
+    "destination": "fs.treatment.EC.unit.inlet"
+  },
+  {
+    "name": "fs.treatment.EC.unit_to_product",
+    "source": "fs.treatment.EC.unit.treated",
+    "destination": "fs.treatment.EC.product.inlet"
+  },
+  {
+    "name": "fs.treatment.EC.unit_to_disposal",
+    "source": "fs.treatment.EC.unit.byproduct",
+    "destination": "fs.treatment.EC.disposal.inlet"
+  },
+  {
+    "name": "fs.treatment.UF.feed_to_unit",
+    "source": "fs.treatment.UF.feed.outlet",
+    "destination": "fs.treatment.UF.unit.inlet"
+  },
+  {
+    "name": "fs.treatment.UF.unit_to_disposal",
+    "source": "fs.treatment.UF.unit.byproduct",
+    "destination": "fs.treatment.UF.disposal.inlet"
+  },
+  {
+    "name": "fs.treatment.UF.unit_to_product",
+    "source": "fs.treatment.UF.unit.treated",
+    "destination": "fs.treatment.UF.product.inlet"
+  },
+  {
+    "name": "fs.treatment.LTMED.feed_to_unit",
+    "source": "fs.treatment.LTMED.feed.outlet",
+    "destination": "fs.treatment.LTMED.unit.feed"
+  },
+  {
+    "name": "fs.treatment.LTMED.unit_to_product",
+    "source": "fs.treatment.LTMED.unit.distillate",
+    "destination": "fs.treatment.LTMED.product.inlet"
+  },
+  {
+    "name": "fs.treatment.LTMED.unit_to_disposal",
+    "source": "fs.treatment.LTMED.unit.brine",
+    "destination": "fs.treatment.LTMED.disposal.inlet"
+  },
+  {
+    "name": "fs.treatment.DWI.feed_to_unit",
+    "source": "fs.treatment.DWI.feed.outlet",
+    "destination": "fs.treatment.DWI.unit.inlet"
+  }
+]

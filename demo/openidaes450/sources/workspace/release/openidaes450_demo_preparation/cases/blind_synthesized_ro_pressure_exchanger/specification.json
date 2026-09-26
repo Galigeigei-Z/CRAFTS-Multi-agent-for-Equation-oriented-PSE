@@ -1,0 +1,84 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_ro_pressure_exchanger",
+  "family": "family_watertap_ro_with_energy_recovery",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.001,
+      "units": "m^3/s",
+      "role": "family_default from non-oracle RO support because the blind prompt/image did not provide a feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "salt_mass_frac",
+      "value": 0.035,
+      "units": "dimensionless",
+      "role": "family_default NaCl mass fraction because the blind prompt/image did not provide a numeric salinity",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "RO",
+      "variable": "water_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default RO recovery because the blind prompt/image did not provide a numeric recovery",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "P1",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default main pump efficiency support hint",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "P2",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default booster pump efficiency support hint",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "PXR",
+      "variable": "efficiency_pressure_exchanger",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "family_default pressure exchanger efficiency support hint",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind topology is compiled to BuildPlanIR and may be solved only by the compact pressure-exchanger sandbox solver template",
+    "solve_order": [
+      "RO",
+      "feed",
+      "S1",
+      "PXR",
+      "P1",
+      "P2",
+      "M1",
+      "products"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

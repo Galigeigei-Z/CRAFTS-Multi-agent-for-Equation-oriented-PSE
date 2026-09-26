@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_runaway_hydrogen_cutoff_nitrogen_quench",
+  "family": "family_hda_n2_quench",
+  "process_type": "HDA Runaway Protection with H2 Cutoff and Nitrogen Quench",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent variant_hda_staged_hydrogen_quench_guard_bed.",
+    "Changes reactive atmosphere from hydrogen to inert nitrogen and captures aromatic relief instead of venting.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "N2",
+        "toluene",
+        "benzene",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_hda_staged_hydrogen_quench_guard_bed"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "N2",
+      "toluene",
+      "benzene",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "AROM",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "toluene",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "N2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "nitrogen quench",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SV",
+      "kind": "ShutdownValve",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "H2 isolation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R1",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "HDA",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Q1",
+      "kind": "QuenchMixer",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "nitrogen quench",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "KO",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "aromatic recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "REC",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "recovered aromatics",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLARE",
+      "kind": "Flare",
+      "package": "process_extension",
+      "stage": "hda_n2_quench",
+      "role": "H2/CH4 disposal",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "AROM.outlet",
+      "destination": "R1.aromatic",
+      "stage": "hda_n2_quench",
+      "role": "toluene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "H2.outlet",
+      "destination": "SV.inlet",
+      "stage": "hda_n2_quench",
+      "role": "hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "SV.outlet",
+      "destination": "R1.hydrogen",
+      "stage": "hda_n2_quench",
+      "role": "controlled H2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "N2.outlet",
+      "destination": "Q1.nitrogen",
+      "stage": "hda_n2_quench",
+      "role": "quench N2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "R1.relief",
+      "destination": "Q1.process",
+      "stage": "hda_n2_quench",
+      "role": "runaway effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "Q1.outlet",
+      "destination": "KO.inlet",
+      "stage": "hda_n2_quench",
+      "role": "inerted relief",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "KO.liquid",
+      "destination": "REC.inlet",
+      "stage": "hda_n2_quench",
+      "role": "aromatics",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "KO.vapor",
+      "destination": "FLARE.inlet",
+      "stage": "hda_n2_quench",
+      "role": "H2/CH4/N2 gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "AROM.outlet",
+    "H2.outlet",
+    "N2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "REC.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_hda_staged_hydrogen_quench_guard_bed"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_hda_staged_hydrogen_quench_guard_bed",
+    "chemical_change": "Changes reactive atmosphere from hydrogen to inert nitrogen and captures aromatic relief instead of venting.",
+    "native_metrics": {
+      "runaway_peak_temperature_K": 453.5,
+      "residual_hydrogen_fraction": 0.025,
+      "aromatic_recovery": 0.887,
+      "flare_load_index": 0.019999999999999997,
+      "nitrogen_inventory_index": 0.18000000000000002
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_electrodialysis_conc_recirc",
+  "family": "family_watertap_electrodialysis_conc_recirc",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol_phase_Liq",
+      "value": 0.00052,
+      "units": "m^3/s",
+      "role": "official default feed volumetric flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "feed",
+      "variable": "NaCl_salinity",
+      "value": 2.0,
+      "units": "g/L",
+      "role": "official default feed salinity",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "system",
+      "variable": "water_recovery",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "official volume recovery target",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "EDstack",
+      "variable": "stack_voltage",
+      "value": 10.0,
+      "units": "V",
+      "role": "fixed voltage for fully defined simulation",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_pair_num",
+      "value": 56.0,
+      "units": "dimensionless",
+      "role": "simulation cell pair number",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_length",
+      "value": 1.68,
+      "units": "m",
+      "role": "simulation cell length",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_width",
+      "value": 0.197,
+      "units": "m",
+      "role": "official cell width",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "EDstack",
+      "variable": "channel_height",
+      "value": 0.00071,
+      "units": "m",
+      "role": "official channel height",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "product_salinity_target",
+      "value": 0.1,
+      "units": "kg/m^3",
+      "role": "product water salinity target",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "final WaterTAP optimization objective",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP ED concentrate recirculation build, calculate feed state, condition base case, initialize units sequentially, simulation solve, then release voltage/cell-pair/cell-length and solve LCOW optimization",
+    "solve_order": [
+      "feed",
+      "sepa0",
+      "pump1",
+      "pump0",
+      "EDstack",
+      "prod",
+      "sepa1",
+      "disp",
+      "mix0",
+      "LCOW optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": "0 for simulation, 1 after integer-rounded optimization"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_nuclear_double_loop",
+  "family": "family_dispatches_nuclear_double_loop",
+  "source_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "nuclear_power",
+      "variable": "np_capacity",
+      "value": 500.0,
+      "units": "MW",
+      "role": "base-load nuclear plant capacity",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html"
+    },
+    {
+      "target": "np_power_split",
+      "variable": "split_frac_grid",
+      "value": 0.99,
+      "units": "dimensionless",
+      "role": "default grid split fraction",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html"
+    },
+    {
+      "target": "pem",
+      "variable": "outlet_pressure",
+      "value": 1.01325,
+      "units": "bar",
+      "role": "default PEM outlet pressure",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html"
+    },
+    {
+      "target": "h2_turbine",
+      "variable": "compressor_dp",
+      "value": 24.01,
+      "units": "bar",
+      "role": "default turbine compressor pressure difference",
+      "source": "reference",
+      "source_url": "https://dispatches.readthedocs.io/en/main/examples/nuclear_flowsheet_double_loop.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "DISPATCHES build_ne_flowsheet, fix_dof_and_initialize, then IPOPT solve",
+    "solve_order": [
+      "np_power_split",
+      "pem",
+      "h2_tank",
+      "translator",
+      "mixer",
+      "h2_turbine"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

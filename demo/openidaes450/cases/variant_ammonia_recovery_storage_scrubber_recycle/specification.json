@@ -1,0 +1,100 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_ammonia_recovery_storage_scrubber_recycle",
+  "family": "family_ammonia_storage_scrub",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "emergency_scrubber_fraction",
+      "value": 0.9500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recovered_salt_return_fraction",
+      "value": 0.75,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ammonia_vent_index",
+      "value": 0.004875000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fertilizer_n_recovery",
+      "value": 0.9369999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "acid_index",
+      "value": 0.09500000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "clean_stack_index",
+      "value": 0.005,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recovered_salt_index",
+      "value": 0.10687500000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FERT.outlet",
+    "ACID.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "STACK.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ammonia_membrane_contactor_heat_recovery",
+    "chemical_change": "Adds vapor-liquid ammonia capture, acid reaction and recovered-salt return to product storage.",
+    "native_metrics": {
+      "ammonia_vent_index": 0.004875000000000002,
+      "fertilizer_n_recovery": 0.9369999999999999,
+      "acid_index": 0.09500000000000001,
+      "clean_stack_index": 0.005,
+      "recovered_salt_index": 0.10687500000000001
+    }
+  }
+}

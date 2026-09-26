@@ -1,0 +1,227 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_wrrf_ad_struvite_chp_cascade",
+  "family": "family_wrrf_resource_cascade",
+  "process_type": "WRRF Digestion-Struvite-CHP Resource Cascade",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent watertap_bsm2_p_extension.",
+    "Couples carbon, phosphorus, nitrogen and heat recovery across sludge and centrate processing.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "sludge",
+        "CH4",
+        "PO4",
+        "NH4",
+        "Mg",
+        "struvite"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_bsm2_p_extension"
+    }
+  },
+  "components": {
+    "tracked": [
+      "sludge",
+      "CH4",
+      "PO4",
+      "NH4",
+      "Mg",
+      "struvite"
+    ]
+  },
+  "units": [
+    {
+      "id": "SLUDGE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "waste activated sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AD",
+      "kind": "Digester",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "methane production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DEW",
+      "kind": "Dewatering",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "digestate separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STR",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "centrate struvite",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CHP",
+      "kind": "EngineGenerator",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "biogas power/heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "digester heat return",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FERT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "struvite",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POWER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "electricity",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CAKE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "wrrf_resource_cascade",
+      "role": "dewatered biosolids",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SLUDGE.outlet",
+      "destination": "AD.feed",
+      "stage": "wrrf_resource_cascade",
+      "role": "sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "AD.digestate",
+      "destination": "DEW.inlet",
+      "stage": "wrrf_resource_cascade",
+      "role": "digestate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "DEW.centrate",
+      "destination": "STR.feed",
+      "stage": "wrrf_resource_cascade",
+      "role": "P/N centrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "STR.solid",
+      "destination": "FERT.inlet",
+      "stage": "wrrf_resource_cascade",
+      "role": "struvite",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "AD.biogas",
+      "destination": "CHP.fuel",
+      "stage": "wrrf_resource_cascade",
+      "role": "biogas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CHP.heat",
+      "destination": "HX.hot_inlet",
+      "stage": "wrrf_resource_cascade",
+      "role": "engine heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX.heat",
+      "destination": "AD.heat",
+      "stage": "wrrf_resource_cascade",
+      "role": "digester heating",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CHP.power",
+      "destination": "POWER.inlet",
+      "stage": "wrrf_resource_cascade",
+      "role": "electricity",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "DEW.cake",
+      "destination": "CAKE.inlet",
+      "stage": "wrrf_resource_cascade",
+      "role": "biosolids",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SLUDGE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "FERT.inlet",
+    "POWER.inlet",
+    "CAKE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_bsm2_p_extension"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_bsm2_p_extension",
+    "chemical_change": "Couples carbon, phosphorus, nitrogen and heat recovery across sludge and centrate processing.",
+    "native_metrics": {
+      "energy_self_supply": 0.9,
+      "phosphorus_recovery": 0.9299999999999999,
+      "return_tn_index": 0.018000000000000002,
+      "methane_yield": 0.95,
+      "recovered_heat_index": 0.4
+    }
+  }
+}

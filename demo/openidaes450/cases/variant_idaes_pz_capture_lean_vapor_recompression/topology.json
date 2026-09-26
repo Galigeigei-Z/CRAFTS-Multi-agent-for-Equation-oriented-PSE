@@ -1,0 +1,188 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_pz_capture_lean_vapor_recompression",
+  "family": "family_pz_vapor_recompression",
+  "process_type": "Piperazine Capture with Lean-Vapor Recompression",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_pz_afs_carbon_capture.",
+    "Adds a lean-solvent flash and vapor heat pump that returns latent heat to the stripper reboiler.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "H2O",
+        "piperazine",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_pz_afs_carbon_capture"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "H2O",
+      "piperazine",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "RICH",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "rich PZ solvent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRIP",
+      "kind": "Stripper",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "solvent regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLASH",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "lean-solvent pressure letdown",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "recompress flash vapor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "return latent heat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LEAN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "lean solvent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pz_vapor_recompression",
+      "role": "captured CO2",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "RICH.outlet",
+      "destination": "STRIP.feed",
+      "stage": "pz_vapor_recompression",
+      "role": "rich solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "STRIP.lean",
+      "destination": "FLASH.inlet",
+      "stage": "pz_vapor_recompression",
+      "role": "hot lean solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "FLASH.vapor",
+      "destination": "C101.inlet",
+      "stage": "pz_vapor_recompression",
+      "role": "lean flash vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "C101.outlet",
+      "destination": "HX101.hot_inlet",
+      "stage": "pz_vapor_recompression",
+      "role": "recompressed vapor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "HX101.heat",
+      "destination": "STRIP.reboiler",
+      "stage": "pz_vapor_recompression",
+      "role": "heat-pump duty",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "FLASH.liquid",
+      "destination": "LEAN.inlet",
+      "stage": "pz_vapor_recompression",
+      "role": "lean solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "STRIP.co2",
+      "destination": "CO2.inlet",
+      "stage": "pz_vapor_recompression",
+      "role": "CO2 product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "RICH.outlet"
+  ],
+  "unconnected_product_ports": [
+    "LEAN.inlet",
+    "CO2.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_pz_afs_carbon_capture",
+    "chemical_change": "Adds a lean-solvent flash and vapor heat pump that returns latent heat to the stripper reboiler.",
+    "native_metrics": {
+      "reboiler_steam_index": 4.0,
+      "compressor_power_index": 0.5,
+      "co2_capture": 0.938,
+      "lean_loading": 0.24,
+      "equivalent_energy_index": 4.35
+    }
+  }
+}

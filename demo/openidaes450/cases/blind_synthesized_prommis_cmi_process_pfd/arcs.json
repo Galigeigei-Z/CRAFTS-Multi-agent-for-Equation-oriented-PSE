@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fs.FEED_Diss",
+    "source": "fs.FEED.outlet",
+    "destination": "fs.Dissolution.inlet"
+  },
+  {
+    "name": "fs.Diss_S101",
+    "source": "fs.Dissolution.outlet",
+    "destination": "fs.S101.inlet"
+  },
+  {
+    "name": "fs.S101_AdjMixer",
+    "source": "fs.S101.liq_outlet",
+    "destination": "fs.AdjMixer.separator_stream"
+  },
+  {
+    "name": "fs.AdjFeed_AdjMixer",
+    "source": "fs.AdjFeed.outlet",
+    "destination": "fs.AdjMixer.reactant_feed"
+  },
+  {
+    "name": "fs.AdjMixer_Adjustment",
+    "source": "fs.AdjMixer.outlet",
+    "destination": "fs.Adjustment.inlet"
+  },
+  {
+    "name": "fs.Adjustment_PrecipMixer",
+    "source": "fs.Adjustment.outlet",
+    "destination": "fs.PrecipMixer.adjustment_stream"
+  },
+  {
+    "name": "fs.PrecipFeed_PrecipMixer",
+    "source": "fs.PrecipFeed.outlet",
+    "destination": "fs.PrecipMixer.reactant_feed"
+  },
+  {
+    "name": "fs.PrecipMixer_Precipitation",
+    "source": "fs.PrecipMixer.outlet",
+    "destination": "fs.Precipitation.inlet"
+  },
+  {
+    "name": "fs.Precipitation_S102",
+    "source": "fs.Precipitation.outlet",
+    "destination": "fs.S102.inlet"
+  }
+]

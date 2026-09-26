@@ -1,0 +1,89 @@
+{
+  "arcs": [
+    {
+      "destination": "model.water_steam_feed",
+      "destination_port": "water_steam_feed",
+      "id": "water_steam_feed_to_model",
+      "source": "water_steam_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "steam.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_steam",
+      "source": "model.steam",
+      "source_port": "steam",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "liquid.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_liquid",
+      "source": "model.liquid",
+      "source_port": "liquid",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_drum_1d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_drum_1d",
+  "initialization_order": [
+    "water_steam_feed",
+    "model",
+    "steam",
+    "liquid"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Steam Drum 1D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Drum1D build, initialization, and run tests"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/drum1D.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "water_steam_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "Drum1D",
+      "package": null,
+      "role": "Source-derived Drum1D node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "steam",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "liquid",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

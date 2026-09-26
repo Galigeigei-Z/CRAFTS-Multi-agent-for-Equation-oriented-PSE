@@ -1,0 +1,25 @@
+{
+  "case_id": "watertap_seawater_ro_pump_as_turbine",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.prop_prtrt",
+      "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+      "module": "watertap.core.zero_order_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_psttrt",
+      "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+      "module": "watertap.core.zero_order_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_desal",
+      "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+      "module": "watertap.property_models.seawater_prop_pack",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

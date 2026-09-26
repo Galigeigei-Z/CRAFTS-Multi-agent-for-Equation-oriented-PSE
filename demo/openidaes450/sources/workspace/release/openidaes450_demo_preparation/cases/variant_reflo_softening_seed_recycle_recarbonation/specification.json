@@ -1,0 +1,92 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_reflo_softening_seed_recycle_recarbonation",
+  "family": "family_softening_seed",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "seed_recycle_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "calcium_removal_fraction",
+      "value": 0.9400000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "lime_kg_s",
+      "value": 0.00108,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "precipitate_kg_s",
+      "value": 0.0018800000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "seed_solids_kg_s",
+      "value": 0.005381818181818182,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recarbonation_co2_kg_s",
+      "value": 0.00012319999999999996,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_a_v4.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet",
+    "LIME.outlet",
+    "CO2.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "SLUDGE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reflo_chemical_softening"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reflo_chemical_softening",
+    "chemical_change": "Adds a solids recycle path and recarbonation chemistry, coupling nucleation, lime use, sludge inventory and finished-water stability.",
+    "native_metrics": {
+      "calcium_removal_fraction": 0.9400000000000001,
+      "lime_kg_s": 0.00108,
+      "precipitate_kg_s": 0.0018800000000000002,
+      "seed_solids_kg_s": 0.005381818181818182,
+      "recarbonation_co2_kg_s": 0.00012319999999999996
+    }
+  }
+}

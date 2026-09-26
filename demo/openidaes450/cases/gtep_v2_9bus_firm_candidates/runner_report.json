@@ -1,0 +1,34 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "pass": true,
+    "status": "optimized",
+    "stage": "gtep_variant_gdp_bigm_highs",
+    "termination_condition": "optimal",
+    "solver": "highs",
+    "metrics": {
+      "bus_count": 9,
+      "branch_count": 9,
+      "generator_count": 72,
+      "load_count": 3,
+      "storage_count": 12,
+      "variables_before_gdp_transform": 1164,
+      "constraints_before_gdp_transform": 720,
+      "disjunctions_before_gdp_transform": 162,
+      "objective_value": 24019.530002281546
+    },
+    "configuration": {
+      "scenario": "firm_candidates",
+      "dataset": "9_bus_GTEP_dir",
+      "flow_model": "DC",
+      "big_m": 1000000.0,
+      "compatibility_fixes": [],
+      "candidate_generator_count": 6
+    },
+    "error": null
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

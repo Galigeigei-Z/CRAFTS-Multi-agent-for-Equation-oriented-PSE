@@ -1,0 +1,80 @@
+{
+  "pass": true,
+  "case_id": "variant_idaes_hx_ntu_e60_a80",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "specification_binding": [
+    {
+      "specification": {
+        "target": "hot_feed",
+        "variable": "temperature",
+        "value": 392.23,
+        "units": "K",
+        "role": "hot feed",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+      },
+      "target": "fs.heat_exchanger.hot_side.properties_in[0.0].temperature",
+      "value": 392.23
+    },
+    {
+      "specification": {
+        "target": "cold_feed",
+        "variable": "temperature",
+        "value": 326.36,
+        "units": "K",
+        "role": "cold feed",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+      },
+      "target": "fs.heat_exchanger.cold_side.properties_in[0.0].temperature",
+      "value": 326.36
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "area",
+        "value": 80,
+        "units": "m^2",
+        "role": "area",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+      },
+      "target": "fs.heat_exchanger.area",
+      "value": 80
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "heat_transfer_coefficient",
+        "value": 180,
+        "units": "W/m^2/K",
+        "role": "coefficient",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+      },
+      "target": "fs.heat_exchanger.heat_transfer_coefficient",
+      "value": {
+        "0.0": 180
+      }
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "effectiveness",
+        "value": 0.6,
+        "units": "dimensionless",
+        "role": "effectiveness",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+      },
+      "target": "fs.heat_exchanger.effectiveness",
+      "value": {
+        "0.0": 0.6
+      }
+    }
+  ],
+  "all_specifications_consumed": true,
+  "fidelity": "native IDAES unit equations with physical Feed/Product boundaries",
+  "solver_summary_file": "solver_summary.json"
+}

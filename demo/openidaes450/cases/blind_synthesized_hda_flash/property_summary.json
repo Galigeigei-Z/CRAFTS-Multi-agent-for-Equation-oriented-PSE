@@ -1,0 +1,19 @@
+{
+  "case_id": "blind_synthesized_hda_flash",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.thermo_params",
+      "class": "hda_ideal_VLE.HDAParameterBlock",
+      "module": "hda_ideal_VLE",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.reaction_params",
+      "class": "hda_reaction.HDAReactionParameterBlock",
+      "module": "hda_reaction",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

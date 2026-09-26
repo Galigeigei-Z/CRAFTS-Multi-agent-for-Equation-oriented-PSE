@@ -1,0 +1,110 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_idaes_hx1d_unit",
+  "family": "family_hx1d_unit",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "flow_mol",
+      "value": 100,
+      "units": "mol/s",
+      "role": "steam shell inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "pressure",
+      "value": 101325,
+      "units": "Pa",
+      "role": "steam shell inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger.hot_side_inlet",
+      "variable": "temperature",
+      "value": 450,
+      "units": "K",
+      "role": "steam shell inlet temperature via htpx enthalpy",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "flow_mol",
+      "value": 250,
+      "units": "mol/s",
+      "role": "BT tube inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "temperature",
+      "value": 350,
+      "units": "K",
+      "role": "BT tube inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger.cold_side_inlet",
+      "variable": "pressure",
+      "value": 101325,
+      "units": "Pa",
+      "role": "BT tube inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 0.5,
+      "units": "m^2",
+      "role": "official option 1 exchanger area",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "length",
+      "value": 4.85,
+      "units": "m",
+      "role": "official option 1 exchanger length",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "heat_transfer_coefficient",
+      "value": 500,
+      "units": "W/m^2/K",
+      "role": "official option 1 heat transfer coefficient",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_1D.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "heat_exchanger.hot_side_inlet",
+    "heat_exchanger.cold_side_inlet"
+  ],
+  "terminal_product_ports": [
+    "heat_exchanger.hot_side_outlet",
+    "heat_exchanger.cold_side_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official HeatExchanger1D initialize then IPOPT solve",
+    "solve_order": [
+      "heat_exchanger"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

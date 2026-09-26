@@ -1,0 +1,160 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_steady_feedwater_heater",
+  "family": "family_idaes_feedwater_heater",
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "extraction_steam",
+      "variable": "pressure",
+      "value": 201325.0,
+      "units": "Pa",
+      "role": "steam pressure",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "extraction_steam",
+      "variable": "enth_mol",
+      "value": 60000.0,
+      "units": "J/mol",
+      "role": "superheated steam enthalpy",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "flow_mol",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "cascade drain flow",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "pressure",
+      "value": 201325.0,
+      "units": "Pa",
+      "role": "cascade drain pressure",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "enth_mol",
+      "value": 20000.0,
+      "units": "J/mol",
+      "role": "cascade drain enthalpy",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "flow_mol",
+      "value": 400.0,
+      "units": "mol/s",
+      "role": "feedwater flow",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "feedwater pressure",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "enth_mol",
+      "value": 3000.0,
+      "units": "J/mol",
+      "role": "feedwater enthalpy",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.condense",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "condensing-zone area",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.condense",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 100.0,
+      "units": "W/m^2/K",
+      "role": "condensing-zone U",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.desuperheat",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "desuperheating-zone area",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.desuperheat",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 10.0,
+      "units": "W/m^2/K",
+      "role": "desuperheating-zone U",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.cooling",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "drain-cooling-zone area",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.cooling",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 10.0,
+      "units": "W/m^2/K",
+      "role": "drain-cooling-zone U",
+      "source": "reference",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "extraction_steam.outlet",
+    "cascade_drain.outlet",
+    "feedwater.outlet"
+  ],
+  "terminal_product_ports": [
+    "heated_feedwater.inlet",
+    "cooled_drain.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "native FWH0D staged initializer",
+    "solve_order": [
+      "desuperheat",
+      "drain_mix",
+      "condense",
+      "cooling",
+      "full_unit"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

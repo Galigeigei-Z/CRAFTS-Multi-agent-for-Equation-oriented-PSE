@@ -1,0 +1,29 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_supercritical_power_plant",
+  "family": "family_supercritical_power_plant",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/supercritical/supercritical_power_plant_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [],
+  "terminal_feed_ports": [
+    "FSH.hot_side_inlet",
+    "ATMP1.SprayWater"
+  ],
+  "terminal_product_ports": [
+    "ECON.hot_side_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official SCPC_full_plant.main(); Stage 3 uses the full official runner",
+    "solve_order": [
+      "steam_cycle",
+      "boiler_network",
+      "connected_full_plant"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "web_test_mode": "full_runner"
+  }
+}

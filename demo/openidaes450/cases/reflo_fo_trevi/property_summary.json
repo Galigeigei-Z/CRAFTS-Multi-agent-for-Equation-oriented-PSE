@@ -1,0 +1,19 @@
+{
+  "case_id": "reflo_fo_trevi",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.seawater_properties",
+      "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+      "module": "watertap.property_models.seawater_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.draw_solution_properties",
+      "class": "watertap_contrib.reflo.property_models.fo_draw_solution_properties.FODrawSolutionParameterBlock",
+      "module": "watertap_contrib.reflo.property_models.fo_draw_solution_properties",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

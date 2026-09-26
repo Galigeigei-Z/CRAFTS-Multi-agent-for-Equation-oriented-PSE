@@ -1,0 +1,288 @@
+{
+  "arcs": [
+    {
+      "destination": "mcas_to_tds.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_translator",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ec.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_ec",
+      "source": "mcas_to_tds.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "uf.inlet",
+      "destination_port": "inlet",
+      "id": "ec_to_uf",
+      "source": "ec.treated",
+      "source_port": "treated",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "sludge.inlet",
+      "destination_port": "inlet",
+      "id": "ec_to_sludge",
+      "source": "ec.sludge",
+      "source_port": "sludge",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "tds_to_seawater.inlet",
+      "destination_port": "inlet",
+      "id": "uf_to_translator",
+      "source": "uf.product",
+      "source_port": "product",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "uf_waste.inlet",
+      "destination_port": "inlet",
+      "id": "uf_to_waste",
+      "source": "uf.waste",
+      "source_port": "waste",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ltmed.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_ltmed",
+      "source": "tds_to_seawater.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "ltmed_to_product",
+      "source": "ltmed.distillate",
+      "source_port": "distillate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "dwi.inlet",
+      "destination_port": "inlet",
+      "id": "ltmed_to_dwi",
+      "source": "ltmed.brine",
+      "source_port": "brine",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ltmed.solar_heat",
+      "destination_port": "solar_heat",
+      "id": "fpc_to_ltmed",
+      "source": "fpc.heat",
+      "source_port": "heat",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ltmed.grid_heat",
+      "destination_port": "grid_heat",
+      "id": "grid_to_ltmed",
+      "source": "grid_heat.heat",
+      "source_port": "heat",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_kbhdp_rpt2",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reflo_kbhdp_rpt2",
+  "initialization_order": [
+    "feed",
+    "mcas_to_tds",
+    "ec",
+    "sludge",
+    "uf",
+    "uf_waste",
+    "tds_to_seawater",
+    "ltmed",
+    "product",
+    "dwi",
+    "fpc",
+    "grid_heat"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO KBHDP Report Train 2",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official KBHDP report train 2 main() optimization test"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+  "specifications": [
+    {
+      "role": "produced-water feed capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "Mgal/day",
+      "value": 4.0,
+      "variable": "flow_vol"
+    },
+    {
+      "role": "feed temperature",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "K",
+      "value": 293.0,
+      "variable": "temperature"
+    },
+    {
+      "role": "feed pressure",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "feed",
+      "units": "Pa",
+      "value": 101325.0,
+      "variable": "pressure"
+    },
+    {
+      "role": "fixed system water recovery",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "system",
+      "units": "dimensionless",
+      "value": 0.35,
+      "variable": "water_recovery"
+    },
+    {
+      "role": "purchased heat price",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "system",
+      "units": "USD/kWh",
+      "value": 0.005,
+      "variable": "heat_price"
+    },
+    {
+      "role": "initial solar-thermal capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_2.py",
+      "target": "fpc",
+      "units": "MW",
+      "value": 50.0,
+      "variable": "system_capacity"
+    }
+  ],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "mcas_to_tds",
+      "kind": "TranslatorMCAStoZO",
+      "package": null,
+      "role": "Source-derived TranslatorMCAStoZO node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ec",
+      "kind": "Electrocoagulation",
+      "package": null,
+      "role": "Source-derived Electrocoagulation node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "sludge",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "uf",
+      "kind": "Ultrafiltration",
+      "package": null,
+      "role": "Source-derived Ultrafiltration node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "uf_waste",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tds_to_seawater",
+      "kind": "TranslatorZOtoSeawater",
+      "package": null,
+      "role": "Source-derived TranslatorZOtoSeawater node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ltmed",
+      "kind": "LowTemperatureMED",
+      "package": null,
+      "role": "Source-derived LowTemperatureMED node",
+      "stage": "thermal_desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "dwi",
+      "kind": "DeepWellInjection",
+      "package": null,
+      "role": "Source-derived DeepWellInjection node",
+      "stage": "disposal"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "fpc",
+      "kind": "FlatPlateCollector",
+      "package": null,
+      "role": "Source-derived FlatPlateCollector node",
+      "stage": "energy"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "grid_heat",
+      "kind": "HeatSource",
+      "package": null,
+      "role": "Source-derived HeatSource node",
+      "stage": "energy"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.coagulation_prop_pack.CoagulationParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.coagulation_prop_pack.CoagulationParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.coagulation_prop_pack.CoagulationParameterBlock",
+    "module": "watertap.property_models.unit_specific.coagulation_prop_pack",
+    "data_class": "watertap.property_models.unit_specific.coagulation_prop_pack.CoagulationParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

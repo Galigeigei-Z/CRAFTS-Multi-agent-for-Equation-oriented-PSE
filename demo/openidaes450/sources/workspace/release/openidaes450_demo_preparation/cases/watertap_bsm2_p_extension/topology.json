@@ -1,0 +1,677 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "watertap_bsm2_p_extension",
+  "family": "family_watertap_bsm2_p_extension",
+  "process_type": "WaterTAP BSM2 phosphorus extension full water resource recovery facility with primary clarifier, ASM2d biological train, secondary clarifier recycle, thickener, anaerobic digestion, dewatering, and property translators",
+  "source_url": "local://watertap/flowsheets/full_water_resource_recovery_facility/BSM2_P_extension",
+  "source_basis": [
+    "Official source flowchart was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor file=/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_watertap_bsm2_p_extension_qwenstrict_20260603/source_flowchart.png.",
+    "The hand-maintained official IDAES source mappings are guardrails for names, ports, and solver runners; they do not bypass the flowchart evidence gate.",
+    "The WaterTAP full_water_resource_recovery_facility package includes BSM2_P_extension.py and BSM2_P_extension_ui.png as the official UI flowsheet asset.",
+    "This case differs from the existing BSM2 case by extending the biological train for phosphorus-capable ASM2d behavior and adding extra recycle/solid handling connections around primary clarification and dewatering.",
+    "The official local solve currently fails during the closing recycle step in this environment, so the topology is useful even when the solve report is expected to fail."
+  ],
+  "property_packages": {
+    "asm2d": {
+      "entry_id": "watertap.property_models.activated_sludge.asm2d_properties.ASM2dParameterBlock",
+      "components": [
+        "H2O",
+        "S_A",
+        "S_F",
+        "S_I",
+        "S_N2",
+        "S_NH4",
+        "S_NO3",
+        "S_O2",
+        "S_PO4",
+        "X_AUT",
+        "X_H",
+        "X_I",
+        "X_PAO",
+        "X_PHA",
+        "X_PP",
+        "X_S"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "FeedWater",
+        "clarifiers",
+        "reactors",
+        "thickener",
+        "dewater",
+        "Treated",
+        "Sludge"
+      ]
+    },
+    "adm1": {
+      "entry_id": "watertap.property_models.anaerobic_digestion.adm1_properties.ADM1ParameterBlock",
+      "components": [
+        "ADM1 liquid and vapor components"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "AD"
+      ]
+    },
+    "asm2d_to_adm1": {
+      "entry_id": "idaes.models.unit_models.Translator",
+      "components": [
+        "ASM2d",
+        "ADM1"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "translator_asm2d_adm1"
+      ]
+    },
+    "adm1_to_asm2d": {
+      "entry_id": "idaes.models.unit_models.Translator",
+      "components": [
+        "ADM1",
+        "ASM2d"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "translator_adm1_asm2d"
+      ]
+    }
+  },
+  "components": {
+    "biological": [
+      "carbon",
+      "nitrogen",
+      "phosphorus"
+    ],
+    "solid_handling": [
+      "primary sludge",
+      "waste activated sludge",
+      "digested sludge"
+    ]
+  },
+  "units": [
+    {
+      "id": "FeedWater",
+      "kind": "Feed",
+      "package": "asm2d",
+      "stage": "feed",
+      "role": "municipal wastewater feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MX3",
+      "kind": "Mixer",
+      "package": "asm2d",
+      "stage": "primary_treatment",
+      "role": "mixes raw feed and dewatering/thickener recycle",
+      "constructor": {
+        "inlet_list": [
+          "feed_water",
+          "recycle1",
+          "recycle2"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "CL",
+      "kind": "Clarifier",
+      "package": "asm2d",
+      "stage": "primary_treatment",
+      "role": "primary clarifier",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MX1",
+      "kind": "Mixer",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "mixes primary effluent and return activated sludge",
+      "constructor": {
+        "inlet_list": [
+          "feed_water",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "R1",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "anaerobic/anoxic reactor 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R2",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "reactor 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MX2",
+      "kind": "Mixer",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "secondary clarifier recycle mixer",
+      "constructor": {
+        "inlet_list": [
+          "reactor",
+          "clarifier"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "R3",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "aerobic reactor 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R4",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "aerobic reactor 4",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R5",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "aerobic reactor 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R6",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "reactor 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R7",
+      "kind": "CSTR",
+      "package": "asm2d",
+      "stage": "biological",
+      "role": "reactor 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SP1",
+      "kind": "Separator",
+      "package": "asm2d",
+      "stage": "secondary_clarification",
+      "role": "secondary splitter before clarifier",
+      "constructor": {
+        "outlet_list": [
+          "overflow",
+          "underflow"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "CL2",
+      "kind": "Clarifier",
+      "package": "asm2d",
+      "stage": "secondary_clarification",
+      "role": "secondary clarifier",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SP2",
+      "kind": "Separator",
+      "package": "asm2d",
+      "stage": "sludge_handling",
+      "role": "splits secondary sludge recycle and waste",
+      "constructor": {
+        "outlet_list": [
+          "recycle",
+          "waste"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "P1",
+      "kind": "Pump",
+      "package": "asm2d",
+      "stage": "recycle",
+      "role": "return activated sludge pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "thickener",
+      "kind": "Thickener",
+      "package": "asm2d",
+      "stage": "sludge_handling",
+      "role": "waste sludge thickener",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MX4",
+      "kind": "Mixer",
+      "package": "asm2d",
+      "stage": "sludge_handling",
+      "role": "mixes primary and thickened sludge for digestion",
+      "constructor": {
+        "inlet_list": [
+          "thickener",
+          "clarifier"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "translator_asm2d_adm1",
+      "kind": "Translator",
+      "package": "asm2d_to_adm1",
+      "stage": "translation",
+      "role": "maps ASM2d sludge to ADM1 digester feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AD",
+      "kind": "AnaerobicDigester",
+      "package": "adm1",
+      "stage": "digestion",
+      "role": "anaerobic digestion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "translator_adm1_asm2d",
+      "kind": "Translator",
+      "package": "adm1_to_asm2d",
+      "stage": "translation",
+      "role": "maps ADM1 liquid digestate back to ASM2d package",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dewater",
+      "kind": "DewateringUnit",
+      "package": "asm2d",
+      "stage": "sludge_handling",
+      "role": "dewaters digested sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Treated",
+      "kind": "Product",
+      "package": "asm2d",
+      "stage": "product",
+      "role": "treated effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Sludge",
+      "kind": "Product",
+      "package": "asm2d",
+      "stage": "product",
+      "role": "dewatered sludge product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "stream1a",
+      "source": "FeedWater.outlet",
+      "destination": "MX3.feed_water",
+      "stage": "feed",
+      "role": "raw feed to primary recycle mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream1b",
+      "source": "MX3.outlet",
+      "destination": "CL.inlet",
+      "stage": "primary_treatment",
+      "role": "mixed feed to primary clarifier",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream1c",
+      "source": "CL.effluent",
+      "destination": "MX1.feed_water",
+      "stage": "biological",
+      "role": "primary effluent to biological train",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream2",
+      "source": "MX1.outlet",
+      "destination": "R1.inlet",
+      "stage": "biological",
+      "role": "mixed biological feed to R1",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream3",
+      "source": "R1.outlet",
+      "destination": "R2.inlet",
+      "stage": "biological",
+      "role": "R1 to R2",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream4",
+      "source": "R2.outlet",
+      "destination": "MX2.reactor",
+      "stage": "biological",
+      "role": "R2 outlet to recycle mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream5",
+      "source": "MX2.outlet",
+      "destination": "R3.inlet",
+      "stage": "biological",
+      "role": "mixed stream to R3",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream6",
+      "source": "R3.outlet",
+      "destination": "R4.inlet",
+      "stage": "biological",
+      "role": "R3 to R4",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream7",
+      "source": "R4.outlet",
+      "destination": "R5.inlet",
+      "stage": "biological",
+      "role": "R4 to R5",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream8",
+      "source": "R5.outlet",
+      "destination": "R6.inlet",
+      "stage": "biological",
+      "role": "R5 to R6",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream9",
+      "source": "R6.outlet",
+      "destination": "R7.inlet",
+      "stage": "biological",
+      "role": "R6 to R7",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream10",
+      "source": "R7.outlet",
+      "destination": "SP1.inlet",
+      "stage": "secondary_clarification",
+      "role": "R7 to secondary splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream11",
+      "source": "SP1.overflow",
+      "destination": "CL2.inlet",
+      "stage": "secondary_clarification",
+      "role": "overflow to secondary clarifier",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream12",
+      "source": "SP1.underflow",
+      "destination": "MX2.clarifier",
+      "stage": "recycle",
+      "role": "underflow recycle to MX2",
+      "tear_candidate": true
+    },
+    {
+      "id": "stream13",
+      "source": "CL2.effluent",
+      "destination": "Treated.inlet",
+      "stage": "product",
+      "role": "treated effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream14",
+      "source": "CL2.underflow",
+      "destination": "SP2.inlet",
+      "stage": "sludge_handling",
+      "role": "secondary clarifier underflow",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream15",
+      "source": "SP2.recycle",
+      "destination": "P1.inlet",
+      "stage": "recycle",
+      "role": "RAS to pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream16",
+      "source": "P1.outlet",
+      "destination": "MX1.recycle",
+      "stage": "recycle",
+      "role": "return activated sludge to MX1",
+      "tear_candidate": true
+    },
+    {
+      "id": "stream_SP_thickener",
+      "source": "SP2.waste",
+      "destination": "thickener.inlet",
+      "stage": "sludge_handling",
+      "role": "waste sludge to thickener",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream3adm",
+      "source": "thickener.underflow",
+      "destination": "MX4.thickener",
+      "stage": "sludge_handling",
+      "role": "thickened sludge to digester feed mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream7adm",
+      "source": "thickener.overflow",
+      "destination": "MX3.recycle2",
+      "stage": "recycle",
+      "role": "thickener overflow recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "stream9adm",
+      "source": "CL.underflow",
+      "destination": "MX4.clarifier",
+      "stage": "sludge_handling",
+      "role": "primary sludge to digester feed mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream10adm",
+      "source": "MX4.outlet",
+      "destination": "translator_asm2d_adm1.inlet",
+      "stage": "translation",
+      "role": "mixed sludge to ADM1 translator",
+      "tear_candidate": true
+    },
+    {
+      "id": "stream_translator_AD",
+      "source": "translator_asm2d_adm1.outlet",
+      "destination": "AD.inlet",
+      "stage": "digestion",
+      "role": "translated sludge to AD",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream_AD_translator",
+      "source": "AD.liquid_outlet",
+      "destination": "translator_adm1_asm2d.inlet",
+      "stage": "translation",
+      "role": "AD liquid digestate to ASM2d translator",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream_translator_dewater",
+      "source": "translator_adm1_asm2d.outlet",
+      "destination": "dewater.inlet",
+      "stage": "sludge_handling",
+      "role": "translated digestate to dewatering",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream_dewater_sludge",
+      "source": "dewater.underflow",
+      "destination": "Sludge.inlet",
+      "stage": "product",
+      "role": "dewatered sludge product",
+      "tear_candidate": false
+    },
+    {
+      "id": "stream_dewater_mixer",
+      "source": "dewater.overflow",
+      "destination": "MX3.recycle1",
+      "stage": "recycle",
+      "role": "dewatering overflow recycle",
+      "tear_candidate": true
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": "official BSM2_P_extension influent",
+      "units": "m^3/s",
+      "role": "municipal wastewater feed"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "R1-R7",
+      "variable": "reactor_volumes",
+      "value": "official WaterTAP BSM2_P_extension defaults",
+      "units": "m^3",
+      "role": "ASM2d biological reactor volumes"
+    },
+    {
+      "target": "AD",
+      "variable": "digester_volume",
+      "value": "official default",
+      "units": "m^3",
+      "role": "anaerobic digester sizing"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [
+    {
+      "arc_id": "stream12",
+      "destination": "MX2.clarifier"
+    },
+    {
+      "arc_id": "stream16",
+      "destination": "MX1.recycle"
+    },
+    {
+      "arc_id": "stream7adm",
+      "destination": "MX3.recycle2"
+    },
+    {
+      "arc_id": "stream10adm",
+      "destination": "translator_asm2d_adm1.inlet"
+    },
+    {
+      "arc_id": "stream_dewater_mixer",
+      "destination": "MX3.recycle1"
+    }
+  ],
+  "translator_constraint_templates": {},
+  "translator_constraints": [
+    "ASM2d to ADM1 sludge composition mapping",
+    "ADM1 liquid digestate to ASM2d recycle mapping"
+  ],
+  "initialization": {
+    "strategy": "BSM2_P_extension.build, set_operating_conditions, initialize_system, scale, solve closing recycle model",
+    "solve_order": [
+      "primary clarifier",
+      "ASM2d biological train",
+      "secondary clarifier recycle",
+      "thickener",
+      "ASM2d/ADM1 translator",
+      "anaerobic digester",
+      "ADM1/ASM2d translator",
+      "dewatering recycle"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0,
+    "local_status": "official local solve failed infeasible at closing recycle"
+  },
+  "required_entries": [
+    "watertap.flowsheets.full_water_resource_recovery_facility.BSM2_P_extension",
+    "BSM2_P_extension_ui.png",
+    "ASM2dParameterBlock",
+    "ADM1ParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "Use the WaterTAP BSM2_P_extension UI diagram as source evidence; expect a failed solve report in this local environment unless upstream inputs or scaling are changed."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_watertap_bsm2_p_extension_qwenstrict_20260603/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1027,
+      "height": 482,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "ok",
+      "provider": "openai_compatible_vision",
+      "base_url": "https://api.vectorengine.ai/v1",
+      "model": "qwen-vl-max",
+      "description": "1. PROCESS DESCRIPTION  \nThe process begins with influent wastewater entering the Primary Clarifier, where solids are settled out. The clarified liquid flows to the Activated Sludge system, which consists of multiple aeration tanks for biological treatment. Treated water then proceeds to the Secondary Clarifier for further solid-liquid separation. The effluent from the Secondary Clarifier is discharged as final treated water. Solids from both clarifiers are combined and sent to a Thickener to increase solids concentration. Thickened sludge is directed to an Anaerobic Digester for stabilization, producing biogas (indicated by gas removal). Digested sludge undergoes dewatering before being removed as final sludge. Excess sludge and digested material are routed to a Storage Tank, with recycle streams returning to the Primary Clarifier and Activated Sludge system.\n\n2. EQUIPMENT AND CONNECTIONS  \n- **Primary Clarifier**: Inlet from Influent; outlet to Activated Sludge.  \n- **Activated Sludge**: Multiple aeration tanks in series; inlet from Primary Clarifier; outlet to Secondary Clarifier. Recycle stream from Secondary Clarifier returns to Activated Sludge.  \n- **Secondary Clarifier**: Inlet from Activated Sludge; outlet to Effluent. Underflow to Thickener.  \n- **Thickener**: Inlet from Secondary Clarifier underflow; outlet to Anaerobic Digester.  \n- **Anaerobic Digester**: Inlet from Thickener; outlet to Dewatering. Gas removal stream present.  \n- **Dewatering**: Inlet from Anaerobic Digester; outlet to Sludge.  \n- **Storage Tank**: Inlet from Anaerobic Digester and Dewatering; outlet to Primary Clarifier (recycle).  \n- **ASM/ADM interface** (two units): Located between Thickener and Anaerobic Digester, and between Anaerobic Digester and Dewatering—function unclear but likely represent model interfaces or transfer points.  \n\n3. STREAMS AND DIRECTIONS  \n- Influent → Primary Clarifier → Activated Sludge → Secondary Clarifier → Effluent  \n- Secondary Clarifier underflow → Thickener → Anaerobic Digester → Dewatering → Sludge  \n- Anaerobic Digester → Storage Tank → Primary Clarifier (recycle)  \n- Dewatering → Storage Tank (recycle)  \n- Gas removal from Anaerobic Digester (upward direction)  \n- ASM/ADM interface: flow through both interfaces in sequence (no directional labels provided)  \n\n4. FINAL CONSISTENCY CHECK  \nAll visible equipment is accounted for. Stream directions follow left-to-right progression with logical recycling paths. No equipment has been invented. Labels such as \"ASM/ADM interface\" are preserved as unclear due to lack of functional description. Flow logic aligns with conventional wastewater treatment processes. Consistent with standard activated sludge and anaerobic digestion configurations."
+    },
+    "description": "1. PROCESS DESCRIPTION  \nThe process begins with influent wastewater entering the Primary Clarifier, where solids are settled out. The clarified liquid flows to the Activated Sludge system, which consists of multiple aeration tanks for biological treatment. Treated water then proceeds to the Secondary Clarifier for further solid-liquid separation. The effluent from the Secondary Clarifier is discharged as final treated water. Solids from both clarifiers are combined and sent to a Thickener to increase solids concentration. Thickened sludge is directed to an Anaerobic Digester for stabilization, producing biogas (indicated by gas removal). Digested sludge undergoes dewatering before being removed as final sludge. Excess sludge and digested material are routed to a Storage Tank, with recycle streams returning to the Primary Clarifier and Activated Sludge system.\n\n2. EQUIPMENT AND CONNECTIONS  \n- **Primary Clarifier**: Inlet from Influent; outlet to Activated Sludge.  \n- **Activated Sludge**: Multiple aeration tanks in series; inlet from Primary Clarifier; outlet to Secondary Clarifier. Recycle stream from Secondary Clarifier returns to Activated Sludge.  \n- **Secondary Clarifier**: Inlet from Activated Sludge; outlet to Effluent. Underflow to Thickener.  \n- **Thickener**: Inlet from Secondary Clarifier underflow; outlet to Anaerobic Digester.  \n- **Anaerobic Digester**: Inlet from Thickener; outlet to Dewatering. Gas removal stream present.  \n- **Dewatering**: Inlet from Anaerobic Digester; outlet to Sludge.  \n- **Storage Tank**: Inlet from Anaerobic Digester and Dewatering; outlet to Primary Clarifier (recycle).  \n- **ASM/ADM interface** (two units): Located between Thickener and Anaerobic Digester, and between Anaerobic Digester and Dewatering—function unclear but likely represent model interfaces or transfer points.  \n\n3. STREAMS AND DIRECTIONS  \n- Influent → Primary Clarifier → Activated Sludge → Secondary Clarifier → Effluent  \n- Secondary Clarifier underflow → Thickener → Anaerobic Digester → Dewatering → Sludge  \n- Anaerobic Digester → Storage Tank → Primary Clarifier (recycle)  \n- Dewatering → Storage Tank (recycle)  \n- Gas removal from Anaerobic Digester (upward direction)  \n- ASM/ADM interface: flow through both interfaces in sequence (no directional labels provided)  \n\n4. FINAL CONSISTENCY CHECK  \nAll visible equipment is accounted for. Stream directions follow left-to-right progression with logical recycling paths. No equipment has been invented. Labels such as \"ASM/ADM interface\" are preserved as unclear due to lack of functional description. Flow logic aligns with conventional wastewater treatment processes. Consistent with standard activated sludge and anaerobic digestion configurations."
+  }
+}

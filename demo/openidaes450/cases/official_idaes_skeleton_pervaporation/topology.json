@@ -1,0 +1,148 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__official_idaes_skeleton_pervaporation",
+  "family": "family_official_idaes_skeleton_pervaporation",
+  "process_type": "Official IDAES Skeleton-Unit Pervaporation",
+  "source_url": "https://github.com/IDAES/examples/blob/7de78142bcaa41ff0f97cc2846af46c06f30305c/idaes_examples/notebooks/docs/unit_models/operations/skeleton_unit_test.ipynb",
+  "source_flowchart_url": "https://github.com/IDAES/examples/blob/7de78142bcaa41ff0f97cc2846af46c06f30305c/idaes_examples/notebooks/docs/unit_models/operations/pervaporation_process.png",
+  "source_basis": [
+    "Units and five Arc endpoints are transcribed from the pinned official executable notebook.",
+    "The displayed process diagram is the byte-preserved official PNG referenced by that notebook.",
+    "Native execution status is recorded separately by the solver script."
+  ],
+  "property_packages": {
+    "thermo_params": "eg_h2o_ideal.GenericParameterBlock"
+  },
+  "components": {
+    "liquid": [
+      "water",
+      "ethylene_glycol"
+    ]
+  },
+  "units": [
+    {
+      "id": "WATER",
+      "kind": "Feed",
+      "package": "eg_h2o_ideal",
+      "stage": "feed_preparation",
+      "role": "Water feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GLYCOL",
+      "kind": "Feed",
+      "package": "eg_h2o_ideal",
+      "stage": "feed_preparation",
+      "role": "Ethylene-glycol feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "eg_h2o_ideal",
+      "stage": "feed_preparation",
+      "role": "Combine water and glycol feeds",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pervap",
+      "kind": "SkeletonUnitModel",
+      "package": null,
+      "stage": "membrane_separation",
+      "role": "Empirical pervaporation membrane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PERMEATE",
+      "kind": "Product",
+      "package": "eg_h2o_ideal",
+      "stage": "products",
+      "role": "Water-rich permeate product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RETENTATE",
+      "kind": "Product",
+      "package": "eg_h2o_ideal",
+      "stage": "products",
+      "role": "Glycol-rich retentate product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WATER.outlet",
+      "destination": "M101.water_feed",
+      "source_port": "outlet",
+      "destination_port": "water_feed",
+      "stage": "feed_preparation",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "s02",
+      "source": "GLYCOL.outlet",
+      "destination": "M101.glycol_feed",
+      "source_port": "outlet",
+      "destination_port": "glycol_feed",
+      "stage": "feed_preparation",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "pervap.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "stage": "membrane_separation",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "s04",
+      "source": "pervap.permeate",
+      "destination": "PERMEATE.inlet",
+      "source_port": "permeate",
+      "destination_port": "inlet",
+      "stage": "products",
+      "state_link": "pinned_official_source_connection"
+    },
+    {
+      "id": "s05",
+      "source": "pervap.retentate",
+      "destination": "RETENTATE.inlet",
+      "source_port": "retentate",
+      "destination_port": "inlet",
+      "stage": "products",
+      "state_link": "pinned_official_source_connection"
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "initialization_order": [
+    "WATER",
+    "GLYCOL",
+    "M101",
+    "pervap",
+    "PERMEATE",
+    "RETENTATE"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "initialization": {
+    "source_owned": true
+  },
+  "solve": {
+    "source_owned": true
+  },
+  "open_decisions": [
+    "Operating specifications remain source-owned until native execution is reproduced."
+  ],
+  "evidence_status": "source_verified"
+}

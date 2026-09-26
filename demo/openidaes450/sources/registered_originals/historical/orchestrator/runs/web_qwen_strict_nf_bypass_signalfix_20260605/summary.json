@@ -1,0 +1,76 @@
+{
+  "question": "Strict Qwen web API test. Build a compact WaterTAP nanofiltration DSPM-DE with bypass flowsheet for hardness removal: feed, bypass splitter, NF feed pump, NF DSPM-DE unit, NF permeate, NF retentate disposal, product mixer combining bypass and NF permeate, final product. This is nanofiltration with bypass, not reverse osmosis, not electrodialysis, and not a full desalination train.",
+  "case_id": "web_qwen_strict_nf_bypass_signalfix_20260605",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_nf_bypass_signalfix_20260605",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_nf_dspmde_bypass\",\n  \"family\": \"family_watertap_nf_dspmde_with_bypass\",\n  \"units\": 10,\n  \"arcs\": 10\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 10,\n    \"arc_count\": 10,\n    \"units\": [\n      \"feed\",\n      \"by_pass_splitter\",\n      \"NF_feed\",\n      \"NF_pump\",\n      \"NF_unit\",\n      \"NF_product\",\n      \"NF_retentate\",\n      \"total_product_mixer\",\n      \"product\",\n      \"disposal\"\n    ],\n    \"arcs\": [\n      \"feed_to_splitter\",\n      \"splitter_to_nfUnit_feed\",\n      \"nf_feed_to_pump\",\n      \"pump_to_nfUnit\",\n      \"nfUnit_product\",\n      \"nfUnit_retentate\",\n      \"splitter_to_mixer\",\n      \"nfUnit_product_to_mixer\",\n      \"nfUnit_retentate_to_disposal\",\n      \"mixer_to_product\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/web_qwen_strict_nf_bypass_signalfix_20260605_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 21\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_nf_dspmde_bypass\",\n  \"family\": \"family_watertap_nf_dspmde_with_bypass\",\n  \"spec_count\": 21,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 10,\n  \"arc_count\": 10\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_nf_bypass_signalfix_20260605/native_solve_report.json",
+      "output_tail": "erature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.by_pass_splitter.bypass\",\n      \"destination_port\": \"fs.total_product_mixer.bypass\"\n    },\n    \"nfUnit_product_to_mixer\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 3.8486783599000662,\n        \"Liq/Ca_2+\": 0.0001947757362248531,\n        \"Liq/SO4_2-\": 3.375400009823557e-06,\n        \"Liq/HCO3_-\": 0.00038891098504424416,\n        \"Liq/Na_+\": 0.0014998808012161196,\n        \"Liq/Cl_-\": 0.0017512442227452304,\n        \"Liq/K_+\": 1.7730989541898327e-05,\n        \"Liq/Mg_2+\": 0.00011987137230069868\n      },\n      \"molar_flow\": 3.8526541494071496,\n      \"flow_mol_s\": 3.8526541494071496,\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.NF_product.outlet\",\n      \"destination_port\": \"fs.total_product_mixer.nf_stage\"\n    },\n    \"nfUnit_retentate_to_disposal\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 1.7068771936344542,\n        \"Liq/Ca_2+\": 0.00045238831505100234,\n        \"Liq/SO4_2-\": 0.0010532972478280514,\n        \"Liq/HCO3_-\": 0.00024418357108618147,\n        \"Liq/Na_+\": 0.001723980962175109,\n        \"Liq/Cl_-\": 0.0008028112227336722,\n        \"Liq/K_+\": 2.152712594166831e-05,\n        \"Liq/Mg_2+\": 0.00025165242748236255\n      },\n      \"molar_flow\": 1.7114270345067522,\n      \"flow_mol_s\": 1.7114270345067522,\n      \"temperature\": 298.15,\n      \"pressure\": 300000.0,\n      \"source_port\": \"fs.NF_retentate.outlet\",\n      \"destination_port\": \"fs.disposal.inlet\"\n    },\n    \"mixer_to_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 53.848678341710766,\n        \"Liq/Ca_2+\": 0.006019252197707554,\n        \"Liq/SO4_2-\": 0.009513429230550702,\n        \"Liq/HCO3_-\": 0.006086761990218078,\n        \"Liq/Na_+\": 0.030514636671737188,\n        \"Liq/Cl_-\": 0.024737743232055354,\n        \"Liq/K_+\": 0.0003710540288939981,\n        \"Liq/Mg_2+\": 0.0034635855703482503\n      },\n      \"molar_flow\": 53.929384804632285,\n      \"flow_mol_s\": 53.929384804632285,\n      \"temperature\": 293.15,\n      \"pressure\": 101324.99949999999,\n      \"source_port\": \"fs.total_product_mixer.outlet\",\n      \"destination_port\": \"fs.product.inlet\"\n    }\n  },\n  \"build_plan_sha256\": \"e5dd1b62bf0ee06f3a3e7e530d6895a2b0a463280906396078e97c088ff61fce\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_nf_dspmde_bypass\",\n    \"plan_derived_params\": [\n      \"feed.multi_ion_conc_mass\",\n      \"by_pass_splitter.bypass_split_fraction\",\n      \"NF_pump.outlet_pressure\",\n      \"NF_unit.area\",\n      \"NF_unit.radius_pore\",\n      \"NF_unit.membrane_thickness_effective\",\n      \"NF_unit.membrane_charge_density\"\n    ],\n    \"fixed_template_params\": [\n      \"MCAS multi-ion DSPM-DE feed property data\",\n      \"NanofiltrationDSPMDE0D membrane defaults\",\n      \"product mixer energy_mixing_type=none\",\n      \"retentate disposal terminal product\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

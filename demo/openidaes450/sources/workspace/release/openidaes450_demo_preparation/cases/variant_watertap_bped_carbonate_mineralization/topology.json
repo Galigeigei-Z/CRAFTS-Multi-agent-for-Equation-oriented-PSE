@@ -1,0 +1,208 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_bped_carbonate_mineralization",
+  "family": "family_bped_mineralization",
+  "process_type": "Bipolar ED Carbonate Generation with Mineralization",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent watertap_bped_unit.",
+    "Couples electrochemical alkalinity generation to reactive mineral carbonation and solid-product harvest.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "OH-",
+        "carbonate",
+        "Ca2+",
+        "solid_carbonate"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_bped_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "OH-",
+      "carbonate",
+      "Ca2+",
+      "solid_carbonate"
+    ]
+  },
+  "units": [
+    {
+      "id": "SALT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "neutral salt solution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BPED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "generate acid/base",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "CO2 gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "alkaline CO2 uptake",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MIN",
+      "kind": "PrecipitationReactor",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "carbonate mineralization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "harvest carbonate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "alkaline recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CARB",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "bped_mineralization",
+      "role": "stable carbonate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SALT.outlet",
+      "destination": "BPED.feed",
+      "stage": "bped_mineralization",
+      "role": "salt",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BPED.base",
+      "destination": "ABS.liquid",
+      "stage": "bped_mineralization",
+      "role": "alkaline stream",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "CO2.outlet",
+      "destination": "ABS.gas",
+      "stage": "bped_mineralization",
+      "role": "CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "ABS.carbonate",
+      "destination": "MIN.inlet",
+      "stage": "bped_mineralization",
+      "role": "carbonate liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "MIN.slurry",
+      "destination": "CF.inlet",
+      "stage": "bped_mineralization",
+      "role": "mineral slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CF.solid",
+      "destination": "CARB.inlet",
+      "stage": "bped_mineralization",
+      "role": "carbonate product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "CF.liquid",
+      "destination": "S1.inlet",
+      "stage": "bped_mineralization",
+      "role": "mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S1.recycle",
+      "destination": "ABS.recycle",
+      "stage": "bped_mineralization",
+      "role": "alkaline recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SALT.outlet",
+    "CO2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CARB.inlet"
+  ],
+  "tear_streams": [
+    "s08"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_bped_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_bped_unit",
+    "chemical_change": "Couples electrochemical alkalinity generation to reactive mineral carbonation and solid-product harvest.",
+    "native_metrics": {
+      "co2_capture": 0.9069999999999999,
+      "membrane_scaling_index": 0.0315,
+      "stack_voltage_V": 33.0,
+      "carbonate_purity": 0.96
+    }
+  }
+}

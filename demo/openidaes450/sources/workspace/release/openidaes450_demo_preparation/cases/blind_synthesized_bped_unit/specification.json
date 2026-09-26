@@ -1,0 +1,185 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_bped_unit",
+  "family": "family_watertap_bped_unit",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "diluate_feed",
+      "variable": "flow_mol_na",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default diluate sodium flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diluate_feed",
+      "variable": "flow_mol_cl",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default diluate chloride flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "acid_feed",
+      "variable": "flow_mol_h",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default acid hydrogen ion flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "acid_feed",
+      "variable": "flow_mol_cl",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default acid chloride flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "base_feed",
+      "variable": "flow_mol_na",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default base sodium flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "base_feed",
+      "variable": "flow_mol_oh",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "family_default base hydroxide flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diluate_feed",
+      "variable": "flow_mol_h2o",
+      "value": 0.24,
+      "units": "mol/s",
+      "role": "family_default water flow per channel",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "acid_feed",
+      "variable": "flow_mol_h2o",
+      "value": 0.24,
+      "units": "mol/s",
+      "role": "family_default water flow per channel",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "base_feed",
+      "variable": "flow_mol_h2o",
+      "value": 0.24,
+      "units": "mol/s",
+      "role": "family_default water flow per channel",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diluate_feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default BPED feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "acid_feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default BPED feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "base_feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default BPED feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "diluate_feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default BPED feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "acid_feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default BPED feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "base_feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default BPED feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "bped",
+      "variable": "voltage_applied",
+      "value": 10.0,
+      "units": "V",
+      "role": "family_default constant voltage operation",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "bped",
+      "variable": "cell_triplet_num",
+      "value": 10,
+      "units": "dimensionless",
+      "role": "family_default compact stack size",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "bped",
+      "variable": "salt_calculation",
+      "value": false,
+      "units": "dimensionless",
+      "role": "compact sandbox operation mode",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind BPED topology is compiled to BuildPlanIR and solved by the BPED sandbox template",
+    "solve_order": [
+      "bped"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

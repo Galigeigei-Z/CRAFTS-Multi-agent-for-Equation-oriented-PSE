@@ -1,0 +1,44 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "ngcc_steam_turbine_subflowsheet",
+  "family": "family_ngcc_steam_turbine_subflowsheet",
+  "source_url": "local://idaes_examples/power_gen/ngcc/steam_turbine_subflowsheet",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "SteamTurbineFlowsheet",
+      "variable": "steam_turbine.power",
+      "value": -210.5,
+      "units": "MW",
+      "role": "official steam turbine power output",
+      "source": "reference",
+      "source_url": "local://idaes_examples/power_gen/ngcc/steam_turbine_subflowsheet"
+    }
+  ],
+  "terminal_feed_ports": [
+    "steam_turbine.inlet_split.inlet",
+    "steam_turbine_lp_mix.hrsg",
+    "main_condenser.cold_side_inlet",
+    "hotwell.makeup"
+  ],
+  "terminal_product_ports": [
+    "return_mix.outlet",
+    "main_condenser.cold_side_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "SteamTurbineFlowsheet(dynamic=False), load steam_turbine_init.json.gz, solve square steady-state model",
+    "solve_order": [
+      "HP/IP/LP turbine",
+      "reheat",
+      "LP admission",
+      "condenser",
+      "pump"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

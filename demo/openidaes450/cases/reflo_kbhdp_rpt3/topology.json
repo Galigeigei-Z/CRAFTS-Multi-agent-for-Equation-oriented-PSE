@@ -1,0 +1,180 @@
+{
+  "arcs": [
+    {
+      "destination": "md.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_md",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "md_to_product",
+      "source": "md.permeate",
+      "source_port": "permeate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "dwi.inlet",
+      "destination_port": "inlet",
+      "id": "md_to_dwi",
+      "source": "md.concentrate",
+      "source_port": "concentrate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "md.solar_heat",
+      "destination_port": "solar_heat",
+      "id": "fpc_to_md",
+      "source": "fpc.heat",
+      "source_port": "heat",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "md.grid_heat",
+      "destination_port": "grid_heat",
+      "id": "grid_to_md",
+      "source": "grid_heat.heat",
+      "source_port": "heat",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_kbhdp_rpt3",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reflo_kbhdp_rpt3",
+  "initialization_order": [
+    "feed",
+    "md",
+    "product",
+    "dwi",
+    "fpc",
+    "grid_heat"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO KBHDP Report Train 3",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official KBHDP report train 3 main() optimization test"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+  "specifications": [
+    {
+      "role": "produced-water feed capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "feed",
+      "units": "Mgal/day",
+      "value": 4.0,
+      "variable": "flow_vol"
+    },
+    {
+      "role": "feed total dissolved solids",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "feed",
+      "units": "g/L",
+      "value": 12.0,
+      "variable": "salinity"
+    },
+    {
+      "role": "feed temperature",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "feed",
+      "units": "K",
+      "value": 298.15,
+      "variable": "temperature"
+    },
+    {
+      "role": "fixed system water recovery",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "system",
+      "units": "dimensionless",
+      "value": 0.8,
+      "variable": "water_recovery"
+    },
+    {
+      "role": "initial solar-thermal capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "fpc",
+      "units": "MW",
+      "value": 50.0,
+      "variable": "system_capacity"
+    },
+    {
+      "role": "purchased heat price",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_3.py",
+      "target": "system",
+      "units": "USD/kWh",
+      "value": 0.01,
+      "variable": "heat_cost_buy"
+    }
+  ],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "md",
+      "kind": "MembraneDistillation",
+      "package": null,
+      "role": "Source-derived MembraneDistillation node",
+      "stage": "thermal_desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "dwi",
+      "kind": "DeepWellInjection",
+      "package": null,
+      "role": "Source-derived DeepWellInjection node",
+      "stage": "disposal"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "fpc",
+      "kind": "FlatPlateCollector",
+      "package": null,
+      "role": "Source-derived FlatPlateCollector node",
+      "stage": "energy"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "grid_heat",
+      "kind": "HeatSource",
+      "package": null,
+      "role": "Source-derived HeatSource node",
+      "stage": "energy"
+    }
+  ]
+}

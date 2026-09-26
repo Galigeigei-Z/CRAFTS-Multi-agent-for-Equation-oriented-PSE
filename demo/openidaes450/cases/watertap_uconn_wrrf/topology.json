@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__watertap_uconn_wrrf",
+  "family": "family_source_verified_watertap_uconn_wrrf",
+  "process_type": "UConn five-reactor water resource recovery facility",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/UConn_WRRF.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is transcribed from the official WaterTAP UConn_WRRF arcs. No operating specifications, initialization, solve, costing, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "mixer1",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "headworks",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reactor1",
+      "kind": "CSTR",
+      "package": null,
+      "stage": "biological_1",
+      "role": "Source-derived CSTR node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reactor2",
+      "kind": "CSTR",
+      "package": null,
+      "stage": "recycle_reactor",
+      "role": "Source-derived CSTR node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "mixer2",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "internal_recycle",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reactor3",
+      "kind": "CSTR",
+      "package": null,
+      "stage": "biological_2",
+      "role": "Source-derived CSTR node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reactor4",
+      "kind": "CSTR",
+      "package": null,
+      "stage": "biological_3",
+      "role": "Source-derived CSTR node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reactor5",
+      "kind": "CSTR",
+      "package": null,
+      "stage": "biological_4",
+      "role": "Source-derived CSTR node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "separator",
+      "kind": "Separator",
+      "package": null,
+      "stage": "secondary_separation",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treated",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_mixer1",
+      "source": "feed.outlet",
+      "destination": "mixer1.feed",
+      "source_port": "outlet",
+      "destination_port": "feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "mixer1_to_r1",
+      "source": "mixer1.outlet",
+      "destination": "reactor1.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "r1_to_mixer2",
+      "source": "reactor1.outlet",
+      "destination": "mixer2.feed",
+      "source_port": "outlet",
+      "destination_port": "feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "r2_to_mixer2",
+      "source": "reactor2.outlet",
+      "destination": "mixer2.recycle",
+      "source_port": "outlet",
+      "destination_port": "recycle",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "mixer2_to_r3",
+      "source": "mixer2.outlet",
+      "destination": "reactor3.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "r3_to_r4",
+      "source": "reactor3.outlet",
+      "destination": "reactor4.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "r4_to_r5",
+      "source": "reactor4.outlet",
+      "destination": "reactor5.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "r5_to_separator",
+      "source": "reactor5.outlet",
+      "destination": "separator.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_effluent",
+      "source": "separator.effluent",
+      "destination": "treated.inlet",
+      "source_port": "effluent",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_recycle_to_m1",
+      "source": "separator.recycle",
+      "destination": "mixer1.recycle",
+      "source_port": "recycle",
+      "destination_port": "recycle",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_to_r2",
+      "source": "separator.r2_outlet",
+      "destination": "reactor2.inlet",
+      "source_port": "r2_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "feed",
+    "mixer1",
+    "reactor1",
+    "reactor2",
+    "mixer2",
+    "reactor3",
+    "reactor4",
+    "reactor5",
+    "separator",
+    "treated"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

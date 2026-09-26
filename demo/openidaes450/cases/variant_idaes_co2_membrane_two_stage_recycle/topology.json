@@ -1,0 +1,186 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_co2_membrane_two_stage_recycle",
+  "family": "family_co2_membrane_two_stage",
+  "process_type": "Two-Stage CO2 Membrane with Permeate Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent idaes_co2_membrane_1d.",
+    "Adds membrane staging and a composition-changing recycle loop instead of an area or pressure point.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "N2",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_co2_membrane_1d"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "N2",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "CO2-containing gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "fresh feed and recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MB1",
+      "kind": "Membrane1D",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "bulk CO2 capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MB2",
+      "kind": "Membrane1D",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "permeate polishing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "second-stage retentate recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "CO2-rich product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RAFF",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "co2_membrane_two_stage",
+      "role": "CO2-depleted gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.feed",
+      "stage": "co2_membrane_two_stage",
+      "role": "gas feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "MB1.inlet",
+      "stage": "co2_membrane_two_stage",
+      "role": "stage-one feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "MB1.permeate",
+      "destination": "MB2.inlet",
+      "stage": "co2_membrane_two_stage",
+      "role": "stage-two feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "MB2.permeate",
+      "destination": "CO2.inlet",
+      "stage": "co2_membrane_two_stage",
+      "role": "CO2 product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "MB2.retentate",
+      "destination": "S101.inlet",
+      "stage": "co2_membrane_two_stage",
+      "role": "polishing retentate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "co2_membrane_two_stage",
+      "role": "retentate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "MB1.retentate",
+      "destination": "RAFF.inlet",
+      "stage": "co2_membrane_two_stage",
+      "role": "raffinate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO2.inlet",
+    "RAFF.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_co2_membrane_1d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_co2_membrane_1d",
+    "chemical_change": "Adds membrane staging and a composition-changing recycle loop instead of an area or pressure point.",
+    "native_metrics": {
+      "co2_recovery": 0.855,
+      "co2_purity": 0.957,
+      "compression_power_kW": 176.0
+    }
+  }
+}

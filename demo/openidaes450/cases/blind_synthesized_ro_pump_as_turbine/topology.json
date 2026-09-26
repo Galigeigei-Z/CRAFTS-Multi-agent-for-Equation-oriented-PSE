@@ -1,0 +1,497 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_ro_pump_as_turbine",
+  "family": "family_watertap_ro_pump_as_turbine",
+  "process_type": "Blind-synthesized WaterTAP reverse osmosis draft with feed pump, RO membrane, pump-as-turbine energy recovery on retentate, product, and disposal outlets",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle library support cards.",
+    "No source URL, case id, run id, image filename, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: WaterTAP pump and energy recovery pressure changers; Family profile hint: family_watertap_ro_pump_as_turbine; WaterTAP reverse osmosis unit; WaterTAP NaCl property package; Family profile hint: family_watertap_ro_with_energy_recovery",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: WaterTAP pump and energy recovery pressure changers (unit_model) matched ['pump', 'energy recovery', 'pump as turbine', 'turbine'].",
+    "Blind support hint: Family profile hint: family_watertap_ro_pump_as_turbine (family_profile_hint) matched ['ro pump as turbine', 'reverse osmosis', 'pump-as-turbine'].",
+    "Blind support hint: WaterTAP reverse osmosis unit (unit_model) matched ['reverse osmosis', 'ro', 'ro membrane'].",
+    "Blind support hint: WaterTAP NaCl property package (property_package) matched ['nacl', 'reverse osmosis', 'ro']."
+  ],
+  "property_packages": {
+    "nacl": {
+      "entry_id": "watertap.property_models.NaCl_prop_pack.NaClParameterBlock",
+      "components": [
+        "H2O",
+        "NaCl"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "P1",
+        "RO",
+        "ERD",
+        "product",
+        "disposal"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "saline_water": [
+      "H2O",
+      "NaCl"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "nacl",
+      "stage": "feed",
+      "role": "flowchart feed source",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P1",
+      "kind": "Pump",
+      "package": "nacl",
+      "stage": "pressure",
+      "role": "feed pressure increase before RO",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO",
+      "kind": "ReverseOsmosis0D",
+      "package": "nacl",
+      "stage": "membrane",
+      "role": "RO membrane with permeate and retentate outlets",
+      "constructor": {
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "ERD",
+      "kind": "EnergyRecoveryDevice",
+      "package": "nacl",
+      "stage": "energy_recovery",
+      "role": "pump-as-turbine energy recovery device inferred from visual/text signals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "nacl",
+      "stage": "product",
+      "role": "permeate product outlet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal",
+      "kind": "Product",
+      "package": "nacl",
+      "stage": "brine",
+      "role": "retentate/brine disposal outlet after energy recovery",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_p1",
+      "source": "feed.outlet",
+      "destination": "P1.inlet",
+      "stage": "feed",
+      "role": "feed to pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "p1_to_ro",
+      "source": "P1.outlet",
+      "destination": "RO.inlet",
+      "stage": "membrane",
+      "role": "pressurized feed to RO",
+      "tear_candidate": false
+    },
+    {
+      "id": "ro_permeate_to_product",
+      "source": "RO.permeate",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "RO permeate to product",
+      "tear_candidate": false
+    },
+    {
+      "id": "ro_retentate_to_erd",
+      "source": "RO.retentate",
+      "destination": "ERD.inlet",
+      "stage": "energy_recovery",
+      "role": "retentate to pump-as-turbine ERD",
+      "tear_candidate": false
+    },
+    {
+      "id": "erd_to_disposal",
+      "source": "ERD.outlet",
+      "destination": "disposal.inlet",
+      "stage": "brine",
+      "role": "depressurized brine to disposal",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.001,
+      "units": "m^3/s",
+      "role": "family_default from non-oracle RO support because the blind prompt/image did not provide a feed flow"
+    },
+    {
+      "target": "feed",
+      "variable": "salt_mass_frac",
+      "value": 0.035,
+      "units": "dimensionless",
+      "role": "family_default NaCl mass fraction because the blind prompt/image did not provide a numeric salinity"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "RO",
+      "variable": "water_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default RO recovery because the blind prompt/image did not provide a numeric recovery"
+    },
+    {
+      "target": "P1",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default pump efficiency support hint"
+    },
+    {
+      "target": "ERD",
+      "variable": "efficiency_pump",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "family_default pump-as-turbine ERD efficiency support hint"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "strict blind topology is compiled to BuildPlanIR and may be solved only by the compact sandbox solver template",
+    "solve_order": [
+      "feed",
+      "P1",
+      "RO",
+      "ERD",
+      "products"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0,
+    "native_solve_disabled": true,
+    "native_solve_disabled_reason": "strict blind synthesis must not use family reference solve runners"
+  },
+  "required_entries": [
+    "watertap.unit_models.reverse_osmosis_0D.ReverseOsmosis0D",
+    "watertap.unit_models.pressure_changer.Pump",
+    "watertap.property_models.NaCl_prop_pack.NaClParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized draft topology, not a verified official case topology.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_pat_signalfix_20260605/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1280,
+      "height": 720,
+      "mode": "P"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": true,
+        "pump_as_turbine_or_erd": true,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": true,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen web API test. Build a compact WaterTAP reverse osmosis desalination flowsheet for NaCl feed with feed pump, RO membrane unit, permeate product, retentate routed through a pump-as-turbine energy recovery device to disposal. This is the RO pump as turbine variant, without pressure exchanger, not electrodialysis, not nanofiltration, and not a full desalination train.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "family_profile.family_watertap_ro_no_energy_recovery",
+        "family_profile.family_watertap_ro_pump_as_turbine",
+        "family_profile.family_watertap_ro_with_energy_recovery",
+        "watertap.props.nacl",
+        "watertap.unit.pressure_changer",
+        "watertap.unit.reverse_osmosis_0d"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": true,
+        "pump_as_turbine_or_erd": true,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": true,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "ro_pump_as_turbine",
+        "qualified_templates": [
+          "ro_pump_as_turbine"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal reverse_osmosis",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal pressure_exchanger"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal no_energy_recovery",
+              "forbidden signal pump_as_turbine_or_erd"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": true,
+            "failures": []
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 1.0
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "watertap.unit.pressure_changer",
+        "title": "WaterTAP pump and energy recovery pressure changers",
+        "kind": "unit_model",
+        "score": 108.0,
+        "matched_triggers": [
+          "pump",
+          "energy recovery",
+          "pump as turbine",
+          "turbine"
+        ],
+        "source_url": "",
+        "text": "Use Pump or EnergyRecoveryDevice-like pressure changer units for feed pumping and brine pressure recovery. Pump-as-turbine variants connect RO retentate to ERD inlet and disposal outlet."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_ro_pump_as_turbine",
+        "title": "Family profile hint: family_watertap_ro_pump_as_turbine",
+        "kind": "family_profile_hint",
+        "score": 96.0,
+        "matched_triggers": [
+          "ro pump as turbine",
+          "reverse osmosis",
+          "pump-as-turbine"
+        ],
+        "source_url": "",
+        "text": "Family hint only: compact WaterTAP RO pump-as-turbine cases commonly use NaClParameterBlock, Feed, Pump, ReverseOsmosis0D, EnergyRecoveryDevice, Product, and disposal blocks. This hint does not provide a solved topology or runner."
+      },
+      {
+        "doc_id": "watertap.unit.reverse_osmosis_0d",
+        "title": "WaterTAP reverse osmosis unit",
+        "kind": "unit_model",
+        "score": 80.0,
+        "matched_triggers": [
+          "reverse osmosis",
+          "ro",
+          "ro membrane"
+        ],
+        "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html",
+        "text": "Use ReverseOsmosis0D for RO membranes with inlet, permeate, and retentate ports. Typical aqueous salt cases use NaCl or TDS property packages."
+      },
+      {
+        "doc_id": "watertap.props.nacl",
+        "title": "WaterTAP NaCl property package",
+        "kind": "property_package",
+        "score": 76.0,
+        "matched_triggers": [
+          "nacl",
+          "reverse osmosis",
+          "ro"
+        ],
+        "source_url": "",
+        "text": "Use NaClParameterBlock for simple seawater/reverse osmosis examples with H2O and NaCl components."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_ro_with_energy_recovery",
+        "title": "Family profile hint: family_watertap_ro_with_energy_recovery",
+        "kind": "family_profile_hint",
+        "score": 56.0,
+        "matched_triggers": [
+          "reverse osmosis",
+          "energy recovery"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP RO pressure-exchanger cases commonly use NaClParameterBlock, Feed, Separator, Pump P1, Mixer, ReverseOsmosis0D, PressureExchanger, booster Pump P2, Product, and disposal blocks. This hint does not provide a solved topology or runner."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_ro_no_energy_recovery",
+        "title": "Family profile hint: family_watertap_ro_no_energy_recovery",
+        "kind": "family_profile_hint",
+        "score": 28.0,
+        "matched_triggers": [
+          "reverse osmosis"
+        ],
+        "source_url": "",
+        "text": "Family hint only: compact WaterTAP RO without energy recovery commonly uses NaClParameterBlock, Feed, Pump, ReverseOsmosis0D, Product, and disposal blocks, with RO retentate going directly to disposal. This hint does not provide a solved topology or runner."
+      }
+    ]
+  }
+}

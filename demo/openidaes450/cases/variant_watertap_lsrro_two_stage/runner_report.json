@@ -1,0 +1,290 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_lsrro",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "lsrro_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "lsrro_simulation_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "lsrro_simulation_recovery_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "water_recovery": 0.35037261498005134,
+  "levelized_cost_of_water": 2.4065016878151417,
+  "specific_energy_consumption": 10.441766823137886,
+  "number_of_stages": 3,
+  "stream_values": {
+    "feed_to_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.9756115306213978,
+        "Liq/NaCl": 0.06999999999987827
+      },
+      "mass_flow": 1.045611530621276,
+      "flow_kg_s": 1.045611530621276,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.933053530924352,
+        "Liq/NaCl": 0.06694646907564804
+      },
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.PrimaryPumps[1].inlet"
+    },
+    "primary_RO_to_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.34855767581132185,
+        "Liq/NaCl": 0.00026212401120455755
+      },
+      "mass_flow": 0.3488197998225264,
+      "flow_kg_s": 0.3488197998225264,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9992485403313174,
+        "Liq/NaCl": 0.0007514596686825742
+      },
+      "temperature": 293.150443757444,
+      "pressure": 101325.0,
+      "source_port": "fs.ROUnits[1].permeate",
+      "destination_port": "fs.product.inlet"
+    },
+    "pump_to_mixer[1]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.9756115306213978,
+        "Liq/NaCl": 0.06999999999987827
+      },
+      "mass_flow": 1.045611530621276,
+      "flow_kg_s": 1.045611530621276,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.933053530924352,
+        "Liq/NaCl": 0.06694646907564804
+      },
+      "temperature": 293.15,
+      "pressure": 7500000.0,
+      "source_port": "fs.PrimaryPumps[1].outlet",
+      "destination_port": "fs.Mixers[1].upstream"
+    },
+    "pump_to_mixer[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0108723024499278,
+        "Liq/NaCl": 0.08076870103978193
+      },
+      "mass_flow": 1.0916410034897097,
+      "flow_kg_s": 1.0916410034897097,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9260116642911139,
+        "Liq/NaCl": 0.07398833570888608
+      },
+      "temperature": 293.150443757444,
+      "pressure": 7500000.0,
+      "source_port": "fs.PrimaryPumps[2].outlet",
+      "destination_port": "fs.Mixers[2].upstream"
+    },
+    "mixer_to_stage[1]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.35942997826125,
+        "Liq/NaCl": 0.08103082505098647
+      },
+      "mass_flow": 1.4404608033122366,
+      "flow_kg_s": 1.4404608033122366,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.943746594933606,
+        "Liq/NaCl": 0.056253405066393945
+      },
+      "temperature": 293.150443757444,
+      "pressure": 7500000.0,
+      "source_port": "fs.Mixers[1].outlet",
+      "destination_port": "fs.ROUnits[1].inlet"
+    },
+    "mixer_to_stage[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.2011221059187212,
+        "Liq/NaCl": 0.08863443323074201
+      },
+      "mass_flow": 1.2897565391494632,
+      "flow_kg_s": 1.2897565391494632,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9312781672041822,
+        "Liq/NaCl": 0.06872183279581777
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7500000.0,
+      "source_port": "fs.Mixers[2].outlet",
+      "destination_port": "fs.ROUnits[2].inlet"
+    },
+    "stage_permeate_to_booster_pump[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.38381844763985223,
+        "Liq/NaCl": 0.011030825051108193
+      },
+      "mass_flow": 0.39484927269096043,
+      "flow_kg_s": 0.39484927269096043,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9720632002791055,
+        "Liq/NaCl": 0.027936799720894433
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 101325.0,
+      "source_port": "fs.ROUnits[2].permeate",
+      "destination_port": "fs.BoosterPumps[2].inlet"
+    },
+    "stage_permeate_to_booster_pump[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.1902498034687934,
+        "Liq/NaCl": 0.007865732190960074
+      },
+      "mass_flow": 0.19811553565975346,
+      "flow_kg_s": 0.19811553565975346,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9602972469333814,
+        "Liq/NaCl": 0.039702753066618655
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 101325.0,
+      "source_port": "fs.ROUnits[3].permeate",
+      "destination_port": "fs.BoosterPumps[3].inlet"
+    },
+    "booster_pump_to_mixer[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.38381844763985223,
+        "Liq/NaCl": 0.011030825051108193
+      },
+      "mass_flow": 0.39484927269096043,
+      "flow_kg_s": 0.39484927269096043,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9720632002791055,
+        "Liq/NaCl": 0.027936799720894433
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7500000.0,
+      "source_port": "fs.BoosterPumps[2].outlet",
+      "destination_port": "fs.Mixers[1].downstream"
+    },
+    "booster_pump_to_mixer[3]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.1902498034687934,
+        "Liq/NaCl": 0.007865732190960074
+      },
+      "mass_flow": 0.19811553565975346,
+      "flow_kg_s": 0.19811553565975346,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9602972469333814,
+        "Liq/NaCl": 0.039702753066618655
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7500000.0,
+      "source_port": "fs.BoosterPumps[3].outlet",
+      "destination_port": "fs.Mixers[2].downstream"
+    },
+    "primary_RO_to_erd": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0108723024499278,
+        "Liq/NaCl": 0.08076870103978193
+      },
+      "mass_flow": 1.0916410034897097,
+      "flow_kg_s": 1.0916410034897097,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9260116642911139,
+        "Liq/NaCl": 0.07398833570888608
+      },
+      "temperature": 293.150443757444,
+      "pressure": 6691916.158712706,
+      "source_port": "fs.ROUnits[1].retentate",
+      "destination_port": "fs.EnergyRecoveryDevices[1].inlet"
+    },
+    "primary_ERD_to_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0108723024499278,
+        "Liq/NaCl": 0.08076870103978193
+      },
+      "mass_flow": 1.0916410034897097,
+      "flow_kg_s": 1.0916410034897097,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9260116642911139,
+        "Liq/NaCl": 0.07398833570888608
+      },
+      "temperature": 293.150443757444,
+      "pressure": 7000000.0,
+      "source_port": "fs.EnergyRecoveryDevices[1].outlet",
+      "destination_port": "fs.PrimaryPumps[2].inlet"
+    },
+    "stage_retentate_to_pump[2]": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.817303658278869,
+        "Liq/NaCl": 0.0776036081796338
+      },
+      "mass_flow": 0.8949072664585027,
+      "flow_kg_s": 0.8949072664585027,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9132830729079433,
+        "Liq/NaCl": 0.08671692709205676
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7155046.3964971565,
+      "source_port": "fs.ROUnits[2].retentate",
+      "destination_port": "fs.PrimaryPumps[3].inlet"
+    },
+    "pumpN_to_stageN": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.817303658278869,
+        "Liq/NaCl": 0.0776036081796338
+      },
+      "mass_flow": 0.8949072664585027,
+      "flow_kg_s": 0.8949072664585027,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9132830729079433,
+        "Liq/NaCl": 0.08671692709205676
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7500000.0,
+      "source_port": "fs.PrimaryPumps[3].outlet",
+      "destination_port": "fs.ROUnits[3].inlet"
+    },
+    "stage_to_erd": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.6270538548100756,
+        "Liq/NaCl": 0.06973787598867372
+      },
+      "mass_flow": 0.6967917307987493,
+      "flow_kg_s": 0.6967917307987493,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8999157525754051,
+        "Liq/NaCl": 0.10008424742459485
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 7344133.111073612,
+      "source_port": "fs.ROUnits[3].retentate",
+      "destination_port": "fs.EnergyRecoveryDevices[3].inlet"
+    },
+    "erd_to_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.6270538548100756,
+        "Liq/NaCl": 0.06973787598867372
+      },
+      "mass_flow": 0.6967917307987493,
+      "flow_kg_s": 0.6967917307987493,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.8999157525754051,
+        "Liq/NaCl": 0.10008424742459485
+      },
+      "temperature": 293.1506056451419,
+      "pressure": 101325.0,
+      "source_port": "fs.EnergyRecoveryDevices[3].outlet",
+      "destination_port": "fs.disposal.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/watertap_lsrro/source_root/lsrro/lsrro.py",
+    "stdout_tail": "--------------------START FORWARD INITIALIZATION PASS--------------------\n--------------------START BACKWARD INITIALIZATION PASS--------------------\n--------------------START FORWARD INITIALIZATION PASS--------------------\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

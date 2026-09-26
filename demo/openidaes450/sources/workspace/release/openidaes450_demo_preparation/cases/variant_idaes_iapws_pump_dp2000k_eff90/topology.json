@@ -1,0 +1,148 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_iapws_pump_dp2000k_eff90",
+  "family": "family_iapws_pump_canary",
+  "process_type": "Single IAPWS95 pump at 2000000 Pa pressure lift and 0.90 efficiency",
+  "source_url": "local://examples/pump/source_root/notebook_build.py",
+  "source_basis": [
+    "Compact local engineering variant derived from an existing native IDAES case.",
+    "Operating-point matrix case; topology is fixed while pressure lift and efficiency vary."
+  ],
+  "property_packages": {
+    "iapws95": {
+      "components": [
+        "H2O"
+      ],
+      "scope": [
+        "feed",
+        "pump",
+        "pressurized_water"
+      ],
+      "source": "local://examples/pump/source_root/notebook_build.py"
+    }
+  },
+  "components": {
+    "process": [
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "iapws95",
+      "stage": "feed",
+      "role": "liquid-water feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pump",
+      "kind": "Pump",
+      "package": "iapws95",
+      "stage": "unit_operation",
+      "role": "IAPWS liquid-water pump",
+      "constructor": {
+        "compressor": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "pressurized_water",
+      "kind": "Product",
+      "package": "iapws95",
+      "stage": "product",
+      "role": "pressurized-water product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_pump",
+      "source": "feed.outlet",
+      "destination": "pump.inlet",
+      "stage": "feed",
+      "role": "pump suction",
+      "tear_candidate": false
+    },
+    {
+      "id": "pump_to_product",
+      "source": "pump.outlet",
+      "destination": "pressurized_water.inlet",
+      "stage": "product",
+      "role": "pump discharge",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol",
+      "value": 100,
+      "units": "mol/s",
+      "role": "water feed",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "water feed temperature",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "pump",
+      "variable": "deltaP",
+      "value": 2000000,
+      "units": "Pa",
+      "role": "pressure lift",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    },
+    {
+      "target": "pump",
+      "variable": "efficiency_pump",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "pressurized_water.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "feed",
+      "pump",
+      "pressurized_water"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Pump",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Operating-point matrix case; topology is fixed while pressure lift and efficiency vary."
+  ]
+}

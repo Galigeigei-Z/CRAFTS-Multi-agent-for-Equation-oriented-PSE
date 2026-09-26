@@ -1,0 +1,211 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_soec_oxygen_depolarized_bped",
+  "family": "family_soec_bped",
+  "process_type": "SOEC Oxygen-Depolarized Bipolar Electrodialysis",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_sofc_soec_coproduction.",
+    "Integrates two electrochemical processes through oxygen, heat and power coproduct exchange.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "H2",
+        "O2",
+        "H+",
+        "OH-",
+        "salt"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_sofc_soec_coproduction"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "H2",
+      "O2",
+      "H+",
+      "OH-",
+      "salt"
+    ]
+  },
+  "units": [
+    {
+      "id": "WATER",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "steam/water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SOEC",
+      "kind": "Electrolyzer",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "hydrogen/oxygen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SALT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "salt solution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BPED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "acid/base production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "stack heat integration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "acid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BASE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "soec_bped",
+      "role": "base",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WATER.outlet",
+      "destination": "SOEC.water",
+      "stage": "soec_bped",
+      "role": "steam feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SOEC.hydrogen",
+      "destination": "H2.inlet",
+      "stage": "soec_bped",
+      "role": "hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "SOEC.oxygen",
+      "destination": "BPED.electrode",
+      "stage": "soec_bped",
+      "role": "depolarizing oxygen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SALT.outlet",
+      "destination": "BPED.salt",
+      "stage": "soec_bped",
+      "role": "salt feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "BPED.acid",
+      "destination": "ACID.inlet",
+      "stage": "soec_bped",
+      "role": "acid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "BPED.base",
+      "destination": "BASE.inlet",
+      "stage": "soec_bped",
+      "role": "base",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SOEC.heat",
+      "destination": "HX.hot_inlet",
+      "stage": "soec_bped",
+      "role": "SOEC heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "HX.heat",
+      "destination": "BPED.thermal",
+      "stage": "soec_bped",
+      "role": "BPED heat",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "WATER.outlet",
+    "SALT.outlet"
+  ],
+  "unconnected_product_ports": [
+    "H2.inlet",
+    "ACID.inlet",
+    "BASE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_sofc_soec_coproduction"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_sofc_soec_coproduction",
+    "chemical_change": "Integrates two electrochemical processes through oxygen, heat and power coproduct exchange.",
+    "native_metrics": {
+      "combined_power_index": 0.6200000000000001,
+      "hydrogen_yield": 0.76,
+      "acid_yield": 0.9199999999999999,
+      "base_yield": 0.9199999999999999,
+      "stack_temperature_K": 770.0
+    }
+  }
+}

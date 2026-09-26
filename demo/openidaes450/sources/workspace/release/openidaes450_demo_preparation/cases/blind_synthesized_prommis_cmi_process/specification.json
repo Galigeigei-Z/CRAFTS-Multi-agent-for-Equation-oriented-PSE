@@ -1,0 +1,64 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_cmi_process",
+  "family": "family_prommis_cmi_process",
+  "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "FEED.outlet",
+      "variable": "Nd2Fe14B",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "official magnet swarf feed basis",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html"
+    },
+    {
+      "target": "AdjFeed.outlet",
+      "variable": "NH4_+",
+      "value": 12.0,
+      "units": "mol/s",
+      "role": "pH adjustment reactant",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html"
+    },
+    {
+      "target": "PrecipFeed.outlet",
+      "variable": "H2C2O4",
+      "value": 10.0,
+      "units": "mol/s",
+      "role": "oxalic acid precipitation feed",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html"
+    },
+    {
+      "target": "Calcination",
+      "variable": "metal_list",
+      "value": "Nd",
+      "units": "dimensionless",
+      "role": "single rare earth metal basis used by official CMI example",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official CMI build, set_operation_conditions, scale_model, initialize_system, solve_system",
+    "solve_order": [
+      "Dissolution",
+      "S101",
+      "Adjustment",
+      "Precipitation",
+      "S102",
+      "Calcination"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

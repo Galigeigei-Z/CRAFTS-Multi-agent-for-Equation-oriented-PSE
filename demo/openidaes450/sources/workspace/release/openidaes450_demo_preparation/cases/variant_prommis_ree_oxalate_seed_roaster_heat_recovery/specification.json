@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_ree_oxalate_seed_roaster_heat_recovery",
+  "family": "family_ree_oxalate_roast",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "oxalate_excess_fraction",
+      "value": 0.7000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "crystal_seed_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ree_oxide_yield",
+      "value": 0.9630000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_ree_fraction",
+      "value": 0.014999999999999998,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "roaster_fuel_index",
+      "value": 2.81,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "crystal_size_index",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "REE.outlet",
+    "OX.outlet"
+  ],
+  "terminal_product_ports": [
+    "OXIDE.inlet",
+    "LIQ.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_ree_oxalate_roaster"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_ree_oxalate_roaster",
+    "chemical_change": "Couples selective oxalate precipitation, crystal seeding and calciner-to-dryer heat recovery.",
+    "native_metrics": {
+      "ree_oxide_yield": 0.9630000000000001,
+      "residual_ree_fraction": 0.014999999999999998,
+      "roaster_fuel_index": 2.81,
+      "crystal_size_index": 0.9
+    }
+  }
+}

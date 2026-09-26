@@ -1,0 +1,64 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "mvo_v2_full_standardized_111",
+  "family": "family_idaes_mvo",
+  "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "mvo",
+      "variable": "decision_type",
+      "value": "module_budget",
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "max_common_designs",
+      "value": {
+        "Evaporator Area": 1,
+        "Condenser Area": 1,
+        "Compressor Design Flow": 1
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "policy",
+      "value": {},
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    }
+  ],
+  "terminal_feed_ports": [
+    "requirements.outlet"
+  ],
+  "terminal_product_ports": [
+    "family.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "load official design table, construct process-family MILP, solve or preserve official notebook evidence",
+    "solve_order": [
+      "requirements",
+      "alternatives",
+      "decision_policy",
+      "platform",
+      "selection",
+      "objective",
+      "family"
+    ]
+  },
+  "solve": {
+    "solver": "appsi_highs",
+    "steady_state": false,
+    "expected_dof": null
+  }
+}

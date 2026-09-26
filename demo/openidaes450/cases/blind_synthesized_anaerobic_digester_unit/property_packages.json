@@ -1,0 +1,68 @@
+[
+  {
+    "name": "fs.props",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterBlock",
+    "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties",
+    "data_class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.props_vap",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock",
+    "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor",
+    "data_class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.rxn_props",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.props"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterBlock",
+    "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions",
+    "data_class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_reactions.ADM1ReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

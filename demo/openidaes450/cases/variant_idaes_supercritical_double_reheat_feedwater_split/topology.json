@@ -1,0 +1,222 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_supercritical_double_reheat_feedwater_split",
+  "family": "family_double_reheat",
+  "process_type": "Supercritical Double-Reheat Cycle with Feedwater Split",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent official_supercritical_steam_cycle.",
+    "Adds a second steam reheat and a controllable feedwater heat-recovery path.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "steam",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_supercritical_steam_cycle"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "steam",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "BOILER",
+      "kind": "Boiler",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "supercritical steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HP",
+      "kind": "SteamTurbine",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "HP expansion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RH1",
+      "kind": "Reheater",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "first reheat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "IP",
+      "kind": "SteamTurbine",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "IP expansion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RH2",
+      "kind": "Reheater",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "second reheat",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LP",
+      "kind": "SteamTurbine",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "LP expansion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "steam condensation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FWH",
+      "kind": "FeedwaterHeater",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "regenerative heating",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "double_reheat",
+      "role": "feedwater split",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BOILER.steam",
+      "destination": "HP.inlet",
+      "stage": "double_reheat",
+      "role": "main steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HP.outlet",
+      "destination": "RH1.inlet",
+      "stage": "double_reheat",
+      "role": "cold reheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "RH1.outlet",
+      "destination": "IP.inlet",
+      "stage": "double_reheat",
+      "role": "hot reheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "IP.outlet",
+      "destination": "RH2.inlet",
+      "stage": "double_reheat",
+      "role": "second cold reheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RH2.outlet",
+      "destination": "LP.inlet",
+      "stage": "double_reheat",
+      "role": "second hot reheat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "LP.outlet",
+      "destination": "COND.inlet",
+      "stage": "double_reheat",
+      "role": "exhaust steam",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "COND.liquid",
+      "destination": "S1.inlet",
+      "stage": "double_reheat",
+      "role": "condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S1.heated",
+      "destination": "FWH.inlet",
+      "stage": "double_reheat",
+      "role": "heater feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "FWH.outlet",
+      "destination": "BOILER.water",
+      "stage": "double_reheat",
+      "role": "hot feedwater",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "S1.bypass",
+      "destination": "BOILER.bypass",
+      "stage": "double_reheat",
+      "role": "bypass feedwater",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_supercritical_steam_cycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_supercritical_steam_cycle",
+    "chemical_change": "Adds a second steam reheat and a controllable feedwater heat-recovery path.",
+    "native_metrics": {
+      "cycle_efficiency": 0.44680000000000003,
+      "lp_exhaust_moisture": 0.06,
+      "boiler_duty_index": 0.95,
+      "net_power_index": 1.07232
+    }
+  }
+}

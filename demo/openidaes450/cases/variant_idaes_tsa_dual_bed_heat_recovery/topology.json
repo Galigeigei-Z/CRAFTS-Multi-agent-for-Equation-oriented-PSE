@@ -1,0 +1,212 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_tsa_dual_bed_heat_recovery",
+  "family": "family_tsa_heat_recovery",
+  "process_type": "Dual-Bed TSA with Regeneration Heat Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent idaes_temperature_swing_adsorption.",
+    "Adds parallel bed switching and sensible-heat exchange between adsorption and regeneration beds, changing both material scheduling and heat paths.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "N2",
+        "adsorbent",
+        "heat"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_temperature_swing_adsorption"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "N2",
+      "adsorbent",
+      "heat"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "CO2-containing gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SV1",
+      "kind": "SwitchValve",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "route feed to online bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BEDA",
+      "kind": "Adsorber",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "online adsorption bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BEDB",
+      "kind": "Adsorber",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "regenerating bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "bed-to-bed heat recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SV2",
+      "kind": "SwitchValve",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "product/regeneration routing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "CO2-depleted gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "tsa_heat_recovery",
+      "role": "regenerated CO2",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "SV1.inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "feed gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SV1.online",
+      "destination": "BEDA.inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "adsorption feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BEDA.outlet",
+      "destination": "SV2.product",
+      "stage": "tsa_heat_recovery",
+      "role": "clean gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SV1.regen",
+      "destination": "BEDB.inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "regeneration sweep",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "BEDB.outlet",
+      "destination": "SV2.regen",
+      "stage": "tsa_heat_recovery",
+      "role": "CO2 desorbate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "BEDB.hot_side",
+      "destination": "HX101.hot_inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "hot regenerated bed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX101.cold_outlet",
+      "destination": "BEDA.preheat",
+      "stage": "tsa_heat_recovery",
+      "role": "recovered sensible heat",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "SV2.clean",
+      "destination": "PRODUCT.inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "clean product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "SV2.co2",
+      "destination": "CO2.inlet",
+      "stage": "tsa_heat_recovery",
+      "role": "CO2 product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "CO2.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_temperature_swing_adsorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_temperature_swing_adsorption",
+    "chemical_change": "Adds parallel bed switching and sensible-heat exchange between adsorption and regeneration beds, changing both material scheduling and heat paths.",
+    "native_metrics": {
+      "co2_recovery": 0.98,
+      "breakthrough_fraction": 0.0,
+      "regeneration_temperature_K": 450.0,
+      "specific_energy_index": 1.0
+    }
+  }
+}

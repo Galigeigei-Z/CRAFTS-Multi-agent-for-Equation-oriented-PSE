@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.water_feed",
+      "destination_port": "water_feed",
+      "id": "water_feed_to_model",
+      "source": "water_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.air_feed",
+      "destination_port": "air_feed",
+      "id": "air_feed_to_model",
+      "source": "air_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "treated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_treated_water",
+      "source": "model.treated_water",
+      "source_port": "treated_water",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "offgas.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_offgas",
+      "source": "model.offgas",
+      "source_port": "offgas",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_air_stripping_0d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_air_stripping_0d",
+  "initialization_order": [
+    "water_feed",
+    "air_feed",
+    "model",
+    "treated_water",
+    "offgas"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO Air Stripping 0D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO AirStripping0D unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/air_stripping_0D.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "water_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "air_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "AirStripping0D",
+      "package": null,
+      "role": "Source-derived AirStripping0D node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "offgas",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

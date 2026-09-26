@@ -1,0 +1,219 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_dispatches_pem_oxygen_coproduct_methanation",
+  "family": "family_pem_methanation",
+  "process_type": "Wind-PEM Storage with Oxygen Coproduct and CO2 Methanation",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_f_v9.py",
+  "source_basis": [
+    "Derived from active parent dispatches_wind_battery_pem_tank_turbine.",
+    "Adds Sabatier chemistry and oxygen coproduct recovery to the electricity-hydrogen storage chain.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "H2",
+        "O2",
+        "CO2",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "dispatches_wind_battery_pem_tank_turbine"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "H2",
+      "O2",
+      "CO2",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "WIND",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "wind electricity",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PEM",
+      "kind": "Electrolyzer",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "H2/O2 production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2T",
+      "kind": "StorageTank",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "hydrogen storage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "captured CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MET",
+      "kind": "Reactor",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "Sabatier methanation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CH4",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "renewable methane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "O2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "oxygen coproduct",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "POWER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "pem_methanation",
+      "role": "dispatch power",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WIND.outlet",
+      "destination": "PEM.power",
+      "stage": "pem_methanation",
+      "role": "renewable power",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "WATER.outlet",
+      "destination": "PEM.water",
+      "stage": "pem_methanation",
+      "role": "water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "PEM.hydrogen",
+      "destination": "H2T.inlet",
+      "stage": "pem_methanation",
+      "role": "hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "H2T.outlet",
+      "destination": "MET.hydrogen",
+      "stage": "pem_methanation",
+      "role": "stored H2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CO2.outlet",
+      "destination": "MET.co2",
+      "stage": "pem_methanation",
+      "role": "captured CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "MET.methane",
+      "destination": "CH4.inlet",
+      "stage": "pem_methanation",
+      "role": "renewable methane",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "PEM.oxygen",
+      "destination": "O2.inlet",
+      "stage": "pem_methanation",
+      "role": "oxygen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "WIND.power",
+      "destination": "POWER.inlet",
+      "stage": "pem_methanation",
+      "role": "direct dispatch",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "WIND.outlet",
+    "WATER.outlet",
+    "CO2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CH4.inlet",
+    "O2.inlet",
+    "POWER.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "dispatches_wind_battery_pem_tank_turbine"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "dispatches_wind_battery_pem_tank_turbine",
+    "chemical_change": "Adds Sabatier chemistry and oxygen coproduct recovery to the electricity-hydrogen storage chain.",
+    "native_metrics": {
+      "electric_dispatch_index": 0.75,
+      "methane_product_index": 0.175,
+      "oxygen_product_index": 0.125,
+      "co2_conversion": 0.97,
+      "recovered_heat_index": 0.0625
+    }
+  }
+}

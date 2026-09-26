@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:case-envelope/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "run_namespace",
+    "route",
+    "original_request",
+    "visual_ref",
+    "visual_sha256",
+    "implementation_sha256",
+    "environment_sha256",
+    "provider_policy_sha256",
+    "identity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "case-envelope/v5"
+    },
+    "experiment_id": {
+      "$ref": "#/$defs/id"
+    },
+    "run_namespace": {
+      "$ref": "#/$defs/id"
+    },
+    "route": {
+      "const": "case_assisted_reconstruction"
+    },
+    "original_request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visual_ref": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+    },
+    "identity": {
+      "$ref": "#/$defs/identity"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "suite_case_id",
+        "canonical_process_id",
+        "native_runner_id",
+        "opaque_intent_candidate_id",
+        "alias_binding_sha256",
+        "suite_index"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "case-identity/v5"
+        },
+        "suite_case_id": {
+          "$ref": "#/$defs/id"
+        },
+        "canonical_process_id": {
+          "$ref": "#/$defs/id"
+        },
+        "native_runner_id": {
+          "$ref": "#/$defs/id"
+        },
+        "opaque_intent_candidate_id": {
+          "$ref": "#/$defs/id"
+        },
+        "suite_index": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

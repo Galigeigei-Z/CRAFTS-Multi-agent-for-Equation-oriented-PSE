@@ -1,0 +1,65 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_iapws_pump_dp2000k_eff90",
+  "family": "family_iapws_pump_canary",
+  "source_url": "local://examples/pump/source_root/notebook_build.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol",
+      "value": 100,
+      "units": "mol/s",
+      "role": "water feed",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "water feed temperature",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    },
+    {
+      "target": "pump",
+      "variable": "deltaP",
+      "value": 2000000,
+      "units": "Pa",
+      "role": "pressure lift",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    },
+    {
+      "target": "pump",
+      "variable": "efficiency_pump",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "derived_local_variant",
+      "source_url": "local://examples/pump/source_root/notebook_build.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "pressurized_water.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "feed",
+      "pump",
+      "pressurized_water"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_ro_no_energy_recovery",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/RO_with_energy_recovery.html",
+  "source_variant_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/RO_with_energy_recovery.html#no_ERD",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "ro_no_erd_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "ro_no_erd_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "ro_no_erd_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "ro_no_erd_recovery_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "erd_type": "no_ERD",
+  "water_recovery": 0.5,
+  "levelized_cost_of_water": 0.7417657981338699,
+  "specific_energy_consumption": 5.18111303128684,
+  "product_salinity_mass_fraction": 0.00024019908485103852,
+  "stream_values": {
+    "feed_to_p1": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.9857089000000001,
+        "Liq/NaCl": 0.0357511
+      },
+      "mass_flow": 1.02146,
+      "flow_kg_s": 1.02146,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9650000000000001,
+        "Liq/NaCl": 0.034999999999999996
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.P1.inlet"
+    },
+    "p1_to_ro": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.9857089000000001,
+        "Liq/NaCl": 0.0357511
+      },
+      "mass_flow": 1.02146,
+      "flow_kg_s": 1.02146,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9650000000000001,
+        "Liq/NaCl": 0.034999999999999996
+      },
+      "temperature": 298.15,
+      "pressure": 7492887.151347011,
+      "source_port": "fs.P1.outlet",
+      "destination_port": "fs.RO.inlet"
+    },
+    "ro_permeate_to_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.49285445000000005,
+        "Liq/NaCl": 0.00011841163021997647
+      },
+      "mass_flow": 0.49297286163022,
+      "flow_kg_s": 0.49297286163022,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9997598009151489,
+        "Liq/NaCl": 0.00024019908485103846
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.RO.permeate",
+      "destination_port": "fs.product.inlet"
+    },
+    "ro_retentate_to_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.49285445000000005,
+        "Liq/NaCl": 0.03563268836978003
+      },
+      "mass_flow": 0.5284871383697801,
+      "flow_kg_s": 0.5284871383697801,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9325760538284887,
+        "Liq/NaCl": 0.06742394617151116
+      },
+      "temperature": 298.15,
+      "pressure": 7242206.228137156,
+      "source_port": "fs.RO.retentate",
+      "destination_port": "fs.disposal.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.RO_with_energy_recovery.RO_with_energy_recovery",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

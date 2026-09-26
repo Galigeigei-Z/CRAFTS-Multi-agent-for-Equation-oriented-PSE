@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fs.brine_props",
+    "implementation": [
+      {
+        "class": "prommis.evaporation_pond.tests.example_properties.BrineParameterData"
+      },
+      {
+        "class": "prommis.evaporation_pond.tests.example_properties.BrineParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.evaporation_pond.tests.example_properties.BrineParameters",
+    "module": "prommis.evaporation_pond.tests.example_properties",
+    "data_class": "prommis.evaporation_pond.tests.example_properties.BrineParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.brine_rxns",
+    "implementation": [
+      {
+        "class": "prommis.evaporation_pond.tests.example_reactions.BrineReactionParametersData"
+      },
+      {
+        "class": "prommis.evaporation_pond.tests.example_reactions.BrineReactionParameters"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.brine_props"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.evaporation_pond.tests.example_reactions.BrineReactionParameters",
+    "module": "prommis.evaporation_pond.tests.example_reactions",
+    "data_class": null,
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

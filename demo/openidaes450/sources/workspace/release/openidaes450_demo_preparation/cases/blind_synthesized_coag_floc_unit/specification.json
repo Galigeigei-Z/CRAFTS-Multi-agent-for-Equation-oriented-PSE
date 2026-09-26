@@ -1,0 +1,104 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_coag_floc_unit",
+  "family": "family_watertap_coagulation_flocculation_unit",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "H2O_flow_mass",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "official test water feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "TDS_flow_mass",
+      "value": 0.01,
+      "units": "kg/s",
+      "role": "official test dissolved solids feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "TSS_flow_mass",
+      "value": 0.01,
+      "units": "kg/s",
+      "role": "official test suspended solids feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "flocculator",
+      "variable": "final_turbidity_ntu",
+      "value": 5.0,
+      "units": "NTU",
+      "role": "target final turbidity",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "chemical_dosing",
+      "variable": "Alum_dose",
+      "value": 10.0,
+      "units": "mg/L",
+      "role": "official additive dose",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "chemical_dosing",
+      "variable": "Poly_dose",
+      "value": 5.0,
+      "units": "mg/L",
+      "role": "official additive dose",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "rapid_mixer",
+      "variable": "retention_time",
+      "value": 60.0,
+      "units": "s",
+      "role": "rapid mixing retention time",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "flocculator",
+      "variable": "floc_retention_time",
+      "value": 1800.0,
+      "units": "s",
+      "role": "flocculation retention time",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [
+    "chemical_dosing.Alum",
+    "chemical_dosing.Poly"
+  ],
+  "terminal_product_ports": [
+    "treated.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "Build official CoagulationFlocculation unit, fix feed, chemical doses, turbidity target, mixing and flocculation design variables, then solve.",
+    "solve_order": [
+      "feed",
+      "chemical dosing",
+      "rapid mixing",
+      "flocculation",
+      "treated outlet"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_coag_floc",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

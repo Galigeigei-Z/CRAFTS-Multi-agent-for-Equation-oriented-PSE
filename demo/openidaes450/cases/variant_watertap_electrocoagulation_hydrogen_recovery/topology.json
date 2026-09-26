@@ -1,0 +1,190 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_electrocoagulation_hydrogen_recovery",
+  "family": "family_electrocoag_h2",
+  "process_type": "Electrocoagulation with Hydrogen Recovery and Sludge Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent watertap_coagulation_flocculation_unit.",
+    "Replaces chemical coagulant with in-situ metal dissolution and creates a hydrogen coproduct plus solids feedback loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "PO4",
+        "metal_ion",
+        "H2",
+        "floc"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_coagulation_flocculation_unit"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "PO4",
+      "metal_ion",
+      "H2",
+      "floc"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "metal/phosphate water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EC",
+      "kind": "ElectrocoagulationCell",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "electrode dissolution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CL",
+      "kind": "Clarifier",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "floc separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "sludge seed/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "cathodic hydrogen",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "treated water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SLUDGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "electrocoag_h2",
+      "role": "metal-phosphate sludge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "EC.water",
+      "stage": "electrocoag_h2",
+      "role": "raw water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "EC.slurry",
+      "destination": "CL.inlet",
+      "stage": "electrocoag_h2",
+      "role": "coagulated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "EC.hydrogen",
+      "destination": "H2.inlet",
+      "stage": "electrocoag_h2",
+      "role": "hydrogen",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CL.water",
+      "destination": "WATER.inlet",
+      "stage": "electrocoag_h2",
+      "role": "treated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CL.sludge",
+      "destination": "S1.inlet",
+      "stage": "electrocoag_h2",
+      "role": "settled sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.seed",
+      "destination": "EC.seed",
+      "stage": "electrocoag_h2",
+      "role": "seed recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S1.purge",
+      "destination": "SLUDGE.inlet",
+      "stage": "electrocoag_h2",
+      "role": "sludge purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "H2.inlet",
+    "WATER.inlet",
+    "SLUDGE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_coagulation_flocculation_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_coagulation_flocculation_unit",
+    "chemical_change": "Replaces chemical coagulant with in-situ metal dissolution and creates a hydrogen coproduct plus solids feedback loop.",
+    "native_metrics": {
+      "phosphorus_removal": 1.01,
+      "hydrogen_product_index": 0.1,
+      "sludge_index": 0.11,
+      "residual_metal_index": 0.0
+    }
+  }
+}

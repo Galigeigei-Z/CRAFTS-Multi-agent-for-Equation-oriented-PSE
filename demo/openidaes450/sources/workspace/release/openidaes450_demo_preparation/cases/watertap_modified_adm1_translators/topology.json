@@ -1,0 +1,125 @@
+{
+  "arcs": [
+    {
+      "destination": "inlet_translator.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_translator",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "digester.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_digester",
+      "source": "inlet_translator.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "outlet_translator.inlet",
+      "destination_port": "inlet",
+      "id": "digester_to_out_translator",
+      "source": "digester.liquid_outlet",
+      "source_port": "liquid_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "liquid_product.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_liquid",
+      "source": "outlet_translator.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "vapor_product.inlet",
+      "destination_port": "inlet",
+      "id": "digester_to_vapor",
+      "source": "digester.vapor_outlet",
+      "source_port": "vapor_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__watertap_modified_adm1_translators",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_watertap_modified_adm1_translators",
+  "initialization_order": [
+    "feed",
+    "inlet_translator",
+    "digester",
+    "outlet_translator",
+    "liquid_product",
+    "vapor_product"
+  ],
+  "open_decisions": [],
+  "process_type": "WaterTAP Modified ADM1 with Translators",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official modified ADM1 translator flowsheet build, initialization, solve, and regression tests"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap/blob/3df4d0b15d11031716d93a4675b889ac432a7695/watertap/flowsheets/anaerobic_digester/modified_ADM1_flowsheet_with_translators.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "inlet_translator",
+      "kind": "Translator",
+      "package": null,
+      "role": "Source-derived Translator node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "digester",
+      "kind": "AnaerobicDigester",
+      "package": null,
+      "role": "Source-derived AnaerobicDigester node",
+      "stage": "bioreaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "outlet_translator",
+      "kind": "Translator",
+      "package": null,
+      "role": "Source-derived Translator node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "liquid_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "vapor_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

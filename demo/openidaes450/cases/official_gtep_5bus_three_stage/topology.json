@@ -1,0 +1,254 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "official_gtep_5bus_three_stage",
+  "family": "family_idaes_gtep",
+  "process_type": "GTEP 5-Bus Three-Stage Scaling",
+  "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py",
+  "source_basis": [
+    "Official IDAES-GTEP driver driver_jsc.py at commit a0814d3be706ca01f0372b1af44ead243bfa2ee5.",
+    "Topology follows the official model-stages documentation figure."
+  ],
+  "property_packages": {
+    "egret_prescient": {
+      "dataset": "5bus"
+    },
+    "pyomo_gdp": {
+      "transformation": "gdp.bigm"
+    }
+  },
+  "components": {
+    "planning": [
+      "generation",
+      "transmission",
+      "load",
+      "reserve",
+      "investment",
+      "dispatch"
+    ]
+  },
+  "units": [
+    {
+      "id": "data",
+      "kind": "GTEPData",
+      "package": "egret_prescient",
+      "stage": "data",
+      "role": "official 5bus grid and time-series data",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "investment",
+      "kind": "InvestmentStage",
+      "package": "pyomo_gdp",
+      "stage": "planning",
+      "role": "generation and transmission investment decisions",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "commitment",
+      "kind": "CommitmentStage",
+      "package": "pyomo_gdp",
+      "stage": "operations",
+      "role": "unit commitment and reserve decisions",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dispatch",
+      "kind": "DispatchStage",
+      "package": "egret",
+      "stage": "operations",
+      "role": "power dispatch, load balance, and load shedding",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "network",
+      "kind": "TransmissionNetwork",
+      "package": "egret",
+      "stage": "network",
+      "role": "DC transmission network and expansion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "plan",
+      "kind": "ExpansionPlan",
+      "package": "pyomo",
+      "stage": "solution",
+      "role": "investment and operating plan",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "data_to_investment",
+      "source": "data.outlet",
+      "destination": "investment.inlet",
+      "stage": "model_link",
+      "role": "official GTEP stage linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "investment_to_commitment",
+      "source": "investment.outlet",
+      "destination": "commitment.inlet",
+      "stage": "model_link",
+      "role": "official GTEP stage linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "commitment_to_dispatch",
+      "source": "commitment.outlet",
+      "destination": "dispatch.inlet",
+      "stage": "model_link",
+      "role": "official GTEP stage linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "dispatch_to_network",
+      "source": "dispatch.outlet",
+      "destination": "network.inlet",
+      "stage": "model_link",
+      "role": "official GTEP stage linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "network_to_plan",
+      "source": "network.outlet",
+      "destination": "plan.inlet",
+      "stage": "model_link",
+      "role": "official GTEP stage linkage",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "gtep",
+      "variable": "dataset",
+      "value": "5bus",
+      "units": "categorical",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "stages",
+      "value": 3,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "representative_periods",
+      "value": 1,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "representative_period_length",
+      "value": 1,
+      "units": "h",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "commitment_periods",
+      "value": 24,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "dispatch_periods_per_commitment",
+      "value": 2,
+      "units": "count",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "flow_model",
+      "value": "DC",
+      "units": "categorical",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "transmission_investment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "include_investment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "include_commitment",
+      "value": true,
+      "units": "boolean",
+      "role": "official driver configuration",
+      "source": "official_driver",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_jsc.py"
+    }
+  ],
+  "unit_specs": [],
+  "unconnected_feed_ports": [
+    "data.outlet"
+  ],
+  "unconnected_product_ports": [
+    "plan.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official data load, GDP model build, Big-M transformation, MILP solve",
+    "solve_order": [
+      "data",
+      "investment",
+      "commitment",
+      "dispatch",
+      "network",
+      "plan"
+    ]
+  },
+  "solve": {
+    "solver": "highs_or_official_gurobi",
+    "steady_state": false,
+    "expected_dof": null
+  },
+  "required_entries": [
+    "ExpansionPlanningData",
+    "ExpansionPlanningModel",
+    "gdp.bigm"
+  ],
+  "notes_for_agent_a": [
+    "This is a grid infrastructure planning model, not a process flowsheet.",
+    "Do not merge GTEP cases with DISPATCHES plant-operation cases."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_asm1_clarifier_only_ras",
+  "official_reference_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/activated_sludge/ASM1_flowsheet.py",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "official_asm1_baseline_optimal",
+      "pass": true
+    },
+    {
+      "name": "clarifier_only_ras_continuation_optimal",
+      "pass": true
+    },
+    {
+      "name": "clarifier_only_ras_final_solve_optimal",
+      "pass": true
+    },
+    {
+      "name": "clarifier_only_ras_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "clarifier_only_ras_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "direct_reactor_recycle_closed",
+      "pass": true
+    },
+    {
+      "name": "clarifier_ras_positive",
+      "pass": true
+    },
+    {
+      "name": "treated_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "hydraulic_flow_balance_closed",
+      "pass": true
+    },
+    {
+      "name": "effluent_and_energy_metrics_finite",
+      "pass": true
+    }
+  ],
+  "continuation_path": [
+    {
+      "direct_reactor_recycle_fraction": 0.5,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.4,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.3,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.2,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.1,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.05,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.02,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.01,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.005,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.001,
+      "termination_condition": "optimal"
+    },
+    {
+      "direct_reactor_recycle_fraction": 0.0,
+      "termination_condition": "optimal"
+    }
+  ],
+  "variant_metrics": {
+    "influent_flow_m3_s": 0.21349537037037034,
+    "treated_flow_m3_s": 0.20903821498785596,
+    "waste_sludge_flow_m3_s": 0.004457155382535953,
+    "hydraulic_balance_residual_m3_s": -2.1581694764627457e-14,
+    "clarifier_ras_flow_m3_s": 0.21349665305443036,
+    "clarifier_ras_to_influent_ratio": 1.0000060080181494,
+    "nominal_bioreactor_hrt_h": 7.805269435107883,
+    "effluent_ammonium_n_mg_l": 1.471558816050346,
+    "effluent_nitrate_n_mg_l": 16.415542545059317,
+    "effluent_soluble_inorganic_n_mg_l": 17.887101361109664,
+    "effluent_soluble_cod_states_mg_l": 30.92147053778613,
+    "effluent_particulate_cod_states_mg_l": 16.671813196101855,
+    "oxygen_transfer_kg_s": 0.057290246596676926,
+    "estimated_aeration_power_kw": 114.58049319335386,
+    "estimated_specific_aeration_energy_kwh_m3": 0.14908011691643136,
+    "aeration_transfer_assumption_kg_o2_per_kwh": 1.8,
+    "baseline_direct_reactor_recycle_fraction": 0.6,
+    "variant_direct_reactor_recycle_fraction": 0.0,
+    "baseline_effluent_ammonium_n_mg_l": 1.8596574898467657,
+    "baseline_effluent_nitrate_n_mg_l": 10.14762101309413,
+    "baseline_effluent_soluble_inorganic_n_mg_l": 12.007278502940895,
+    "baseline_estimated_aeration_power_kw": 106.80763276553125
+  },
+  "source_summary": {
+    "source": "Official WaterTAP ASM1 flowsheet and property/reaction packages",
+    "configuration": "All R5 effluent passes through CL1; only CL1 underflow RAS is returned, with the existing waste-sludge purge retained.",
+    "evidence_boundary": "Steady-state ASM1 surrogate with ideal component-split clarifier. Aeration electricity is an explicit post-processing estimate from native oxygen transfer using 1.8 kg O2/kWh; it is not a blower model. No phosphorus, settling dynamics, or equipment costing is represented.",
+    "stdout_tail": "0\nipopt-watertap: ipopt with user variable scaling and IDAES jacobian constraint scaling\nIpopt 3.13.2: tol=1e-08\nconstr_viol_tol=1e-08\nacceptable_constr_viol_tol=1e-08\nbound_relax_factor=0.0\nhonor_original_bounds=no\nnlp_scaling_method=user-scaling\n\n\n******************************************************************************\nThis program contains Ipopt, a library for large-scale nonlinear optimization.\n Ipopt is released as open source code under the Eclipse Public License (EPL).\n         For more information visit http://projects.coin-or.org/Ipopt\n\nThis version of Ipopt was compiled from source code available at\n    https://github.com/IDAES/Ipopt as part of the Institute for the Design of\n    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE\n    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.\n\nThis version of Ipopt was compiled using HSL, a collection of Fortran codes\n    for large-scale scientific computation.  All technical papers, sales and\n    publicity material resulting from use of the HSL codes within IPOPT must\n    contain the following acknowledgement:\n        HSL, a collection of Fortran codes for large-scale scientific\n        computation. See http://www.hsl.rl.ac.uk.\n******************************************************************************\n\nThis is Ipopt version 3.13.2, running with linear solver ma27.\n\nNumber of nonzeros in equality constraint Jacobian...:     1950\nNumber of nonzeros in inequality constraint Jacobian.:        0\nNumber of nonzeros in Lagrangian Hessian.............:      902\n\nTotal number of variables............................:      644\n                     variables with only lower bounds:      411\n                variables with lower and upper bounds:       57\n                     variables with only upper bounds:        0\nTotal number of equality constraints.................:      644\nTotal number of inequality constraints...............:        0\n        inequality constraints with only lower bounds:        0\n   inequality constraints with lower and upper bounds:        0\n        inequality constraints with only upper bounds:        0\n\niter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls\n   0  0.0000000e+00 2.70e-01 1.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0\n   1  0.0000000e+00 2.03e-01 2.89e+01  -1.0 1.61e-01    -  9.90e-01 2.50e-01h  1\n   2  0.0000000e+00 4.75e-02 2.35e+02  -1.0 4.20e-02    -  9.98e-01 7.66e-01h  1\n   3  0.0000000e+00 4.75e-04 4.37e+02  -1.0 1.18e-02    -  1.00e+00 9.90e-01h  1\n   4  0.0000000e+00 4.75e-06 1.73e+03  -1.0 4.50e-04    -  1.00e+00 9.90e-01h  1\n   5  0.0000000e+00 4.75e-08 5.69e+03  -1.0 4.55e-06    -  1.00e+00 9.90e-01h  1\n   6  0.0000000e+00 4.75e-10 5.69e+05  -1.0 4.55e-08    -  1.00e+00 9.90e-01h  1\n\nNumber of Iterations....: 6\n\n                                   (scaled)                 (unscaled)\nObjective...............:   0.0000000000000000e+00    0.0000000000000000e+00\nDual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00\nConstraint violation....:   1.8758550268671570e-10    4.7522519253107021e-10\nComplementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00\nOverall NLP error.......:   1.8758550268671570e-10    4.7522519253107021e-10\n\n\nNumber of objective function evaluations             = 7\nNumber of objective gradient evaluations             = 7\nNumber of equality constraint evaluations            = 7\nNumber of inequality constraint evaluations          = 0\nNumber of equality constraint Jacobian evaluations   = 7\nNumber of inequality constraint Jacobian evaluations = 0\nNumber of Lagrangian Hessian evaluations             = 6\nTotal CPU secs in IPOPT (w/o function evaluations)   =      0.025\nTotal CPU secs in NLP function evaluations           =      0.001\n\nEXIT: Optimal Solution Found.\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

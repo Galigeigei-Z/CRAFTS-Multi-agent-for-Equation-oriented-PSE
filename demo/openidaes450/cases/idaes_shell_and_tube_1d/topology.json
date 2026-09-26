@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.shell_feed",
+      "destination_port": "shell_feed",
+      "id": "shell_feed_to_model",
+      "source": "shell_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.tube_feed",
+      "destination_port": "tube_feed",
+      "id": "tube_feed_to_model",
+      "source": "tube_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "shell_outlet.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_shell_outlet",
+      "source": "model.shell_outlet",
+      "source_port": "shell_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "tube_outlet.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_tube_outlet",
+      "source": "model.tube_outlet",
+      "source_port": "tube_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_shell_and_tube_1d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_shell_and_tube_1d",
+  "initialization_order": [
+    "shell_feed",
+    "tube_feed",
+    "model",
+    "shell_outlet",
+    "tube_outlet"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Shell-and-Tube Heat Exchanger 1D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official ShellAndTube1D test module"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models/unit_models/shell_and_tube_1d.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "shell_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tube_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ShellAndTube1D",
+      "package": null,
+      "role": "Source-derived ShellAndTube1D node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "shell_outlet",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tube_outlet",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

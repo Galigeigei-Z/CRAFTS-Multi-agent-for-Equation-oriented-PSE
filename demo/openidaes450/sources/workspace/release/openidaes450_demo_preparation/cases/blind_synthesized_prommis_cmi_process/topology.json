@@ -1,0 +1,1438 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "prommis_cmi_process",
+  "family": "family_prommis_cmi_process",
+  "process_type": "PrOMMiS Critical Materials Innovation Hub rare-earth magnet recycling process with dissolution, filtration, pH adjustment, precipitation, filtration, and calcination",
+  "source_url": "https://prommis.readthedocs.io/en/latest/examples/cmi_process.html",
+  "source_basis": [
+    "Official source flowchart was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor file=/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/full_langgraph_blind_synthesized_prommis_cmi_process_gpt5mini_r01/source_flowchart.png.",
+    "The hand-maintained official IDAES source mappings are guardrails for names, ports, and solver runners; they do not bypass the flowchart evidence gate.",
+    "PrOMMiS CMI documentation shows cmi_process_pfd.png as the official process flow diagram.",
+    "The official source builds FEED, Dissolution, S101, AdjFeed, AdjMixer, Adjustment, PrecipFeed, PrecipMixer, Precipitation, S102, and Calcination.",
+    "The CMI process recovers rare earth elements from NdFeB magnet swarf through copper nitrate dissolution, ammonium hydroxide pH adjustment, oxalic acid precipitation, and calcination."
+  ],
+  "property_packages": {
+    "cmi_multiphase": {
+      "entry_id": "prommis.examples.cmi_process_flowsheet.cmi_process_prop_pack.GenericParameterBlock",
+      "components": [
+        "H2O",
+        "Nd2Fe14B",
+        "Cu_2+",
+        "NO3_-",
+        "Nd_3+",
+        "Fe_2+",
+        "Fe_3+",
+        "NH4_+",
+        "OH_-",
+        "C2O4_2-"
+      ],
+      "phases": [
+        "Liq",
+        "Aq",
+        "Sol",
+        "Vap"
+      ],
+      "scope": [
+        "FEED",
+        "Dissolution",
+        "S101",
+        "AdjMixer",
+        "Adjustment",
+        "PrecipMixer",
+        "Precipitation",
+        "S102"
+      ]
+    },
+    "calcination": {
+      "entry_id": "prommis.roasting.ree_oxalate_roaster.REEOxalateRoaster",
+      "components": [
+        "Nd",
+        "O2",
+        "CO2",
+        "H2O",
+        "N2"
+      ],
+      "phases": [
+        "solid",
+        "vapor",
+        "liquid"
+      ],
+      "scope": [
+        "Calcination"
+      ]
+    }
+  },
+  "components": {
+    "rare_earth_magnet_slurry": [
+      "Nd",
+      "Fe",
+      "B",
+      "Cu",
+      "NO3",
+      "NH4",
+      "C2O4",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "cmi_multiphase",
+      "stage": "feed",
+      "role": "NdFeB magnet swarf and copper nitrate dissolution feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Dissolution",
+      "kind": "StoichiometricReactor",
+      "package": "cmi_multiphase",
+      "stage": "dissolution",
+      "role": "copper nitrate dissolution reactor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "cmi_multiphase",
+      "stage": "filter",
+      "role": "solid/liquid filter after dissolution",
+      "constructor": {
+        "outlet_list": [
+          "liq_outlet",
+          "sol_outlet"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "AdjFeed",
+      "kind": "Feed",
+      "package": "cmi_multiphase",
+      "stage": "feed",
+      "role": "ammonium hydroxide pH adjustment feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AdjMixer",
+      "kind": "Mixer",
+      "package": "cmi_multiphase",
+      "stage": "adjustment",
+      "role": "mixer for S101 liquid outlet and pH adjustment feed",
+      "constructor": {
+        "inlet_list": [
+          "separator_stream",
+          "reactant_feed"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Adjustment",
+      "kind": "StoichiometricReactor",
+      "package": "cmi_multiphase",
+      "stage": "adjustment",
+      "role": "pH adjustment reactor forming hydroxides",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PrecipFeed",
+      "kind": "Feed",
+      "package": "cmi_multiphase",
+      "stage": "feed",
+      "role": "oxalic acid precipitation reactant feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PrecipMixer",
+      "kind": "Mixer",
+      "package": "cmi_multiphase",
+      "stage": "precipitation",
+      "role": "mixer for adjusted solution and oxalic acid feed",
+      "constructor": {
+        "inlet_list": [
+          "adjustment_stream",
+          "reactant_feed"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Precipitation",
+      "kind": "StoichiometricReactor",
+      "package": "cmi_multiphase",
+      "stage": "precipitation",
+      "role": "rare earth oxalate precipitation reactor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S102",
+      "kind": "Separator",
+      "package": "cmi_multiphase",
+      "stage": "filter",
+      "role": "solid/liquid filter after precipitation",
+      "constructor": {
+        "outlet_list": [
+          "liq_outlet",
+          "sol_outlet"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "Calcination",
+      "kind": "REEOxalateRoaster",
+      "package": "calcination",
+      "stage": "calcination",
+      "role": "calcines rare earth oxalate to rare earth oxide product",
+      "constructor": {
+        "metal_list": [
+          "Nd"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "dissolution_filter_cake",
+      "kind": "Product",
+      "package": "cmi_multiphase",
+      "stage": "byproduct",
+      "role": "unwanted solids filtered after dissolution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "waste_liquid",
+      "kind": "Product",
+      "package": "cmi_multiphase",
+      "stage": "byproduct",
+      "role": "liquid outlet from final S102 filter",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reo_product",
+      "kind": "Product",
+      "package": "calcination",
+      "stage": "product",
+      "role": "rare earth oxide product from calcination",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "FEED_Diss",
+      "source": "FEED.outlet",
+      "destination": "Dissolution.inlet",
+      "stage": "feed",
+      "role": "feed to copper nitrate dissolution",
+      "tear_candidate": false
+    },
+    {
+      "id": "Diss_S101",
+      "source": "Dissolution.outlet",
+      "destination": "S101.inlet",
+      "stage": "dissolution",
+      "role": "dissolution slurry to S101 filter",
+      "tear_candidate": false
+    },
+    {
+      "id": "S101_AdjMixer",
+      "source": "S101.liq_outlet",
+      "destination": "AdjMixer.separator_stream",
+      "stage": "adjustment",
+      "role": "liquid filtrate to adjustment mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "S101_solids",
+      "source": "S101.sol_outlet",
+      "destination": "dissolution_filter_cake.inlet",
+      "stage": "byproduct",
+      "role": "filtered unwanted solids",
+      "tear_candidate": false
+    },
+    {
+      "id": "AdjFeed_AdjMixer",
+      "source": "AdjFeed.outlet",
+      "destination": "AdjMixer.reactant_feed",
+      "stage": "adjustment",
+      "role": "ammonium hydroxide feed to adjustment mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "AdjMixer_Adjustment",
+      "source": "AdjMixer.outlet",
+      "destination": "Adjustment.inlet",
+      "stage": "adjustment",
+      "role": "mixed solution to adjustment reactor",
+      "tear_candidate": false
+    },
+    {
+      "id": "Adjustment_PrecipMixer",
+      "source": "Adjustment.outlet",
+      "destination": "PrecipMixer.adjustment_stream",
+      "stage": "precipitation",
+      "role": "adjusted solution to precipitation mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "PrecipFeed_PrecipMixer",
+      "source": "PrecipFeed.outlet",
+      "destination": "PrecipMixer.reactant_feed",
+      "stage": "precipitation",
+      "role": "oxalic acid feed to precipitation mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "PrecipMixer_Precipitation",
+      "source": "PrecipMixer.outlet",
+      "destination": "Precipitation.inlet",
+      "stage": "precipitation",
+      "role": "mixed precipitation feed to reactor",
+      "tear_candidate": false
+    },
+    {
+      "id": "Precipitation_S102",
+      "source": "Precipitation.outlet",
+      "destination": "S102.inlet",
+      "stage": "precipitation",
+      "role": "precipitation reactor outlet to final filter",
+      "tear_candidate": false
+    },
+    {
+      "id": "S102_Calcination",
+      "source": "S102.sol_outlet",
+      "destination": "Calcination.inlet",
+      "stage": "calcination",
+      "role": "solid rare earth oxalate to calcination",
+      "tear_candidate": false
+    },
+    {
+      "id": "S102_liquid_waste",
+      "source": "S102.liq_outlet",
+      "destination": "waste_liquid.inlet",
+      "stage": "byproduct",
+      "role": "liquid outlet from final filter",
+      "tear_candidate": false
+    },
+    {
+      "id": "Calcination_product",
+      "source": "Calcination.outlet",
+      "destination": "reo_product.inlet",
+      "stage": "product",
+      "role": "rare earth oxide product",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "FEED.outlet",
+      "variable": "Nd2Fe14B",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "official magnet swarf feed basis"
+    },
+    {
+      "target": "AdjFeed.outlet",
+      "variable": "NH4_+",
+      "value": 12.0,
+      "units": "mol/s",
+      "role": "pH adjustment reactant"
+    },
+    {
+      "target": "PrecipFeed.outlet",
+      "variable": "H2C2O4",
+      "value": 10.0,
+      "units": "mol/s",
+      "role": "oxalic acid precipitation feed"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "Calcination",
+      "variable": "metal_list",
+      "value": "Nd",
+      "units": "dimensionless",
+      "role": "single rare earth metal basis used by official CMI example"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official CMI build, set_operation_conditions, scale_model, initialize_system, solve_system",
+    "solve_order": [
+      "Dissolution",
+      "S101",
+      "Adjustment",
+      "Precipitation",
+      "S102",
+      "Calcination"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "prommis.examples.cmi_process_flowsheet.cmi_process_flowsheet",
+    "cmi_process_pfd.png",
+    "REEOxalateRoaster"
+  ],
+  "notes_for_agent_a": [
+    "Use the official CMI PFD as primary visual evidence; preserve the two reactant feeds and two solid/liquid separation steps."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/full_langgraph_blind_synthesized_prommis_cmi_process_gpt5mini_r01/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1280,
+      "height": 720,
+      "mode": "RGB"
+    },
+    "descriptor": {
+      "status": "ok",
+      "provider": "openai_compatible_vision",
+      "base_url": "https://api.vectorengine.ai/v1",
+      "model": "qwen-vl-max",
+      "description": "1. PROCESS DESCRIPTION\nThe process is a three-stage hydrometallurgical route for recovering Neodymium (Nd) from Nd₂Fe₁₄B magnets, followed by calcination to produce Nd₂O₃.\n\n- **Stage 1 (Dissolution):** A reactor operates at T = 343.15 K. The feedstock Nd₂Fe₁₄B reacts with air (excess O₂) and Cu(NO₃)₂. This stage dissolves the rare earths into solution while precipitating iron, copper, and boron compounds.\n- **Stage 2 (Adjustment):** A mixer (AdjMixer) adds NH₄OH to the filtrate from Stage 1. The mixture enters an Adjustment Reactor (T = 333.15 K). This step precipitates remaining iron and neodymium hydroxides.\n- **Stage 3 (Precipitation):** A mixer (PrecipMixer) adds H₂C₂O₄ (oxalic acid) to the stream from Stage 2. It enters a Precipitation Reactor (T = 333.15 K). This selectively re-dissolves iron impurities as ammonium ferric oxalate while precipitating neodymium oxalate hydrate.\n- **Calcination:** The solid product Nd₂(C₂O₄)₃·10H₂O is sent to a Calcinator (T = 873.15 K) with excess air to yield final Nd₂O₃.\n\n2. EQUIPMENT AND CONNECTIONS\n- **Reactor (Dissolution):** Inlet: Nd₂Fe₁₄B, Air (excess O₂), Cu(NO₃)₂. Outlet: Slurry to Filter S101.\n- **Filter (S101):** Inlet: Slurry from Dissolution Reactor. Outlet 1 (Solid): Precipitates (Cu₃(BO₃)₂, Cu₂O, Cu, Fe(OH)₃). Outlet 2 (Liquid): Filtrate to Mixer AdjMixer.\n- **Mixer (AdjMixer):** Inlet: Filtrate from S101 + NH₄OH. Outlet: Mixture to Adjustment Reactor.\n- **Reactor (Adjustment):** Inlet: Mixture from AdjMixer. Outlet: Slurry to Mixer PrecipMixer.\n- **Mixer (PrecipMixer):** Inlet: Stream from Adjustment Reactor + H₂C₂O₄. Outlet: Mixture to Precipitation Reactor.\n- **Reactor (Precipitation):** Inlet: Mixture from PrecipMixer. Outlet: Slurry to Filter S102.\n- **Filter (S102):** Inlet: Slurry from Precipitation Reactor. Outlet 1 (Liquid): Liquid containing contaminants. Outlet 2 (Solid): Nd₂(C₂O₄)₃·10H₂O (s) to Calcinator.\n- **Calcinator:** Inlet: Nd₂(C₂O₄)₃·10H₂O (s) + Air (excess O₂). Outlet: Nd₂O₃.\n\n3. STREAMS AND DIRECTIONS\n- **Main Process Flow:** Left to right through Stages 1 → 2 → 3 → Calcination.\n- **Solid Waste Streams:** \n    - From Filter S101: Precipitates (Cu₃(BO₃)₂(s), Cu₂O(s), Cu(s), Fe(OH)₃(s)).\n    - From Filter S102: Liquid containing contaminants (downward arrow).\n- **Chemical Additions:** \n    - Air/Cu(NO₃)₂ into Stage 1 Reactor.\n    - NH₄OH into AdjMixer.\n    - H₂C₂O₄ into PrecipMixer.\n    - Air into Calcinator.\n\n4. FINAL CONSISTENCY CHECK\n- All visible units are listed exactly once.\n- No equipment was invented; only labeled units (Reactors, Mixers, Filters, Calcinator) are described.\n- Stream directions match the arrows in the diagram (e.g., solids removed downward at filters, main flow horizontal).\n- Temperatures and labels (S101, S102) are transcribed as written.\n- Reaction equations provided in text are consistent with the stages shown (Dissolution, Hydroxide precipitation, Oxalate precipitation, Calcination)."
+    },
+    "description": "1. PROCESS DESCRIPTION\nThe process is a three-stage hydrometallurgical route for recovering Neodymium (Nd) from Nd₂Fe₁₄B magnets, followed by calcination to produce Nd₂O₃.\n\n- **Stage 1 (Dissolution):** A reactor operates at T = 343.15 K. The feedstock Nd₂Fe₁₄B reacts with air (excess O₂) and Cu(NO₃)₂. This stage dissolves the rare earths into solution while precipitating iron, copper, and boron compounds.\n- **Stage 2 (Adjustment):** A mixer (AdjMixer) adds NH₄OH to the filtrate from Stage 1. The mixture enters an Adjustment Reactor (T = 333.15 K). This step precipitates remaining iron and neodymium hydroxides.\n- **Stage 3 (Precipitation):** A mixer (PrecipMixer) adds H₂C₂O₄ (oxalic acid) to the stream from Stage 2. It enters a Precipitation Reactor (T = 333.15 K). This selectively re-dissolves iron impurities as ammonium ferric oxalate while precipitating neodymium oxalate hydrate.\n- **Calcination:** The solid product Nd₂(C₂O₄)₃·10H₂O is sent to a Calcinator (T = 873.15 K) with excess air to yield final Nd₂O₃.\n\n2. EQUIPMENT AND CONNECTIONS\n- **Reactor (Dissolution):** Inlet: Nd₂Fe₁₄B, Air (excess O₂), Cu(NO₃)₂. Outlet: Slurry to Filter S101.\n- **Filter (S101):** Inlet: Slurry from Dissolution Reactor. Outlet 1 (Solid): Precipitates (Cu₃(BO₃)₂, Cu₂O, Cu, Fe(OH)₃). Outlet 2 (Liquid): Filtrate to Mixer AdjMixer.\n- **Mixer (AdjMixer):** Inlet: Filtrate from S101 + NH₄OH. Outlet: Mixture to Adjustment Reactor.\n- **Reactor (Adjustment):** Inlet: Mixture from AdjMixer. Outlet: Slurry to Mixer PrecipMixer.\n- **Mixer (PrecipMixer):** Inlet: Stream from Adjustment Reactor + H₂C₂O₄. Outlet: Mixture to Precipitation Reactor.\n- **Reactor (Precipitation):** Inlet: Mixture from PrecipMixer. Outlet: Slurry to Filter S102.\n- **Filter (S102):** Inlet: Slurry from Precipitation Reactor. Outlet 1 (Liquid): Liquid containing contaminants. Outlet 2 (Solid): Nd₂(C₂O₄)₃·10H₂O (s) to Calcinator.\n- **Calcinator:** Inlet: Nd₂(C₂O₄)₃·10H₂O (s) + Air (excess O₂). Outlet: Nd₂O₃.\n\n3. STREAMS AND DIRECTIONS\n- **Main Process Flow:** Left to right through Stages 1 → 2 → 3 → Calcination.\n- **Solid Waste Streams:** \n    - From Filter S101: Precipitates (Cu₃(BO₃)₂(s), Cu₂O(s), Cu(s), Fe(OH)₃(s)).\n    - From Filter S102: Liquid containing contaminants (downward arrow).\n- **Chemical Additions:** \n    - Air/Cu(NO₃)₂ into Stage 1 Reactor.\n    - NH₄OH into AdjMixer.\n    - H₂C₂O₄ into PrecipMixer.\n    - Air into Calcinator.\n\n4. FINAL CONSISTENCY CHECK\n- All visible units are listed exactly once.\n- No equipment was invented; only labeled units (Reactors, Mixers, Filters, Calcinator) are described.\n- Stream directions match the arrows in the diagram (e.g., solids removed downward at filters, main flow horizontal).\n- Temperatures and labels (S101, S102) are transcribed as written.\n- Reaction equations provided in text are consistent with the stages shown (Dissolution, Hydroxide precipitation, Oxalate precipitation, Calcination).",
+    "blind_routing": {
+      "enabled": false,
+      "allow_legacy_lookup": false
+    },
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [
+        {
+          "id": "Reactor_Dissolution",
+          "label": "**Reactor (Dissolution)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Reactor (Dissolution):** Inlet: Nd₂Fe₁₄B, Air (excess O₂), Cu(NO₃)₂. Outlet: Slurry to Filter S101."
+        },
+        {
+          "id": "Filter_S101",
+          "label": "**Filter (S101)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Filter (S101):** Inlet: Slurry from Dissolution Reactor. Outlet 1 (Solid): Precipitates (Cu₃(BO₃)₂, Cu₂O, Cu, Fe(OH)₃). Outlet 2 (Liquid): Filtrate to Mixer AdjMixer."
+        },
+        {
+          "id": "Mixer_AdjMixer",
+          "label": "**Mixer (AdjMixer)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Mixer (AdjMixer):** Inlet: Filtrate from S101 + NH₄OH. Outlet: Mixture to Adjustment Reactor."
+        },
+        {
+          "id": "Reactor_Adjustment",
+          "label": "**Reactor (Adjustment)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Reactor (Adjustment):** Inlet: Mixture from AdjMixer. Outlet: Slurry to Mixer PrecipMixer."
+        },
+        {
+          "id": "Mixer_PrecipMixer",
+          "label": "**Mixer (PrecipMixer)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Mixer (PrecipMixer):** Inlet: Stream from Adjustment Reactor + H₂C₂O₄. Outlet: Mixture to Precipitation Reactor."
+        },
+        {
+          "id": "Reactor_Precipitation",
+          "label": "**Reactor (Precipitation)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Reactor (Precipitation):** Inlet: Mixture from PrecipMixer. Outlet: Slurry to Filter S102."
+        },
+        {
+          "id": "Filter_S102",
+          "label": "**Filter (S102)",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Filter (S102):** Inlet: Slurry from Precipitation Reactor. Outlet 1 (Liquid): Liquid containing contaminants. Outlet 2 (Solid): Nd₂(C₂O₄)₃·10H₂O (s) to Calcinator."
+        },
+        {
+          "id": "Calcinator",
+          "label": "**Calcinator",
+          "type_guess": "unit",
+          "confidence": 0.72,
+          "evidence": "- **Calcinator:** Inlet: Nd₂(C₂O₄)₃·10H₂O (s) + Air (excess O₂). Outlet: Nd₂O₃."
+        }
+      ],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": true,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": false,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": true,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": true,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Build IDAES topology for blind_synthesized_prommis_cmi_process",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "family_profile.family_watertap_bped_unit",
+        "prommis.flowsheet.cmi_process",
+        "watertap.props.mcas",
+        "watertap.unit.boron_removal",
+        "watertap.unit.crystallization"
+      ],
+      "unit_type_guesses": [
+        "unit"
+      ],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": true,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "bsm2_electronp_no_biop": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "fixed_bed_tsa0d": false,
+        "ccsi2_fixed_bed_adsorption_reduced_design_sweep": false,
+        "ccsi2_fixed_bed_adsorption_reduced_model_solve": false,
+        "ccsi2_fixed_bed_adsorption_fim_doe_reduced": false,
+        "ccsi2_fixed_bed_adsorption_smoke": false,
+        "ccsi2_fixed_bed_adsorption": false,
+        "ccsi2_mea_ssm_smoke": false,
+        "ccsi2_moving_bed_reactor_smoke": false,
+        "ccsi2_compressor_smoke": false,
+        "ccsi2_process_models_bfb_reactor_smoke": false,
+        "subcritical_power_plant": false,
+        "supercritical_power_plant_pfd_smoke": false,
+        "co2_adsorption_desorption": false,
+        "sco2_surrogate": false,
+        "dispatches_usc_tes_integrated": false,
+        "dispatches_usc_tes_charge_superstructure": false,
+        "dispatches_usc_tes_discharge_superstructure": false,
+        "dispatches_grid_integrated_rankine_surrogate": false,
+        "prommis_diafiltration": false,
+        "prommis_diafiltration_byproduct_recovery": false,
+        "prommis_diafiltration_two_salt": false,
+        "prommis_diafiltration_uq_reduced": false,
+        "prommis_diafiltration_uq_stage_lengths_histogram": false,
+        "prommis_diafiltration_uq_uncertainty_distributions": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li13_co05": false,
+        "prommis_diafiltration_uq_stage1_bec_length_li15_co08": false,
+        "prommis_diafiltration_cost_optimization": false,
+        "prommis_diafiltration_pfd": false,
+        "prommis_membrane_cascade_flowsheet": false,
+        "prommis_nanofiltration_membrane_schematic": false,
+        "prommis_nanofiltration_ui_flowsheet": false,
+        "prommis_multi_component_diafiltration_unit": false,
+        "prommis_nf_brine_advanced_costing": false,
+        "prommis_cmi_process": true,
+        "prommis_cmi_process_pfd": false,
+        "prommis_ion_exchange_multicomponent": false,
+        "prommis_cmi_opt_based_precipitator": true,
+        "prommis_leach_train_unit": false,
+        "prommis_leach_flowsheet": false,
+        "prommis_crusher_unit": false,
+        "prommis_evaporation_pond_unit": false,
+        "prommis_ree_oxalate_roaster": false,
+        "prommis_superstructure_pathway_npv": false,
+        "prommis_superstructure_generic_mb_diagram": false,
+        "prommis_hydrogen_decrepitation_flowsheet": false,
+        "prommis_hydrogen_decrepitation_furnace": false,
+        "prommis_solvent_extraction_steady": false,
+        "prommis_mixer_settler_ex_steady": false,
+        "prommis_uky_byproduct_recovery_decision": false,
+        "prommis_simplified_uky_flowsheet": false,
+        "prommis_uky_ui_flowsheet": false,
+        "prommis_uky_tutorial_flowsheet_pfd": false,
+        "prommis_uky_flowsheet": false,
+        "prommis_uky_costing": false,
+        "electronp": false,
+        "methanol_synthesis": false,
+        "ngcc": false,
+        "ngcc_gas_turbine": false,
+        "ngcc_hrsg": false,
+        "ngcc_steam_turbine": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "crystallization",
+        "qualified_templates": [
+          "crystallization"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "ngcc": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.ngcc"
+            ]
+          },
+          "ngcc_gas_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_gas_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.gas_turbine"
+            ]
+          },
+          "ngcc_hrsg": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_hrsg",
+              "missing required support doc idaes.flowsheet.ngcc.hrsg"
+            ]
+          },
+          "ngcc_steam_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ngcc_steam_turbine",
+              "missing required support doc idaes.flowsheet.ngcc.steam_turbine"
+            ]
+          },
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.eg_stoichiometric"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "sco2_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal sco2_surrogate",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.sco2_surrogate"
+            ]
+          },
+          "dispatches_usc_tes_integrated": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_integrated",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_integrated/qwen_route.dispatches_usc_tes_integrated"
+            ]
+          },
+          "dispatches_usc_tes_charge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_charge_superstructure",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_charge_superstructure/qwen_route.dispatches_usc_tes_charge_superstructure"
+            ]
+          },
+          "dispatches_usc_tes_discharge_superstructure": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_usc_tes_discharge_superstructure",
+              "missing one of required support docs family_profile.family_dispatches_usc_tes_discharge_superstructure/qwen_route.dispatches_usc_tes_discharge_superstructure"
+            ]
+          },
+          "dispatches_grid_integrated_rankine_surrogate": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dispatches_grid_integrated_rankine_surrogate",
+              "missing one of required support docs family_profile.family_dispatches_grid_integrated_rankine_surrogate/qwen_route.dispatches_grid_integrated_rankine_surrogate"
+            ]
+          },
+          "fixed_bed_tsa0d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal fixed_bed_tsa0d",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.fixed_bed_tsa0d"
+            ]
+          },
+          "subcritical_power_plant": {
+            "qualified": false,
+            "failures": [
+              "missing required signal subcritical_power_plant",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.flowsheet.subcritical_power_plant"
+            ]
+          },
+          "prommis_diafiltration_byproduct_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_byproduct_recovery",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.diafiltration_byproduct_recovery"
+            ]
+          },
+          "prommis_diafiltration_two_salt": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_two_salt",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.diafiltration_two_salt"
+            ]
+          },
+          "prommis_diafiltration_cost_optimization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_cost_optimization",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.diafiltration_cost_optimization"
+            ]
+          },
+          "prommis_diafiltration_uq_reduced": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_reduced",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.diafiltration_uq_reduced"
+            ]
+          },
+          "prommis_diafiltration_uq_stage_lengths_histogram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage_lengths_histogram",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.diafiltration_uq_stage_lengths_histogram"
+            ]
+          },
+          "prommis_diafiltration_uq_uncertainty_distributions": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_uncertainty_distributions",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.diafiltration_uq_uncertainty_distributions"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li13_co05": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li13_co05",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li13_co05"
+            ]
+          },
+          "prommis_diafiltration_uq_stage1_bec_length_li15_co08": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_uq_stage1_bec_length_li15_co08",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.diafiltration_uq_stage1_bec_length_li15_co08"
+            ]
+          },
+          "prommis_diafiltration_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "missing required signal prommis_diafiltration_pfd",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.diafiltration_pfd"
+            ]
+          },
+          "prommis_nf_brine_advanced_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nf_brine_advanced_costing",
+              "forbidden signal prommis_cmi_process",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.nf_brine_advanced_costing"
+            ]
+          },
+          "prommis_nanofiltration_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_ui_flowsheet",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.nanofiltration_ui_flowsheet"
+            ]
+          },
+          "prommis_membrane_cascade_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_membrane_cascade_flowsheet",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.membrane_cascade"
+            ]
+          },
+          "prommis_nanofiltration_membrane_schematic": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_nanofiltration_membrane_schematic",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.nanofiltration_membrane_schematic"
+            ]
+          },
+          "prommis_multi_component_diafiltration_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_multi_component_diafiltration_unit",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.multi_component_diafiltration"
+            ]
+          },
+          "prommis_ion_exchange_multicomponent": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ion_exchange_multicomponent",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.ion_exchange_multicomponent"
+            ]
+          },
+          "prommis_cmi_opt_based_precipitator": {
+            "qualified": false,
+            "failures": [
+              "missing required support doc prommis.unit.cmi_opt_based_precipitator"
+            ]
+          },
+          "prommis_leach_train_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_train_unit",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.leach_train"
+            ]
+          },
+          "prommis_leach_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_leach_flowsheet",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.leach"
+            ]
+          },
+          "prommis_crusher_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_crusher_unit",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.crusher"
+            ]
+          },
+          "prommis_evaporation_pond_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_evaporation_pond_unit",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.evaporation_pond"
+            ]
+          },
+          "prommis_ree_oxalate_roaster": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_ree_oxalate_roaster",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.ree_oxalate_roaster"
+            ]
+          },
+          "prommis_superstructure_pathway_npv": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_pathway_npv",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.superstructure.pathway_npv"
+            ]
+          },
+          "prommis_superstructure_generic_mb_diagram": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_superstructure_generic_mb_diagram",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.figure.superstructure_generic_mb_diagram"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_flowsheet",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.hydrogen_decrepitation"
+            ]
+          },
+          "prommis_hydrogen_decrepitation_furnace": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_hydrogen_decrepitation_furnace",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.unit.hydrogen_decrepitation_furnace"
+            ]
+          },
+          "prommis_solvent_extraction_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_solvent_extraction_steady",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.solvent_extraction_steady"
+            ]
+          },
+          "prommis_mixer_settler_ex_steady": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_mixer_settler_ex_steady",
+              "forbidden signal prommis_cmi_process",
+              "missing required support doc prommis.flowsheet.mixer_settler_ex_steady"
+            ]
+          },
+          "prommis_diafiltration": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_diafiltration",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.diafiltration"
+            ]
+          },
+          "prommis_cmi_process": {
+            "qualified": false,
+            "failures": [
+              "forbidden signal crystallization"
+            ]
+          },
+          "prommis_cmi_process_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_cmi_process_pfd",
+              "forbidden signal prommis_cmi_opt_based_precipitator",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.figure.cmi_process_pfd"
+            ]
+          },
+          "prommis_uky_costing": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "missing required signal prommis_uky_costing",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.uky_costing"
+            ]
+          },
+          "prommis_uky_byproduct_recovery_decision": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_byproduct_recovery_decision",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.uky.byproduct_recovery_decision"
+            ]
+          },
+          "prommis_simplified_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_simplified_uky_flowsheet",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.simplified_uky"
+            ]
+          },
+          "prommis_uky_ui_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_ui_flowsheet",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.figure.uky_ui_flowsheet"
+            ]
+          },
+          "prommis_uky_tutorial_flowsheet_pfd": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_tutorial_flowsheet_pfd",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.figure.uky_tutorial_flowsheet_pfd"
+            ]
+          },
+          "prommis_uky_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal prommis_uky_flowsheet",
+              "forbidden signal crystallization",
+              "missing required support doc prommis.flowsheet.uky"
+            ]
+          },
+          "electronp_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electronp",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.electroNP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "bsm2_electronp_no_biop": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_electronp_no_biop",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.bsm2_electroNP_no_bioP",
+              "missing required support doc watertap.unit.electroNP_ZO"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal crystallization",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": true,
+            "failures": []
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.ion_exchange_0d"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.gac"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal crystallization"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal crystallization",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.72,
+        "support": 1.0
+      }
+    }
+  }
+}

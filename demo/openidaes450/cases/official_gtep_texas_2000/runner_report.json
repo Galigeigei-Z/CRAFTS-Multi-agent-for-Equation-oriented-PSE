@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "bus_count": 2000,
+    "branch_count": 3206,
+    "generator_count": 544,
+    "load_count": 1125,
+    "variables_before_gdp_transform": 34664,
+    "constraints_before_gdp_transform": 9502,
+    "disjunctions_before_gdp_transform": 7500,
+    "objective_value": 2491903600.8501005,
+    "recovery_configuration": {
+      "official_dataset": "Texas_2000",
+      "matpower_source": "case_ACTIVSg2000.m",
+      "stages": 1,
+      "representative_periods": 1,
+      "commitment_periods": 1,
+      "dispatch_periods": 1,
+      "flow_model": "DC",
+      "transmission": true,
+      "include_investment": false,
+      "include_commitment": false,
+      "compatibility_fixes": [
+        {
+          "id": "matpower_to_gtep_snapshot_adapter",
+          "reason": "The archived official Texas directory contains MATPOWER files but no Prescient bus/gen/branch CSV set."
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "official_dataset": "Texas_2000",
+    "matpower_source": "case_ACTIVSg2000.m",
+    "stages": 1,
+    "representative_periods": 1,
+    "commitment_periods": 1,
+    "dispatch_periods": 1,
+    "flow_model": "DC",
+    "transmission": true,
+    "include_investment": false,
+    "include_commitment": false,
+    "compatibility_fixes": [
+      {
+        "id": "matpower_to_gtep_snapshot_adapter",
+        "reason": "The archived official Texas directory contains MATPOWER files but no Prescient bus/gen/branch CSV set."
+      }
+    ]
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,4026 @@
+[
+  {
+    "name": "fs.ngcc.fg_translate",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.hrsg.prop_gas"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.feed_air1",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.feed_fuel1",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.exhaust_1",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.vsv",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.cmp1",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.splt1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "air04",
+        "air05",
+        "air07",
+        "air09"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.valve01",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.valve02",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.valve03",
+    "class": "idaes.core.base.process_block._ScalarValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "componentTotal"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "adiabatic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "valve_function_callback": "idaes.models.unit_models.valve.linear_cb",
+      "pressure_flow_callback": "idaes.models.unit_models.valve.pressure_flow_default_callback"
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.inject_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.gt.cmb_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.ng_preheat",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.inject1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.translator1",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.mx1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.translator2",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.mx2",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.translator3",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.air_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.mx3",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "gas",
+        "air"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "equality"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.cmb1",
+    "class": "idaes.core.base.process_block._ScalarStoichiometricReactor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_heat_of_reaction": false,
+      "has_heat_transfer": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.gt.cmb_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_package": {
+        "component": "fs.ngcc.gt.gas_combustion"
+      },
+      "reaction_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.flue_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.ngcc.gt.cmb_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.gts1",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.gts2",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.gt.gts3",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.ngcc.gt.flue_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": true,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_lp",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.mixer1",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "econ_lp",
+        "Preheater"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.drum_lp",
+    "class": "idaes.core.base.process_block._ScalarHelmPhaseSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.evap_lp",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.mixer_soec",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "main",
+        "soec_makeup"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.split_fg_lp",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_gas"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "toLP_SH",
+        "toMixer"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.mixer_lp2",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_gas"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "fromLP_SH",
+        "bypass"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_lp",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.splitter1",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "toIP",
+        "toHP"
+      ],
+      "num_outlets": null
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.pump_ip",
+    "class": "idaes.core.base.process_block._ScalarHelmIsentropicCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.pump_hp",
+    "class": "idaes.core.base.process_block._ScalarHelmIsentropicCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_ip1",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.splitter_ip1",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "toIP_ECON2",
+        "toNGPH"
+      ],
+      "num_outlets": null
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_ip2",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.evap_ip",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_ip1",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.mixer_ip1",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "sh_ip1",
+        "Cold_reheat"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.splitter_ip2",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "Cold_reheat",
+        "toEjector",
+        "toReclaimer",
+        "toDryer"
+      ],
+      "num_outlets": null
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_ip2",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_ip3",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_hp1",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_hp2",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_hp3",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_hp4",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.econ_hp5",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Liq",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.evap_hp_valve",
+    "class": "idaes.core.base.process_block._ScalarHelmValve",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.hrsg.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": false,
+      "has_heat_transfer": false,
+      "valve_function": {
+        "component": "linear"
+      },
+      "valve_function_callback": null,
+      "phase": "Vap"
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.evap_hp",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_hp1",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_hp2",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_hp3",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.hrsg.sh_hp4",
+    "class": "idaes.core.base.process_block._ScalarBoilerHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_smooth_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "tube_arrangement": {
+        "component": "inLine"
+      },
+      "cold_side_water_phase": "Vap",
+      "has_radiation": false,
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine",
+    "class": "idaes.core.base.process_block._ScalarHelmTurbineMultistage",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "num_parallel_inlet_stages": 1,
+      "throttle_valve_function": {
+        "component": "linear"
+      },
+      "throttle_valve_function_callback": null,
+      "num_hp": 7,
+      "num_ip": 10,
+      "num_lp": 11,
+      "hp_split_locations": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "ip_split_locations": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "lp_split_locations": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "hp_disconnect": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "ip_disconnect": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "lp_disconnect": {
+        "type": "pyomo.common.config.ConfigList",
+        "requires_source_definition": true
+      },
+      "hp_split_num_outlets": {},
+      "ip_split_num_outlets": {},
+      "lp_split_num_outlets": {}
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine_lp_mix",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "turbine",
+        "hrsg"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine_lp_split",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "turbine",
+        "reboiler",
+        "soec"
+      ],
+      "num_outlets": null
+    }
+  },
+  {
+    "name": "fs.ngcc.st.dummy_reheat",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.main_condenser",
+    "class": "idaes.core.base.process_block._ScalarHelmNtuCondenser",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.hotwell",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "condensate",
+        "makeup"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.cond_pump",
+    "class": "idaes.core.base.process_block._ScalarHelmIsentropicCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.return_mix",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "pump",
+        "reboiler",
+        "dryer",
+        "reclaimer"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.reboiler",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.inlet_split",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": null,
+      "num_outlets": 1
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.throttle_valve[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.valve_steam.HelmValveData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": false,
+      "has_heat_transfer": false,
+      "valve_function": {
+        "component": "linear"
+      },
+      "valve_function_callback": null,
+      "phase": "Vap"
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.inlet_stage[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_inlet.HelmTurbineInletStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.inlet_mix",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": null,
+      "num_inlets": 1,
+      "momentum_mixing_type": {
+        "component": "minimize_and_equality"
+      }
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[2]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[3]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[4]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[5]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[6]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.hp_stages[7]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[2]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[3]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[4]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[5]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[6]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[7]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[8]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[9]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.ip_stages[10]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[1]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[2]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[3]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[4]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[5]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[6]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[7]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[8]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[9]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[10]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.lp_stages[11]",
+    "class": "idaes.models_extra.power_generation.unit_models.helm.turbine_stage.HelmTurbineStageData",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.ngcc.st.steam_turbine.outlet_stage",
+    "class": "idaes.core.base.process_block._ScalarHelmTurbineOutletStage",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.ngcc.st.prop_water"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.soec.soec_module",
+    "class": "idaes.core.base.process_block._ScalarSolidOxideModuleSimple",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "solid_oxide_cell_config": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "fuel_property_package": {
+        "component": "fs.soec.h2_side_prop_params"
+      },
+      "fuel_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "oxygen_property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "oxygen_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_heat_loss_term": false
+    }
+  },
+  {
+    "name": "fs.soec.sweep_recycle_split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "out",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.soec.feed_recycle_split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.h2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "out",
+        "recycle"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.soec.sweep_recycle_mix",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "feed",
+        "recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.soec.feed_recycle_mix",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.h2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "feed",
+        "recycle"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "none"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.soec.sweep_compressor",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.sweep_hx",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.sweep_turbine",
+    "class": "idaes.core.base.process_block._ScalarTurbine",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": false,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.feed_hx01",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.feed_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.soec.steam_prop_params"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.soec.h2_side_prop_params"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.feed_heater",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.h2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.sweep_heater",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.o2_side_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.water_pump",
+    "class": "idaes.core.base.process_block._ScalarHelmIsentropicCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.soec.steam_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "has_work_transfer": true,
+      "has_heat_transfer": false
+    }
+  },
+  {
+    "name": "fs.soec.water_split",
+    "class": "idaes.core.base.process_block._ScalarHelmSplitter",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.steam_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "outlet1",
+        "outlet2"
+      ],
+      "num_outlets": null
+    }
+  },
+  {
+    "name": "fs.soec.water_heater01",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.water_heater02",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "shell": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "tube": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.h2_precooler",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.cmp01",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.ic01",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.cmp02",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.ic02",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.cmp03",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.ic03",
+    "class": "idaes.core.base.process_block._ScalarHeater",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "has_pressure_change": false,
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.cmp04",
+    "class": "idaes.core.base.process_block._ScalarCompressor",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "compressor": true,
+      "thermodynamic_assumption": {
+        "component": "isentropic"
+      },
+      "property_package": {
+        "component": "fs.soec.h2_pure_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "support_isentropic_performance_curves": false,
+      "isentropic_performance_curves": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.soec.makeup_mix",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.soec.steam_prop_params"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "w1",
+        "w2"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell",
+    "class": "idaes.core.base.process_block._ScalarSolidOxideCell",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "has_gas_holdup": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "control_volume_xfaces_fuel_electrode": [
+        0.0,
+        1.0
+      ],
+      "control_volume_xfaces_oxygen_electrode": [
+        0.0,
+        1.0
+      ],
+      "control_volume_xfaces_electrolyte": [
+        0.0,
+        1.0
+      ],
+      "thin_fuel_electrode": false,
+      "thin_oxygen_electrode": false,
+      "thin_electrolyte": false,
+      "fuel_component_list": [
+        "H2",
+        "H2O"
+      ],
+      "oxygen_component_list": [
+        "Ar",
+        "CO2",
+        "H2O",
+        "O2",
+        "N2"
+      ],
+      "fuel_triple_phase_boundary_stoich_dict": {
+        "H2": -0.5,
+        "H2O": 0.5,
+        "Vac": 0.5,
+        "O^2-": -0.5,
+        "e^-": 1
+      },
+      "inert_fuel_species_triple_phase_boundary": [],
+      "oxygen_triple_phase_boundary_stoich_dict": {
+        "O2": -0.25,
+        "Vac": -0.5,
+        "O^2-": 0.5,
+        "e^-": -1
+      },
+      "inert_oxygen_species_triple_phase_boundary": [
+        "N2",
+        "Ar",
+        "CO2",
+        "H2O"
+      ],
+      "flow_pattern": {
+        "component": "countercurrent"
+      },
+      "flux_through_interconnect": false,
+      "thin_interconnect": false,
+      "control_volume_xfaces_interconnect": null,
+      "include_contact_resistance": false,
+      "include_temperature_x_thermo": true,
+      "voltage_drop_custom": false,
+      "has_heat_loss_term": false,
+      "log_exchange_current_modifier": false
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.fuel_channel",
+    "class": "idaes.core.base.process_block._ScalarSocChannel",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_component_list"
+      },
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x0": null,
+      "temperature_deviation_x1": null,
+      "heat_flux_x0": null,
+      "heat_flux_x1": null,
+      "opposite_flow": false,
+      "below_electrode": true
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel",
+    "class": "idaes.core.base.process_block._ScalarSocChannel",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_component_list"
+      },
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x0": null,
+      "temperature_deviation_x1": null,
+      "heat_flux_x0": null,
+      "heat_flux_x1": null,
+      "opposite_flow": true,
+      "below_electrode": false
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode",
+    "class": "idaes.core.base.process_block._ScalarPorousConductiveSlab",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "has_gas_holdup": false,
+      "control_volume_xfaces": [
+        0.0,
+        1.0
+      ],
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.component_list"
+      },
+      "conc_mol_comp_ref": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.conc_mol_comp"
+      },
+      "dconc_mol_comp_refdt": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.dconc_mol_compdt"
+      },
+      "voltage_drop_custom": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "current_density": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.current_density"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.temperature_deviation_x1"
+      },
+      "temperature_deviation_x1": null,
+      "heat_flux_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.heat_flux_x1"
+      },
+      "heat_flux_x1": null,
+      "conc_mol_comp_deviation_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.conc_mol_comp_deviation_x1"
+      },
+      "conc_mol_comp_deviation_x1": null,
+      "material_flux_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.material_flux_x1"
+      },
+      "material_flux_x1": null
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode",
+    "class": "idaes.core.base.process_block._ScalarPorousConductiveSlab",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "has_gas_holdup": false,
+      "control_volume_xfaces": [
+        0.0,
+        1.0
+      ],
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.component_list"
+      },
+      "conc_mol_comp_ref": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.conc_mol_comp"
+      },
+      "dconc_mol_comp_refdt": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.dconc_mol_compdt"
+      },
+      "voltage_drop_custom": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "current_density": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.current_density"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x0": null,
+      "temperature_deviation_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.temperature_deviation_x0"
+      },
+      "heat_flux_x0": null,
+      "heat_flux_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.heat_flux_x0"
+      },
+      "conc_mol_comp_deviation_x0": null,
+      "conc_mol_comp_deviation_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.conc_mol_comp_deviation_x0"
+      },
+      "material_flux_x0": null,
+      "material_flux_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.material_flux_x0"
+      }
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.fuel_triple_phase_boundary",
+    "class": "idaes.core.base.process_block._ScalarSocTriplePhaseBoundary",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_component_list"
+      },
+      "reaction_stoichiometry": {
+        "H2": -0.5,
+        "H2O": 0.5,
+        "Vac": 0.5,
+        "O^2-": -0.5,
+        "e^-": 1
+      },
+      "inert_species": [],
+      "conc_mol_comp_ref": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_channel.conc_mol_comp"
+      },
+      "below_electrolyte": true,
+      "voltage_drop_custom": false,
+      "log_exchange_current_modifier": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "current_density": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.current_density"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode.temperature_deviation_x1"
+      },
+      "heat_flux_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode.heat_flux_x1"
+      },
+      "heat_flux_x1": null,
+      "material_flux_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode.material_flux_x1"
+      },
+      "conc_mol_comp_deviation_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode.conc_mol_comp_deviation_x1"
+      }
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.oxygen_triple_phase_boundary",
+    "class": "idaes.core.base.process_block._ScalarSocTriplePhaseBoundary",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "component_list": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_component_list"
+      },
+      "reaction_stoichiometry": {
+        "O2": -0.25,
+        "Vac": -0.5,
+        "O^2-": 0.5,
+        "e^-": -1
+      },
+      "inert_species": [
+        "N2",
+        "Ar",
+        "CO2",
+        "H2O"
+      ],
+      "conc_mol_comp_ref": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_channel.conc_mol_comp"
+      },
+      "below_electrolyte": false,
+      "voltage_drop_custom": false,
+      "log_exchange_current_modifier": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "current_density": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.current_density"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode.temperature_deviation_x0"
+      },
+      "heat_flux_x0": null,
+      "heat_flux_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode.heat_flux_x0"
+      },
+      "material_flux_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode.material_flux_x0"
+      },
+      "conc_mol_comp_deviation_x": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode.conc_mol_comp_deviation_x0"
+      }
+    }
+  },
+  {
+    "name": "fs.soec.soec_module.solid_oxide_cell.electrolyte",
+    "class": "idaes.core.base.process_block._ScalarSocConductiveSlab",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "control_volume_xfaces": [
+        0.0,
+        1.0
+      ],
+      "voltage_drop_custom": false,
+      "control_volume_zfaces": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "length_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_z"
+      },
+      "length_y": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.length_y"
+      },
+      "current_density": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.current_density"
+      },
+      "include_temperature_x_thermo": true,
+      "temperature_z": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.temperature_z"
+      },
+      "temperature_deviation_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_electrode.temperature_deviation_x1"
+      },
+      "temperature_deviation_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_electrode.temperature_deviation_x0"
+      },
+      "heat_flux_x0": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.fuel_triple_phase_boundary.heat_flux_x1"
+      },
+      "heat_flux_x1": {
+        "component": "fs.soec.soec_module.solid_oxide_cell.oxygen_triple_phase_boundary.heat_flux_x0"
+      }
+    }
+  }
+]

@@ -1,0 +1,359 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__idaes_soc_pid_control",
+  "family": "family_source_verified_idaes_soc_pid_control",
+  "process_type": "Dynamic solid-oxide-cell flowsheet with PID control",
+  "source_url": "https://github.com/IDAES/examples/blob/main/idaes_examples/notebooks/docs/power_gen/solid_oxide_cell/soc_pid_control.ipynb",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology and controller placement are derived from the official IDAES SOC PID example. No dynamic discretization, controller tuning, SpecIR, initialization, simulation, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "fuel_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_compressor",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "conditioning",
+      "role": "Source-derived Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_compressor",
+      "kind": "Compressor",
+      "package": null,
+      "stage": "conditioning",
+      "role": "Source-derived Compressor node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "fuel_recycle",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "air_recycle",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Source-derived HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_hx",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Source-derived HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "soc_module",
+      "kind": "SolidOxideCell",
+      "package": null,
+      "stage": "electrochemical",
+      "role": "Source-derived SolidOxideCell node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "fuel_recycle",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_splitter",
+      "kind": "Separator",
+      "package": null,
+      "stage": "air_recycle",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_valve",
+      "kind": "Valve",
+      "package": null,
+      "stage": "control",
+      "role": "Source-derived Valve node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "air_valve",
+      "kind": "Valve",
+      "package": null,
+      "stage": "control",
+      "role": "Source-derived Valve node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "temperature_pid",
+      "kind": "PIDController",
+      "package": null,
+      "stage": "control",
+      "role": "Source-derived PIDController node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fuel_pid",
+      "kind": "PIDController",
+      "package": null,
+      "stage": "control",
+      "role": "Source-derived PIDController node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "exhaust",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "fuel_feed_to_compressor",
+      "source": "fuel_feed.outlet",
+      "destination": "fuel_compressor.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_feed_to_compressor",
+      "source": "air_feed.outlet",
+      "destination": "air_compressor.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_compressor_to_valve",
+      "source": "fuel_compressor.outlet",
+      "destination": "fuel_valve.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_compressor_to_valve",
+      "source": "air_compressor.outlet",
+      "destination": "air_valve.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_valve_to_mixer",
+      "source": "fuel_valve.outlet",
+      "destination": "fuel_mixer.feed",
+      "source_port": "outlet",
+      "destination_port": "feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_valve_to_mixer",
+      "source": "air_valve.outlet",
+      "destination": "air_mixer.feed",
+      "source_port": "outlet",
+      "destination_port": "feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_mixer_to_hx",
+      "source": "fuel_mixer.outlet",
+      "destination": "fuel_hx.cold_inlet",
+      "source_port": "outlet",
+      "destination_port": "cold_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_mixer_to_hx",
+      "source": "air_mixer.outlet",
+      "destination": "air_hx.cold_inlet",
+      "source_port": "outlet",
+      "destination_port": "cold_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_hx_to_soc",
+      "source": "fuel_hx.cold_outlet",
+      "destination": "soc_module.fuel_inlet",
+      "source_port": "cold_outlet",
+      "destination_port": "fuel_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_hx_to_soc",
+      "source": "air_hx.cold_outlet",
+      "destination": "soc_module.air_inlet",
+      "source_port": "cold_outlet",
+      "destination_port": "air_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "soc_fuel_to_splitter",
+      "source": "soc_module.fuel_outlet",
+      "destination": "fuel_splitter.inlet",
+      "source_port": "fuel_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "soc_air_to_splitter",
+      "source": "soc_module.air_outlet",
+      "destination": "air_splitter.inlet",
+      "source_port": "air_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_recycle",
+      "source": "fuel_splitter.recycle",
+      "destination": "fuel_mixer.recycle",
+      "source_port": "recycle",
+      "destination_port": "recycle",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_recycle",
+      "source": "air_splitter.recycle",
+      "destination": "air_mixer.recycle",
+      "source_port": "recycle",
+      "destination_port": "recycle",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_purge_to_hx",
+      "source": "fuel_splitter.purge",
+      "destination": "fuel_hx.hot_inlet",
+      "source_port": "purge",
+      "destination_port": "hot_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_purge_to_hx",
+      "source": "air_splitter.purge",
+      "destination": "air_hx.hot_inlet",
+      "source_port": "purge",
+      "destination_port": "hot_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "soc_power",
+      "source": "soc_module.electricity",
+      "destination": "power_product.inlet",
+      "source_port": "electricity",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "air_exhaust",
+      "source": "air_hx.hot_outlet",
+      "destination": "exhaust.inlet",
+      "source_port": "hot_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "temperature_control",
+      "source": "temperature_pid.output",
+      "destination": "air_valve.opening",
+      "source_port": "output",
+      "destination_port": "opening",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fuel_control",
+      "source": "fuel_pid.output",
+      "destination": "fuel_valve.opening",
+      "source_port": "output",
+      "destination_port": "opening",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "fuel_feed",
+    "air_feed",
+    "fuel_compressor",
+    "air_compressor",
+    "fuel_mixer",
+    "air_mixer",
+    "fuel_hx",
+    "air_hx",
+    "soc_module",
+    "fuel_splitter",
+    "air_splitter",
+    "fuel_valve",
+    "air_valve",
+    "temperature_pid",
+    "fuel_pid",
+    "power_product",
+    "exhaust"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

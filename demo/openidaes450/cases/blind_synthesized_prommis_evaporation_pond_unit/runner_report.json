@@ -1,0 +1,73 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_evaporation_pond_unit",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.evaporation_pond.evaporation_pond.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "evaporation_pond_initializer_ok",
+      "pass": true,
+      "actual": "InitializationStatus.Ok"
+    },
+    {
+      "name": "evaporation_pond_termination_optimal",
+      "pass": true,
+      "actual": "optimal"
+    },
+    {
+      "name": "evaporation_pond_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "evaporation_pond_outlet_flow_matches_official_test",
+      "pass": true,
+      "actual": 854104.1666666667
+    },
+    {
+      "name": "evaporation_pond_outlet_cl_matches_official_test",
+      "pass": true,
+      "actual": 3933.8450094258756
+    },
+    {
+      "name": "evaporation_pond_outlet_li_matches_official_test",
+      "pass": true,
+      "actual": 657.5310388564051
+    },
+    {
+      "name": "evaporation_pond_outlet_na_matches_official_test",
+      "pass": true,
+      "actual": 381.2025417009273
+    },
+    {
+      "name": "evaporation_pond_volume_matches_official_test",
+      "pass": true,
+      "actual": 25000.0
+    },
+    {
+      "name": "evaporation_pond_na_precipitation_matches_official_test",
+      "pass": true,
+      "actual": -10265.912170044108
+    }
+  ],
+  "outputs": {
+    "outlet_flow_vol": 854104.1666666667,
+    "outlet_h2o": 1000000.0,
+    "outlet_cl": 3933.8450094258756,
+    "outlet_li": 657.5310388564051,
+    "outlet_na": 381.2025417009273,
+    "volume": 25000.0,
+    "precipitation_na": -10265.912170044108,
+    "precipitation_cl": -10265.912170056014,
+    "precipitation_li": -2.1704839959411157e-08
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/evaporation_pond/evaporation_pond.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/evaporation_pond/tests/test_evaporation_pond.py",
+    "official_module": "prommis.evaporation_pond.evaporation_pond"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_oaro",
+  "family": "family_watertap_oaro",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "feed_flow_mass",
+      "value": 1.0,
+      "units": "kg/s",
+      "role": "official default total feed mass flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "feed",
+      "variable": "feed_mass_frac_NaCl",
+      "value": 0.035,
+      "units": "mass fraction",
+      "role": "official default NaCl mass fraction",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "P1",
+      "variable": "outlet_pressure",
+      "value": 5000000.0,
+      "units": "Pa",
+      "role": "initial primary pump outlet pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "P2",
+      "variable": "outlet_pressure",
+      "value": 1800000.0,
+      "units": "Pa",
+      "role": "initial RO pump outlet pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "P3",
+      "variable": "outlet_pressure",
+      "value": 400000.0,
+      "units": "Pa",
+      "role": "initial recycle pump outlet pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "product_salinity_limit",
+      "value": 0.0005,
+      "units": "mass fraction",
+      "role": "optimization quality constraint",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "final WaterTAP optimization objective",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/oaro.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP OARO build, set_operating_conditions, initialize_system with recycle loop, simulation solve, then optimize_set_up and LCOW solve",
+    "solve_order": [
+      "feed",
+      "P1",
+      "OARO",
+      "P2",
+      "RO",
+      "ERD2",
+      "P3 recycle",
+      "ERD1",
+      "LCOW optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": "0 for simulation, 2 for optimization"
+  }
+}

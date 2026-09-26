@@ -1,0 +1,22 @@
+[
+  {
+    "name": "fs.feed_to_pump",
+    "source": "fs.feed.outlet",
+    "destination": "fs.pump.inlet"
+  },
+  {
+    "name": "fs.pump_to_nf",
+    "source": "fs.pump.outlet",
+    "destination": "fs.unit.inlet"
+  },
+  {
+    "name": "fs.nf_to_permeate",
+    "source": "fs.unit.permeate",
+    "destination": "fs.permeate.inlet"
+  },
+  {
+    "name": "fs.nf_to_retentate",
+    "source": "fs.unit.retentate",
+    "destination": "fs.retentate.inlet"
+  }
+]

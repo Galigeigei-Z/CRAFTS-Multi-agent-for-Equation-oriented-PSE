@@ -1,0 +1,172 @@
+[
+  {
+    "name": "fs.ng01",
+    "source": "fs.anode_mix.outlet",
+    "destination": "fs.anode_hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.ng02",
+    "source": "fs.anode_hx.cold_side_outlet",
+    "destination": "fs.prereformer.inlet"
+  },
+  {
+    "name": "fs.ng02_trns",
+    "source": "fs.prereformer.outlet",
+    "destination": "fs.anode_translator.inlet"
+  },
+  {
+    "name": "fs.ng03",
+    "source": "fs.anode_translator.outlet",
+    "destination": "fs.fuel_cell_mix.fuel_inlet"
+  },
+  {
+    "name": "fs.fc01",
+    "source": "fs.fuel_cell_mix.outlet",
+    "destination": "fs.anode.inlet"
+  },
+  {
+    "name": "fs.exh01",
+    "source": "fs.anode.outlet",
+    "destination": "fs.anode_recycle.inlet"
+  },
+  {
+    "name": "fs.exh02",
+    "source": "fs.anode_recycle.exhaust_outlet",
+    "destination": "fs.anode_hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.frec01",
+    "source": "fs.anode_recycle.recycle_outlet",
+    "destination": "fs.anode_blower.inlet"
+  },
+  {
+    "name": "fs.frec02",
+    "source": "fs.anode_blower.outlet",
+    "destination": "fs.recycle_translator.inlet"
+  },
+  {
+    "name": "fs.frec02_trns",
+    "source": "fs.recycle_translator.outlet",
+    "destination": "fs.anode_mix.recycle_inlet"
+  },
+  {
+    "name": "fs.air01",
+    "source": "fs.air_blower.outlet",
+    "destination": "fs.cathode_hx.cold_side_inlet"
+  },
+  {
+    "name": "fs.air02",
+    "source": "fs.cathode_hx.cold_side_outlet",
+    "destination": "fs.cathode_mix.air_inlet"
+  },
+  {
+    "name": "fs.air03",
+    "source": "fs.cathode_mix.outlet",
+    "destination": "fs.cathode.inlet"
+  },
+  {
+    "name": "fs.ion01",
+    "source": "fs.cathode.ion_outlet",
+    "destination": "fs.cathode_translator.inlet"
+  },
+  {
+    "name": "fs.ion01_trns",
+    "source": "fs.cathode_translator.outlet",
+    "destination": "fs.fuel_cell_mix.ion_inlet"
+  },
+  {
+    "name": "fs.cat01",
+    "source": "fs.cathode.air_outlet",
+    "destination": "fs.cathode_heat.inlet"
+  },
+  {
+    "name": "fs.air04",
+    "source": "fs.cathode_heat.outlet",
+    "destination": "fs.cathode_recycle.inlet"
+  },
+  {
+    "name": "fs.air05",
+    "source": "fs.cathode_recycle.exhaust_outlet",
+    "destination": "fs.cathode_hx.hot_side_inlet"
+  },
+  {
+    "name": "fs.arec01",
+    "source": "fs.cathode_recycle.recycle_outlet",
+    "destination": "fs.cathode_blower.inlet"
+  },
+  {
+    "name": "fs.arec02",
+    "source": "fs.cathode_blower.outlet",
+    "destination": "fs.cathode_mix.recycle_inlet"
+  },
+  {
+    "name": "fs.air06",
+    "source": "fs.cathode_hx.hot_side_outlet",
+    "destination": "fs.cathode_hrsg.inlet"
+  },
+  {
+    "name": "fs.asu01",
+    "source": "fs.air_compressor_s1.outlet",
+    "destination": "fs.intercooler_s1.inlet"
+  },
+  {
+    "name": "fs.asu02",
+    "source": "fs.intercooler_s1.outlet",
+    "destination": "fs.air_compressor_s2.inlet"
+  },
+  {
+    "name": "fs.asu03",
+    "source": "fs.air_compressor_s2.outlet",
+    "destination": "fs.intercooler_s2.inlet"
+  },
+  {
+    "name": "fs.asu04",
+    "source": "fs.intercooler_s2.outlet",
+    "destination": "fs.asu.inlet"
+  },
+  {
+    "name": "fs.asu05",
+    "source": "fs.asu.O2_outlet",
+    "destination": "fs.ASU_O2_outlet.inlet"
+  },
+  {
+    "name": "fs.asu05_trns",
+    "source": "fs.ASU_O2_outlet.outlet",
+    "destination": "fs.oxycombustor_translator.inlet"
+  },
+  {
+    "name": "fs.exh03",
+    "source": "fs.anode_hx.hot_side_outlet",
+    "destination": "fs.combustor_mix.anode_inlet"
+  },
+  {
+    "name": "fs.oxy01",
+    "source": "fs.oxycombustor_translator.outlet",
+    "destination": "fs.combustor_mix.oxygen_inlet"
+  },
+  {
+    "name": "fs.oxy02",
+    "source": "fs.combustor_mix.outlet",
+    "destination": "fs.oxycombustor.inlet"
+  },
+  {
+    "name": "fs.fg01",
+    "source": "fs.oxycombustor.outlet",
+    "destination": "fs.anode_HRSG.inlet"
+  },
+  {
+    "name": "fs.fg01_trns",
+    "source": "fs.anode_HRSG.outlet",
+    "destination": "fs.flue_gas_translator.inlet"
+  },
+  {
+    "name": "fs.fg02",
+    "source": "fs.flue_gas_translator.outlet",
+    "destination": "fs.condenser.inlet"
+  },
+  {
+    "name": "fs.fg03",
+    "source": "fs.condenser.outlet",
+    "destination": "fs.flash.inlet"
+  }
+]

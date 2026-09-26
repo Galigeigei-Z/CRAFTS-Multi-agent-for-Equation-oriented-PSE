@@ -1,0 +1,44 @@
+[
+  {
+    "name": "fs.seawater_properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData"
+      },
+      {
+        "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.seawater_prop_pack.SeawaterParameterBlock",
+    "module": "watertap.property_models.seawater_prop_pack",
+    "data_class": "watertap.property_models.seawater_prop_pack.SeawaterParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.draw_solution_properties",
+    "implementation": [
+      {
+        "class": "watertap_contrib.reflo.property_models.fo_draw_solution_properties.FODrawSolutionParameterBlockData"
+      },
+      {
+        "class": "watertap_contrib.reflo.property_models.fo_draw_solution_properties.FODrawSolutionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap_contrib.reflo.property_models.fo_draw_solution_properties.FODrawSolutionParameterBlock",
+    "module": "watertap_contrib.reflo.property_models.fo_draw_solution_properties",
+    "data_class": "watertap_contrib.reflo.property_models.fo_draw_solution_properties.FODrawSolutionParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

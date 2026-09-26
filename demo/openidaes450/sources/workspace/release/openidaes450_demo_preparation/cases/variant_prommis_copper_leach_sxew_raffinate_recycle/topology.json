@@ -1,0 +1,209 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_copper_leach_sxew_raffinate_recycle",
+  "family": "family_copper_sxew",
+  "process_type": "Copper Heap-Leach SX-EW with Raffinate Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_cmi_process.",
+    "Connects copper leaching to SX-EW and returns acidic raffinate, closing acid and water paths.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Cu2+",
+        "Fe3+",
+        "H2SO4",
+        "extractant",
+        "Cu"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_cmi_process"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Cu2+",
+      "Fe3+",
+      "H2SO4",
+      "extractant",
+      "Cu"
+    ]
+  },
+  "units": [
+    {
+      "id": "ORE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "copper ore",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "acid makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LEACH",
+      "kind": "LeachReactor",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "copper dissolution",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SX",
+      "kind": "MixerSettler",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "copper extraction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EW",
+      "kind": "ElectrowinningCell",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "cathode production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "raffinate recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CU",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "copper cathode",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RES",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "copper_sxew",
+      "role": "leach residue",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "ORE.outlet",
+      "destination": "LEACH.ore",
+      "stage": "copper_sxew",
+      "role": "ore",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ACID.outlet",
+      "destination": "LEACH.acid",
+      "stage": "copper_sxew",
+      "role": "acid makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "LEACH.pls",
+      "destination": "SX.aqueous",
+      "stage": "copper_sxew",
+      "role": "pregnant liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SX.loaded",
+      "destination": "EW.electrolyte",
+      "stage": "copper_sxew",
+      "role": "loaded strip",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "EW.cathode",
+      "destination": "CU.inlet",
+      "stage": "copper_sxew",
+      "role": "cathode copper",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SX.raffinate",
+      "destination": "S1.inlet",
+      "stage": "copper_sxew",
+      "role": "acid raffinate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S1.recycle",
+      "destination": "LEACH.recycle",
+      "stage": "copper_sxew",
+      "role": "raffinate recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "LEACH.residue",
+      "destination": "RES.inlet",
+      "stage": "copper_sxew",
+      "role": "residue",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "ORE.outlet",
+    "ACID.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CU.inlet",
+    "RES.inlet"
+  ],
+  "tear_streams": [
+    "s07"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_cmi_process"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_cmi_process",
+    "chemical_change": "Connects copper leaching to SX-EW and returns acidic raffinate, closing acid and water paths.",
+    "native_metrics": {
+      "copper_recovery": 0.9,
+      "pls_iron_fraction": 0.0176,
+      "cathode_efficiency": 0.864,
+      "fresh_water_index": 0.0
+    }
+  }
+}

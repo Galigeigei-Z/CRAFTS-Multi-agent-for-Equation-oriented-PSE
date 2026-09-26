@@ -1,0 +1,188 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_fo_draw_regeneration_ro",
+  "family": "family_fo_ro_draw",
+  "process_type": "Forward Osmosis with RO Draw-Solution Regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent watertap_ro_no_energy_recovery.",
+    "Adds an osmotic extraction stage and closes the draw-solute loop through RO regeneration.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "draw_solute",
+        "salts"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_ro_no_energy_recovery"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "draw_solute",
+      "salts"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "impaired water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "DRAW",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "draw-solute makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FO",
+      "kind": "ForwardOsmosis",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "osmotic water transfer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO",
+      "kind": "ReverseOsmosis",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "draw regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "draw recycle/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "recovered water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CONC",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "fo_ro_draw",
+      "role": "concentrated waste",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "FO.feed",
+      "stage": "fo_ro_draw",
+      "role": "impaired water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "DRAW.outlet",
+      "destination": "FO.draw",
+      "stage": "fo_ro_draw",
+      "role": "draw makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "FO.diluted_draw",
+      "destination": "RO.feed",
+      "stage": "fo_ro_draw",
+      "role": "diluted draw",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "RO.permeate",
+      "destination": "WATER.inlet",
+      "stage": "fo_ro_draw",
+      "role": "product water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RO.retentate",
+      "destination": "S1.inlet",
+      "stage": "fo_ro_draw",
+      "role": "regenerated draw",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.recycle",
+      "destination": "FO.recycle",
+      "stage": "fo_ro_draw",
+      "role": "draw recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "FO.concentrate",
+      "destination": "CONC.inlet",
+      "stage": "fo_ro_draw",
+      "role": "waste concentrate",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet",
+    "DRAW.outlet"
+  ],
+  "unconnected_product_ports": [
+    "WATER.inlet",
+    "CONC.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_ro_no_energy_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_ro_no_energy_recovery",
+    "chemical_change": "Adds an osmotic extraction stage and closes the draw-solute loop through RO regeneration.",
+    "native_metrics": {
+      "water_recovery": 0.86,
+      "reverse_solute_flux": 0.0,
+      "ro_pressure_bar": 39.0,
+      "product_purity": 0.98
+    }
+  }
+}

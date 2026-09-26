@@ -1,0 +1,64 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData"
+      },
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solute_list": [
+        "TDS",
+        "X"
+      ],
+      "stokes_radius_data": {},
+      "diffusivity_data": {},
+      "molar_volume_data": {},
+      "mw_data": {
+        "H2O": 0.01801528,
+        "TDS": 1,
+        "X": 1
+      },
+      "elec_mobility_data": {},
+      "trans_num_data": {},
+      "equiv_conductivity_phase_data": {},
+      "charge": {
+        "TDS": 0.0,
+        "X": 0.0
+      },
+      "ignore_neutral_charge": false,
+      "activity_coefficient_model": {
+        "component": "ideal"
+      },
+      "density_calculation": {
+        "component": "constant"
+      },
+      "diffus_calculation": {
+        "component": "none"
+      },
+      "elec_mobility_calculation": {
+        "component": "none"
+      },
+      "trans_num_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "equiv_conductivity_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "material_flow_basis": {
+        "component": "mass"
+      }
+    },
+    "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+    "data_class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

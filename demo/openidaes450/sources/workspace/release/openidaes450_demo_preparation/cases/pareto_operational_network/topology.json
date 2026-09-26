@@ -1,0 +1,251 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__pareto_operational_network",
+  "family": "family_source_verified_pareto_operational_network",
+  "process_type": "Time-indexed operational produced-water network",
+  "source_url": "https://github.com/project-pareto/project-pareto/tree/main/pareto/case_studies",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official PARETO operational case-study data structure. No workbook import, operational schedule, SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "production_pad_a",
+      "kind": "ProductionPad",
+      "package": null,
+      "stage": "sources",
+      "role": "Source-derived ProductionPad node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "production_pad_b",
+      "kind": "ProductionPad",
+      "package": null,
+      "stage": "sources",
+      "role": "Source-derived ProductionPad node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pipeline_hub",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "transport",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "trucking_hub",
+      "kind": "Transport",
+      "package": null,
+      "stage": "transport",
+      "role": "Source-derived Transport node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "central_storage",
+      "kind": "StorageTank",
+      "package": null,
+      "stage": "management",
+      "role": "Source-derived StorageTank node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treatment_facility",
+      "kind": "WaterTreatment",
+      "package": null,
+      "stage": "management",
+      "role": "Source-derived WaterTreatment node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reuse_demand_a",
+      "kind": "Product",
+      "package": null,
+      "stage": "sinks",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reuse_demand_b",
+      "kind": "Product",
+      "package": null,
+      "stage": "sinks",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal_well",
+      "kind": "Product",
+      "package": null,
+      "stage": "sinks",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "period_inventory_link",
+      "kind": "TemporalLink",
+      "package": null,
+      "stage": "operations",
+      "role": "Source-derived TemporalLink node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "operational_dispatch",
+      "kind": "OptimizationObjective",
+      "package": null,
+      "stage": "operations",
+      "role": "Source-derived OptimizationObjective node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "pad_a_pipeline",
+      "source": "production_pad_a.water",
+      "destination": "pipeline_hub.inlet_1",
+      "source_port": "water",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pad_b_pipeline",
+      "source": "production_pad_b.water",
+      "destination": "pipeline_hub.inlet_2",
+      "source_port": "water",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pad_a_trucking",
+      "source": "production_pad_a.water",
+      "destination": "trucking_hub.inlet_1",
+      "source_port": "water",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pad_b_trucking",
+      "source": "production_pad_b.water",
+      "destination": "trucking_hub.inlet_2",
+      "source_port": "water",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pipeline_to_storage",
+      "source": "pipeline_hub.outlet",
+      "destination": "central_storage.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "trucking_to_storage",
+      "source": "trucking_hub.outlet",
+      "destination": "central_storage.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "storage_to_treatment",
+      "source": "central_storage.outlet",
+      "destination": "treatment_facility.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "treatment_to_reuse_a",
+      "source": "treatment_facility.treated",
+      "destination": "reuse_demand_a.inlet",
+      "source_port": "treated",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "treatment_to_reuse_b",
+      "source": "treatment_facility.treated",
+      "destination": "reuse_demand_b.inlet",
+      "source_port": "treated",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "treatment_to_disposal",
+      "source": "treatment_facility.residual",
+      "destination": "disposal_well.inlet",
+      "source_port": "residual",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "storage_to_disposal",
+      "source": "central_storage.bypass",
+      "destination": "disposal_well.inlet",
+      "source_port": "bypass",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "inventory_to_period_link",
+      "source": "central_storage.inventory",
+      "destination": "period_inventory_link.current_state",
+      "source_port": "inventory",
+      "destination_port": "current_state",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "next_period_inventory",
+      "source": "period_inventory_link.next_state",
+      "destination": "central_storage.initial_inventory",
+      "source_port": "next_state",
+      "destination_port": "initial_inventory",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "network_to_dispatch",
+      "source": "treatment_facility.cost",
+      "destination": "operational_dispatch.network_cost",
+      "source_port": "cost",
+      "destination_port": "network_cost",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "production_pad_a",
+    "production_pad_b",
+    "pipeline_hub",
+    "trucking_hub",
+    "central_storage",
+    "treatment_facility",
+    "reuse_demand_a",
+    "reuse_demand_b",
+    "disposal_well",
+    "period_inventory_link",
+    "operational_dispatch"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

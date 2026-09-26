@@ -1,0 +1,1559 @@
+[
+  {
+    "name": "fs.thermo_params",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "H2O": {
+          "type": "idaes.core.base.components.Solvent",
+          "valid_phase_types": [
+            1
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.Perrys.Perrys",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.Perrys.Perrys",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.Perrys.Perrys",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.Perrys.Perrys",
+          "parameter_data": {
+            "mw": [
+              18.0153,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": {
+              "eqn_type": 1,
+              "1": [
+                5.459,
+                {
+                  "component": "prod"
+                }
+              ],
+              "2": [
+                0.30542,
+                {
+                  "component": "dimensionless"
+                }
+              ],
+              "3": [
+                647.13,
+                {
+                  "component": "K"
+                }
+              ],
+              "4": [
+                0.081,
+                {
+                  "component": "dimensionless"
+                }
+              ]
+            },
+            "enth_mol_form_liq_comp_ref": [
+              -285.83,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_vap_comp_ref": [
+              0,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": {
+              "1": [
+                276370.0,
+                {
+                  "component": "div"
+                }
+              ],
+              "2": [
+                -2090.1,
+                {
+                  "component": "div"
+                }
+              ],
+              "3": [
+                8.125,
+                {
+                  "component": "div"
+                }
+              ],
+              "4": [
+                -0.014116,
+                {
+                  "component": "div"
+                }
+              ],
+              "5": [
+                9.3701e-06,
+                {
+                  "component": "div"
+                }
+              ]
+            },
+            "cp_mol_ig_comp_coeff": {
+              "A": [
+                30.092,
+                {
+                  "component": "div"
+                }
+              ],
+              "B": [
+                6.832514,
+                {
+                  "component": "prod"
+                }
+              ],
+              "C": [
+                6.793435,
+                {
+                  "component": "prod"
+                }
+              ],
+              "D": [
+                -2.53448,
+                {
+                  "component": "prod"
+                }
+              ],
+              "E": [
+                0.082139,
+                {
+                  "component": "prod"
+                }
+              ],
+              "F": [
+                -250.881,
+                {
+                  "component": "div"
+                }
+              ],
+              "G": [
+                223.3967,
+                {
+                  "component": "div"
+                }
+              ],
+              "H": [
+                0,
+                {
+                  "component": "div"
+                }
+              ]
+            },
+            "entr_mol_form_liq_comp_ref": [
+              69.95,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "H2C2O4": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.09003,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              11,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              146.0,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -829700.0,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "OH_-": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              17.008,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -230.0,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -10.75,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Cu_2+": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.06355,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              64.4,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -98.7,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "NO3_-": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.06201,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -207.4,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              146.4,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Nd_3+": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.14424,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -672,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -315,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Fe_2+": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.05585,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -87.9,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -137.7,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Fe_3+": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.05585,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -49,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -278.4,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "NH4_+": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.018039,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -132.5,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              -113.4,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "C2O4_2-": {
+          "type": "idaes.core.base.components.Solute",
+          "valid_phase_types": [
+            4
+          ],
+          "dens_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "entr_mol_liq_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.08802,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_liq_comp_coeff": [
+              55,
+              {
+                "component": "prod"
+              }
+            ],
+            "enth_mol_form_liq_comp_ref": [
+              -825.1,
+              {
+                "component": "div"
+              }
+            ],
+            "cp_mol_liq_comp_coeff": [
+              75000,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_liq_comp_ref": [
+              146.4,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            2
+          ],
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.RPP4.RPP4",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031999,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5043000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.58,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": [
+                28.11,
+                {
+                  "component": "div"
+                }
+              ],
+              "B": [
+                -3.68e-06,
+                {
+                  "component": "div"
+                }
+              ],
+              "C": [
+                1.746e-05,
+                {
+                  "component": "div"
+                }
+              ],
+              "D": [
+                -1.065e-08,
+                {
+                  "component": "div"
+                }
+              ]
+            },
+            "enth_mol_form_vap_comp_ref": [
+              0.0,
+              {
+                "component": "div"
+              }
+            ],
+            "entr_mol_form_vap_comp_ref": [
+              205.152,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_sat_comp_coeff": {
+              "A": [
+                3.85845,
+                null
+              ],
+              "B": [
+                325.675,
+                {
+                  "component": "K"
+                }
+              ],
+              "C": [
+                -5.667,
+                {
+                  "component": "K"
+                }
+              ]
+            }
+          }
+        },
+        "Nd2Fe14B": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              1.08112,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              6.84,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              542.2,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -93390.0,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Cu3(BO3)2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.3083,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              14.72,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              24.47,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -170,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Cu2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.14309,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              41.93,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              24.47,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -170,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Cu": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.063546,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              141,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              23.43,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              0,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Fe(OH)3": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.10687,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              34.6,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              101.7,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -826,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Nd(OH)3": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.19526,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              23.88,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              542.2,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -1400,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        },
+        "Nd2(C2O4)3 * 10H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            3
+          ],
+          "dens_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "cp_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "enth_mol_sol_comp": "idaes.models.properties.modular_properties.pure.ConstantProperties.Constant",
+          "parameter_data": {
+            "mw": [
+              0.7326938,
+              {
+                "component": "div"
+              }
+            ],
+            "dens_mol_sol_comp_coeff": [
+              23.88,
+              {
+                "component": "prod"
+              }
+            ],
+            "cp_mol_sol_comp_coeff": [
+              542.2,
+              {
+                "component": "div"
+              }
+            ],
+            "enth_mol_form_sol_comp_ref": [
+              -1400,
+              {
+                "component": "div"
+              }
+            ]
+          }
+        }
+      },
+      "phases": {
+        "Liq": {
+          "type": "idaes.core.base.phases.LiquidPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ideal.Ideal"
+        },
+        "Sol": {
+          "type": "idaes.core.base.phases.SolidPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ideal.Ideal"
+        },
+        "Aq": {
+          "type": "idaes.core.base.phases.AqueousPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ideal.Ideal"
+        },
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ideal.Ideal"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FpcTP.FpcTP",
+      "state_bounds": {
+        "flow_mol_phase_comp": [
+          0,
+          100,
+          100000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          298.15,
+          1500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          100000.0,
+          1000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        100000.0,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {},
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.dissolution_reaction_params",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "rate_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "equilibrium_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.adjustment_reaction_params",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "rate_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "equilibrium_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.precipitation_reaction_params",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "rate_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "equilibrium_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_gas",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData"
+      },
+      {
+        "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "components": {
+        "O2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.031998,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              5040000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              154.6,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.025,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.03235,
+              "B": 8.772972,
+              "C": -3.988133,
+              "D": 0.788313,
+              "E": -0.741599,
+              "F": -11.32468,
+              "G": 236.1663,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.467,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              106.7,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "H2O": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            },
+            {
+              "component": "liquidPhase"
+            }
+          ],
+          "phase_equilibrium_form": {
+            "('Vap', 'Liq')": "idaes.models.properties.modular_properties.phase_equil.forms.log_fugacity"
+          },
+          "elemental_composition": {
+            "H": 2,
+            "O": 1
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "pressure_sat_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.01801528,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              22120000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              647.3,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.344,
+            "cp_mol_ig_comp_coeff": {
+              "A": 30.092,
+              "B": 6.832514,
+              "C": 6.793435,
+              "D": -2.53448,
+              "E": 0.082139,
+              "F": -250.881,
+              "G": 223.3967,
+              "H": -241.8264
+            },
+            "pressure_sat_comp_coeff": {
+              "A": 4.6543,
+              "B": 1435.264,
+              "C": -64.848
+            },
+            "lennard_jones_sigma": [
+              2.641,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              809.1,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          },
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          }
+        },
+        "CO2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "elemental_composition": {
+            "C": 1,
+            "O": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "parameter_data": {
+            "mw": [
+              0.04401,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              7380000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              304.1,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.239,
+            "cp_mol_ig_comp_coeff": {
+              "A": 24.99735,
+              "B": 55.18696,
+              "C": -33.69137,
+              "D": 7.948387,
+              "E": -0.136638,
+              "F": -403.6075,
+              "G": 228.2431,
+              "H": -393.5224
+            },
+            "lennard_jones_sigma": [
+              3.941,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              195.2,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        },
+        "N2": {
+          "type": "idaes.core.base.components.Component",
+          "valid_phase_types": [
+            {
+              "component": "vaporPhase"
+            }
+          ],
+          "elemental_composition": {
+            "N": 2
+          },
+          "enth_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "entr_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "cp_mol_ig_comp": "idaes.models.properties.modular_properties.pure.NIST.NIST",
+          "visc_d_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.ChapmanEnskog.ChapmanEnskogLennardJones"
+          },
+          "therm_cond_phase_comp": {
+            "Vap": "idaes.models.properties.modular_properties.pure.Eucken.Eucken"
+          },
+          "parameter_data": {
+            "mw": [
+              0.0280134,
+              {
+                "component": "div"
+              }
+            ],
+            "pressure_crit": [
+              3390000.0,
+              {
+                "component": "Pa"
+              }
+            ],
+            "temperature_crit": [
+              126.2,
+              {
+                "component": "K"
+              }
+            ],
+            "omega": 0.039,
+            "cp_mol_ig_comp_coeff": {
+              "A": 19.50583,
+              "B": 19.88705,
+              "C": -8.598535,
+              "D": 1.369784,
+              "E": 0.527601,
+              "F": -4.935202,
+              "G": 212.39,
+              "H": 0.0
+            },
+            "lennard_jones_sigma": [
+              3.798,
+              {
+                "component": "\u00c5"
+              }
+            ],
+            "lennard_jones_epsilon_reduced": [
+              71.4,
+              {
+                "component": "K"
+              }
+            ],
+            "f_int_eucken": 1
+          }
+        }
+      },
+      "phases": {
+        "Vap": {
+          "type": "idaes.core.base.phases.VaporPhase",
+          "equation_of_state": "idaes.models.properties.modular_properties.eos.ideal.Ideal",
+          "visc_d_phase": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.ViscosityWilke",
+          "transport_property_options": {
+            "viscosity_phi_ij_callback": "idaes.models.properties.modular_properties.transport_properties.viscosity_wilke.wilke_phi_ij_callback"
+          },
+          "therm_cond_phase": "idaes.models.properties.modular_properties.transport_properties.thermal_conductivity_wms.ThermalConductivityWMS"
+        }
+      },
+      "state_definition": "idaes.models.properties.modular_properties.state_definitions.FTPx.FTPx",
+      "state_bounds": {
+        "flow_mol": [
+          0,
+          8000,
+          50000,
+          {
+            "component": "div"
+          }
+        ],
+        "temperature": [
+          273.15,
+          500,
+          2500,
+          {
+            "component": "K"
+          }
+        ],
+        "pressure": [
+          50000.0,
+          130000.0,
+          100000000.0,
+          {
+            "component": "Pa"
+          }
+        ]
+      },
+      "state_components": {
+        "component": "true"
+      },
+      "pressure_ref": [
+        101325,
+        {
+          "component": "Pa"
+        }
+      ],
+      "temperature_ref": [
+        298.15,
+        {
+          "component": "K"
+        }
+      ],
+      "phases_in_equilibrium": null,
+      "phase_equilibrium_state": null,
+      "bubble_dew_method": "idaes.models.properties.modular_properties.phase_equil.bubble_dew.LogBubbleDew",
+      "parameter_data": {
+        "PR_kappa": {
+          "('O2', 'O2')": 0,
+          "('O2', 'H2O')": 0,
+          "('O2', 'CO2')": 0,
+          "('O2', 'N2')": 0,
+          "('H2O', 'O2')": 0,
+          "('H2O', 'H2O')": 0,
+          "('H2O', 'CO2')": 0,
+          "('H2O', 'N2')": 0,
+          "('CO2', 'O2')": 0,
+          "('CO2', 'H2O')": 0,
+          "('CO2', 'CO2')": 0,
+          "('CO2', 'N2')": 0,
+          "('N2', 'O2')": 0,
+          "('N2', 'H2O')": 0,
+          "('N2', 'CO2')": 0,
+          "('N2', 'N2')": 0
+        }
+      },
+      "base_units": {
+        "time": {
+          "component": "s"
+        },
+        "length": {
+          "component": "m"
+        },
+        "mass": {
+          "component": "kg"
+        },
+        "amount": {
+          "component": "mol"
+        },
+        "temperature": {
+          "component": "K"
+        }
+      },
+      "include_enthalpy_of_formation": true,
+      "reaction_basis": {
+        "component": "molar"
+      },
+      "inherent_reactions": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "default_scaling_factors": null
+    },
+    "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+    "module": "idaes.models.properties.modular_properties.base.generic_property",
+    "data_class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_solid",
+    "implementation": [
+      {
+        "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParametersData"
+      },
+      {
+        "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParameters"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "key_components": null
+    },
+    "class": "prommis.precipitate.precipitate_solids_properties.PrecipitateParameters",
+    "module": "prommis.precipitate.precipitate_solids_properties",
+    "data_class": null,
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.prop_liquid",
+    "implementation": [
+      {
+        "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterData"
+      },
+      {
+        "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterBlock",
+    "module": "prommis.properties.hcl_stripping_properties",
+    "data_class": "prommis.properties.hcl_stripping_properties.HClStrippingParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

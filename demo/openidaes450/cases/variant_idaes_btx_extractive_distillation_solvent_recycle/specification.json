@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_btx_extractive_distillation_solvent_recycle",
+  "family": "family_btx_extractive",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "solvent_to_feed_ratio",
+      "value": 1.1,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "solvent_recycle_fraction",
+      "value": 0.95,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "relative_volatility",
+      "value": 2.798083011195404,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "benzene_purity",
+      "value": 0.9563451139002134,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "solvent_loss_kg_s",
+      "value": 0.0005500000000000006,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "reboiler_index",
+      "value": 365.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "BTX.outlet",
+    "SOLVENT.outlet"
+  ],
+  "terminal_product_ports": [
+    "BENZENE.inlet",
+    "TOLUENE.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_btx_flash_canary"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_btx_flash_canary",
+    "chemical_change": "Changes relative volatility through a selective solvent and closes a solvent-recovery loop.",
+    "native_metrics": {
+      "relative_volatility": 2.798083011195404,
+      "benzene_purity": 0.9563451139002134,
+      "solvent_loss_kg_s": 0.0005500000000000006,
+      "reboiler_index": 365.5
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_asm1_dewatering_unit",
+  "official_reference_url": "https://github.com/watertap-org/watertap/blob/main/watertap/unit_models/dewatering.py",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "asm1_dewaterer_optimal",
+      "pass": true
+    },
+    {
+      "name": "asm1_dewaterer_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "asm1_dewaterer_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "tss_capture_matches_native_correlation",
+      "pass": true
+    },
+    {
+      "name": "cake_dry_solids_near_native_28wtpct_correlation",
+      "pass": true
+    },
+    {
+      "name": "filtrate_hydraulic_recovery_physical",
+      "pass": true
+    },
+    {
+      "name": "hydraulic_balance_closed",
+      "pass": true
+    },
+    {
+      "name": "particulate_balance_closed",
+      "pass": true
+    },
+    {
+      "name": "electricity_consumption_positive",
+      "pass": true
+    }
+  ],
+  "variant_metrics": {
+    "feed_flow_m3_day": 178.46739999999997,
+    "overflow_filtrate_flow_m3_day": 168.8852699966842,
+    "underflow_cake_flow_m3_day": 9.582130003315774,
+    "filtrate_hydraulic_recovery": 0.9463087936322501,
+    "tss_feed_kg_day": 2751.2525061755346,
+    "tss_to_cake_kg_day": 2696.227456053072,
+    "tss_to_filtrate_kg_day": 55.025050144449516,
+    "tss_capture_fraction": 0.9800000000003808,
+    "filtrate_tss_rejection": 0.9799999999923894,
+    "cake_dry_solids_mass_fraction": 0.2822274876827726,
+    "cake_tss_concentration_kg_m3": 281.38080521972427,
+    "filtrate_tss_concentration_kg_m3": 0.32581319937215275,
+    "electricity_consumption_kw": 0.1933396833333333,
+    "specific_electricity_kwh_m3_feed": 0.026,
+    "vessel_volume_m3": 3.7180708333333325,
+    "hydraulic_balance_residual_m3_s": 0.0,
+    "particulate_balance_residual_kg_s": -3.3929803411325565e-13
+  },
+  "source_summary": {
+    "source": "Official WaterTAP DewateringUnit with the official ASM1 property package and BSM2 benchmark feed",
+    "configuration": "One separator-based dewaterer producing clarified overflow and a concentrated sludge cake; native correlations specify 98% TSS capture and 28 wt% cake dry solids.",
+    "evidence_boundary": "Steady-state empirical BSM2 dewatering correlation. Polymer dose, particle-size effects, compressibility, cycle dynamics, equipment redundancy, and detailed centrifuge or belt-press mechanics are not represented.",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

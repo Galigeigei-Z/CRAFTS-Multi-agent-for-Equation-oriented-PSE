@@ -1,0 +1,225 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_lithium_nf_bped_crystallization",
+  "family": "family_lithium_nf_bped",
+  "process_type": "Lithium NF-BPED-Carbonate Crystallization Train",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_prommis_lithium_magnesium_nf_cascade.",
+    "Couples membrane ion selectivity, electrochemical reagent generation and product crystallization.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "Li+",
+        "Mg2+",
+        "CO2",
+        "OH-",
+        "Li2CO3"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_prommis_lithium_magnesium_nf_cascade"
+    }
+  },
+  "components": {
+    "tracked": [
+      "Li+",
+      "Mg2+",
+      "CO2",
+      "OH-",
+      "Li2CO3"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "Li/Mg brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "NF",
+      "kind": "Nanofiltration",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "Mg rejection",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BPED",
+      "kind": "BipolarElectrodialysis",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "generate base",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "CO2 carbonate generation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CRYS",
+      "kind": "Crystallizer",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "Li2CO3 precipitation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "harvest crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "mother-liquor recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LI2CO3",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "battery carbonate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MG",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "lithium_nf_bped",
+      "role": "Mg concentrate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "NF.feed",
+      "stage": "lithium_nf_bped",
+      "role": "raw brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "NF.retentate",
+      "destination": "MG.inlet",
+      "stage": "lithium_nf_bped",
+      "role": "Mg concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "NF.permeate",
+      "destination": "CRYS.brine",
+      "stage": "lithium_nf_bped",
+      "role": "Li-rich brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "BPED.base",
+      "destination": "ABS.base",
+      "stage": "lithium_nf_bped",
+      "role": "alkalinity",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "ABS.carbonate",
+      "destination": "CRYS.carbonate",
+      "stage": "lithium_nf_bped",
+      "role": "carbonate reagent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CRYS.slurry",
+      "destination": "CF.inlet",
+      "stage": "lithium_nf_bped",
+      "role": "Li2CO3 slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "CF.solid",
+      "destination": "LI2CO3.inlet",
+      "stage": "lithium_nf_bped",
+      "role": "product crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CF.liquid",
+      "destination": "S1.inlet",
+      "stage": "lithium_nf_bped",
+      "role": "mother liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "S1.recycle",
+      "destination": "NF.recycle",
+      "stage": "lithium_nf_bped",
+      "role": "Li recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "LI2CO3.inlet",
+    "MG.inlet"
+  ],
+  "tear_streams": [
+    "s09"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_prommis_lithium_magnesium_nf_cascade"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_prommis_lithium_magnesium_nf_cascade",
+    "chemical_change": "Couples membrane ion selectivity, electrochemical reagent generation and product crystallization.",
+    "native_metrics": {
+      "magnesium_rejection": 0.94,
+      "lithium_recovery": 0.8604999999999999,
+      "li2co3_purity": 0.9820000000000001,
+      "bped_voltage_V": 37.2
+    }
+  }
+}

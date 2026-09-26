@@ -1,0 +1,216 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_biogas_co2_water_scrubber",
+  "family": "family_watertap_biogas_co2_water_scrubber",
+  "process_type": "Biogas CO2 Water Scrubbing with Methane Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_adm1_biogas_water_scrubbing.",
+    "Separates methane and carbon dioxide while recycling regenerated physical solvent.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "CO2",
+        "H2S",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_adm1_biogas_water_scrubbing"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "CO2",
+      "H2S",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "contaminated gas or liquid feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS101",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "selective contaminant absorption",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX101",
+      "kind": "HeatExchanger",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "rich-lean heat recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "REG101",
+      "kind": "Stripper",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "regenerate absorbent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "absorbent recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLEAN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "treated product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RECOVERED",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "recovered contaminant product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "degraded absorbent purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "ABS101.feed",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "contaminated feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ABS101.clean",
+      "destination": "CLEAN.inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "treated product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ABS101.rich",
+      "destination": "HX101.rich_inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "rich absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "HX101.rich_outlet",
+      "destination": "REG101.inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "preheated rich absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "REG101.lean",
+      "destination": "HX101.lean_inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "hot lean absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HX101.lean_outlet",
+      "destination": "S101.inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "cooled lean absorbent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.recycle",
+      "destination": "ABS101.solvent",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "absorbent recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "absorbent purge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "REG101.overhead",
+      "destination": "RECOVERED.inlet",
+      "stage": "watertap_biogas_co2_water_scrubber",
+      "role": "recovered contaminant",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CLEAN.inlet",
+    "RECOVERED.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s07"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_adm1_biogas_water_scrubbing"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_adm1_biogas_water_scrubbing",
+    "chemical_change": "Separates methane and carbon dioxide while recycling regenerated physical solvent.",
+    "native_metrics": {
+      "contaminant_removal": 0.912,
+      "lean_solvent_quality": 0.9099999999999999,
+      "product_slip_fraction": 0.014079999999999995,
+      "regeneration_duty_index": 0.636,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

@@ -1,0 +1,1451 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "ngcc_hrsg_subflowsheet",
+  "official_reference_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html",
+  "source_variant_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html#hrsg_subflowsheet",
+  "termination_condition": "optimal",
+  "solver_status": "ok",
+  "final_dof": 0,
+  "heat_duties_mw": {
+    "econ_lp": 5.5047381069032495,
+    "evap_lp": 108.26277538592736,
+    "sh_lp": 6.079970360086086,
+    "econ_ip1": 5.099546362837887,
+    "econ_ip2": 4.570689654946802,
+    "evap_ip": 37.21366993928129,
+    "sh_ip1": 2.722028090680876,
+    "sh_ip2": 38.78531948830794,
+    "sh_ip3": 46.61368548657761,
+    "econ_hp1": 12.770101722081835,
+    "econ_hp2": 11.048523950243968,
+    "econ_hp3": 20.282962092103972,
+    "econ_hp4": 14.666972833062221,
+    "econ_hp5": 12.391408542777082,
+    "evap_hp": 163.5138513809131,
+    "sh_hp1": 42.63530011747052,
+    "sh_hp2": 43.56544751619967,
+    "sh_hp3": 23.845092299307577,
+    "sh_hp4": 16.843983738211968
+  },
+  "stream_values": {
+    "econ_lp.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 401.522370562554,
+      "pressure": 94099.82423293975
+    },
+    "econ_lp.cold_side_inlet": {
+      "flow_mol": 9790.55,
+      "enth_mol": 6335.150939252414,
+      "pressure": 655000.0
+    },
+    "econ_lp.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 396.7860703702984,
+      "pressure": 94099.82423293975
+    },
+    "econ_lp.cold_side_outlet": {
+      "flow_mol": 9790.55,
+      "enth_mol": 6897.401079122314,
+      "pressure": 655000.0
+    },
+    "mixer1.econ_lp": {
+      "flow_mol": 9790.55,
+      "enth_mol": 6897.401079122314,
+      "pressure": 655000.0
+    },
+    "mixer1.Preheater": {
+      "flow_mol": 833.0,
+      "enth_mol": 4588.290617926065,
+      "pressure": 3509000.0
+    },
+    "mixer1.outlet": {
+      "flow_mol": 10623.55,
+      "enth_mol": 6716.342109740471,
+      "pressure": 655000.0
+    },
+    "drum_lp.inlet": {
+      "flow_mol": 10623.55,
+      "enth_mol": 16907.170541472555,
+      "pressure": 655000.0
+    },
+    "drum_lp.vap_outlet": {
+      "flow_mol": 1296.0328477434757,
+      "enth_mol": 49720.833630598594,
+      "pressure": 655000.0
+    },
+    "drum_lp.liq_outlet": {
+      "flow_mol": 9327.517152256522,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "evap_lp.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 493.92005059627735,
+      "pressure": 94099.82423293975
+    },
+    "evap_lp.cold_side_inlet": {
+      "flow_mol": 10623.55,
+      "enth_mol": 6716.342109740471,
+      "pressure": 655000.0
+    },
+    "evap_lp.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 401.522370562554,
+      "pressure": 94099.82423293975
+    },
+    "evap_lp.cold_side_outlet": {
+      "flow_mol": 10623.55,
+      "enth_mol": 16907.170541472555,
+      "pressure": 655000.0
+    },
+    "mixer_soec.main": {
+      "flow_mol": 10623.55,
+      "enth_mol": 16907.170541472555,
+      "pressure": 655000.0
+    },
+    "mixer_soec.soec_makeup": {
+      "flow_mol": 0.0,
+      "enth_mol": 20363.58746291757,
+      "pressure": 800000.0
+    },
+    "mixer_soec.outlet": {
+      "flow_mol": 10623.55,
+      "enth_mol": 16907.170541472555,
+      "pressure": 655000.0
+    },
+    "split_fg_lp.inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "split_fg_lp.toLP_SH": {
+      "flow_mol_comp": {
+        "N2": 4838.154597674999,
+        "O2": 785.07121938273,
+        "CO2": 263.19561011352,
+        "H2O": 564.4513697287499
+      },
+      "flow_mol": 6450.8727969,
+      "flow_mol_s": 6450.8727969,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "split_fg_lp.toMixer": {
+      "flow_mol_comp": {
+        "N2": 23996.427902325002,
+        "O2": 3893.82036761727,
+        "CO2": 1305.4056778864801,
+        "H2O": 2799.58325527125
+      },
+      "flow_mol": 31995.2372031,
+      "flow_mol_s": 31995.2372031,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "mixer_lp2.fromLP_SH": {
+      "flow_mol_comp": {
+        "N2": 4838.154597674999,
+        "O2": 785.07121938273,
+        "CO2": 263.19561011352,
+        "H2O": 564.4513697287499
+      },
+      "flow_mol": 6450.8727969,
+      "flow_mol_s": 6450.8727969,
+      "temperature": 528.065897207666,
+      "pressure": 97830.24187322613
+    },
+    "mixer_lp2.bypass": {
+      "flow_mol_comp": {
+        "N2": 23996.427902325002,
+        "O2": 3893.82036761727,
+        "CO2": 1305.4056778864801,
+        "H2O": 2799.58325527125
+      },
+      "flow_mol": 31995.2372031,
+      "flow_mol_s": 31995.2372031,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "mixer_lp2.outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 553.2794466864163,
+      "pressure": 97830.24137322612
+    },
+    "sh_lp.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 4838.154597674999,
+        "O2": 785.07121938273,
+        "CO2": 263.19561011352,
+        "H2O": 564.4513697287499
+      },
+      "flow_mol": 6450.8727969,
+      "flow_mol_s": 6450.8727969,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "sh_lp.cold_side_inlet": {
+      "flow_mol": 1296.0328477434757,
+      "enth_mol": 49720.833630598594,
+      "pressure": 655000.0
+    },
+    "sh_lp.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 4838.154597674999,
+        "O2": 785.07121938273,
+        "CO2": 263.19561011352,
+        "H2O": 564.4513697287499
+      },
+      "flow_mol": 6450.8727969,
+      "flow_mol_s": 6450.8727969,
+      "temperature": 528.065897207666,
+      "pressure": 97830.24187322613
+    },
+    "sh_lp.cold_side_outlet": {
+      "flow_mol": 1296.0328477434757,
+      "enth_mol": 54412.04988385322,
+      "pressure": 655000.0
+    },
+    "splitter1.inlet": {
+      "flow_mol": 9327.517152256522,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "splitter1.toIP": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "splitter1.toHP": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "pump_ip.inlet": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "pump_ip.outlet": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 12440.502893063864,
+      "pressure": 4385000.0
+    },
+    "pump_hp.inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 12347.80232760584,
+      "pressure": 655000.0
+    },
+    "pump_hp.outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 12934.89876884386,
+      "pressure": 24400000.0
+    },
+    "econ_ip1.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 509.002587009681,
+      "pressure": 94236.18333535027
+    },
+    "econ_ip1.cold_side_inlet": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 12440.502893063864,
+      "pressure": 4385000.0
+    },
+    "econ_ip1.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 504.70380294264004,
+      "pressure": 94118.09024373813
+    },
+    "econ_ip1.cold_side_outlet": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 14794.792545117814,
+      "pressure": 4337885.405260446
+    },
+    "splitter_ip1.inlet": {
+      "flow_mol": 2166.065827281774,
+      "enth_mol": 14794.792545117814,
+      "pressure": 4337885.405260446
+    },
+    "splitter_ip1.toIP_ECON2": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 14794.792545117814,
+      "pressure": 4337885.405260446
+    },
+    "splitter_ip1.toNGPH": {
+      "flow_mol": 994.6574278877906,
+      "enth_mol": 14794.792545117814,
+      "pressure": 4337885.405260446
+    },
+    "econ_ip2.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 522.1419998116183,
+      "pressure": 97830.24137322612
+    },
+    "econ_ip2.cold_side_inlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 14794.792545117814,
+      "pressure": 4337885.405260446
+    },
+    "econ_ip2.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 518.301246396177,
+      "pressure": 94254.96886337547
+    },
+    "econ_ip2.cold_side_outlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 18696.667977555793,
+      "pressure": 4238405.334713003
+    },
+    "evap_ip.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 553.2794466864163,
+      "pressure": 97830.24137322612
+    },
+    "evap_ip.cold_side_inlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 18696.667977555793,
+      "pressure": 4238405.334713003
+    },
+    "evap_ip.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 522.1419998116183,
+      "pressure": 97830.24137322612
+    },
+    "evap_ip.cold_side_outlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 50464.98205020009,
+      "pressure": 4238405.334713003
+    },
+    "sh_ip1.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 589.5805702207363,
+      "pressure": 101451.73003343909
+    },
+    "sh_ip1.cold_side_inlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 50464.98205020009,
+      "pressure": 4238405.334713003
+    },
+    "sh_ip1.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 587.3318067990963,
+      "pressure": 97865.5179020858
+    },
+    "sh_ip1.cold_side_outlet": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 52788.70458120551,
+      "pressure": 4218924.7173935175
+    },
+    "mixer_ip1.sh_ip1": {
+      "flow_mol": 1171.4083993939832,
+      "enth_mol": 52788.70458120551,
+      "pressure": 4218924.7173935175
+    },
+    "mixer_ip1.Cold_reheat": {
+      "flow_mol": 7459.46167117,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "mixer_ip1.outlet": {
+      "flow_mol": 8630.870070563982,
+      "enth_mol": 55609.3599065559,
+      "pressure": 3737000.0
+    },
+    "splitter_ip2.inlet": {
+      "flow_mol": 7503.7337,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "splitter_ip2.Cold_reheat": {
+      "flow_mol": 7459.46167117,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "splitter_ip2.toEjector": {
+      "flow_mol": 5.552762938,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "splitter_ip2.toReclaimer": {
+      "flow_mol": 36.66324285820043,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "splitter_ip2.toDryer": {
+      "flow_mol": 2.0560230338,
+      "enth_mol": 56052.30599108112,
+      "pressure": 3737000.0
+    },
+    "sh_ip2.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 796.6223897646476,
+      "pressure": 102632.08213334608
+    },
+    "sh_ip2.cold_side_inlet": {
+      "flow_mol": 8630.870070563982,
+      "enth_mol": 55609.3599065559,
+      "pressure": 3737000.0
+    },
+    "sh_ip2.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 766.0795414494123,
+      "pressure": 101647.11571255136
+    },
+    "sh_ip2.cold_side_outlet": {
+      "flow_mol": 8630.870070563982,
+      "enth_mol": 60103.150123672865,
+      "pressure": 3665467.245224065
+    },
+    "sh_ip3.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 885.2075160704211,
+      "pressure": 103216.25188455671
+    },
+    "sh_ip3.cold_side_inlet": {
+      "flow_mol": 8630.870070563982,
+      "enth_mol": 60103.150123672865,
+      "pressure": 3665467.245224065
+    },
+    "sh_ip3.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 849.2029282530427,
+      "pressure": 103014.34536804733
+    },
+    "sh_ip3.cold_side_outlet": {
+      "flow_mol": 8630.870070563982,
+      "enth_mol": 65503.959671896264,
+      "pressure": 3437363.4455766757
+    },
+    "econ_hp1.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 504.70380294264004,
+      "pressure": 94118.09024373813
+    },
+    "econ_hp1.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 12934.89876884386,
+      "pressure": 24400000.0
+    },
+    "econ_hp1.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 493.92005059627735,
+      "pressure": 94099.82423293975
+    },
+    "econ_hp1.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 14718.071081632972,
+      "pressure": 24391027.408891466
+    },
+    "econ_hp2.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 518.301246396177,
+      "pressure": 94254.96886337547
+    },
+    "econ_hp2.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 14718.071081632972,
+      "pressure": 24391027.408891466
+    },
+    "econ_hp2.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891586999999,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 509.002587009681,
+      "pressure": 94236.18333535027
+    },
+    "econ_hp2.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 16260.848299389596,
+      "pressure": 24382270.855522744
+    },
+    "econ_hp3.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 575.1927345551461,
+      "pressure": 97844.73720051577
+    },
+    "econ_hp3.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 16260.848299389596,
+      "pressure": 24382270.855522744
+    },
+    "econ_hp3.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 558.3439363979876,
+      "pressure": 97830.24187322613
+    },
+    "econ_hp3.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 19093.090141398538,
+      "pressure": 24373807.421136275
+    },
+    "econ_hp4.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 587.3318067990963,
+      "pressure": 97865.5179020858
+    },
+    "econ_hp4.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 19093.090141398538,
+      "pressure": 24373807.421136275
+    },
+    "econ_hp4.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 575.1927345551462,
+      "pressure": 97844.73720051577
+    },
+    "econ_hp4.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 21141.134897621727,
+      "pressure": 24365735.63055448
+    },
+    "econ_hp5.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 599.8013015803067,
+      "pressure": 101472.24341746786
+    },
+    "econ_hp5.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 21141.134897621727,
+      "pressure": 24365735.63055448
+    },
+    "econ_hp5.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 589.5805702207363,
+      "pressure": 101451.73003343909
+    },
+    "econ_hp5.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 22871.427820169898,
+      "pressure": 24357979.751244858
+    },
+    "evap_hp_valve.inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 22871.427820169898,
+      "pressure": 24357979.751244858
+    },
+    "evap_hp_valve.outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 22871.427820169898,
+      "pressure": 17357979.751244854
+    },
+    "evap_hp.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 732.2474679665698,
+      "pressure": 101472.24341746786
+    },
+    "evap_hp.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 22871.427820169898,
+      "pressure": 17357979.751244854
+    },
+    "evap_hp.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 599.8013015803067,
+      "pressure": 101472.24341746786
+    },
+    "evap_hp.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 45703.9297755593,
+      "pressure": 17357979.751244854
+    },
+    "sh_hp1.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 766.0795414494123,
+      "pressure": 101647.11571255136
+    },
+    "sh_hp1.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 45703.9297755593,
+      "pressure": 17357979.751244854
+    },
+    "sh_hp1.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 732.2474679665698,
+      "pressure": 101472.24341746786
+    },
+    "sh_hp1.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 51657.37387267749,
+      "pressure": 17342139.64029885
+    },
+    "sh_hp2.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 830.6746849007072,
+      "pressure": 102821.07382697867
+    },
+    "sh_hp2.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 51657.37387267749,
+      "pressure": 17342139.64029885
+    },
+    "sh_hp2.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 796.6223897646476,
+      "pressure": 102632.08213334608
+    },
+    "sh_hp2.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 57740.700497305996,
+      "pressure": 17319025.60869122
+    },
+    "sh_hp3.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 849.2029282530427,
+      "pressure": 103014.34536804733
+    },
+    "sh_hp3.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 57740.700497305996,
+      "pressure": 17319025.60869122
+    },
+    "sh_hp3.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 830.6746849007072,
+      "pressure": 102821.07382697867
+    },
+    "sh_hp3.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 61070.34573501794,
+      "pressure": 17286740.316748034
+    },
+    "sh_hp4.hot_side_inlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 898.15,
+      "pressure": 103421.0
+    },
+    "sh_hp4.cold_side_inlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 61070.34573501794,
+      "pressure": 17286740.316748034
+    },
+    "sh_hp4.hot_side_outlet": {
+      "flow_mol_comp": {
+        "N2": 28834.5825,
+        "O2": 4678.891587,
+        "CO2": 1568.601288,
+        "H2O": 3364.034625
+      },
+      "flow_mol": 38446.11,
+      "flow_mol_s": 38446.11,
+      "temperature": 885.2075160704211,
+      "pressure": 103216.25188455671
+    },
+    "sh_hp4.cold_side_outlet": {
+      "flow_mol": 7161.45132497475,
+      "enth_mol": 63422.38067512439,
+      "pressure": 17248994.096783414
+    }
+  },
+  "native_topology_binding": {
+    "schema_version": "native-topology-probe/1",
+    "units": {
+      "fg_inlet": {
+        "model_component": "fs.sh_hp4.shell_inlet",
+        "exists": true
+      },
+      "lp_feedwater": {
+        "model_component": "fs.econ_lp.tube_inlet",
+        "exists": true
+      },
+      "econ_lp": {
+        "model_component": "fs.econ_lp",
+        "exists": true
+      },
+      "evap_lp": {
+        "model_component": "fs.evap_lp",
+        "exists": true
+      },
+      "sh_lp": {
+        "model_component": "fs.sh_lp",
+        "exists": true
+      },
+      "econ_ip1": {
+        "model_component": "fs.econ_ip1",
+        "exists": true
+      },
+      "econ_ip2": {
+        "model_component": "fs.econ_ip2",
+        "exists": true
+      },
+      "evap_ip": {
+        "model_component": "fs.evap_ip",
+        "exists": true
+      },
+      "sh_ip1": {
+        "model_component": "fs.sh_ip1",
+        "exists": true
+      },
+      "sh_ip2": {
+        "model_component": "fs.sh_ip2",
+        "exists": true
+      },
+      "sh_ip3": {
+        "model_component": "fs.sh_ip3",
+        "exists": true
+      },
+      "econ_hp1": {
+        "model_component": "fs.econ_hp1",
+        "exists": true
+      },
+      "econ_hp2": {
+        "model_component": "fs.econ_hp2",
+        "exists": true
+      },
+      "econ_hp3": {
+        "model_component": "fs.econ_hp3",
+        "exists": true
+      },
+      "econ_hp4": {
+        "model_component": "fs.econ_hp4",
+        "exists": true
+      },
+      "econ_hp5": {
+        "model_component": "fs.econ_hp5",
+        "exists": true
+      },
+      "evap_hp": {
+        "model_component": "fs.evap_hp",
+        "exists": true
+      },
+      "sh_hp1": {
+        "model_component": "fs.sh_hp1",
+        "exists": true
+      },
+      "sh_hp2": {
+        "model_component": "fs.sh_hp2",
+        "exists": true
+      },
+      "sh_hp3": {
+        "model_component": "fs.sh_hp3",
+        "exists": true
+      },
+      "sh_hp4": {
+        "model_component": "fs.sh_hp4",
+        "exists": true
+      },
+      "mixer1": {
+        "model_component": "fs.mixer1",
+        "exists": true
+      },
+      "mixer_soec": {
+        "model_component": "fs.mixer_soec",
+        "exists": true
+      },
+      "drum_lp": {
+        "model_component": "fs.drum_lp",
+        "exists": true
+      },
+      "splitter1": {
+        "model_component": "fs.splitter1",
+        "exists": true
+      },
+      "pump_ip": {
+        "model_component": "fs.pump_ip",
+        "exists": true
+      },
+      "pump_hp": {
+        "model_component": "fs.pump_hp",
+        "exists": true
+      },
+      "splitter_ip1": {
+        "model_component": "fs.splitter_ip1",
+        "exists": true
+      },
+      "mixer_ip1": {
+        "model_component": "fs.mixer_ip1",
+        "exists": true
+      },
+      "splitter_ip2": {
+        "model_component": "fs.splitter_ip2",
+        "exists": true
+      },
+      "evap_hp_valve": {
+        "model_component": "fs.evap_hp_valve",
+        "exists": true
+      },
+      "split_fg_lp": {
+        "model_component": "fs.split_fg_lp",
+        "exists": true
+      },
+      "mixer_lp2": {
+        "model_component": "fs.mixer_lp2",
+        "exists": true
+      },
+      "hp_steam_out": {
+        "model_component": "fs.sh_hp4.tube_outlet",
+        "exists": true
+      },
+      "ip_steam_out": {
+        "model_component": "fs.sh_ip3.tube_outlet",
+        "exists": true
+      },
+      "lp_steam_out": {
+        "model_component": "fs.sh_lp.tube_outlet",
+        "exists": true
+      },
+      "stack_gas": {
+        "model_component": "fs.econ_lp.shell_outlet",
+        "exists": true
+      }
+    },
+    "arcs": {
+      "fg_to_sh_hp4": {
+        "source_component": "fs.sh_hp4.shell_inlet",
+        "destination_component": "fs.sh_hp4.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp4.shell_inlet->fs.sh_hp4.shell_inlet"
+      },
+      "lp_feed_to_econ_lp": {
+        "source_component": "fs.econ_lp.tube_inlet",
+        "destination_component": "fs.econ_lp.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_lp.tube_inlet->fs.econ_lp.tube_inlet"
+      },
+      "lp02": {
+        "source_component": "fs.econ_lp.tube_outlet",
+        "destination_component": "fs.mixer1.econ_lp",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_lp.tube_outlet->fs.mixer1.econ_lp"
+      },
+      "lp04": {
+        "source_component": "fs.mixer1.outlet",
+        "destination_component": "fs.evap_lp.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mixer1.outlet->fs.evap_lp.tube_inlet"
+      },
+      "lp05": {
+        "source_component": "fs.evap_lp.tube_outlet",
+        "destination_component": "fs.mixer_soec.main",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_lp.tube_outlet->fs.mixer_soec.main"
+      },
+      "lp13": {
+        "source_component": "fs.mixer_soec.outlet",
+        "destination_component": "fs.drum_lp.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mixer_soec.outlet->fs.drum_lp.inlet"
+      },
+      "lp10": {
+        "source_component": "fs.drum_lp.vap_outlet",
+        "destination_component": "fs.sh_lp.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.drum_lp.vap_outlet->fs.sh_lp.tube_inlet"
+      },
+      "lp_steam_product": {
+        "source_component": "fs.sh_lp.tube_outlet",
+        "destination_component": "fs.sh_lp.tube_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_lp.tube_outlet->fs.sh_lp.tube_outlet"
+      },
+      "lp06": {
+        "source_component": "fs.drum_lp.liq_outlet",
+        "destination_component": "fs.splitter1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.drum_lp.liq_outlet->fs.splitter1.inlet"
+      },
+      "lp08": {
+        "source_component": "fs.splitter1.toIP",
+        "destination_component": "fs.pump_ip.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splitter1.toIP->fs.pump_ip.inlet"
+      },
+      "lp09": {
+        "source_component": "fs.splitter1.toHP",
+        "destination_component": "fs.pump_hp.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splitter1.toHP->fs.pump_hp.inlet"
+      },
+      "ip01": {
+        "source_component": "fs.pump_ip.outlet",
+        "destination_component": "fs.econ_ip1.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.pump_ip.outlet->fs.econ_ip1.tube_inlet"
+      },
+      "ip02": {
+        "source_component": "fs.econ_ip1.tube_outlet",
+        "destination_component": "fs.splitter_ip1.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_ip1.tube_outlet->fs.splitter_ip1.inlet"
+      },
+      "ip03": {
+        "source_component": "fs.splitter_ip1.toIP_ECON2",
+        "destination_component": "fs.econ_ip2.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splitter_ip1.toIP_ECON2->fs.econ_ip2.tube_inlet"
+      },
+      "ip05": {
+        "source_component": "fs.econ_ip2.tube_outlet",
+        "destination_component": "fs.evap_ip.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_ip2.tube_outlet->fs.evap_ip.tube_inlet"
+      },
+      "ip06": {
+        "source_component": "fs.evap_ip.tube_outlet",
+        "destination_component": "fs.sh_ip1.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_ip.tube_outlet->fs.sh_ip1.tube_inlet"
+      },
+      "ip07": {
+        "source_component": "fs.sh_ip1.tube_outlet",
+        "destination_component": "fs.mixer_ip1.sh_ip1",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip1.tube_outlet->fs.mixer_ip1.sh_ip1"
+      },
+      "ip15": {
+        "source_component": "fs.splitter_ip2.Cold_reheat",
+        "destination_component": "fs.mixer_ip1.Cold_reheat",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.splitter_ip2.Cold_reheat->fs.mixer_ip1.Cold_reheat"
+      },
+      "ip08": {
+        "source_component": "fs.mixer_ip1.outlet",
+        "destination_component": "fs.sh_ip2.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mixer_ip1.outlet->fs.sh_ip2.tube_inlet"
+      },
+      "ip09": {
+        "source_component": "fs.sh_ip2.tube_outlet",
+        "destination_component": "fs.sh_ip3.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip2.tube_outlet->fs.sh_ip3.tube_inlet"
+      },
+      "ip_steam_product": {
+        "source_component": "fs.sh_ip3.tube_outlet",
+        "destination_component": "fs.sh_ip3.tube_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip3.tube_outlet->fs.sh_ip3.tube_outlet"
+      },
+      "hp01": {
+        "source_component": "fs.pump_hp.outlet",
+        "destination_component": "fs.econ_hp1.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.pump_hp.outlet->fs.econ_hp1.tube_inlet"
+      },
+      "hp02": {
+        "source_component": "fs.econ_hp1.tube_outlet",
+        "destination_component": "fs.econ_hp2.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp1.tube_outlet->fs.econ_hp2.tube_inlet"
+      },
+      "hp03": {
+        "source_component": "fs.econ_hp2.tube_outlet",
+        "destination_component": "fs.econ_hp3.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp2.tube_outlet->fs.econ_hp3.tube_inlet"
+      },
+      "hp04": {
+        "source_component": "fs.econ_hp3.tube_outlet",
+        "destination_component": "fs.econ_hp4.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp3.tube_outlet->fs.econ_hp4.tube_inlet"
+      },
+      "hp05": {
+        "source_component": "fs.econ_hp4.tube_outlet",
+        "destination_component": "fs.econ_hp5.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp4.tube_outlet->fs.econ_hp5.tube_inlet"
+      },
+      "hp06": {
+        "source_component": "fs.econ_hp5.tube_outlet",
+        "destination_component": "fs.evap_hp_valve.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp5.tube_outlet->fs.evap_hp_valve.inlet"
+      },
+      "hp06b": {
+        "source_component": "fs.evap_hp_valve.outlet",
+        "destination_component": "fs.evap_hp.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_hp_valve.outlet->fs.evap_hp.tube_inlet"
+      },
+      "hp07": {
+        "source_component": "fs.evap_hp.tube_outlet",
+        "destination_component": "fs.sh_hp1.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_hp.tube_outlet->fs.sh_hp1.tube_inlet"
+      },
+      "hp08": {
+        "source_component": "fs.sh_hp1.tube_outlet",
+        "destination_component": "fs.sh_hp2.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp1.tube_outlet->fs.sh_hp2.tube_inlet"
+      },
+      "hp09": {
+        "source_component": "fs.sh_hp2.tube_outlet",
+        "destination_component": "fs.sh_hp3.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp2.tube_outlet->fs.sh_hp3.tube_inlet"
+      },
+      "hp10": {
+        "source_component": "fs.sh_hp3.tube_outlet",
+        "destination_component": "fs.sh_hp4.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp3.tube_outlet->fs.sh_hp4.tube_inlet"
+      },
+      "hp_steam_product": {
+        "source_component": "fs.sh_hp4.tube_outlet",
+        "destination_component": "fs.sh_hp4.tube_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp4.tube_outlet->fs.sh_hp4.tube_outlet"
+      },
+      "g09": {
+        "source_component": "fs.sh_hp4.shell_outlet",
+        "destination_component": "fs.sh_ip3.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp4.shell_outlet->fs.sh_ip3.shell_inlet"
+      },
+      "g10": {
+        "source_component": "fs.sh_ip3.shell_outlet",
+        "destination_component": "fs.sh_hp3.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip3.shell_outlet->fs.sh_hp3.shell_inlet"
+      },
+      "g11": {
+        "source_component": "fs.sh_hp3.shell_outlet",
+        "destination_component": "fs.sh_hp2.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp3.shell_outlet->fs.sh_hp2.shell_inlet"
+      },
+      "g12": {
+        "source_component": "fs.sh_hp2.shell_outlet",
+        "destination_component": "fs.sh_ip2.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp2.shell_outlet->fs.sh_ip2.shell_inlet"
+      },
+      "g13": {
+        "source_component": "fs.sh_ip2.shell_outlet",
+        "destination_component": "fs.sh_hp1.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip2.shell_outlet->fs.sh_hp1.shell_inlet"
+      },
+      "g14": {
+        "source_component": "fs.sh_hp1.shell_outlet",
+        "destination_component": "fs.evap_hp.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_hp1.shell_outlet->fs.evap_hp.shell_inlet"
+      },
+      "g15": {
+        "source_component": "fs.evap_hp.shell_outlet",
+        "destination_component": "fs.econ_hp5.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_hp.shell_outlet->fs.econ_hp5.shell_inlet"
+      },
+      "g16": {
+        "source_component": "fs.econ_hp5.shell_outlet",
+        "destination_component": "fs.sh_ip1.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp5.shell_outlet->fs.sh_ip1.shell_inlet"
+      },
+      "g17": {
+        "source_component": "fs.sh_ip1.shell_outlet",
+        "destination_component": "fs.econ_hp4.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_ip1.shell_outlet->fs.econ_hp4.shell_inlet"
+      },
+      "g18": {
+        "source_component": "fs.econ_hp4.shell_outlet",
+        "destination_component": "fs.econ_hp3.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp4.shell_outlet->fs.econ_hp3.shell_inlet"
+      },
+      "g19": {
+        "source_component": "fs.econ_hp3.shell_outlet",
+        "destination_component": "fs.split_fg_lp.inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp3.shell_outlet->fs.split_fg_lp.inlet"
+      },
+      "g20": {
+        "source_component": "fs.split_fg_lp.toLP_SH",
+        "destination_component": "fs.sh_lp.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.split_fg_lp.toLP_SH->fs.sh_lp.shell_inlet"
+      },
+      "g21": {
+        "source_component": "fs.sh_lp.shell_outlet",
+        "destination_component": "fs.mixer_lp2.fromLP_SH",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.sh_lp.shell_outlet->fs.mixer_lp2.fromLP_SH"
+      },
+      "g22": {
+        "source_component": "fs.split_fg_lp.toMixer",
+        "destination_component": "fs.mixer_lp2.bypass",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.split_fg_lp.toMixer->fs.mixer_lp2.bypass"
+      },
+      "g23": {
+        "source_component": "fs.mixer_lp2.outlet",
+        "destination_component": "fs.evap_ip.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.mixer_lp2.outlet->fs.evap_ip.shell_inlet"
+      },
+      "g24": {
+        "source_component": "fs.evap_ip.shell_outlet",
+        "destination_component": "fs.econ_ip2.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_ip.shell_outlet->fs.econ_ip2.shell_inlet"
+      },
+      "g25": {
+        "source_component": "fs.econ_ip2.shell_outlet",
+        "destination_component": "fs.econ_hp2.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_ip2.shell_outlet->fs.econ_hp2.shell_inlet"
+      },
+      "g26": {
+        "source_component": "fs.econ_hp2.shell_outlet",
+        "destination_component": "fs.econ_ip1.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp2.shell_outlet->fs.econ_ip1.shell_inlet"
+      },
+      "g27": {
+        "source_component": "fs.econ_ip1.shell_outlet",
+        "destination_component": "fs.econ_hp1.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_ip1.shell_outlet->fs.econ_hp1.shell_inlet"
+      },
+      "g28": {
+        "source_component": "fs.econ_hp1.shell_outlet",
+        "destination_component": "fs.evap_lp.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_hp1.shell_outlet->fs.evap_lp.shell_inlet"
+      },
+      "g29": {
+        "source_component": "fs.evap_lp.shell_outlet",
+        "destination_component": "fs.econ_lp.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.evap_lp.shell_outlet->fs.econ_lp.shell_inlet"
+      },
+      "g30": {
+        "source_component": "fs.econ_lp.shell_outlet",
+        "destination_component": "fs.econ_lp.shell_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.econ_lp.shell_outlet->fs.econ_lp.shell_outlet"
+      }
+    },
+    "passed": true
+  },
+  "source_summary": {
+    "source": "idaes_examples.mod.power_gen.hrsg.HrsgFlowsheet",
+    "init_json": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/experiment/runtime_data/official_idaes_examples_snapshot_v1/idaes_examples/notebooks/docs/power_gen/ngcc/hrsg_init.json.gz",
+    "boundary_projection": {
+      "fg_inlet": "fs.sh_hp4.shell_inlet",
+      "lp_feedwater": "fs.econ_lp.tube_inlet",
+      "hp_steam_out": "fs.sh_hp4.tube_outlet",
+      "ip_steam_out": "fs.sh_ip3.tube_outlet",
+      "lp_steam_out": "fs.sh_lp.tube_outlet",
+      "stack_gas": "fs.econ_lp.shell_outlet"
+    }
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

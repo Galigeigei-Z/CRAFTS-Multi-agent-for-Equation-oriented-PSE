@@ -1,0 +1,117 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarFWH0DDynamic",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "has_drain_mixer": true,
+      "has_desuperheat": true,
+      "has_drain_cooling": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "condense": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "desuperheat": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cooling": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.unit.condense",
+    "class": "idaes.core.base.process_block._ScalarFWHCondensing0D",
+    "configuration": {
+      "dynamic": true,
+      "has_holdup": true,
+      "hot_side_name": "shell",
+      "cold_side_name": "tube",
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.unit.drain_mix",
+    "class": "idaes.core.base.process_block._ScalarHelmMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "steam",
+        "drain"
+      ],
+      "num_inlets": null,
+      "momentum_mixing_type": {
+        "component": "none"
+      }
+    }
+  },
+  {
+    "name": "fs.unit.desuperheat",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": null,
+      "cold_side_name": null,
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      }
+    }
+  },
+  {
+    "name": "fs.unit.cooling",
+    "class": "idaes.core.base.process_block._ScalarHeatExchanger",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "hot_side_name": null,
+      "cold_side_name": null,
+      "hot_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cold_side": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "delta_temperature_callback": "idaes.models.unit_models.heat_exchanger.delta_temperature_lmtd_callback",
+      "flow_pattern": {
+        "component": "countercurrent"
+      }
+    }
+  }
+]

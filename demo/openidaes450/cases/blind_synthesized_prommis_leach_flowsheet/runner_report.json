@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_leach_flowsheet",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.leaching.leach_flowsheet.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "leach_flowsheet_initializer_ok",
+      "pass": true,
+      "actual": "InitializationStatus.Ok"
+    },
+    {
+      "name": "leach_flowsheet_termination_optimal",
+      "pass": true,
+      "actual": "optimal"
+    },
+    {
+      "name": "leach_flowsheet_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "leach_flowsheet_recovery_sc2o3_matches_official_test",
+      "pass": true,
+      "actual": 5.486783327341749
+    },
+    {
+      "name": "leach_flowsheet_recovery_nd2o3_matches_official_test",
+      "pass": true,
+      "actual": 45.795409883836456
+    },
+    {
+      "name": "leach_flowsheet_recovery_la2o3_matches_official_test",
+      "pass": true,
+      "actual": 38.342493969584766
+    },
+    {
+      "name": "leach_flowsheet_conversion_cao_matches_official_test",
+      "pass": true,
+      "actual": 0.5145052490189538
+    }
+  ],
+  "outputs": {
+    "recovery_sc2o3": 5.486783327341749,
+    "recovery_nd2o3": 45.795409883836456,
+    "recovery_la2o3": 38.342493969584766,
+    "recovery_gd2o3": 61.06358008583194,
+    "conversion_sc2o3": 0.054867842724739165,
+    "conversion_nd2o3": 0.45795410425882366,
+    "conversion_cao": 0.5145052490189538
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/leaching/leach_flowsheet.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/leaching/tests/test_leach_flowsheet.py",
+    "official_module": "prommis.leaching.leach_flowsheet"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

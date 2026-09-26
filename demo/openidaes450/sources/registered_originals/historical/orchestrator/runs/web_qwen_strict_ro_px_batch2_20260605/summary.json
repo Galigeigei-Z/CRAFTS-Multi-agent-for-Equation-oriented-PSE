@@ -1,0 +1,76 @@
+{
+  "question": "Strict Qwen web API test batch 2. Build a compact WaterTAP reverse osmosis desalination flowsheet for NaCl feed with feed pump, RO membrane unit, permeate product, retentate brine routed through a pressure-exchanger energy recovery device, and disposal. This is the RO pressure exchanger variant, not pump as turbine, not electrodialysis, not nanofiltration, and not a full desalination train.",
+  "case_id": "web_qwen_strict_ro_px_batch2_20260605",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_ro_px_batch2_20260605",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_ro_pressure_exchanger\",\n  \"family\": \"family_watertap_ro_with_energy_recovery\",\n  \"units\": 9,\n  \"arcs\": 10\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 9,\n    \"arc_count\": 10,\n    \"units\": [\n      \"feed\",\n      \"S1\",\n      \"P1\",\n      \"M1\",\n      \"RO\",\n      \"PXR\",\n      \"P2\",\n      \"product\",\n      \"disposal\"\n    ],\n    \"arcs\": [\n      \"feed_to_separator\",\n      \"separator_to_p1\",\n      \"p1_to_mixer\",\n      \"mixer_to_ro\",\n      \"ro_permeate_to_product\",\n      \"ro_retentate_to_pxr\",\n      \"pxr_brine_to_disposal\",\n      \"separator_to_pxr\",\n      \"pxr_feed_to_p2\",\n      \"p2_to_mixer\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/web_qwen_strict_ro_px_batch2_20260605_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 6\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_ro_pressure_exchanger\",\n  \"family\": \"family_watertap_ro_with_energy_recovery\",\n  \"spec_count\": 6,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 9,\n  \"arc_count\": 10\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ro_px_batch2_20260605/native_solve_report.json",
+      "output_tail": "ss_frac_phase_comp\": {\n        \"Liq/H2O\": 0.9325760538284887,\n        \"Liq/NaCl\": 0.06742394617151116\n      },\n      \"temperature\": 298.15,\n      \"pressure\": 7242206.228137156,\n      \"source_port\": \"fs.RO.retentate\",\n      \"destination_port\": \"fs.PXR.brine_inlet\"\n    },\n    \"pxr_brine_to_disposal\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 0.49285445000000005,\n        \"Liq/NaCl\": 0.03563268836978003\n      },\n      \"mass_flow\": 0.5284871383697801,\n      \"flow_kg_s\": 0.5284871383697801,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.9325760538284887,\n        \"Liq/NaCl\": 0.06742394617151116\n      },\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.PXR.brine_outlet\",\n      \"destination_port\": \"fs.disposal.inlet\"\n    },\n    \"separator_to_pxr\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 0.4980384036676652,\n        \"Liq/NaCl\": 0.018063569044941226\n      },\n      \"mass_flow\": 0.5161019727126065,\n      \"flow_kg_s\": 0.5161019727126065,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.9649999999999999,\n        \"Liq/NaCl\": 0.034999999999999996\n      },\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.S1.PXR\",\n      \"destination_port\": \"fs.PXR.feed_inlet\"\n    },\n    \"pxr_feed_to_p2\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 0.4980384036676652,\n        \"Liq/NaCl\": 0.018063569044941226\n      },\n      \"mass_flow\": 0.5161019727126065,\n      \"flow_kg_s\": 0.5161019727126065,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.9649999999999999,\n        \"Liq/NaCl\": 0.034999999999999996\n      },\n      \"temperature\": 298.15,\n      \"pressure\": 6885162.166730298,\n      \"source_port\": \"fs.PXR.feed_outlet\",\n      \"destination_port\": \"fs.P2.inlet\"\n    },\n    \"p2_to_mixer\": {\n      \"flow_mass_phase_comp\": {\n        \"Liq/H2O\": 0.4980384036676652,\n        \"Liq/NaCl\": 0.018063569044941226\n      },\n      \"mass_flow\": 0.5161019727126065,\n      \"flow_kg_s\": 0.5161019727126065,\n      \"mass_frac_phase_comp\": {\n        \"Liq/H2O\": 0.9649999999999999,\n        \"Liq/NaCl\": 0.034999999999999996\n      },\n      \"temperature\": 298.15,\n      \"pressure\": 7492887.151347011,\n      \"source_port\": \"fs.P2.outlet\",\n      \"destination_port\": \"fs.M1.P2\"\n    }\n  },\n  \"build_plan_sha256\": \"5dd4f2c59b310432d08fb98220eccb29730f41c6b4c33db004cebfd8320e8cc6\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_ro_pressure_exchanger\",\n    \"plan_derived_params\": [\n      \"feed.flow_vol\",\n      \"feed.salt_mass_frac\",\n      \"P1.efficiency_pump\",\n      \"P2.efficiency_pump\",\n      \"PXR.efficiency_pressure_exchanger\",\n      \"RO.water_recovery\"\n    ],\n    \"fixed_template_params\": [\n      \"RO.A_comp\",\n      \"RO.B_comp\",\n      \"RO.area\",\n      \"RO.feed_side.channel_height\",\n      \"RO.feed_side.spacer_porosity\",\n      \"RO.permeate.pressure\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

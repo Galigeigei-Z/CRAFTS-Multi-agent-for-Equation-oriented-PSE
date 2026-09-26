@@ -1,0 +1,122 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_co2_adsorption_desorption",
+  "family": "family_co2_adsorption_desorption",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "fs_ads_FB.gas_inlet",
+      "variable": "flow_mol[t]",
+      "value": 3.544,
+      "units": "mol/s",
+      "role": "official adsorption flue-gas inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_ads_FB.gas_inlet",
+      "variable": "temperature[t]",
+      "value": 303.15,
+      "units": "K",
+      "role": "official adsorption inlet/initial temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_ads_FB.gas_inlet",
+      "variable": "pressure[t]",
+      "value": 124520.0,
+      "units": "Pa",
+      "role": "official adsorption inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_des_FB.gas_inlet",
+      "variable": "flow_mol[t]",
+      "value": 10.0,
+      "units": "mol/s",
+      "role": "official desorption steam purge inlet flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_des_FB.gas_inlet",
+      "variable": "temperature[t]",
+      "value": 470.0,
+      "units": "K",
+      "role": "official desorption inlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_des_FB.gas_inlet",
+      "variable": "pressure[t]",
+      "value": 106525.0,
+      "units": "Pa",
+      "role": "official desorption inlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_ads_FB",
+      "variable": "bed_diameter",
+      "value": "bed_diameter",
+      "units": "m",
+      "role": "fixed by fb_fix_conditions",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_ads_FB",
+      "variable": "bed_height",
+      "value": "bed_height",
+      "units": "m",
+      "role": "fixed by fb_fix_conditions",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_des_FB",
+      "variable": "bed_diameter",
+      "value": "bed_diameter",
+      "units": "m",
+      "role": "fixed by fb_fix_conditions",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    },
+    {
+      "target": "fs_des_FB",
+      "variable": "bed_height",
+      "value": "bed_height",
+      "units": "m",
+      "role": "fixed by fb_fix_conditions",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/CO2_adsorption_desorption/CO2_Adsorption_Desorption_example_1DFixedBed_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "fs_ads_FB.gas_inlet",
+    "fs_des_FB.gas_inlet"
+  ],
+  "terminal_product_ports": [
+    "fs_ads_FB.gas_outlet",
+    "fs_des_FB.gas_outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official notebook fb_fix_conditions + block_triangularization_initialize + PETSc DAE integration",
+    "solve_order": [
+      "fs_ads.FB",
+      "copy_adsorption_final_solid_state_to_fs_des",
+      "fs_des.FB"
+    ],
+    "trajectory_transfer": "tf_ads = tj_ads.time[-1]; copy fs_ads.FB.solid_properties[tf_ads, x] into fs_des.FB.solid_properties[t, x]"
+  },
+  "solve": {
+    "solver": "PETSc TS beuler via petsc_dae_by_time_element",
+    "dynamic": true,
+    "web_test_mode": "official_notebook_runner"
+  }
+}

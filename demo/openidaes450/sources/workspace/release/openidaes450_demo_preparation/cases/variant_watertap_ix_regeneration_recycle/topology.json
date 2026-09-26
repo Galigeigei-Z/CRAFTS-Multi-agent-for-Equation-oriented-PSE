@@ -1,0 +1,204 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_ix_regeneration_recycle",
+  "family": "family_watertap_ion_exchange_regeneration_recycle",
+  "process_type": "Calcium ion exchange with explicit NaCl regeneration, spent-regenerant reuse, and brine bleed",
+  "source_url": "local://stage4_optimization/run_watertap_ix_regeneration_recycle_optimization.py",
+  "source_basis": [
+    "Native service-bed physics and costing use watertap.flowsheets.ion_exchange.ion_exchange_demo.",
+    "Adds explicit service, regeneration, spent-regenerant recycle and bleed paths, with reuse cycles selected against accumulated calcium and cost.",
+    "The local SVG is reconstructed from the executable cycle model and is not an official WaterTAP figure."
+  ],
+  "property_packages": {
+    "mcas_ca": {
+      "entry_id": "MCASParameterBlock",
+      "components": [
+        "H2O",
+        "Ca_2+",
+        "NaCl regenerant"
+      ],
+      "phases": [
+        "Liq"
+      ]
+    }
+  },
+  "components": {
+    "service_liquid": [
+      "H2O",
+      "Ca_2+"
+    ],
+    "regeneration": [
+      "NaCl",
+      "Ca_2+",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "service_feed",
+      "kind": "Feed",
+      "package": "mcas_ca",
+      "stage": "service",
+      "role": "source water containing Ca2+",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ion_exchange",
+      "kind": "IonExchange0D",
+      "package": "mcas_ca",
+      "stage": "service",
+      "role": "calcium-selective service bed with NaCl regeneration",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treated_product",
+      "kind": "Product",
+      "package": "mcas_ca",
+      "stage": "service",
+      "role": "low-calcium treated water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fresh_regenerant",
+      "kind": "Feed",
+      "package": "mcas_ca",
+      "stage": "regeneration_cycle",
+      "role": "fresh NaCl regeneration-solution makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "regenerant_mixer",
+      "kind": "Mixer",
+      "package": "mcas_ca",
+      "stage": "regeneration_cycle",
+      "role": "combine fresh makeup with recovered regenerant",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "spent_regenerant_splitter",
+      "kind": "Separator",
+      "package": "mcas_ca",
+      "stage": "regeneration_cycle",
+      "role": "split spent solution between reuse and brine bleed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "brine_waste",
+      "kind": "Product",
+      "package": "mcas_ca",
+      "stage": "regeneration_cycle",
+      "role": "calcium-bearing spent-regenerant bleed",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "service_feed_to_ix",
+      "source": "service_feed.outlet",
+      "destination": "ion_exchange.inlet",
+      "stage": "regeneration_cycle",
+      "role": "service water",
+      "tear_candidate": false
+    },
+    {
+      "id": "ix_to_treated_product",
+      "source": "ion_exchange.outlet",
+      "destination": "treated_product.inlet",
+      "stage": "regeneration_cycle",
+      "role": "treated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "fresh_regenerant_to_mixer",
+      "source": "fresh_regenerant.outlet",
+      "destination": "regenerant_mixer.makeup",
+      "stage": "regeneration_cycle",
+      "role": "fresh NaCl makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "regenerant_mixer_to_ix",
+      "source": "regenerant_mixer.outlet",
+      "destination": "ion_exchange.regenerant",
+      "stage": "regeneration_cycle",
+      "role": "regeneration solution",
+      "tear_candidate": false
+    },
+    {
+      "id": "ix_to_spent_splitter",
+      "source": "ion_exchange.regen",
+      "destination": "spent_regenerant_splitter.inlet",
+      "stage": "regeneration_cycle",
+      "role": "calcium-bearing spent regenerant",
+      "tear_candidate": false
+    },
+    {
+      "id": "spent_splitter_to_mixer",
+      "source": "spent_regenerant_splitter.recycle",
+      "destination": "regenerant_mixer.recycle",
+      "stage": "regeneration_cycle",
+      "role": "regenerant recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "spent_splitter_to_waste",
+      "source": "spent_regenerant_splitter.bleed",
+      "destination": "brine_waste.inlet",
+      "stage": "regeneration_cycle",
+      "role": "periodic brine bleed",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "service_feed.outlet",
+    "fresh_regenerant.outlet"
+  ],
+  "unconnected_product_ports": [
+    "treated_product.inlet",
+    "brine_waste.inlet"
+  ],
+  "tear_streams": [
+    "spent_splitter_to_mixer"
+  ],
+  "initialization": {
+    "strategy": "Initialize the official WaterTAP IX service model, solve reuse-cycle candidates 1-5, reject candidates above the spent-Ca limit, and fix the lowest-LCOW feasible cycle count.",
+    "solve_order": [
+      "service bed",
+      "cycle calcium load",
+      "reuse search",
+      "final fixed-cycle solve"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_ion_exchange",
+    "chemical_change": "Adds explicit service, regeneration, spent-regenerant recycle and bleed paths, with reuse cycles selected against accumulated calcium and cost.",
+    "native_metrics": {
+      "spent_regenerant_ca_limit_kg_m3": 30.0,
+      "spent_regenerant_ca_kg_m3": 28.37510254611818,
+      "calcium_load_per_service_cycle_mol": 7079.96969562308,
+      "regeneration_tank_volume_m3": 30.0,
+      "breakthrough_time_s": 56759.757564984655,
+      "rinse_time_s": 1200.0,
+      "fresh_nacl_kg_year": 784237.7423242063,
+      "fresh_nacl_reduction_fraction": 0.6666666666666667,
+      "average_brine_waste_m3_per_cycle": 10.0,
+      "brine_waste_reduction_fraction": 0.6666666666666667,
+      "product_ca_kg_m3": 0.00021143849264608798,
+      "target_ion_removal_fraction": 0.9978856150735391,
+      "levelized_cost_of_water": 0.1239151790506987,
+      "once_through_levelized_cost_of_water": 0.21442317935219646
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_oaro_multi",
+  "family": "family_watertap_oaro_multi",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "salinity",
+      "value": "default WaterTAP OARO multi feed",
+      "units": "mass fraction NaCl",
+      "role": "official OARO multi feed",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "OARO_1",
+      "variable": "membrane_area",
+      "value": "optimized",
+      "units": "m^2",
+      "role": "stage membrane area",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "RO",
+      "variable": "membrane_area",
+      "value": "optimized",
+      "units": "m^2",
+      "role": "final RO membrane area",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "product",
+      "variable": "system_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "target system water recovery",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "oaro_multi.build(number_of_stages=3), set operating conditions, initialize staged recycle system, run optimize_set_up, solve design optimization",
+    "solve_order": [
+      "feed pump",
+      "OARO stages",
+      "ERD/separator recycle loops",
+      "final RO",
+      "product separator",
+      "waste mixer",
+      "costing"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_oaro_multi",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

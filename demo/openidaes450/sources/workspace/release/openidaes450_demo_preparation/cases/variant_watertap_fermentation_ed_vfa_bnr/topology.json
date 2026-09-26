@@ -1,0 +1,208 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_fermentation_ed_vfa_bnr",
+  "family": "family_vfa_bnr_integration",
+  "process_type": "Wastewater Fermentation-ED VFA Recovery for BNR Carbon",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_ed_organic_acid_recovery.",
+    "Links solids fermentation, selective organic-acid recovery and biological nutrient removal.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "sludge",
+        "acetate",
+        "NO3",
+        "PO4",
+        "biomass"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_ed_organic_acid_recovery"
+    }
+  },
+  "components": {
+    "tracked": [
+      "sludge",
+      "acetate",
+      "NO3",
+      "PO4",
+      "biomass"
+    ]
+  },
+  "units": [
+    {
+      "id": "SLUDGE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "primary sludge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FERM",
+      "kind": "Fermenter",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "VFA production",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ED",
+      "kind": "Electrodialysis",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "VFA recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AX",
+      "kind": "AnoxicReactor",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "denitrification",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EBPR",
+      "kind": "BiologicalReactor",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "phosphorus removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "broth return/purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "treated water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BIOSOLID",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "vfa_bnr_integration",
+      "role": "fermented solids",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SLUDGE.outlet",
+      "destination": "FERM.feed",
+      "stage": "vfa_bnr_integration",
+      "role": "primary sludge",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "FERM.broth",
+      "destination": "ED.feed",
+      "stage": "vfa_bnr_integration",
+      "role": "VFA broth",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ED.vfa",
+      "destination": "AX.carbon",
+      "stage": "vfa_bnr_integration",
+      "role": "internal carbon",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "AX.outlet",
+      "destination": "EBPR.inlet",
+      "stage": "vfa_bnr_integration",
+      "role": "denitrified water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "EBPR.outlet",
+      "destination": "WATER.inlet",
+      "stage": "vfa_bnr_integration",
+      "role": "treated water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "ED.diluate",
+      "destination": "S1.inlet",
+      "stage": "vfa_bnr_integration",
+      "role": "salt broth",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S1.recycle",
+      "destination": "FERM.recycle",
+      "stage": "vfa_bnr_integration",
+      "role": "broth recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s08",
+      "source": "FERM.solids",
+      "destination": "BIOSOLID.inlet",
+      "stage": "vfa_bnr_integration",
+      "role": "fermented solids",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SLUDGE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "WATER.inlet",
+    "BIOSOLID.inlet"
+  ],
+  "tear_streams": [
+    "s07"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ed_organic_acid_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ed_organic_acid_recovery",
+    "chemical_change": "Links solids fermentation, selective organic-acid recovery and biological nutrient removal.",
+    "native_metrics": {
+      "effluent_tn_index": 0.009000000000000001,
+      "effluent_tp_index": 0.01,
+      "salt_return_index": 0.0,
+      "vfa_supply": 0.97
+    }
+  }
+}

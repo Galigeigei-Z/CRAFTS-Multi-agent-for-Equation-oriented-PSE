@@ -1,0 +1,187 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_mdc_osmotic_crystallization",
+  "family": "family_mdc_crystallization",
+  "process_type": "Membrane Distillation-Crystallization with Seed Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "source_basis": [
+    "Derived from active parent watertap_membrane_distillation.",
+    "Couples vapor transport to controlled solid nucleation and returns crystal seed to manage supersaturation.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "NaCl",
+        "water_vapor",
+        "salt_crystal"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_membrane_distillation"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "NaCl",
+      "water_vapor",
+      "salt_crystal"
+    ]
+  },
+  "units": [
+    {
+      "id": "BRINE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "concentrated brine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MD",
+      "kind": "MembraneDistillation",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "water vapor recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "OC",
+      "kind": "OsmoticCrystallizer",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "salt crystallization",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "crystal harvest",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "seed recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "distillate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SALT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "mdc_crystallization",
+      "role": "salt crystals",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BRINE.outlet",
+      "destination": "MD.feed",
+      "stage": "mdc_crystallization",
+      "role": "brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "MD.distillate",
+      "destination": "WATER.inlet",
+      "stage": "mdc_crystallization",
+      "role": "water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "MD.concentrate",
+      "destination": "OC.feed",
+      "stage": "mdc_crystallization",
+      "role": "supersaturated brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "OC.slurry",
+      "destination": "CF.inlet",
+      "stage": "mdc_crystallization",
+      "role": "crystal slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CF.solid",
+      "destination": "S1.inlet",
+      "stage": "mdc_crystallization",
+      "role": "crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S1.seed",
+      "destination": "OC.seed",
+      "stage": "mdc_crystallization",
+      "role": "seed recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S1.product",
+      "destination": "SALT.inlet",
+      "stage": "mdc_crystallization",
+      "role": "salt product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BRINE.outlet"
+  ],
+  "unconnected_product_ports": [
+    "WATER.inlet",
+    "SALT.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_membrane_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_membrane_distillation",
+    "chemical_change": "Couples vapor transport to controlled solid nucleation and returns crystal seed to manage supersaturation.",
+    "native_metrics": {
+      "water_recovery": 0.8200000000000001,
+      "salt_yield": 0.97,
+      "membrane_wetting_index": 0.0,
+      "supersaturation_ratio": 0.9400000000000001
+    }
+  }
+}

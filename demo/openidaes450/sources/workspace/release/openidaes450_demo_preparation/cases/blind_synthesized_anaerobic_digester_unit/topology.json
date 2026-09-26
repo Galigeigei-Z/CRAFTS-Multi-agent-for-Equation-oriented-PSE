@@ -1,0 +1,452 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_anaerobic_digester_unit",
+  "family": "family_watertap_anaerobic_digester_unit",
+  "process_type": "Blind-synthesized WaterTAP anaerobic digester unit draft with ADM1 liquid feed, AD reactor, liquid digestate outlet, and biogas vapor outlet",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle library/family support cards.",
+    "No source URL, case id, run id, image filename, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: Family profile hint: family_watertap_anaerobic_digester_unit; WaterTAP anaerobic digester unit; WaterTAP ADM1 property package",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: Family profile hint: family_watertap_anaerobic_digester_unit (family_profile_hint) matched ['watertap anaerobic digester', 'anaerobic', 'digester', 'adm1', 'biogas'].",
+    "Blind support hint: WaterTAP anaerobic digester unit (unit_model) matched ['anaerobic', 'digester', 'biogas'].",
+    "Blind support hint: WaterTAP ADM1 property package (property_package) matched ['adm1']."
+  ],
+  "property_packages": {
+    "adm1_liquid": {
+      "entry_id": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties.ADM1ParameterBlock",
+      "components": [
+        "ADM1 soluble and particulate components"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "anaerobic_digester",
+        "liquid_digestate"
+      ],
+      "source": "blind_rag_support"
+    },
+    "adm1_vapor": {
+      "entry_id": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock",
+      "components": [
+        "S_ch4",
+        "S_co2",
+        "S_h2"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "anaerobic_digester",
+        "biogas"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "adm1_liquid": [
+      "ADM1 components"
+    ],
+    "biogas": [
+      "CH4",
+      "CO2",
+      "H2"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "adm1_liquid",
+      "stage": "feed",
+      "role": "ADM1 liquid feed source",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "anaerobic_digester",
+      "kind": "AD",
+      "package": "adm1_liquid",
+      "stage": "digestion",
+      "role": "AD unit with ADM1 liquid/vapor/reaction packages",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "liquid_digestate",
+      "kind": "Product",
+      "package": "adm1_liquid",
+      "stage": "product",
+      "role": "liquid digestate outlet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "biogas",
+      "kind": "Product",
+      "package": "adm1_vapor",
+      "stage": "product",
+      "role": "biogas vapor outlet",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_ad",
+      "source": "feed.outlet",
+      "destination": "anaerobic_digester.inlet",
+      "stage": "feed",
+      "role": "ADM1 feed to anaerobic digester",
+      "tear_candidate": false
+    },
+    {
+      "id": "ad_to_liquid_digestate",
+      "source": "anaerobic_digester.liquid_outlet",
+      "destination": "liquid_digestate.inlet",
+      "stage": "product",
+      "role": "liquid digestate outlet",
+      "tear_candidate": false
+    },
+    {
+      "id": "ad_to_biogas",
+      "source": "anaerobic_digester.vapor_outlet",
+      "destination": "biogas.inlet",
+      "stage": "product",
+      "role": "biogas vapor outlet",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.0019675925925925924,
+      "units": "m^3/s",
+      "role": "family_default AD feed volume flow"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "family_default AD feed temperature"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default AD feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_liquid",
+      "value": 3400.0,
+      "units": "m^3",
+      "role": "family_default liquid volume"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_vapor",
+      "value": 300.0,
+      "units": "m^3",
+      "role": "family_default vapor headspace volume"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "liquid_outlet_temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "family_default outlet temperature"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "strict blind AD topology is compiled to BuildPlanIR and solved by the AD sandbox template",
+    "solve_order": [
+      "anaerobic_digester"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.unit_models.anaerobic_digester.AD",
+    "ADM1ParameterBlock",
+    "ADM1_vaporParameterBlock",
+    "ADM1ReactionParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized draft topology, not a verified official case topology.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_ad_unit_fix_20260605/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1280,
+      "height": 720,
+      "mode": "P"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": true,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen web API test. Build a compact WaterTAP anaerobic digester ADM1 unit flowsheet with liquid feed, anaerobic digester unit, treated liquid product, and biogas product. This is a single anaerobic digester unit case, not BSM2, not activated sludge, not electrodialysis, and not reverse osmosis.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "family_profile.family_watertap_anaerobic_digester_unit",
+        "watertap.props.adm1",
+        "watertap.unit.anaerobic_digester"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "anaerobic_digester": true,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "anaerobic_digester_unit",
+        "qualified_templates": [
+          "anaerobic_digester_unit"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": true,
+            "failures": []
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal anaerobic_digester",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.6000000000000001
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "family_profile.family_watertap_anaerobic_digester_unit",
+        "title": "Family profile hint: family_watertap_anaerobic_digester_unit",
+        "kind": "family_profile_hint",
+        "score": 128.0,
+        "matched_triggers": [
+          "watertap anaerobic digester",
+          "anaerobic",
+          "digester",
+          "adm1",
+          "biogas"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP anaerobic digester unit cases commonly use ADM1 liquid, vapor, and reaction property packages with Feed, AD, liquid digestate Product, and biogas Product units."
+      },
+      {
+        "doc_id": "watertap.unit.anaerobic_digester",
+        "title": "WaterTAP anaerobic digester unit",
+        "kind": "unit_model",
+        "score": 72.0,
+        "matched_triggers": [
+          "anaerobic",
+          "digester",
+          "biogas"
+        ],
+        "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html",
+        "text": "Use the anaerobic digester unit for liquid inlet, liquid outlet, and vapor/biogas outlet. ADM1 property packages are commonly paired with this unit."
+      },
+      {
+        "doc_id": "watertap.props.adm1",
+        "title": "WaterTAP ADM1 property package",
+        "kind": "property_package",
+        "score": 24.0,
+        "matched_triggers": [
+          "adm1"
+        ],
+        "source_url": "",
+        "text": "Use ADM1ParameterBlock for anaerobic digestion chemistry and state variables, including liquid species and vapor methane/carbon dioxide outputs."
+      }
+    ]
+  }
+}

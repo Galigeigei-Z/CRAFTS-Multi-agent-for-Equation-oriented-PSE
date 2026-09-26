@@ -1,0 +1,85 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_asm1",
+  "family": "family_watertap_asm1",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "FeedWater",
+      "variable": "flow_vol",
+      "value": 18446,
+      "units": "m^3/day",
+      "role": "official ASM1 influent flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    },
+    {
+      "target": "FeedWater",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "official influent temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    },
+    {
+      "target": "FeedWater",
+      "variable": "pressure",
+      "value": 1,
+      "units": "atm",
+      "role": "official influent pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    },
+    {
+      "target": "R1/R2",
+      "variable": "volume",
+      "value": 1000,
+      "units": "m^3",
+      "role": "anoxic reactor volumes",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    },
+    {
+      "target": "R3/R4/R5",
+      "variable": "volume",
+      "value": 1333,
+      "units": "m^3",
+      "role": "aerobic reactor volumes",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    },
+    {
+      "target": "SP6",
+      "variable": "recycle_split_fraction",
+      "value": 0.97955,
+      "units": "dimensionless",
+      "role": "sludge recycle fraction",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ASM1.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "ASM1_flowsheet.build_flowsheet applies sequential decomposition, closes recycle, then resolves with oxygen controls",
+    "solve_order": [
+      "FeedWater",
+      "MX1",
+      "R1-R5",
+      "SP5",
+      "CL1",
+      "SP6",
+      "MX6",
+      "P1",
+      "products"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_natural_gas_zno_guard_claus_sulfur_recovery",
+  "family": "family_h2s_sulfur",
+  "process_type": "Natural-Gas ZnO Guard Bed with Claus Sulfur Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent idaes_natural_gas_pipeline_network.",
+    "Adds irreversible H2S chemisorption, bed switching and conversion of concentrated acid gas to elemental sulfur.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "H2S",
+        "ZnO",
+        "ZnS",
+        "S8"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_natural_gas_pipeline_network"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "H2S",
+      "ZnO",
+      "ZnS",
+      "S8"
+    ]
+  },
+  "units": [
+    {
+      "id": "SOUR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "sour natural gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BEDA",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "lead ZnO bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BEDB",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "lag ZnO bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SV1",
+      "kind": "SwitchValve",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "lead-lag switching",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLAUS",
+      "kind": "ClausReactor",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "acid-gas sulfur recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PIPE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "sweet pipeline gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SULFUR",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "h2s_sulfur",
+      "role": "elemental sulfur",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SOUR.outlet",
+      "destination": "SV1.inlet",
+      "stage": "h2s_sulfur",
+      "role": "sour gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SV1.lead",
+      "destination": "BEDA.inlet",
+      "stage": "h2s_sulfur",
+      "role": "lead-bed feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BEDA.outlet",
+      "destination": "BEDB.inlet",
+      "stage": "h2s_sulfur",
+      "role": "guarded gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "BEDB.gas",
+      "destination": "PIPE.inlet",
+      "stage": "h2s_sulfur",
+      "role": "sweet gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "BEDA.regen_gas",
+      "destination": "CLAUS.inlet",
+      "stage": "h2s_sulfur",
+      "role": "concentrated H2S",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "CLAUS.sulfur",
+      "destination": "SULFUR.inlet",
+      "stage": "h2s_sulfur",
+      "role": "elemental sulfur",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SOUR.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PIPE.inlet",
+    "SULFUR.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_natural_gas_pipeline_network"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_natural_gas_pipeline_network",
+    "chemical_change": "Adds irreversible H2S chemisorption, bed switching and conversion of concentrated acid gas to elemental sulfur.",
+    "native_metrics": {
+      "pipeline_h2s_kg_s": 0.0005000000000000004,
+      "sulfur_recovery": 0.97,
+      "bed_replacement_index": 1.0,
+      "claus_tail_h2s_kg_s": 0.0
+    }
+  }
+}

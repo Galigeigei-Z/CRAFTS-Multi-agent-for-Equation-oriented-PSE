@@ -1,0 +1,71 @@
+{
+  "arcs": [
+    {
+      "destination": "model.wastewater",
+      "destination_port": "wastewater",
+      "id": "wastewater_to_model",
+      "source": "wastewater.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "injected_stream.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_injected_stream",
+      "source": "model.injected_stream",
+      "source_port": "injected_stream",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_deep_well_injection",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_deep_well_injection",
+  "initialization_order": [
+    "wastewater",
+    "model",
+    "injected_stream"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO Deep-Well Injection",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO DeepWellInjection unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/deep_well_injection.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "wastewater",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "DeepWellInjection",
+      "package": null,
+      "role": "Source-derived DeepWellInjection node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "injected_stream",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

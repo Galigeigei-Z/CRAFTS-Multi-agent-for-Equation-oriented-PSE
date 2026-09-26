@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_prommis_ree_staged_leach_acid_recycle",
+  "family": "family_ree_staged_leach",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "second_stage_acid_fraction",
+      "value": 0.6000000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "wash_filtrate_recycle_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ree_recovery",
+      "value": 0.928,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "gangue_dissolution",
+      "value": 0.05900000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "fresh_acid_index",
+      "value": 0.84,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residue_acid_fraction",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "ORE.outlet",
+    "ACID.outlet"
+  ],
+  "terminal_product_ports": [
+    "PLS.inlet",
+    "RES.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_leach_flowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_leach_flowsheet",
+    "chemical_change": "Adds reaction staging, counter-current residue washing and acid-bearing filtrate recycle.",
+    "native_metrics": {
+      "ree_recovery": 0.928,
+      "gangue_dissolution": 0.05900000000000001,
+      "fresh_acid_index": 0.84,
+      "residue_acid_fraction": 0.0
+    }
+  }
+}

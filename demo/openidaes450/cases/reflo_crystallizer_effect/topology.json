@@ -1,0 +1,125 @@
+{
+  "arcs": [
+    {
+      "destination": "model.brine",
+      "destination_port": "brine",
+      "id": "brine_to_model",
+      "source": "brine.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.heating_steam",
+      "destination_port": "heating_steam",
+      "id": "heating_steam_to_model",
+      "source": "heating_steam.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "concentrated_liquid.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_concentrated_liquid",
+      "source": "model.concentrated_liquid",
+      "source_port": "concentrated_liquid",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "vapor.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_vapor",
+      "source": "model.vapor",
+      "source_port": "vapor",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "solids.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_solids",
+      "source": "model.solids",
+      "source_port": "solids",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_crystallizer_effect",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_crystallizer_effect",
+  "initialization_order": [
+    "brine",
+    "heating_steam",
+    "model",
+    "concentrated_liquid",
+    "vapor",
+    "solids"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO Crystallizer Effect",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO CrystallizerEffect unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/crystallizer_effect.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "brine",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "heating_steam",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "CrystallizerEffect",
+      "package": null,
+      "role": "Source-derived CrystallizerEffect node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "concentrated_liquid",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "vapor",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "solids",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

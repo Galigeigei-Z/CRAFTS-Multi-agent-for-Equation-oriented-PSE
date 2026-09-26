@@ -1,0 +1,127 @@
+[
+  {
+    "name": "fs.feed_to_pump",
+    "source": "fs.feed.outlet",
+    "destination": "fs.PrimaryPumps[1].inlet"
+  },
+  {
+    "name": "fs.pump_to_OARO[1]",
+    "source": "fs.PrimaryPumps[1].outlet",
+    "destination": "fs.OAROUnits[1].feed_inlet"
+  },
+  {
+    "name": "fs.pump_to_OARO[2]",
+    "source": "fs.PrimaryPumps[2].outlet",
+    "destination": "fs.OAROUnits[2].feed_inlet"
+  },
+  {
+    "name": "fs.OARO_to_pump[1]",
+    "source": "fs.OAROUnits[1].permeate_outlet",
+    "destination": "fs.PrimaryPumps[2].inlet"
+  },
+  {
+    "name": "fs.OARO_to_pump[2]",
+    "source": "fs.OAROUnits[2].permeate_outlet",
+    "destination": "fs.PrimaryPumps[3].inlet"
+  },
+  {
+    "name": "fs.OARO_to_ERD[1]",
+    "source": "fs.OAROUnits[1].feed_outlet",
+    "destination": "fs.EnergyRecoveryDevices[1].inlet"
+  },
+  {
+    "name": "fs.OARO_to_ERD[2]",
+    "source": "fs.OAROUnits[2].feed_outlet",
+    "destination": "fs.EnergyRecoveryDevices[2].inlet"
+  },
+  {
+    "name": "fs.ERD_to_separator[2]",
+    "source": "fs.EnergyRecoveryDevices[2].outlet",
+    "destination": "fs.Separators[2].inlet"
+  },
+  {
+    "name": "fs.ERD_to_separator[3]",
+    "source": "fs.EnergyRecoveryDevices[3].outlet",
+    "destination": "fs.Separators[3].inlet"
+  },
+  {
+    "name": "fs.separator_to_mixer[2]",
+    "source": "fs.Separators[2].treat",
+    "destination": "fs.Mixers[2].treat"
+  },
+  {
+    "name": "fs.separator_to_mixer[3]",
+    "source": "fs.Separators[3].treat",
+    "destination": "fs.Mixers[3].treat"
+  },
+  {
+    "name": "fs.makeup_to_mixer[2]",
+    "source": "fs.ProductSeparator.makeup2",
+    "destination": "fs.Mixers[2].makeup"
+  },
+  {
+    "name": "fs.makeup_to_mixer[3]",
+    "source": "fs.ProductSeparator.makeup3",
+    "destination": "fs.Mixers[3].makeup"
+  },
+  {
+    "name": "fs.mixer_to_recyclepump[2]",
+    "source": "fs.Mixers[2].outlet",
+    "destination": "fs.RecyclePumps[2].inlet"
+  },
+  {
+    "name": "fs.mixer_to_recyclepump[3]",
+    "source": "fs.Mixers[3].outlet",
+    "destination": "fs.RecyclePumps[3].inlet"
+  },
+  {
+    "name": "fs.recyclepump_to_OARO[2]",
+    "source": "fs.RecyclePumps[2].outlet",
+    "destination": "fs.OAROUnits[1].permeate_inlet"
+  },
+  {
+    "name": "fs.recyclepump_to_OARO[3]",
+    "source": "fs.RecyclePumps[3].outlet",
+    "destination": "fs.OAROUnits[2].permeate_inlet"
+  },
+  {
+    "name": "fs.purge_to_wastemixer[2]",
+    "source": "fs.Separators[2].purge",
+    "destination": "fs.WasteMixer.purge2"
+  },
+  {
+    "name": "fs.purge_to_wastemixer[3]",
+    "source": "fs.Separators[3].purge",
+    "destination": "fs.WasteMixer.purge3"
+  },
+  {
+    "name": "fs.ERD_to_wastemixer",
+    "source": "fs.EnergyRecoveryDevices[1].outlet",
+    "destination": "fs.WasteMixer.purge1"
+  },
+  {
+    "name": "fs.wastemixer_to_disposal",
+    "source": "fs.WasteMixer.outlet",
+    "destination": "fs.disposal.inlet"
+  },
+  {
+    "name": "fs.pump_to_ro",
+    "source": "fs.PrimaryPumps[3].outlet",
+    "destination": "fs.RO.inlet"
+  },
+  {
+    "name": "fs.ro_to_productseparator",
+    "source": "fs.RO.permeate",
+    "destination": "fs.ProductSeparator.inlet"
+  },
+  {
+    "name": "fs.productseparator_to_product",
+    "source": "fs.ProductSeparator.product",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.ro_to_ERD",
+    "source": "fs.RO.retentate",
+    "destination": "fs.EnergyRecoveryDevices[3].inlet"
+  }
+]

@@ -1,0 +1,4452 @@
+{
+  "pass": true,
+  "stage": "native_power_energy_extension_solve",
+  "case_family": "rsofc_h2_storage",
+  "parent_case_key": "official_idaes_rsofc_soec_mode",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "electrolysis_mode_fraction": 0.6000000000000001,
+    "heat_cascade_fraction": 1.0
+  },
+  "metrics": {
+    "round_trip_efficiency": 0.626,
+    "hydrogen_inventory_index": 0.72,
+    "stack_temperature_K": 950.0,
+    "recovered_heat_index": 1.2
+  },
+  "search_results": [
+    {
+      "round_trip_efficiency": 0.45,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 1000.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.45,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.46,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 996.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.46,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.47000000000000003,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 992.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.47000000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.48000000000000004,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 988.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.48000000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.49,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 984.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.49,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.5,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 980.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.5,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.51,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 976.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.51,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.52,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 972.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.52,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.53,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 968.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.53,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.54,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 964.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.54,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.55,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 960.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.55,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.56,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 956.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.56,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.5700000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 952.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.5700000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5800000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 948.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5800000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5900000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 944.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5900000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.6000000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 940.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.6000000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6100000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 936.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6100000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6200000000000001,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 932.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6200000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.63,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 928.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.63,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.64,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 924.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.64,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.65,
+      "hydrogen_inventory_index": 0.3,
+      "stack_temperature_K": 920.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.65,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.0,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.448,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 1002.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.448,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.458,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 998.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.458,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.468,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 994.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.468,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.47800000000000004,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 990.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.47800000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.488,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 986.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.488,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.498,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 982.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.498,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.508,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 978.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.508,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.518,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 974.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.518,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.528,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 970.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.528,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.538,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 966.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.538,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.548,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 962.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.548,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.558,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 958.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.558,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.5680000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 954.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.5680000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5780000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 950.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5780000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5880000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 946.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5880000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5980000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 942.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5980000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6080000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 938.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6080000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6180000000000001,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 934.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6180000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.628,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 930.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.628,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.638,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 926.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.638,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.648,
+      "hydrogen_inventory_index": 0.33499999999999996,
+      "stack_temperature_K": 922.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.648,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.05,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.446,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 1005.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.446,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.456,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 1001.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.456,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.466,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 997.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.466,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.47600000000000003,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 993.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.47600000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.486,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 989.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.486,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.496,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 985.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.496,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.506,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 981.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.506,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.516,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 977.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.516,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.526,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 973.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.526,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.536,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 969.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.536,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.546,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 965.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.546,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.556,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 961.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.556,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.5660000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 957.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.5660000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5760000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 953.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5760000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5860000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 949.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5860000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5960000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 945.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5960000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6060000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 941.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6060000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6160000000000001,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 937.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6160000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.626,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 933.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.626,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.636,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 929.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.636,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.646,
+      "hydrogen_inventory_index": 0.37,
+      "stack_temperature_K": 925.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.646,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.1,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.444,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 1007.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.444,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.454,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 1003.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.454,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.464,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 999.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.464,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.47400000000000003,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 995.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.47400000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.484,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 991.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.484,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.494,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 987.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.494,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.504,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 983.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.504,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.514,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 979.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.514,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.524,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 975.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.524,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.534,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 971.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.534,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.544,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 967.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.544,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.554,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 963.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.554,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.5640000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 959.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.5640000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5740000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 955.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5740000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5840000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 951.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5840000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5940000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 947.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5940000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6040000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 943.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6040000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6140000000000001,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 939.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6140000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.624,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 935.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.624,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.634,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 931.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.634,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.644,
+      "hydrogen_inventory_index": 0.405,
+      "stack_temperature_K": 927.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.644,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.15000000000000002,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.442,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 1010.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.442,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.452,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 1006.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.452,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.462,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 1002.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.462,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.47200000000000003,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 998.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.47200000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.482,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 994.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.482,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.492,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 990.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.492,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.502,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 986.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.502,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.512,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 982.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.512,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.522,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 978.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.522,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.532,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 974.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.532,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.542,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 970.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.542,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.552,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 966.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.552,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.562,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 962.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.562,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5720000000000001,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 958.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5720000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5820000000000001,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 954.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5820000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5920000000000001,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 950.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5920000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6020000000000001,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 946.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6020000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6120000000000001,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 942.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6120000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.622,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 938.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.622,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.632,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 934.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.632,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.642,
+      "hydrogen_inventory_index": 0.43999999999999995,
+      "stack_temperature_K": 930.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.642,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.2,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.44,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 1012.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.44,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.45,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 1008.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.45,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.46,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 1004.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.46,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.47000000000000003,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 1000.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.47000000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.48,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 996.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.48,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.49,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 992.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.49,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.5,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 988.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.5,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.51,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 984.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.51,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.52,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 980.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.52,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.53,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 976.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.53,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.54,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 972.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.54,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.55,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 968.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.55,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.56,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 964.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.56,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5700000000000001,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 960.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5700000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5800000000000001,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 956.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5800000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5900000000000001,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 952.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5900000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.6000000000000001,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 948.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.6000000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6100000000000001,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 944.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6100000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.62,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 940.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.62,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.63,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 936.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.63,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.64,
+      "hydrogen_inventory_index": 0.475,
+      "stack_temperature_K": 932.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.64,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.25,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.438,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 1015.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.438,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.448,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 1011.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.448,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.458,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 1007.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.458,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.468,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 1003.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.468,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.478,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 999.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.478,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.488,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 995.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.488,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.498,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 991.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.498,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.508,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 987.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.508,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.518,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 983.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.518,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.528,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 979.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.528,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.538,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 975.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.538,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.548,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 971.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.548,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.558,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 967.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.558,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5680000000000001,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 963.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5680000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5780000000000001,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 959.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5780000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5880000000000001,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 955.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5880000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5980000000000001,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 951.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5980000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6080000000000001,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 947.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6080000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.618,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 943.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.618,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.628,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 939.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.628,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.638,
+      "hydrogen_inventory_index": 0.51,
+      "stack_temperature_K": 935.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.638,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.30000000000000004,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.436,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 1017.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.436,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.446,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 1013.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.446,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.456,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 1009.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.456,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.466,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 1005.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.466,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.476,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 1001.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.476,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.486,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 997.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.486,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.496,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 993.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.496,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.506,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 989.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.506,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.516,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 985.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.516,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.526,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 981.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.526,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.536,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 977.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.536,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.546,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 973.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.546,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.556,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 969.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.556,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5660000000000001,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 965.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5660000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5760000000000001,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 961.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5760000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5860000000000001,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 957.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5860000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5960000000000001,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 953.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5960000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6060000000000001,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 949.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6060000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.616,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 945.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.616,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.626,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 941.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.626,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.636,
+      "hydrogen_inventory_index": 0.5449999999999999,
+      "stack_temperature_K": 937.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.636,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.35000000000000003,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.434,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1020.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.434,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.444,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1016.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.444,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.454,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1012.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.454,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.464,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1008.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.464,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.474,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1004.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.474,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.484,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 1000.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.484,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.494,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 996.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.494,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.504,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 992.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.504,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.514,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 988.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.514,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.524,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 984.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.524,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.534,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 980.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.534,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.544,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 976.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.544,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.554,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 972.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.554,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5640000000000001,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 968.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.5640000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5740000000000001,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 964.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5740000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5840000000000001,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 960.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5840000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5940000000000001,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 956.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5940000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6040000000000001,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 952.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6040000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.614,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 948.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.614,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.624,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 944.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.624,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.634,
+      "hydrogen_inventory_index": 0.58,
+      "stack_temperature_K": 940.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.634,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.4,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.432,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1022.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.432,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.442,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1018.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.442,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.452,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1014.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.452,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.462,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1010.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.462,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.472,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1006.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.472,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.482,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 1002.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.482,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.492,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 998.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.492,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.502,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 994.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.502,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.512,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 990.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.512,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.522,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 986.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.522,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.532,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 982.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.532,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.542,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 978.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.542,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.552,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 974.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.552,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.562,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 970.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.562,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5720000000000001,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 966.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5720000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5820000000000001,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 962.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5820000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5920000000000001,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 958.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5920000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6020000000000001,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 954.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6020000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.612,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 950.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.612,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.622,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 946.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.622,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.632,
+      "hydrogen_inventory_index": 0.615,
+      "stack_temperature_K": 942.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.632,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.45,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.43,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1025.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.43,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.44,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1021.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.44,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.45,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1017.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.45,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.46,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1013.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.46,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.47,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1009.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.47,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.48,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1005.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.48,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.49,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 1001.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.49,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.5,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 997.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.5,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.51,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 993.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.51,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.52,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 989.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.52,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.53,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 985.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.53,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.54,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 981.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.54,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.55,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 977.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.55,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.56,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 973.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.56,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5700000000000001,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 969.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5700000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5800000000000001,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 965.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5800000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5900000000000001,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 961.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5900000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.6000000000000001,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 957.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.6000000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.61,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 953.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.61,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.62,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 949.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.62,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.63,
+      "hydrogen_inventory_index": 0.6499999999999999,
+      "stack_temperature_K": 945.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.63,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.5,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.428,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1027.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.428,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.438,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1023.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.438,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.448,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1019.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.448,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.458,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1015.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.458,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.46799999999999997,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1011.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.46799999999999997,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.478,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1007.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.478,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.488,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 1003.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.488,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.498,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 999.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.498,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.508,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 995.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.508,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.518,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 991.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.518,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.528,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 987.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.528,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.538,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 983.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.538,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.548,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 979.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.548,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.558,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 975.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.558,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5680000000000001,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 971.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5680000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5780000000000001,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 967.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5780000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5880000000000001,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 963.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5880000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5980000000000001,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 959.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5980000000000001,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.608,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 955.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.608,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.618,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 951.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.618,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.628,
+      "hydrogen_inventory_index": 0.685,
+      "stack_temperature_K": 947.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.628,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.55,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.426,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1030.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.426,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.436,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1026.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.436,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.446,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1022.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.446,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.456,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1018.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.456,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.46599999999999997,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1014.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.46599999999999997,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.476,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1010.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.476,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.486,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1006.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.486,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.496,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 1002.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.496,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.506,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 998.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.506,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.516,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 994.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.516,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.526,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 990.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.526,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.536,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 986.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.536,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.546,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 982.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.546,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.556,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 978.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.556,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5660000000000001,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 974.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5660000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5760000000000001,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 970.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5760000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5860000000000001,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 966.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5860000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5960000000000001,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 962.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5960000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.606,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 958.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.606,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.616,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 954.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.616,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.626,
+      "hydrogen_inventory_index": 0.72,
+      "stack_temperature_K": 950.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.626,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.6000000000000001,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.424,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1032.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.424,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.434,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1028.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.434,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.444,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1024.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.444,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.454,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1020.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.454,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.46399999999999997,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1016.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.46399999999999997,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.474,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1012.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.474,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.484,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1008.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.484,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.494,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1004.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.494,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.504,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 1000.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.504,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.514,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 996.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.514,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.524,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 992.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.524,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.534,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 988.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.534,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.544,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 984.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.544,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.554,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 980.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.554,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.5640000000000001,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 976.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.5640000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5740000000000001,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 972.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5740000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5840000000000001,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 968.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5840000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5940000000000001,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 964.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5940000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.604,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 960.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.604,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.614,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 956.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.614,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.624,
+      "hydrogen_inventory_index": 0.7549999999999999,
+      "stack_temperature_K": 952.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.624,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.65,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.422,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1035.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.422,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.432,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1031.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.432,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.442,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1027.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.442,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.452,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1023.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.452,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.46199999999999997,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1019.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.46199999999999997,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.472,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1015.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.472,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.482,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1011.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.482,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.492,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1007.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.492,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.502,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 1003.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.502,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.512,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 999.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.512,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.522,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 995.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.522,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.532,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 991.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.532,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.542,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 987.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.542,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.552,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 983.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.552,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.562,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 979.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.562,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5720000000000001,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 975.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5720000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5820000000000001,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 971.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5820000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5920000000000001,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 967.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5920000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.602,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 963.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.602,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.612,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 959.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.612,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.622,
+      "hydrogen_inventory_index": 0.79,
+      "stack_temperature_K": 955.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.622,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.7000000000000001,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.42000000000000004,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1037.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.42000000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.43000000000000005,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1033.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.43000000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.44000000000000006,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1029.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.44000000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.45000000000000007,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1025.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.45000000000000007,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45999999999999996,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1021.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45999999999999996,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.47,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1017.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.47,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.48,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1013.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.48,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.49,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1009.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.49,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.5,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1005.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.5,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.51,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 1001.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.51,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.52,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 997.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.52,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.53,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 993.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.53,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.54,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 989.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.54,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.55,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 985.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.55,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.56,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 981.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.56,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5700000000000001,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 977.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5700000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5800000000000001,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 973.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5800000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5900000000000001,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 969.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5900000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.6,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 965.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.6,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.61,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 961.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.61,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.62,
+      "hydrogen_inventory_index": 0.825,
+      "stack_temperature_K": 957.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.62,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.75,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.41800000000000004,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1040.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.41800000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.42800000000000005,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1036.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.42800000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.43800000000000006,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1032.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.43800000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.44800000000000006,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1028.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.44800000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45799999999999996,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1024.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45799999999999996,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.46799999999999997,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1020.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.46799999999999997,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.478,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1016.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.478,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.488,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1012.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.488,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.498,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1008.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.498,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.508,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1004.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.508,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.518,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 1000.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.518,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.528,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 996.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.528,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.538,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 992.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.538,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.548,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 988.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.548,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.558,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 984.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.558,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5680000000000001,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 980.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5680000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5780000000000001,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 976.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5780000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5880000000000001,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 972.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5880000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.598,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 968.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.598,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.608,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 964.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.608,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.618,
+      "hydrogen_inventory_index": 0.8599999999999999,
+      "stack_temperature_K": 960.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.618,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.41600000000000004,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1042.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.41600000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.42600000000000005,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1038.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.42600000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.43600000000000005,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1034.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.43600000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.44600000000000006,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1030.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.44600000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45599999999999996,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1026.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45599999999999996,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.46599999999999997,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1022.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.46599999999999997,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.476,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1018.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.476,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.486,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1014.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.486,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.496,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1010.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.496,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.506,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1006.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.506,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.516,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 1002.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.516,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.526,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 998.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.526,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.536,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 994.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.536,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.546,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 990.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.546,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.556,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 986.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.556,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5660000000000001,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 982.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5660000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5760000000000001,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 978.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5760000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5860000000000001,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 974.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5860000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.596,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 970.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.596,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.606,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 966.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.606,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.616,
+      "hydrogen_inventory_index": 0.895,
+      "stack_temperature_K": 962.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.616,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.8500000000000001,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.41400000000000003,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1045.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.41400000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.42400000000000004,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1041.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.42400000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.43400000000000005,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1037.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.43400000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.44400000000000006,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1033.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.44400000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45399999999999996,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1029.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45399999999999996,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.46399999999999997,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1025.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.46399999999999997,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.474,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1021.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.474,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.484,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1017.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.484,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.494,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1013.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.494,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.504,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1009.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.504,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.514,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1005.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.514,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.524,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 1001.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.524,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.534,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 997.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.534,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.544,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 993.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.544,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.554,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 989.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.554,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.5640000000000001,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 985.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.5640000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5740000000000001,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 981.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5740000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5840000000000001,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 977.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5840000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.594,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 973.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.594,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.604,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 969.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.604,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.614,
+      "hydrogen_inventory_index": 0.9299999999999999,
+      "stack_temperature_K": 965.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.614,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.41200000000000003,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1047.5,
+      "recovered_heat_index": 0.0,
+      "objective": -0.41200000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.42200000000000004,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1043.5,
+      "recovered_heat_index": 0.06,
+      "objective": -0.42200000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.43200000000000005,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1039.5,
+      "recovered_heat_index": 0.12,
+      "objective": -0.43200000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.44200000000000006,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1035.5,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.44200000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45199999999999996,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1031.5,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45199999999999996,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.46199999999999997,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1027.5,
+      "recovered_heat_index": 0.3,
+      "objective": -0.46199999999999997,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.472,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1023.5,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.472,
+      "feasible": false,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.482,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1019.5,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.482,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.492,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1015.5,
+      "recovered_heat_index": 0.48,
+      "objective": -0.492,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.502,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1011.5,
+      "recovered_heat_index": 0.54,
+      "objective": -0.502,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.512,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1007.5,
+      "recovered_heat_index": 0.6,
+      "objective": -0.512,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.522,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 1003.5,
+      "recovered_heat_index": 0.66,
+      "objective": -0.522,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.532,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 999.5,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.532,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.542,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 995.5,
+      "recovered_heat_index": 0.78,
+      "objective": -0.542,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.552,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 991.5,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.552,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.562,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 987.5,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.562,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5720000000000001,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 983.5,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5720000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5820000000000001,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 979.5,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5820000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.592,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 975.5,
+      "recovered_heat_index": 1.08,
+      "objective": -0.592,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.602,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 971.5,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.602,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.612,
+      "hydrogen_inventory_index": 0.9650000000000001,
+      "stack_temperature_K": 967.5,
+      "recovered_heat_index": 1.2,
+      "objective": -0.612,
+      "feasible": true,
+      "electrolysis_mode_fraction": 0.9500000000000001,
+      "heat_cascade_fraction": 1.0
+    },
+    {
+      "round_trip_efficiency": 0.41000000000000003,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1050.0,
+      "recovered_heat_index": 0.0,
+      "objective": -0.41000000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.0
+    },
+    {
+      "round_trip_efficiency": 0.42000000000000004,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1046.0,
+      "recovered_heat_index": 0.06,
+      "objective": -0.42000000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.05
+    },
+    {
+      "round_trip_efficiency": 0.43000000000000005,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1042.0,
+      "recovered_heat_index": 0.12,
+      "objective": -0.43000000000000005,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.1
+    },
+    {
+      "round_trip_efficiency": 0.44000000000000006,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1038.0,
+      "recovered_heat_index": 0.18000000000000002,
+      "objective": -0.44000000000000006,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.15000000000000002
+    },
+    {
+      "round_trip_efficiency": 0.45,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1034.0,
+      "recovered_heat_index": 0.24,
+      "objective": -0.45,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.2
+    },
+    {
+      "round_trip_efficiency": 0.46,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1030.0,
+      "recovered_heat_index": 0.3,
+      "objective": -0.46,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.25
+    },
+    {
+      "round_trip_efficiency": 0.47000000000000003,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1026.0,
+      "recovered_heat_index": 0.36000000000000004,
+      "objective": -0.47000000000000003,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.30000000000000004
+    },
+    {
+      "round_trip_efficiency": 0.48000000000000004,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1022.0,
+      "recovered_heat_index": 0.42000000000000004,
+      "objective": -0.48000000000000004,
+      "feasible": false,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.35000000000000003
+    },
+    {
+      "round_trip_efficiency": 0.49000000000000005,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1018.0,
+      "recovered_heat_index": 0.48,
+      "objective": -0.49000000000000005,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.4
+    },
+    {
+      "round_trip_efficiency": 0.5,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1014.0,
+      "recovered_heat_index": 0.54,
+      "objective": -0.5,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.45
+    },
+    {
+      "round_trip_efficiency": 0.51,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1010.0,
+      "recovered_heat_index": 0.6,
+      "objective": -0.51,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.5
+    },
+    {
+      "round_trip_efficiency": 0.52,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1006.0,
+      "recovered_heat_index": 0.66,
+      "objective": -0.52,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.55
+    },
+    {
+      "round_trip_efficiency": 0.53,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 1002.0,
+      "recovered_heat_index": 0.7200000000000001,
+      "objective": -0.53,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.6000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.54,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 998.0,
+      "recovered_heat_index": 0.78,
+      "objective": -0.54,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.65
+    },
+    {
+      "round_trip_efficiency": 0.55,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 994.0,
+      "recovered_heat_index": 0.8400000000000001,
+      "objective": -0.55,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.7000000000000001
+    },
+    {
+      "round_trip_efficiency": 0.56,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 990.0,
+      "recovered_heat_index": 0.8999999999999999,
+      "objective": -0.56,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.75
+    },
+    {
+      "round_trip_efficiency": 0.5700000000000001,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 986.0,
+      "recovered_heat_index": 0.96,
+      "objective": -0.5700000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.8
+    },
+    {
+      "round_trip_efficiency": 0.5800000000000001,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 982.0,
+      "recovered_heat_index": 1.02,
+      "objective": -0.5800000000000001,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.8500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.59,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 978.0,
+      "recovered_heat_index": 1.08,
+      "objective": -0.59,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.9
+    },
+    {
+      "round_trip_efficiency": 0.6,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 974.0,
+      "recovered_heat_index": 1.1400000000000001,
+      "objective": -0.6,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 0.9500000000000001
+    },
+    {
+      "round_trip_efficiency": 0.61,
+      "hydrogen_inventory_index": 1.0,
+      "stack_temperature_K": 970.0,
+      "recovered_heat_index": 1.2,
+      "objective": -0.61,
+      "feasible": true,
+      "electrolysis_mode_fraction": 1.0,
+      "heat_cascade_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo power and process-energy extension anchored to active registry parent",
+    "parent_case_key": "official_idaes_rsofc_soec_mode",
+    "chemical_distinction": "Adds material inventory closure through hydrogen storage and transfers SOFC waste heat to SOEC steam generation."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

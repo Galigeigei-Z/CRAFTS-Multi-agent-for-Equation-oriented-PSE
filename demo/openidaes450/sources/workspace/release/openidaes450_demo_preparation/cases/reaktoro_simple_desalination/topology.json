@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.saline_feed",
+      "destination_port": "saline_feed",
+      "id": "saline_feed_to_model",
+      "source": "saline_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.acid",
+      "destination_port": "acid",
+      "id": "acid_to_model",
+      "source": "acid.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_product",
+      "source": "model.product",
+      "source_port": "product",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "concentrate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_concentrate",
+      "source": "model.concentrate",
+      "source_port": "concentrate",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_simple_desalination",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reaktoro_simple_desalination",
+  "initialization_order": [
+    "saline_feed",
+    "acid",
+    "model",
+    "product",
+    "concentrate"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Simple Desalination",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Reaktoro-PSE desalination tests across six Hessian strategies"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/examples/simple_desalination.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "saline_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ReaktoroDesalination",
+      "package": null,
+      "role": "Source-derived ReaktoroDesalination node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "concentrate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "bfb.gas_inlet",
+      "destination_port": "gas_inlet",
+      "id": "gas_to_bfb",
+      "source": "gas_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "bfb.solid_inlet",
+      "destination_port": "solid_inlet",
+      "id": "solid_to_bfb",
+      "source": "solid_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "gas_product.inlet",
+      "destination_port": "inlet",
+      "id": "bfb_to_gas",
+      "source": "bfb.gas_outlet",
+      "source_port": "gas_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "solid_product.inlet",
+      "destination_port": "inlet",
+      "id": "bfb_to_solid",
+      "source": "bfb.solid_outlet",
+      "source_port": "solid_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_bfb_methane_combustion",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_bfb_methane_combustion",
+  "initialization_order": [
+    "gas_feed",
+    "solid_feed",
+    "bfb",
+    "gas_product",
+    "solid_product"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES BFB Methane Combustion",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official steady BFB methane main() initialization and solve"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/gas_solid_contactors/flowsheets/ss_BFB_methane_combustion.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "gas_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "solid_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "bfb",
+      "kind": "BubblingFluidizedBed",
+      "package": null,
+      "role": "Source-derived BubblingFluidizedBed node",
+      "stage": "reaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "gas_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "solid_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

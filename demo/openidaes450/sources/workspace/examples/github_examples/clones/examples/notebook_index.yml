@@ -1,0 +1,286 @@
+meta:
+  author: Dan Gunter
+front_matter:
+  -
+    title: Introduction
+    text: >-2
+      The [IDAES](https://www.idaes.org) integrated platform ships with a number of examples which can be run on
+      the user's own computer.
+      This page provides links to these examples and provides some guidance in the order in which to try them.
+
+
+      The IDAES examples are contained in Jupyter Notebooks. In order to view and
+      use this content, you need to open the files with the Jupyter notebook executable
+      (which may be configured on your system as the default application for files of this
+      type). To get started with Jupyter, please
+      see the [Jupyter website](https://jupyter.org) or jump directly to the
+      [official Jupyter Notebook documentation pages](https://jupyter-notebook.readthedocs.io/en/stable/).
+
+      In addition to viewing and running the examples interactively on your own computer, you can see fully rendered,
+      static versions of the examples in the online
+      [examples documentation](https://IDAES.github.io/examples-pse/) pages. For reference documentation
+      on the IDAES integrated platform, please see the online
+      [IDAES-PSE documentation](https://idaes-pse.readthedocs.io/en/stable/index.html).
+  -
+    title: Usage
+    text: >-2
+      The example notebooks contained in this folder are divided into two sub-types, each with their own folder:
+        * `Tutorials`: Notebooks that are written as tutorials complete with guided exercises
+        * `Examples`: Notebooks that do not have tutorial content.
+
+      Below is an ordering of both types of examples
+      to help progressively learn how to use the IDAES integrated platform (IDAES-IP). Successive sections give
+      more details on each of these example sections.
+
+      * Beginner
+        * Start with the tutorials under [Tutorials/Basics](#tutorials.basics)
+        * Run the examples under [Examples/Basics](#examples.basics)
+      * Intermediate
+        * Run some selected examples under [Tutorials/UnitModels](#tutorials.unitmodels)
+        * Also run at least one tutorial in [Tutorials/Advanced/Custom unit models](#tutorials.advanced.customunit) and
+          [Tutorials/Advanced/Custom property packages](#tutorials.advanced.customproperties)
+        * `At this point you should stop and try some of your own code`
+      * Advanced
+        * Run tutorials in [Tutorials/Advanced](#tutorials.advanced) for other topics of interest
+          * [Parameter estimation](#tutorials.advanced.paramest)
+          * [Surrogate models](#tutorials.advanced.surrmod)
+          * [Materials optimization](#tutorials.advanced.matopt)
+        * Also run examples in the [Examples/Advanced](#examples.advanced) section
+contents:
+  -
+    name: Tutorials
+    description: >-2
+      All the notebooks in this folder have three different files
+      that represent different variations on the same content. The suffix of the filename indicates
+      something about the variation contained in that file. For example, if the notebook is named "a_notebook", then
+      you would expect the following files:
+        * `a_notebook_exercise.ipynb`: Main notebook. *This is the one most users should run.*
+        * `a_notebook_solution.ipynb`: Notebook with solutions to the exercises included
+        * `a_notebook_solution_testing.ipynb`: Notebook with additional cells to test the correctness of the solution.
+          This file does not normally need to be opened by users.
+
+
+      For ease of reading, we will indicate notebooks by their name before the suffixes. For example, if you see
+      "Introduction" as the notebook name, then you should open the file `Introduction_exercise.ipynb`.
+      Links to the exercise and exercise + solution files will be provided for each notebook.
+    subfolders:
+      -
+        name: Basics
+        description: Basic tutorials to get started with using Python, Pyomo, and the IDAES-CMF
+        notebooks:
+          - introduction_short: Short version of an introduction to Python and Pyomo
+          - introduction: Full version of an introduction to Python and Pyomo
+          - flash_unit: Simulate a flash unit
+          - HDA_flowsheet: Perform optimization of a hydrodealkylation process
+          - idaes_visualizer: Tutorial on how to use the Visualizer for IDAES flowsheets
+      -
+        name: Advanced
+        description: Advanced tutorials on topics such as parameter estimation and custom property packages.
+        subfolders:
+          -
+            name: ParamEst
+            title: "Parameter Estimation"
+            description: Three variations on doing parameter estimation for NRTL
+            notebooks:
+              - parameter_estimation_NRTL_using_state_block: >
+                  Use Pyomo's `parmest` tool in conjunction with IDAES models for estimating the parameters
+                  associated with the NRTL property model for a benzene-toluene mixture, using the IDAES
+                  state block.
+              - parameter_estimation_NRTL_using_unit_model: >
+                  Use Pyomo's `parmest` tool in conjunction with IDAES models for estimating the parameters
+                  associated with the NRTL property model for a benzene-toluene mixture, using the IDAES
+                  unit model.
+              - DMF_1_for_parameter_estimation_NRTL_using_unit_model: >
+                  Demonstrate storing provenance for estimated parameters associated with the NRTL property model
+                  in the DMF.
+  -
+    name: Examples
+    description: This section has example notebooks that do not have exercises and solutions.
+    subfolders:
+      -
+        name: UnitModels
+        title: "Unit Models"
+        description: Unit model examples
+        subfolders:
+          -
+            name: Operations
+            title: "Operations"
+            description: Detailed examples on importing and implementing IDAES unit models in flowsheets
+            notebooks:
+              - compressor: "Compressor Unit Model with Span-Wagner Property Package for supercritical CO2"
+              - feed: Feed unit model with modular property package
+              - feed flash: Feed Flash unit model with modular property package
+              - flash: Flash unit model with modular property package
+              - heater: >
+                  Heat a liquid mixture of benzene-toluene using a simple heater unit model and
+                  an ideal property package
+              - heat exchanger 0D: Heat Exchanger 0D unit model heating a benzene-toluene mixture using steam
+              - heat exchanger 1D: Heat Exchanger 1D unit model heating a benzene-toluene mixture using steam
+              - heat exchanger lc: Heat Exchanger Lumped-Capacitance unit model heating a benzene-toluene mixture using steam
+              - heat exchanger NTU: Heat Exchanger NTU unit model for heat integration of two aqueous MEA streams
+              - mixer: Mixer unit model with ideal property package
+              - product: Product unit model with modular property package
+              - pump: Pump unit model with iapws property package
+              - separator: Separator unit model with modular property package
+              - skeleton unit: Skeleton unit model demonstrating custom variables, ports, and constraints
+              - statejunction: StateJunction with modular property package
+              - translator: Translator unit model with modular property packages
+              - turbine: Turbine unit model with iapws property package
+              - valve: Valve unit model with iapws property package
+          -
+            name: Reactors
+            title: "Reactors"
+            description: Detailed examples on importing and implementing IDAES reactor models in flowsheets
+            notebooks:
+              - cstr: CSTR unit model with ideal property package, pure liquid phase and rate-kinetics reaction
+              - equilibrium_reactor: Equilibrium reactor unit model with Peng-Robinson EOS, pure vapor phase and equilibrium-kinetics reaction
+              - gibbs_reactor: Gibbs reactor unit model with pure vapor phase equilibrium
+              - plug_flow_reactor: Plug flow reactor unit model with ideal property package, liquid phase and rate-kinetics reaction
+              - stoichiometric_reactor: Stoichiometric reactor unit model with ideal property package, liquid phase and rate-kinetics reaction
+      -
+        name: Tools
+        title: "Tools for working with IDAES"
+        notebooks:
+          - data_management_framework: Introduction to the IDAES Data Management Framework (DMF)
+          - degeneracy_hunter: Introduction to DegeneracyHunter, a tool for nonlinear optimization model diagnostics
+      -
+        name: Flowsheets
+        title: "Simulation and Optimization of Flowsheets"
+        notebooks:
+          - HDA_flowsheet_with_distillation: Optimize hydrodealkylation process with a distillation column
+          - HDA_flowsheet_with_costing: Apply IDAES Process Costing Framework for HDA capital cost calculations
+          - methanol_synthesis: Optimize gas-phase methanol synthesis from hydrogen and carbon monoxide
+        subfolders:
+          -
+            name: power_generation
+            title: "Simulation and Optimization of Power Generation Flowsheets"
+            subfolders:
+              -
+                name: ngcc
+                title: "Natural Gas Combined Cycle (NGCC) Flowsheets"
+                notebooks:
+                  - ngcc: Run the baseline NGCC simulation and a series of turndown simulations
+                  - ngcc_soec: Run a combined NGCC-SOEC simulation with power plant costing
+              -
+                name: ngfc
+                title: "Natural Gas Fuel Cell (NGFC) Flowsheet"
+                notebooks:
+                  - NGFC_flowsheet: Steady-state simulation of NGFC power plant without carbon capture
+              -
+                name: sofc_soec
+                title: "Solid Oxide Fuel Cell (SOFC) + Solid Oxide Electrolysis Cell (SOEC) Flowsheet"
+                notebooks:
+                  - sofc_soec: Run a combined SOFC-SOEC simulation with power plant costing
+              -
+                name: rsofc
+                title: "Natural Gas Fuel Cell (NGFC) Flowsheet"
+                notebooks:
+                  - rsofc_soec: Run a combined RSOFC-SOEC simulation with power plant costing
+              -
+                name: sofc
+                title: "Solid Oxide Fuel Cell (SOFC) Flowsheet"
+                notebooks:
+                  - sofc: Simulate an SOFC power plant at partial load
+              -
+                name: subcritical
+                title: "Subcritical Pulverized Coal Fired Power Plant Flowsheets"
+                notebooks:
+                  - subcritical_boiler: Simulate a subcritical boiler system
+              -
+                name: supercritical
+                title: "Supercritical Pulverized Coal Fired Power Plant Flowsheets"
+                notebooks:
+                  - supercritical_steam_cycle: Simulate a typical supercritical steam cycle
+                  - supercritical_power_plant: Simulate a typical supercritical powerplant including boiler and steam cycle
+          -
+            name: adsorption_desorption
+            title: "Adsorption and Desorption Using 1D Fixed Bed Model"
+            notebooks:
+              - CO2_Adsorption_Desorption_example_1DFixedBed: Adsorption and desorption of CO2 and H2O example with the IDAES 1D fixed bed model
+      -
+        name: Advanced
+        description: Examples of advanced capabilities of the IDAES-Core
+        subfolders:
+          -
+            name: CustomUnitModels
+            title: "Custom Unit Models"
+            description: Customized unit models
+            notebooks:
+              - custom_compressor: Constant-heat-capacity ideal-gas isentropic compressor
+              - custom_heater: Custom heater unit
+          -
+            name: CustomProperties
+            desc: Custom property packages
+            notebooks:
+              - custom_physical_property_packages: "Introduction to writing custom physical property packages"
+              - custom_reaction_property_packages: "Introduction to writing custom reaction property packages"
+# Currently, the air separation case study and HC processing example fail
+#              - air_separation_case_study: "Property package for air separation units (N2, O2, Ar mixture)"
+#              - hydrocarbon_processing_example: "Property packages for hydrocarbon Gibbs reactor unit"
+          -
+            name: DataRecon
+            title: "Data reconciliation"
+            description: Data reconciliation and parameter estimation
+            notebooks:
+              - boiler_flowsheet_recon: >
+                  Data reconciliation with a flowsheet heat exchanger network, the boiler subflowsheet consist of an
+                  economizer, water wall, primary superheater, platen superheater, finishing superheater, and reheater.
+                  Data for this example was generated by adding noise to supercritical power plant simulations.
+              - econ_recon: >
+                  Data reconciliation with a single unit model, an economizer.
+                  Data for this example was generated by adding noise to supercritical power plant simulations.
+              - econ_parmest: >
+                  Parameter estimation continuing from the data reconciliation results in `econ_recon`
+      -
+        name: SurrMod
+        title: "Surrogate Modeling"
+        description: Surrogate modeling examples, broken down into packages
+        subfolders:
+          -
+            name: FlowsheetOptimization
+            description: Demonstration of surrogate integration and optimization in IDAES flowsheets
+            notebooks:
+              - ALAMO_flowsheet_optimization: Demonstration of training, visualization and flowsheet integration using ALAMO surrogates
+              - PySMO_flowsheet_optimization: Demonstration of training, visualization and flowsheet integration using PySMO surrogates
+              - Keras_flowsheet_optimization: Demonstration of training, visualization and flowsheet integration using Keras surrogates
+              - Best_practices_optimization: Demonstration of surrogate comparison and results analysis for model selection
+          -
+            name: PySMO
+            description: Python Surrogate Modeling Objects
+            notebooks:
+              - PySMO_basics: Examples for the PySMO surrogate modeling package
+          -
+            name: RIPE
+            description:
+            notebooks:
+              - RIPE_isothermal_CSTR: Use RIPE to model an isothermal CSTR unit
+      -
+        name: MatOpt
+        title: "Materials optimization"
+        description: >-
+          Examples of the MatOpt interface for representing material properties and specifying optimization problems.
+        notebooks:
+          - monometallic_nanocluster_design:  Minimization of cohesive energy in nanoclusters
+          - bimetallic_nanocluster_design: >-
+              Optimize a bimetallic cluster by "labelling" the sites of a pre-defined monometallic cluster
+          - surface_design: >-
+              MatOpt example optimization problem of designing a monometallic nanostructured catalyst surface
+          - bifunctional_surface_design: >-
+              Example optimization problem of designing a nanostructured bifunctional catalyst
+          - metal_oxide_bulk_design: >-
+              How to optimally place dopant in a perovskite lattice
+      -
+        name: Pecos
+        title: "Data quality control and fault detection"
+        description: >-
+          Examples of Pecos interface for data quality control and fault detection
+        notebooks:
+          - data_quality_control:  Simple data quality control example
+      -
+        name: DAE
+        title: "Differential Algebraic Equation (DAE) Tools"
+        description: >-
+          Examples of IDAES DAE tools
+        notebooks:
+          - petsc_chem_example:  Example of using the PETSc DAE solver with chemical reactions
+          - petsc_pid_example: Example of using the PETSc DAE solver with a PID controller

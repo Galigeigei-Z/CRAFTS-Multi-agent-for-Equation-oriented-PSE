@@ -1,0 +1,95 @@
+{
+  "pass": true,
+  "case_id": "variant_idaes_hx_lumped_a40_ua15_cf70",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "specification_binding": [
+    {
+      "specification": {
+        "target": "hot_feed",
+        "variable": "temperature",
+        "value": 400,
+        "units": "K",
+        "role": "steam feed",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "shell_inlet.enth_mol from IAPWS T,P",
+      "value": 400
+    },
+    {
+      "specification": {
+        "target": "cold_feed",
+        "variable": "temperature",
+        "value": 380,
+        "units": "K",
+        "role": "BTX feed",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "fs.heat_exchanger.cold_side.properties_in[0.0].temperature",
+      "value": 380
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "area",
+        "value": 40,
+        "units": "m^2",
+        "role": "area",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "fs.heat_exchanger.area",
+      "value": 40
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "ua_hot_side",
+        "value": 15000,
+        "units": "W/K",
+        "role": "hot UA",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "fs.heat_exchanger.ua_hot_side",
+      "value": {
+        "0.0": 15000
+      }
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "ua_cold_side",
+        "value": 15000,
+        "units": "W/K",
+        "role": "cold UA",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "fs.heat_exchanger.ua_cold_side",
+      "value": {
+        "0.0": 15000
+      }
+    },
+    {
+      "specification": {
+        "target": "heat_exchanger",
+        "variable": "crossflow_factor",
+        "value": 0.7,
+        "units": "dimensionless",
+        "role": "crossflow factor",
+        "source": "derived_local_variant",
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+      },
+      "target": "fs.heat_exchanger.crossflow_factor",
+      "value": {
+        "0.0": 0.7
+      }
+    }
+  ],
+  "all_specifications_consumed": true,
+  "fidelity": "native IDAES unit equations with physical Feed/Product boundaries",
+  "solver_summary_file": "solver_summary.json"
+}

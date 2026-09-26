@@ -1,0 +1,886 @@
+{
+  "schema_version": "che-native-adapter-contract-registry/1",
+  "source_policy": "current-tree native adapter declarations only; no evaluator gold or post-solve outputs",
+  "aliases": {
+    "blind_synthesized_anaerobic_digester_unit": "watertap_anaerobic_digester_unit",
+    "blind_synthesized_asm2d": "watertap_asm2d",
+    "blind_synthesized_boron_removal_unit": "watertap_boron_removal",
+    "blind_synthesized_crystallization": "watertap_crystallization",
+    "blind_synthesized_electrodialysis_conc_recirc": "watertap_electrodialysis_conc_recirc",
+    "blind_synthesized_ion_exchange_unit": "watertap_ion_exchange",
+    "watertap_coagulation_flocculation_unit": "blind_synthesized_coag_floc_unit",
+    "watertap_gac": "blind_synthesized_gac_unit",
+    "watertap_nf_dspmde_with_bypass": "blind_synthesized_nf_dspmde_bypass",
+    "watertap_ro_no_energy_recovery": "blind_synthesized_ro_no_energy_recovery",
+    "watertap_ro_pump_as_turbine": "blind_synthesized_ro_pump_as_turbine",
+    "watertap_ro_with_energy_recovery": "blind_synthesized_ro_pressure_exchanger",
+    "blind_synthesized_ngcc": "official_ngcc"
+  },
+  "contracts": {
+    "watertap_anaerobic_digester_unit": {
+      "adapter": "compact_anaerobic_digester_template",
+      "implementation_functions": ["solve_anaerobic_digester_plan"],
+      "model_fidelity": "native WaterTAP ADM1 unit",
+      "specs": [
+        ["feed", "flow_vol", 0.0019675925925925924, "m^3/s"],
+        ["feed", "temperature", 308.15, "K"],
+        ["feed", "pressure", 101325.0, "Pa"],
+        ["anaerobic_digester", "volume_liquid", 3400.0, "m^3"],
+        ["anaerobic_digester", "volume_vapor", 300.0, "m^3"],
+        ["anaerobic_digester", "liquid_outlet_temperature", 308.15, "K"]
+      ]
+    },
+    "watertap_asm2d": {
+      "adapter": "compact_asm2d_template",
+      "implementation_functions": ["solve_activated_sludge_plan"],
+      "model_fidelity": "reduced-order activated-sludge material-flow proxy",
+      "recycle_arcs": [
+        {
+          "arc_id": "stream12",
+          "source": "SP1.underflow",
+          "destination": "MX2.clarifier",
+          "tear_method": "direct_substitution",
+          "reason": "internal mixed-liquor recycle to the anoxic section"
+        },
+        {
+          "arc_id": "stream17",
+          "source": "P1.outlet",
+          "destination": "MX1.recycle",
+          "tear_method": "direct_substitution",
+          "reason": "return activated-sludge recycle to the inlet mixer"
+        }
+      ],
+      "specs": [
+        ["FeedWater", "flow_vol", 18446.0, "m^3/day"]
+      ]
+    },
+    "blind_synthesized_bped_unit": {
+      "adapter": "compact_bped_unit_template",
+      "implementation_functions": ["_bped_canonical_specification_values"],
+      "solver_function": "solve_bped_plan",
+      "model_fidelity": "native WaterTAP BPED unit",
+      "specs": [
+        ["diluate_feed", "flow_mol_na", 0.0738, "mol/s"],
+        ["diluate_feed", "flow_mol_cl", 0.0738, "mol/s"],
+        ["acid_feed", "flow_mol_h", 0.0738, "mol/s"],
+        ["acid_feed", "flow_mol_cl", 0.0738, "mol/s"],
+        ["base_feed", "flow_mol_na", 0.0738, "mol/s"],
+        ["base_feed", "flow_mol_oh", 0.0738, "mol/s"],
+        ["diluate_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["acid_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["base_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["diluate_feed", "temperature", 298.15, "K"],
+        ["acid_feed", "temperature", 298.15, "K"],
+        ["base_feed", "temperature", 298.15, "K"],
+        ["diluate_feed", "pressure", 101325.0, "Pa"],
+        ["acid_feed", "pressure", 101325.0, "Pa"],
+        ["base_feed", "pressure", 101325.0, "Pa"],
+        ["bped", "voltage_applied", 10.0, "V"],
+        ["bped", "cell_triplet_num", 10, "dimensionless"],
+        ["bped", "salt_calculation", false, "dimensionless"]
+      ]
+    },
+    "watertap_bped_unit": {
+      "adapter": "compact_bped_unit_template",
+      "implementation_functions": ["_bped_official_specification_values"],
+      "solver_function": "solve_bped_plan",
+      "model_fidelity": "native WaterTAP BPED unit",
+      "native_topology_target_mapping": {
+        "diluate_feed": "diluate_feed",
+        "acidic_feed": "acid_feed",
+        "basic_feed": "base_feed",
+        "bped_stack": "bped",
+        "diluate_product": "diluate_product",
+        "acidic_product": "acid_product",
+        "basic_product": "base_product"
+      },
+      "specs": [
+        ["diluate_feed", "flow_mol_na", 0.0738, "mol/s"],
+        ["diluate_feed", "flow_mol_cl", 0.0738, "mol/s"],
+        ["acidic_feed", "flow_mol_h", 0.0738, "mol/s"],
+        ["acidic_feed", "flow_mol_cl", 0.0738, "mol/s"],
+        ["basic_feed", "flow_mol_na", 0.0738, "mol/s"],
+        ["basic_feed", "flow_mol_oh", 0.0738, "mol/s"],
+        ["diluate_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["acidic_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["basic_feed", "flow_mol_h2o", 0.24, "mol/s"],
+        ["diluate_feed", "temperature", 298.15, "K"],
+        ["acidic_feed", "temperature", 298.15, "K"],
+        ["basic_feed", "temperature", 298.15, "K"],
+        ["diluate_feed", "pressure", 101325.0, "Pa"],
+        ["acidic_feed", "pressure", 101325.0, "Pa"],
+        ["basic_feed", "pressure", 101325.0, "Pa"],
+        ["bped_stack", "voltage_applied", 10.0, "V"],
+        ["bped_stack", "cell_triplet_num", 10, "dimensionless"],
+        ["bped_stack", "salt_calculation", false, "dimensionless"]
+      ]
+    },
+    "watertap_crystallization": {
+      "adapter": "compact_crystallization_template",
+      "implementation_functions": ["solve_crystallization_plan"],
+      "model_fidelity": "native WaterTAP crystallizer",
+      "specs": [
+        ["feed", "flow_mass_liq_nacl", 10.5119, "kg/s"],
+        ["feed", "flow_mass_liq_h2o", 38.9326, "kg/s"],
+        ["feed", "temperature", 293.15, "K"],
+        ["feed", "pressure", 101325.0, "Pa"],
+        ["crystallizer", "temperature_operating", 328.15, "K"],
+        ["crystallizer", "solid_nacl_flow", 5.556, "kg/s"]
+      ]
+    },
+    "watertap_electrodialysis_conc_recirc": {
+      "adapter": "compact_electrodialysis_conc_recirc_template",
+      "implementation_functions": ["solve_ed_conc_recirc_plan", "_fix_ed_1stack_unit"],
+      "model_fidelity": "native WaterTAP ED1D recycle flowsheet",
+      "recycle_arcs": [
+        {
+          "arc_id": "recycle_separator_to_mixer",
+          "source": "sepa1.to_conc_in1",
+          "destination": "mix0.from_conc_out",
+          "tear_method": "direct_substitution",
+          "reason": "concentrate feed-and-bleed recirculation loop"
+        }
+      ],
+      "specs": [
+        ["feed", "flow_mol_h2o", 4.8, "mol/s"],
+        ["feed", "flow_mol_na", 0.01476, "mol/s"],
+        ["feed", "flow_mol_cl", 0.01476, "mol/s"],
+        ["feed", "temperature", 298.15, "K"],
+        ["feed", "pressure", 101325.0, "Pa"],
+        ["sepa0", "split_fraction_diluate", 0.5, "dimensionless"],
+        ["sepa1", "split_fraction_disposal", 0.2, "dimensionless"],
+        ["pump0", "efficiency_pump", 0.8, "dimensionless"],
+        ["pump0", "outlet_pressure", 101325.0, "Pa"],
+        ["pump1", "efficiency_pump", 0.8, "dimensionless"],
+        ["pump1", "outlet_pressure", 101325.0, "Pa"],
+        ["EDstack", "voltage_applied", 10.0, "V"],
+        ["EDstack", "cell_pair_num", 56, "dimensionless"]
+      ]
+    },
+    "watertap_ion_exchange": {
+      "adapter": "compact_ion_exchange_template",
+      "implementation_functions": ["solve_ion_exchange_plan"],
+      "model_fidelity": "reduced-order calcium-selective ion-exchange proxy",
+      "specs": [
+        ["feed", "flow_vol_phase_Liq", 0.05, "m^3/s"],
+        ["feed", "Ca_2+_conc_mass", 0.1, "kg/m^3"],
+        ["ion_exchange", "product_Ca_2+_target", 0.025, "kg/m^3"],
+        ["ion_exchange", "service_flow_rate", 15.0, "1/hr"],
+        ["ion_exchange", "number_columns_simulation", 4, "dimensionless"],
+        ["ion_exchange", "bed_depth_simulation", 1.7, "m"]
+      ]
+    },
+    "blind_synthesized_hda_distillation": {
+      "adapter": "compact_hda_distillation_template",
+      "implementation_functions": ["solve_hda_distillation_plan"],
+      "model_fidelity": "native IDAES HDA recycle plus tray-column flowsheet",
+      "recycle_arcs": [
+        {
+          "arc_id": "s09",
+          "source": "C101.outlet",
+          "destination": "M101.vapor_recycle",
+          "tear_method": "Wegstein",
+          "reason": "compressed vapor recycle return"
+        }
+      ],
+      "specs": [
+        ["M101", "toluene_feed.flow_mol_phase_comp[0, 'Liq', 'toluene']", 0.3, "mol/s"],
+        ["M101", "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'hydrogen']", 0.3, "mol/s"],
+        ["M101", "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'methane']", 0.02, "mol/s"],
+        ["M101", "toluene_feed.temperature[0]", 303.2, "K"],
+        ["M101", "hydrogen_feed.temperature[0]", 303.2, "K"],
+        ["M101", "toluene_feed.pressure[0]", 350000.0, "Pa"],
+        ["M101", "hydrogen_feed.pressure[0]", 350000.0, "Pa"],
+        ["H101", "outlet.temperature[0]", 600.0, "K"],
+        ["R101", "conversion", 0.75, "dimensionless"],
+        ["R101", "heat_duty[0]", 0.0, "W"],
+        ["F101", "vap_outlet.temperature[0]", 325.0, "K"],
+        ["F101", "deltaP[0]", 0.0, "Pa"],
+        ["S101", "split_fraction[0, 'purge']", 0.2, "dimensionless"],
+        ["C101", "outlet.pressure[0]", 350000.0, "Pa"],
+        ["H102", "outlet.temperature[0]", 375.0, "K"],
+        ["H102", "deltaP[0]", -200000.0, "Pa"],
+        ["D101", "condenser.reflux_ratio", 0.5, "dimensionless"],
+        ["D101", "reboiler.boilup_ratio", 0.5, "dimensionless"],
+        ["D101", "condenser.condenser_pressure", 150000.0, "Pa"]
+      ]
+    },
+    "watertap_boron_removal": {
+      "adapter": "compact_boron_removal_template",
+      "implementation_functions": ["solve_boron_removal_plan"],
+      "model_fidelity": "native WaterTAP boron-removal unit",
+      "specs": [
+        ["feed", "flow_mol_phase_comp['Liq','H2O']", 55.5, "mol/s"],
+        ["feed", "flow_mol_phase_comp['Liq','B[OH]3']", 0.00023106, "mol/s"],
+        ["boron_removal", "outlet.flow_mol_phase_comp['Liq','B[OH]3']", 0.0000198677, "mol/s"],
+        ["boron_removal", "reactor_volume", 1.0, "m^3"]
+      ]
+    },
+    "blind_synthesized_coag_floc_unit": {
+      "adapter": "compact_coag_floc_template",
+      "implementation_functions": ["solve_coag_floc_plan"],
+      "model_fidelity": "reduced-order coagulation/flocculation mass-and-turbidity proxy",
+      "specs": [
+        ["feed", "H2O_flow_mass", 1.0, "kg/s"],
+        ["feed", "TDS_flow_mass", 0.01, "kg/s"],
+        ["feed", "TSS_flow_mass", 0.01, "kg/s"],
+        ["flocculator", "final_turbidity_ntu", 5.0, "NTU"],
+        ["chemical_dosing", "Alum_dose", 10.0, "mg/L"],
+        ["chemical_dosing", "Poly_dose", 5.0, "mg/L"],
+        ["rapid_mixer", "retention_time", 60.0, "s"],
+        ["flocculator", "floc_retention_time", 1800.0, "s"]
+      ]
+    },
+    "blind_synthesized_electrodialysis_1stack": {
+      "adapter": "compact_electrodialysis_1stack_template",
+      "implementation_functions": ["solve_ed_1stack_plan", "_fix_ed_1stack_unit"],
+      "model_fidelity": "native WaterTAP ED1D single-stack flowsheet",
+      "specs": [
+        ["feed", "flow_mol_h2o", 4.8, "mol/s"],
+        ["feed", "flow_mol_na", 0.01476, "mol/s"],
+        ["feed", "flow_mol_cl", 0.01476, "mol/s"],
+        ["feed", "temperature", 298.15, "K"],
+        ["feed", "pressure", 101325.0, "Pa"],
+        ["separator", "split_fraction_diluate", 0.5, "dimensionless"],
+        ["EDstack", "voltage_applied", 5.0, "V"],
+        ["EDstack", "cell_pair_num", 100, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_gac_unit": {
+      "adapter": "compact_gac_template",
+      "implementation_functions": ["solve_gac_plan"],
+      "model_fidelity": "reduced-order GAC adsorption and costing proxy",
+      "specs": [
+        ["feed", "H2O_flow_mol", 2433.81215, "mol/s"],
+        ["feed", "solute_flow_mol", 0.05476625, "mol/s"],
+        ["gac", "ebct", 600.0, "s"],
+        ["gac", "bed_length", 6.0, "m"],
+        ["gac", "bed_voidage", 0.4, "dimensionless"],
+        ["gac", "conc_ratio_replace", 0.5, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_hda_flash": {
+      "adapter": "compact_hda_flash_template",
+      "implementation_functions": ["solve_hda_flash_plan"],
+      "model_fidelity": "native IDAES HDA recycle plus two-flash flowsheet",
+      "recycle_arcs": [
+        {
+          "arc_id": "s09",
+          "source": "C101.outlet",
+          "destination": "M101.vapor_recycle",
+          "tear_method": "Wegstein",
+          "reason": "compressed vapor recycle return"
+        }
+      ],
+      "specs": [
+        ["M101", "toluene_feed.flow_mol_phase_comp[0, 'Liq', 'toluene']", 0.3, "mol/s"],
+        ["M101", "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'hydrogen']", 0.3, "mol/s"],
+        ["M101", "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'methane']", 0.02, "mol/s"],
+        ["M101", "toluene_feed.temperature[0]", 303.2, "K"],
+        ["M101", "hydrogen_feed.temperature[0]", 303.2, "K"],
+        ["M101", "toluene_feed.pressure[0]", 350000.0, "Pa"],
+        ["M101", "hydrogen_feed.pressure[0]", 350000.0, "Pa"],
+        ["H101", "outlet.temperature[0]", 600.0, "K"],
+        ["R101", "conversion", 0.75, "dimensionless"],
+        ["R101", "heat_duty[0]", 0.0, "W"],
+        ["F101", "vap_outlet.temperature[0]", 325.0, "K"],
+        ["F101", "deltaP[0]", 0.0, "Pa"],
+        ["S101", "split_fraction[0, 'purge']", 0.2, "dimensionless"],
+        ["C101", "outlet.pressure[0]", 350000.0, "Pa"],
+        ["F102", "vap_outlet.temperature[0]", 375.0, "K"],
+        ["F102", "deltaP[0]", -200000.0, "Pa"]
+      ]
+    },
+    "blind_synthesized_methanol_single": {
+      "adapter": "compact_methanol_single_template",
+      "implementation_functions": ["solve_methanol_single_plan"],
+      "model_fidelity": "native IDAES methanol once-through flowsheet",
+      "specs": [
+        ["H101", "outlet.temperature[0]", 488.15, "K"],
+        ["R101", "outlet.temperature[0]", 507.15, "K"],
+        ["H102", "outlet.temperature[0]", 407.15, "K"],
+        ["F101", "outlet.temperature[0]", 407.15, "K"],
+        ["H2", "outlet.flow_mol[0]", 637.2, "mol/s"],
+        ["H2", "outlet.pressure[0]", 3000000.0, "Pa"],
+        ["CO", "outlet.flow_mol[0]", 316.8, "mol/s"],
+        ["CO", "outlet.pressure[0]", 3000000.0, "Pa"],
+        ["C101", "outlet.pressure[0]", 5100000.0, "Pa"],
+        ["R101", "co_conversion", 0.75, "dimensionless"],
+        ["T101", "deltaP[0]", -2000000.0, "Pa"],
+        ["T101", "efficiency_isentropic[0]", 0.9, "dimensionless"],
+        ["F101", "deltaP[0]", 0.0, "Pa"]
+      ]
+    },
+    "blind_synthesized_methanol_recycle": {
+      "adapter": "compact_methanol_recycle_template",
+      "implementation_functions": ["solve_methanol_recycle_plan"],
+      "model_fidelity": "native IDAES methanol recycle flowsheet",
+      "recycle_arcs": [
+        {
+          "arc_id": "s11",
+          "source": "S101.recycle",
+          "destination": "M102.recycle",
+          "tear_method": "Wegstein",
+          "reason": "unreacted synthesis-gas recycle return"
+        }
+      ],
+      "specs": [
+        ["H101", "outlet.temperature[0]", 488.15, "K"],
+        ["R101", "outlet.temperature[0]", 507.15, "K"],
+        ["H102", "outlet.temperature[0]", 407.15, "K"],
+        ["F101", "outlet.temperature[0]", 407.15, "K"],
+        ["H2", "outlet.flow_mol[0]", 637.2, "mol/s"],
+        ["H2", "outlet.pressure[0]", 3000000.0, "Pa"],
+        ["CO", "outlet.flow_mol[0]", 316.8, "mol/s"],
+        ["CO", "outlet.pressure[0]", 3000000.0, "Pa"],
+        ["C101", "outlet.pressure[0]", 5100000.0, "Pa"],
+        ["R101", "co_conversion", 0.75, "dimensionless"],
+        ["T101", "deltaP[0]", -2000000.0, "Pa"],
+        ["T101", "efficiency_isentropic[0]", 0.9, "dimensionless"],
+        ["F101", "deltaP[0]", 0.0, "Pa"],
+        ["S101", "split_fraction[0, 'purge']", 0.9999, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_mvc_single_stage": {
+      "adapter": "compact_mvc_template",
+      "implementation_functions": ["solve_mvc_plan"],
+      "model_fidelity": "reduced-order single-stage mechanical-vapor-compression proxy",
+      "specs": [
+        ["feed", "flow_mass", 1.0, "kg/s"],
+        ["feed", "salinity", 100.0, "g/kg"],
+        ["evaporator", "recovery", 0.5, "dimensionless"],
+        ["compressor", "pressure_ratio_initial", 1.6, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_nf_dspmde_bypass": {
+      "adapter": "compact_nf_dspmde_bypass_template",
+      "implementation_functions": ["solve_nf_dspmde_bypass_plan"],
+      "model_fidelity": "native WaterTAP DSPM-DE nanofiltration bypass flowsheet",
+      "specs": [
+        ["feed", "conc_mass_ca", 0.258, "kg/m^3"],
+        ["feed", "conc_mass_hco3", 0.385, "kg/m^3"],
+        ["feed", "conc_mass_so4", 1.011, "kg/m^3"],
+        ["feed", "conc_mass_cl", 0.87, "kg/m^3"],
+        ["feed", "conc_mass_na", 0.739, "kg/m^3"],
+        ["feed", "conc_mass_k", 0.009, "kg/m^3"],
+        ["feed", "conc_mass_mg", 0.09, "kg/m^3"],
+        ["feed", "flow_mass_h2o", 1.0, "kg/s"],
+        ["feed", "pressure", 101325.0, "Pa"],
+        ["feed", "temperature", 298.15, "K"],
+        ["NF_pump", "outlet_pressure", 300000.0, "Pa"],
+        ["NF_pump", "efficiency_pump", 0.75, "dimensionless"],
+        ["NF_unit", "recovery_upper_bound", 0.95, "dimensionless"],
+        ["NF_unit", "area", 50.0, "m^2"],
+        ["NF_unit", "spacer_porosity", 0.85, "dimensionless"],
+        ["NF_unit", "channel_height", 0.001, "m"],
+        ["NF_unit", "inlet_velocity", 0.25, "m/s"],
+        ["NF_unit", "permeate_pressure", 101325.0, "Pa"],
+        ["NF_unit", "radius_pore", 5e-10, "m"],
+        ["NF_unit", "membrane_thickness_effective", 8.598945196055952e-7, "m"],
+        ["NF_unit", "membrane_charge_density", -50.0, "mol/m^3"],
+        ["NF_unit", "dielectric_constant_pore", 41.3, "dimensionless"],
+        ["by_pass_splitter", "bypass_split_fraction", 0.9, "dimensionless"]
+      ]
+    },
+    "watertap_adm1": {
+      "adapter": "compact_adm1_flowsheet_template",
+      "implementation_functions": ["solve_adm1_flowsheet_plan"],
+      "model_fidelity": "reduced-order ADM1 retention-time and biogas proxy",
+      "specs": [
+        ["sludge_feed", "flow_vol", 170.0, "m^3/day"],
+        ["sludge_feed", "temperature", 308.15, "K"],
+        ["R1", "volume_liquid", 3400.0, "m^3"],
+        ["R1", "volume_vapor", 300.0, "m^3"]
+      ]
+    },
+    "watertap_dye_desalination": {
+      "adapter": "compact_dye_desalination_template",
+      "implementation_functions": ["solve_dye_desalination_plan"],
+      "model_fidelity": "reduced-order dye NF-GAC-RO treatment proxy",
+      "specs": [
+        ["feed", "flow_vol", 280.0, "m^3/hr"],
+        ["feed", "dye_concentration", 0.2, "kg/m^3"],
+        ["feed", "tds_concentration", 2.0, "kg/m^3"],
+        ["dye_nanofiltration", "water_recovery", 0.9, "dimensionless"],
+        ["RO", "recovery_vol_phase", 0.5, "dimensionless"],
+        ["PXR", "efficiency_pressure_exchanger", 0.95, "dimensionless"]
+      ]
+    },
+    "watertap_generic_desalination_train": {
+      "adapter": "compact_generic_desalination_train_template",
+      "implementation_functions": ["solve_generic_desalination_train_plan"],
+      "model_fidelity": "reduced-order three-stage desalination and valorization proxy",
+      "specs": [
+        ["feed", "H2O_flow_mass", 1.0, "kg/s"],
+        ["feed", "TDS_conc_mass", 3.5, "kg/m^3"],
+        ["feed", "X_conc_mass", 0.3, "kg/m^3"],
+        ["Desal_1", "water_recovery_simulation", 85.0, "percent"],
+        ["Desal_2", "water_recovery_simulation", 50.0, "percent"],
+        ["Desal_3", "water_recovery_simulation", 90.0, "percent"]
+      ]
+    },
+    "watertap_lsrro": {
+      "adapter": "compact_lsrro_template",
+      "implementation_functions": ["solve_lsrro_plan"],
+      "model_fidelity": "reduced-order low-salt-rejection RO stage proxy",
+      "process_scope_targets": ["flowsheet"],
+      "specs": [
+        ["feed", "Qin", 0.001, "m^3/s"],
+        ["feed", "Cin", 70.0, "kg/m^3"],
+        ["flowsheet", "water_recovery", 0.5, "dimensionless"],
+        ["flowsheet", "number_of_stages", 3.0, "dimensionless"],
+        ["flowsheet", "permeate_quality_limit", 0.0005, "dimensionless"]
+      ]
+    },
+    "watertap_membrane_distillation": {
+      "adapter": "compact_membrane_distillation_template",
+      "implementation_functions": ["solve_membrane_distillation_plan"],
+      "model_fidelity": "reduced-order direct-contact membrane-distillation thermal proxy",
+      "process_scope_targets": ["system"],
+      "specs": [
+        ["feed", "feed_flow_mass", 1.0, "kg/s"],
+        ["feed", "feed_mass_frac_TDS", 0.035, "dimensionless"],
+        ["system", "overall_recovery", 0.5, "dimensionless"],
+        ["heater", "max_outlet_temperature", 363.15, "K"],
+        ["chiller", "min_outlet_temperature", 283.15, "K"]
+      ]
+    },
+    "watertap_nf_dspmde_base": {
+      "adapter": "compact_nf_dspmde_base_template",
+      "implementation_functions": ["solve_nf_dspmde_base_plan"],
+      "model_fidelity": "reduced-order DSPM-DE hardness-removal proxy",
+      "specs": [
+        ["feed", "flow_mass_h2o", 1.0, "kg/s"],
+        ["feed", "total_hardness", 450.0, "mg/L as CaCO3"],
+        ["NF_pump", "outlet_pressure", 300000.0, "Pa"],
+        ["NF_unit", "area", 50.0, "m^2"]
+      ]
+    },
+    "watertap_oaro": {
+      "adapter": "compact_oaro_template",
+      "implementation_functions": ["solve_oaro_plan"],
+      "model_fidelity": "reduced-order OARO-RO energy and recovery proxy",
+      "process_scope_targets": ["optimization"],
+      "specs": [
+        ["feed", "feed_flow_mass", 1.0, "kg/s"],
+        ["feed", "feed_mass_frac_NaCl", 0.035, "dimensionless"],
+        ["P1", "outlet_pressure", 5000000.0, "Pa"],
+        ["P2", "outlet_pressure", 1800000.0, "Pa"],
+        ["P3", "outlet_pressure", 400000.0, "Pa"],
+        ["optimization", "product_salinity_limit", 0.0005, "dimensionless"]
+      ]
+    },
+    "official_idaes_smr_equilibrium_flowsheet": {
+      "adapter": "compact_smr_equilibrium_template",
+      "implementation_functions": ["solve_smr_reactor_plan"],
+      "model_fidelity": "reduced-order equilibrium-SMR stoichiometric proxy",
+      "specs": [
+        ["CH4.outlet", "flow_mol", 75.0, "mol/s"],
+        ["H2O.outlet", "flow_mol", 234.0, "mol/s"],
+        ["R101", "conversion", 0.8, "dimensionless"],
+        ["C101", "outlet.pressure", 2.0, "bar"],
+        ["H101", "outlet.temperature", 500.0, "K"]
+      ]
+    },
+    "official_idaes_smr_gibbs_flowsheet": {
+      "adapter": "compact_smr_gibbs_template",
+      "implementation_functions": ["solve_smr_reactor_plan"],
+      "model_fidelity": "reduced-order Gibbs-SMR stoichiometric proxy",
+      "specs": [
+        ["CH4.outlet", "flow_mol", 75.0, "mol/s"],
+        ["H2O.outlet", "flow_mol", 234.0, "mol/s"],
+        ["R101", "conversion", 0.8, "dimensionless"],
+        ["C101", "outlet.pressure", 2.0, "bar"],
+        ["H101", "outlet.temperature", 500.0, "K"]
+      ]
+    },
+    "watertap_asm1": {
+      "adapter": "compact_asm1_template",
+      "implementation_functions": ["solve_activated_sludge_plan"],
+      "model_fidelity": "reduced-order activated-sludge material-flow proxy",
+      "recycle_arcs": [
+        {
+          "arc_id": "stream15",
+          "source": "P1.outlet",
+          "destination": "MX1.recycle",
+          "tear_method": "direct_substitution",
+          "reason": "return activated-sludge recycle"
+        }
+      ],
+      "specs": [
+        ["FeedWater", "flow_vol", 18446.0, "m^3/day"]
+      ]
+    },
+    "watertap_bsm2": {
+      "adapter": "compact_bsm2_template",
+      "implementation_functions": ["solve_activated_sludge_plan"],
+      "model_fidelity": "reduced-order BSM2 material-flow and digestion proxy",
+      "recycle_arcs": [
+        {
+          "arc_id": "stream15",
+          "source": "P1.outlet",
+          "destination": "MX1.recycle",
+          "tear_method": "direct_substitution",
+          "reason": "return activated-sludge recycle"
+        },
+        {
+          "arc_id": "stream5adm",
+          "source": "DU.overflow",
+          "destination": "MX2.recycle1",
+          "tear_method": "direct_substitution",
+          "reason": "dewatering liquid recycle"
+        },
+        {
+          "arc_id": "stream7adm",
+          "source": "TU.overflow",
+          "destination": "MX3.recycle2",
+          "tear_method": "direct_substitution",
+          "reason": "thickener overflow recycle"
+        }
+      ],
+      "specs": [
+        ["FeedWater", "flow_vol", 18446.0, "m^3/day"]
+      ]
+    },
+    "official_idaes_eg_cstr_flowsheet": {
+      "adapter": "compact_eg_cstr_template",
+      "implementation_functions": ["_eg_common_specs", "_eg_cstr_specs"],
+      "model_fidelity": "reduced-order ethylene-glycol CSTR stoichiometric proxy",
+      "specs": [
+        ["OXIDE.outlet", "flow_mol_phase_comp[Liq,ethylene_oxide]", 58.0, "mol/s"],
+        ["ACID.outlet", "flow_mol_phase_comp[Liq,water]", 200.0, "mol/s"],
+        ["R101", "conversion", 0.8, "dimensionless"],
+        ["H101", "outlet.temperature", 328.15, "K"],
+        ["R101", "volume", 5.538, "m^3"]
+      ]
+    },
+    "official_idaes_eg_pfr_flowsheet": {
+      "adapter": "compact_eg_pfr_template",
+      "implementation_functions": ["_eg_common_specs", "_eg_pfr_specs"],
+      "model_fidelity": "reduced-order ethylene-glycol PFR stoichiometric proxy",
+      "specs": [
+        ["OXIDE.outlet", "flow_mol_phase_comp[Liq,ethylene_oxide]", 58.0, "mol/s"],
+        ["ACID.outlet", "flow_mol_phase_comp[Liq,water]", 200.0, "mol/s"],
+        ["R101", "conversion", 0.5, "dimensionless"],
+        ["H101", "outlet.temperature", 328.15, "K"],
+        ["R101", "length", 1.0, "m"]
+      ]
+    },
+    "official_idaes_eg_stoichiometric_flowsheet": {
+      "adapter": "compact_eg_stoichiometric_template",
+      "implementation_functions": ["_eg_common_specs", "_eg_stoichiometric_specs"],
+      "model_fidelity": "reduced-order ethylene-glycol stoichiometric-reactor proxy",
+      "specs": [
+        ["OXIDE.outlet", "flow_mol_phase_comp[Liq,ethylene_oxide]", 58.0, "mol/s"],
+        ["ACID.outlet", "flow_mol_phase_comp[Liq,water]", 200.0, "mol/s"],
+        ["R101", "conversion", 0.8, "dimensionless"],
+        ["H101", "outlet.temperature", 328.15, "K"],
+        ["R101", "outlet.temperature", 328.15, "K"]
+      ]
+    },
+    "blind_synthesized_ro_no_energy_recovery": {
+      "adapter": "compact_ro_none_template",
+      "implementation_functions": ["_compact_ro_common_specs", "_compact_ro_no_energy_recovery_specs"],
+      "model_fidelity": "native WaterTAP ReverseOsmosis0D without energy recovery",
+      "specs": [
+        ["feed", "flow_vol", 0.001, "m^3/s"],
+        ["feed", "salt_mass_frac", 0.035, "dimensionless"],
+        ["RO", "water_recovery", 0.5, "dimensionless"],
+        ["P1", "efficiency_pump", 0.8, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_ro_pump_as_turbine": {
+      "adapter": "compact_ro_pump_as_turbine_template",
+      "implementation_functions": ["_compact_ro_common_specs", "_compact_ro_pump_as_turbine_specs"],
+      "model_fidelity": "native WaterTAP ReverseOsmosis0D with pump-as-turbine ERD",
+      "specs": [
+        ["feed", "flow_vol", 0.001, "m^3/s"],
+        ["feed", "salt_mass_frac", 0.035, "dimensionless"],
+        ["RO", "water_recovery", 0.5, "dimensionless"],
+        ["P1", "efficiency_pump", 0.8, "dimensionless"],
+        ["ERD", "efficiency_pump", 0.95, "dimensionless"]
+      ]
+    },
+    "blind_synthesized_ro_pressure_exchanger": {
+      "adapter": "compact_ro_pressure_exchanger_template",
+      "implementation_functions": ["_compact_ro_common_specs", "_compact_ro_pressure_exchanger_specs"],
+      "model_fidelity": "native WaterTAP ReverseOsmosis0D with pressure-exchanger ERD",
+      "specs": [
+        ["feed", "flow_vol", 0.001, "m^3/s"],
+        ["feed", "salt_mass_frac", 0.035, "dimensionless"],
+        ["RO", "water_recovery", 0.5, "dimensionless"],
+        ["P1", "efficiency_pump", 0.8, "dimensionless"],
+        ["P2", "efficiency_pump", 0.8, "dimensionless"],
+        ["PXR", "efficiency_pressure_exchanger", 0.95, "dimensionless"]
+      ]
+    },
+    "watertap_seawater_ro_desalination": {
+      "adapter": "compact_seawater_ro_pressure_exchanger_template",
+      "implementation_functions": ["_seawater_ro_common_specs", "_seawater_ro_pressure_exchanger_specs"],
+      "model_fidelity": "reduced-order seawater RO pretreatment/posttreatment and pressure-exchanger proxy",
+      "specs": [
+        ["feed", "flow_vol", 0.3092, "m^3/s"],
+        ["feed", "TDS_conc_mass", 35.0, "kg/m^3"],
+        ["feed", "TSS_conc_mass", 0.03, "kg/m^3"],
+        ["P1", "outlet_pressure", 7000000.0, "Pa"],
+        ["P1", "efficiency_pump", 0.8, "dimensionless"],
+        ["PXR", "efficiency_pressure_exchanger", 0.95, "dimensionless"]
+      ]
+    },
+    "watertap_seawater_ro_pump_as_turbine": {
+      "adapter": "compact_seawater_ro_pump_as_turbine_template",
+      "implementation_functions": ["_seawater_ro_common_specs", "_seawater_ro_pump_as_turbine_specs"],
+      "model_fidelity": "reduced-order seawater RO pretreatment/posttreatment and pump-as-turbine proxy",
+      "specs": [
+        ["feed", "flow_vol", 0.3092, "m^3/s"],
+        ["feed", "TDS_conc_mass", 35.0, "kg/m^3"],
+        ["feed", "TSS_conc_mass", 0.03, "kg/m^3"],
+        ["P1", "outlet_pressure", 7000000.0, "Pa"],
+        ["P1", "efficiency_pump", 0.8, "dimensionless"],
+        ["ERD", "efficiency_pump", 0.95, "dimensionless"]
+      ]
+    },
+    "official_ngcc": {
+      "adapter": "official_ngcc_template",
+      "implementation_functions": ["solve_ngcc_plan"],
+      "model_fidelity": "official IDAES NGCC model at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_cmi_process": {
+      "adapter": "official_prommis_cmi_process_template",
+      "implementation_functions": ["solve_prommis_cmi_plan"],
+      "model_fidelity": "official PrOMMiS CMI process at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_cmi_process_pfd": {
+      "adapter": "official_prommis_cmi_process_pfd_template",
+      "implementation_functions": ["solve_prommis_cmi_process_pfd_plan"],
+      "model_fidelity": "official PrOMMiS CMI PFD process at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_crusher_unit": {
+      "adapter": "official_prommis_crusher_template",
+      "implementation_functions": ["solve_prommis_crusher_plan"],
+      "model_fidelity": "official PrOMMiS crusher at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_diafiltration_two_salt": {
+      "adapter": "official_prommis_diafiltration_two_salt_template",
+      "implementation_functions": ["solve_prommis_diafiltration_two_salt_plan"],
+      "model_fidelity": "official PrOMMiS two-salt diafiltration at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_evaporation_pond_unit": {
+      "adapter": "official_prommis_evaporation_pond_template",
+      "implementation_functions": ["solve_prommis_evaporation_pond_plan"],
+      "model_fidelity": "official PrOMMiS evaporation pond at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_hydrogen_decrepitation_flowsheet": {
+      "adapter": "official_prommis_hydrogen_decrepitation_flowsheet_template",
+      "implementation_functions": ["solve_prommis_hydrogen_decrepitation_plan"],
+      "model_fidelity": "official PrOMMiS hydrogen-decrepitation flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_hydrogen_decrepitation_furnace": {
+      "adapter": "official_prommis_hydrogen_decrepitation_furnace_template",
+      "implementation_functions": ["solve_prommis_hydrogen_decrepitation_furnace_plan"],
+      "model_fidelity": "official PrOMMiS hydrogen-decrepitation furnace at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_leach_flowsheet": {
+      "adapter": "official_prommis_leach_flowsheet_template",
+      "implementation_functions": ["solve_prommis_leach_flowsheet_plan"],
+      "model_fidelity": "official PrOMMiS leach flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_mixer_settler_ex_steady": {
+      "adapter": "official_prommis_mixer_settler_ex_steady_template",
+      "implementation_functions": ["solve_prommis_mixer_settler_ex_steady_plan"],
+      "model_fidelity": "official PrOMMiS mixer-settler extraction at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_multi_component_diafiltration_unit": {
+      "adapter": "official_prommis_multi_component_diafiltration_template",
+      "implementation_functions": ["solve_prommis_multi_component_diafiltration_plan"],
+      "model_fidelity": "official PrOMMiS multicomponent diafiltration unit at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_nanofiltration_membrane_schematic": {
+      "adapter": "official_prommis_nanofiltration_membrane_schematic_template",
+      "implementation_functions": ["solve_prommis_nanofiltration_membrane_schematic_plan"],
+      "model_fidelity": "official PrOMMiS nanofiltration membrane model at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_nanofiltration_ui_flowsheet": {
+      "adapter": "official_prommis_nanofiltration_ui_flowsheet_template",
+      "implementation_functions": ["solve_prommis_nanofiltration_ui_flowsheet_plan"],
+      "model_fidelity": "official PrOMMiS nanofiltration UI flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_nf_brine_advanced_costing": {
+      "adapter": "official_prommis_nf_brine_advanced_costing_template",
+      "implementation_functions": ["solve_prommis_nf_brine_advanced_costing_plan"],
+      "model_fidelity": "official PrOMMiS NF-brine costing model at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_ree_oxalate_roaster": {
+      "adapter": "official_prommis_ree_oxalate_roaster_template",
+      "implementation_functions": ["solve_prommis_ree_oxalate_roaster_plan"],
+      "model_fidelity": "official PrOMMiS REE oxalate roaster at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_simplified_uky_flowsheet": {
+      "adapter": "official_prommis_simplified_uky_template",
+      "implementation_functions": ["solve_prommis_simplified_uky_plan"],
+      "model_fidelity": "official simplified PrOMMiS UKy flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_solvent_extraction_steady": {
+      "adapter": "official_prommis_solvent_extraction_steady_template",
+      "implementation_functions": ["solve_prommis_solvent_extraction_steady_plan"],
+      "model_fidelity": "official PrOMMiS solvent-extraction flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_uky_costing": {
+      "adapter": "official_prommis_uky_costing_template",
+      "implementation_functions": ["solve_prommis_uky_costing_plan"],
+      "model_fidelity": "official PrOMMiS UKy costing flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_uky_flowsheet": {
+      "adapter": "official_prommis_uky_template",
+      "implementation_functions": ["solve_prommis_uky_plan"],
+      "model_fidelity": "official PrOMMiS UKy flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_uky_tutorial_flowsheet_pfd": {
+      "adapter": "official_prommis_uky_tutorial_flowsheet_pfd_template",
+      "implementation_functions": ["solve_prommis_uky_tutorial_flowsheet_pfd_plan"],
+      "model_fidelity": "official PrOMMiS UKy tutorial PFD at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_prommis_uky_ui_flowsheet": {
+      "adapter": "official_prommis_uky_ui_flowsheet_template",
+      "implementation_functions": ["solve_prommis_uky_ui_flowsheet_plan"],
+      "model_fidelity": "official PrOMMiS UKy UI flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "blind_synthesized_subcritical_power_plant": {
+      "adapter": "official_subcritical_power_plant_template",
+      "implementation_functions": ["solve_subcritical_power_plant_plan"],
+      "model_fidelity": "official IDAES subcritical power plant at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "recycle_arcs": [
+        {
+          "arc_id": "B008",
+          "source": "ww12.outlet",
+          "destination": "aDrum.water_steam_inlet",
+          "tear_method": "direct_substitution",
+          "reason": "close the natural-circulation waterwall return to the steam drum"
+        }
+      ],
+      "specs": []
+    },
+    "blind_synthesized_watertap_electroNP_bsm2_no_bioP": {
+      "adapter": "generic_che_conservation_v1",
+      "implementation_functions": ["solve_generic_candidate_conservation"],
+      "model_fidelity": "candidate-bound native Pyomo directed material-conservation network",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": [],
+      "registered_configuration_visible_to_model": false
+    },
+    "blind_synthesized_watertap_electroNP_flowsheet": {
+      "adapter": "official_watertap_electroNP_template",
+      "implementation_functions": ["solve_watertap_electronp_plan"],
+      "model_fidelity": "official WaterTAP electroNP flowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "dispatches_nuclear_double_loop": {
+      "adapter": "official_dispatches_nuclear_double_loop_template",
+      "implementation_functions": ["solve_dispatches_nuclear_double_loop_plan"],
+      "model_fidelity": "official DISPATCHES nuclear double-loop at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "ngcc_hrsg_subflowsheet": {
+      "adapter": "official_ngcc_hrsg_template",
+      "implementation_functions": ["solve_ngcc_hrsg_reference_plan"],
+      "model_fidelity": "official IDAES NGCC HRSG subflowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "official_supercritical_power_plant": {
+      "adapter": "official_supercritical_steam_cycle_template",
+      "implementation_functions": ["solve_supercritical_steam_cycle_plan"],
+      "model_fidelity": "official IDAES supercritical steam cycle at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "ngcc_gas_turbine_subflowsheet": {
+      "adapter": "official_ngcc_gas_turbine_template",
+      "implementation_functions": ["solve_ngcc_gas_turbine_reference_plan"],
+      "model_fidelity": "official IDAES NGCC gas-turbine subflowsheet at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "ngcc_steam_turbine_subflowsheet": {
+      "adapter": "generic_che_conservation_v1",
+      "implementation_functions": ["solve_generic_candidate_conservation"],
+      "model_fidelity": "candidate-bound native Pyomo directed material-conservation network",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": [],
+      "registered_configuration_visible_to_model": false
+    },
+    "official_idaes_hx1d_unit": {
+      "adapter": "official_idaes_hx1d_template",
+      "implementation_functions": ["solve_hx1d_reference_plan"],
+      "model_fidelity": "official IDAES HeatExchanger1D benchmark at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "official_idaes_hx_lumped_capacitance": {
+      "adapter": "official_idaes_hx_lumped_capacitance_template",
+      "implementation_functions": ["solve_hx_lumped_capacitance_reference_plan"],
+      "model_fidelity": "official IDAES lumped-capacitance heat-exchanger benchmark at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "official_idaes_hx_ntu_unit": {
+      "adapter": "official_idaes_hx_ntu_template",
+      "implementation_functions": ["solve_hx_ntu_reference_plan"],
+      "model_fidelity": "official IDAES effectiveness-NTU heat-exchanger benchmark at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    },
+    "official_idaes_plate_heat_exchanger": {
+      "adapter": "official_idaes_plate_heat_exchanger_template",
+      "implementation_functions": ["solve_plate_heat_exchanger_reference_plan"],
+      "model_fidelity": "official IDAES plate heat-exchanger benchmark at its fixed documented operating point",
+      "execution_mode": "fixed_official_operating_point",
+      "specs": []
+    }
+  }
+}

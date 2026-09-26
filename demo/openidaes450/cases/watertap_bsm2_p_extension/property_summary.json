@@ -1,0 +1,37 @@
+{
+  "case_id": "watertap_bsm2_p_extension",
+  "applicability": "model_parameter_packages",
+  "package_count": 5,
+  "packages": [
+    {
+      "name": "fs.props_ASM2D",
+      "class": "watertap.property_models.unit_specific.activated_sludge.modified_asm2d_properties.ModifiedASM2dParameterBlock",
+      "module": "watertap.property_models.unit_specific.activated_sludge.modified_asm2d_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.rxn_props_ASM2D",
+      "class": "watertap.property_models.unit_specific.activated_sludge.modified_asm2d_reactions.ModifiedASM2dReactionParameterBlock",
+      "module": "watertap.property_models.unit_specific.activated_sludge.modified_asm2d_reactions",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.props_ADM1",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.modified_adm1_properties.ModifiedADM1ParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.modified_adm1_properties",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.props_vap_ADM1",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor.ADM1_vaporParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.adm1_properties_vapor",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.rxn_props_ADM1",
+      "class": "watertap.property_models.unit_specific.anaerobic_digestion.modified_adm1_reactions.ModifiedADM1ReactionParameterBlock",
+      "module": "watertap.property_models.unit_specific.anaerobic_digestion.modified_adm1_reactions",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

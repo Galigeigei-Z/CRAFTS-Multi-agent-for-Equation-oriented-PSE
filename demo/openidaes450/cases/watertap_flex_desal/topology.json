@@ -1,0 +1,217 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__watertap_flex_desal",
+  "family": "family_source_verified_watertap_flex_desal",
+  "process_type": "Flexible desalination with solar, battery, and grid power",
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/flex_desal/flowsheet.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official WaterTAP FlexDesal flowsheet source. No site configuration, time-series dispatch, SpecIR, solve, costing, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "intake",
+      "kind": "Feed",
+      "package": null,
+      "stage": "water_supply",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "pretreatment",
+      "kind": "Pretreatment",
+      "package": null,
+      "stage": "water_treatment",
+      "role": "Source-derived Pretreatment node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reverse_osmosis",
+      "kind": "ReverseOsmosis1D",
+      "package": null,
+      "stage": "desalination",
+      "role": "Source-derived ReverseOsmosis1D node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "posttreatment",
+      "kind": "PostTreatment",
+      "package": null,
+      "stage": "water_treatment",
+      "role": "Source-derived PostTreatment node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "water_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "brine_discharge",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solar_pv",
+      "kind": "SolarPV",
+      "package": null,
+      "stage": "power_supply",
+      "role": "Source-derived SolarPV node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "battery",
+      "kind": "ElectricalStorage",
+      "package": null,
+      "stage": "power_supply",
+      "role": "Source-derived ElectricalStorage node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "grid",
+      "kind": "ElectricalGrid",
+      "package": null,
+      "stage": "power_supply",
+      "role": "Source-derived ElectricalGrid node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "power_bus",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "power_balance",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "intake_to_pretreatment",
+      "source": "intake.outlet",
+      "destination": "pretreatment.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pretreatment_to_ro",
+      "source": "pretreatment.outlet",
+      "destination": "reverse_osmosis.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ro_to_posttreatment",
+      "source": "reverse_osmosis.permeate",
+      "destination": "posttreatment.inlet",
+      "source_port": "permeate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "posttreatment_to_product",
+      "source": "posttreatment.outlet",
+      "destination": "water_product.inlet",
+      "source_port": "outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "pretreatment_waste",
+      "source": "pretreatment.waste",
+      "destination": "brine_discharge.inlet",
+      "source_port": "waste",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "ro_brine",
+      "source": "reverse_osmosis.retentate",
+      "destination": "brine_discharge.inlet",
+      "source_port": "retentate",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solar_to_bus",
+      "source": "solar_pv.electricity",
+      "destination": "power_bus.solar",
+      "source_port": "electricity",
+      "destination_port": "solar",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "battery_to_bus",
+      "source": "battery.discharge",
+      "destination": "power_bus.battery",
+      "source_port": "discharge",
+      "destination_port": "battery",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "bus_to_battery",
+      "source": "power_bus.charge",
+      "destination": "battery.charge",
+      "source_port": "charge",
+      "destination_port": "charge",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "grid_to_bus",
+      "source": "grid.electricity",
+      "destination": "power_bus.grid",
+      "source_port": "electricity",
+      "destination_port": "grid",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "bus_to_ro",
+      "source": "power_bus.electricity",
+      "destination": "reverse_osmosis.electricity",
+      "source_port": "electricity",
+      "destination_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "intake",
+    "pretreatment",
+    "reverse_osmosis",
+    "posttreatment",
+    "water_product",
+    "brine_discharge",
+    "solar_pv",
+    "battery",
+    "grid",
+    "power_bus"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

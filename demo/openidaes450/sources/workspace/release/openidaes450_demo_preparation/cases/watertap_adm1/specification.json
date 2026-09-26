@@ -1,0 +1,77 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_adm1",
+  "family": "family_watertap_adm1",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "sludge_feed",
+      "variable": "flow_vol",
+      "value": 170,
+      "units": "m^3/day",
+      "role": "official sludge inlet flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    },
+    {
+      "target": "sludge_feed",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "official sludge temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    },
+    {
+      "target": "sludge_feed",
+      "variable": "pressure",
+      "value": 1,
+      "units": "atm",
+      "role": "official sludge pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    },
+    {
+      "target": "R1",
+      "variable": "volume_liquid",
+      "value": 3400,
+      "units": "m^3",
+      "role": "official liquid volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    },
+    {
+      "target": "R1",
+      "variable": "volume_vapor",
+      "value": 300,
+      "units": "m^3",
+      "role": "official vapor volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    },
+    {
+      "target": "R1",
+      "variable": "liquid_outlet_temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "fixed liquid outlet temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "ADM1_flowsheet.build_flowsheet initializes the AD unit and solves the steady-state model",
+    "solve_order": [
+      "R1"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

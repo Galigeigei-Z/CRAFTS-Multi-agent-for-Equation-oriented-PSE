@@ -1,0 +1,98 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "hx_lumped_capacitance",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "termination_condition": "optimal",
+  "heat_duty": 73086.1320711398,
+  "stream_values": {
+    "shell_inlet": {
+      "flow_mol": 100.0,
+      "temperature": 400.00000000000034,
+      "pressure": 101325.0
+    },
+    "shell_outlet": {
+      "flow_mol": 100.0,
+      "temperature": 380.00000919766427,
+      "pressure": 101325.0
+    },
+    "tube_inlet": {
+      "flow_mol": 250.0,
+      "temperature": 380.0,
+      "pressure": 101325.0,
+      "mole_frac_comp": {
+        "benzene": 0.4,
+        "toluene": 0.6
+      }
+    },
+    "tube_outlet": {
+      "flow_mol": 250.0,
+      "temperature": 382.3793736559934,
+      "pressure": 101325.0,
+      "mole_frac_comp": {
+        "benzene": 0.4,
+        "toluene": 0.6
+      }
+    }
+  },
+  "native_topology_binding": {
+    "schema_version": "native-topology-probe/1",
+    "units": {
+      "shell_inlet": {
+        "model_component": "fs.heat_exchanger.shell_inlet",
+        "exists": true
+      },
+      "tube_inlet": {
+        "model_component": "fs.heat_exchanger.tube_inlet",
+        "exists": true
+      },
+      "heat_exchanger": {
+        "model_component": "fs.heat_exchanger",
+        "exists": true
+      },
+      "shell_outlet": {
+        "model_component": "fs.heat_exchanger.shell_outlet",
+        "exists": true
+      },
+      "tube_outlet": {
+        "model_component": "fs.heat_exchanger.tube_outlet",
+        "exists": true
+      }
+    },
+    "arcs": {
+      "shell_feed_to_hx": {
+        "source_component": "fs.heat_exchanger.shell_inlet",
+        "destination_component": "fs.heat_exchanger.shell_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.heat_exchanger.shell_inlet->fs.heat_exchanger.shell_inlet"
+      },
+      "tube_feed_to_hx": {
+        "source_component": "fs.heat_exchanger.tube_inlet",
+        "destination_component": "fs.heat_exchanger.tube_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.heat_exchanger.tube_inlet->fs.heat_exchanger.tube_inlet"
+      },
+      "hx_shell_to_product": {
+        "source_component": "fs.heat_exchanger.shell_outlet",
+        "destination_component": "fs.heat_exchanger.shell_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.heat_exchanger.shell_outlet->fs.heat_exchanger.shell_outlet"
+      },
+      "hx_tube_to_product": {
+        "source_component": "fs.heat_exchanger.tube_outlet",
+        "destination_component": "fs.heat_exchanger.tube_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.heat_exchanger.tube_outlet->fs.heat_exchanger.tube_outlet"
+      }
+    },
+    "passed": true
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

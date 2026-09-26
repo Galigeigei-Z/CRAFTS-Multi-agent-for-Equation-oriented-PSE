@@ -1,0 +1,36 @@
+{
+  "case_family": "watertap_flex_desal",
+  "checks": [
+    {
+      "name": "official_source_model_executed",
+      "pass": true
+    },
+    {
+      "actual": "optimal",
+      "name": "solver_termination_accepted",
+      "pass": true
+    },
+    {
+      "actual": 5,
+      "name": "official_assertions_passed",
+      "pass": true
+    }
+  ],
+  "claim_boundary": "The complete 960-period model is solved with a feasible fixed operating schedule and nominal RO recovery. No free-binary global scheduling optimum is claimed.",
+  "executed_at": "2026-07-11T02:40:00+08:00",
+  "execution": "full-horizon fixed-schedule FlexDesal solve",
+  "final_dof": 0,
+  "outputs": {
+    "electricity_cost_usd": 100698.37283932042,
+    "fixed_binary_variables": 23040,
+    "periods": 960,
+    "water_production_m3": 113051.91600000019
+  },
+  "pass": true,
+  "solver": "appsi_highs 1.12.0",
+  "source_commit": null,
+  "source_url": "https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/flex_desal/flowsheet.py",
+  "stage": "native_official_source_solve",
+  "status": "solved",
+  "termination_condition": "optimal"
+}

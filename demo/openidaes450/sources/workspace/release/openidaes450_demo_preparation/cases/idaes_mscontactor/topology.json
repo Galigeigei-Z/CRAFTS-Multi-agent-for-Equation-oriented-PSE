@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.stream_1",
+      "destination_port": "stream_1",
+      "id": "stream_1_to_model",
+      "source": "stream_1.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.stream_2",
+      "destination_port": "stream_2",
+      "id": "stream_2_to_model",
+      "source": "stream_2.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stream_1_out.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_stream_1_out",
+      "source": "model.stream_1_out",
+      "source_port": "stream_1_out",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stream_2_out.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_stream_2_out",
+      "source": "model.stream_2_out",
+      "source_port": "stream_2_out",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_mscontactor",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_mscontactor",
+  "initialization_order": [
+    "stream_1",
+    "stream_2",
+    "model",
+    "stream_1_out",
+    "stream_2_out"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Multistream Contactor",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official MSContactor test module"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models/unit_models/mscontactor.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stream_1",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stream_2",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "MSContactor",
+      "package": null,
+      "role": "Source-derived MSContactor node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stream_1_out",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stream_2_out",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

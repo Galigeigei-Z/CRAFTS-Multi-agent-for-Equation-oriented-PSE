@@ -1,0 +1,129 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__idaes_moving_bed_methane",
+  "family": "family_source_verified_idaes_moving_bed_methane",
+  "process_type": "Moving-bed methane combustion with oxygen carrier",
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/main/idaes/models_extra/gas_solid_contactors/flowsheets/ss_MB_methane_combustion.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is source-verified against the official IDAES models_extra moving-bed methane-combustion flowsheet and local FV export. No new SpecIR, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "gas_inlet_1",
+      "kind": "Feed",
+      "package": null,
+      "stage": "gas_feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solid_inlet_1",
+      "kind": "Feed",
+      "package": null,
+      "stage": "solid_feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "moving_bed",
+      "kind": "MovingBed",
+      "package": null,
+      "stage": "reaction",
+      "role": "Source-derived MovingBed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gas_outlet_1",
+      "kind": "Product",
+      "package": null,
+      "stage": "gas_product",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solid_outlet_1",
+      "kind": "Product",
+      "package": null,
+      "stage": "solid_product",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "countercurrent_link",
+      "kind": "FlowOrientation",
+      "package": null,
+      "stage": "configuration",
+      "role": "Source-derived FlowOrientation node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "gas_feed",
+      "source": "gas_inlet_1.outlet",
+      "destination": "moving_bed.gas_inlet",
+      "source_port": "outlet",
+      "destination_port": "gas_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solid_feed",
+      "source": "solid_inlet_1.outlet",
+      "destination": "moving_bed.solid_inlet",
+      "source_port": "outlet",
+      "destination_port": "solid_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "gas_product",
+      "source": "moving_bed.gas_outlet",
+      "destination": "gas_outlet_1.inlet",
+      "source_port": "gas_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solid_product",
+      "source": "moving_bed.solid_outlet",
+      "destination": "solid_outlet_1.inlet",
+      "source_port": "solid_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "countercurrent_configuration",
+      "source": "countercurrent_link.orientation",
+      "destination": "moving_bed.flow_configuration",
+      "source_port": "orientation",
+      "destination_port": "flow_configuration",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "gas_inlet_1",
+    "solid_inlet_1",
+    "moving_bed",
+    "gas_outlet_1",
+    "solid_outlet_1",
+    "countercurrent_link"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.brine",
+      "destination_port": "brine",
+      "id": "brine_to_model",
+      "source": "brine.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.wind",
+      "destination_port": "wind",
+      "id": "wind_to_model",
+      "source": "wind.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "concentrate.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_concentrate",
+      "source": "model.concentrate",
+      "source_port": "concentrate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "evaporated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_evaporated_water",
+      "source": "model.evaporated_water",
+      "source_port": "evaporated_water",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_waiv",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_waiv",
+  "initialization_order": [
+    "brine",
+    "wind",
+    "model",
+    "concentrate",
+    "evaporated_water"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO WAIV Evaporation System",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO WAIV unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/waiv.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "brine",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "wind",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "WAIV",
+      "package": null,
+      "role": "Source-derived WAIV node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "concentrate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "evaporated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,1008 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_recycle_purge_optimized",
+  "family": "family_methanol_recycle",
+  "process_type": "Blind-synthesized methanol synthesis flowsheet with vapor recycle and purge splitter",
+  "source_url": "local://stage4_optimization/run_methanol_recycle_purge_optimization.py",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle methanol support cards.",
+    "No source URL, case id, run id, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: IDAES methanol synthesis property and reaction packages; IDAES ethylene glycol StoichiometricReactor flowsheet; WaterTAP pump and energy recovery pressure changers; WaterTAP mechanical vapor compression flowsheet",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: IDAES methanol synthesis property and reaction packages (property_package) matched ['methanol', 'syngas', 'methanol synthesis'].",
+    "Blind support hint: IDAES ethylene glycol StoichiometricReactor flowsheet (flowsheet) matched ['stoichiometric reactor'].",
+    "Blind support hint: WaterTAP pump and energy recovery pressure changers (unit_model) matched ['turbine'].",
+    "Blind support hint: WaterTAP mechanical vapor compression flowsheet (flowsheet) matched ['compressor'].",
+    "Adds explicit feed methane and makes the purge a binding inert-accumulation decision."
+  ],
+  "property_packages": {
+    "thermo_params_vapor": {
+      "entry_id": "methanol_ideal_vapor",
+      "components": [
+        "H2",
+        "CO",
+        "CH3OH",
+        "CH4"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "H2",
+        "CO",
+        "M101",
+        "M102",
+        "C101",
+        "H101",
+        "R101",
+        "T101",
+        "H102",
+        "S101",
+        "EXHAUST"
+      ],
+      "source": "blind_rag_support"
+    },
+    "thermo_params_VLE": {
+      "entry_id": "methanol_ideal_VLE",
+      "components": [
+        "H2",
+        "CO",
+        "CH3OH",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "F101",
+        "CH3OH"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "syngas_methanol": [
+      "H2",
+      "CO",
+      "CH3OH",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "H2",
+      "kind": "Feed",
+      "package": "thermo_params_vapor",
+      "stage": "feed_section",
+      "role": "hydrogen feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO",
+      "kind": "Feed",
+      "package": "thermo_params_vapor",
+      "stage": "feed_section",
+      "role": "carbon monoxide feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "thermo_params_vapor",
+      "stage": "feed_section",
+      "role": "mix H2 and CO feeds",
+      "constructor": {
+        "inlet_list": [
+          "H2_WGS",
+          "CO_WGS"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "M102",
+      "kind": "Mixer",
+      "package": "thermo_params_vapor",
+      "stage": "recycle_section",
+      "role": "mix fresh syngas with recycle vapor",
+      "constructor": {
+        "inlet_list": [
+          "feed",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "thermo_params_vapor",
+      "stage": "reaction_section",
+      "role": "compress mixed syngas",
+      "constructor": {
+        "compressor": true,
+        "thermodynamic_assumption": "isothermal"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "thermo_params_vapor",
+      "stage": "reaction_section",
+      "role": "preheat reactor feed",
+      "constructor": {
+        "has_pressure_change": false,
+        "has_phase_equilibrium": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "StoichiometricReactor",
+      "package": "thermo_params_vapor",
+      "stage": "reaction_section",
+      "role": "methanol synthesis reactor",
+      "constructor": {
+        "reaction_package": "reaction_params",
+        "has_heat_of_reaction": true,
+        "has_heat_transfer": true,
+        "has_pressure_change": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "T101",
+      "kind": "Turbine",
+      "package": "thermo_params_vapor",
+      "stage": "recovery_section",
+      "role": "expand reactor effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H102",
+      "kind": "Heater",
+      "package": "thermo_params_vapor",
+      "stage": "recovery_section",
+      "role": "cool product recovery feed",
+      "constructor": {
+        "has_pressure_change": false,
+        "has_phase_equilibrium": false
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "thermo_params_VLE",
+      "stage": "recovery_section",
+      "role": "recover liquid methanol from vapor",
+      "constructor": {
+        "has_heat_transfer": true,
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Splitter",
+      "package": "thermo_params_vapor",
+      "stage": "recycle_section",
+      "role": "split flash vapor into purge and recycle",
+      "constructor": {
+        "ideal_separation": false,
+        "outlet_list": [
+          "purge",
+          "recycle"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "EXHAUST",
+      "kind": "Product",
+      "package": "thermo_params_vapor",
+      "stage": "product_section",
+      "role": "purge gas product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CH3OH",
+      "kind": "Product",
+      "package": "thermo_params_VLE",
+      "stage": "product_section",
+      "role": "liquid methanol product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "H2.outlet",
+      "destination": "M101.H2_WGS",
+      "stage": "feed_section",
+      "role": "hydrogen feed to fresh mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "CO.outlet",
+      "destination": "M101.CO_WGS",
+      "stage": "feed_section",
+      "role": "carbon monoxide feed to fresh mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "M102.feed",
+      "stage": "recycle_section",
+      "role": "fresh mixed syngas to recycle mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "M102.outlet",
+      "destination": "C101.inlet",
+      "stage": "reaction_section",
+      "role": "mixed feed to compressor",
+      "tear_candidate": true
+    },
+    {
+      "id": "s05",
+      "source": "C101.outlet",
+      "destination": "H101.inlet",
+      "stage": "reaction_section",
+      "role": "compressed feed to preheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "H101.outlet",
+      "destination": "R101.inlet",
+      "stage": "reaction_section",
+      "role": "heated feed to reactor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "R101.outlet",
+      "destination": "T101.inlet",
+      "stage": "recovery_section",
+      "role": "reactor effluent to turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "T101.outlet",
+      "destination": "H102.inlet",
+      "stage": "recovery_section",
+      "role": "expanded effluent to cooler",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "H102.outlet",
+      "destination": "F101.inlet",
+      "stage": "recovery_section",
+      "role": "cooled effluent to flash",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "F101.vap_outlet",
+      "destination": "S101.inlet",
+      "stage": "recycle_section",
+      "role": "flash vapor to purge/recycle splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11",
+      "source": "S101.recycle",
+      "destination": "M102.recycle",
+      "stage": "recycle_section",
+      "role": "vapor recycle to M102",
+      "tear_candidate": false
+    },
+    {
+      "id": "s12",
+      "source": "S101.purge",
+      "destination": "EXHAUST.inlet",
+      "stage": "product_section",
+      "role": "purge product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s13",
+      "source": "F101.liq_outlet",
+      "destination": "CH3OH.inlet",
+      "stage": "product_section",
+      "role": "liquid methanol product",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "H2",
+      "variable": "outlet.flow_mol[0]",
+      "value": 637.2,
+      "units": "mol/s",
+      "role": "hydrogen feed flow"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.flow_mol[0]",
+      "value": 316.8,
+      "units": "mol/s",
+      "role": "carbon monoxide feed flow"
+    },
+    {
+      "target": "H2",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "carbon monoxide feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 5100000,
+      "units": "Pa",
+      "role": "compressor outlet pressure"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "reactor feed preheat temperature"
+    },
+    {
+      "target": "R101",
+      "variable": "co_conversion",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "CO conversion"
+    },
+    {
+      "target": "R101",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "reactor outlet temperature"
+    },
+    {
+      "target": "T101",
+      "variable": "deltaP[0]",
+      "value": -2000000,
+      "units": "Pa",
+      "role": "turbine pressure drop"
+    },
+    {
+      "target": "T101",
+      "variable": "efficiency_isentropic[0]",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "turbine isentropic efficiency"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash feed cooling temperature"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure drop"
+    },
+    {
+      "target": "F101",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash outlet temperature"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0, 'purge']",
+      "value": 0.9999,
+      "units": "dimensionless",
+      "role": "purge split fraction"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [
+    {
+      "arc_id": "s04",
+      "destination": "C101.inlet",
+      "method": "Wegstein",
+      "guesses": "blind methanol recycle tear guesses"
+    }
+  ],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "SequentialDecomposition over methanol recycle loop",
+    "solve_order": [
+      "H2",
+      "CO",
+      "M101",
+      "M102",
+      "C101",
+      "H101",
+      "R101",
+      "T101",
+      "H102",
+      "F101",
+      "S101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "methanol_ideal_vapor",
+    "methanol_ideal_VLE",
+    "methanol_reactions",
+    "Mixer",
+    "Compressor",
+    "Heater",
+    "StoichiometricReactor",
+    "Turbine",
+    "Flash",
+    "Splitter"
+  ],
+  "notes_for_agent_a": [
+    "Keep S101.recycle returning to M102.recycle as the recycle loop.",
+    "Do not collapse this case to the single-pass methanol topology.",
+    "Report EXHAUST purge and CH3OH liquid product streams."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_methanol_recycle_20260606/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 911,
+      "height": 169,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": true,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "co2_adsorption_desorption": false,
+        "methanol_synthesis": true,
+        "recycle": true,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict qwen neighbor methanol recycle. H2 and CO syngas feeds go through compressor, heaters, stoichiometric reactor, turbine, flash, and methanol product with recycle purge. This is methanol synthesis, not ethylene glycol.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "idaes.flowsheet.eg_stoichiometric",
+        "idaes.props.methanol_synthesis",
+        "watertap.flowsheet.mvc",
+        "watertap.unit.pressure_changer"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": true,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "eg_cstr": false,
+        "eg_pfr": false,
+        "eg_stoichiometric": false,
+        "smr_equilibrium": false,
+        "smr_gibbs": false,
+        "co2_adsorption_desorption": false,
+        "methanol_synthesis": true,
+        "recycle": true,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "methanol_recycle",
+        "qualified_templates": [
+          "methanol_recycle"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "eg_cstr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_cstr",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.flowsheet.eg_cstr"
+            ]
+          },
+          "eg_pfr": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_pfr",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.flowsheet.eg_pfr"
+            ]
+          },
+          "eg_stoichiometric": {
+            "qualified": false,
+            "failures": [
+              "missing required signal eg_stoichiometric",
+              "forbidden signal methanol_synthesis"
+            ]
+          },
+          "smr_equilibrium": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_equilibrium",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.flowsheet.smr_equilibrium"
+            ]
+          },
+          "smr_gibbs": {
+            "qualified": false,
+            "failures": [
+              "missing required signal smr_gibbs",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.flowsheet.smr_gibbs"
+            ]
+          },
+          "co2_adsorption_desorption": {
+            "qualified": false,
+            "failures": [
+              "missing required signal co2_adsorption_desorption",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc idaes.flowsheet.co2_adsorption_desorption"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": true,
+            "failures": []
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "forbidden signal recycle"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal pump_as_turbine_or_erd",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "forbidden signal methanol_synthesis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.8
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "idaes.props.methanol_synthesis",
+        "title": "IDAES methanol synthesis property and reaction packages",
+        "kind": "property_package",
+        "score": 76.0,
+        "matched_triggers": [
+          "methanol",
+          "syngas",
+          "methanol synthesis"
+        ],
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/methanol_synthesis_doc.html",
+        "text": "Use methanol ideal vapor/VLE property packages and methanol reaction package for syngas to methanol flowsheets with H2 and CO feeds, compressor, heaters, stoichiometric reactor, turbine, and flash recovery."
+      },
+      {
+        "doc_id": "idaes.flowsheet.eg_stoichiometric",
+        "title": "IDAES ethylene glycol StoichiometricReactor flowsheet",
+        "kind": "flowsheet",
+        "score": 28.0,
+        "matched_triggers": [
+          "stoichiometric reactor"
+        ],
+        "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Reactors/stoichiometric_reactor_doc.html",
+        "text": "Use the ethylene glycol StoichiometricReactor example for ethylene oxide and water feeds mixed, heated, and sent to a stoichiometric reactor to produce ethylene glycol."
+      },
+      {
+        "doc_id": "watertap.unit.pressure_changer",
+        "title": "WaterTAP pump and energy recovery pressure changers",
+        "kind": "unit_model",
+        "score": 24.0,
+        "matched_triggers": [
+          "turbine"
+        ],
+        "source_url": "",
+        "text": "Use Pump or EnergyRecoveryDevice-like pressure changer units for feed pumping and brine pressure recovery. Pump-as-turbine variants connect RO retentate to ERD inlet and disposal outlet."
+      },
+      {
+        "doc_id": "watertap.flowsheet.mvc",
+        "title": "WaterTAP mechanical vapor compression flowsheet",
+        "kind": "flowsheet",
+        "score": 24.0,
+        "matched_triggers": [
+          "compressor"
+        ],
+        "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/mvc.html",
+        "text": "Use the MVC single-stage flowsheet for mechanical vapor compression desalination with feed pump, feed separator, brine and distillate heat recovery, evaporator, compressor, condenser, product pumps, brine, and distillate outlets."
+      }
+    ]
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_recycle",
+    "chemical_change": "Adds explicit feed methane and makes the purge a binding inert-accumulation decision."
+  }
+}

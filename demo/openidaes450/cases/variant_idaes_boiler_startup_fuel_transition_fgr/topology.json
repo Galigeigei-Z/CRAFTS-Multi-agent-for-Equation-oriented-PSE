@@ -1,0 +1,229 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_boiler_startup_fuel_transition_fgr",
+  "family": "family_boiler_startup_transition",
+  "process_type": "Boiler Startup Fuel Transition with Controlled FGR",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent variant_idaes_boiler_biomass_cofire_fgr.",
+    "Adds time-ordered fuel chemistry transition and flue-gas dilution during cold startup.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "biomass",
+        "O2",
+        "CO",
+        "NOx",
+        "CO2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "biomass",
+      "O2",
+      "CO",
+      "NOx",
+      "CO2"
+    ]
+  },
+  "units": [
+    {
+      "id": "NG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "startup natural gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BIO",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "biomass",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "BlendController",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "fuel transition",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AIR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "combustion air",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "air/FGR mixing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BOILER",
+      "kind": "Boiler",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "startup combustion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S2",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "FGR/stack split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STEAM",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "startup steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STACK",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "boiler_startup_transition",
+      "role": "controlled stack gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "NG.outlet",
+      "destination": "S1.ng",
+      "stage": "boiler_startup_transition",
+      "role": "startup fuel",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BIO.outlet",
+      "destination": "S1.biomass",
+      "stage": "boiler_startup_transition",
+      "role": "biomass",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S1.outlet",
+      "destination": "BOILER.fuel",
+      "stage": "boiler_startup_transition",
+      "role": "transition fuel",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "AIR.outlet",
+      "destination": "M1.air",
+      "stage": "boiler_startup_transition",
+      "role": "air",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S2.recycle",
+      "destination": "M1.fgr",
+      "stage": "boiler_startup_transition",
+      "role": "FGR",
+      "tear_candidate": true
+    },
+    {
+      "id": "s06",
+      "source": "M1.outlet",
+      "destination": "BOILER.oxidant",
+      "stage": "boiler_startup_transition",
+      "role": "diluted oxidant",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "BOILER.flue",
+      "destination": "S2.inlet",
+      "stage": "boiler_startup_transition",
+      "role": "flue gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S2.stack",
+      "destination": "STACK.inlet",
+      "stage": "boiler_startup_transition",
+      "role": "stack",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "BOILER.steam",
+      "destination": "STEAM.inlet",
+      "stage": "boiler_startup_transition",
+      "role": "steam",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "NG.outlet",
+    "BIO.outlet",
+    "AIR.outlet"
+  ],
+  "unconnected_product_ports": [
+    "STEAM.inlet",
+    "STACK.inlet"
+  ],
+  "tear_streams": [
+    "s05"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_boiler_biomass_cofire_fgr",
+    "chemical_change": "Adds time-ordered fuel chemistry transition and flue-gas dilution during cold startup.",
+    "native_metrics": {
+      "flame_stability": 1.0099999999999998,
+      "co_index": 0.008,
+      "nox_index": 0.025,
+      "steam_temperature_K": 720.0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "properties.SCO2ParameterBlock"
+      },
+      {
+        "class": "properties.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "properties.SCO2ParameterBlock",
+    "module": "properties",
+    "data_class": "properties.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "thermodynamic_model": "CO2 surrogate property model",
+    "source_file": "property_sources/properties.py"
+  }
+]

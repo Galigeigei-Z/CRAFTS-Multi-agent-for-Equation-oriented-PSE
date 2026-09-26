@@ -1,0 +1,78 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_hydrogen_decrepitation_flowsheet",
+  "family": "family_prommis_hydrogen_decrepitation_flowsheet",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "shredder",
+      "variable": "mass_frac_comp[Nd2Fe14B]",
+      "value": 0.99,
+      "units": "dimensionless",
+      "role": "official HD flowsheet feed composition",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    },
+    {
+      "target": "shredder",
+      "variable": "mass_frac_comp[Nd]",
+      "value": 0.01,
+      "units": "dimensionless",
+      "role": "official HD flowsheet feed composition",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    },
+    {
+      "target": "h2_feed",
+      "variable": "mole_frac_comp[H2]",
+      "value": 1.0,
+      "units": "dimensionless",
+      "role": "pure hydrogen feed",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    },
+    {
+      "target": "hydrogen_decrepitation_furnace",
+      "variable": "operating_temperature",
+      "value": 443.15,
+      "units": "K",
+      "role": "official operating temperature",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    },
+    {
+      "target": "hydrogen_decrepitation_furnace",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official gas inlet pressure",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    },
+    {
+      "target": "hydrogen_decrepitation_furnace",
+      "variable": "decrepitation_duration",
+      "value": 10800.0,
+      "units": "s",
+      "role": "official decrepitation duration",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.hydrogen_decrepitation.hydrogen_decrepitation_flowsheet.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official BlockTriangularizationInitializer sequence",
+    "solve_order": [
+      "shredder",
+      "hydrogen_decrepitation_furnace"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

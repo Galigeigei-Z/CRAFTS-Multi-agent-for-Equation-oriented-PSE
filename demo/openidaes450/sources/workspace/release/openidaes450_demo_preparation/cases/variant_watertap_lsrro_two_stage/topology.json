@@ -1,0 +1,438 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_lsrro_two_stage",
+  "family": "family_watertap_lsrro",
+  "process_type": "Two-stage low-salt-rejection reverse osmosis with permeate recycle and pressure recovery",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html",
+  "source_basis": [
+    "Official WaterTAP LSRRO builder configured with number_of_stages=2.",
+    "Stage-2 permeate is boosted and recycled to the stage-1 mixer; it is not final product.",
+    "The variant is topology-distinct from the existing three-stage LSRRO case by one RO/pump/interstage section."
+  ],
+  "property_packages": {
+    "NaCl": {
+      "components": [
+        "H2O",
+        "NaCl"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "source": "watertap.property_models.NaCl_prop_pack"
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "NaCl"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "NaCl",
+      "stage": "feed",
+      "role": "70 kg/m3 saline feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PrimaryPump[1]",
+      "kind": "Pump",
+      "package": "NaCl",
+      "stage": "stage1",
+      "role": "pressurize mixed stage-1 feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "Mixer[1]",
+      "kind": "Mixer",
+      "package": "NaCl",
+      "stage": "stage1",
+      "role": "mix fresh feed with stage-2 permeate recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO[1]",
+      "kind": "ReverseOsmosis1D",
+      "package": "NaCl",
+      "stage": "stage1",
+      "role": "standard-rejection product stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ERD[1]",
+      "kind": "EnergyRecoveryDevice",
+      "package": "NaCl",
+      "stage": "interstage",
+      "role": "transfer stage-1 retentate pressure toward stage 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PrimaryPump[2]",
+      "kind": "Pump",
+      "package": "NaCl",
+      "stage": "stage2",
+      "role": "raise stage-2 retentate-feed pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO[2]",
+      "kind": "ReverseOsmosis1D",
+      "package": "NaCl",
+      "stage": "stage2",
+      "role": "low-salt-rejection concentration stage",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BoosterPump[2]",
+      "kind": "Pump",
+      "package": "NaCl",
+      "stage": "recycle",
+      "role": "repressurize stage-2 permeate recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ERD[2]",
+      "kind": "EnergyRecoveryDevice",
+      "package": "NaCl",
+      "stage": "disposal",
+      "role": "recover final brine pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "NaCl",
+      "stage": "product",
+      "role": "stage-1 permeate product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal",
+      "kind": "Product",
+      "package": "NaCl",
+      "stage": "disposal",
+      "role": "concentrated brine disposal",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "feed.outlet",
+      "destination": "PrimaryPump[1].inlet",
+      "stage": "feed",
+      "role": "fresh feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "PrimaryPump[1].outlet",
+      "destination": "Mixer[1].upstream",
+      "stage": "stage1",
+      "role": "pressurized fresh feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "Mixer[1].outlet",
+      "destination": "RO[1].inlet",
+      "stage": "stage1",
+      "role": "mixed stage-1 feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "RO[1].permeate",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "low-salinity product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "RO[1].retentate",
+      "destination": "ERD[1].inlet",
+      "stage": "interstage",
+      "role": "stage-1 retentate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "ERD[1].outlet",
+      "destination": "PrimaryPump[2].inlet",
+      "stage": "stage2",
+      "role": "interstage feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "PrimaryPump[2].outlet",
+      "destination": "RO[2].inlet",
+      "stage": "stage2",
+      "role": "stage-2 feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "RO[2].permeate",
+      "destination": "BoosterPump[2].inlet",
+      "stage": "recycle",
+      "role": "LSR permeate recycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "BoosterPump[2].outlet",
+      "destination": "Mixer[1].downstream",
+      "stage": "recycle",
+      "role": "repressurized recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s10",
+      "source": "RO[2].retentate",
+      "destination": "ERD[2].inlet",
+      "stage": "disposal",
+      "role": "final brine",
+      "tear_candidate": false
+    },
+    {
+      "id": "s11",
+      "source": "ERD[2].outlet",
+      "destination": "disposal.inlet",
+      "stage": "disposal",
+      "role": "depressurized brine",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "properties[0].conc_mass_phase_comp['Liq','NaCl']",
+      "value": 70,
+      "units": "kg/m3",
+      "role": "feed NaCl concentration",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "feed",
+      "variable": "properties[0].flow_vol_phase['Liq']",
+      "value": 0.001,
+      "units": "m3/s",
+      "role": "feed volumetric flow",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 293.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "PrimaryPump[1]",
+      "variable": "outlet.pressure[0]",
+      "value": 7500000,
+      "units": "Pa",
+      "role": "stage-1 pump pressure",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "PrimaryPump[2]",
+      "variable": "outlet.pressure[0]",
+      "value": 7500000,
+      "units": "Pa",
+      "role": "stage-2 pump pressure",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "PrimaryPump[1]",
+      "variable": "efficiency_pump[0]",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "primary pump efficiency",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "PrimaryPump[2]",
+      "variable": "efficiency_pump[0]",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "primary pump efficiency",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "BoosterPump[2]",
+      "variable": "efficiency_pump[0]",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "recycle booster efficiency",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[1]",
+      "variable": "area",
+      "value": 100,
+      "units": "m2",
+      "role": "stage-1 membrane area",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[2]",
+      "variable": "area",
+      "value": 50,
+      "units": "m2",
+      "role": "stage-2 membrane area",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[1]",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[2]",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[1]",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-08,
+      "units": "m/s",
+      "role": "standard salt permeability",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "RO[2]",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-06,
+      "units": "m/s",
+      "role": "low-salt-rejection permeability",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "ERD[1]",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "interstage ERD efficiency",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "ERD[2]",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "brine ERD efficiency",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "ERD[1]",
+      "variable": "outlet.pressure[0]",
+      "value": 7000000,
+      "units": "Pa",
+      "role": "interstage ERD outlet pressure",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "ERD[2]",
+      "variable": "outlet.pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "disposal pressure",
+      "source": "official_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "product.inlet",
+    "disposal.inlet"
+  ],
+  "tear_streams": [
+    {
+      "arc_id": "s09",
+      "destination": "Mixer[1].downstream",
+      "method": "Direct",
+      "guesses": "WaterTAP LSRRO initialization"
+    }
+  ],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "WaterTAP forward/backward passes with recycle tear convergence",
+    "tear_destination": "Mixer[1].downstream",
+    "solve_order": [
+      "feed",
+      "PrimaryPump[1]",
+      "Mixer[1]",
+      "RO[1]",
+      "ERD[1]",
+      "PrimaryPump[2]",
+      "RO[2]",
+      "BoosterPump[2]",
+      "ERD[2]",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Pump",
+    "Mixer",
+    "ReverseOsmosis1D",
+    "EnergyRecoveryDevice",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep stage-2 permeate recycle explicit.",
+    "Do not describe LSRRO as a conventional two-pass permeate-polishing train."
+  ]
+}

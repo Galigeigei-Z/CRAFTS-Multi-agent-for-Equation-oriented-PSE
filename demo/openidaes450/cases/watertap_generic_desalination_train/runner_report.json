@@ -1,0 +1,269 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_generic_desalination_train",
+  "official_reference_url": "https://watertap.readthedocs.io/en/1.5.0/technical_reference/flowsheets/generic_desalination_train.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "generic_train_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "generic_train_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "generic_train_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "generic_train_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "generic_train_streams_available",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "levelized_cost_of_water": 1.0831234256926776,
+  "water_recovery_percent": 99.24999999999999,
+  "feed_h2o_flow_kg_s": 1.0,
+  "product_h2o_flow_kg_s": 0.9962858863681945,
+  "disposal_h2o_flow_kg_s": 0.0037141136318054424,
+  "feed_tds_conc_kg_m3": 3.499999999998186,
+  "feed_x_conc_kg_m3": 0.2999999999972638,
+  "desal_1_water_recovery_percent": 85.0,
+  "desal_2_water_recovery_percent": 50.0,
+  "desal_3_water_recovery_percent": 90.0,
+  "annual_feed_cost": 1.0000000000001504e-16,
+  "annual_product_cost": 1.0000000000001504e-16,
+  "annual_disposal_cost": 237.58482232483325,
+  "stream_values": {
+    "feed_to_pretreatment": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 0.003513350732782744,
+        "Liq/X": 0.00030114434852164464
+      },
+      "mass_flow": 1.0038144950813044,
+      "flow_kg_s": 1.0038144950813044,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9962000000000045,
+        "Liq/TDS": 0.0034999999999981856,
+        "Liq/X": 0.00029999999999726377
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.Pretreatment.separator.inlet"
+    },
+    "pretreatment_to_desal_1": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 1.0038144950813044,
+      "flow_kg_s": 1.0038144950813044,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9962000000000045,
+        "Liq/TDS": 0.0034999999999982346,
+        "Liq/X": 0.00029999999999731354
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Pretreatment.separator.treated",
+      "destination_port": "fs.Desal_1.desalter.inlet"
+    },
+    "desal_1_brine_to_desal_2": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.14675767918089133,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 0.15057217426219582,
+      "flow_kg_s": 0.15057217426219582,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9746666666666963,
+        "Liq/TDS": 0.02333333333332154,
+        "Liq/X": 0.001999999999982088
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_1.desalter.brine",
+      "destination_port": "fs.Desal_2.desalter.inlet"
+    },
+    "desal_2_brine_to_desal_3": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.0714715920497935,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 0.075286087131098,
+      "flow_kg_s": 0.075286087131098,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9493333333333928,
+        "Liq/TDS": 0.04666666666664303,
+        "Liq/X": 0.003999999999964172
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_2.desalter.brine",
+      "destination_port": "fs.Desal_3.desalter.inlet"
+    },
+    "desal_3_brine_to_valorizer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.0037141136318054424,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 0.0075286087131099305,
+      "flow_kg_s": 0.0075286087131099305,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.4933333333339368,
+        "Liq/TDS": 0.46666666666642215,
+        "Liq/X": 0.039999999999641024
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_3.desalter.brine",
+      "destination_port": "fs.Valorizer.separator.inlet"
+    },
+    "desal_1_product_to_product_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.8532423208191086,
+        "Liq/TDS": 5.000000000000752e-17,
+        "Liq/X": 5.000000000000752e-17
+      },
+      "mass_flow": 0.8532423208191086,
+      "flow_kg_s": 0.8532423208191086,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.860000000000909e-17,
+        "Liq/X": 5.860000000000909e-17
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_1.desalter.product",
+      "destination_port": "fs.product_mixer.Desal_1"
+    },
+    "desal_2_product_to_product_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.07528608713109787,
+        "Liq/TDS": 5.000000000000752e-17,
+        "Liq/X": 5.000000000000752e-17
+      },
+      "mass_flow": 0.07528608713109798,
+      "flow_kg_s": 0.07528608713109798,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9999999999999986,
+        "Liq/TDS": 6.641333333334349e-16,
+        "Liq/X": 6.641333333334349e-16
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_2.desalter.product",
+      "destination_port": "fs.product_mixer.Desal_2"
+    },
+    "desal_3_product_to_product_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.06775747841798811,
+        "Liq/TDS": 5.000000000000752e-17,
+        "Liq/X": 5.000000000000752e-17
+      },
+      "mass_flow": 0.06775747841798822,
+      "flow_kg_s": 0.06775747841798822,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9999999999999983,
+        "Liq/TDS": 7.379259259260383e-16,
+        "Liq/X": 7.379259259260383e-16
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Desal_3.desalter.product",
+      "destination_port": "fs.product_mixer.Desal_3"
+    },
+    "product_mixer_to_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.9962858863681945,
+        "Liq/TDS": 5.000000000000752e-17,
+        "Liq/X": 5.000000000000752e-17
+      },
+      "mass_flow": 0.9962858863681945,
+      "flow_kg_s": 0.9962858863681945,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.018639798489443e-17,
+        "Liq/X": 5.018639798489443e-17
+      },
+      "temperature": 298.15,
+      "pressure": 101324.99919098357,
+      "source_port": "fs.product_mixer.outlet",
+      "destination_port": "fs.product.inlet"
+    },
+    "pretreatment_disposal_to_disposal_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 5.000000000000752e-17,
+        "Liq/TDS": 5.000000000000752e-17,
+        "Liq/X": 5.000000000000752e-17
+      },
+      "mass_flow": 1.5000000000002255e-16,
+      "flow_kg_s": 1.5000000000002255e-16,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.3333333333333333,
+        "Liq/TDS": 0.3333333333333333,
+        "Liq/X": 0.3333333333333333
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Pretreatment.separator.product",
+      "destination_port": "fs.disposal_mixer.Pretreatment"
+    },
+    "valorizer_disposal_to_disposal_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.0037141136318054424,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 0.0075286087131099305,
+      "flow_kg_s": 0.0075286087131099305,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.4933333333339368,
+        "Liq/TDS": 0.46666666666642215,
+        "Liq/X": 0.039999999999641024
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.Valorizer.separator.treated",
+      "destination_port": "fs.disposal_mixer.Valorizer"
+    },
+    "disposal_mixer_to_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.0037141136318054424,
+        "Liq/TDS": 0.0035133507327827934,
+        "Liq/X": 0.0003011443485216946
+      },
+      "mass_flow": 0.0075286087131099305,
+      "flow_kg_s": 0.0075286087131099305,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.4933333333339368,
+        "Liq/TDS": 0.46666666666642215,
+        "Liq/X": 0.039999999999641024
+      },
+      "temperature": 298.15,
+      "pressure": 101324.99950000015,
+      "source_port": "fs.disposal_mixer.outlet",
+      "destination_port": "fs.disposal.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.generic_desalination_train.generic_train",
+    "train_type": "Pretreatment>Desal1>Desal2>Crystalizer>Valorizer",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

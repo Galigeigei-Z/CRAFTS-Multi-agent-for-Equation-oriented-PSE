@@ -1,0 +1,498 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "official_supercritical_steam_cycle",
+  "family": "family_supercritical_steam_cycle",
+  "process_type": "Official IDAES supercritical pulverized-coal steam cycle flowsheet with turbine train, condenser, pumps, and feedwater heaters",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/supercritical/supercritical_steam_cycle_doc.html",
+  "source_basis": [
+    "Official IDAES Supercritical Steam Cycle example displays a process flow diagram from supercritical_steam_cycle.svg.",
+    "Topology is rebuilt from the official create_model() Arc declarations in supercritical_steam_cycle.py.",
+    "The official _stream_dict() exposes 45 named display streams, including the top-level Arcs and non-Arc streams such as STEAM_MAIN, RHT_COLD, RHT_HOT, CW01, CW02, MAKEUP_01, and FW08.",
+    "The official package runner builds and initializes the full steam-cycle flowsheet and solves it with IPOPT.",
+    "Local smoke run passed with optimal termination, gross power near 622 MW, and steam-cycle efficiency near 44.26 percent."
+  ],
+  "property_packages": {
+    "iapws95": {
+      "entry_id": "iapws95_water_steam",
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Mix"
+      ],
+      "scope": [
+        "steam_cycle"
+      ]
+    }
+  },
+  "components": {
+    "water_steam": [
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "boiler_reheater",
+      "kind": "ExternalBoilerReheater",
+      "package": "iapws95",
+      "stage": "steam_generation",
+      "role": "external boiler heat and reheat boundary represented in official expressions",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "turb",
+      "kind": "HelmTurbineMultistage",
+      "package": "iapws95",
+      "stage": "turbine_train",
+      "role": "official HP/IP/LP multistage turbine with extraction splits",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "condenser_mix",
+      "kind": "Mixer",
+      "package": "iapws95",
+      "stage": "condenser_section",
+      "role": "mix main turbine and BFPT exhaust",
+      "constructor": {
+        "inlet_list": [
+          "main",
+          "bfpt"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "condenser",
+      "kind": "HelmNtuCondenser",
+      "package": "iapws95",
+      "stage": "condenser_section",
+      "role": "surface condenser with cooling-water side",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hotwell",
+      "kind": "HelmMixer",
+      "package": "iapws95",
+      "stage": "condenser_section",
+      "role": "hotwell condensate and makeup mixer",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cond_pump",
+      "kind": "HelmIsentropicCompressor",
+      "package": "iapws95",
+      "stage": "feedwater_train",
+      "role": "condensate pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "low-pressure feedwater heater 1",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1_pump",
+      "kind": "HelmIsentropicCompressor",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH1 drain pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh1_return",
+      "kind": "Mixer",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "return FWH1 pumped drain to feedwater",
+      "constructor": {
+        "inlet_list": [
+          "fwh1_drain",
+          "feedwater"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "fwh2",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "low-pressure feedwater heater 2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh3",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "low-pressure feedwater heater 3",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh4",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "low-pressure feedwater heater 4",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh5_da",
+      "kind": "HelmMixer",
+      "package": "iapws95",
+      "stage": "deaerator_and_bfp",
+      "role": "deaerating feedwater heater 5",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfp",
+      "kind": "HelmIsentropicCompressor",
+      "package": "iapws95",
+      "stage": "deaerator_and_bfp",
+      "role": "boiler feed pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "bfpt",
+      "kind": "HelmTurbineStage",
+      "package": "iapws95",
+      "stage": "deaerator_and_bfp",
+      "role": "boiler-feed-pump turbine",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh6",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "high-pressure feedwater heater 6",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh7",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "high-pressure feedwater heater 7",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh8",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "high-pressure feedwater heater 8",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "EXHST_MAIN",
+      "source": "turb.outlet_stage.outlet",
+      "destination": "condenser_mix.main",
+      "stage": "condenser_section",
+      "role": "main turbine exhaust to condenser mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "condenser_mix_to_condenser",
+      "source": "condenser_mix.outlet",
+      "destination": "condenser.hot_side_inlet",
+      "stage": "condenser_section",
+      "role": "mixed exhaust to condenser",
+      "tear_candidate": false
+    },
+    {
+      "id": "COND_01",
+      "source": "condenser.hot_side_outlet",
+      "destination": "hotwell.condensate",
+      "stage": "condenser_section",
+      "role": "condensate from condenser to hotwell",
+      "tear_candidate": false
+    },
+    {
+      "id": "COND_02",
+      "source": "hotwell.outlet",
+      "destination": "cond_pump.inlet",
+      "stage": "condenser_section",
+      "role": "hotwell outlet to condensate pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_LP11",
+      "source": "turb.lp_split[11].outlet_2",
+      "destination": "fwh1.drain_mix.steam",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "LP extraction to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "COND_03",
+      "source": "cond_pump.outlet",
+      "destination": "fwh1.condense.cold_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "pumped condensate to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH1_DRN1",
+      "source": "fwh1.condense.hot_side_outlet",
+      "destination": "fwh1_pump.inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH1 drain to FWH1 pump",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH1_DRN2",
+      "source": "fwh1_pump.outlet",
+      "destination": "fwh1_return.fwh1_drain",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH1 pumped drain to return mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW01A",
+      "source": "fwh1.condense.cold_side_outlet",
+      "destination": "fwh1_return.feedwater",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH1 feedwater to return mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW01B",
+      "source": "fwh1_return.outlet",
+      "destination": "fwh2.cooling.cold_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "return mixer to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH2_DRN",
+      "source": "fwh2.cooling.hot_side_outlet",
+      "destination": "fwh1.drain_mix.drain",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH2 drain cascades to FWH1",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_LP10",
+      "source": "turb.lp_split[10].outlet_2",
+      "destination": "fwh2.desuperheat.hot_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "LP extraction to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW02",
+      "source": "fwh2.desuperheat.cold_side_outlet",
+      "destination": "fwh3.cooling.cold_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH2 feedwater to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH3_DRN",
+      "source": "fwh3.cooling.hot_side_outlet",
+      "destination": "fwh2.drain_mix.drain",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH3 drain cascades to FWH2",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_LP8",
+      "source": "turb.lp_split[8].outlet_2",
+      "destination": "fwh3.desuperheat.hot_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "LP extraction to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW03",
+      "source": "fwh3.desuperheat.cold_side_outlet",
+      "destination": "fwh4.cooling.cold_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH3 feedwater to FWH4",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH4_DRN",
+      "source": "fwh4.cooling.hot_side_outlet",
+      "destination": "fwh3.drain_mix.drain",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "FWH4 drain cascades to FWH3",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_LP4",
+      "source": "turb.lp_split[4].outlet_2",
+      "destination": "fwh4.desuperheat.hot_side_inlet",
+      "stage": "low_pressure_feedwater_heaters",
+      "role": "LP extraction to FWH4",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW04",
+      "source": "fwh4.desuperheat.cold_side_outlet",
+      "destination": "fwh5_da.feedwater",
+      "stage": "deaerator_and_bfp",
+      "role": "FWH4 feedwater to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_IP10",
+      "source": "turb.ip_split[10].outlet_2",
+      "destination": "fwh5_da.steam",
+      "stage": "deaerator_and_bfp",
+      "role": "IP extraction to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW05A",
+      "source": "fwh5_da.outlet",
+      "destination": "bfp.inlet",
+      "stage": "deaerator_and_bfp",
+      "role": "deaerator outlet to BFP",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_BFPT_A",
+      "source": "turb.ip_split[10].outlet_3",
+      "destination": "bfpt.inlet",
+      "stage": "deaerator_and_bfp",
+      "role": "IP extraction to BFPT",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXHST_BFPT",
+      "source": "bfpt.outlet",
+      "destination": "condenser_mix.bfpt",
+      "stage": "deaerator_and_bfp",
+      "role": "BFPT exhaust to condenser mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW05B",
+      "source": "bfp.outlet",
+      "destination": "fwh6.cooling.cold_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "BFP outlet to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH6_DRN",
+      "source": "fwh6.cooling.hot_side_outlet",
+      "destination": "fwh5_da.drain",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "FWH6 drain to deaerator",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_IP5",
+      "source": "turb.ip_split[5].outlet_2",
+      "destination": "fwh6.desuperheat.hot_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "IP extraction to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW06",
+      "source": "fwh6.desuperheat.cold_side_outlet",
+      "destination": "fwh7.cooling.cold_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "FWH6 feedwater to FWH7",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH7_DRN",
+      "source": "fwh7.cooling.hot_side_outlet",
+      "destination": "fwh6.drain_mix.drain",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "FWH7 drain cascades to FWH6",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_HP7",
+      "source": "turb.hp_split[7].outlet_2",
+      "destination": "fwh7.desuperheat.hot_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "HP extraction to FWH7",
+      "tear_candidate": false
+    },
+    {
+      "id": "FW07",
+      "source": "fwh7.desuperheat.cold_side_outlet",
+      "destination": "fwh8.cooling.cold_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "FWH7 feedwater to FWH8",
+      "tear_candidate": false
+    },
+    {
+      "id": "FWH8_DRN",
+      "source": "fwh8.cooling.hot_side_outlet",
+      "destination": "fwh7.drain_mix.drain",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "FWH8 drain cascades to FWH7",
+      "tear_candidate": false
+    },
+    {
+      "id": "EXTR_HP4",
+      "source": "turb.hp_split[4].outlet_2",
+      "destination": "fwh8.desuperheat.hot_side_inlet",
+      "stage": "high_pressure_feedwater_heaters",
+      "role": "HP extraction to FWH8",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official supercritical_steam_cycle.main()",
+    "solve_order": [
+      "steam_cycle"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "official_supercritical_steam_cycle",
+    "supercritical_steam_cycle.py:create_model",
+    "supercritical_steam_cycle.py:_stream_dict",
+    "supercritical_steam_cycle.svg"
+  ],
+  "notes_for_agent_a": [
+    "Use the official package runner for validation.",
+    "Do not collapse this case to a single steam_cycle node; keep the official turbine, condenser, hotwell, feedwater-heater, BFP, and BFPT topology.",
+    "Use the official package SVG PFD as the source flowchart.",
+    "Use create_stream_table_dataframe(model._streams, orient='index') for solved stream data.",
+    "This is a larger power-generation regression than the small unit canaries."
+  ]
+}

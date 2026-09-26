@@ -1,0 +1,68 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "prommis_mixer_settler_ex_steady",
+  "family": "family_prommis_mixer_settler_ex_steady",
+  "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "aqueous_feed",
+      "variable": "flow_vol",
+      "value": 62.01,
+      "units": "m^3/s",
+      "role": "official aqueous inlet volumetric flow",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html"
+    },
+    {
+      "target": "organic_feed",
+      "variable": "flow_vol",
+      "value": 62.01,
+      "units": "m^3/s",
+      "role": "official organic inlet volumetric flow",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html"
+    },
+    {
+      "target": "organic_feed",
+      "variable": "conc_mass_comp[DEHPA]",
+      "value": 48790.0,
+      "units": "g/m^3",
+      "role": "5 percent extractant dosage",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html"
+    },
+    {
+      "target": "mixer_settler_ex",
+      "variable": "number_of_stages",
+      "value": 3,
+      "units": "dimensionless",
+      "role": "official number of stages",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html"
+    },
+    {
+      "target": "mixer_settler_ex",
+      "variable": "dosage",
+      "value": 5,
+      "units": "percent",
+      "role": "official extractant dosage",
+      "source": "reference",
+      "source_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.solvent_extraction.mixer_settler_ex_flowsheet_steady.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official MixerSettlerExtractionInitializer",
+    "solve_order": [
+      "mixer_settler_ex"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt_v2",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

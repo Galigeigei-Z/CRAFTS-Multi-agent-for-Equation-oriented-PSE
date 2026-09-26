@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_dye_desalination",
+  "family": "family_watertap_dye_desalination",
+  "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 280,
+      "units": "m^3/hr",
+      "role": "official dye wastewater feed",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "feed",
+      "variable": "dye_concentration",
+      "value": 0.2,
+      "units": "kg/m^3",
+      "role": "dye feed concentration",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "feed",
+      "variable": "tds_concentration",
+      "value": 2,
+      "units": "kg/m^3",
+      "role": "TDS feed concentration",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "dye_nanofiltration",
+      "variable": "water_recovery",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "NF water recovery",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "gac",
+      "variable": "bed_length",
+      "value": 6,
+      "units": "m",
+      "role": "GAC bed length",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "RO",
+      "variable": "recovery_vol_phase",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "initial RO recovery",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    },
+    {
+      "target": "PXR",
+      "variable": "efficiency_pressure_exchanger",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "pressure exchanger efficiency",
+      "source": "reference",
+      "source_url": "local://watertap/flowsheets/dye_desalination/dye_desalination_gac_ro"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "dye_desalination.build with RO_1D=False, include_RO=True, include_gac=True; set operating conditions, initialize NF/GAC/RO, add costing, solve square model",
+    "solve_order": [
+      "feed",
+      "dye NF",
+      "GAC branch",
+      "RO/PXR branch",
+      "products",
+      "costing"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

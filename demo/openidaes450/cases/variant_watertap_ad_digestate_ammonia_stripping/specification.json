@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_ad_digestate_ammonia_stripping",
+  "family": "family_digestate_strip",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "strip_temperature_C",
+      "value": 80,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "strip_pH",
+      "value": 10.5,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ammonia_recovery_fraction",
+      "value": 0.8628768678648766,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "effluent_ammonium_kg_s",
+      "value": 0.00013712313213512344,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "ammonium_sulfate_n_kg_s",
+      "value": 0.0008628768678648766,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "energy_reagent_index",
+      "value": 202.5,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "DIGESTATE.outlet",
+    "NAOH.outlet"
+  ],
+  "terminal_product_ports": [
+    "FERT.inlet",
+    "LIQUID.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_anaerobic_digester_unit"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_anaerobic_digester_unit",
+    "chemical_change": "Adds ammonia volatilization and a recovered ammonium-sulfate product to digestate handling.",
+    "native_metrics": {
+      "ammonia_recovery_fraction": 0.8628768678648766,
+      "effluent_ammonium_kg_s": 0.00013712313213512344,
+      "ammonium_sulfate_n_kg_s": 0.0008628768678648766,
+      "energy_reagent_index": 202.5
+    }
+  }
+}

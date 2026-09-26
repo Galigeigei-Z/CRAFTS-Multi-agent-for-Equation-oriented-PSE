@@ -1,0 +1,29 @@
+[
+  {
+    "name": "fs.lex",
+    "class": "idaes.core.base.process_block._ScalarLiqExtraction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "has_pressure_change": false,
+      "has_phase_equilibrium": false,
+      "organic_property_package": {
+        "component": "fs.org_properties"
+      },
+      "organic_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "aqueous_property_package": {
+        "component": "fs.aq_properties"
+      },
+      "aqueous_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  }
+]

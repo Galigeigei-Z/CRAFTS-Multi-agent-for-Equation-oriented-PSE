@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "termination_condition": "optimal",
+  "metrics": {
+    "pass": true,
+    "status": "optimized",
+    "stage": "gtep_variant_gdp_bigm_highs",
+    "termination_condition": "optimal",
+    "solver": "highs",
+    "metrics": {
+      "bus_count": 34,
+      "branch_count": 79,
+      "generator_count": 214,
+      "load_count": 34,
+      "storage_count": 0,
+      "variables_before_gdp_transform": 1960,
+      "constraints_before_gdp_transform": 766,
+      "disjunctions_before_gdp_transform": 300,
+      "objective_value": 175051.03654309682
+    },
+    "configuration": {
+      "scenario": "wecc_full_corridor",
+      "dataset": "WECC_USAEE",
+      "flow_model": "DC",
+      "big_m": 1000000.0,
+      "compatibility_fixes": [
+        {
+          "id": "wecc_dc_corridor_reactance_proxy",
+          "reason": "Official dc_branch rows omit reactance required by the current GTEP DC-flow equation; use a uniform 0.1 p.u. corridor proxy."
+        }
+      ],
+      "dc_corridor_count": 74,
+      "candidate_corridor_count": 5
+    },
+    "error": null
+  },
+  "model_fidelity": "native_grid_optimization",
+  "solver_summary_file": "solver_summary.json"
+}

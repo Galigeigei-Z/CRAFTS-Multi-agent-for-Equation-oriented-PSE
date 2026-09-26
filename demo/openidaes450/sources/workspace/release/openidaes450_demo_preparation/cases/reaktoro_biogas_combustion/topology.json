@@ -1,0 +1,89 @@
+{
+  "arcs": [
+    {
+      "destination": "model.biogas",
+      "destination_port": "biogas",
+      "id": "biogas_to_model",
+      "source": "biogas.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.air",
+      "destination_port": "air",
+      "id": "air_to_model",
+      "source": "air.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "exhaust.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_exhaust",
+      "source": "model.exhaust",
+      "source_port": "exhaust",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reaktoro_biogas_combustion",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reaktoro_biogas_combustion",
+  "initialization_order": [
+    "biogas",
+    "air",
+    "model",
+    "exhaust"
+  ],
+  "open_decisions": [],
+  "process_type": "Reaktoro-PSE Biogas Combustion",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official Reaktoro-PSE biogas example tests across six Hessian strategies"
+  ],
+  "source_url": "https://github.com/watertap-org/reaktoro-pse/blob/24b8f14ac271a99c91bd30df0b474d21a68ca4be/src/reaktoro_pse/examples/biogas_combustion.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "biogas",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "air",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ReaktoroBiogasCombustion",
+      "package": null,
+      "role": "Source-derived ReaktoroBiogasCombustion node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "exhaust",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

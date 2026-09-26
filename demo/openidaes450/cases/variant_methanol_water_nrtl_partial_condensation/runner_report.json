@@ -1,0 +1,91 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "methanol_water_nrtl_partial_condensation",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "native_idaes_solve_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "methanol_product_purity_at_least_95_mol_pct",
+      "pass": true
+    },
+    {
+      "name": "staged_vle_enriches_methanol",
+      "pass": true
+    },
+    {
+      "name": "methanol_recovery_above_30_pct",
+      "pass": true
+    },
+    {
+      "name": "polisher_requires_cooling",
+      "pass": true
+    },
+    {
+      "name": "feed_flash_is_vapor_state",
+      "pass": true
+    },
+    {
+      "name": "partial_condenser_rejects_water",
+      "pass": true
+    },
+    {
+      "name": "flash_molar_balance_closes",
+      "pass": true
+    },
+    {
+      "name": "polisher_molar_balance_closes",
+      "pass": true
+    }
+  ],
+  "variant_metrics": {
+    "feed_flow_mol_s": 100.0,
+    "feed_methanol_mol_s": 90.0,
+    "feed_methanol_mole_fraction": 0.9,
+    "flash_vapor_flow_mol_s": 99.99999874280486,
+    "flash_vapor_methanol_mole_fraction": 0.9000000020835757,
+    "flash_liquid_water_mole_fraction": 0.2656698284869923,
+    "flash_total_molar_closure": 1.0,
+    "polished_vapor_flow_mol_s": 33.979458910797426,
+    "polished_vapor_methanol_mole_fraction": 0.9527613878000533,
+    "polisher_condensate_flow_mol_s": 66.02053983200742,
+    "polisher_condensate_water_mole_fraction": 0.12715523388320038,
+    "purified_product_flow_mol_s": 33.979458910797426,
+    "purified_product_methanol_mole_fraction": 0.9527613878000533,
+    "overall_methanol_recovery": 0.35971462698384715,
+    "polisher_total_molar_closure": 0.9999999999999999,
+    "polisher_cooling_duty_kW": -2487.579455420288,
+    "nrtl_tau_meoh_water_at_350K": -0.27180597950682234,
+    "nrtl_tau_water_meoh_at_350K": 1.1398670074196815
+  },
+  "source_summary": {
+    "property_model": "ideal vapor + temperature-dependent liquid NRTL (tau_ij=b_ij/T)",
+    "binary_system": "methanol (CAS 67-56-1) / water (CAS 7732-18-5)",
+    "parameter_source": "thermo 0.6.0 ChemSep NRTL interaction-parameter database",
+    "source_url": "https://github.com/CalebBell/thermo/tree/0.6.0",
+    "source_version": "0.6.0",
+    "license": "MIT",
+    "nrtl_b_K": {
+      "methanol_to_water": -95.13209282738782,
+      "water_to_methanol": 398.95345259688855
+    },
+    "nrtl_alpha": 0.2999,
+    "evidence_boundary": "Steady-state binary MeOH-H2O equilibrium stages at 1 atm. Dissolved synthesis gases, higher alcohols, salts, pressure drop, equipment sizing, and downstream total condensation are not represented.",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

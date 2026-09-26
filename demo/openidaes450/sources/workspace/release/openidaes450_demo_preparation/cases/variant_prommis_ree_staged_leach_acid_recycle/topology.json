@@ -1,0 +1,224 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_prommis_ree_staged_leach_acid_recycle",
+  "family": "family_ree_staged_leach",
+  "process_type": "Staged REE Leach with Acid Recycle and Residue Washing",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_e_v8.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_prommis_leach_flowsheet.",
+    "Adds reaction staging, counter-current residue washing and acid-bearing filtrate recycle.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "REE_mineral",
+        "H2SO4",
+        "REE_aqueous",
+        "gangue"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_prommis_leach_flowsheet"
+    }
+  },
+  "components": {
+    "tracked": [
+      "REE_mineral",
+      "H2SO4",
+      "REE_aqueous",
+      "gangue"
+    ]
+  },
+  "units": [
+    {
+      "id": "ORE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "REE-bearing solid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ACID",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "acid makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "L1",
+      "kind": "LeachReactor",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "selective first leach",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "L2",
+      "kind": "LeachReactor",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "deep second leach",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F1",
+      "kind": "Filter",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "pregnant liquor separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "W1",
+      "kind": "Washer",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "counter-current residue wash",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "wash recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PLS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "REE pregnant liquor",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RES",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "ree_staged_leach",
+      "role": "washed residue",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "ORE.outlet",
+      "destination": "L1.solid",
+      "stage": "ree_staged_leach",
+      "role": "ore",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ACID.outlet",
+      "destination": "L1.acid",
+      "stage": "ree_staged_leach",
+      "role": "fresh acid",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "L1.slurry",
+      "destination": "L2.inlet",
+      "stage": "ree_staged_leach",
+      "role": "partly leached slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "L2.slurry",
+      "destination": "F1.inlet",
+      "stage": "ree_staged_leach",
+      "role": "leach slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "F1.liquid",
+      "destination": "PLS.inlet",
+      "stage": "ree_staged_leach",
+      "role": "pregnant liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "F1.solid",
+      "destination": "W1.solid",
+      "stage": "ree_staged_leach",
+      "role": "leach residue",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "W1.filtrate",
+      "destination": "S1.inlet",
+      "stage": "ree_staged_leach",
+      "role": "acid wash filtrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S1.recycle",
+      "destination": "L1.recycle",
+      "stage": "ree_staged_leach",
+      "role": "acid recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s09",
+      "source": "W1.solid",
+      "destination": "RES.inlet",
+      "stage": "ree_staged_leach",
+      "role": "washed residue",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "ORE.outlet",
+    "ACID.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PLS.inlet",
+    "RES.inlet"
+  ],
+  "tear_streams": [
+    "s08"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_prommis_leach_flowsheet"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_prommis_leach_flowsheet",
+    "chemical_change": "Adds reaction staging, counter-current residue washing and acid-bearing filtrate recycle.",
+    "native_metrics": {
+      "ree_recovery": 0.928,
+      "gangue_dissolution": 0.05900000000000001,
+      "fresh_acid_index": 0.84,
+      "residue_acid_fraction": 0.0
+    }
+  }
+}

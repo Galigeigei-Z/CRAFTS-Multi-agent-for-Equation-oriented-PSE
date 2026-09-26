@@ -1,0 +1,129 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_ad_biogas_chp_heat_integrated",
+  "family": "family_watertap_anaerobic_digester_unit",
+  "source_url": "local://stage4_optimization/run_watertap_ad_biogas_chp_heat_integration.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.0019675925925925924,
+      "units": "m^3/s",
+      "role": "official test feed flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "ambient sludge feed before CHP heat recovery",
+      "source": "variant_configuration",
+      "source_url": "local://stage4_optimization/run_watertap_ad_biogas_chp_heat_integration.py"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "digester feed pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_liquid",
+      "value": 3400.0,
+      "units": "m^3",
+      "role": "liquid digester volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_vapor",
+      "value": 300.0,
+      "units": "m^3",
+      "role": "vapor headspace volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "liquid_digestate",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "fixed outlet liquid temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "chp",
+      "variable": "chp_biogas_fraction",
+      "value": 0.06936460469803082,
+      "units": "fraction",
+      "role": "heat-led solved decision",
+      "source": "native_execution_report",
+      "source_url": "local://stage4_optimization/run_watertap_ad_biogas_chp_heat_integration.py"
+    },
+    {
+      "target": "chp",
+      "variable": "electrical_efficiency",
+      "value": 0.35,
+      "units": "fraction",
+      "role": "CHP conversion assumption",
+      "source": "variant_configuration",
+      "source_url": "local://stage4_optimization/run_watertap_ad_biogas_chp_heat_integration.py"
+    },
+    {
+      "target": "chp",
+      "variable": "useful_heat_efficiency",
+      "value": 0.45,
+      "units": "fraction",
+      "role": "CHP conversion assumption",
+      "source": "variant_configuration",
+      "source_url": "local://stage4_optimization/run_watertap_ad_biogas_chp_heat_integration.py"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [
+    "liquid_digestate.outlet",
+    "export_biogas.outlet",
+    "electricity_export.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "Initialize and solve the official WaterTAP AD unit, add explicit Pyomo methane-LHV/CHP balances, then solve the closed heat-led extension.",
+    "solve_order": [
+      "ADM1 digestion",
+      "raw biogas split",
+      "CHP energy conversion",
+      "recovered-heat closure"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_anaerobic_digester_unit",
+    "chemical_change": "Adds a physical biogas split, heat-led CHP conversion, recovered-heat return to an ambient sludge feed, net electricity, and exported-biogas branches.",
+    "native_metrics": {
+      "methane_mass_flow_kg_s": 0.052697623091081405,
+      "biogas_fuel_power_kw": 2634.8811545540702,
+      "feed_heating_duty_kw": 82.24537037037037,
+      "recovered_chp_heat_kw": 82.24537037037037,
+      "auxiliary_heat_kw": 0.0,
+      "gross_chp_electricity_kw": 63.96862139917694,
+      "ad_electricity_consumption_kw": 23.729166666666664,
+      "net_electricity_kw": 40.239454732510275,
+      "exported_methane_kg_s": 0.04904227329684272,
+      "vapor_flow_m3_s": 0.03249636902064156,
+      "liquid_product_flow_m3_s": 0.001967266651077841,
+      "hydraulic_retention_time_s": 1880470.5882352942
+    }
+  }
+}

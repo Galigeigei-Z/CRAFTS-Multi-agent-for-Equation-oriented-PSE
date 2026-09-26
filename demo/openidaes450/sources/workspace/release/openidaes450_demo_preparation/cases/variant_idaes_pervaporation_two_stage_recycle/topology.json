@@ -1,0 +1,214 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_pervaporation_two_stage_recycle",
+  "family": "family_pervaporation_two_stage_recycle",
+  "process_type": "Two-stage ethylene-glycol/water pervaporation with retentate recycle",
+  "source_url": "local://examples/pervaporation_two_stage_recycle/source_root/model.py",
+  "source_basis": [
+    "Adds a second membrane stage, a retentate recycle loop, area allocation and a glycol-loss constraint.",
+    "Pure-component permeance is anchored to the pinned official IDAES SkeletonUnit example at 318.15 K.",
+    "The local SVG is deterministically reconstructed from this executable model and is not an official IDAES figure."
+  ],
+  "property_packages": {
+    "surrogate": {
+      "components": [
+        "water",
+        "ethylene_glycol"
+      ],
+      "phases": [
+        "Liq"
+      ]
+    }
+  },
+  "components": {
+    "liquid": [
+      "water",
+      "ethylene_glycol"
+    ]
+  },
+  "units": [
+    {
+      "id": "WATER",
+      "kind": "Feed",
+      "stage": "membrane_train",
+      "role": "fresh water feed",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GLYCOL",
+      "kind": "Feed",
+      "stage": "membrane_train",
+      "role": "fresh ethylene-glycol feed",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "stage": "membrane_train",
+      "role": "combine fresh feeds and recycled retentate",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PV101",
+      "kind": "SkeletonUnitModel",
+      "stage": "membrane_train",
+      "role": "first composition-dependent pervaporation stage",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "stage": "membrane_train",
+      "role": "split first-stage retentate between recycle and polishing",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PV102",
+      "kind": "SkeletonUnitModel",
+      "stage": "membrane_train",
+      "role": "second pervaporation polishing stage",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M201",
+      "kind": "Mixer",
+      "stage": "membrane_train",
+      "role": "combine both water-rich permeates",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PERMEATE",
+      "kind": "Product",
+      "stage": "membrane_train",
+      "role": "combined water-rich product",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RETENTATE",
+      "kind": "Product",
+      "stage": "membrane_train",
+      "role": "glycol-rich second-stage retentate",
+      "package": "composition_dependent_permeance",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "WATER.outlet",
+      "destination": "M101.water_feed",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "GLYCOL.outlet",
+      "destination": "M101.glycol_feed",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "PV101.inlet",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "PV101.retentate",
+      "destination": "S101.inlet",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": true
+    },
+    {
+      "id": "s06",
+      "source": "S101.stage2",
+      "destination": "PV102.inlet",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "PV101.permeate",
+      "destination": "M201.stage1",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "PV102.permeate",
+      "destination": "M201.stage2",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "M201.outlet",
+      "destination": "PERMEATE.inlet",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    },
+    {
+      "id": "s10",
+      "source": "PV102.retentate",
+      "destination": "RETENTATE.inlet",
+      "stage": "membrane_train",
+      "role": "material flow",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "WATER.outlet",
+    "GLYCOL.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PERMEATE.inlet",
+    "RETENTATE.inlet"
+  ],
+  "tear_streams": [
+    "s05"
+  ],
+  "initialization": {
+    "strategy": "simultaneous IPOPT solve",
+    "tear_destination": "M101.recycle"
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

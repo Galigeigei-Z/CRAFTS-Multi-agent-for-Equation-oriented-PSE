@@ -1,0 +1,78 @@
+{
+  "question": "Build a natural gas combined cycle NGCC flowsheet with gas turbine, flue-gas translator, HRSG heat recovery, and steam turbine power block.",
+  "case_id": "web_qwen_strict_rerun_ngcc_full_retry_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_rerun_ngcc_full_retry_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_ngcc\",\n  \"family\": \"family_ngcc\",\n  \"units\": 4,\n  \"arcs\": 9\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "official_source_arc_names",
+        "no_physical_co2_capture_unit",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 4,\n    \"arc_count\": 9,\n    \"units\": [\n      \"gt\",\n      \"fg_translate\",\n      \"hrsg\",\n      \"st\"\n    ],\n    \"arcs\": [\n      \"g08a\",\n      \"g08b\",\n      \"t05a\",\n      \"t02a\",\n      \"t03a\",\n      \"t11a\",\n      \"t01a\",\n      \"st01a\",\n      \"st02a\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/web_qwen_strict_rerun_ngcc_full_retry_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 0\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_ngcc\",\n  \"family\": \"family_ngcc\",\n  \"spec_count\": 0,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 4,\n  \"arc_count\": 9\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ngcc_full_retry_20260606/native_solve_report.json",
+      "output_tail": "e.lp_stages[7].inlet\"\n    },\n    \"lp_stream[7,1]\": {\n      \"flow_mol\": 6177.296968744383,\n      \"enth_mol\": 48504.39932134472,\n      \"pressure\": 63618.486857851574,\n      \"source_port\": \"fs.st.steam_turbine.lp_stages[7].outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.lp_stages[8].inlet\"\n    },\n    \"lp_stream[8,1]\": {\n      \"flow_mol\": 6177.296968744383,\n      \"enth_mol\": 47737.06444081827,\n      \"pressure\": 47968.33909082008,\n      \"source_port\": \"fs.st.steam_turbine.lp_stages[8].outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.lp_stages[9].inlet\"\n    },\n    \"lp_stream[9,1]\": {\n      \"flow_mol\": 6177.296968744383,\n      \"enth_mol\": 47006.81654751673,\n      \"pressure\": 36168.12767447835,\n      \"source_port\": \"fs.st.steam_turbine.lp_stages[9].outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.lp_stages[10].inlet\"\n    },\n    \"lp_stream[10,1]\": {\n      \"flow_mol\": 6177.296968744383,\n      \"enth_mol\": 46298.674968930034,\n      \"pressure\": 27270.76826655668,\n      \"source_port\": \"fs.st.steam_turbine.lp_stages[10].outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.lp_stages[11].inlet\"\n    },\n    \"inlet_to_hp_stream\": {\n      \"flow_mol\": 7572.268539755791,\n      \"enth_mol\": 62185.68836289329,\n      \"pressure\": 13273525.953058084,\n      \"source_port\": \"fs.st.steam_turbine.inlet_mix.outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.hp_stages[1].inlet\"\n    },\n    \"lp_to_outlet_stream\": {\n      \"flow_mol\": 6177.296968744383,\n      \"enth_mol\": 45611.13882074256,\n      \"pressure\": 20562.159272983736,\n      \"source_port\": \"fs.st.steam_turbine.lp_stages[11].outlet\",\n      \"destination_port\": \"fs.st.steam_turbine.outlet_stage.inlet\"\n    }\n  },\n  \"tag_values\": {\n    \"st_power\": 213004476.0301591,\n    \"gt_power\": 476986120.5240402,\n    \"gross_power\": 689990596.5541993,\n    \"net_power\": 646.0,\n    \"lhv_efficiency\": 52.74881112615566,\n    \"hhv_efficiency\": 47.605045605249465,\n    \"combustor_temperature\": 1641.3830221557023,\n    \"fuel_flow\": 25.94644388331937,\n    \"st_throttle_delta_pressure\": -800175.6654630214,\n    \"st_condenser_pressure\": 8985.441606272367,\n    \"st_throttle_inlet_temperature\": 858.5322108033876,\n    \"st_throttle_outlet_temperature\": 855.7639656218817,\n    \"fuel_cost_rate\": 20465.803074180953,\n    \"other_variable_cost_rate\": 3642.912947204209,\n    \"total_variable_cost_rate\": 24108.71602138516\n  },\n  \"net_power_mw\": 646.0,\n  \"build_plan_sha256\": \"4dc3ec23a100f6a5ae3ec8b625245fde3ff1615c11511ba3210144b93a8c449d\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"official_ngcc\",\n    \"official_module\": \"idaes_examples.mod.power_gen.ngcc.NgccFlowsheet\",\n    \"init_json\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/examples/github_examples/clones/examples/idaes_examples/notebooks/docs/power_gen/ngcc/ngcc_init.json.gz\",\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

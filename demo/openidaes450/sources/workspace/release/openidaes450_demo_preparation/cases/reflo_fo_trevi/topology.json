@@ -1,0 +1,261 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__reflo_fo_trevi",
+  "family": "family_source_verified_reflo_fo_trevi",
+  "process_type": "REFLO Trevi forward-osmosis treatment and draw regeneration",
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/main/src/watertap_contrib/reflo/flowsheets/FO/fo_trevi_flowsheet.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology is derived from the official REFLO Trevi forward-osmosis case source. No SpecIR, degrees-of-freedom closure, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feed",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fo",
+      "kind": "ForwardOsmosisZO",
+      "package": null,
+      "stage": "separation",
+      "role": "Source-derived ForwardOsmosisZO node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "draw_split",
+      "kind": "Separator",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hx1",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Source-derived HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "hx2",
+      "kind": "HeatExchanger",
+      "package": null,
+      "stage": "heat_recovery",
+      "role": "Source-derived HeatExchanger node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "heater1",
+      "kind": "Heater",
+      "package": null,
+      "stage": "conditioning",
+      "role": "Source-derived Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "heater2",
+      "kind": "Heater",
+      "package": null,
+      "stage": "conditioning",
+      "role": "Source-derived Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reject_separator",
+      "kind": "Separator",
+      "package": null,
+      "stage": "regeneration",
+      "role": "Source-derived Separator node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "draw_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "regeneration",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cooler",
+      "kind": "Cooler",
+      "package": null,
+      "stage": "product_conditioning",
+      "role": "Source-derived Cooler node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fresh_water",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reject",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_fo",
+      "source": "feed.outlet",
+      "destination": "fo.feed",
+      "source_port": "outlet",
+      "destination_port": "feed",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fo_draw_to_split",
+      "source": "fo.regenerated_draw",
+      "destination": "draw_split.inlet",
+      "source_port": "regenerated_draw",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "split_to_hx1",
+      "source": "draw_split.outlet_1",
+      "destination": "hx1.cold_inlet",
+      "source_port": "outlet_1",
+      "destination_port": "cold_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "split_to_hx2",
+      "source": "draw_split.outlet_2",
+      "destination": "hx2.cold_inlet",
+      "source_port": "outlet_2",
+      "destination_port": "cold_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fo_product_to_hx1",
+      "source": "fo.product",
+      "destination": "hx1.hot_inlet",
+      "source_port": "product",
+      "destination_port": "hot_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fo_reg_draw_to_hx2",
+      "source": "fo.regenerated_draw",
+      "destination": "hx2.hot_inlet",
+      "source_port": "regenerated_draw",
+      "destination_port": "hot_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hx1_cold_to_heater1",
+      "source": "hx1.cold_outlet",
+      "destination": "heater1.inlet",
+      "source_port": "cold_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hx2_cold_to_heater2",
+      "source": "hx2.cold_outlet",
+      "destination": "heater2.inlet",
+      "source_port": "cold_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hx1_hot_to_separator",
+      "source": "hx1.hot_outlet",
+      "destination": "reject_separator.inlet",
+      "source_port": "hot_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_nf_to_mixer",
+      "source": "reject_separator.nf_reject",
+      "destination": "draw_mixer.inlet_1",
+      "source_port": "nf_reject",
+      "destination_port": "inlet_1",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "fo_weak_draw_to_mixer",
+      "source": "fo.weak_draw",
+      "destination": "draw_mixer.inlet_2",
+      "source_port": "weak_draw",
+      "destination_port": "inlet_2",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_water_to_product",
+      "source": "reject_separator.fresh_water",
+      "destination": "fresh_water.inlet",
+      "source_port": "fresh_water",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "separator_reject_to_waste",
+      "source": "reject_separator.ro_reject",
+      "destination": "reject.inlet",
+      "source_port": "ro_reject",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "hx2_hot_to_cooler",
+      "source": "hx2.hot_outlet",
+      "destination": "cooler.inlet",
+      "source_port": "hot_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "feed",
+    "fo",
+    "draw_split",
+    "hx1",
+    "hx2",
+    "heater1",
+    "heater2",
+    "reject_separator",
+    "draw_mixer",
+    "cooler",
+    "fresh_water",
+    "reject"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

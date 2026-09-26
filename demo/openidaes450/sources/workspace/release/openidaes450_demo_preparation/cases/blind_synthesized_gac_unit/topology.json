@@ -1,0 +1,631 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_gac_unit",
+  "family": "family_watertap_gac",
+  "process_type": "WaterTAP granular activated carbon adsorption flowsheet with feed, GAC unit, treated product outlet, and adsorbed removed outlet",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle WaterTAP GAC support cards.",
+    "No source URL, case id, run id, image filename, solved report, family registry, or legacy lookup routing was used.",
+    "Retrieved support cards: WaterTAP granular activated carbon unit; WaterTAP MCAS aqueous property package",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: WaterTAP granular activated carbon unit (unit_model) matched ['granular activated carbon', 'gac', 'activated carbon adsorption'].",
+    "Blind support hint: WaterTAP MCAS aqueous property package (property_package) matched ['aqueous', 'granular activated carbon', 'gac']."
+  ],
+  "property_packages": {
+    "mcas_solute": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "solute"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "gac",
+        "product",
+        "adsorbed_removed"
+      ]
+    }
+  },
+  "components": {
+    "water": [
+      "H2O"
+    ],
+    "organic_solute": [
+      "solute"
+    ],
+    "adsorbent": [
+      "GAC"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas_solute",
+      "stage": "feed",
+      "role": "source water containing residual organic solute",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gac",
+      "kind": "GAC",
+      "package": "mcas_solute",
+      "stage": "treatment",
+      "role": "granular activated carbon adsorber using CPHSDM performance relationships",
+      "constructor": {
+        "film_transfer_coefficient_type": "calculated",
+        "surface_diffusion_coefficient_type": "calculated"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "mcas_solute",
+      "stage": "product",
+      "role": "treated water product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "adsorbed_removed",
+      "kind": "Product",
+      "package": "mcas_solute",
+      "stage": "waste",
+      "role": "adsorbed solute removed with spent or regenerated GAC",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_gac",
+      "source": "feed.outlet",
+      "destination": "gac.inlet",
+      "stage": "feed",
+      "role": "source water feed to GAC adsorber",
+      "tear_candidate": false
+    },
+    {
+      "id": "gac_to_product",
+      "source": "gac.outlet",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "treated effluent to product",
+      "tear_candidate": false
+    },
+    {
+      "id": "gac_to_adsorbed_removed",
+      "source": "gac.adsorbed",
+      "destination": "adsorbed_removed.inlet",
+      "stage": "waste",
+      "role": "adsorbed solute removal stream",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "H2O_flow_mol",
+      "value": 2433.81215,
+      "units": "mol/s",
+      "role": "official default feed water molar flow"
+    },
+    {
+      "target": "feed",
+      "variable": "solute_flow_mol",
+      "value": 0.05476625,
+      "units": "mol/s",
+      "role": "official default solute molar flow"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "official default feed temperature"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official default feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "gac",
+      "variable": "freund_k",
+      "value": 10.0,
+      "units": "(m^3/kg)^(1/n)",
+      "role": "Freundlich isotherm k parameter"
+    },
+    {
+      "target": "gac",
+      "variable": "freund_ninv",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "Freundlich isotherm 1/n parameter"
+    },
+    {
+      "target": "gac",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "empty bed contact time"
+    },
+    {
+      "target": "gac",
+      "variable": "bed_voidage",
+      "value": 0.4,
+      "units": "dimensionless",
+      "role": "bed void fraction"
+    },
+    {
+      "target": "gac",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "adsorber bed length"
+    },
+    {
+      "target": "gac",
+      "variable": "conc_ratio_replace",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "effluent-to-inlet concentration ratio at replacement"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "WaterTAP GAC build, initialize, simulation solve, then official optimize() solve hook",
+    "solve_order": [
+      "feed",
+      "gac",
+      "product",
+      "adsorbed_removed",
+      "costing",
+      "official optimize solve"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_gac",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.unit_models.gac.GAC",
+    "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized compact topology, not a verified official case topology.",
+    "Keep adsorbed_removed separate from treated product.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_gac_20260606/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 2844,
+      "height": 975,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": true,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen rerun WaterTAP granular activated carbon adsorption unit case. Flowchart text: contaminated aqueous feed enters a GAC adsorption unit; treated water exits to product and spent/adsorbed stream exits to disposal. This is GAC adsorption, not BPED, not AD, not NF.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "watertap.props.mcas",
+        "watertap.unit.gac"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": true,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": false,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "gac_unit",
+        "qualified_templates": [
+          "gac_unit"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required signal concentrate_recirculation",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": false,
+            "failures": [
+              "missing required signal electrodialysis",
+              "missing required support doc watertap.unit.electrodialysis"
+            ]
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "forbidden signal gac",
+              "missing required support doc watertap.unit.ion_exchange_0d"
+            ]
+          },
+          "gac_unit": {
+            "qualified": true,
+            "failures": []
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal gac",
+              "missing required support doc watertap.unit.boron_removal"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal gac",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.4
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "watertap.unit.gac",
+        "title": "WaterTAP granular activated carbon unit",
+        "kind": "unit_model",
+        "score": 88.0,
+        "matched_triggers": [
+          "granular activated carbon",
+          "gac",
+          "activated carbon adsorption"
+        ],
+        "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html",
+        "text": "Use GAC for granular activated carbon adsorption flowsheets with feed, GAC adsorber, treated product, and adsorbed removed/spent carbon outlet."
+      },
+      {
+        "doc_id": "watertap.props.mcas",
+        "title": "WaterTAP MCAS aqueous property package",
+        "kind": "property_package",
+        "score": 80.0,
+        "matched_triggers": [
+          "aqueous",
+          "granular activated carbon",
+          "gac"
+        ],
+        "source_url": "",
+        "text": "Use MCASParameterBlock for compact aqueous treatment examples such as ion exchange and GAC with H2O plus target solutes or ions."
+      }
+    ]
+  }
+}

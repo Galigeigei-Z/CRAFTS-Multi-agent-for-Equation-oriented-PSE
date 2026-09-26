@@ -1,0 +1,47 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "stage": "native_mvo_discretized_highs",
+  "termination_condition": "optimal",
+  "solver": "appsi_highs",
+  "execution_scope": "native",
+  "metrics": {
+    "input_row_count": 33600,
+    "process_variant_count": 24,
+    "feasible_alternative_count": 10708,
+    "x_selection_variable_count": 10708,
+    "platform_binary_count": 34,
+    "variables": 10742,
+    "constraints": 32151,
+    "objective_value": 2204911.520640001,
+    "selected_family_design_count": 1,
+    "selected_platform_module_count": 3,
+    "selected_platform_modules": [
+      {
+        "module_type": "Evaporator Area",
+        "design": 80.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 25.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 120.0
+      }
+    ],
+    "initialize_seconds": 0.9836531558539718,
+    "build_seconds": 2.3611903109122068,
+    "solve_seconds": 15.242626033956185
+  },
+  "configuration": {
+    "filter_name": "capacity_ge_160",
+    "max_common_designs": {
+      "Evaporator Area": 1,
+      "Condenser Area": 1,
+      "Compressor Design Flow": 1
+    }
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

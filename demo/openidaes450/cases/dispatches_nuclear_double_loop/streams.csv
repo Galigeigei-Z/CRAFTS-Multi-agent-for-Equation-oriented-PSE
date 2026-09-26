@@ -1,0 +1,105 @@
+port,member,index,model_variable,value,units
+fs.np_power_split.np_to_grid_port,electricity,0.0,fs.np_power_split.np_to_grid_elec[0.0],495000.0,kW
+fs.np_power_split.np_to_pem_port,electricity,0.0,fs.np_power_split.np_to_pem_elec[0.0],5000.000000000003,kW
+fs.np_power_split.electricity_in,electricity,0.0,fs.np_power_split.electricity[0.0],500000.0,kW
+fs.pem.electricity_in,electricity,0.0,fs.pem.electricity[0.0],5000.000000000003,kW
+fs.pem.outlet,flow_mol,0.0,fs.pem.outlet_state[0.0].flow_mol,12.637030000000006,mol/s
+fs.pem.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.pem.outlet_state[0.0].mole_frac_comp[hydrogen],1.0,dimensionless
+fs.pem.outlet,temperature,0.0,fs.pem.outlet_state[0.0].temperature,300.0,K
+fs.pem.outlet,pressure,0.0,fs.pem.outlet_state[0.0].pressure,101325.0,kg/m/s**2
+fs.h2_tank.inlet,flow_mol,0.0,fs.h2_tank.properties_in[0.0].flow_mol,12.637030000000006,mol/s
+fs.h2_tank.inlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_tank.properties_in[0.0].mole_frac_comp[hydrogen],1.0,dimensionless
+fs.h2_tank.inlet,temperature,0.0,fs.h2_tank.properties_in[0.0].temperature,300.0,K
+fs.h2_tank.inlet,pressure,0.0,fs.h2_tank.properties_in[0.0].pressure,101325.0,kg/m/s**2
+fs.h2_tank.outlet_to_turbine,flow_mol,0.0,fs.h2_tank.properties_out_turbine[0.0].flow_mol,1.0,mol/s
+fs.h2_tank.outlet_to_turbine,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_tank.properties_out_turbine[0.0].mole_frac_comp[hydrogen],1.0,dimensionless
+fs.h2_tank.outlet_to_turbine,temperature,0.0,fs.h2_tank.properties_out_turbine[0.0].temperature,300.0,K
+fs.h2_tank.outlet_to_turbine,pressure,0.0,fs.h2_tank.properties_out_turbine[0.0].pressure,101325.0,kg/m/s**2
+fs.h2_tank.outlet_to_pipeline,flow_mol,0.0,fs.h2_tank.properties_out_pipeline[0.0].flow_mol,1.0,mol/s
+fs.h2_tank.outlet_to_pipeline,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_tank.properties_out_pipeline[0.0].mole_frac_comp[hydrogen],1.0,dimensionless
+fs.h2_tank.outlet_to_pipeline,temperature,0.0,fs.h2_tank.properties_out_pipeline[0.0].temperature,300.0,K
+fs.h2_tank.outlet_to_pipeline,pressure,0.0,fs.h2_tank.properties_out_pipeline[0.0].pressure,101325.0,kg/m/s**2
+fs.translator.inlet,flow_mol,0.0,fs.translator.properties_in[0.0].flow_mol,1.0,mol/s
+fs.translator.inlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.translator.properties_in[0.0].mole_frac_comp[hydrogen],1.0,dimensionless
+fs.translator.inlet,temperature,0.0,fs.translator.properties_in[0.0].temperature,300.0,K
+fs.translator.inlet,pressure,0.0,fs.translator.properties_in[0.0].pressure,101325.0,kg/m/s**2
+fs.translator.outlet,flow_mol,0.0,fs.translator.properties_out[0.0].flow_mol,1.0,mol/s
+fs.translator.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.translator.properties_out[0.0].mole_frac_comp[hydrogen],0.99,dimensionless
+fs.translator.outlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.translator.properties_out[0.0].mole_frac_comp[nitrogen],0.0025,dimensionless
+fs.translator.outlet,mole_frac_comp,"(0.0, 'oxygen')",fs.translator.properties_out[0.0].mole_frac_comp[oxygen],0.0025,dimensionless
+fs.translator.outlet,mole_frac_comp,"(0.0, 'water')",fs.translator.properties_out[0.0].mole_frac_comp[water],0.0025,dimensionless
+fs.translator.outlet,mole_frac_comp,"(0.0, 'argon')",fs.translator.properties_out[0.0].mole_frac_comp[argon],0.0025,dimensionless
+fs.translator.outlet,temperature,0.0,fs.translator.properties_out[0.0].temperature,300.0,K
+fs.translator.outlet,pressure,0.0,fs.translator.properties_out[0.0].pressure,101325.0,kg/m/s**2
+fs.mixer.air_feed,flow_mol,0.0,fs.mixer.air_feed_state[0.0].flow_mol,10.76,mol/s
+fs.mixer.air_feed,mole_frac_comp,"(0.0, 'hydrogen')",fs.mixer.air_feed_state[0.0].mole_frac_comp[hydrogen],0.0002,dimensionless
+fs.mixer.air_feed,mole_frac_comp,"(0.0, 'nitrogen')",fs.mixer.air_feed_state[0.0].mole_frac_comp[nitrogen],0.7672,dimensionless
+fs.mixer.air_feed,mole_frac_comp,"(0.0, 'oxygen')",fs.mixer.air_feed_state[0.0].mole_frac_comp[oxygen],0.2054,dimensionless
+fs.mixer.air_feed,mole_frac_comp,"(0.0, 'water')",fs.mixer.air_feed_state[0.0].mole_frac_comp[water],0.024,dimensionless
+fs.mixer.air_feed,mole_frac_comp,"(0.0, 'argon')",fs.mixer.air_feed_state[0.0].mole_frac_comp[argon],0.0032,dimensionless
+fs.mixer.air_feed,temperature,0.0,fs.mixer.air_feed_state[0.0].temperature,300.0,K
+fs.mixer.air_feed,pressure,0.0,fs.mixer.air_feed_state[0.0].pressure,101325.0,kg/m/s**2
+fs.mixer.hydrogen_feed,flow_mol,0.0,fs.mixer.hydrogen_feed_state[0.0].flow_mol,1.0,mol/s
+fs.mixer.hydrogen_feed,mole_frac_comp,"(0.0, 'hydrogen')",fs.mixer.hydrogen_feed_state[0.0].mole_frac_comp[hydrogen],0.99,dimensionless
+fs.mixer.hydrogen_feed,mole_frac_comp,"(0.0, 'nitrogen')",fs.mixer.hydrogen_feed_state[0.0].mole_frac_comp[nitrogen],0.0025000000000000005,dimensionless
+fs.mixer.hydrogen_feed,mole_frac_comp,"(0.0, 'oxygen')",fs.mixer.hydrogen_feed_state[0.0].mole_frac_comp[oxygen],0.0025000000000000005,dimensionless
+fs.mixer.hydrogen_feed,mole_frac_comp,"(0.0, 'water')",fs.mixer.hydrogen_feed_state[0.0].mole_frac_comp[water],0.0025000000000000005,dimensionless
+fs.mixer.hydrogen_feed,mole_frac_comp,"(0.0, 'argon')",fs.mixer.hydrogen_feed_state[0.0].mole_frac_comp[argon],0.0025000000000000005,dimensionless
+fs.mixer.hydrogen_feed,temperature,0.0,fs.mixer.hydrogen_feed_state[0.0].temperature,300.0,K
+fs.mixer.hydrogen_feed,pressure,0.0,fs.mixer.hydrogen_feed_state[0.0].pressure,101325.0,kg/m/s**2
+fs.mixer.outlet,flow_mol,0.0,fs.mixer.mixed_state[0.0].flow_mol,11.760000000000003,mol/s
+fs.mixer.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.mixer.mixed_state[0.0].mole_frac_comp[hydrogen],0.08436666666666663,dimensionless
+fs.mixer.outlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.mixer.mixed_state[0.0].mole_frac_comp[nitrogen],0.7021744897959183,dimensionless
+fs.mixer.outlet,mole_frac_comp,"(0.0, 'oxygen')",fs.mixer.mixed_state[0.0].mole_frac_comp[oxygen],0.1881465986394557,dimensionless
+fs.mixer.outlet,mole_frac_comp,"(0.0, 'water')",fs.mixer.mixed_state[0.0].mole_frac_comp[water],0.02217176870748299,dimensionless
+fs.mixer.outlet,mole_frac_comp,"(0.0, 'argon')",fs.mixer.mixed_state[0.0].mole_frac_comp[argon],0.0031404761904761857,dimensionless
+fs.mixer.outlet,temperature,0.0,fs.mixer.mixed_state[0.0].temperature,299.99999999999994,K
+fs.mixer.outlet,pressure,0.0,fs.mixer.mixed_state[0.0].pressure,101324.9995,kg/m/s**2
+fs.h2_turbine.compressor.inlet,flow_mol,0.0,fs.h2_turbine.compressor.control_volume.properties_in[0.0].flow_mol,11.760000000000003,mol/s
+fs.h2_turbine.compressor.inlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.compressor.control_volume.properties_in[0.0].mole_frac_comp[hydrogen],0.08436666666666663,dimensionless
+fs.h2_turbine.compressor.inlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.compressor.control_volume.properties_in[0.0].mole_frac_comp[nitrogen],0.7021744897959183,dimensionless
+fs.h2_turbine.compressor.inlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.compressor.control_volume.properties_in[0.0].mole_frac_comp[oxygen],0.1881465986394557,dimensionless
+fs.h2_turbine.compressor.inlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.compressor.control_volume.properties_in[0.0].mole_frac_comp[water],0.02217176870748299,dimensionless
+fs.h2_turbine.compressor.inlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.compressor.control_volume.properties_in[0.0].mole_frac_comp[argon],0.0031404761904761857,dimensionless
+fs.h2_turbine.compressor.inlet,temperature,0.0,fs.h2_turbine.compressor.control_volume.properties_in[0.0].temperature,299.99999999999994,K
+fs.h2_turbine.compressor.inlet,pressure,0.0,fs.h2_turbine.compressor.control_volume.properties_in[0.0].pressure,101324.9995,kg/m/s**2
+fs.h2_turbine.compressor.outlet,flow_mol,0.0,fs.h2_turbine.compressor.control_volume.properties_out[0.0].flow_mol,11.760000000000003,mol/s
+fs.h2_turbine.compressor.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.compressor.control_volume.properties_out[0.0].mole_frac_comp[hydrogen],0.08436666666666663,dimensionless
+fs.h2_turbine.compressor.outlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.compressor.control_volume.properties_out[0.0].mole_frac_comp[nitrogen],0.7021744897959183,dimensionless
+fs.h2_turbine.compressor.outlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.compressor.control_volume.properties_out[0.0].mole_frac_comp[oxygen],0.1881465986394557,dimensionless
+fs.h2_turbine.compressor.outlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.compressor.control_volume.properties_out[0.0].mole_frac_comp[water],0.02217176870748299,dimensionless
+fs.h2_turbine.compressor.outlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.compressor.control_volume.properties_out[0.0].mole_frac_comp[argon],0.003140476190476185,dimensionless
+fs.h2_turbine.compressor.outlet,temperature,0.0,fs.h2_turbine.compressor.control_volume.properties_out[0.0].temperature,793.4189108638175,K
+fs.h2_turbine.compressor.outlet,pressure,0.0,fs.h2_turbine.compressor.control_volume.properties_out[0.0].pressure,2502324.9995,kg/m/s**2
+fs.h2_turbine.stoic_reactor.inlet,flow_mol,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].flow_mol,11.760000000000003,mol/s
+fs.h2_turbine.stoic_reactor.inlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].mole_frac_comp[hydrogen],0.08436666666666663,dimensionless
+fs.h2_turbine.stoic_reactor.inlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].mole_frac_comp[nitrogen],0.7021744897959183,dimensionless
+fs.h2_turbine.stoic_reactor.inlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].mole_frac_comp[oxygen],0.1881465986394557,dimensionless
+fs.h2_turbine.stoic_reactor.inlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].mole_frac_comp[water],0.02217176870748299,dimensionless
+fs.h2_turbine.stoic_reactor.inlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].mole_frac_comp[argon],0.003140476190476185,dimensionless
+fs.h2_turbine.stoic_reactor.inlet,temperature,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].temperature,793.4189108638175,K
+fs.h2_turbine.stoic_reactor.inlet,pressure,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_in[0.0].pressure,2502324.9995,kg/m/s**2
+fs.h2_turbine.stoic_reactor.outlet,flow_mol,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].flow_mol,11.268884759999999,mol/s
+fs.h2_turbine.stoic_reactor.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].mole_frac_comp[hydrogen],0.0008804349508673131,dimensionless
+fs.h2_turbine.stoic_reactor.outlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].mole_frac_comp[nitrogen],0.7327763284358941,dimensionless
+fs.h2_turbine.stoic_reactor.outlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].mole_frac_comp[oxygen],0.1527647852173084,dimensionless
+fs.h2_turbine.stoic_reactor.outlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].mole_frac_comp[water],0.11030110844793127,dimensionless
+fs.h2_turbine.stoic_reactor.outlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].mole_frac_comp[argon],0.0032773429479990507,dimensionless
+fs.h2_turbine.stoic_reactor.outlet,temperature,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].temperature,1451.499752028294,K
+fs.h2_turbine.stoic_reactor.outlet,pressure,0.0,fs.h2_turbine.stoic_reactor.control_volume.properties_out[0.0].pressure,2502324.9995,kg/m/s**2
+fs.h2_turbine.turbine.inlet,flow_mol,0.0,fs.h2_turbine.turbine.control_volume.properties_in[0.0].flow_mol,11.268884759999999,mol/s
+fs.h2_turbine.turbine.inlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.turbine.control_volume.properties_in[0.0].mole_frac_comp[hydrogen],0.0008804349508673131,dimensionless
+fs.h2_turbine.turbine.inlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.turbine.control_volume.properties_in[0.0].mole_frac_comp[nitrogen],0.7327763284358941,dimensionless
+fs.h2_turbine.turbine.inlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.turbine.control_volume.properties_in[0.0].mole_frac_comp[oxygen],0.1527647852173084,dimensionless
+fs.h2_turbine.turbine.inlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.turbine.control_volume.properties_in[0.0].mole_frac_comp[water],0.11030110844793127,dimensionless
+fs.h2_turbine.turbine.inlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.turbine.control_volume.properties_in[0.0].mole_frac_comp[argon],0.0032773429479990507,dimensionless
+fs.h2_turbine.turbine.inlet,temperature,0.0,fs.h2_turbine.turbine.control_volume.properties_in[0.0].temperature,1451.499752028294,K
+fs.h2_turbine.turbine.inlet,pressure,0.0,fs.h2_turbine.turbine.control_volume.properties_in[0.0].pressure,2502324.9995,kg/m/s**2
+fs.h2_turbine.turbine.outlet,flow_mol,0.0,fs.h2_turbine.turbine.control_volume.properties_out[0.0].flow_mol,11.26888476,mol/s
+fs.h2_turbine.turbine.outlet,mole_frac_comp,"(0.0, 'hydrogen')",fs.h2_turbine.turbine.control_volume.properties_out[0.0].mole_frac_comp[hydrogen],0.0008804349508673096,dimensionless
+fs.h2_turbine.turbine.outlet,mole_frac_comp,"(0.0, 'nitrogen')",fs.h2_turbine.turbine.control_volume.properties_out[0.0].mole_frac_comp[nitrogen],0.7327763284358939,dimensionless
+fs.h2_turbine.turbine.outlet,mole_frac_comp,"(0.0, 'oxygen')",fs.h2_turbine.turbine.control_volume.properties_out[0.0].mole_frac_comp[oxygen],0.15276478521730838,dimensionless
+fs.h2_turbine.turbine.outlet,mole_frac_comp,"(0.0, 'water')",fs.h2_turbine.turbine.control_volume.properties_out[0.0].mole_frac_comp[water],0.11030110844793126,dimensionless
+fs.h2_turbine.turbine.outlet,mole_frac_comp,"(0.0, 'argon')",fs.h2_turbine.turbine.control_volume.properties_out[0.0].mole_frac_comp[argon],0.003277342947999049,dimensionless
+fs.h2_turbine.turbine.outlet,temperature,0.0,fs.h2_turbine.turbine.control_volume.properties_out[0.0].temperature,739.30214581539,K
+fs.h2_turbine.turbine.outlet,pressure,0.0,fs.h2_turbine.turbine.control_volume.properties_out[0.0].pressure,101324.99949999992,kg/m/s**2

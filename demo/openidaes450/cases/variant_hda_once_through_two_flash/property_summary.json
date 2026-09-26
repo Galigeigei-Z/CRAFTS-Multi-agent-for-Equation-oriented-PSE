@@ -1,0 +1,25 @@
+{
+  "case_id": "variant_hda_once_through_two_flash",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.hda_thermo",
+      "class": "hda_ideal_VLE.HDAParameterBlock",
+      "module": "hda_ideal_VLE",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.hda_rxn",
+      "class": "hda_reaction.HDAReactionParameterBlock",
+      "module": "hda_reaction",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.btx_thermo",
+      "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterBlock",
+      "module": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_methanol_co2_cofeed_water_knockout",
+  "family": "family_methanol_co2",
+  "process_type": "Methanol Recycle with CO2 Cofeed and Interstage Water Knockout",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_methanol_recycle.",
+    "Adds CO2 hydrogenation chemistry and selective water removal before recycle, changing equilibrium and recycle composition.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2",
+        "CO",
+        "CO2",
+        "CH3OH",
+        "H2O",
+        "CH4"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_methanol_recycle"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2",
+      "CO",
+      "CO2",
+      "CH3OH",
+      "H2O",
+      "CH4"
+    ]
+  },
+  "units": [
+    {
+      "id": "SYNGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "H2/CO syngas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "CO2 cofeed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "combine reactants and recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "CO/CO2 hydrogenation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "condense methanol and water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "D101",
+      "kind": "Decanter",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "separate methanol and water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "purge and recycle gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MEOH",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "methanol product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "reaction water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "methanol_co2",
+      "role": "inert purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SYNGAS.outlet",
+      "destination": "M101.syngas",
+      "stage": "methanol_co2",
+      "role": "fresh syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "CO2.outlet",
+      "destination": "M101.co2",
+      "stage": "methanol_co2",
+      "role": "CO2 cofeed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "R101.inlet",
+      "stage": "methanol_co2",
+      "role": "reactor feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "R101.outlet",
+      "destination": "F101.inlet",
+      "stage": "methanol_co2",
+      "role": "reactor effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "F101.liquid",
+      "destination": "D101.inlet",
+      "stage": "methanol_co2",
+      "role": "condensed methanol/water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "D101.organic",
+      "destination": "MEOH.inlet",
+      "stage": "methanol_co2",
+      "role": "methanol",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "D101.aqueous",
+      "destination": "WATER.inlet",
+      "stage": "methanol_co2",
+      "role": "water knockout",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "F101.vapor",
+      "destination": "S101.inlet",
+      "stage": "methanol_co2",
+      "role": "unreacted gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "methanol_co2",
+      "role": "vapor recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s10",
+      "source": "S101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "methanol_co2",
+      "role": "inert purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SYNGAS.outlet",
+    "CO2.outlet"
+  ],
+  "unconnected_product_ports": [
+    "MEOH.inlet",
+    "WATER.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s09"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_methanol_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_recycle",
+    "chemical_change": "Adds CO2 hydrogenation chemistry and selective water removal before recycle, changing equilibrium and recycle composition.",
+    "native_metrics": {
+      "co_conversion": 0.5910880000000001,
+      "methanol_kg_s": 0.058517712000000006,
+      "water_knockout_kg_s": 0.014186112,
+      "recycle_gas_kg_s": 0.043596640000000006
+    }
+  }
+}

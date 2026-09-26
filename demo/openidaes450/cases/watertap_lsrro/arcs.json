@@ -1,0 +1,82 @@
+[
+  {
+    "name": "fs.feed_to_pump",
+    "source": "fs.feed.outlet",
+    "destination": "fs.PrimaryPumps[1].inlet"
+  },
+  {
+    "name": "fs.primary_RO_to_product",
+    "source": "fs.ROUnits[1].permeate",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.pump_to_mixer[1]",
+    "source": "fs.PrimaryPumps[1].outlet",
+    "destination": "fs.Mixers[1].upstream"
+  },
+  {
+    "name": "fs.pump_to_mixer[2]",
+    "source": "fs.PrimaryPumps[2].outlet",
+    "destination": "fs.Mixers[2].upstream"
+  },
+  {
+    "name": "fs.mixer_to_stage[1]",
+    "source": "fs.Mixers[1].outlet",
+    "destination": "fs.ROUnits[1].inlet"
+  },
+  {
+    "name": "fs.mixer_to_stage[2]",
+    "source": "fs.Mixers[2].outlet",
+    "destination": "fs.ROUnits[2].inlet"
+  },
+  {
+    "name": "fs.stage_permeate_to_booster_pump[2]",
+    "source": "fs.ROUnits[2].permeate",
+    "destination": "fs.BoosterPumps[2].inlet"
+  },
+  {
+    "name": "fs.stage_permeate_to_booster_pump[3]",
+    "source": "fs.ROUnits[3].permeate",
+    "destination": "fs.BoosterPumps[3].inlet"
+  },
+  {
+    "name": "fs.booster_pump_to_mixer[2]",
+    "source": "fs.BoosterPumps[2].outlet",
+    "destination": "fs.Mixers[1].downstream"
+  },
+  {
+    "name": "fs.booster_pump_to_mixer[3]",
+    "source": "fs.BoosterPumps[3].outlet",
+    "destination": "fs.Mixers[2].downstream"
+  },
+  {
+    "name": "fs.primary_RO_to_erd",
+    "source": "fs.ROUnits[1].retentate",
+    "destination": "fs.EnergyRecoveryDevices[1].inlet"
+  },
+  {
+    "name": "fs.primary_ERD_to_pump",
+    "source": "fs.EnergyRecoveryDevices[1].outlet",
+    "destination": "fs.PrimaryPumps[2].inlet"
+  },
+  {
+    "name": "fs.stage_retentate_to_pump[2]",
+    "source": "fs.ROUnits[2].retentate",
+    "destination": "fs.PrimaryPumps[3].inlet"
+  },
+  {
+    "name": "fs.pumpN_to_stageN",
+    "source": "fs.PrimaryPumps[3].outlet",
+    "destination": "fs.ROUnits[3].inlet"
+  },
+  {
+    "name": "fs.stage_to_erd",
+    "source": "fs.ROUnits[3].retentate",
+    "destination": "fs.EnergyRecoveryDevices[3].inlet"
+  },
+  {
+    "name": "fs.erd_to_disposal",
+    "source": "fs.EnergyRecoveryDevices[3].outlet",
+    "destination": "fs.disposal.inlet"
+  }
+]

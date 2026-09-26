@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_boron_removal",
+  "official_reference_url": "local://watertap/unit_models/boron_removal",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "boron_removal_optimal",
+      "pass": true
+    },
+    {
+      "name": "boron_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "boron_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "outlet_boron_target_met",
+      "pass": true
+    },
+    {
+      "name": "outlet_ph_expected_range",
+      "pass": true
+    },
+    {
+      "name": "caustic_dose_positive",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "outlet_boron_mol_s": 1.98677e-05,
+  "outlet_borate_mol_s": 0.00018113377204182981,
+  "outlet_pH": 10.17057540642141,
+  "outlet_pOH": 3.8257288211268867,
+  "caustic_dose_rate_mol_s": 1.760033362002088e-05,
+  "stream_values": {
+    "inlet": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O": 100.0,
+      "flow_mol_Liq_B[OH]3": 0.0002,
+      "flow_mol_Liq_B[OH]4_-": 1e-06,
+      "flow_mol_Liq_Na_+": 1e-05
+    },
+    "outlet": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mol_Liq_H2O": 100.0,
+      "flow_mol_Liq_B[OH]3": 1.98677e-05,
+      "flow_mol_Liq_B[OH]4_-": 0.00018113377204182981,
+      "flow_mol_Liq_Na_+": 0.00045000834050052204
+    }
+  },
+  "source_summary": {
+    "source": "watertap.unit_models.boron_removal.BoronRemoval",
+    "property_package": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

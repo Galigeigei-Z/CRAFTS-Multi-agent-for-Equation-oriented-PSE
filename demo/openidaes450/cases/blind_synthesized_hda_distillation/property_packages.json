@@ -1,0 +1,81 @@
+[
+  {
+    "name": "fs.hda_thermo",
+    "implementation": [
+      {
+        "class": "hda_ideal_VLE.HDAParameterBlock"
+      },
+      {
+        "class": "hda_ideal_VLE.HDAParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "hda_ideal_VLE.HDAParameterBlock",
+    "module": "hda_ideal_VLE",
+    "data_class": "hda_ideal_VLE.HDAParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "thermodynamic_model": "HDA ideal vapor-liquid property model",
+    "source_file": "property_sources/hda_ideal_VLE.py"
+  },
+  {
+    "name": "fs.hda_rxn",
+    "implementation": [
+      {
+        "class": "hda_reaction.HDAReactionParameterBlock"
+      },
+      {
+        "class": "hda_reaction.HDAReactionParameterData"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.hda_thermo"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "hda_reaction.HDAReactionParameterBlock",
+    "module": "hda_reaction",
+    "data_class": "hda_reaction.HDAReactionParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/hda_reaction.py"
+  },
+  {
+    "name": "fs.btx_thermo",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterData"
+      },
+      {
+        "class": "idaes.models.properties.activity_coeff_models.activity_coeff_prop_pack.ActivityCoeffParameterData"
+      },
+      {
+        "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "activity_coeff_model": "Ideal",
+      "state_vars": "FTPz",
+      "valid_phase": [
+        "Liq",
+        "Vap"
+      ]
+    },
+    "class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterBlock",
+    "module": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE",
+    "data_class": "idaes.models.properties.activity_coeff_models.BTX_activity_coeff_VLE.BTXParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy",
+    "thermodynamic_model": "Ideal activity-coefficient model; phase/state options in configuration"
+  }
+]

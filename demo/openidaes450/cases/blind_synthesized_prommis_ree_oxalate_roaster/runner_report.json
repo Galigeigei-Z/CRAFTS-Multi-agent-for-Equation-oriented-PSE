@@ -1,0 +1,72 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "prommis_ree_oxalate_roaster",
+  "official_reference_url": "https://prommis.readthedocs.io/en/latest/_autosummary/prommis.roasting.ree_oxalate_roaster.html",
+  "termination_condition": "optimal",
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "ree_oxalate_roaster_initializer_ok",
+      "pass": true,
+      "actual": "InitializationStatus.Ok"
+    },
+    {
+      "name": "ree_oxalate_roaster_termination_optimal",
+      "pass": true,
+      "actual": "optimal"
+    },
+    {
+      "name": "ree_oxalate_roaster_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "ree_oxalate_roaster_gas_flow_matches_official_test",
+      "pass": true,
+      "actual": 0.008487456944444445
+    },
+    {
+      "name": "ree_oxalate_roaster_h2o_matches_official_test",
+      "pass": true,
+      "actual": 0.17219501522589958
+    },
+    {
+      "name": "ree_oxalate_roaster_o2_matches_official_test",
+      "pass": true,
+      "actual": 0.10284234137008391
+    },
+    {
+      "name": "ree_oxalate_roaster_heat_duty_matches_official_test",
+      "pass": true,
+      "actual": -82.24786035043046
+    },
+    {
+      "name": "ree_oxalate_roaster_product_flow_matches_official_test",
+      "pass": true,
+      "actual": 4.96760599722223e-08
+    },
+    {
+      "name": "ree_oxalate_roaster_nd_product_fraction_matches_official_test",
+      "pass": true,
+      "actual": 0.10903330587601676
+    }
+  ],
+  "outputs": {
+    "gas_out_flow_mol": 0.008487456944444445,
+    "gas_out_h2o": 0.17219501522589958,
+    "gas_out_o2": 0.10284234137008391,
+    "gas_out_co2": 0.0397955741552608,
+    "heat_duty": -82.24786035043046,
+    "flow_mass_product": 4.96760599722223e-08,
+    "product_mass_frac_nd": 0.10903330587601676,
+    "product_mass_frac_dy": 0.12086738764265201
+  },
+  "source_summary": {
+    "source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/roasting/ree_oxalate_roaster.py",
+    "official_test_source": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/roasting/tests/test_ree_oxalate_roaster.py",
+    "official_module": "prommis.roasting.ree_oxalate_roaster"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

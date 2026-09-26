@@ -1,0 +1,81 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_hda_staged_hydrogen_quench_guard_bed",
+  "family": "family_hda_staged_h2",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "interstage_hydrogen_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "toluene_conversion",
+      "value": 0.9000000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_ratio",
+      "value": 1.1999999999997235,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "recycle_methane_fraction",
+      "value": 0.035714285714297564,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "benzene_purity",
+      "value": 0.9519999999999945,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "AROMATIC.outlet",
+    "H2.outlet"
+  ],
+  "terminal_product_ports": [
+    "BENZENE.inlet",
+    "GAS.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_hda_distillation"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_hda_distillation",
+    "chemical_change": "Adds catalyst protection and a second hydrogen injection point, coupling reaction severity and hydrogen partial pressure.",
+    "native_metrics": {
+      "toluene_conversion": 0.9000000000000001,
+      "hydrogen_ratio": 1.1999999999997235,
+      "recycle_methane_fraction": 0.035714285714297564,
+      "benzene_purity": 0.9519999999999945
+    }
+  }
+}

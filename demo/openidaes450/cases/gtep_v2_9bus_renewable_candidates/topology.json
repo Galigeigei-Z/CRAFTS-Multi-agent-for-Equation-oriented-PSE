@@ -1,0 +1,228 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "gtep_v2_9bus_renewable_candidates",
+  "family": "family_idaes_gtep",
+  "process_type": "GTEP 9-Bus Renewable-Only Candidates",
+  "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py",
+  "source_basis": [
+    "Official IDAES-GTEP data and model at commit a0814d3be706ca01f0372b1af44ead243bfa2ee5.",
+    "Official flowchart: docs/images/model_investment_stage.png."
+  ],
+  "property_packages": {
+    "egret_prescient": {
+      "dataset": "9_bus_GTEP_dir"
+    },
+    "pyomo_gdp": {
+      "transformation": "gdp.bigm"
+    }
+  },
+  "components": {
+    "planning": [
+      "generation",
+      "storage",
+      "transmission",
+      "load",
+      "reserve",
+      "investment",
+      "dispatch"
+    ]
+  },
+  "units": [
+    {
+      "id": "data",
+      "kind": "GTEPData",
+      "package": "egret_prescient",
+      "stage": "data",
+      "role": "official 9_bus_GTEP_dir data",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "investment",
+      "kind": "InvestmentStage",
+      "package": "pyomo_gdp",
+      "stage": "planning",
+      "role": "generation, storage, and transmission investment decisions",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "commitment",
+      "kind": "CommitmentStage",
+      "package": "pyomo_gdp",
+      "stage": "operations",
+      "role": "commitment and reserve decisions",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dispatch",
+      "kind": "DispatchStage",
+      "package": "egret",
+      "stage": "operations",
+      "role": "economic dispatch and load balance",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "network",
+      "kind": "TransmissionNetwork",
+      "package": "egret",
+      "stage": "network",
+      "role": "DC network representation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "portfolio",
+      "kind": "RenewablePortfolio",
+      "package": "gtep",
+      "stage": "scenario",
+      "role": "wind and photovoltaic candidate portfolio",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "plan",
+      "kind": "ExpansionPlan",
+      "package": "pyomo",
+      "stage": "solution",
+      "role": "optimized investment and operating plan",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "data_to_investment",
+      "source": "data.outlet",
+      "destination": "investment.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "investment_to_commitment",
+      "source": "investment.outlet",
+      "destination": "commitment.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "commitment_to_dispatch",
+      "source": "commitment.outlet",
+      "destination": "dispatch.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "dispatch_to_network",
+      "source": "dispatch.outlet",
+      "destination": "network.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "network_to_portfolio",
+      "source": "network.outlet",
+      "destination": "portfolio.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "portfolio_to_plan",
+      "source": "portfolio.outlet",
+      "destination": "plan.inlet",
+      "stage": "model_link",
+      "role": "GTEP hierarchy linkage",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "gtep",
+      "variable": "scenario",
+      "value": "renewable_candidates",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "dataset",
+      "value": "9_bus_GTEP_dir",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "flow_model",
+      "value": "DC",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "big_m",
+      "value": 1000000.0,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py"
+    },
+    {
+      "target": "gtep",
+      "variable": "candidate_generator_count",
+      "value": 15,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/driver_matt.py"
+    }
+  ],
+  "unit_specs": [],
+  "unconnected_feed_ports": [
+    "data.outlet"
+  ],
+  "unconnected_product_ports": [
+    "plan.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "official data load, recorded scenario mutation, GDP Big-M, HiGHS",
+    "solve_order": [
+      "data",
+      "investment",
+      "commitment",
+      "dispatch",
+      "network",
+      "portfolio",
+      "plan"
+    ]
+  },
+  "solve": {
+    "solver": "highs",
+    "steady_state": false,
+    "expected_dof": null
+  },
+  "required_entries": [
+    "ExpansionPlanningData",
+    "ExpansionPlanningModel",
+    "gdp.bigm"
+  ],
+  "notes_for_agent_a": [
+    "Engineering variant suite; do not merge with the nine official-driver identities.",
+    "The source flowchart is copied byte-for-byte from the official GTEP repository."
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_sour_gas_dehydration_sulfur_co2_capture",
+  "family": "family_sour_gas_integrated",
+  "process_type": "Sour-Gas Dehydration, Sulfur Recovery and CO2 Membrane Integration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_i_v12.py",
+  "source_basis": [
+    "Derived from active parent variant_natural_gas_zno_guard_claus_sulfur_recovery.",
+    "Integrates water, H2S and CO2 removal with sulfur product and methane-recycle paths.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "H2O",
+        "H2S",
+        "CO2",
+        "S8",
+        "TEG"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_natural_gas_zno_guard_claus_sulfur_recovery"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "H2O",
+      "H2S",
+      "CO2",
+      "S8",
+      "TEG"
+    ]
+  },
+  "units": [
+    {
+      "id": "SOUR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "wet sour gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TEG",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "water removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AGR",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "acid-gas removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLAUS",
+      "kind": "ClausReactor",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "sulfur recovery",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MEM",
+      "kind": "Membrane1D",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "CO2 polishing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "methane recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "pipeline gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SULFUR",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "sour_gas_integrated",
+      "role": "elemental sulfur",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SOUR.outlet",
+      "destination": "TEG.gas",
+      "stage": "sour_gas_integrated",
+      "role": "wet sour gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "TEG.dry",
+      "destination": "AGR.feed",
+      "stage": "sour_gas_integrated",
+      "role": "dry sour gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "AGR.h2s",
+      "destination": "CLAUS.feed",
+      "stage": "sour_gas_integrated",
+      "role": "H2S-rich gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CLAUS.sulfur",
+      "destination": "SULFUR.inlet",
+      "stage": "sour_gas_integrated",
+      "role": "sulfur",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "AGR.sweet",
+      "destination": "MEM.feed",
+      "stage": "sour_gas_integrated",
+      "role": "CO2-containing gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "MEM.retentate",
+      "destination": "GAS.inlet",
+      "stage": "sour_gas_integrated",
+      "role": "pipeline gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "MEM.permeate",
+      "destination": "S1.inlet",
+      "stage": "sour_gas_integrated",
+      "role": "CO2/CH4 permeate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S1.methane",
+      "destination": "AGR.recycle",
+      "stage": "sour_gas_integrated",
+      "role": "methane recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SOUR.outlet"
+  ],
+  "unconnected_product_ports": [
+    "GAS.inlet",
+    "SULFUR.inlet"
+  ],
+  "tear_streams": [
+    "s08"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_natural_gas_zno_guard_claus_sulfur_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_natural_gas_zno_guard_claus_sulfur_recovery",
+    "chemical_change": "Integrates water, H2S and CO2 removal with sulfur product and methane-recycle paths.",
+    "native_metrics": {
+      "pipeline_h2s_index": 0.0008799999999999997,
+      "pipeline_co2_fraction": 0.0154,
+      "methane_recovery": 0.9515,
+      "sulfur_recovery": 0.9565,
+      "water_index": 0.001
+    }
+  }
+}

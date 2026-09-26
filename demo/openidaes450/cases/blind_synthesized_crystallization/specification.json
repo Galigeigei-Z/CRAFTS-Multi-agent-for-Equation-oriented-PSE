@@ -1,0 +1,104 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_crystallization",
+  "family": "family_watertap_crystallization",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_liq_nacl",
+      "value": 10.5119,
+      "units": "kg/s",
+      "role": "family_default NaCl brine feed from non-oracle crystallization support",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mass_liq_h2o",
+      "value": 38.9326,
+      "units": "kg/s",
+      "role": "family_default water brine feed from non-oracle crystallization support",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 293.15,
+      "units": "K",
+      "role": "family_default crystallizer feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default crystallizer feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "temperature_operating",
+      "value": 328.15,
+      "units": "K",
+      "role": "family_default operating temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "solid_nacl_flow",
+      "value": 5.556,
+      "units": "kg/s",
+      "role": "family_default fixed solid NaCl outlet flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "crystal_growth_rate_fixed",
+      "value": true,
+      "units": "dimensionless",
+      "role": "use model default fixed value",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "souders_brown_constant_fixed",
+      "value": true,
+      "units": "dimensionless",
+      "role": "use model default fixed value",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "crystal_median_length_fixed",
+      "value": true,
+      "units": "dimensionless",
+      "role": "use model default fixed value",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind crystallization topology is compiled to BuildPlanIR and solved by the crystallization sandbox template",
+    "solve_order": [
+      "crystallizer"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

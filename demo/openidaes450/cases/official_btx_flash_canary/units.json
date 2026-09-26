@@ -1,0 +1,68 @@
+[
+  {
+    "name": "fs.flash",
+    "class": "idaes.core.base.process_block._ScalarFlash",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": true,
+      "has_heat_transfer": true,
+      "has_pressure_change": true,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {}
+    }
+  },
+  {
+    "name": "fs.flash.split",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {},
+      "outlet_list": [
+        "Vap",
+        "Liq"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "phaseFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": true,
+      "ideal_split_map": {
+        "Liq": "Liq",
+        "Vap": "Vap"
+      },
+      "mixed_state_block": {
+        "component": "fs.flash.control_volume.properties_out"
+      },
+      "construct_ports": true
+    }
+  }
+]

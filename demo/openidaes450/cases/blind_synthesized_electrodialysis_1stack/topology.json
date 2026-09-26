@@ -1,0 +1,699 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "blind_synthesized_electrodialysis_1stack",
+  "family": "family_watertap_electrodialysis_1stack",
+  "process_type": "Blind-synthesized WaterTAP electrodialysis one-stack draft with feed split to diluate and concentrate channels, ED stack, product, and disposal outlets",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "source_basis": [
+    "Blind source flowchart evidence was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor. allow_legacy_lookup=False.",
+    "Blind RAG support was retrieved from the prompt and Qwen visual description only; case_id, run_id, source_url, and image filename were not used as routing evidence.",
+    "Topology synthesized from prompt text, Qwen visual description, and non-oracle library/family support cards.",
+    "No source URL, case id, run id, image filename, solved report, or legacy topology builder was used.",
+    "Retrieved support cards: Family profile hint: family_watertap_electrodialysis_1stack; WaterTAP electrodialysis units; Family profile hint: family_watertap_bped_unit; Family profile hint: family_watertap_electrodialysis_conc_recirc",
+    "ProcessSpec unit guesses: []; edge_count=0.",
+    "Blind support hint: Family profile hint: family_watertap_electrodialysis_1stack (family_profile_hint) matched ['watertap electrodialysis one-stack', 'electrodialysis', 'one-stack'].",
+    "Blind support hint: WaterTAP electrodialysis units (unit_model) matched ['electrodialysis', 'diluate', 'concentrate'].",
+    "Blind support hint: Family profile hint: family_watertap_bped_unit (family_profile_hint) matched ['electrodialysis', 'diluate'].",
+    "Blind support hint: Family profile hint: family_watertap_electrodialysis_conc_recirc (family_profile_hint) matched ['electrodialysis']."
+  ],
+  "property_packages": {
+    "mcas": {
+      "entry_id": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+      "components": [
+        "H2O",
+        "Na_+",
+        "Cl_-"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "scope": [
+        "feed",
+        "separator",
+        "EDstack",
+        "product",
+        "disposal"
+      ],
+      "source": "blind_rag_support"
+    }
+  },
+  "components": {
+    "aqueous_salt": [
+      "H2O",
+      "Na_+",
+      "Cl_-"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas",
+      "stage": "feed",
+      "role": "saline feed source",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "separator",
+      "kind": "Separator",
+      "package": "mcas",
+      "stage": "split",
+      "role": "split feed into diluate and concentrate channels",
+      "constructor": {
+        "outlet_list": [
+          "inlet_diluate",
+          "inlet_concentrate"
+        ]
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "EDstack",
+      "kind": "Electrodialysis1D",
+      "package": "mcas",
+      "stage": "separation",
+      "role": "one-stack electrodialysis unit",
+      "constructor": {
+        "operation_mode": "Constant_Voltage",
+        "finite_elements": 20
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "mcas",
+      "stage": "product",
+      "role": "diluate/product outlet",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "disposal",
+      "kind": "Product",
+      "package": "mcas",
+      "stage": "disposal",
+      "role": "concentrate disposal outlet",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "feed_to_separator",
+      "source": "feed.outlet",
+      "destination": "separator.inlet",
+      "stage": "feed",
+      "role": "feed to splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "separator_to_diluate",
+      "source": "separator.inlet_diluate",
+      "destination": "EDstack.inlet_diluate",
+      "stage": "diluate",
+      "role": "diluate channel feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "separator_to_concentrate",
+      "source": "separator.inlet_concentrate",
+      "destination": "EDstack.inlet_concentrate",
+      "stage": "concentrate",
+      "role": "concentrate channel feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "ed_to_product",
+      "source": "EDstack.outlet_diluate",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "diluate outlet to product",
+      "tear_candidate": false
+    },
+    {
+      "id": "ed_to_disposal",
+      "source": "EDstack.outlet_concentrate",
+      "destination": "disposal.inlet",
+      "stage": "disposal",
+      "role": "concentrate outlet to disposal",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_h2o",
+      "value": 4.8,
+      "units": "mol/s",
+      "role": "family_default water molar flow"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_na",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default sodium molar flow"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_cl",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default chloride molar flow"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default feed temperature"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default feed pressure"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "separator",
+      "variable": "split_fraction_diluate",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default equal split to diluate and concentrate channels"
+    },
+    {
+      "target": "EDstack",
+      "variable": "voltage_applied",
+      "value": 5.0,
+      "units": "V",
+      "role": "family_default constant voltage operation"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_pair_num",
+      "value": 100,
+      "units": "dimensionless",
+      "role": "family_default cell-pair count"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "strict blind ED one-stack topology is compiled to BuildPlanIR and solved by the ED sandbox template",
+    "solve_order": [
+      "feed",
+      "separator",
+      "EDstack",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "watertap.unit_models.electrodialysis_1D.Electrodialysis1D",
+    "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+  ],
+  "notes_for_agent_a": [
+    "This is a blind synthesized draft topology, not a verified official case topology.",
+    "Do not use this compact one-stack template for concentrate-recirculation ED diagrams.",
+    "Score solve success only when the hermetic BuildPlanIR compiler and sandbox solver consume this IR directly."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_ed_onestack_20260606/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 628,
+      "height": 1082,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped.",
+    "blind_routing": {
+      "enabled": true,
+      "allow_legacy_lookup": false
+    },
+    "generation_mode": "strict_blind_synthesis",
+    "visual_graph_ir": {
+      "schema_version": "visual_graph_ir/1",
+      "nodes": [],
+      "edges": [],
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": true,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      }
+    },
+    "process_spec": {
+      "schema_version": "process_spec/1",
+      "source": "prompt_plus_visual_graph_plus_support_docs",
+      "question": "Strict Qwen rerun WaterTAP electrodialysis one-stack case. Flowchart text: feed goes to separator; separator diluate and concentrate outlets feed one electrodialysis stack; diluate outlet goes to product and concentrate outlet goes to disposal. No concentrate recirculation.",
+      "visual_status": "ok",
+      "support_doc_ids": [
+        "family_profile.family_watertap_bped_unit",
+        "family_profile.family_watertap_electrodialysis_1stack",
+        "family_profile.family_watertap_electrodialysis_conc_recirc",
+        "watertap.unit.electrodialysis"
+      ],
+      "unit_type_guesses": [],
+      "edge_count": 0,
+      "signals": {
+        "reverse_osmosis": false,
+        "pump_as_turbine_or_erd": false,
+        "no_energy_recovery": false,
+        "pressure_exchanger": false,
+        "crystallization": false,
+        "gac": false,
+        "ion_exchange": false,
+        "boron_removal": false,
+        "coag_floc": false,
+        "mvc": false,
+        "lsrro": false,
+        "oaro": false,
+        "oaro_multi": false,
+        "membrane_distillation": false,
+        "seawater_ro": false,
+        "seawater_ro_pump_as_turbine": false,
+        "anaerobic_digester": false,
+        "adm1_flowsheet": false,
+        "asm1": false,
+        "asm2d": false,
+        "bsm2": false,
+        "bsm2_p_extension": false,
+        "generic_desalination_train": false,
+        "dye_desalination": false,
+        "bipolar_electrodialysis": false,
+        "electrodialysis": true,
+        "concentrate_recirculation": false,
+        "nanofiltration": false,
+        "bypass": false,
+        "hda": false,
+        "distillation": false,
+        "methanol_synthesis": false,
+        "recycle": false,
+        "seawater_or_desalination": false,
+        "unsupported_strict_variant": false,
+        "full_desalination_train": false,
+        "ambiguous_strict_variant": false
+      },
+      "template_gate": {
+        "schema_version": "template_gate/1",
+        "status": "qualified",
+        "reason": "exactly_one_template_qualified",
+        "selected_template": "ed_one_stack",
+        "qualified_templates": [
+          "ed_one_stack"
+        ],
+        "graph_unit_types": [],
+        "candidates": {
+          "hda_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "missing required signal distillation",
+              "forbidden signal electrodialysis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "hda_flash": {
+            "qualified": false,
+            "failures": [
+              "missing required signal hda",
+              "forbidden signal electrodialysis",
+              "missing required support doc idaes.props.hda_btx"
+            ]
+          },
+          "methanol_recycle": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "missing required signal recycle",
+              "forbidden signal electrodialysis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "methanol_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal methanol_synthesis",
+              "forbidden signal electrodialysis",
+              "missing required support doc idaes.props.methanol_synthesis"
+            ]
+          },
+          "bped_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bipolar_electrodialysis",
+              "missing required support doc watertap.unit.bipolar_electrodialysis_1d"
+            ]
+          },
+          "ed_concentrate_recirculation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal concentrate_recirculation"
+            ]
+          },
+          "ed_one_stack": {
+            "qualified": true,
+            "failures": []
+          },
+          "nf_dspmde_bypass": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "missing required signal bypass",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.nf_dspmde"
+            ]
+          },
+          "nf_dspmde_base": {
+            "qualified": false,
+            "failures": [
+              "missing required signal nanofiltration",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.nf_dspmde",
+              "missing required support doc watertap.flowsheet.nf_dspmde_base"
+            ]
+          },
+          "adm1_flowsheet": {
+            "qualified": false,
+            "failures": [
+              "missing required signal adm1_flowsheet",
+              "missing required signal anaerobic_digester",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.adm1",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "asm1": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm1",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.asm1"
+            ]
+          },
+          "asm2d": {
+            "qualified": false,
+            "failures": [
+              "missing required signal asm2d",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.asm2d"
+            ]
+          },
+          "bsm2": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.bsm2"
+            ]
+          },
+          "bsm2_p_extension": {
+            "qualified": false,
+            "failures": [
+              "missing required signal bsm2_p_extension",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.bsm2_p_extension"
+            ]
+          },
+          "generic_desalination_train": {
+            "qualified": false,
+            "failures": [
+              "missing required signal generic_desalination_train",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.generic_desalination_train"
+            ]
+          },
+          "dye_desalination": {
+            "qualified": false,
+            "failures": [
+              "missing required signal dye_desalination",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.dye_desalination"
+            ]
+          },
+          "anaerobic_digester_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal anaerobic_digester",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.anaerobic_digester",
+              "missing required support doc watertap.props.adm1"
+            ]
+          },
+          "crystallization": {
+            "qualified": false,
+            "failures": [
+              "missing required signal crystallization",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.crystallization"
+            ]
+          },
+          "ion_exchange_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal ion_exchange",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.ion_exchange_0d",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "gac_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal gac",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.gac",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "boron_removal_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal boron_removal",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.boron_removal",
+              "missing required support doc watertap.props.mcas"
+            ]
+          },
+          "coag_floc_unit": {
+            "qualified": false,
+            "failures": [
+              "missing required signal coag_floc",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.coag_floc",
+              "missing required support doc watertap.props.coagulation"
+            ]
+          },
+          "mvc_single_stage": {
+            "qualified": false,
+            "failures": [
+              "missing required signal mvc",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.mvc",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "lsrro": {
+            "qualified": false,
+            "failures": [
+              "missing required signal lsrro",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.lsrro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_single": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.oaro",
+              "missing required support doc watertap.props.nacl"
+            ]
+          },
+          "oaro_multi": {
+            "qualified": false,
+            "failures": [
+              "missing required signal oaro",
+              "missing required signal oaro_multi",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.oaro_multi",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "membrane_distillation": {
+            "qualified": false,
+            "failures": [
+              "missing required signal membrane_distillation",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.membrane_distillation",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal seawater_ro_pump_as_turbine",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.seawater_ro_pat",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "seawater_ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal seawater_ro",
+              "missing required signal pressure_exchanger",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.flowsheet.seawater_ro",
+              "missing required support doc watertap.props.seawater"
+            ]
+          },
+          "ro_pressure_exchanger": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pressure_exchanger",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_no_energy_recovery": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal no_energy_recovery",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          },
+          "ro_pump_as_turbine": {
+            "qualified": false,
+            "failures": [
+              "missing required signal reverse_osmosis",
+              "missing required signal pump_as_turbine_or_erd",
+              "forbidden signal electrodialysis",
+              "missing required support doc watertap.unit.reverse_osmosis_0d",
+              "missing required support doc watertap.unit.pressure_changer",
+              "missing one of required support docs watertap.props.nacl/watertap.props.seawater"
+            ]
+          }
+        }
+      },
+      "confidence": {
+        "visual_graph": 0.0,
+        "support": 0.8
+      }
+    },
+    "blind_rag_support": [
+      {
+        "doc_id": "family_profile.family_watertap_electrodialysis_1stack",
+        "title": "Family profile hint: family_watertap_electrodialysis_1stack",
+        "kind": "family_profile_hint",
+        "score": 88.0,
+        "matched_triggers": [
+          "watertap electrodialysis one-stack",
+          "electrodialysis",
+          "one-stack"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP one-stack electrodialysis cases commonly use MCAS aqueous ions, Feed, Pump, Electrodialysis1D, Product, and disposal units."
+      },
+      {
+        "doc_id": "watertap.unit.electrodialysis",
+        "title": "WaterTAP electrodialysis units",
+        "kind": "unit_model",
+        "score": 72.0,
+        "matched_triggers": [
+          "electrodialysis",
+          "diluate",
+          "concentrate"
+        ],
+        "source_url": "",
+        "text": "Use electrodialysis units for diluate/concentrate channels, ion transport, bipolar membranes, or concentrate recirculation depending on the diagram."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_bped_unit",
+        "title": "Family profile hint: family_watertap_bped_unit",
+        "kind": "family_profile_hint",
+        "score": 48.0,
+        "matched_triggers": [
+          "electrodialysis",
+          "diluate"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP BPED unit cases commonly use MCAS aqueous ions, Electrodialysis_Bipolar_1D, diluate/acid/base channel feeds, constant-voltage operation, and acid/base product outlets."
+      },
+      {
+        "doc_id": "family_profile.family_watertap_electrodialysis_conc_recirc",
+        "title": "Family profile hint: family_watertap_electrodialysis_conc_recirc",
+        "kind": "family_profile_hint",
+        "score": 24.0,
+        "matched_triggers": [
+          "electrodialysis"
+        ],
+        "source_url": "",
+        "text": "Family hint only: WaterTAP electrodialysis concentrate-recirculation cases commonly use MCAS aqueous ions, Pumps, Separator/Mixer recycle structure, Electrodialysis1D, Product, and disposal units."
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "fs.Feed_to_separator",
+    "source": "fs.feed.outlet",
+    "destination": "fs.Pretreatment.separator.inlet"
+  },
+  {
+    "name": "fs.Pretreatment_to_desalter",
+    "source": "fs.Pretreatment.separator.treated",
+    "destination": "fs.Desal_1.desalter.inlet"
+  },
+  {
+    "name": "fs.Desal_1_to_desalter",
+    "source": "fs.Desal_1.desalter.brine",
+    "destination": "fs.Desal_2.desalter.inlet"
+  },
+  {
+    "name": "fs.Desal_2_to_desalter",
+    "source": "fs.Desal_2.desalter.brine",
+    "destination": "fs.Desal_3.desalter.inlet"
+  },
+  {
+    "name": "fs.Desal_3_to_valorizer",
+    "source": "fs.Desal_3.desalter.brine",
+    "destination": "fs.Valorizer.separator.inlet"
+  },
+  {
+    "name": "fs.Desal_1_to_product_mixer",
+    "source": "fs.Desal_1.desalter.product",
+    "destination": "fs.product_mixer.Desal_1"
+  },
+  {
+    "name": "fs.Desal_2_to_product_mixer",
+    "source": "fs.Desal_2.desalter.product",
+    "destination": "fs.product_mixer.Desal_2"
+  },
+  {
+    "name": "fs.Desal_3_to_product_mixer",
+    "source": "fs.Desal_3.desalter.product",
+    "destination": "fs.product_mixer.Desal_3"
+  },
+  {
+    "name": "fs.product_mixer_to_product",
+    "source": "fs.product_mixer.outlet",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.Pretreatment_to_disposal_mixer",
+    "source": "fs.Pretreatment.separator.product",
+    "destination": "fs.disposal_mixer.Pretreatment"
+  },
+  {
+    "name": "fs.Valorizer_to_disposal_mixer",
+    "source": "fs.Valorizer.separator.treated",
+    "destination": "fs.disposal_mixer.Valorizer"
+  },
+  {
+    "name": "fs.disposal_mixer_to_disposal",
+    "source": "fs.disposal_mixer.outlet",
+    "destination": "fs.disposal.inlet"
+  }
+]

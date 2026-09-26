@@ -1,0 +1,37 @@
+[
+  {
+    "name": "fs.feed_to_nfUnit_feed",
+    "source": "fs.feed.outlet",
+    "destination": "fs.NF.feed.inlet"
+  },
+  {
+    "name": "fs.nfUnit_retentate_to_disposal",
+    "source": "fs.NF.retentate.outlet",
+    "destination": "fs.disposal.inlet"
+  },
+  {
+    "name": "fs.nfUnit_product_to_product",
+    "source": "fs.NF.product.outlet",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.NF.feed_to_pump",
+    "source": "fs.NF.feed.outlet",
+    "destination": "fs.NF.pump.inlet"
+  },
+  {
+    "name": "fs.NF.pump_to_nf",
+    "source": "fs.NF.pump.outlet",
+    "destination": "fs.NF.nfUnit.inlet"
+  },
+  {
+    "name": "fs.NF.nf_to_product",
+    "source": "fs.NF.nfUnit.permeate",
+    "destination": "fs.NF.product.inlet"
+  },
+  {
+    "name": "fs.NF.nf_to_retentate",
+    "source": "fs.NF.nfUnit.retentate",
+    "destination": "fs.NF.retentate.inlet"
+  }
+]

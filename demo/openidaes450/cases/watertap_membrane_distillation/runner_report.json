@@ -1,0 +1,277 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_membrane_distillation",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/membrane_distillation.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "md_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "md_simulation_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "md_simulation_recovery_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "water_recovery": 0.5,
+  "recycle_ratio": 7.071864210126668,
+  "levelized_cost_of_water": 25.064840644698087,
+  "specific_energy_consumption": 305.9772545704111,
+  "thermal_efficiency": 0.5847110686335845,
+  "effectiveness": 0.8030840845806366,
+  "permeate_tds_mass_fraction": 2.068656735382945e-18,
+  "stream_values": {
+    "feed_to_feed_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.965,
+        "Liq/TDS": 0.035
+      },
+      "mass_flow": 1.0,
+      "flow_kg_s": 1.0,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.965,
+        "Liq/TDS": 0.035
+      },
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.pump_feed.inlet"
+    },
+    "feed_pump_to_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.965,
+        "Liq/TDS": 0.035
+      },
+      "mass_flow": 1.0,
+      "flow_kg_s": 1.0,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.965,
+        "Liq/TDS": 0.035
+      },
+      "temperature": 298.15,
+      "pressure": 801325.0,
+      "source_port": "fs.pump_feed.outlet",
+      "destination_port": "fs.mixer.feed"
+    },
+    "mixer_to_heat_exchanger_cold_side": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 0.5132903330520603
+      },
+      "mass_flow": 8.071864210126664,
+      "flow_kg_s": 8.071864210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.936409939551745,
+        "Liq/TDS": 0.06359006044825495
+      },
+      "temperature": 291.1492744597567,
+      "pressure": 801325.0,
+      "source_port": "fs.mixer.outlet",
+      "destination_port": "fs.hx.cold_side_inlet"
+    },
+    "heat_exchanger_cold_out_to_brine_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 0.5132903330520603
+      },
+      "mass_flow": 8.071864210126664,
+      "flow_kg_s": 8.071864210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.936409939551745,
+        "Liq/TDS": 0.06359006044825495
+      },
+      "temperature": 347.03795914549033,
+      "pressure": 701325.0,
+      "source_port": "fs.hx.cold_side_outlet",
+      "destination_port": "fs.pump_brine.inlet"
+    },
+    "brine_pump_to_heater": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 0.5132903330520603
+      },
+      "mass_flow": 8.071864210126664,
+      "flow_kg_s": 8.071864210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.936409939551745,
+        "Liq/TDS": 0.06359006044825495
+      },
+      "temperature": 347.03795914549033,
+      "pressure": 601325.0,
+      "source_port": "fs.pump_brine.outlet",
+      "destination_port": "fs.heater.inlet"
+    },
+    "heater_to_md_hot_inlet": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 0.5132903330520603
+      },
+      "mass_flow": 8.071864210126664,
+      "flow_kg_s": 8.071864210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.936409939551745,
+        "Liq/TDS": 0.06359006044825495
+      },
+      "temperature": 363.15,
+      "pressure": 501325.00000000006,
+      "source_port": "fs.heater.outlet",
+      "destination_port": "fs.MD.hot_ch_inlet"
+    },
+    "md_hot_outlet_to_concentrate_separator": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.076073877074604,
+        "Liq/TDS": 0.5132903330520603
+      },
+      "mass_flow": 7.589364210126664,
+      "flow_kg_s": 7.589364210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9323671497584521,
+        "Liq/TDS": 0.06763285024154791
+      },
+      "temperature": 290.19295737209427,
+      "pressure": 475946.6801008821,
+      "source_port": "fs.MD.hot_ch_outlet",
+      "destination_port": "fs.separator_concentrate.inlet"
+    },
+    "concentrate_separator_to_reject": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.4825000000000027,
+        "Liq/TDS": 0.03500000000000028
+      },
+      "mass_flow": 0.517500000000003,
+      "flow_kg_s": 0.517500000000003,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.932367149758454,
+        "Liq/TDS": 0.06763285024154606
+      },
+      "temperature": 290.19295737209427,
+      "pressure": 475946.6801008822,
+      "source_port": "fs.separator_concentrate.reject",
+      "destination_port": "fs.reject.inlet"
+    },
+    "concentrate_separator_recycle_to_mixer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 6.593573877074604,
+        "Liq/TDS": 0.47829033305206026
+      },
+      "mass_flow": 7.071864210126664,
+      "flow_kg_s": 7.071864210126664,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9323671497584519,
+        "Liq/TDS": 0.06763285024154807
+      },
+      "temperature": 290.19295737209427,
+      "pressure": 475946.6801008822,
+      "source_port": "fs.separator_concentrate.recycle",
+      "destination_port": "fs.mixer.recycle"
+    },
+    "chiller_to_md_cold_inlet": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 4.4711437023766653e-17
+      },
+      "mass_flow": 7.558573877074604,
+      "flow_kg_s": 7.558573877074604,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.915327117378302e-18
+      },
+      "temperature": 283.15,
+      "pressure": 501325.00000000006,
+      "source_port": "fs.chiller.outlet",
+      "destination_port": "fs.MD.cold_ch_inlet"
+    },
+    "md_cold_outlet_to_heat_exchanger_hot_side": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 8.041073877074604,
+        "Liq/TDS": 4.47114370145048e-17
+      },
+      "mass_flow": 8.041073877074604,
+      "flow_kg_s": 8.041073877074604,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.560381324437118e-18
+      },
+      "temperature": 347.3967267664509,
+      "pressure": 474270.8961836162,
+      "source_port": "fs.MD.cold_ch_outlet",
+      "destination_port": "fs.hx.hot_side_inlet"
+    },
+    "heat_exchanger_hot_out_to_permeate_separator": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 8.041073877074608,
+        "Liq/TDS": 4.4711436682692484e-17
+      },
+      "mass_flow": 8.041073877074608,
+      "flow_kg_s": 8.041073877074608,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.560381283172439e-18
+      },
+      "temperature": 298.02988959515676,
+      "pressure": 374270.89618361625,
+      "source_port": "fs.hx.hot_side_outlet",
+      "destination_port": "fs.separator_permeate.inlet"
+    },
+    "permeate_separator_to_product": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 0.4825000000000029,
+        "Liq/TDS": 5.915856815802065e-20
+      },
+      "mass_flow": 0.4825000000000029,
+      "flow_kg_s": 0.4825000000000029,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 1.226084314155861e-19
+      },
+      "temperature": 298.02988959515676,
+      "pressure": 374270.89618361625,
+      "source_port": "fs.separator_permeate.permeate",
+      "destination_port": "fs.permeate.inlet"
+    },
+    "permeate_separator_cold_loop_to_pump": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 4.471143681184201e-17
+      },
+      "mass_flow": 7.558573877074604,
+      "flow_kg_s": 7.558573877074604,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.915327089340653e-18
+      },
+      "temperature": 298.02988959515676,
+      "pressure": 374270.89618361625,
+      "source_port": "fs.separator_permeate.cold_loop_stream",
+      "destination_port": "fs.pump_permeate.inlet"
+    },
+    "permeate_pump_to_chiller": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 7.558573877074604,
+        "Liq/TDS": 4.471143681183545e-17
+      },
+      "mass_flow": 7.558573877074604,
+      "flow_kg_s": 7.558573877074604,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 1.0,
+        "Liq/TDS": 5.915327089339784e-18
+      },
+      "temperature": 298.02988959515676,
+      "pressure": 601325.0,
+      "source_port": "fs.pump_permeate.outlet",
+      "destination_port": "fs.chiller.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.MD.MD_single_stage_continuous_recirculation",
+    "stdout_tail": "DOF: 0\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

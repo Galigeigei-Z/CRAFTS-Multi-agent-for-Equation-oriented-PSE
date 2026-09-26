@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_two_pass_ro",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "checks": [
+    {
+      "name": "two_pass_ro_optimal",
+      "pass": true
+    },
+    {
+      "name": "two_pass_ro_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "two_pass_ro_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "second_pass_polishes_permeate",
+      "pass": true
+    },
+    {
+      "name": "two_pass_overall_recovery_physical",
+      "pass": true
+    }
+  ],
+  "variant_metrics": {
+    "feed_nacl_mass_fraction": 0.002,
+    "first_pass_permeate_nacl_mass_fraction": 0.0009157024529811744,
+    "final_product_nacl_mass_fraction": 2.001135413964502e-05,
+    "permeate_polishing_factor": 45.75914486301815,
+    "first_pass_water_recovery": 0.5031320279268985,
+    "second_pass_water_recovery": 0.5995731678884297,
+    "overall_water_recovery": 0.30166446385026036,
+    "first_pass_membrane_area_m2": 70,
+    "second_pass_membrane_area_m2": 100,
+    "first_pass_pump_work_W": 2373.34375,
+    "second_pass_pump_work_W": 565.0416251458402,
+    "total_pump_work_W": 2938.38537514584,
+    "specific_energy_consumption_kWh_m3": 2.7070109889179625
+  },
+  "source_summary": {
+    "source": "Two serial WaterTAP ReverseOsmosis0D units with independent pumps",
+    "evidence_boundary": "Steady-state NaCl surrogate; no fouling, boron, ion-specific chemistry, ERD, recycle, or blending is represented.",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,59 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "stage": "native_mvo_discretized_highs",
+  "termination_condition": "optimal",
+  "solver": "appsi_highs",
+  "execution_scope": "native",
+  "metrics": {
+    "input_row_count": 39200,
+    "process_variant_count": 28,
+    "feasible_alternative_count": 19376,
+    "x_selection_variable_count": 19376,
+    "platform_binary_count": 34,
+    "variables": 19410,
+    "constraints": 58159,
+    "objective_value": 2086421.7964799982,
+    "selected_family_design_count": 3,
+    "selected_platform_module_count": 6,
+    "selected_platform_modules": [
+      {
+        "module_type": "Evaporator Area",
+        "design": 50.0
+      },
+      {
+        "module_type": "Evaporator Area",
+        "design": 80.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 20.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 35.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 60.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 105.0
+      }
+    ],
+    "initialize_seconds": 0.8676077958662063,
+    "build_seconds": 3.6698411649558693,
+    "solve_seconds": 131.87585335108452
+  },
+  "configuration": {
+    "filter_name": "temperature_le_31",
+    "max_common_designs": {
+      "Evaporator Area": 2,
+      "Condenser Area": 2,
+      "Compressor Design Flow": 2
+    }
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

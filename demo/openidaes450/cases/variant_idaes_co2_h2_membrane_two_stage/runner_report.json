@@ -1,0 +1,4459 @@
+{
+  "pass": true,
+  "stage": "native_compact_chemical_conservation_solve",
+  "case_family": "idaes_co2_h2_membrane_two_stage",
+  "recipe": "membrane_cascade",
+  "parent_case_key": "idaes_co2_membrane_1d",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "native_extension_optimal",
+      "pass": true
+    },
+    {
+      "name": "initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "component_conservation",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "decision_variables": {
+    "stage_cut_fraction": 0.8,
+    "polishing_selectivity_fraction": 0.8500000000000001
+  },
+  "metrics": {
+    "water_or_product_recovery": 0.8500000000000001,
+    "target_species_rejection": 0.9464999999999999,
+    "concentrate_loading_index": 0.18,
+    "specific_energy_index": 0.537,
+    "max_component_balance_error": 0.0
+  },
+  "search_results": [
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.15,
+      "objective": 0.186,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.161,
+      "objective": 0.1958,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.172,
+      "objective": 0.20559999999999998,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.108,
+      "specific_energy_index": 0.183,
+      "objective": 0.21539999999999998,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.104,
+      "specific_energy_index": 0.194,
+      "objective": 0.2252,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.09999999999999999,
+      "specific_energy_index": 0.205,
+      "objective": 0.235,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.09599999999999999,
+      "specific_energy_index": 0.21600000000000003,
+      "objective": 0.24480000000000002,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.227,
+      "objective": 0.2546,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.088,
+      "specific_energy_index": 0.238,
+      "objective": 0.26439999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.08399999999999999,
+      "specific_energy_index": 0.249,
+      "objective": 0.2742,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.07999999999999999,
+      "specific_energy_index": 0.26,
+      "objective": 0.28400000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.07599999999999998,
+      "specific_energy_index": 0.271,
+      "objective": 0.2938,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.07199999999999998,
+      "specific_energy_index": 0.28200000000000003,
+      "objective": 0.30360000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.06799999999999999,
+      "specific_energy_index": 0.29300000000000004,
+      "objective": 0.3134,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.06399999999999999,
+      "specific_energy_index": 0.30400000000000005,
+      "objective": 0.32320000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.06,
+      "specific_energy_index": 0.315,
+      "objective": 0.333,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.055999999999999994,
+      "specific_energy_index": 0.326,
+      "objective": 0.3428,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.05199999999999999,
+      "specific_energy_index": 0.337,
+      "objective": 0.3526,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.04799999999999999,
+      "specific_energy_index": 0.348,
+      "objective": 0.36239999999999994,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.043999999999999984,
+      "specific_energy_index": 0.359,
+      "objective": 0.3722,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.546,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.039999999999999994,
+      "specific_energy_index": 0.37,
+      "objective": 0.382,
+      "feasible": false,
+      "stage_cut_fraction": 0.0,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.1625,
+      "objective": 0.2009,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.17350000000000002,
+      "objective": 0.2107,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.1845,
+      "objective": 0.2205,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.116,
+      "specific_energy_index": 0.1955,
+      "objective": 0.2303,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.112,
+      "specific_energy_index": 0.20650000000000002,
+      "objective": 0.2401,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.108,
+      "specific_energy_index": 0.2175,
+      "objective": 0.2499,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.104,
+      "specific_energy_index": 0.22850000000000004,
+      "objective": 0.25970000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.1,
+      "specific_energy_index": 0.23950000000000002,
+      "objective": 0.2695,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.096,
+      "specific_energy_index": 0.2505,
+      "objective": 0.2793,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.2615,
+      "objective": 0.2891,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.088,
+      "specific_energy_index": 0.2725,
+      "objective": 0.2989,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.08399999999999999,
+      "specific_energy_index": 0.28350000000000003,
+      "objective": 0.30870000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.07999999999999999,
+      "specific_energy_index": 0.29450000000000004,
+      "objective": 0.31850000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.076,
+      "specific_energy_index": 0.3055,
+      "objective": 0.3283,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.072,
+      "specific_energy_index": 0.3165,
+      "objective": 0.3381,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.068,
+      "specific_energy_index": 0.3275,
+      "objective": 0.3479,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.064,
+      "specific_energy_index": 0.3385,
+      "objective": 0.3577,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.06,
+      "specific_energy_index": 0.34950000000000003,
+      "objective": 0.36750000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.055999999999999994,
+      "specific_energy_index": 0.36050000000000004,
+      "objective": 0.3773,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.05199999999999999,
+      "specific_energy_index": 0.37150000000000005,
+      "objective": 0.38710000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5650000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.048,
+      "specific_energy_index": 0.3825,
+      "objective": 0.39690000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.05,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.175,
+      "objective": 0.2158,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.186,
+      "objective": 0.2256,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.19699999999999998,
+      "objective": 0.23539999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.12400000000000001,
+      "specific_energy_index": 0.208,
+      "objective": 0.2452,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.12000000000000001,
+      "specific_energy_index": 0.219,
+      "objective": 0.255,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.116,
+      "specific_energy_index": 0.22999999999999998,
+      "objective": 0.2648,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.112,
+      "specific_energy_index": 0.241,
+      "objective": 0.2746,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.10800000000000001,
+      "specific_energy_index": 0.252,
+      "objective": 0.2844,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.10400000000000001,
+      "specific_energy_index": 0.263,
+      "objective": 0.2942,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.1,
+      "specific_energy_index": 0.274,
+      "objective": 0.30400000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.096,
+      "specific_energy_index": 0.285,
+      "objective": 0.31379999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.296,
+      "objective": 0.3236,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.088,
+      "specific_energy_index": 0.30700000000000005,
+      "objective": 0.33340000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.084,
+      "specific_energy_index": 0.318,
+      "objective": 0.3432,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.08,
+      "specific_energy_index": 0.329,
+      "objective": 0.35300000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.07600000000000001,
+      "specific_energy_index": 0.33999999999999997,
+      "objective": 0.36279999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.07200000000000001,
+      "specific_energy_index": 0.351,
+      "objective": 0.3726,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.068,
+      "specific_energy_index": 0.362,
+      "objective": 0.38239999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.064,
+      "specific_energy_index": 0.373,
+      "objective": 0.3922,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.06,
+      "specific_energy_index": 0.384,
+      "objective": 0.402,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.5840000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.05600000000000001,
+      "specific_energy_index": 0.395,
+      "objective": 0.4118,
+      "feasible": false,
+      "stage_cut_fraction": 0.1,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.144,
+      "specific_energy_index": 0.1875,
+      "objective": 0.2307,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.13999999999999999,
+      "specific_energy_index": 0.1985,
+      "objective": 0.2405,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.13599999999999998,
+      "specific_energy_index": 0.2095,
+      "objective": 0.25029999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.13199999999999998,
+      "specific_energy_index": 0.2205,
+      "objective": 0.2601,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.2315,
+      "objective": 0.26990000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.12399999999999999,
+      "specific_energy_index": 0.2425,
+      "objective": 0.2797,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.11999999999999998,
+      "specific_energy_index": 0.2535,
+      "objective": 0.2895,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.2645,
+      "objective": 0.2993,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.2755,
+      "objective": 0.30910000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.10799999999999998,
+      "specific_energy_index": 0.2865,
+      "objective": 0.31889999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.10399999999999998,
+      "specific_energy_index": 0.2975,
+      "objective": 0.3287,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.09999999999999998,
+      "specific_energy_index": 0.3085,
+      "objective": 0.33849999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.09599999999999997,
+      "specific_energy_index": 0.3195,
+      "objective": 0.3483,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.09199999999999998,
+      "specific_energy_index": 0.3305,
+      "objective": 0.35810000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.08799999999999998,
+      "specific_energy_index": 0.3415,
+      "objective": 0.3679,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.08399999999999999,
+      "specific_energy_index": 0.35250000000000004,
+      "objective": 0.37770000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.07999999999999999,
+      "specific_energy_index": 0.36350000000000005,
+      "objective": 0.38750000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.07599999999999998,
+      "specific_energy_index": 0.37450000000000006,
+      "objective": 0.39730000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.07199999999999998,
+      "specific_energy_index": 0.3855,
+      "objective": 0.4071,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.06799999999999998,
+      "specific_energy_index": 0.3965,
+      "objective": 0.4169,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6030000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.06399999999999999,
+      "specific_energy_index": 0.4075,
+      "objective": 0.42669999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.15000000000000002,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.2,
+      "objective": 0.2456,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.21100000000000002,
+      "objective": 0.2554,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.144,
+      "specific_energy_index": 0.222,
+      "objective": 0.2652,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.13999999999999999,
+      "specific_energy_index": 0.233,
+      "objective": 0.275,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.24400000000000002,
+      "objective": 0.28480000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.255,
+      "objective": 0.29460000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.266,
+      "objective": 0.3044,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.277,
+      "objective": 0.31420000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.28800000000000003,
+      "objective": 0.324,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.29900000000000004,
+      "objective": 0.33380000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.31,
+      "objective": 0.3436,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.10799999999999998,
+      "specific_energy_index": 0.321,
+      "objective": 0.3534,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.10399999999999998,
+      "specific_energy_index": 0.3320000000000001,
+      "objective": 0.3632000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.09999999999999999,
+      "specific_energy_index": 0.343,
+      "objective": 0.373,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.09599999999999999,
+      "specific_energy_index": 0.35400000000000004,
+      "objective": 0.38280000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.365,
+      "objective": 0.3926,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.088,
+      "specific_energy_index": 0.376,
+      "objective": 0.4024,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.08399999999999999,
+      "specific_energy_index": 0.387,
+      "objective": 0.4122,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.07999999999999999,
+      "specific_energy_index": 0.398,
+      "objective": 0.42200000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.07599999999999998,
+      "specific_energy_index": 0.40900000000000003,
+      "objective": 0.4318,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6220000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.072,
+      "specific_energy_index": 0.42000000000000004,
+      "objective": 0.44160000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.2,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.2125,
+      "objective": 0.2605,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.2235,
+      "objective": 0.2703,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.2345,
+      "objective": 0.28009999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.2455,
+      "objective": 0.2899,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.2565,
+      "objective": 0.2997,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.2675,
+      "objective": 0.3095,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.2785,
+      "objective": 0.31930000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.2895,
+      "objective": 0.3291,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.3005,
+      "objective": 0.3389,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.3115,
+      "objective": 0.3487,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.3225,
+      "objective": 0.3585,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.3335,
+      "objective": 0.3683,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.34450000000000003,
+      "objective": 0.37810000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.108,
+      "specific_energy_index": 0.35550000000000004,
+      "objective": 0.3879,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.104,
+      "specific_energy_index": 0.36650000000000005,
+      "objective": 0.39770000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.1,
+      "specific_energy_index": 0.3775,
+      "objective": 0.4075,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.096,
+      "specific_energy_index": 0.3885,
+      "objective": 0.4173,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.3995,
+      "objective": 0.42710000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.088,
+      "specific_energy_index": 0.4105,
+      "objective": 0.43689999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.08399999999999999,
+      "specific_energy_index": 0.4215,
+      "objective": 0.4467,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.641,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.08,
+      "specific_energy_index": 0.4325,
+      "objective": 0.4565,
+      "feasible": false,
+      "stage_cut_fraction": 0.25,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.225,
+      "objective": 0.2754,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.23600000000000002,
+      "objective": 0.2852,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.247,
+      "objective": 0.295,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.258,
+      "objective": 0.3048,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.15200000000000002,
+      "specific_energy_index": 0.269,
+      "objective": 0.31460000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.14800000000000002,
+      "specific_energy_index": 0.28,
+      "objective": 0.3244,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.29100000000000004,
+      "objective": 0.33420000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.30200000000000005,
+      "objective": 0.34400000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.313,
+      "objective": 0.3538,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.324,
+      "objective": 0.36360000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.335,
+      "objective": 0.3734,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.34600000000000003,
+      "objective": 0.38320000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.35700000000000004,
+      "objective": 0.393,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.116,
+      "specific_energy_index": 0.368,
+      "objective": 0.4028,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.112,
+      "specific_energy_index": 0.379,
+      "objective": 0.4126,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.10800000000000001,
+      "specific_energy_index": 0.39,
+      "objective": 0.4224,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.10400000000000001,
+      "specific_energy_index": 0.401,
+      "objective": 0.43220000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.1,
+      "specific_energy_index": 0.41200000000000003,
+      "objective": 0.44200000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.096,
+      "specific_energy_index": 0.42300000000000004,
+      "objective": 0.45180000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.092,
+      "specific_energy_index": 0.43400000000000005,
+      "objective": 0.46160000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.66,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.08800000000000001,
+      "specific_energy_index": 0.445,
+      "objective": 0.4714,
+      "feasible": false,
+      "stage_cut_fraction": 0.30000000000000004,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.2375,
+      "objective": 0.2903,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.172,
+      "specific_energy_index": 0.2485,
+      "objective": 0.3001,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.16799999999999998,
+      "specific_energy_index": 0.2595,
+      "objective": 0.3099,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.16399999999999998,
+      "specific_energy_index": 0.2705,
+      "objective": 0.3197,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.15999999999999998,
+      "specific_energy_index": 0.2815,
+      "objective": 0.32949999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.2925,
+      "objective": 0.3393,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.3035,
+      "objective": 0.34909999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.3145,
+      "objective": 0.3589,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.144,
+      "specific_energy_index": 0.3255,
+      "objective": 0.3687,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.13999999999999999,
+      "specific_energy_index": 0.3365,
+      "objective": 0.3785,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.13599999999999998,
+      "specific_energy_index": 0.3475,
+      "objective": 0.3883,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.13199999999999998,
+      "specific_energy_index": 0.3585,
+      "objective": 0.39809999999999995,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.12799999999999997,
+      "specific_energy_index": 0.36950000000000005,
+      "objective": 0.40790000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.12399999999999999,
+      "specific_energy_index": 0.3805,
+      "objective": 0.4177,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.11999999999999998,
+      "specific_energy_index": 0.3915,
+      "objective": 0.4275,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.40249999999999997,
+      "objective": 0.43729999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.4135,
+      "objective": 0.4471,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.10799999999999998,
+      "specific_energy_index": 0.4245,
+      "objective": 0.4569,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.10399999999999998,
+      "specific_energy_index": 0.4355,
+      "objective": 0.4667,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.09999999999999998,
+      "specific_energy_index": 0.4465,
+      "objective": 0.4765,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.679,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.09599999999999999,
+      "specific_energy_index": 0.4575,
+      "objective": 0.4863,
+      "feasible": false,
+      "stage_cut_fraction": 0.35000000000000003,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.25,
+      "objective": 0.3052,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.261,
+      "objective": 0.315,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.272,
+      "objective": 0.32480000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.172,
+      "specific_energy_index": 0.28300000000000003,
+      "objective": 0.3346,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.16799999999999998,
+      "specific_energy_index": 0.294,
+      "objective": 0.3444,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.305,
+      "objective": 0.3542,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.316,
+      "objective": 0.364,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.327,
+      "objective": 0.3738,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.338,
+      "objective": 0.3836,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.349,
+      "objective": 0.39339999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.144,
+      "specific_energy_index": 0.36,
+      "objective": 0.4032,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.13999999999999999,
+      "specific_energy_index": 0.371,
+      "objective": 0.413,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.13599999999999998,
+      "specific_energy_index": 0.382,
+      "objective": 0.4228,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.393,
+      "objective": 0.43260000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.404,
+      "objective": 0.4424,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.41500000000000004,
+      "objective": 0.45220000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.42600000000000005,
+      "objective": 0.462,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.43700000000000006,
+      "objective": 0.47180000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.11199999999999999,
+      "specific_energy_index": 0.448,
+      "objective": 0.48160000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.10799999999999998,
+      "specific_energy_index": 0.459,
+      "objective": 0.4914,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.6980000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.104,
+      "specific_energy_index": 0.47,
+      "objective": 0.5012,
+      "feasible": false,
+      "stage_cut_fraction": 0.4,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.2625,
+      "objective": 0.3201,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.2735,
+      "objective": 0.3299,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.28450000000000003,
+      "objective": 0.3397,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.29550000000000004,
+      "objective": 0.34950000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.3065,
+      "objective": 0.3593,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.17200000000000001,
+      "specific_energy_index": 0.3175,
+      "objective": 0.3691,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.3285,
+      "objective": 0.3789,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.3395,
+      "objective": 0.38870000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.35050000000000003,
+      "objective": 0.3985,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.36150000000000004,
+      "objective": 0.40830000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.3725,
+      "objective": 0.41809999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.3835,
+      "objective": 0.4279,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.144,
+      "specific_energy_index": 0.3945000000000001,
+      "objective": 0.4377000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.4055,
+      "objective": 0.4475,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.41650000000000004,
+      "objective": 0.45730000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.4275,
+      "objective": 0.4671,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.4385,
+      "objective": 0.4769,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.4495,
+      "objective": 0.4867,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.12,
+      "specific_energy_index": 0.4605,
+      "objective": 0.4965,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.11599999999999999,
+      "specific_energy_index": 0.47150000000000003,
+      "objective": 0.5063,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7170000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.112,
+      "specific_energy_index": 0.48250000000000004,
+      "objective": 0.5161,
+      "feasible": false,
+      "stage_cut_fraction": 0.45,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.275,
+      "objective": 0.335,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.28600000000000003,
+      "objective": 0.34480000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.29700000000000004,
+      "objective": 0.3546,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.30800000000000005,
+      "objective": 0.36440000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.319,
+      "objective": 0.3742,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.18000000000000002,
+      "specific_energy_index": 0.33,
+      "objective": 0.384,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.17600000000000002,
+      "specific_energy_index": 0.341,
+      "objective": 0.39380000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.17200000000000001,
+      "specific_energy_index": 0.35200000000000004,
+      "objective": 0.4036,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.36300000000000004,
+      "objective": 0.41340000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.374,
+      "objective": 0.4232,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.385,
+      "objective": 0.433,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.396,
+      "objective": 0.4428,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.40700000000000003,
+      "objective": 0.4526,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.14800000000000002,
+      "specific_energy_index": 0.41800000000000004,
+      "objective": 0.46240000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.42900000000000005,
+      "objective": 0.47220000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.44000000000000006,
+      "objective": 0.48200000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.45100000000000007,
+      "objective": 0.49180000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.4620000000000001,
+      "objective": 0.5016,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.47300000000000003,
+      "objective": 0.5114000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.124,
+      "specific_energy_index": 0.48400000000000004,
+      "objective": 0.5212,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.736,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.12000000000000001,
+      "specific_energy_index": 0.495,
+      "objective": 0.531,
+      "feasible": false,
+      "stage_cut_fraction": 0.5,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.2875,
+      "objective": 0.3499,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.2985,
+      "objective": 0.3597,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.3095,
+      "objective": 0.3695,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.3205,
+      "objective": 0.3793,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.33149999999999996,
+      "objective": 0.38909999999999995,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.18800000000000003,
+      "specific_energy_index": 0.34249999999999997,
+      "objective": 0.3989,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.18400000000000002,
+      "specific_energy_index": 0.3535,
+      "objective": 0.4087,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.18000000000000002,
+      "specific_energy_index": 0.3645,
+      "objective": 0.4185,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.17600000000000002,
+      "specific_energy_index": 0.3755,
+      "objective": 0.4283,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.17200000000000001,
+      "specific_energy_index": 0.38649999999999995,
+      "objective": 0.43809999999999993,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.39749999999999996,
+      "objective": 0.44789999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.4085,
+      "objective": 0.4577,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.4195,
+      "objective": 0.46749999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.15600000000000003,
+      "specific_energy_index": 0.4305,
+      "objective": 0.4773,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.15200000000000002,
+      "specific_energy_index": 0.4415,
+      "objective": 0.48710000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.14800000000000002,
+      "specific_energy_index": 0.4525,
+      "objective": 0.4969,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.4635,
+      "objective": 0.5067,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.47450000000000003,
+      "objective": 0.5165000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.4855,
+      "objective": 0.5263,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.132,
+      "specific_energy_index": 0.4965,
+      "objective": 0.5361,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.7550000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.128,
+      "specific_energy_index": 0.5075,
+      "objective": 0.5458999999999999,
+      "feasible": false,
+      "stage_cut_fraction": 0.55,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.21600000000000003,
+      "specific_energy_index": 0.30000000000000004,
+      "objective": 0.36480000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.21200000000000002,
+      "specific_energy_index": 0.31100000000000005,
+      "objective": 0.37460000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.32200000000000006,
+      "objective": 0.3844000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.3330000000000001,
+      "objective": 0.3942000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.34400000000000003,
+      "objective": 0.404,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.19600000000000004,
+      "specific_energy_index": 0.35500000000000004,
+      "objective": 0.41380000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.19200000000000003,
+      "specific_energy_index": 0.36600000000000005,
+      "objective": 0.42360000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.18800000000000003,
+      "specific_energy_index": 0.37700000000000006,
+      "objective": 0.43340000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.18400000000000002,
+      "specific_energy_index": 0.38800000000000007,
+      "objective": 0.4432000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.18000000000000002,
+      "specific_energy_index": 0.399,
+      "objective": 0.453,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.17600000000000002,
+      "specific_energy_index": 0.41000000000000003,
+      "objective": 0.46280000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.17200000000000001,
+      "specific_energy_index": 0.42100000000000004,
+      "objective": 0.4726,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.43200000000000005,
+      "objective": 0.48240000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.16400000000000003,
+      "specific_energy_index": 0.44300000000000006,
+      "objective": 0.4922000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.16000000000000003,
+      "specific_energy_index": 0.45400000000000007,
+      "objective": 0.5020000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.15600000000000003,
+      "specific_energy_index": 0.4650000000000001,
+      "objective": 0.5118,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.15200000000000002,
+      "specific_energy_index": 0.4760000000000001,
+      "objective": 0.5216000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.14800000000000002,
+      "specific_energy_index": 0.4870000000000001,
+      "objective": 0.5314000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.49800000000000005,
+      "objective": 0.5412,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.14,
+      "specific_energy_index": 0.5090000000000001,
+      "objective": 0.5510000000000002,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.774,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.136,
+      "specific_energy_index": 0.52,
+      "objective": 0.5608,
+      "feasible": false,
+      "stage_cut_fraction": 0.6000000000000001,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.3125,
+      "objective": 0.3797,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.3235,
+      "objective": 0.3895,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.216,
+      "specific_energy_index": 0.3345,
+      "objective": 0.3993,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.212,
+      "specific_energy_index": 0.34550000000000003,
+      "objective": 0.4091,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.3565,
+      "objective": 0.4189,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.3675,
+      "objective": 0.42869999999999997,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.3785,
+      "objective": 0.4385,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.3895,
+      "objective": 0.44830000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.4005,
+      "objective": 0.4581,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.4115,
+      "objective": 0.4679,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.4225,
+      "objective": 0.4777,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.4335,
+      "objective": 0.4875,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.4445,
+      "objective": 0.4973,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.172,
+      "specific_energy_index": 0.4555,
+      "objective": 0.5071,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.16799999999999998,
+      "specific_energy_index": 0.4665,
+      "objective": 0.5169,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.47750000000000004,
+      "objective": 0.5267000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.48850000000000005,
+      "objective": 0.5365000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.49950000000000006,
+      "objective": 0.5463,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.152,
+      "specific_energy_index": 0.5105,
+      "objective": 0.5560999999999999,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.148,
+      "specific_energy_index": 0.5215000000000001,
+      "objective": 0.5659000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.793,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.14400000000000002,
+      "specific_energy_index": 0.5325,
+      "objective": 0.5757,
+      "feasible": false,
+      "stage_cut_fraction": 0.65,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.232,
+      "specific_energy_index": 0.325,
+      "objective": 0.3946,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.228,
+      "specific_energy_index": 0.336,
+      "objective": 0.40440000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.34700000000000003,
+      "objective": 0.4142,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.35800000000000004,
+      "objective": 0.42400000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.21600000000000003,
+      "specific_energy_index": 0.369,
+      "objective": 0.4338,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.21200000000000002,
+      "specific_energy_index": 0.38,
+      "objective": 0.4436,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.391,
+      "objective": 0.4534,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.402,
+      "objective": 0.46320000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.41300000000000003,
+      "objective": 0.47300000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.42400000000000004,
+      "objective": 0.48280000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.435,
+      "objective": 0.4926,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.446,
+      "objective": 0.5024,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.4570000000000001,
+      "objective": 0.5122000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.468,
+      "objective": 0.522,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.47900000000000004,
+      "objective": 0.5318,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.17200000000000001,
+      "specific_energy_index": 0.49,
+      "objective": 0.5416,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.168,
+      "specific_energy_index": 0.501,
+      "objective": 0.5514,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.164,
+      "specific_energy_index": 0.512,
+      "objective": 0.5612,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.16,
+      "specific_energy_index": 0.523,
+      "objective": 0.5710000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.156,
+      "specific_energy_index": 0.534,
+      "objective": 0.5808,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.812,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.15200000000000002,
+      "specific_energy_index": 0.545,
+      "objective": 0.5906,
+      "feasible": false,
+      "stage_cut_fraction": 0.7000000000000001,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.24,
+      "specific_energy_index": 0.3375,
+      "objective": 0.40950000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.236,
+      "specific_energy_index": 0.34850000000000003,
+      "objective": 0.4193,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.23199999999999998,
+      "specific_energy_index": 0.35950000000000004,
+      "objective": 0.42910000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.22799999999999998,
+      "specific_energy_index": 0.37050000000000005,
+      "objective": 0.43890000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.22399999999999998,
+      "specific_energy_index": 0.3815,
+      "objective": 0.4487,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.3925,
+      "objective": 0.4585,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.216,
+      "specific_energy_index": 0.4035,
+      "objective": 0.46830000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.212,
+      "specific_energy_index": 0.41450000000000004,
+      "objective": 0.4781,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.208,
+      "specific_energy_index": 0.42550000000000004,
+      "objective": 0.48790000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.204,
+      "specific_energy_index": 0.4365,
+      "objective": 0.4977,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.19999999999999998,
+      "specific_energy_index": 0.4475,
+      "objective": 0.5075,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.19599999999999998,
+      "specific_energy_index": 0.4585,
+      "objective": 0.5173,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.19199999999999998,
+      "specific_energy_index": 0.46950000000000003,
+      "objective": 0.5271,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.48050000000000004,
+      "objective": 0.5369,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.49150000000000005,
+      "objective": 0.5467000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.5025000000000001,
+      "objective": 0.5565000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.5135000000000001,
+      "objective": 0.5663,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.172,
+      "specific_energy_index": 0.5245000000000001,
+      "objective": 0.5761000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.16799999999999998,
+      "specific_energy_index": 0.5355000000000001,
+      "objective": 0.5859000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.16399999999999998,
+      "specific_energy_index": 0.5465,
+      "objective": 0.5957,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8310000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.15999999999999998,
+      "specific_energy_index": 0.5575,
+      "objective": 0.6055,
+      "feasible": false,
+      "stage_cut_fraction": 0.75,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.248,
+      "specific_energy_index": 0.35,
+      "objective": 0.4244,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.244,
+      "specific_energy_index": 0.361,
+      "objective": 0.4342,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.24,
+      "specific_energy_index": 0.372,
+      "objective": 0.444,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.236,
+      "specific_energy_index": 0.383,
+      "objective": 0.4538,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.23199999999999998,
+      "specific_energy_index": 0.39399999999999996,
+      "objective": 0.46359999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.228,
+      "specific_energy_index": 0.40499999999999997,
+      "objective": 0.4734,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.416,
+      "objective": 0.48319999999999996,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.427,
+      "objective": 0.493,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.216,
+      "specific_energy_index": 0.438,
+      "objective": 0.5028,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.212,
+      "specific_energy_index": 0.44899999999999995,
+      "objective": 0.5126,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.208,
+      "specific_energy_index": 0.45999999999999996,
+      "objective": 0.5224,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.204,
+      "specific_energy_index": 0.471,
+      "objective": 0.5322,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.19999999999999998,
+      "specific_energy_index": 0.482,
+      "objective": 0.5419999999999999,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.493,
+      "objective": 0.5518,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.504,
+      "objective": 0.5616,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.515,
+      "objective": 0.5714,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.526,
+      "objective": 0.5812,
+      "feasible": false,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.537,
+      "objective": 0.5910000000000001,
+      "feasible": true,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.548,
+      "objective": 0.6008,
+      "feasible": true,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.172,
+      "specific_energy_index": 0.5589999999999999,
+      "objective": 0.6105999999999999,
+      "feasible": true,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8500000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.16799999999999998,
+      "specific_energy_index": 0.57,
+      "objective": 0.6204,
+      "feasible": true,
+      "stage_cut_fraction": 0.8,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.256,
+      "specific_energy_index": 0.36250000000000004,
+      "objective": 0.4393,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.252,
+      "specific_energy_index": 0.37350000000000005,
+      "objective": 0.44910000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.248,
+      "specific_energy_index": 0.38450000000000006,
+      "objective": 0.4589000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.244,
+      "specific_energy_index": 0.3955000000000001,
+      "objective": 0.46870000000000006,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.24,
+      "specific_energy_index": 0.40650000000000003,
+      "objective": 0.47850000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.23600000000000002,
+      "specific_energy_index": 0.41750000000000004,
+      "objective": 0.48830000000000007,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.232,
+      "specific_energy_index": 0.42850000000000005,
+      "objective": 0.49810000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.228,
+      "specific_energy_index": 0.43950000000000006,
+      "objective": 0.5079,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.45050000000000007,
+      "objective": 0.5177,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.4615,
+      "objective": 0.5275000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.216,
+      "specific_energy_index": 0.47250000000000003,
+      "objective": 0.5373,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.212,
+      "specific_energy_index": 0.48350000000000004,
+      "objective": 0.5471,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.208,
+      "specific_energy_index": 0.49450000000000005,
+      "objective": 0.5569000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.5055000000000001,
+      "objective": 0.5667000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.5165000000000001,
+      "objective": 0.5765,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.5275000000000001,
+      "objective": 0.5863,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.5385000000000001,
+      "objective": 0.5961000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.5495000000000001,
+      "objective": 0.6059000000000001,
+      "feasible": true,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.5605,
+      "objective": 0.6157,
+      "feasible": true,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.18,
+      "specific_energy_index": 0.5715000000000001,
+      "objective": 0.6255000000000002,
+      "feasible": true,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8690000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.176,
+      "specific_energy_index": 0.5825,
+      "objective": 0.6353,
+      "feasible": true,
+      "stage_cut_fraction": 0.8500000000000001,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.264,
+      "specific_energy_index": 0.375,
+      "objective": 0.4542,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.26,
+      "specific_energy_index": 0.386,
+      "objective": 0.464,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.256,
+      "specific_energy_index": 0.397,
+      "objective": 0.4738,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.252,
+      "specific_energy_index": 0.40800000000000003,
+      "objective": 0.48360000000000003,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.248,
+      "specific_energy_index": 0.419,
+      "objective": 0.49339999999999995,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.24400000000000002,
+      "specific_energy_index": 0.43,
+      "objective": 0.5032,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.24000000000000002,
+      "specific_energy_index": 0.441,
+      "objective": 0.513,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.23600000000000002,
+      "specific_energy_index": 0.452,
+      "objective": 0.5228,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.232,
+      "specific_energy_index": 0.463,
+      "objective": 0.5326,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.228,
+      "specific_energy_index": 0.474,
+      "objective": 0.5424,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.485,
+      "objective": 0.5522,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.22,
+      "specific_energy_index": 0.496,
+      "objective": 0.562,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.216,
+      "specific_energy_index": 0.507,
+      "objective": 0.5718,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.21200000000000002,
+      "specific_energy_index": 0.518,
+      "objective": 0.5816,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.529,
+      "objective": 0.5914,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.54,
+      "objective": 0.6012000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.551,
+      "objective": 0.611,
+      "feasible": false,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.562,
+      "objective": 0.6208,
+      "feasible": true,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.573,
+      "objective": 0.6305999999999999,
+      "feasible": true,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.188,
+      "specific_energy_index": 0.5840000000000001,
+      "objective": 0.6404000000000001,
+      "feasible": true,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.8880000000000001,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.184,
+      "specific_energy_index": 0.595,
+      "objective": 0.6502,
+      "feasible": true,
+      "stage_cut_fraction": 0.9,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.272,
+      "specific_energy_index": 0.3875,
+      "objective": 0.4691,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.268,
+      "specific_energy_index": 0.3985,
+      "objective": 0.4789,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.264,
+      "specific_energy_index": 0.40950000000000003,
+      "objective": 0.4887,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.26,
+      "specific_energy_index": 0.42050000000000004,
+      "objective": 0.49850000000000005,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.256,
+      "specific_energy_index": 0.4315,
+      "objective": 0.5083,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.252,
+      "specific_energy_index": 0.4425,
+      "objective": 0.5181,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.24800000000000003,
+      "specific_energy_index": 0.4535,
+      "objective": 0.5279,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.24400000000000002,
+      "specific_energy_index": 0.4645,
+      "objective": 0.5377000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.24000000000000002,
+      "specific_energy_index": 0.47550000000000003,
+      "objective": 0.5475000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.23600000000000002,
+      "specific_energy_index": 0.48650000000000004,
+      "objective": 0.5573,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.232,
+      "specific_energy_index": 0.4975,
+      "objective": 0.5670999999999999,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.228,
+      "specific_energy_index": 0.5085000000000001,
+      "objective": 0.5769000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.224,
+      "specific_energy_index": 0.5195000000000001,
+      "objective": 0.5867000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.22000000000000003,
+      "specific_energy_index": 0.5305,
+      "objective": 0.5965,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.21600000000000003,
+      "specific_energy_index": 0.5415000000000001,
+      "objective": 0.6063000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.21200000000000002,
+      "specific_energy_index": 0.5525,
+      "objective": 0.6161,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.5635,
+      "objective": 0.6259,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.5745,
+      "objective": 0.6357,
+      "feasible": false,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.5855,
+      "objective": 0.6455,
+      "feasible": true,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.196,
+      "specific_energy_index": 0.5965,
+      "objective": 0.6553,
+      "feasible": true,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.907,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.192,
+      "specific_energy_index": 0.6075,
+      "objective": 0.6651,
+      "feasible": true,
+      "stage_cut_fraction": 0.9500000000000001,
+      "polishing_selectivity_fraction": 1.0
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.7,
+      "concentrate_loading_index": 0.28,
+      "specific_energy_index": 0.4,
+      "objective": 0.48400000000000004,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.0
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.7144999999999999,
+      "concentrate_loading_index": 0.276,
+      "specific_energy_index": 0.41100000000000003,
+      "objective": 0.4938,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.05
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.729,
+      "concentrate_loading_index": 0.272,
+      "specific_energy_index": 0.42200000000000004,
+      "objective": 0.5036,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.1
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.7434999999999999,
+      "concentrate_loading_index": 0.268,
+      "specific_energy_index": 0.43300000000000005,
+      "objective": 0.5134000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.15000000000000002
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.758,
+      "concentrate_loading_index": 0.264,
+      "specific_energy_index": 0.444,
+      "objective": 0.5232,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.2
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.7725,
+      "concentrate_loading_index": 0.26,
+      "specific_energy_index": 0.455,
+      "objective": 0.533,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.25
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.7869999999999999,
+      "concentrate_loading_index": 0.256,
+      "specific_energy_index": 0.466,
+      "objective": 0.5428000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.30000000000000004
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.8015,
+      "concentrate_loading_index": 0.252,
+      "specific_energy_index": 0.47700000000000004,
+      "objective": 0.5526,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.35000000000000003
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.816,
+      "concentrate_loading_index": 0.24800000000000003,
+      "specific_energy_index": 0.48800000000000004,
+      "objective": 0.5624,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.4
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.8305,
+      "concentrate_loading_index": 0.24400000000000002,
+      "specific_energy_index": 0.499,
+      "objective": 0.5722,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.45
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.845,
+      "concentrate_loading_index": 0.24000000000000002,
+      "specific_energy_index": 0.51,
+      "objective": 0.5820000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.5
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.8594999999999999,
+      "concentrate_loading_index": 0.23600000000000002,
+      "specific_energy_index": 0.521,
+      "objective": 0.5918,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.55
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.874,
+      "concentrate_loading_index": 0.232,
+      "specific_energy_index": 0.532,
+      "objective": 0.6016,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.6000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.8885,
+      "concentrate_loading_index": 0.22800000000000004,
+      "specific_energy_index": 0.543,
+      "objective": 0.6114,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.65
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.903,
+      "concentrate_loading_index": 0.22400000000000003,
+      "specific_energy_index": 0.554,
+      "objective": 0.6212000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.7000000000000001
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.9175,
+      "concentrate_loading_index": 0.22000000000000003,
+      "specific_energy_index": 0.5650000000000001,
+      "objective": 0.631,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.75
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.9319999999999999,
+      "concentrate_loading_index": 0.21600000000000003,
+      "specific_energy_index": 0.5760000000000001,
+      "objective": 0.6408,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.8
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.9464999999999999,
+      "concentrate_loading_index": 0.21200000000000002,
+      "specific_energy_index": 0.5870000000000001,
+      "objective": 0.6506000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.8500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.961,
+      "concentrate_loading_index": 0.20800000000000002,
+      "specific_energy_index": 0.5980000000000001,
+      "objective": 0.6604000000000001,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.9
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.9755,
+      "concentrate_loading_index": 0.20400000000000001,
+      "specific_energy_index": 0.609,
+      "objective": 0.6702,
+      "feasible": false,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 0.9500000000000001
+    },
+    {
+      "water_or_product_recovery": 0.926,
+      "target_species_rejection": 0.99,
+      "concentrate_loading_index": 0.2,
+      "specific_energy_index": 0.62,
+      "objective": 0.6799999999999999,
+      "feasible": true,
+      "stage_cut_fraction": 1.0,
+      "polishing_selectivity_fraction": 1.0
+    }
+  ],
+  "source_summary": {
+    "source": "native Pyomo component-conservation model anchored to an active registry parent",
+    "parent_case_key": "idaes_co2_membrane_1d",
+    "chemical_distinction": "Changes the membrane service to hydrogen purification with explicit stage coupling.",
+    "claim_boundary": "Reduced compact-process conservation model; not a claim of executing the full parent unit-model equations."
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

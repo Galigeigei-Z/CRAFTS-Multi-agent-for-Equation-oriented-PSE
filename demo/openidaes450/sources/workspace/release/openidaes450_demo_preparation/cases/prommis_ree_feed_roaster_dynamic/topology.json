@@ -1,0 +1,191 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "source_verified__prommis_ree_feed_roaster_dynamic",
+  "family": "family_source_verified_prommis_ree_feed_roaster_dynamic",
+  "process_type": "Dynamic rare-earth feed roasting",
+  "source_url": "https://github.com/prommis/prommis/blob/main/src/prommis/roasting/ree_feed_roaster_dyn.py",
+  "source_basis": [
+    "Topology was manually transcribed from the official project source linked by source_url.",
+    "The display prompt is presentation metadata and was not submitted to a model or solver.",
+    "Topology and dynamic-control context are derived from the official PrOMMiS REE feed-roaster source. No dynamic discretization, SpecIR, initialization, solve, or optimization result is claimed."
+  ],
+  "property_packages": {},
+  "components": {},
+  "units": [
+    {
+      "id": "gas_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "solid_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "liquid_feed",
+      "kind": "Feed",
+      "package": null,
+      "stage": "feeds",
+      "role": "Source-derived Feed node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feed_mixer",
+      "kind": "Mixer",
+      "package": null,
+      "stage": "feed_conditioning",
+      "role": "Source-derived Mixer node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "dynamic_roaster",
+      "kind": "REEFeedRoaster",
+      "package": null,
+      "stage": "dynamic_reaction",
+      "role": "Source-derived REEFeedRoaster node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "heat_input",
+      "kind": "Heater",
+      "package": null,
+      "stage": "thermal_control",
+      "role": "Source-derived Heater node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "temperature_controller",
+      "kind": "PIDController",
+      "package": null,
+      "stage": "thermal_control",
+      "role": "Source-derived PIDController node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "gas_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "reo_product",
+      "kind": "Product",
+      "package": null,
+      "stage": "products",
+      "role": "Source-derived Product node",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "gas_to_roaster",
+      "source": "gas_feed.outlet",
+      "destination": "dynamic_roaster.gas_inlet",
+      "source_port": "outlet",
+      "destination_port": "gas_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "solid_to_mixer",
+      "source": "solid_feed.outlet",
+      "destination": "feed_mixer.solid",
+      "source_port": "outlet",
+      "destination_port": "solid",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "liquid_to_mixer",
+      "source": "liquid_feed.outlet",
+      "destination": "feed_mixer.liquid",
+      "source_port": "outlet",
+      "destination_port": "liquid",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "mixer_to_roaster",
+      "source": "feed_mixer.outlet",
+      "destination": "dynamic_roaster.solid_liquid_inlet",
+      "source_port": "outlet",
+      "destination_port": "solid_liquid_inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "heater_to_roaster",
+      "source": "heat_input.heat",
+      "destination": "dynamic_roaster.heat_duty",
+      "source_port": "heat",
+      "destination_port": "heat_duty",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "roaster_temperature_signal",
+      "source": "dynamic_roaster.temperature",
+      "destination": "temperature_controller.measurement",
+      "source_port": "temperature",
+      "destination_port": "measurement",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "controller_to_heater",
+      "source": "temperature_controller.output",
+      "destination": "heat_input.duty",
+      "source_port": "output",
+      "destination_port": "duty",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "roaster_gas_product",
+      "source": "dynamic_roaster.gas_outlet",
+      "destination": "gas_product.inlet",
+      "source_port": "gas_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "id": "roaster_reo_product",
+      "source": "dynamic_roaster.solid_outlet",
+      "destination": "reo_product.inlet",
+      "source_port": "solid_outlet",
+      "destination_port": "inlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "specifications": [],
+  "initialization_order": [
+    "gas_feed",
+    "solid_feed",
+    "liquid_feed",
+    "feed_mixer",
+    "dynamic_roaster",
+    "heat_input",
+    "temperature_controller",
+    "gas_product",
+    "reo_product"
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "translator_constraints": [],
+  "open_decisions": [
+    "A real execution must select property packages and unit configurations.",
+    "A real execution must construct SpecIR, close degrees of freedom, initialize, and solve."
+  ],
+  "evidence_status": "source_verified"
+}

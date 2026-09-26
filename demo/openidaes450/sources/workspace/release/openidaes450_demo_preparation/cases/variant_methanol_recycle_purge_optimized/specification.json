@@ -1,0 +1,182 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_methanol_recycle_purge_optimized",
+  "family": "family_methanol_recycle",
+  "source_url": "local://stage4_optimization/run_methanol_recycle_purge_optimization.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "H2",
+      "variable": "outlet.flow_mol[0]",
+      "value": 637.2,
+      "units": "mol/s",
+      "role": "hydrogen feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.flow_mol[0]",
+      "value": 316.8,
+      "units": "mol/s",
+      "role": "carbon monoxide feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H2",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "CO",
+      "variable": "outlet.pressure[0]",
+      "value": 3000000,
+      "units": "Pa",
+      "role": "carbon monoxide feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "C101",
+      "variable": "outlet.pressure[0]",
+      "value": 5100000,
+      "units": "Pa",
+      "role": "compressor outlet pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 488.15,
+      "units": "K",
+      "role": "reactor feed preheat temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "R101",
+      "variable": "co_conversion",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "CO conversion",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "R101",
+      "variable": "outlet.temperature[0]",
+      "value": 507.15,
+      "units": "K",
+      "role": "reactor outlet temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "T101",
+      "variable": "deltaP[0]",
+      "value": -2000000,
+      "units": "Pa",
+      "role": "turbine pressure drop",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "T101",
+      "variable": "efficiency_isentropic[0]",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "turbine isentropic efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "H102",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash feed cooling temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "flash pressure drop",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "F101",
+      "variable": "outlet.temperature[0]",
+      "value": 407.15,
+      "units": "K",
+      "role": "flash outlet temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "S101",
+      "variable": "split_fraction[0, 'purge']",
+      "value": 0.9999,
+      "units": "dimensionless",
+      "role": "purge split fraction",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "purge_fraction",
+      "value": 0.12819265153624168,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://stage4_optimization/run_methanol_recycle_purge_optimization.py"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "SequentialDecomposition over methanol recycle loop",
+    "solve_order": [
+      "H2",
+      "CO",
+      "M101",
+      "M102",
+      "C101",
+      "H101",
+      "R101",
+      "T101",
+      "H102",
+      "F101",
+      "S101"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_recycle",
+    "chemical_change": "Adds explicit feed methane and makes the purge a binding inert-accumulation decision.",
+    "native_metrics": {
+      "recycle_methane_mole_fraction": 0.15000000999999907,
+      "reactor_co_conversion": 0.75,
+      "fresh_co_flow_mol_s": 310.46336640000004,
+      "methanol_product_flow_mol_s": 273.7974925082918,
+      "purge_methanol_flow_mol_s": 23.944718041606304,
+      "apparent_fresh_co_to_liquid_methanol_fraction": 0.8818995158209163,
+      "compressor_work_w": -2.0693830292685173e-08,
+      "recycle_flow_mol_s": 576.1602772995418
+    }
+  }
+}

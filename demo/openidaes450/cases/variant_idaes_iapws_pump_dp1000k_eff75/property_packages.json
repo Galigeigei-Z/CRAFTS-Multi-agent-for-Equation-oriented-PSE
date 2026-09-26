@@ -1,0 +1,36 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.general_helmholtz.helmholtz_functions.HelmholtzParameterBlockData"
+      },
+      {
+        "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "pure_component": "H2O",
+      "phase_presentation": {
+        "component": "MIX"
+      },
+      "state_vars": {
+        "component": "PH"
+      },
+      "amount_basis": {
+        "component": "MOLE"
+      }
+    },
+    "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+    "module": "idaes.models.properties.iapws95",
+    "data_class": "idaes.models.properties.iapws95.Iapws95ParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

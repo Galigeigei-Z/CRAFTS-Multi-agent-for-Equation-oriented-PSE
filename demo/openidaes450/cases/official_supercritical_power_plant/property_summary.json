@@ -1,0 +1,25 @@
+{
+  "case_id": "official_supercritical_power_plant",
+  "applicability": "model_parameter_packages",
+  "package_count": 3,
+  "packages": [
+    {
+      "name": "fs.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_water_tpx",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.prop_fluegas",
+      "class": "idaes.models_extra.power_generation.properties.flue_gas_ideal.FlueGasParameterBlock",
+      "module": "idaes.models_extra.power_generation.properties.flue_gas_ideal",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

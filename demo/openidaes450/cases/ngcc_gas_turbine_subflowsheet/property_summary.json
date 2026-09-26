@@ -1,0 +1,37 @@
+{
+  "case_id": "ngcc_gas_turbine_subflowsheet",
+  "applicability": "model_parameter_packages",
+  "package_count": 5,
+  "packages": [
+    {
+      "name": "fs.prop_water",
+      "class": "idaes.models.properties.iapws95.Iapws95ParameterBlock",
+      "module": "idaes.models.properties.iapws95",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.air_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.cmb_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.flue_prop_params",
+      "class": "idaes.models.properties.modular_properties.base.generic_property.GenericParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_property",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.gas_combustion",
+      "class": "idaes.models.properties.modular_properties.base.generic_reaction.GenericReactionParameterBlock",
+      "module": "idaes.models.properties.modular_properties.base.generic_reaction",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

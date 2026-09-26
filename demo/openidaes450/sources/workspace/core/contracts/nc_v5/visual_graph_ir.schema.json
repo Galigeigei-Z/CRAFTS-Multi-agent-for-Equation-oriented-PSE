@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:visual-graph-ir/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "nodes",
+    "edges",
+    "uncertainties"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "visual_graph_ir/2"
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_kind": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "visual_id"
+        ],
+        "properties": {
+          "visual_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "visual_edge_id",
+          "source_visual_id",
+          "destination_visual_id"
+        ],
+        "properties": {
+          "visual_edge_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_visual_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "destination_visual_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "text_labels": {
+      "type": "array"
+    },
+    "signals": {
+      "type": "array"
+    },
+    "branches": {
+      "type": "array"
+    },
+    "recycle_candidates": {
+      "type": "array"
+    },
+    "module_boundaries": {
+      "type": "array"
+    },
+    "uncertainties": {
+      "type": "array"
+    }
+  }
+}

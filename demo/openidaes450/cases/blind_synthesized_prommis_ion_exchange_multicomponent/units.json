@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fs.unit_ix",
+    "class": "idaes.core.base.process_block._ScalarIonExchangeMultiComp",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.ix_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "energy_balance_type": {
+        "component": "none"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "target_component": "La",
+      "regenerant": "single_use",
+      "resin": "S950",
+      "resin_data_path": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/prommis_official_source/prommis/src/prommis/ion_exchange/tests/../data/resin_data.json",
+      "hazardous_waste": false,
+      "isotherm": "langmuir",
+      "reactive_ions": [
+        "La",
+        "Dy",
+        "Ho",
+        "Er",
+        "Yb",
+        "Sm"
+      ],
+      "number_of_trapezoids": 30,
+      "minimum_concentration_trapezoids": 0.001
+    }
+  }
+]

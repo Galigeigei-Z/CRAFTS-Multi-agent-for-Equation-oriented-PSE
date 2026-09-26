@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:langgraph-idaes:nc-v5:terminal-outcome/v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_index",
+    "outcome",
+    "terminal_stage",
+    "failure_kind",
+    "visibility_audit_sha256",
+    "completed_at_utc",
+    "debug_supervisor_status",
+    "debug_agent_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "terminal-outcome/v5"
+    },
+    "suite_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "outcome": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "timed_out",
+        "stopped"
+      ]
+    },
+    "terminal_stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "failure_kind": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "completed_at_utc": {
+      "type": "string",
+      "pattern": "Z$"
+    },
+    "suite_case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "failure_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_call_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "debug_supervisor_status": {
+      "type": "string",
+      "enum": [
+        "armed"
+      ]
+    },
+    "debug_agent_status": {
+      "type": "string",
+      "enum": [
+        "armed",
+        "repair_skipped",
+        "repaired"
+      ]
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  }
+}

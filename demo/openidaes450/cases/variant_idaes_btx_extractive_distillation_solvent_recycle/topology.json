@@ -1,0 +1,205 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_btx_extractive_distillation_solvent_recycle",
+  "family": "family_btx_extractive",
+  "process_type": "BTX Extractive Distillation with Solvent Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent official_btx_flash_canary.",
+    "Changes relative volatility through a selective solvent and closes a solvent-recovery loop.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "benzene",
+        "toluene",
+        "selective_solvent"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_btx_flash_canary"
+    }
+  },
+  "components": {
+    "tracked": [
+      "benzene",
+      "toluene",
+      "selective_solvent"
+    ]
+  },
+  "units": [
+    {
+      "id": "BTX",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "benzene/toluene feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SOLVENT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "selective solvent makeup",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "feed plus recycled solvent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EDC",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "extractive benzene/toluene separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SRC",
+      "kind": "DistillationColumn",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "recover solvent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BENZENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "benzene distillate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TOLUENE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "toluene product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "btx_extractive",
+      "role": "solvent recycle and purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BTX.outlet",
+      "destination": "M101.btx",
+      "stage": "btx_extractive",
+      "role": "BTX feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "SOLVENT.outlet",
+      "destination": "M101.makeup",
+      "stage": "btx_extractive",
+      "role": "solvent makeup",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "EDC.feed",
+      "stage": "btx_extractive",
+      "role": "extractive feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "EDC.distillate",
+      "destination": "BENZENE.inlet",
+      "stage": "btx_extractive",
+      "role": "benzene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "EDC.bottoms",
+      "destination": "SRC.feed",
+      "stage": "btx_extractive",
+      "role": "solvent/toluene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SRC.distillate",
+      "destination": "TOLUENE.inlet",
+      "stage": "btx_extractive",
+      "role": "toluene",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SRC.bottoms",
+      "destination": "S101.inlet",
+      "stage": "btx_extractive",
+      "role": "recovered solvent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "S101.recycle",
+      "destination": "M101.recycle",
+      "stage": "btx_extractive",
+      "role": "solvent recycle",
+      "tear_candidate": true
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BTX.outlet",
+    "SOLVENT.outlet"
+  ],
+  "unconnected_product_ports": [
+    "BENZENE.inlet",
+    "TOLUENE.inlet"
+  ],
+  "tear_streams": [
+    "s08"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_btx_flash_canary"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_btx_flash_canary",
+    "chemical_change": "Changes relative volatility through a selective solvent and closes a solvent-recovery loop.",
+    "native_metrics": {
+      "relative_volatility": 2.798083011195404,
+      "benzene_purity": 0.9563451139002134,
+      "solvent_loss_kg_s": 0.0005500000000000006,
+      "reboiler_index": 365.5
+    }
+  }
+}

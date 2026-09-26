@@ -1,0 +1,86 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "gtep_v2_wecc_reduced_dc_expansion",
+  "family": "family_idaes_gtep",
+  "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "gtep",
+      "variable": "scenario",
+      "value": "wecc_reduced_dc",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    },
+    {
+      "target": "gtep",
+      "variable": "dataset",
+      "value": "WECC_Reduced_USAEE",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    },
+    {
+      "target": "gtep",
+      "variable": "flow_model",
+      "value": "DC",
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    },
+    {
+      "target": "gtep",
+      "variable": "big_m",
+      "value": 1000000.0,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    },
+    {
+      "target": "gtep",
+      "variable": "candidate_generator_count",
+      "value": 77,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    },
+    {
+      "target": "gtep",
+      "variable": "candidate_corridor_count",
+      "value": 3,
+      "units": "categorical",
+      "role": "engineering variant configuration",
+      "source": "variant_manifest",
+      "source_url": "https://github.com/IDAES/idaes-gtep/blob/a0814d3be706ca01f0372b1af44ead243bfa2ee5/gtep/data/WECC_Reduced_USAEE"
+    }
+  ],
+  "terminal_feed_ports": [
+    "data.outlet"
+  ],
+  "terminal_product_ports": [
+    "plan.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official data load, recorded scenario mutation, GDP Big-M, HiGHS",
+    "solve_order": [
+      "data",
+      "investment",
+      "commitment",
+      "dispatch",
+      "network",
+      "plan"
+    ]
+  },
+  "solve": {
+    "solver": "highs",
+    "steady_state": false,
+    "expected_dof": null
+  }
+}

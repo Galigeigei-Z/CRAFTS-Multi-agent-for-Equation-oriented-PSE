@@ -1,0 +1,175 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_reaktoro_biogas_oxygen_enriched_fgr",
+  "family": "family_biogas_oxy_fgr",
+  "process_type": "Oxygen-Enriched Biogas Combustion with Flue-Gas Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent reaktoro_biogas_combustion.",
+    "Changes oxidant composition and recycles equilibrium products as a thermal diluent.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "CO2",
+        "O2",
+        "N2",
+        "H2O",
+        "CO"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "reaktoro_biogas_combustion"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "CO2",
+      "O2",
+      "N2",
+      "H2O",
+      "CO"
+    ]
+  },
+  "units": [
+    {
+      "id": "BIOGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "CH4/CO2 biogas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "O2AIR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "oxygen-enriched air",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "oxidant plus FGR",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "biogas combustion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "FGR and stack split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STACK",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "biogas_oxy_fgr",
+      "role": "combustion products",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BIOGAS.outlet",
+      "destination": "R101.fuel",
+      "stage": "biogas_oxy_fgr",
+      "role": "biogas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "O2AIR.outlet",
+      "destination": "M101.oxidant",
+      "stage": "biogas_oxy_fgr",
+      "role": "enriched oxidant",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "M101.outlet",
+      "destination": "R101.oxidant",
+      "stage": "biogas_oxy_fgr",
+      "role": "diluted oxidant",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "R101.outlet",
+      "destination": "S101.inlet",
+      "stage": "biogas_oxy_fgr",
+      "role": "flue gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "S101.recycle",
+      "destination": "M101.fgr",
+      "stage": "biogas_oxy_fgr",
+      "role": "flue-gas recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s06",
+      "source": "S101.stack",
+      "destination": "STACK.inlet",
+      "stage": "biogas_oxy_fgr",
+      "role": "stack gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BIOGAS.outlet",
+    "O2AIR.outlet"
+  ],
+  "unconnected_product_ports": [
+    "STACK.inlet"
+  ],
+  "tear_streams": [
+    "s05"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "reaktoro_biogas_combustion"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "reaktoro_biogas_combustion",
+    "chemical_change": "Changes oxidant composition and recycles equilibrium products as a thermal diluent.",
+    "native_metrics": {
+      "flame_temperature_K": 1721.0,
+      "co_kg_s": 9.99999999999981e-06,
+      "oxygen_power_index": 6.800000000000001
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_wrrf_equalization_bnr",
+  "family": "family_watertap_wrrf_equalization_bnr",
+  "process_type": "Equalization-BNR Train for Peak Wet-Weather Flow",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent watertap_uconn_wrrf.",
+    "Introduces peak-flow equalization and recycle control ahead of nutrient removal.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "COD",
+        "NH4+",
+        "NO3-",
+        "biomass"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_uconn_wrrf"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "COD",
+      "NH4+",
+      "NO3-",
+      "biomass"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "wastewater feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "AnoxicReactor",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "anoxic biological conversion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R201",
+      "kind": "AerationTank",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "aerobic polishing and nutrient uptake",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CL101",
+      "kind": "Clarifier",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "biomass and liquid separation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "return sludge and waste split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "EFFLUENT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "treated effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RESOURCE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "recovered nutrient or biosolids",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "R101.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "wastewater feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "R101.outlet",
+      "destination": "R201.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "anoxic effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R201.outlet",
+      "destination": "CL101.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "mixed liquor",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CL101.overflow",
+      "destination": "EFFLUENT.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "treated effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CL101.sludge",
+      "destination": "S101.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "settled biomass",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.recycle",
+      "destination": "R101.recycle",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "return biomass recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "S101.product",
+      "destination": "RESOURCE.inlet",
+      "stage": "watertap_wrrf_equalization_bnr",
+      "role": "resource product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "EFFLUENT.inlet",
+    "RESOURCE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_uconn_wrrf"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_uconn_wrrf",
+    "chemical_change": "Introduces peak-flow equalization and recycle control ahead of nutrient removal.",
+    "native_metrics": {
+      "pollutant_removal": 0.9159999999999999,
+      "resource_recovery": 0.9339999999999999,
+      "aeration_energy_index": 0.42999999999999994,
+      "waste_sludge_index": 0.032,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_seawater_ro_pressure_exchanger",
+  "family": "family_watertap_seawater_ro_desalination",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.3092,
+      "units": "m^3/s",
+      "role": "official seawater feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "TDS_conc_mass",
+      "value": 35,
+      "units": "kg/m^3",
+      "role": "official feed TDS concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "TSS_conc_mass",
+      "value": 0.03,
+      "units": "kg/m^3",
+      "role": "official feed TSS concentration",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "P1",
+      "variable": "outlet_pressure",
+      "value": 7000000.0,
+      "units": "Pa",
+      "role": "RO operating pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "PXR",
+      "variable": "efficiency_pressure_exchanger",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "pressure exchanger efficiency",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "RO",
+      "variable": "A_comp",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "membrane water permeability",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "RO",
+      "variable": "B_comp",
+      "value": 3.5e-08,
+      "units": "m/s",
+      "role": "membrane salt permeability",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP seawater_RO_desalination pressure_exchanger build_flowsheet, initialize_system, solve, add_costing, initialize_costing, final solve",
+    "solve_order": [
+      "pretreatment",
+      "translation",
+      "desalination",
+      "energy_recovery",
+      "posttreatment",
+      "product/waste"
+    ]
+  },
+  "solve": {
+    "solver": "sandbox_compact_seawater_ro_pressure_exchanger",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

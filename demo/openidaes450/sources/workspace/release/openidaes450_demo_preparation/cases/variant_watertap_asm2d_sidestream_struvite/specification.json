@@ -1,0 +1,90 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_watertap_asm2d_sidestream_struvite",
+  "family": "family_asm2d_struvite",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "magnesium_stoichiometric_ratio",
+      "value": 1.1,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "seed_recycle_fraction",
+      "value": 0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "phosphorus_recovery_fraction",
+      "value": 0.902,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "struvite_phosphorus_kg_s",
+      "value": 0.000451,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_phosphate_kg_s",
+      "value": 4.9000000000000005e-05,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "residual_magnesium_kg_s",
+      "value": 9.9e-05,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "LIQUOR.outlet",
+    "MG.outlet"
+  ],
+  "terminal_product_ports": [
+    "STRUVITE.inlet",
+    "RETURN.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_asm2d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_asm2d",
+    "chemical_change": "Adds MgNH4PO4 precipitation and a harvested solid product to the biological phosphorus-removal path.",
+    "native_metrics": {
+      "phosphorus_recovery_fraction": 0.902,
+      "struvite_phosphorus_kg_s": 0.000451,
+      "residual_phosphate_kg_s": 4.9000000000000005e-05,
+      "residual_magnesium_kg_s": 9.9e-05
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_ngcc",
+  "family": "family_ngcc",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "ngcc",
+      "variable": "cap_fraction",
+      "value": 0.9,
+      "units": "dimensionless",
+      "role": "official _add_constraints capture fraction variable",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    },
+    {
+      "target": "ngcc",
+      "variable": "cap_specific_reboiler_duty",
+      "value": "cap_fraction-dependent",
+      "units": "kJ/kg",
+      "role": "official capture steam duty surrogate",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    },
+    {
+      "target": "ngcc",
+      "variable": "cap_specific_compression_power",
+      "value": "cap_fraction-dependent",
+      "units": "kWh/kg",
+      "role": "official CO2 compression power surrogate",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    },
+    {
+      "target": "ngcc",
+      "variable": "fuel_lhv",
+      "value": "computed_from_fuel_composition",
+      "units": "MJ/kg",
+      "role": "official _add_constraints fuel LHV expression",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    },
+    {
+      "target": "ngcc",
+      "variable": "fuel_hhv",
+      "value": "computed_from_fuel_composition",
+      "units": "MJ/kg",
+      "role": "official _add_constraints fuel HHV expression",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    },
+    {
+      "target": "ngcc",
+      "variable": "net_power_mw",
+      "value": "gt_power + st_power - capture_auxiliaries",
+      "units": "MW",
+      "role": "official net power expression including capture surrogates",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngcc/ngcc_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official NgccFlowsheetData.initialize(load_from='ngcc_init.json.gz'); web test is topology-only",
+    "solve_order": [
+      "gt",
+      "fg_translate",
+      "hrsg",
+      "st"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "web_test_mode": "topology_only"
+  }
+}

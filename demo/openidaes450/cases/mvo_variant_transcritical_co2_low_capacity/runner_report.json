@@ -1,0 +1,59 @@
+{
+  "pass": true,
+  "status": "optimized",
+  "stage": "native_mvo_discretized_highs",
+  "termination_condition": "optimal",
+  "solver": "appsi_highs",
+  "execution_scope": "native",
+  "metrics": {
+    "input_row_count": 44800,
+    "process_variant_count": 32,
+    "feasible_alternative_count": 28000,
+    "x_selection_variable_count": 28000,
+    "platform_binary_count": 34,
+    "variables": 28034,
+    "constraints": 84035,
+    "objective_value": 1915818.3438399995,
+    "selected_family_design_count": 3,
+    "selected_platform_module_count": 6,
+    "selected_platform_modules": [
+      {
+        "module_type": "Evaporator Area",
+        "design": 30.0
+      },
+      {
+        "module_type": "Evaporator Area",
+        "design": 50.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 20.0
+      },
+      {
+        "module_type": "Condenser Area",
+        "design": 25.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 60.0
+      },
+      {
+        "module_type": "Compressor Design Flow",
+        "design": 75.0
+      }
+    ],
+    "initialize_seconds": 1.0106352360453457,
+    "build_seconds": 5.45254941098392,
+    "solve_seconds": 47.838161145104095
+  },
+  "configuration": {
+    "filter_name": "capacity_le_140",
+    "max_common_designs": {
+      "Evaporator Area": 2,
+      "Condenser Area": 2,
+      "Compressor Design Flow": 2
+    }
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

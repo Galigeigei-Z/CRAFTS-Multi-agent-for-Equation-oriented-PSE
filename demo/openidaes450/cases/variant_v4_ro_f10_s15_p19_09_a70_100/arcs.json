@@ -1,0 +1,37 @@
+[
+  {
+    "name": "fs.s01",
+    "source": "fs.feed.outlet",
+    "destination": "fs.P1.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.P1.outlet",
+    "destination": "fs.RO1.inlet"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.RO1.retentate",
+    "destination": "fs.first_pass_brine.inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.RO1.permeate",
+    "destination": "fs.P2.inlet"
+  },
+  {
+    "name": "fs.s05",
+    "source": "fs.P2.outlet",
+    "destination": "fs.RO2.inlet"
+  },
+  {
+    "name": "fs.s06",
+    "source": "fs.RO2.permeate",
+    "destination": "fs.product.inlet"
+  },
+  {
+    "name": "fs.s07",
+    "source": "fs.RO2.retentate",
+    "destination": "fs.second_pass_brine.inlet"
+  }
+]

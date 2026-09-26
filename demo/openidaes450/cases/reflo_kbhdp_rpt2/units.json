@@ -1,0 +1,385 @@
+[
+  {
+    "name": "fs.treatment.feed",
+    "class": "idaes.core.base.process_block._ScalarFeed",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.MCAS_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.product",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.sludge",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.UF_waste",
+    "class": "idaes.core.base.process_block._ScalarProduct",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.MCAS_to_ZOTDS_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslatorMCAStoZO",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": false,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.MCAS_properties"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.UF_properties"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.ZOTDS_to_TDS_translator",
+    "class": "idaes.core.base.process_block._ScalarTranslatorZOtoSW",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "outlet_state_defined": true,
+      "has_phase_equilibrium": false,
+      "inlet_property_package": {
+        "component": "fs.UF_properties"
+      },
+      "inlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "outlet_property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.EC.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.EC.product",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.EC.disposal",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.EC.unit",
+    "class": "idaes.core.base.process_block._ScalarElectrocoagulationZO",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": {
+        "type": "watertap_contrib.reflo.core.wt_reflo_database.REFLODatabase",
+        "requires_source_definition": true
+      },
+      "process_subtype": "kbhdp",
+      "isothermal": true,
+      "isobaric": true,
+      "electrode_material": "aluminum",
+      "reactor_material": "pvc",
+      "overpotential_calculation": "calculated"
+    }
+  },
+  {
+    "name": "fs.treatment.UF.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.UF.product",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.UF.disposal",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.UF.unit",
+    "class": "idaes.core.base.process_block._ScalarUltraFiltrationZO",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.UF_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": {
+        "type": "watertap_contrib.reflo.core.wt_reflo_database.REFLODatabase",
+        "requires_source_definition": true
+      },
+      "process_subtype": null,
+      "isothermal": true,
+      "isobaric": true
+    }
+  },
+  {
+    "name": "fs.treatment.LTMED.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.LTMED.product",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.LTMED.disposal",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.LTMED.unit",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.treatment.DWI.feed",
+    "class": "idaes.core.base.process_block._ScalarStateJunction",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    }
+  },
+  {
+    "name": "fs.treatment.DWI.unit",
+    "class": "idaes.core.base.process_block._ScalarDeepWellInjection",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "injection_well_depth": 2500
+    }
+  },
+  {
+    "name": "fs.energy.FPC.unit",
+    "class": "idaes.core.base.process_block._ScalarFlatPlateSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "solar_model_type": "surrogate",
+      "surrogate_model_type": "rbf",
+      "surrogate_model_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/flowsheets/KBHDP/data/fpc/kbhdp_fpc_surrogate.json",
+      "surrogate_filename_save": null,
+      "dataset_filename": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/flowsheets/KBHDP/data/fpc/kbhdp_fpc_surrogate_data.pkl",
+      "input_variables": {
+        "labels": [
+          "system_capacity"
+        ],
+        "bounds": {
+          "system_capacity": [
+            0.5,
+            200
+          ]
+        },
+        "units": {
+          "system_capacity": "MW"
+        }
+      },
+      "output_variables": {
+        "labels": [
+          "heat_annual",
+          "electricity_annual"
+        ],
+        "units": {
+          "heat_annual": "kWh/year",
+          "electricity_annual": "kWh/year"
+        }
+      },
+      "scale_training_data": true,
+      "training_fraction": 0.8,
+      "rbf_basis_function": "gaussian",
+      "rbf_solution_method": "algebraic",
+      "rbf_regularization": true,
+      "maximum_polynomial_order": 2
+    }
+  }
+]

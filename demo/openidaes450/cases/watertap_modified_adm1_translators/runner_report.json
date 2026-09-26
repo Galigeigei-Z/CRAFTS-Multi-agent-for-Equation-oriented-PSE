@@ -1,0 +1,120 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_adm1",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/ADM1.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "adm1_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "adm1_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "adm1_liquid_digestate_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "adm1_streams_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "feed_flow_m3_s": 0.0019675925925925924,
+  "liquid_digestate_flow_m3_s": 0.0019672666510778414,
+  "biogas_flow_m3_s": 0.03249636902064156,
+  "liquid_volume_m3": 3400.0,
+  "vapor_volume_m3": 300.0,
+  "liquid_outlet_temperature_k": 308.15,
+  "stream_values": {
+    "sludge_feed": {
+      "volumetric_flow": 0.0019675925925925924,
+      "anions": 0.019999999999999997,
+      "cations": 0.039999999999999994,
+      "conc_mass_comp": {
+        "S_su": 0.009999999999999998,
+        "S_aa": 0.0009999999999999998,
+        "S_fa": 0.0009999999999999998,
+        "S_va": 0.0009999999999999998,
+        "S_bu": 0.0009999999999999998,
+        "S_pro": 0.0009999999999999998,
+        "S_ac": 0.0009999999999999998,
+        "S_h2": 9.999999999999999e-09,
+        "S_ch4": 9.999999999999997e-06,
+        "S_IC": 0.4799999999999999,
+        "S_IN": 0.13999999999999999,
+        "S_I": 0.019999999999999997,
+        "X_c": 1.9999999999999996,
+        "X_ch": 4.999999999999999,
+        "X_pr": 19.999999999999996,
+        "X_li": 4.999999999999999,
+        "X_su": 0.0,
+        "X_aa": 0.009999999999999998,
+        "X_fa": 0.009999999999999998,
+        "X_c4": 0.009999999999999998,
+        "X_pro": 0.009999999999999998,
+        "X_ac": 0.009999999999999998,
+        "X_h2": 0.009999999999999998,
+        "X_I": 24.999999999999996
+      },
+      "temperature": 308.15,
+      "pressure": 101325.0,
+      "source_port": "fs.R1.inlet"
+    },
+    "liquid_digestate": {
+      "volumetric_flow": 0.0019672666510778414,
+      "anions": 0.02000331364855468,
+      "cations": 0.04000662729710936,
+      "conc_mass_comp": {
+        "S_su": 0.011953334371219593,
+        "S_aa": 0.005314079502931669,
+        "S_fa": 0.09860576039491041,
+        "S_va": 0.011622968768138633,
+        "S_bu": 0.013248402637720313,
+        "S_pro": 0.0157812971783528,
+        "S_ac": 0.1977832664759598,
+        "S_h2": 2.3591590153674606e-07,
+        "S_ch4": 0.05497066167688646,
+        "S_IC": 1.8320212015060617,
+        "S_IN": 1.8235306622570233,
+        "S_I": 0.32877240318754125,
+        "X_c": 0.30871794040113587,
+        "X_ch": 0.027947465226065223,
+        "X_pr": 0.10257439240179776,
+        "X_li": 0.029483376643142406,
+        "X_su": 0.4202193979835076,
+        "X_aa": 1.1793147013199958,
+        "X_fa": 0.24306813830588309,
+        "X_c4": 0.4319739778548533,
+        "X_pro": 0.13732297422344644,
+        "X_ac": 0.7606534050968726,
+        "X_h2": 0.3170629145848255,
+        "X_I": 25.621680239771322
+      },
+      "temperature": 308.15,
+      "pressure": 101325.0,
+      "source_port": "fs.R1.liquid_outlet"
+    },
+    "biogas": {
+      "volumetric_flow": 0.03249636902064156,
+      "conc_mass_comp": {
+        "S_h2": 1.0235326975377136e-05,
+        "S_ch4": 1.6216465001861622,
+        "S_co2": 0.16941715034124058
+      },
+      "temperature": 308.15,
+      "pressure": 106659.52252421688,
+      "source_port": "fs.R1.vapor_outlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.anaerobic_digester.ADM1_flowsheet",
+    "configuration": "single ADM1 anaerobic digester with liquid and vapor outlets",
+    "stdout_tail": "ipopt-watertap: ipopt with user variable scaling and IDAES jacobian constraint scaling\nIpopt 3.13.2: tol=1e-08\nconstr_viol_tol=1e-08\nacceptable_constr_viol_tol=1e-08\nbound_relax_factor=0.0\nhonor_original_bounds=no\nnlp_scaling_method=user-scaling\n\n\n******************************************************************************\nThis program contains Ipopt, a library for large-scale nonlinear optimization.\n Ipopt is released as open source code under the Eclipse Public License (EPL).\n         For more information visit http://projects.coin-or.org/Ipopt\n\nThis version of Ipopt was compiled from source code available at\n    https://github.com/IDAES/Ipopt as part of the Institute for the Design of\n    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE\n    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.\n\nThis version of Ipopt was compiled using HSL, a collection of Fortran codes\n    for large-scale scientific computation.  All technical papers, sales and\n    publicity material resulting from use of the HSL codes within IPOPT must\n    contain the following acknowledgement:\n        HSL, a collection of Fortran codes for large-scale scientific\n        computation. See http://www.hsl.rl.ac.uk.\n******************************************************************************\n\nThis is Ipopt version 3.13.2, running with linear solver ma27.\n\nNumber of nonzeros in equality constraint Jacobian...:      489\nNumber of nonzeros in inequality constraint Jacobian.:        0\nNumber of nonzeros in Lagrangian Hessian.............:      119\n\nTotal number of variables............................:      170\n                     variables with only lower bounds:       72\n                variables with lower and upper bounds:       23\n                     variables with only upper bounds:        0\nTotal number of equality constraints.................:      170\nTotal number of inequality constraints...............:        0\n        inequality constraints with only lower bounds:        0\n   inequality constraints with lower and upper bounds:        0\n        inequality constraints with only upper bounds:        0\n\niter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls\n   0  0.0000000e+00 7.32e-01 1.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0\n   1  0.0000000e+00 1.52e+00 1.00e+03  -1.0 5.37e+00    -  6.52e-01 9.14e-01h  1\n   2  0.0000000e+00 8.77e-01 3.97e+01  -1.0 4.13e+00    -  9.90e-01 1.00e+00h  1\n   3  0.0000000e+00 3.97e-01 9.00e+01  -1.0 5.55e-01    -  3.55e-01 1.00e+00h  1\n   4  0.0000000e+00 1.15e-01 1.69e+01  -1.0 1.64e-02    -  1.00e+00 1.00e+00h  1\n   5  0.0000000e+00 1.30e-02 1.26e+01  -1.0 6.41e-03    -  1.00e+00 1.00e+00h  1\n   6  0.0000000e+00 1.91e-04 1.21e-01  -1.0 9.14e-04    -  1.00e+00 1.00e+00h  1\n   7  0.0000000e+00 4.21e-08 1.26e-02  -2.5 1.38e-05    -  1.00e+00 1.00e+00h  1\n   8  0.0000000e+00 5.82e-11 7.38e-08  -3.8 3.04e-09    -  1.00e+00 1.00e+00h  1\n\nNumber of Iterations....: 8\n\n                                   (scaled)                 (unscaled)\nObjective...............:   0.0000000000000000e+00    0.0000000000000000e+00\nDual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00\nConstraint violation....:   4.2657990945340640e-13    5.8207660913467407e-11\nComplementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00\nOverall NLP error.......:   4.2657990945340640e-13    5.8207660913467407e-11\n\n\nNumber of objective function evaluations             = 9\nNumber of objective gradient evaluations             = 9\nNumber of equality constraint evaluations            = 9\nNumber of inequality constraint evaluations          = 0\nNumber of equality constraint Jacobian evaluations   = 9\nNumber of inequality constraint Jacobian evaluations = 0\nNumber of Lagrangian Hessian evaluations             = 8\nTotal CPU secs in IPOPT (w/o function evaluations)   =      0.005\nTotal CPU secs in NLP function evaluations           =      0.000\n\nEXIT: Optimal Solution Found.\n"
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

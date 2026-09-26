@@ -1,0 +1,198 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_ad_biogas_h2s_guard_emergency_flare",
+  "family": "family_biogas_h2s_emergency",
+  "process_type": "Biogas H2S Guard with Emergency Caustic Scrubber and Flare",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_j_v13.py",
+  "source_basis": [
+    "Derived from active parent variant_watertap_ad_biogas_chp_heat_integrated.",
+    "Adds sulfur chemisorption, emergency alkaline absorption and safe methane destruction paths.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "CO2",
+        "H2S",
+        "NaOH",
+        "sulfide"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "variant_watertap_ad_biogas_chp_heat_integrated"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "CO2",
+      "H2S",
+      "NaOH",
+      "sulfide"
+    ]
+  },
+  "units": [
+    {
+      "id": "BIOGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "raw digester gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BED1",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "lead H2S removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BED2",
+      "kind": "GuardBed",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "lag H2S removal",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SV",
+      "kind": "SwitchValve",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "CHP/emergency routing",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SCRUB",
+      "kind": "CausticScrubber",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "emergency H2S capture",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CHP",
+      "kind": "EngineGenerator",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "normal biogas use",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLARE",
+      "kind": "Flare",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "emergency methane destruction",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "SULFIDE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "biogas_h2s_emergency",
+      "role": "spent sulfide liquor",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BIOGAS.outlet",
+      "destination": "BED1.inlet",
+      "stage": "biogas_h2s_emergency",
+      "role": "raw biogas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "BED1.outlet",
+      "destination": "BED2.inlet",
+      "stage": "biogas_h2s_emergency",
+      "role": "guarded gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "BED2.outlet",
+      "destination": "SV.inlet",
+      "stage": "biogas_h2s_emergency",
+      "role": "low-H2S gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "SV.normal",
+      "destination": "CHP.fuel",
+      "stage": "biogas_h2s_emergency",
+      "role": "CHP fuel",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "SV.emergency",
+      "destination": "SCRUB.gas",
+      "stage": "biogas_h2s_emergency",
+      "role": "emergency gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "SCRUB.gas_out",
+      "destination": "FLARE.inlet",
+      "stage": "biogas_h2s_emergency",
+      "role": "scrubbed flare gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "SCRUB.liquid",
+      "destination": "SULFIDE.inlet",
+      "stage": "biogas_h2s_emergency",
+      "role": "captured sulfide",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BIOGAS.outlet"
+  ],
+  "unconnected_product_ports": [
+    "SULFIDE.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_watertap_ad_biogas_chp_heat_integrated"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_watertap_ad_biogas_chp_heat_integrated",
+    "chemical_change": "Adds sulfur chemisorption, emergency alkaline absorption and safe methane destruction paths.",
+    "native_metrics": {
+      "chp_h2s_index": 0.002519999999999998,
+      "flare_h2s_index": 0.00385,
+      "methane_destruction": 0.9845,
+      "caustic_index": 0.09500000000000001,
+      "bed_life_fraction": 0.9300000000000002
+    }
+  }
+}

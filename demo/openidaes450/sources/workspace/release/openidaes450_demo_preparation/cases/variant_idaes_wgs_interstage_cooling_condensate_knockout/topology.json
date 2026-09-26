@@ -1,0 +1,179 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_wgs_interstage_cooling_condensate_knockout",
+  "family": "family_wgs_intercool",
+  "process_type": "Two-Stage Water-Gas Shift with Interstage Cooling and Condensate Knockout",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_methanol_single.",
+    "Adds reaction-temperature staging and phase separation that alters steam/CO equilibrium between catalyst beds.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO",
+        "H2O",
+        "CO2",
+        "H2"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_methanol_single"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO",
+      "H2O",
+      "CO2",
+      "H2"
+    ]
+  },
+  "units": [
+    {
+      "id": "SYNGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "CO/steam gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HTS",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "high-temperature shift",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "interstage cooling",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "KO",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "condensate knockout",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "LTS",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "low-temperature shift",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "hydrogen-rich gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "WATER",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "wgs_intercool",
+      "role": "condensate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "SYNGAS.outlet",
+      "destination": "HTS.inlet",
+      "stage": "wgs_intercool",
+      "role": "syngas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "HTS.outlet",
+      "destination": "HX1.inlet",
+      "stage": "wgs_intercool",
+      "role": "hot shifted gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "HX1.outlet",
+      "destination": "KO.inlet",
+      "stage": "wgs_intercool",
+      "role": "cooled two-phase gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "KO.vapor",
+      "destination": "LTS.inlet",
+      "stage": "wgs_intercool",
+      "role": "dry LTS feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "KO.liquid",
+      "destination": "WATER.inlet",
+      "stage": "wgs_intercool",
+      "role": "condensate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "LTS.outlet",
+      "destination": "H2.inlet",
+      "stage": "wgs_intercool",
+      "role": "hydrogen-rich gas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "SYNGAS.outlet"
+  ],
+  "unconnected_product_ports": [
+    "H2.inlet",
+    "WATER.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_methanol_single"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_single",
+    "chemical_change": "Adds reaction-temperature staging and phase separation that alters steam/CO equilibrium between catalyst beds.",
+    "native_metrics": {
+      "co_conversion": 0.905,
+      "lts_liquid_water_fraction": 0.006749999999999996,
+      "lts_inlet_temperature_K": 439.5,
+      "hydrogen_yield_index": 0.8145
+    }
+  }
+}

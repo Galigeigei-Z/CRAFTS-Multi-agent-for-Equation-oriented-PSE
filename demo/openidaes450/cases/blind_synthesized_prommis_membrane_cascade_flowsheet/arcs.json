@@ -1,0 +1,162 @@
+[
+  {
+    "name": "fs.connect_retentate_split_1",
+    "source": "fs.stage[1].retentate_outlet",
+    "destination": "fs.split_retentate[1].inlet"
+  },
+  {
+    "name": "fs.connect_permeate_split_1",
+    "source": "fs.stage[1].permeate_outlet",
+    "destination": "fs.split_permeate[1].inlet"
+  },
+  {
+    "name": "fs.connect_retentate_split_2",
+    "source": "fs.stage[2].retentate_outlet",
+    "destination": "fs.split_retentate[2].inlet"
+  },
+  {
+    "name": "fs.connect_permeate_split_2",
+    "source": "fs.stage[2].permeate_outlet",
+    "destination": "fs.split_permeate[2].inlet"
+  },
+  {
+    "name": "fs.connect_stages_1_and_2",
+    "source": "fs.split_permeate[1].forward",
+    "destination": "fs.stage[2].retentate_inlet"
+  },
+  {
+    "name": "fs.connect_inlet_splitter_1",
+    "source": "fs.inlet_mixers[1].outlet",
+    "destination": "fs.splitters[1].inlet"
+  },
+  {
+    "name": "fs.connect_stage_1_inlet_side_stream_1",
+    "source": "fs.splitters[1].outlet_1",
+    "destination": "fs.stage[1].retentate_side_stream_1"
+  },
+  {
+    "name": "fs.connect_stage_1_inlet_side_stream_2",
+    "source": "fs.splitters[1].outlet_2",
+    "destination": "fs.stage[1].retentate_side_stream_2"
+  },
+  {
+    "name": "fs.connect_stage_1_inlet_side_stream_3",
+    "source": "fs.splitters[1].outlet_3",
+    "destination": "fs.stage[1].retentate_side_stream_3"
+  },
+  {
+    "name": "fs.connect_stage_1_inlet_side_stream_4",
+    "source": "fs.splitters[1].outlet_4",
+    "destination": "fs.stage[1].retentate_side_stream_4"
+  },
+  {
+    "name": "fs.connect_stage_1_inlet_side_stream_5",
+    "source": "fs.splitters[1].outlet_5",
+    "destination": "fs.stage[1].retentate_side_stream_5"
+  },
+  {
+    "name": "fs.connect_inlet_splitter_2",
+    "source": "fs.inlet_mixers[2].outlet",
+    "destination": "fs.splitters[2].inlet"
+  },
+  {
+    "name": "fs.connect_stage_2_inlet_side_stream_1",
+    "source": "fs.splitters[2].outlet_1",
+    "destination": "fs.stage[2].retentate_side_stream_1"
+  },
+  {
+    "name": "fs.connect_stage_2_inlet_side_stream_2",
+    "source": "fs.splitters[2].outlet_2",
+    "destination": "fs.stage[2].retentate_side_stream_2"
+  },
+  {
+    "name": "fs.connect_stage_2_inlet_side_stream_3",
+    "source": "fs.splitters[2].outlet_3",
+    "destination": "fs.stage[2].retentate_side_stream_3"
+  },
+  {
+    "name": "fs.connect_stage_2_inlet_side_stream_4",
+    "source": "fs.splitters[2].outlet_4",
+    "destination": "fs.stage[2].retentate_side_stream_4"
+  },
+  {
+    "name": "fs.connect_stage_2_inlet_side_stream_5",
+    "source": "fs.splitters[2].outlet_5",
+    "destination": "fs.stage[2].retentate_side_stream_5"
+  },
+  {
+    "name": "fs.connect_recycle_2",
+    "source": "fs.split_retentate[2].recycle",
+    "destination": "fs.inlet_mixers[1].recycle"
+  },
+  {
+    "name": "fs.connect_feed_1",
+    "source": "fs.split_feed.outlet_1",
+    "destination": "fs.inlet_mixers[1].feed"
+  },
+  {
+    "name": "fs.connect_feed_2",
+    "source": "fs.split_feed.outlet_2",
+    "destination": "fs.inlet_mixers[2].feed"
+  },
+  {
+    "name": "fs.connect_diafiltrate_1",
+    "source": "fs.split_diafiltrate.outlet_1",
+    "destination": "fs.inlet_mixers[1].diafiltrate"
+  },
+  {
+    "name": "fs.connect_diafiltrate_2",
+    "source": "fs.split_diafiltrate.outlet_2",
+    "destination": "fs.inlet_mixers[2].diafiltrate"
+  },
+  {
+    "name": "fs.connect_prod_retentate_1",
+    "source": "fs.split_retentate[1].product",
+    "destination": "fs.mix_product_retentate.inlet_1"
+  },
+  {
+    "name": "fs.connect_prod_permeate_1",
+    "source": "fs.split_permeate[1].product",
+    "destination": "fs.mix_product_permeate.inlet_1"
+  },
+  {
+    "name": "fs.connect_prod_retentate_2",
+    "source": "fs.split_retentate[2].product",
+    "destination": "fs.mix_product_retentate.inlet_2"
+  },
+  {
+    "name": "fs.connect_prod_permeate_2",
+    "source": "fs.split_permeate[2].product",
+    "destination": "fs.mix_product_permeate.inlet_2"
+  },
+  {
+    "name": "fs.connect_precipitator_retentate",
+    "source": "fs.mix_product_retentate.outlet",
+    "destination": "fs.precipitator[retentate].inlet"
+  },
+  {
+    "name": "fs.connect_precipitator_permeate",
+    "source": "fs.mix_product_permeate.outlet",
+    "destination": "fs.precipitator[permeate].inlet"
+  },
+  {
+    "name": "fs.connect_precipitator_retentate_mixer",
+    "source": "fs.precipitator[retentate].recycle",
+    "destination": "fs.mix_precipitate_recycle.retentate"
+  },
+  {
+    "name": "fs.connect_precipitator_permeate_mixer",
+    "source": "fs.precipitator[permeate].recycle",
+    "destination": "fs.mix_precipitate_recycle.permeate"
+  },
+  {
+    "name": "fs.connect_precipitate_mix_split",
+    "source": "fs.mix_precipitate_recycle.outlet",
+    "destination": "fs.split_precipitate_recycle.inlet"
+  },
+  {
+    "name": "fs.connect_precipitate_diafiltrate",
+    "source": "fs.split_precipitate_recycle.recycle",
+    "destination": "fs.split_diafiltrate.inlet"
+  }
+]

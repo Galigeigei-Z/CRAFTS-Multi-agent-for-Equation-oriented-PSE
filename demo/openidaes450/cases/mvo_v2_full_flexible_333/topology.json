@@ -1,0 +1,213 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "mvo_v2_full_flexible_333",
+  "family": "family_idaes_mvo",
+  "process_type": "MVO Full-Family Flexible Platform 3/3/3",
+  "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb",
+  "source_basis": [
+    "Official IDAES-MVO repository at commit 4af5203a41319fea9f9ee994abe9f681fa0cadb1.",
+    "Official notebook result figure extracted from example/discretized.ipynb, cell 8.",
+    "Engineering decision variant; official dataset and discretized formulation are preserved, with the recorded policy applied explicitly."
+  ],
+  "property_packages": {
+    "idaes_mvo": {
+      "dataset": "transcritical-co2-data.csv",
+      "method": "discretized"
+    }
+  },
+  "components": {
+    "shared_modules": [
+      "evaporator",
+      "condenser",
+      "compressor"
+    ],
+    "variant_descriptors": [
+      "capacity",
+      "outside_air_temperature"
+    ]
+  },
+  "units": [
+    {
+      "id": "requirements",
+      "kind": "ProcessVariantSet",
+      "package": "pandas",
+      "stage": "data",
+      "role": "capacity and outside-air-temperature requirements for the process family",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "alternatives",
+      "kind": "FeasibleAlternativeLibrary",
+      "package": "idaes_mvo",
+      "stage": "data",
+      "role": "feasible transcritical CO2 equipment alternatives and annualized cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "decision_policy",
+      "kind": "ModuleBudgetPolicy",
+      "package": "pyomo",
+      "stage": "policy",
+      "role": "limits the number of standardized designs for each shared module type",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "platform",
+      "kind": "SharedModulePlatform",
+      "package": "idaes_mvo",
+      "stage": "design",
+      "role": "shared evaporator, condenser, and compressor module designs",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "selection",
+      "kind": "AlternativeSelection",
+      "package": "pyomo",
+      "stage": "design",
+      "role": "one feasible equipment alternative per process variant",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "objective",
+      "kind": "FamilyCostObjective",
+      "package": "pyomo",
+      "stage": "optimization",
+      "role": "minimum total annualized process-family cost",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "family",
+      "kind": "ProcessFamilyDesign",
+      "package": "idaes_mvo",
+      "stage": "solution",
+      "role": "optimized standardized process family",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "requirements_to_alternatives",
+      "source": "requirements.outlet",
+      "destination": "alternatives.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "alternatives_to_decision_policy",
+      "source": "alternatives.outlet",
+      "destination": "decision_policy.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "decision_policy_to_platform",
+      "source": "decision_policy.outlet",
+      "destination": "platform.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "platform_to_selection",
+      "source": "platform.outlet",
+      "destination": "selection.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "selection_to_objective",
+      "source": "selection.outlet",
+      "destination": "objective.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    },
+    {
+      "id": "objective_to_family",
+      "source": "objective.outlet",
+      "destination": "family.inlet",
+      "stage": "optimization_link",
+      "role": "MVO decision linkage",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "mvo",
+      "variable": "decision_type",
+      "value": "module_budget",
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "max_common_designs",
+      "value": {
+        "Evaporator Area": 3,
+        "Condenser Area": 3,
+        "Compressor Design Flow": 3
+      },
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    },
+    {
+      "target": "mvo",
+      "variable": "policy",
+      "value": {},
+      "units": "categorical",
+      "role": "process-family configuration",
+      "source": "official_or_variant",
+      "source_url": "https://github.com/IDAES/idaes-mvo/blob/4af5203a41319fea9f9ee994abe9f681fa0cadb1/example/discretized.ipynb"
+    }
+  ],
+  "unit_specs": [],
+  "unconnected_feed_ports": [
+    "requirements.outlet"
+  ],
+  "unconnected_product_ports": [
+    "family.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "load official design table, construct process-family MILP, solve or preserve official notebook evidence",
+    "solve_order": [
+      "requirements",
+      "alternatives",
+      "decision_policy",
+      "platform",
+      "selection",
+      "objective",
+      "family"
+    ]
+  },
+  "solve": {
+    "solver": "appsi_highs",
+    "steady_state": false,
+    "expected_dof": null
+  },
+  "required_entries": [
+    "ProcessFamilyBase",
+    "DiscretizedProcessFamily"
+  ],
+  "notes_for_agent_a": [
+    "This is a process-family design optimization, not a physical stream flowsheet.",
+    "source_flowchart.png is an official notebook result figure; the repository contains no official architecture flowchart.",
+    "This v2 case is distinct from the official 2/2/2 case through its explicit platform, objective, retrofit, or availability policy."
+  ]
+}

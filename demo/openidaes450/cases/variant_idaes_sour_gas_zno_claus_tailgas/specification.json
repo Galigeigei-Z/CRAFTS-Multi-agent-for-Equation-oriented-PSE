@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_sour_gas_zno_claus_tailgas",
+  "family": "family_idaes_sour_gas_zno_claus_tailgas",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "contaminant_removal_fraction",
+      "value": 0.8500000000000001,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "resource_recovery_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "trace_contaminant_removal",
+      "value": 0.935,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "bulk_resource_recovery",
+      "value": 0.8700000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "emissions_index",
+      "value": 0.003599999999999997,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "pressure_loss_index",
+      "value": 0.15100000000000002,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "max_component_balance_error",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "PRODUCT.inlet",
+    "RECOVERED.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_natural_gas_zno_guard_claus_sulfur_recovery"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_natural_gas_zno_guard_claus_sulfur_recovery",
+    "chemical_change": "Separates bulk acid gas after reactive trace-H2S polishing.",
+    "native_metrics": {
+      "trace_contaminant_removal": 0.935,
+      "bulk_resource_recovery": 0.8700000000000001,
+      "emissions_index": 0.003599999999999997,
+      "pressure_loss_index": 0.15100000000000002,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

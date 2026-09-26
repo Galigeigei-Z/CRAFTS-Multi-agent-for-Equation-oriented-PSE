@@ -1,0 +1,23 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "idaes.models.properties.examples.saponification_thermo.PhysicalParameterData"
+      },
+      {
+        "class": "idaes.models.properties.examples.saponification_thermo.SaponificationParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models.properties.examples.saponification_thermo.SaponificationParameterBlock",
+    "module": "idaes.models.properties.examples.saponification_thermo",
+    "data_class": "idaes.models.properties.examples.saponification_thermo.PhysicalParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

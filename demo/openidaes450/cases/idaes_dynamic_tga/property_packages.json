@@ -1,0 +1,74 @@
+[
+  {
+    "name": "fs.gas_props",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.gas_phase_thermo.GasPhaseParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.gas_phase_thermo.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.gas_phase_thermo.GasPhaseParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.gas_phase_thermo",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.gas_phase_thermo.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/gas_phase_thermo.py"
+  },
+  {
+    "name": "fs.solid_props",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.solid_phase_thermo.SolidPhaseParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.solid_phase_thermo.PhysicalParameterData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.solid_phase_thermo.SolidPhaseParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.solid_phase_thermo",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.solid_phase_thermo.PhysicalParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/solid_phase_thermo.py"
+  },
+  {
+    "name": "fs.solid_rxns",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.hetero_reactions.HeteroReactionParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.hetero_reactions.ReactionParameterData"
+      }
+    ],
+    "configuration": {
+      "gas_property_package": {
+        "component": "fs.gas_props"
+      },
+      "solid_property_package": {
+        "component": "fs.solid_props"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.hetero_reactions.HeteroReactionParameterBlock",
+    "module": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.hetero_reactions",
+    "data_class": "idaes.models_extra.gas_solid_contactors.properties.methane_iron_OC_reduction.hetero_reactions.ReactionParameterData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/hetero_reactions.py"
+  }
+]

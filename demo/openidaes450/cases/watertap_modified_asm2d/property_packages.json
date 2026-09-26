@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fs.props",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_properties.ASM2dParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_properties.ASM2dParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_properties.ASM2dParameterBlock",
+    "module": "watertap.property_models.unit_specific.activated_sludge.asm2d_properties",
+    "data_class": "watertap.property_models.unit_specific.activated_sludge.asm2d_properties.ASM2dParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.rxn_props",
+    "implementation": [
+      {
+        "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_reactions.ASM2dReactionParameterData"
+      },
+      {
+        "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_reactions.ASM2dReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.props"
+      },
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.unit_specific.activated_sludge.asm2d_reactions.ASM2dReactionParameterBlock",
+    "module": "watertap.property_models.unit_specific.activated_sludge.asm2d_reactions",
+    "data_class": "watertap.property_models.unit_specific.activated_sludge.asm2d_reactions.ASM2dReactionParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

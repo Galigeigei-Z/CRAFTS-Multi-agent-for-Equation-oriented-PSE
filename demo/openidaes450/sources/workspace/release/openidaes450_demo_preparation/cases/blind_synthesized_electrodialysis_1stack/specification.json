@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_electrodialysis_1stack",
+  "family": "family_watertap_electrodialysis_1stack",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_h2o",
+      "value": 4.8,
+      "units": "mol/s",
+      "role": "family_default water molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_na",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default sodium molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_cl",
+      "value": 0.01476,
+      "units": "mol/s",
+      "role": "family_default chloride molar flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 298.15,
+      "units": "K",
+      "role": "family_default feed temperature",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "family_default feed pressure",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "separator",
+      "variable": "split_fraction_diluate",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default equal split to diluate and concentrate channels",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "EDstack",
+      "variable": "voltage_applied",
+      "value": 5.0,
+      "units": "V",
+      "role": "family_default constant voltage operation",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "EDstack",
+      "variable": "cell_pair_num",
+      "value": 100,
+      "units": "dimensionless",
+      "role": "family_default cell-pair count",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind ED one-stack topology is compiled to BuildPlanIR and solved by the ED sandbox template",
+    "solve_order": [
+      "feed",
+      "separator",
+      "EDstack",
+      "product",
+      "disposal"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

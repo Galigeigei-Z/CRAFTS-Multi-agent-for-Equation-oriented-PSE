@@ -1,0 +1,24 @@
+[
+  {
+    "name": "fs.properties",
+    "implementation": [
+      {
+        "class": "idaes.models_extra.gas_distribution.properties.natural_gas.NaturalGasParameterBlock"
+      },
+      {
+        "class": "idaes.models_extra.gas_distribution.properties.natural_gas.NaturalGasParameterBlockData"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "idaes.models_extra.gas_distribution.properties.natural_gas.NaturalGasParameterBlock",
+    "module": "idaes.models_extra.gas_distribution.properties.natural_gas",
+    "data_class": "idaes.models_extra.gas_distribution.properties.natural_gas.NaturalGasParameterBlockData",
+    "identity_evidence": "source declaration and matching flowsheet constructor",
+    "source_file": "property_sources/natural_gas.py"
+  }
+]

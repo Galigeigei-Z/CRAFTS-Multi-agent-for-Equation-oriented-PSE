@@ -1,0 +1,300 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_steady_feedwater_heater",
+  "family": "family_idaes_feedwater_heater",
+  "process_type": "Steady closed feedwater heater with extraction-steam condensation and drain cooling",
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py",
+  "source_basis": [
+    "Native IDAES FWH0D composite unit with IAPWS95 steam-water properties.",
+    "Desuperheating, condensing, drain-cooling, and cascade-drain mixing sections are enabled.",
+    "The saturation constraint determines extraction-steam flow instead of prescribing it.",
+    "This is a steady thermal-design case, distinct from the registered dynamic transient FWH case."
+  ],
+  "property_packages": {
+    "iapws95": {
+      "components": [
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "source": "idaes.models.properties.iapws95.Iapws95ParameterBlock"
+    }
+  },
+  "components": {
+    "steam_water": [
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "extraction_steam",
+      "kind": "Feed",
+      "package": "iapws95",
+      "stage": "steam_supply",
+      "role": "superheated turbine extraction steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cascade_drain",
+      "kind": "Feed",
+      "package": "iapws95",
+      "stage": "drain_mixing",
+      "role": "higher-pressure heater drain cascade",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "feedwater",
+      "kind": "Feed",
+      "package": "iapws95",
+      "stage": "feedwater_supply",
+      "role": "cold boiler feedwater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "fwh",
+      "kind": "FWH0D",
+      "package": "iapws95",
+      "stage": "heat_recovery",
+      "role": "three-zone closed feedwater heater",
+      "constructor": {
+        "has_desuperheat": true,
+        "has_drain_cooling": true,
+        "has_drain_mixer": true
+      },
+      "constraint_template": "saturated_liquid_condensate"
+    },
+    {
+      "id": "heated_feedwater",
+      "kind": "Product",
+      "package": "iapws95",
+      "stage": "product",
+      "role": "heated boiler feedwater",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cooled_drain",
+      "kind": "Product",
+      "package": "iapws95",
+      "stage": "drain_product",
+      "role": "subcooled condensate drain",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "extraction_steam.outlet",
+      "destination": "fwh.steam_inlet",
+      "stage": "steam_supply",
+      "role": "extraction steam to desuperheater",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "cascade_drain.outlet",
+      "destination": "fwh.drain_inlet",
+      "stage": "drain_mixing",
+      "role": "cascade drain to internal mixer",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "feedwater.outlet",
+      "destination": "fwh.feedwater_inlet",
+      "stage": "feedwater_supply",
+      "role": "cold feedwater to drain cooler",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "fwh.feedwater_outlet",
+      "destination": "heated_feedwater.inlet",
+      "stage": "product",
+      "role": "heated feedwater product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "fwh.drain_outlet",
+      "destination": "cooled_drain.inlet",
+      "stage": "drain_product",
+      "role": "cooled condensed drain",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "extraction_steam",
+      "variable": "pressure",
+      "value": 201325.0,
+      "units": "Pa",
+      "role": "steam pressure",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "extraction_steam",
+      "variable": "enth_mol",
+      "value": 60000.0,
+      "units": "J/mol",
+      "role": "superheated steam enthalpy",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "flow_mol",
+      "value": 1.0,
+      "units": "mol/s",
+      "role": "cascade drain flow",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "pressure",
+      "value": 201325.0,
+      "units": "Pa",
+      "role": "cascade drain pressure",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "cascade_drain",
+      "variable": "enth_mol",
+      "value": 20000.0,
+      "units": "J/mol",
+      "role": "cascade drain enthalpy",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "flow_mol",
+      "value": 400.0,
+      "units": "mol/s",
+      "role": "feedwater flow",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "feedwater pressure",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "feedwater",
+      "variable": "enth_mol",
+      "value": 3000.0,
+      "units": "J/mol",
+      "role": "feedwater enthalpy",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "fwh.condense",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "condensing-zone area",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.condense",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 100.0,
+      "units": "W/m^2/K",
+      "role": "condensing-zone U",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.desuperheat",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "desuperheating-zone area",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.desuperheat",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 10.0,
+      "units": "W/m^2/K",
+      "role": "desuperheating-zone U",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.cooling",
+      "variable": "area",
+      "value": 1000.0,
+      "units": "m^2",
+      "role": "drain-cooling-zone area",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    },
+    {
+      "target": "fwh.cooling",
+      "variable": "overall_heat_transfer_coefficient",
+      "value": 10.0,
+      "units": "W/m^2/K",
+      "role": "drain-cooling-zone U",
+      "source": "official_test_configuration",
+      "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/feedwater_heater_0D.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "extraction_steam.outlet",
+    "cascade_drain.outlet",
+    "feedwater.outlet"
+  ],
+  "unconnected_product_ports": [
+    "heated_feedwater.inlet",
+    "cooled_drain.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "native FWH0D staged initializer",
+    "solve_order": [
+      "desuperheat",
+      "drain_mix",
+      "condense",
+      "cooling",
+      "full_unit"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Feed",
+    "Feed",
+    "FWH0D",
+    "Product",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Do not fix extraction-steam flow; it is determined by the condensing saturation constraint."
+  ]
+}

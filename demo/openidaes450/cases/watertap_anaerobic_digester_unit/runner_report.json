@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_anaerobic_digester_unit",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "anaerobic_digester_optimal",
+      "pass": true
+    },
+    {
+      "name": "anaerobic_digester_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "anaerobic_digester_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "anaerobic_digester_vapor_ch4_range",
+      "pass": true
+    },
+    {
+      "name": "anaerobic_digester_biogas_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "anaerobic_digester_electricity_positive",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "vapor_ch4_conc_kg_m3": 1.621646500186162,
+  "vapor_co2_conc_kg_m3": 0.16941715034124058,
+  "vapor_flow_m3_s": 0.03249636902064156,
+  "electricity_consumption_kW": 23.729166666666664,
+  "hydraulic_retention_time_s": 1880470.5882352942,
+  "liquid_acetate_conc_kg_m3": 0.19778326647596045,
+  "stream_values": {
+    "inlet": {
+      "flow_vol_m3_s": 0.0019675925925925924,
+      "temperature_K": 308.15,
+      "pressure_Pa": 101325.0
+    },
+    "liquid_outlet": {
+      "flow_vol_m3_s": 0.0019672666510778414,
+      "temperature_K": 308.15,
+      "pressure_Pa": 101325.0
+    },
+    "vapor_outlet": {
+      "flow_vol_m3_s": 0.03249636902064156,
+      "temperature_K": 308.15,
+      "pressure_Pa": 106659.52252421688
+    }
+  },
+  "source_summary": {
+    "source": "watertap.unit_models.anaerobic_digester.AD",
+    "property_package": "watertap.property_models.unit_specific.anaerobic_digestion.ADM1ParameterBlock",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

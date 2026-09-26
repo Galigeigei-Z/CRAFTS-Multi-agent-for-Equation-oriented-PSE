@@ -1,0 +1,76 @@
+{
+  "question": "Strict qwen test WaterTAP electrodialysis concentrate recirculation. Feed and bleed electrodialysis with concentrate recirculation loop, diluate product and concentrate product.",
+  "case_id": "web_qwen_strict_test_ed_conc_recirc_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_test_ed_conc_recirc_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_electrodialysis_conc_recirc\",\n  \"family\": \"family_watertap_electrodialysis_conc_recirc\",\n  \"units\": 9,\n  \"arcs\": 10\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 9,\n    \"arc_count\": 10,\n    \"units\": [\n      \"feed\",\n      \"sepa0\",\n      \"pump1\",\n      \"mix0\",\n      \"pump0\",\n      \"EDstack\",\n      \"prod\",\n      \"sepa1\",\n      \"disp\"\n    ],\n    \"arcs\": [\n      \"feed_to_separator\",\n      \"separator_to_diluate_pump\",\n      \"diluate_pump_to_edstack\",\n      \"separator_to_concentrate_mixer\",\n      \"mixer_to_concentrate_pump\",\n      \"concentrate_pump_to_edstack\",\n      \"edstack_diluate_to_product\",\n      \"edstack_concentrate_to_recycle_separator\",\n      \"recycle_separator_to_disposal\",\n      \"recycle_separator_to_mixer\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/web_qwen_strict_test_ed_conc_recirc_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 11\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_electrodialysis_conc_recirc\",\n  \"family\": \"family_watertap_electrodialysis_conc_recirc\",\n  \"spec_count\": 11,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 9,\n  \"arc_count\": 10\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_test_ed_conc_recirc_20260606/native_solve_report.json",
+      "output_tail": "        \"Liq/Cl_-\": 0.05290589887194774\n      },\n      \"molar_flow\": 12.414649755011819,\n      \"flow_mol_s\": 12.414649755011819,\n      \"temperature\": 325.8411286545621,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.pump0.outlet\",\n      \"destination_port\": \"fs.EDstack.inlet_concentrate\"\n    },\n    \"edstack_diluate_to_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 2.322790510681159,\n        \"Liq/Na_+\": 0.0033785252819824524,\n        \"Liq/Cl_-\": 0.003378525281987833\n      },\n      \"molar_flow\": 2.3295475612451293,\n      \"flow_mol_s\": 2.3295475612451293,\n      \"temperature\": 298.1499999999952,\n      \"pressure\": 101324.99999999977,\n      \"source_port\": \"fs.EDstack.outlet_diluate\",\n      \"destination_port\": \"fs.prod.inlet\"\n    },\n    \"edstack_concentrate_to_recycle_separator\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 12.386047446586783,\n        \"Liq/Na_+\": 0.05690737358997766,\n        \"Liq/Cl_-\": 0.056907373589950815\n      },\n      \"molar_flow\": 12.499862193766711,\n      \"flow_mol_s\": 12.499862193766711,\n      \"temperature\": 325.8411286545621,\n      \"pressure\": 101324.99999999975,\n      \"source_port\": \"fs.EDstack.outlet_concentrate\",\n      \"destination_port\": \"fs.sepa1.inlet\"\n    },\n    \"recycle_separator_to_disposal\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 2.477209489317358,\n        \"Liq/Na_+\": 0.011381474717995404,\n        \"Liq/Cl_-\": 0.011381474717990043\n      },\n      \"molar_flow\": 2.499972438753343,\n      \"flow_mol_s\": 2.499972438753343,\n      \"temperature\": 325.8411286545621,\n      \"pressure\": 101324.99999999971,\n      \"source_port\": \"fs.sepa1.to_disp\",\n      \"destination_port\": \"fs.disp.inlet\"\n    },\n    \"recycle_separator_to_mixer\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 9.908837957267961,\n        \"Liq/Na_+\": 0.04552589887197412,\n        \"Liq/Cl_-\": 0.04552589887195273\n      },\n      \"molar_flow\": 9.999889755011887,\n      \"flow_mol_s\": 9.999889755011887,\n      \"temperature\": 325.8411286545621,\n      \"pressure\": 101324.99999999974,\n      \"source_port\": \"fs.sepa1.to_conc_in1\",\n      \"destination_port\": \"fs.mix0.from_conc_out\"\n    }\n  },\n  \"build_plan_sha256\": \"3cfa0ce6427415978393e13952d0e64d82196994604a9ff7d1746fcde70324fe\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_electrodialysis_conc_recirc\",\n    \"plan_derived_params\": [\n      \"feed.flow_mol_h2o\",\n      \"feed.flow_mol_na\",\n      \"feed.flow_mol_cl\",\n      \"sepa0.split_fraction_diluate\",\n      \"sepa1.split_fraction_disposal\",\n      \"EDstack.voltage_applied\",\n      \"EDstack.cell_pair_num\"\n    ],\n    \"fixed_template_params\": [\n      \"MCAS Na/Cl ion transport data\",\n      \"ED membrane transport numbers\",\n      \"ED membrane diffusivity\",\n      \"ED cell geometry\",\n      \"concentrate recycle mixer energy_mixing_type=none\",\n      \"operation_mode=Constant_Voltage\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

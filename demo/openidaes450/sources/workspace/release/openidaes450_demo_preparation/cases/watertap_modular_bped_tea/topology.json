@@ -1,0 +1,197 @@
+{
+  "arcs": [
+    {
+      "destination": "diluate_pump.inlet",
+      "destination_port": "inlet",
+      "id": "salt_to_pump",
+      "source": "salt_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "acid_pump.inlet",
+      "destination_port": "inlet",
+      "id": "acid_to_pump",
+      "source": "acid_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "base_pump.inlet",
+      "destination_port": "inlet",
+      "id": "base_to_pump",
+      "source": "base_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "bped_stage_1.diluate_inlet",
+      "destination_port": "diluate_inlet",
+      "id": "diluate_to_bped",
+      "source": "diluate_pump.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "bped_stage_1.acid_inlet",
+      "destination_port": "acid_inlet",
+      "id": "acid_to_bped",
+      "source": "acid_pump.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "bped_stage_1.base_inlet",
+      "destination_port": "base_inlet",
+      "id": "base_to_bped",
+      "source": "base_pump.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "diluate_product.inlet",
+      "destination_port": "inlet",
+      "id": "bped_to_diluate",
+      "source": "bped_stage_1.diluate_outlet",
+      "source_port": "diluate_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "acid_product.inlet",
+      "destination_port": "inlet",
+      "id": "bped_to_acid",
+      "source": "bped_stage_1.acid_outlet",
+      "source_port": "acid_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "base_product.inlet",
+      "destination_port": "inlet",
+      "id": "bped_to_base",
+      "source": "bped_stage_1.base_outlet",
+      "source_port": "base_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__watertap_modular_bped_tea",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_watertap_modular_bped_tea",
+  "initialization_order": [
+    "salt_feed",
+    "acid_feed",
+    "base_feed",
+    "diluate_pump",
+    "acid_pump",
+    "base_pump",
+    "bped_stage_1",
+    "diluate_product",
+    "acid_product",
+    "base_product"
+  ],
+  "open_decisions": [],
+  "process_type": "WaterTAP Modular BPED with TEA",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official BPED sample script: initialization, base solve, design optimization, and five-point parameter sweep"
+  ],
+  "source_url": "https://github.com/watertap-org/electrodialysis-bipolar-tea/blob/55ce77d9555ed5036cfd048a08f90e68b12cda1e/BPED_sample_script.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "salt_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "base_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "diluate_pump",
+      "kind": "Pump",
+      "package": null,
+      "role": "Source-derived Pump node",
+      "stage": "pressurization"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid_pump",
+      "kind": "Pump",
+      "package": null,
+      "role": "Source-derived Pump node",
+      "stage": "pressurization"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "base_pump",
+      "kind": "Pump",
+      "package": null,
+      "role": "Source-derived Pump node",
+      "stage": "pressurization"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "bped_stage_1",
+      "kind": "BipolarElectrodialysis1D",
+      "package": null,
+      "role": "Source-derived BipolarElectrodialysis1D node",
+      "stage": "electrochemical_separation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "diluate_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "acid_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "base_product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

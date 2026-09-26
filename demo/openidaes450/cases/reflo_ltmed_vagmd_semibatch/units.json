@@ -1,0 +1,782 @@
+[
+  {
+    "name": "fs.semibatch",
+    "class": "idaes.core.base.process_block._ScalarMEDVAGMDsemibatch",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "model_input": {
+        "n_time_points": 5,
+        "med_feed_salinity": 35,
+        "med_feed_temp": 25,
+        "med_steam_temp": 80,
+        "med_capacity": 1.5,
+        "med_recovery_ratio": 0.5,
+        "md_feed_flow_rate": 600,
+        "md_evap_inlet_temp": 80,
+        "md_cond_inlet_temp": 25,
+        "md_module_type": "AS26C7.2L",
+        "md_cooling_system_type": "closed",
+        "md_cooling_inlet_temp": 25,
+        "md_high_brine_salinity": false,
+        "dt": 60,
+        "batch_volume": 50
+      }
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[0].process.fs.med",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[0].process.fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "separator_to_mixer",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.med.brine_props"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[0].process.fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "MED_brine",
+        "remained_liquid",
+        "MD_brine"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[0].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogateBase",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.liquid_prop"
+      },
+      "property_package_water": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[0].process.fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "remained_liquid",
+        "MD_feed"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[0].process.fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[1].process.fs.med",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[1].process.fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "separator_to_mixer",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.med.brine_props"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[1].process.fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "MED_brine",
+        "remained_liquid",
+        "MD_brine"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[1].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogateBase",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.liquid_prop"
+      },
+      "property_package_water": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[1].process.fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "remained_liquid",
+        "MD_feed"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[1].process.fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[2].process.fs.med",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[2].process.fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "separator_to_mixer",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.med.brine_props"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[2].process.fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "MED_brine",
+        "remained_liquid",
+        "MD_brine"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[2].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogateBase",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.liquid_prop"
+      },
+      "property_package_water": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[2].process.fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "remained_liquid",
+        "MD_feed"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[2].process.fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[3].process.fs.med",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[3].process.fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "separator_to_mixer",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.med.brine_props"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[3].process.fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "MED_brine",
+        "remained_liquid",
+        "MD_brine"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[3].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogateBase",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.liquid_prop"
+      },
+      "property_package_water": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[3].process.fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "remained_liquid",
+        "MD_feed"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[3].process.fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[4].process.fs.med",
+    "class": "idaes.core.base.process_block._ScalarLTMEDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_liquid": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.liquid_prop"
+      },
+      "property_package_vapor": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "number_effects": 12
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[4].process.fs.S1",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "separator_to_mixer",
+        "overflow"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.med.brine_props"
+      },
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[4].process.fs.M1",
+    "class": "idaes.core.base.process_block._ScalarMixer",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "inlet_list": [
+        "MED_brine",
+        "remained_liquid",
+        "MD_brine"
+      ],
+      "num_inlets": null,
+      "material_balance_type": {
+        "component": "componentPhase"
+      },
+      "has_phase_equilibrium": false,
+      "energy_mixing_type": {
+        "component": "extensive"
+      },
+      "momentum_mixing_type": {
+        "component": "minimize"
+      },
+      "mixed_state_block": null,
+      "construct_ports": true
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[4].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogateBase",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.liquid_prop"
+      },
+      "property_package_water": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.vapor_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS26C7.2L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.semibatch.mp.blocks[4].process.fs.S2",
+    "class": "idaes.core.base.process_block._ScalarSeparator",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.liquid_prop"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "outlet_list": [
+        "remained_liquid",
+        "MD_feed"
+      ],
+      "num_outlets": null,
+      "split_basis": {
+        "component": "totalFlow"
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "momentum_balance_type": {
+        "component": "pressureTotal"
+      },
+      "has_phase_equilibrium": false,
+      "energy_split_basis": {
+        "component": "equal_temperature"
+      },
+      "ideal_separation": false,
+      "ideal_split_map": null,
+      "mixed_state_block": {
+        "component": "fs.semibatch.mp.blocks[4].process.fs.M1.mixed_state"
+      },
+      "construct_ports": true
+    }
+  }
+]

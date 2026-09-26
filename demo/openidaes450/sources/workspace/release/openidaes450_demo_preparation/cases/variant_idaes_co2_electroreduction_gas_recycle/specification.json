@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_co2_electroreduction_gas_recycle",
+  "family": "family_co2_electroreduction",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "cathode_current_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_gas_recycle_fraction",
+      "value": 0.9,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co_selectivity",
+      "value": 0.821,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "co2_conversion",
+      "value": 0.958,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "hydrogen_fraction",
+      "value": 0.024999999999999994,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "carbonate_loss",
+      "value": 0.009,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "power_index",
+      "value": 4.7,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_h_v11.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "CO2.outlet"
+  ],
+  "terminal_product_ports": [
+    "CO.inlet",
+    "H2.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_co2_membrane_1d"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_co2_membrane_1d",
+    "chemical_change": "Adds electrochemical CO2 conversion, gas recycle and electrolyte carbonate recovery.",
+    "native_metrics": {
+      "co_selectivity": 0.821,
+      "co2_conversion": 0.958,
+      "hydrogen_fraction": 0.024999999999999994,
+      "carbonate_loss": 0.009,
+      "power_index": 4.7
+    }
+  }
+}

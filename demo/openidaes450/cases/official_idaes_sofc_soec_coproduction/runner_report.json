@@ -1,0 +1,57 @@
+{
+  "pass": true,
+  "case_key": "official_idaes_sofc_soec_coproduction",
+  "stage": "native_official_checkpoint_solve",
+  "execution_mode": "checkpoint_feasibility",
+  "source_commit": "b9606eeddf24ddcb24b27eabe84a911d148abc93",
+  "source_file": "finish_sources/sofc_family/sofc_soec/sofc_with_soec.py",
+  "checkpoint_file": "finish_sources/sofc_family/sofc_soec/sofc_soec_init.json.gz",
+  "environment": {
+    "idaes_version": "2.11.0",
+    "pyomo_version": "6.10.0",
+    "solver": "ipopt",
+    "linear_solver": "mumps",
+    "solver_options": {
+      "nlp_scaling_method": "user-scaling",
+      "linear_solver": "mumps",
+      "tol": 1e-07,
+      "max_iter": 500,
+      "bound_push": 1e-12
+    }
+  },
+  "solver_status": "ok",
+  "termination_condition": "optimal",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "variable_count": 3489,
+  "constraint_count": 2585,
+  "maximum_unscaled_constraint_violation": 1.187827614046455e-09,
+  "solver_time_seconds": 0.2775120735168457,
+  "wall_time_seconds": 107.06979322433472,
+  "metrics": {
+    "gross_power": 735020.1939177469,
+    "net_power": -22342.306096890592,
+    "hydrogen_product_rate": 5.0,
+    "soec_load": 619424.2928391503
+  },
+  "checks": [
+    {
+      "name": "ipopt_optimal_termination",
+      "pass": true
+    },
+    {
+      "name": "final_dof_zero",
+      "pass": true,
+      "actual": 0
+    },
+    {
+      "name": "maximum_constraint_violation_le_1e-5",
+      "pass": true,
+      "actual": 1.187827614046455e-09
+    }
+  ],
+  "generated_at": "2026-09-25T13:54:43.102322+00:00",
+  "claim_boundary": "Native current-environment checkpoint reconstruction and Ipopt solve.",
+  "original_strict_pass": true,
+  "solver_summary_file": "solver_summary.json"
+}

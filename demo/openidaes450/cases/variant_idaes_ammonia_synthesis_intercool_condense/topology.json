@@ -1,0 +1,190 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_ammonia_synthesis_intercool_condense",
+  "family": "family_idaes_ammonia_synthesis_intercool_condense",
+  "process_type": "Ammonia Synthesis with Intercooling and NH3 Condensation",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "source_basis": [
+    "Derived from active parent blind_synthesized_methanol_single.",
+    "Introduces nitrogen-hydrogen reaction, ammonia phase recovery and an inert-limited recycle purge.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "N2",
+        "H2",
+        "NH3",
+        "Ar"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "blind_synthesized_methanol_single"
+    }
+  },
+  "components": {
+    "tracked": [
+      "N2",
+      "H2",
+      "NH3",
+      "Ar"
+    ]
+  },
+  "units": [
+    {
+      "id": "FEED",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "reactant feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "combine fresh and recovered reactants",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "EquilibriumReactor",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "chemically reactive conversion",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "E101",
+      "kind": "Cooler",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "condition reactor effluent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "V101",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "recover product and unconverted reactants",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "purified chemical product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PURGE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "byproduct and inert purge",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FEED.outlet",
+      "destination": "M101.fresh",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "fresh reactants",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "M101.outlet",
+      "destination": "R101.inlet",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "reactor feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R101.outlet",
+      "destination": "E101.inlet",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "hot reactor effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "E101.outlet",
+      "destination": "V101.inlet",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "conditioned two-phase effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "V101.product",
+      "destination": "PRODUCT.inlet",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "recovered product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "V101.recycle",
+      "destination": "M101.recycle",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "unconverted reactant recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "V101.purge",
+      "destination": "PURGE.inlet",
+      "stage": "idaes_ammonia_synthesis_intercool_condense",
+      "role": "byproduct purge",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FEED.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet",
+    "PURGE.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "blind_synthesized_methanol_single"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "blind_synthesized_methanol_single",
+    "chemical_change": "Introduces nitrogen-hydrogen reaction, ammonia phase recovery and an inert-limited recycle purge.",
+    "native_metrics": {
+      "reactant_conversion": 0.8524000000000002,
+      "product_recovery": 0.905,
+      "byproduct_purge_fraction": 0.05575,
+      "specific_energy_index": 0.505,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

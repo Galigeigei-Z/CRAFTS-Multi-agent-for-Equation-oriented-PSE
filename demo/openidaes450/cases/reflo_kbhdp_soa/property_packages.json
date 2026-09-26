@@ -1,0 +1,145 @@
+[
+  {
+    "name": "fs.MCAS_properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData"
+      },
+      {
+        "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "solute_list": [
+        "Alkalinity_2-",
+        "Ca_2+",
+        "Cl_-",
+        "Mg_2+",
+        "K_+",
+        "SiO2",
+        "Na_+",
+        "SO4_2-"
+      ],
+      "stokes_radius_data": {},
+      "diffusivity_data": {},
+      "molar_volume_data": {},
+      "mw_data": {
+        "Alkalinity_2-": {
+          "component": "prod"
+        },
+        "Ca_2+": {
+          "component": "prod"
+        },
+        "Cl_-": {
+          "component": "prod"
+        },
+        "Mg_2+": {
+          "component": "prod"
+        },
+        "K_+": {
+          "component": "prod"
+        },
+        "SiO2": {
+          "component": "prod"
+        },
+        "Na_+": {
+          "component": "prod"
+        },
+        "SO4_2-": {
+          "component": "prod"
+        }
+      },
+      "elec_mobility_data": {},
+      "trans_num_data": {},
+      "equiv_conductivity_phase_data": {},
+      "charge": {
+        "Alkalinity_2-": -2,
+        "Ca_2+": 2,
+        "Cl_-": -1,
+        "Mg_2+": 2,
+        "K_+": 1,
+        "SiO2": 0,
+        "Na_+": 1,
+        "SO4_2-": -2
+      },
+      "ignore_neutral_charge": false,
+      "activity_coefficient_model": {
+        "component": "ideal"
+      },
+      "density_calculation": {
+        "component": "constant"
+      },
+      "diffus_calculation": {
+        "component": "none"
+      },
+      "elec_mobility_calculation": {
+        "component": "none"
+      },
+      "trans_num_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "equiv_conductivity_calculation": {
+        "component": "ElectricalMobility"
+      },
+      "material_flow_basis": {
+        "component": "mass"
+      }
+    },
+    "class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock",
+    "module": "watertap.property_models.multicomp_aq_sol_prop_pack",
+    "data_class": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.RO_properties",
+    "implementation": [
+      {
+        "class": "watertap.property_models.NaCl_prop_pack.NaClParameterData"
+      },
+      {
+        "class": "watertap.property_models.NaCl_prop_pack.NaClParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      }
+    },
+    "class": "watertap.property_models.NaCl_prop_pack.NaClParameterBlock",
+    "module": "watertap.property_models.NaCl_prop_pack",
+    "data_class": "watertap.property_models.NaCl_prop_pack.NaClParameterData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  },
+  {
+    "name": "fs.UF_properties",
+    "implementation": [
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlockData"
+      },
+      {
+        "class": "watertap.core.zero_order_properties.WaterParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "database": null,
+      "water_source": null,
+      "solute_list": [
+        "tds",
+        "tss"
+      ]
+    },
+    "class": "watertap.core.zero_order_properties.WaterParameterBlock",
+    "module": "watertap.core.zero_order_properties",
+    "data_class": "watertap.core.zero_order_properties.WaterParameterBlockData",
+    "identity_evidence": "recorded runtime implementation hierarchy"
+  }
+]

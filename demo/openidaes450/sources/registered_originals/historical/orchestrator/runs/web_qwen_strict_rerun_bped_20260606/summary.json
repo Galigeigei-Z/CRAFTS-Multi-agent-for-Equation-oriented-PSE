@@ -1,0 +1,76 @@
+{
+  "question": "Strict Qwen rerun WaterTAP bipolar electrodialysis BPED unit case. Flowchart text: diluate, acid, and base inlet channels enter a bipolar electrodialysis stack; product acid, product base, and diluate outlet streams leave. This is BPED, not conventional electrodialysis recirculation.",
+  "case_id": "web_qwen_strict_rerun_bped_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_rerun_bped_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_bped_unit\",\n  \"family\": \"family_watertap_bped_unit\",\n  \"units\": 7,\n  \"arcs\": 6\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 7,\n    \"arc_count\": 6,\n    \"units\": [\n      \"diluate_feed\",\n      \"acid_feed\",\n      \"base_feed\",\n      \"bped\",\n      \"diluate_product\",\n      \"acid_product\",\n      \"base_product\"\n    ],\n    \"arcs\": [\n      \"diluate_feed_to_bped\",\n      \"acid_feed_to_bped\",\n      \"base_feed_to_bped\",\n      \"bped_to_diluate_product\",\n      \"bped_to_acid_product\",\n      \"bped_to_base_product\"\n    ],\n    \"note\": \"Topology-only prebuild passed; full validation is handled by the native Stage-3 solve runner.\"\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/web_qwen_strict_rerun_bped_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 18\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_bped_unit\",\n  \"family\": \"family_watertap_bped_unit\",\n  \"spec_count\": 18,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 7,\n  \"arc_count\": 6\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_rerun_bped_20260606/native_solve_report.json",
+      "output_tail": "1325.0,\n      \"source_port\": \"fs.acid_feed.outlet\",\n      \"destination_port\": \"fs.bped.inlet_acidic\"\n    },\n    \"base_feed_to_bped\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 0.24,\n        \"Liq/Na_+\": 0.0738,\n        \"Liq/Cl_-\": 0.0,\n        \"Liq/H_+\": 0.0,\n        \"Liq/OH_-\": 0.0738\n      },\n      \"molar_flow\": 0.38759999999999994,\n      \"flow_mol_s\": 0.38759999999999994,\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.base_feed.outlet\",\n      \"destination_port\": \"fs.bped.inlet_basic\"\n    },\n    \"bped_to_diluate_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 0.20021440066644366,\n        \"Liq/Na_+\": 0.06896569075369346,\n        \"Liq/Cl_-\": 0.0689642650857873,\n        \"Liq/H_+\": 1.0000000000001082e-13,\n        \"Liq/OH_-\": 1.0000000000000751e-13\n      },\n      \"molar_flow\": 0.33814435650612434,\n      \"flow_mol_s\": 0.33814435650612434,\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.bped.outlet_diluate\",\n      \"destination_port\": \"fs.diluate_product.inlet\"\n    },\n    \"bped_to_acid_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 0.27341018232929104,\n        \"Liq/Na_+\": 0.002597012556919516,\n        \"Liq/Cl_-\": 0.07603873636995594,\n        \"Liq/H_+\": 0.07493658541621646,\n        \"Liq/OH_-\": 8.389594070772593e-05\n      },\n      \"molar_flow\": 0.4270664126130907,\n      \"flow_mol_s\": 0.4270664126130907,\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.bped.outlet_acidic\",\n      \"destination_port\": \"fs.acid_product.inlet\"\n    },\n    \"bped_to_base_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq/H2O\": 0.24515493564734112,\n        \"Liq/Na_+\": 0.07603729668938704,\n        \"Liq/Cl_-\": 0.0025969985442567504,\n        \"Liq/H_+\": 8.389594070772593e-05,\n        \"Liq/OH_-\": 0.07493658541621645\n      },\n      \"molar_flow\": 0.3988097122379091,\n      \"flow_mol_s\": 0.3988097122379091,\n      \"temperature\": 298.15,\n      \"pressure\": 101325.0,\n      \"source_port\": \"fs.bped.outlet_basic\",\n      \"destination_port\": \"fs.base_product.inlet\"\n    }\n  },\n  \"build_plan_sha256\": \"74a14d4c4fecb11c4ed3b30b9006c4068e71f9b800f3c95cbafa0aa0756f20e7\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_bped_unit\",\n    \"plan_derived_params\": [\n      \"diluate_feed.flow_mol_na\",\n      \"diluate_feed.flow_mol_cl\",\n      \"acid_feed.flow_mol_h\",\n      \"acid_feed.flow_mol_cl\",\n      \"base_feed.flow_mol_na\",\n      \"base_feed.flow_mol_oh\",\n      \"diluate_feed.flow_mol_h2o\",\n      \"acid_feed.flow_mol_h2o\",\n      \"base_feed.flow_mol_h2o\",\n      \"bped.voltage_applied\",\n      \"bped.cell_triplet_num\"\n    ],\n    \"fixed_template_params\": [\n      \"MCAS ion transport data\",\n      \"membrane transport numbers\",\n      \"membrane diffusivity\",\n      \"cell geometry\",\n      \"salt_calculation=False\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

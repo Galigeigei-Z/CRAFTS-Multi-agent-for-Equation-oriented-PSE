@@ -1,0 +1,31 @@
+port,member,index,model_variable,value,units
+fs.flash.inlet,flow_mol,0.0,fs.flash.control_volume.properties_in[0.0].flow_mol,1.0,mol/s
+fs.flash.inlet,mole_frac_comp,"(0.0, 'benzene')",fs.flash.control_volume.properties_in[0.0].mole_frac_comp[benzene],0.5,dimensionless
+fs.flash.inlet,mole_frac_comp,"(0.0, 'toluene')",fs.flash.control_volume.properties_in[0.0].mole_frac_comp[toluene],0.5,dimensionless
+fs.flash.inlet,temperature,0.0,fs.flash.control_volume.properties_in[0.0].temperature,368.0,K
+fs.flash.inlet,pressure,0.0,fs.flash.control_volume.properties_in[0.0].pressure,101325.0,Pa
+fs.flash.vap_outlet,flow_mol,0.0,fs.flash.split._Vap_flow_mol_ref[0.0],0.3961181748774178,mol/s
+fs.flash.vap_outlet,mole_frac_comp,"(0.0, 'benzene')","fs.flash.split._Vap_mole_frac_comp_ref[0.0,benzene]",0.6339766485081293,dimensionless
+fs.flash.vap_outlet,mole_frac_comp,"(0.0, 'toluene')","fs.flash.split._Vap_mole_frac_comp_ref[0.0,toluene]",0.3660233514918707,dimensionless
+fs.flash.vap_outlet,temperature,0.0,fs.flash.control_volume.properties_out[0.0].temperature,368.0,K
+fs.flash.vap_outlet,pressure,0.0,fs.flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.flash.liq_outlet,flow_mol,0.0,fs.flash.split._Liq_flow_mol_ref[0.0],0.6038818251225821,mol/s
+fs.flash.liq_outlet,mole_frac_comp,"(0.0, 'benzene')","fs.flash.split._Liq_mole_frac_comp_ref[0.0,benzene]",0.41211759772293083,dimensionless
+fs.flash.liq_outlet,mole_frac_comp,"(0.0, 'toluene')","fs.flash.split._Liq_mole_frac_comp_ref[0.0,toluene]",0.5878824022770692,dimensionless
+fs.flash.liq_outlet,temperature,0.0,fs.flash.control_volume.properties_out[0.0].temperature,368.0,K
+fs.flash.liq_outlet,pressure,0.0,fs.flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.flash.split.inlet,flow_mol,0.0,fs.flash.control_volume.properties_out[0.0].flow_mol,1.0,mol/s
+fs.flash.split.inlet,mole_frac_comp,"(0.0, 'benzene')",fs.flash.control_volume.properties_out[0.0].mole_frac_comp[benzene],0.5,dimensionless
+fs.flash.split.inlet,mole_frac_comp,"(0.0, 'toluene')",fs.flash.control_volume.properties_out[0.0].mole_frac_comp[toluene],0.5,dimensionless
+fs.flash.split.inlet,temperature,0.0,fs.flash.control_volume.properties_out[0.0].temperature,368.0,K
+fs.flash.split.inlet,pressure,0.0,fs.flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.flash.split.Vap,flow_mol,0.0,fs.flash.split._Vap_flow_mol_ref[0.0],0.3961181748774178,mol/s
+fs.flash.split.Vap,mole_frac_comp,"(0.0, 'benzene')","fs.flash.split._Vap_mole_frac_comp_ref[0.0,benzene]",0.6339766485081293,dimensionless
+fs.flash.split.Vap,mole_frac_comp,"(0.0, 'toluene')","fs.flash.split._Vap_mole_frac_comp_ref[0.0,toluene]",0.3660233514918707,dimensionless
+fs.flash.split.Vap,temperature,0.0,fs.flash.control_volume.properties_out[0.0].temperature,368.0,K
+fs.flash.split.Vap,pressure,0.0,fs.flash.control_volume.properties_out[0.0].pressure,101325.0,Pa
+fs.flash.split.Liq,flow_mol,0.0,fs.flash.split._Liq_flow_mol_ref[0.0],0.6038818251225821,mol/s
+fs.flash.split.Liq,mole_frac_comp,"(0.0, 'benzene')","fs.flash.split._Liq_mole_frac_comp_ref[0.0,benzene]",0.41211759772293083,dimensionless
+fs.flash.split.Liq,mole_frac_comp,"(0.0, 'toluene')","fs.flash.split._Liq_mole_frac_comp_ref[0.0,toluene]",0.5878824022770692,dimensionless
+fs.flash.split.Liq,temperature,0.0,fs.flash.control_volume.properties_out[0.0].temperature,368.0,K
+fs.flash.split.Liq,pressure,0.0,fs.flash.control_volume.properties_out[0.0].pressure,101325.0,Pa

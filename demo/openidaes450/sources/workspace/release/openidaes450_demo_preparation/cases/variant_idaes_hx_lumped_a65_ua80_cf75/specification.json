@@ -1,0 +1,87 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_hx_lumped_a65_ua80_cf75",
+  "family": "family_idaes_hx_lumped_capacitance",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "hot_feed",
+      "variable": "temperature",
+      "value": 400,
+      "units": "K",
+      "role": "steam feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "cold_feed",
+      "variable": "temperature",
+      "value": 380,
+      "units": "K",
+      "role": "BTX feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 65,
+      "units": "m^2",
+      "role": "area",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "ua_hot_side",
+      "value": 80000,
+      "units": "W/K",
+      "role": "hot UA",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "ua_cold_side",
+      "value": 80000,
+      "units": "W/K",
+      "role": "cold UA",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "crossflow_factor",
+      "value": 0.75,
+      "units": "dimensionless",
+      "role": "crossflow factor",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_lc.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "hot_feed.outlet",
+    "cold_feed.outlet"
+  ],
+  "terminal_product_ports": [
+    "hot_product.inlet",
+    "cold_product.inlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "hot_feed",
+      "cold_feed",
+      "heat_exchanger",
+      "hot_product",
+      "cold_product"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

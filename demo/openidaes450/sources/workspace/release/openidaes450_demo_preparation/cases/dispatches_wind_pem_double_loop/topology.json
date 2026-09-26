@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "splitter.inlet",
+      "destination_port": "inlet",
+      "id": "wind_to_splitter",
+      "source": "wind.electricity",
+      "source_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "grid.inlet",
+      "destination_port": "inlet",
+      "id": "splitter_to_grid",
+      "source": "splitter.grid_outlet",
+      "source_port": "grid_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "pem.electricity",
+      "destination_port": "electricity",
+      "id": "splitter_to_pem",
+      "source": "splitter.pem_outlet",
+      "source_port": "pem_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "hydrogen.inlet",
+      "destination_port": "inlet",
+      "id": "pem_to_hydrogen",
+      "source": "pem.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__dispatches_wind_pem_double_loop",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_dispatches_wind_pem_double_loop",
+  "initialization_order": [
+    "wind",
+    "splitter",
+    "grid",
+    "pem",
+    "hydrogen"
+  ],
+  "open_decisions": [],
+  "process_type": "DISPATCHES Wind-PEM Double Loop",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official wind-PEM double-loop day-ahead and real-time optimization tests"
+  ],
+  "source_url": "https://github.com/gmlc-dispatches/dispatches/blob/a9e9b7a7d132f53cd47d63e62c8b0a8722e7fd37/dispatches/case_studies/renewables_case/wind_PEM_double_loop.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "wind",
+      "kind": "ElectricalGenerator",
+      "package": null,
+      "role": "Source-derived ElectricalGenerator node",
+      "stage": "generation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "splitter",
+      "kind": "ElectricalSplitter",
+      "package": null,
+      "role": "Source-derived ElectricalSplitter node",
+      "stage": "dispatch"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "grid",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pem",
+      "kind": "PEMElectrolyzer",
+      "package": null,
+      "role": "Source-derived PEMElectrolyzer node",
+      "stage": "hydrogen_production"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "hydrogen",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "name": "fs.ostrm01",
+    "source": "fs.soc_module.oxygen_outlet",
+    "destination": "fs.sweep_recycle_split.inlet"
+  },
+  {
+    "name": "fs.hstrm01",
+    "source": "fs.soc_module.fuel_outlet",
+    "destination": "fs.feed_recycle_split.inlet"
+  },
+  {
+    "name": "fs.ostrm02",
+    "source": "fs.sweep_recycle_split.recycle",
+    "destination": "fs.sweep_recycle_mix.recycle"
+  },
+  {
+    "name": "fs.hstrm02",
+    "source": "fs.feed_recycle_split.recycle",
+    "destination": "fs.feed_recycle_mix.recycle"
+  },
+  {
+    "name": "fs.sweep03",
+    "source": "fs.sweep_recycle_mix.outlet",
+    "destination": "fs.sweep_heater.inlet"
+  },
+  {
+    "name": "fs.feed03",
+    "source": "fs.feed_recycle_mix.outlet",
+    "destination": "fs.feed_heater.inlet"
+  },
+  {
+    "name": "fs.sweep04",
+    "source": "fs.sweep_heater.outlet",
+    "destination": "fs.soc_module.oxygen_inlet"
+  },
+  {
+    "name": "fs.feed04",
+    "source": "fs.feed_heater.outlet",
+    "destination": "fs.soc_module.fuel_inlet"
+  },
+  {
+    "name": "fs.ostrm03",
+    "source": "fs.sweep_recycle_split.out",
+    "destination": "fs.sweep_exchanger.shell_inlet"
+  },
+  {
+    "name": "fs.ostrm04",
+    "source": "fs.sweep_exchanger.shell_outlet",
+    "destination": "fs.feed_medium_exchanger.shell_inlet"
+  },
+  {
+    "name": "fs.sweep01",
+    "source": "fs.sweep_blower.outlet",
+    "destination": "fs.sweep_exchanger.tube_inlet"
+  },
+  {
+    "name": "fs.sweep02",
+    "source": "fs.sweep_exchanger.tube_outlet",
+    "destination": "fs.sweep_recycle_mix.feed"
+  },
+  {
+    "name": "fs.hstrm03",
+    "source": "fs.feed_recycle_split.out",
+    "destination": "fs.feed_hot_exchanger.shell_inlet"
+  },
+  {
+    "name": "fs.hstrmShortcut",
+    "source": "fs.feed_hot_exchanger.shell_outlet",
+    "destination": "fs.condenser_flash.inlet"
+  },
+  {
+    "name": "fs.hstrm06",
+    "source": "fs.condenser_flash.vap_outlet",
+    "destination": "fs.condenser_split.inlet"
+  },
+  {
+    "name": "fs.vgr",
+    "source": "fs.condenser_split.recycle",
+    "destination": "fs.makeup_mix.recycle"
+  },
+  {
+    "name": "fs.feed00",
+    "source": "fs.makeup_mix.outlet",
+    "destination": "fs.feed_medium_exchanger.tube_inlet"
+  },
+  {
+    "name": "fs.feed01",
+    "source": "fs.feed_medium_exchanger.tube_outlet",
+    "destination": "fs.feed_hot_exchanger.tube_inlet"
+  },
+  {
+    "name": "fs.feed02",
+    "source": "fs.feed_hot_exchanger.tube_outlet",
+    "destination": "fs.feed_recycle_mix.feed"
+  }
+]

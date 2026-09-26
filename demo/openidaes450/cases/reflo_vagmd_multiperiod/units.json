@@ -1,0 +1,192 @@
+[
+  {
+    "name": "fs.VAGMD",
+    "class": "idaes.core.base.process_block._ScalarVAGMDBatchSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "model_input": {
+        "dt": null,
+        "system_capacity": 1000,
+        "feed_flow_rate": 600,
+        "evap_inlet_temp": 80,
+        "cond_inlet_temp": 25,
+        "feed_temp": 25,
+        "feed_salinity": 35,
+        "initial_batch_volume": 50,
+        "recovery_ratio": 0.05,
+        "module_type": "AS7C1.5L",
+        "cooling_system_type": "closed",
+        "cooling_inlet_temp": 25
+      }
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[0].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[0].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[0].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[1].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[1].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[1].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[2].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[2].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[2].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[3].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[3].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[3].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[4].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[4].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[4].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[5].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[5].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[5].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[6].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[6].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[6].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  },
+  {
+    "name": "fs.VAGMD.mp.blocks[7].process.fs.vagmd",
+    "class": "idaes.core.base.process_block._ScalarVAGMDSurrogate",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package_seawater": {
+        "component": "fs.VAGMD.mp.blocks[7].process.fs.seawater_properties"
+      },
+      "property_package_water": {
+        "component": "fs.VAGMD.mp.blocks[7].process.fs.water_properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "high_brine_salinity": false,
+      "module_type": "AS7C1.5L",
+      "cooling_system_type": "closed"
+    }
+  }
+]

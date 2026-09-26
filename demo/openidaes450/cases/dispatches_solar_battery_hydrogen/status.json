@@ -1,0 +1,50 @@
+{
+  "case_id": "dispatches_solar_battery_hydrogen",
+  "runner": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-07-23/langgraph_idaes_pipeline/stage3_specs_solve/run_dispatches_renewables_reference_solve.py",
+  "elapsed_seconds": 20.905,
+  "model_calls": 0,
+  "evidence_class": "fresh_registered_reference_model_export",
+  "report_pass": true,
+  "solver_optimal_observed": true,
+  "model_checks": {
+    "variable_count": 335,
+    "missing_variable_values": 0,
+    "port_value_count": 116,
+    "missing_port_values": 0,
+    "unit_count": 11,
+    "property_package_count": 3,
+    "degrees_of_freedom": 6,
+    "constraint_count": 241,
+    "constraint_residual_convention": "violation/max(1,abs(body),abs(bounds)); tolerance 1e-6; not a substitute for engineering conservation audits",
+    "maximum_relative_constraint_violation": 0.00846806715708226,
+    "violations": [
+      {
+        "name": "wind_max_p[0]",
+        "absolute_violation": 0.00846806715708226,
+        "relative_violation": 0.00846806715708226
+      },
+      {
+        "name": "pem_max_p[0]",
+        "absolute_violation": 3.050456712117011e-06,
+        "relative_violation": 3.050456712117011e-06
+      },
+      {
+        "name": "blocks[0].process.fs.windpower.elec_from_capacity_factor[0.0]",
+        "absolute_violation": 0.0014105669979471713,
+        "relative_violation": 0.0014105669979471713
+      },
+      {
+        "name": "blocks[0].process.fs.h2_tank.tank_material_balance[0.0]",
+        "absolute_violation": 1.5347824611211536e-05,
+        "relative_violation": 1.5347824611211536e-05
+      }
+    ],
+    "unevaluable_constraints": [],
+    "constraints_pass": false,
+    "idaes_model_present": true
+  },
+  "error": null,
+  "case_specific_specification_binding_verified": false,
+  "public_reference_complete": false,
+  "native_export_pass": false
+}

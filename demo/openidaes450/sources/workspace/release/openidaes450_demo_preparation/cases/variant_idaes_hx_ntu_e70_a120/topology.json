@@ -1,0 +1,203 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_hx_ntu_e70_a120",
+  "family": "family_idaes_hx_ntu",
+  "process_type": "Single HeatExchangerNTU at effectiveness 0.70, area 120 m2",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html",
+  "source_basis": [
+    "Compact local engineering variant derived from an existing native IDAES case.",
+    "Operating-point matrix case; effectiveness, area, and coefficient vary together."
+  ],
+  "property_packages": {
+    "aqueous_mea": {
+      "components": [
+        "CO2",
+        "H2O",
+        "MEA"
+      ],
+      "scope": [
+        "hot_feed",
+        "cold_feed",
+        "heat_exchanger",
+        "hot_product",
+        "cold_product"
+      ],
+      "source": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    }
+  },
+  "components": {
+    "process": [
+      "CO2",
+      "H2O",
+      "MEA"
+    ]
+  },
+  "units": [
+    {
+      "id": "hot_feed",
+      "kind": "Feed",
+      "package": "aqueous_mea",
+      "stage": "feed",
+      "role": "hot aqueous MEA feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cold_feed",
+      "kind": "Feed",
+      "package": "aqueous_mea",
+      "stage": "feed",
+      "role": "cold aqueous MEA feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "heat_exchanger",
+      "kind": "HeatExchangerNTU",
+      "package": "aqueous_mea",
+      "stage": "unit_operation",
+      "role": "two-stream NTU exchanger",
+      "constructor": {
+        "has_pressure_change": true
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "hot_product",
+      "kind": "Product",
+      "package": "aqueous_mea",
+      "stage": "product",
+      "role": "cooled hot-side product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "cold_product",
+      "kind": "Product",
+      "package": "aqueous_mea",
+      "stage": "product",
+      "role": "heated cold-side product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "hot_feed_to_hx",
+      "source": "hot_feed.outlet",
+      "destination": "heat_exchanger.hot_side_inlet",
+      "stage": "feed",
+      "role": "hot feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "cold_feed_to_hx",
+      "source": "cold_feed.outlet",
+      "destination": "heat_exchanger.cold_side_inlet",
+      "stage": "feed",
+      "role": "cold feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "hx_to_hot_product",
+      "source": "heat_exchanger.hot_side_outlet",
+      "destination": "hot_product.inlet",
+      "stage": "product",
+      "role": "hot product",
+      "tear_candidate": false
+    },
+    {
+      "id": "hx_to_cold_product",
+      "source": "heat_exchanger.cold_side_outlet",
+      "destination": "cold_product.inlet",
+      "stage": "product",
+      "role": "cold product",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "hot_feed",
+      "variable": "temperature",
+      "value": 392.23,
+      "units": "K",
+      "role": "hot feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "cold_feed",
+      "variable": "temperature",
+      "value": 326.36,
+      "units": "K",
+      "role": "cold feed",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "heat_exchanger",
+      "variable": "area",
+      "value": 120,
+      "units": "m^2",
+      "role": "area",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "heat_transfer_coefficient",
+      "value": 220,
+      "units": "W/m^2/K",
+      "role": "coefficient",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    },
+    {
+      "target": "heat_exchanger",
+      "variable": "effectiveness",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "effectiveness",
+      "source": "derived_local_variant",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/UnitModels/Operations/heat_exchanger_NTU.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "hot_feed.outlet",
+    "cold_feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "hot_product.inlet",
+    "cold_product.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "native unit initializer followed by simultaneous IPOPT solve",
+    "solve_order": [
+      "hot_feed",
+      "cold_feed",
+      "heat_exchanger",
+      "hot_product",
+      "cold_product"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Feed",
+    "HeatExchangerNTU",
+    "Product",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Operating-point matrix case; effectiveness, area, and coefficient vary together."
+  ]
+}

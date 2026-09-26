@@ -1,0 +1,263 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_v4_gac_replace_55_10",
+  "family": "family_watertap_gac",
+  "process_type": "Two-bed lead-lag granular activated carbon adsorption with serial breakthrough protection - operating/design variant",
+  "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html",
+  "source_basis": [
+    "Each adsorber is the native WaterTAP GAC unit using MCAS properties and CPHSDM performance relationships.",
+    "The lead-bed treated outlet is physically connected to the lag-bed inlet; captured-solute outlets remain separate.",
+    "The lag bed has a stricter replacement ratio and removes residual solute after the primary bed.",
+    "The steady-state model supports average-bed design metrics, not transient breakthrough fronts or valve-switch timing.",
+    "Derived from variant_watertap_gac_lead_lag; unique parameter fingerprint 911ca2d88712d8d0413ac12db12554469db4df063f044d52b35f1d7d30cce531."
+  ],
+  "property_packages": {
+    "mcas_solute": {
+      "components": [
+        "H2O",
+        "solute"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "source": "watertap.property_models.multicomp_aq_sol_prop_pack.MCASParameterBlock"
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "solute"
+    ],
+    "adsorbent": [
+      "GAC"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "mcas_solute",
+      "stage": "feed",
+      "role": "contaminated water feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "lead_bed",
+      "kind": "GAC",
+      "package": "mcas_solute",
+      "stage": "primary_adsorption",
+      "role": "primary service bed carrying the bulk adsorption load",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "lag_bed",
+      "kind": "GAC",
+      "package": "mcas_solute",
+      "stage": "guard_adsorption",
+      "role": "serial polishing bed protecting product from lead-bed breakthrough",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "lead_adsorbed",
+      "kind": "Product",
+      "package": "mcas_solute",
+      "stage": "primary_adsorption",
+      "role": "solute captured by lead bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "lag_adsorbed",
+      "kind": "Product",
+      "package": "mcas_solute",
+      "stage": "guard_adsorption",
+      "role": "incremental solute captured by lag bed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "treated_product",
+      "kind": "Product",
+      "package": "mcas_solute",
+      "stage": "product",
+      "role": "lead-lag treated water",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "feed.outlet",
+      "destination": "lead_bed.inlet",
+      "stage": "feed",
+      "role": "contaminated feed to lead bed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "lead_bed.outlet",
+      "destination": "lag_bed.inlet",
+      "stage": "interbed",
+      "role": "lead-bed effluent to lag polishing bed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "lag_bed.outlet",
+      "destination": "treated_product.inlet",
+      "stage": "product",
+      "role": "protected treated-water product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "lead_bed.adsorbed",
+      "destination": "lead_adsorbed.inlet",
+      "stage": "primary_adsorption",
+      "role": "solute captured in lead GAC",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "lag_bed.adsorbed",
+      "destination": "lag_adsorbed.inlet",
+      "stage": "guard_adsorption",
+      "role": "incremental solute captured in lag GAC",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp[0,'Liq','H2O']",
+      "value": 2433.81215,
+      "units": "mol/s",
+      "role": "feed water flow",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mol_phase_comp[0,'Liq','solute']",
+      "value": 0.05476625,
+      "units": "mol/s",
+      "role": "feed organic-solute flow",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 298.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure[0]",
+      "value": 101325,
+      "units": "Pa",
+      "role": "feed pressure",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "lead-bed depth",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "lead-bed empty-bed contact time",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lead_bed",
+      "variable": "conc_ratio_replace",
+      "value": 0.55,
+      "units": "dimensionless",
+      "role": "lead-bed replacement concentration ratio",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "bed_length",
+      "value": 6.0,
+      "units": "m",
+      "role": "lag-bed depth within validated CPHSDM design domain",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "ebct",
+      "value": 600.0,
+      "units": "s",
+      "role": "lag-bed empty-bed contact time",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    },
+    {
+      "target": "lag_bed",
+      "variable": "conc_ratio_replace",
+      "value": 0.1,
+      "units": "dimensionless",
+      "role": "stricter lag-bed polishing replacement ratio",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/1.0.0/technical_reference/flowsheets/gac.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "treated_product.inlet",
+    "lead_adsorbed.inlet",
+    "lag_adsorbed.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "initialize feed, lead bed, lag bed, then product states with sequential state propagation",
+    "solve_order": [
+      "feed",
+      "lead_bed",
+      "lag_bed",
+      "products",
+      "full_flowsheet"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "GAC",
+    "GAC",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep lead_bed.outlet connected to lag_bed.inlet.",
+    "Do not collapse the two adsorbed-solute ports into the treated product.",
+    "Do not merge this operating point with its parent case."
+  ]
+}

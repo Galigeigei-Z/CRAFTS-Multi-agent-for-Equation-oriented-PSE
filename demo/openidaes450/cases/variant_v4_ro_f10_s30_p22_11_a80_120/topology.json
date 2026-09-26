@@ -1,0 +1,356 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_v4_ro_f10_s30_p22_11_a80_120",
+  "family": "family_watertap_ro",
+  "process_type": "Two-pass brackish-water RO with permeate polishing - operating/design variant",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html",
+  "source_basis": [
+    "Both passes use native WaterTAP ReverseOsmosis0D units.",
+    "RO1 permeate, rather than RO1 retentate, is repressurized and sent to RO2.",
+    "The loose first pass and tight second pass expose a purity-recovery-energy tradeoff; neither brine is recycled.",
+    "Derived from variant_watertap_two_pass_permeate_polishing_ro; unique parameter fingerprint 6ccb5dce698f7382cf47dc5a15c0bce12b8ef305349209642f0c30dfdbd27eb4."
+  ],
+  "property_packages": {
+    "NaCl": {
+      "components": [
+        "H2O",
+        "NaCl"
+      ],
+      "phases": [
+        "Liq"
+      ],
+      "source": "watertap.property_models.NaCl_prop_pack"
+    }
+  },
+  "components": {
+    "aqueous": [
+      "H2O",
+      "NaCl"
+    ]
+  },
+  "units": [
+    {
+      "id": "feed",
+      "kind": "Feed",
+      "package": "NaCl",
+      "stage": "feed",
+      "role": "2 kg/m3 brackish-water feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P1",
+      "kind": "Pump",
+      "package": "NaCl",
+      "stage": "pass1",
+      "role": "first-pass high-pressure pump",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO1",
+      "kind": "ReverseOsmosis0D",
+      "package": "NaCl",
+      "stage": "pass1",
+      "role": "loose first-pass bulk desalting membrane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "first_pass_brine",
+      "kind": "Product",
+      "package": "NaCl",
+      "stage": "pass1",
+      "role": "first-pass concentrate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "P2",
+      "kind": "Pump",
+      "package": "NaCl",
+      "stage": "pass2",
+      "role": "repressurize first-pass permeate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RO2",
+      "kind": "ReverseOsmosis0D",
+      "package": "NaCl",
+      "stage": "pass2",
+      "role": "tight permeate-polishing membrane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "product",
+      "kind": "Product",
+      "package": "NaCl",
+      "stage": "product",
+      "role": "twice-desalted product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "second_pass_brine",
+      "kind": "Product",
+      "package": "NaCl",
+      "stage": "pass2",
+      "role": "second-pass concentrate",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "feed.outlet",
+      "destination": "P1.inlet",
+      "stage": "feed",
+      "role": "fresh feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "P1.outlet",
+      "destination": "RO1.inlet",
+      "stage": "pass1",
+      "role": "pressurized feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "RO1.retentate",
+      "destination": "first_pass_brine.inlet",
+      "stage": "pass1",
+      "role": "first-pass concentrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "RO1.permeate",
+      "destination": "P2.inlet",
+      "stage": "interpass",
+      "role": "first-pass permeate to polishing",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "P2.outlet",
+      "destination": "RO2.inlet",
+      "stage": "pass2",
+      "role": "repressurized permeate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "RO2.permeate",
+      "destination": "product.inlet",
+      "stage": "product",
+      "role": "polished product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "RO2.retentate",
+      "destination": "second_pass_brine.inlet",
+      "stage": "pass2",
+      "role": "polishing concentrate",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [],
+  "unit_specs": [
+    {
+      "target": "feed",
+      "variable": "properties[0].flow_vol_phase['Liq']",
+      "value": 0.001,
+      "units": "m3/s",
+      "role": "feed flow",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "feed",
+      "variable": "properties[0].mass_frac_phase_comp['Liq','NaCl']",
+      "value": 0.003,
+      "units": "dimensionless",
+      "role": "feed salinity",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature[0]",
+      "value": 298.15,
+      "units": "K",
+      "role": "feed temperature",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P1",
+      "variable": "outlet.pressure[0]",
+      "value": 2200000.0,
+      "units": "Pa",
+      "role": "first-pass pressure",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P2",
+      "variable": "outlet.pressure[0]",
+      "value": 1100000.0,
+      "units": "Pa",
+      "role": "second-pass pressure",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P1",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "P2",
+      "variable": "efficiency_pump[0]",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "pump efficiency",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "area",
+      "value": 80,
+      "units": "m2",
+      "role": "first-pass membrane area",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "area",
+      "value": 120,
+      "units": "m2",
+      "role": "second-pass membrane area",
+      "source": "derived_local_flowsheet_variant",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "A_comp[0,'H2O']",
+      "value": 4.2e-12,
+      "units": "m/Pa/s",
+      "role": "water permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-06,
+      "units": "m/s",
+      "role": "loose first-pass salt permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "B_comp[0,'NaCl']",
+      "value": 3.5e-08,
+      "units": "m/s",
+      "role": "tight polishing salt permeability",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "feed_side.cp_modulus[0,...,'NaCl']",
+      "value": 1.1,
+      "units": "dimensionless",
+      "role": "fixed concentration polarization",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "feed_side.cp_modulus[0,...,'NaCl']",
+      "value": 1.1,
+      "units": "dimensionless",
+      "role": "fixed concentration polarization",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO1",
+      "variable": "deltaP[0]",
+      "value": -100000,
+      "units": "Pa",
+      "role": "membrane pressure drop",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    },
+    {
+      "target": "RO2",
+      "variable": "deltaP[0]",
+      "value": -100000,
+      "units": "Pa",
+      "role": "membrane pressure drop",
+      "source": "native_variant_configuration",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/reverse_osmosis_0D.html"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "feed.outlet"
+  ],
+  "unconnected_product_ports": [
+    "first_pass_brine.inlet",
+    "product.inlet",
+    "second_pass_brine.inlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "sequential feed-pump-RO propagation for each pass",
+    "solve_order": [
+      "feed",
+      "P1",
+      "RO1",
+      "P2",
+      "RO2"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Feed",
+    "Pump",
+    "ReverseOsmosis0D",
+    "Product"
+  ],
+  "notes_for_agent_a": [
+    "Keep RO1 permeate connected to P2.",
+    "Do not describe this as retentate staging or LSRRO recycle.",
+    "Do not merge this operating point with its parent case."
+  ]
+}

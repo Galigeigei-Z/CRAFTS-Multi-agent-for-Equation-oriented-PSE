@@ -1,0 +1,292 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "dispatches_wind_battery_pem_tank_turbine",
+  "family": "family_dispatches_wind_battery_pem_tank_turbine",
+  "process_type": "DISPATCHES wind-battery-PEM-hydrogen-tank-turbine hybrid energy superstructure",
+  "source_url": "https://dispatches.readthedocs.io/en/main/examples/ConceptualDesignOptimization.html",
+  "source_basis": [
+    "Official source flowchart was read before topology IR emission; visual_evidence mode=qwen_vl_image_descriptor file=/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_dispatches_wind_battery_pem_tank_turbine_20260601/source_flowchart.png.",
+    "The hand-maintained official IDAES source mappings are guardrails for names, ports, and solver runners; they do not bypass the flowchart evidence gate.",
+    "DISPATCHES documentation shows the renewables superstructure with wind, PEM electrolyzer, battery, H2 tank, H2 turbine, grid, pipeline, and markets.",
+    "The local promoted source includes re_superstructure_diagram.png and DoubleLoopOptimization.png.",
+    "The create_model function connects IDAES unit models using Arcs and the runner validates a one-period price-taker optimization."
+  ],
+  "property_packages": {
+    "electricity": {
+      "entry_id": "DISPATCHES electrical pseudo-property",
+      "components": [
+        "electricity"
+      ],
+      "phases": [
+        "Energy"
+      ],
+      "scope": [
+        "wind",
+        "splitter",
+        "battery",
+        "grid"
+      ]
+    },
+    "h2_ideal": {
+      "entry_id": "dispatches hydrogen ideal vapor property package",
+      "components": [
+        "H2"
+      ],
+      "phases": [
+        "Vap"
+      ],
+      "scope": [
+        "pem",
+        "h2_tank",
+        "h2_turbine",
+        "h2_pipeline"
+      ]
+    }
+  },
+  "components": {
+    "energy": [
+      "electricity"
+    ],
+    "hydrogen": [
+      "H2"
+    ]
+  },
+  "units": [
+    {
+      "id": "wind",
+      "kind": "WindPower",
+      "package": "electricity",
+      "stage": "renewables",
+      "role": "wind plant generator",
+      "constructor": {
+        "wind_mw": 200
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "splitter",
+      "kind": "ElectricalSplitter",
+      "package": "electricity",
+      "stage": "renewables",
+      "role": "split wind electricity among grid, battery, and PEM",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "battery",
+      "kind": "Battery",
+      "package": "electricity",
+      "stage": "storage",
+      "role": "battery storage unit",
+      "constructor": {
+        "batt_mw": 50
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "pem",
+      "kind": "PEMElectrolyzer",
+      "package": "h2_ideal",
+      "stage": "hydrogen",
+      "role": "PEM electrolyzer producing hydrogen",
+      "constructor": {
+        "pem_bar": 1.01325
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "h2_tank",
+      "kind": "HydrogenTank",
+      "package": "h2_ideal",
+      "stage": "hydrogen",
+      "role": "hydrogen storage tank",
+      "constructor": {
+        "tank_type": "simple"
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "h2_turbine",
+      "kind": "HydrogenTurbine",
+      "package": "h2_ideal",
+      "stage": "dispatchable_power",
+      "role": "hydrogen turbine generating electricity",
+      "constructor": {
+        "turb_inlet_bar": 24.7
+      },
+      "constraint_template": null
+    },
+    {
+      "id": "grid",
+      "kind": "Product",
+      "package": "electricity",
+      "stage": "market",
+      "role": "electricity sales to grid/market",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "h2_pipeline",
+      "kind": "Product",
+      "package": "h2_ideal",
+      "stage": "market",
+      "role": "hydrogen sales to pipeline",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "wind_to_splitter",
+      "source": "wind.electricity",
+      "destination": "splitter.inlet",
+      "stage": "renewables",
+      "role": "wind output to electrical splitter",
+      "tear_candidate": false
+    },
+    {
+      "id": "splitter_to_grid",
+      "source": "splitter.grid",
+      "destination": "grid.inlet",
+      "stage": "market",
+      "role": "direct electricity sales",
+      "tear_candidate": false
+    },
+    {
+      "id": "splitter_to_battery",
+      "source": "splitter.battery",
+      "destination": "battery.electricity_in",
+      "stage": "storage",
+      "role": "battery charging path",
+      "tear_candidate": false
+    },
+    {
+      "id": "battery_to_grid",
+      "source": "battery.electricity_out",
+      "destination": "grid.inlet",
+      "stage": "market",
+      "role": "battery discharge to grid",
+      "tear_candidate": false
+    },
+    {
+      "id": "splitter_to_pem",
+      "source": "splitter.pem",
+      "destination": "pem.electricity",
+      "stage": "hydrogen",
+      "role": "electricity to PEM",
+      "tear_candidate": false
+    },
+    {
+      "id": "pem_to_tank",
+      "source": "pem.hydrogen",
+      "destination": "h2_tank.inlet",
+      "stage": "hydrogen",
+      "role": "PEM hydrogen to storage",
+      "tear_candidate": false
+    },
+    {
+      "id": "tank_to_turbine",
+      "source": "h2_tank.turbine_outlet",
+      "destination": "h2_turbine.inlet",
+      "stage": "dispatchable_power",
+      "role": "stored hydrogen to turbine",
+      "tear_candidate": false
+    },
+    {
+      "id": "turbine_to_grid",
+      "source": "h2_turbine.electricity",
+      "destination": "grid.inlet",
+      "stage": "market",
+      "role": "hydrogen turbine electricity sales",
+      "tear_candidate": false
+    },
+    {
+      "id": "tank_to_pipeline",
+      "source": "h2_tank.pipeline_outlet",
+      "destination": "h2_pipeline.inlet",
+      "stage": "market",
+      "role": "hydrogen sales stream",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "wind",
+      "variable": "wind_mw",
+      "value": 200.0,
+      "units": "MW",
+      "role": "documented example wind capacity"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "pem",
+      "variable": "pem_bar",
+      "value": 1.01325,
+      "units": "bar",
+      "role": "documented PEM pressure"
+    },
+    {
+      "target": "battery",
+      "variable": "batt_mw",
+      "value": 50.0,
+      "units": "MW",
+      "role": "documented example battery capacity"
+    },
+    {
+      "target": "h2_turbine",
+      "variable": "turb_inlet_bar",
+      "value": 24.7,
+      "units": "bar",
+      "role": "documented turbine inlet pressure"
+    }
+  ],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "DISPATCHES one-period wind_battery_pem_tank_turb_optimize",
+    "solve_order": [
+      "wind",
+      "splitter",
+      "pem",
+      "h2_tank",
+      "h2_turbine",
+      "battery",
+      "market optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": "optimization_result"
+  },
+  "required_entries": [
+    "dispatches.case_studies.renewables_case",
+    "re_superstructure_diagram.png",
+    "wind_battery_PEM_tank_turbine_LMP.py"
+  ],
+  "notes_for_agent_a": [
+    "Use the DISPATCHES renewables superstructure diagram as source evidence; this is a hybrid energy system case, not a chemical reactor flowsheet."
+  ],
+  "visual_evidence": {
+    "status": "ok",
+    "file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_dispatches_wind_battery_pem_tank_turbine_20260601/source_flowchart.png",
+    "suffix": ".png",
+    "mode": "qwen_vl_image_descriptor",
+    "image_metadata": {
+      "format": "PNG",
+      "width": 1194,
+      "height": 410,
+      "mode": "RGBA"
+    },
+    "descriptor": {
+      "status": "qwen_vl_skipped",
+      "model": "qwen-vl-max",
+      "reason": "No vision API key/base URL was provided. Set IDAES_PIPELINE_DESCRIPTOR_BASE_URL plus IDAES_PIPELINE_DESCRIPTOR_API_KEY, or OLLAMA_API_KEY."
+    },
+    "description": "Source flowchart image file was loaded and inspected for metadata; Qwen-VL descriptor status: qwen_vl_skipped."
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "arcs": [
+    {
+      "destination": "stage_1.aqueous_inlet",
+      "destination_port": "aqueous_inlet",
+      "id": "aqueous_to_stage1",
+      "source": "aqueous_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stage_2.aqueous_inlet",
+      "destination_port": "aqueous_inlet",
+      "id": "stage1_to_stage2",
+      "source": "stage_1.aqueous_outlet",
+      "source_port": "aqueous_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stage_3.aqueous_inlet",
+      "destination_port": "aqueous_inlet",
+      "id": "stage2_to_stage3",
+      "source": "stage_2.aqueous_outlet",
+      "source_port": "aqueous_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stage_3.organic_inlet",
+      "destination_port": "organic_inlet",
+      "id": "organic_to_stage3",
+      "source": "organic_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stage_2.organic_inlet",
+      "destination_port": "organic_inlet",
+      "id": "stage3_to_stage2",
+      "source": "stage_3.organic_outlet",
+      "source_port": "organic_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "stage_1.organic_inlet",
+      "destination_port": "organic_inlet",
+      "id": "stage2_to_stage1",
+      "source": "stage_2.organic_outlet",
+      "source_port": "organic_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "raffinate.inlet",
+      "destination_port": "inlet",
+      "id": "stage3_to_raffinate",
+      "source": "stage_3.aqueous_outlet",
+      "source_port": "aqueous_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "loaded_organic.inlet",
+      "destination_port": "inlet",
+      "id": "stage1_to_loaded",
+      "source": "stage_1.organic_outlet",
+      "source_port": "organic_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__prommis_dynamic_mixer_settler",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_prommis_dynamic_mixer_settler",
+  "initialization_order": [
+    "aqueous_feed",
+    "organic_feed",
+    "stage_1",
+    "stage_2",
+    "stage_3",
+    "raffinate",
+    "loaded_organic"
+  ],
+  "open_decisions": [],
+  "process_type": "PrOMMiS Dynamic Mixer-Settler Extraction",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official dynamic mixer-settler perturbation tests"
+  ],
+  "source_url": "https://github.com/prommis/prommis/blob/ff9be332b2269f99e34cb993a4d3104dba4a8115/src/prommis/solvent_extraction/mixer_settler_ex_flowsheet_dynamic.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "aqueous_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "organic_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stage_1",
+      "kind": "MixerSettler",
+      "package": null,
+      "role": "Source-derived MixerSettler node",
+      "stage": "extraction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stage_2",
+      "kind": "MixerSettler",
+      "package": null,
+      "role": "Source-derived MixerSettler node",
+      "stage": "extraction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "stage_3",
+      "kind": "MixerSettler",
+      "package": null,
+      "role": "Source-derived MixerSettler node",
+      "stage": "extraction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "raffinate",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "loaded_organic",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "blind_synthesized_ro_pump_as_turbine",
+  "family": "family_watertap_ro_pump_as_turbine",
+  "source_url": "blind://qwen_visual_description/support_docs",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.001,
+      "units": "m^3/s",
+      "role": "family_default from non-oracle RO support because the blind prompt/image did not provide a feed flow",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "feed",
+      "variable": "salt_mass_frac",
+      "value": 0.035,
+      "units": "dimensionless",
+      "role": "family_default NaCl mass fraction because the blind prompt/image did not provide a numeric salinity",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "RO",
+      "variable": "water_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "family_default RO recovery because the blind prompt/image did not provide a numeric recovery",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "P1",
+      "variable": "efficiency_pump",
+      "value": 0.8,
+      "units": "dimensionless",
+      "role": "family_default pump efficiency support hint",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    },
+    {
+      "target": "ERD",
+      "variable": "efficiency_pump",
+      "value": 0.95,
+      "units": "dimensionless",
+      "role": "family_default pump-as-turbine ERD efficiency support hint",
+      "source": "reference",
+      "source_url": "blind://qwen_visual_description/support_docs"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "strict blind topology is compiled to BuildPlanIR and may be solved only by the compact sandbox solver template",
+    "solve_order": [
+      "feed",
+      "P1",
+      "RO",
+      "ERD",
+      "products"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0,
+    "native_solve_disabled": true,
+    "native_solve_disabled_reason": "strict blind synthesis must not use family reference solve runners"
+  }
+}

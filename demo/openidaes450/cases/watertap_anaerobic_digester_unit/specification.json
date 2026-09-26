@@ -1,0 +1,83 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_anaerobic_digester_unit",
+  "family": "family_watertap_anaerobic_digester_unit",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_vol",
+      "value": 0.0019675925925925924,
+      "units": "m^3/s",
+      "role": "official test feed flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "digester feed temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "digester feed pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_liquid",
+      "value": 3400.0,
+      "units": "m^3",
+      "role": "liquid digester volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "anaerobic_digester",
+      "variable": "volume_vapor",
+      "value": 300.0,
+      "units": "m^3",
+      "role": "vapor headspace volume",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    },
+    {
+      "target": "liquid_digestate",
+      "variable": "temperature",
+      "value": 308.15,
+      "units": "K",
+      "role": "fixed outlet liquid temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/anaerobic_digester.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [
+    "liquid_digestate.outlet",
+    "biogas.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "Build official AD unit with ADM1 liquid/vapor/reaction packages, fix BSM2-style feed and digester volumes, initialize unit, then solve.",
+    "solve_order": [
+      "ADM1 feed",
+      "anaerobic digestion reactions",
+      "liquid digestate",
+      "biogas"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

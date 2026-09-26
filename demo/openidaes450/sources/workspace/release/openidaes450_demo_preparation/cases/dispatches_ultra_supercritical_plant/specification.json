@@ -1,0 +1,62 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "dispatches_ultra_supercritical_plant",
+  "family": "family_dispatches_ultra_supercritical_plant",
+  "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "boiler",
+      "variable": "main_steam_pressure",
+      "value": "ultra-supercritical design",
+      "units": "MPa",
+      "role": "USC boiler pressure target",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant"
+    },
+    {
+      "target": "makeup_water",
+      "variable": "flow",
+      "value": "makeup water from PFD",
+      "units": "kmol/s",
+      "role": "makeup to condenser",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant"
+    },
+    {
+      "target": "power_out",
+      "variable": "net_power",
+      "value": "Power out (MWe)",
+      "units": "MW",
+      "role": "net plant power output",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant"
+    },
+    {
+      "target": "FWH1-FWH9",
+      "variable": "feedwater_heater_train",
+      "value": 9,
+      "units": "count",
+      "role": "nine feedwater heaters shown on PFD",
+      "source": "reference",
+      "source_url": "local://dispatches/case_studies/fossil_case/ultra_supercritical_plant"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "topology reference validation from DISPATCHES USC PFD; full plant solve is intentionally not run in this lightweight case",
+    "solve_order": [
+      "condenser/feedwater train",
+      "boiler",
+      "HP/IP/LP turbine train",
+      "power accounting"
+    ]
+  },
+  "solve": {
+    "solver": "not_run",
+    "steady_state": false,
+    "expected_dof": "topology_only"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "pass": true,
+  "stage": "steady_state_solver",
+  "case_family": "plate_heat_exchanger",
+  "source_url": "https://idaes-pse.readthedocs.io/en/2.7.0/reference_guides/model_libraries/models_extra/phe.html",
+  "initial_dof": 0,
+  "final_dof": 0,
+  "termination_condition": "optimal",
+  "heat_duty": 244327.62278107207,
+  "effectiveness": 0.6769017353019133,
+  "ntu": 24.411809739232243,
+  "stream_values": {
+    "hot_side_inlet": {
+      "flow_mol": 60.54879,
+      "temperature": 392.23,
+      "pressure": 202650.0,
+      "mole_frac_comp": {
+        "CO2": 0.0158,
+        "H2O": 0.8747,
+        "MEA": 0.1095
+      }
+    },
+    "hot_side_outlet": {
+      "flow_mol": 60.548790000000004,
+      "temperature": 345.61246350582553,
+      "pressure": 182244.64588769444,
+      "mole_frac_comp": {
+        "CO2": 0.0158,
+        "H2O": 0.8746999999999999,
+        "MEA": 0.1095
+      }
+    },
+    "cold_side_inlet": {
+      "flow_mol": 63.0191,
+      "temperature": 326.36,
+      "pressure": 202650.0,
+      "mole_frac_comp": {
+        "CO2": 0.0414,
+        "H2O": 0.8509,
+        "MEA": 0.1077
+      }
+    },
+    "cold_side_outlet": {
+      "flow_mol": 63.019099999999995,
+      "temperature": 372.77626833503837,
+      "pressure": 177366.5265055262,
+      "mole_frac_comp": {
+        "CO2": 0.0414,
+        "H2O": 0.8509000000000001,
+        "MEA": 0.10770000000000002
+      }
+    }
+  },
+  "native_topology_binding": {
+    "schema_version": "native-topology-probe/1",
+    "units": {
+      "hot_feed": {
+        "model_component": "fs.unit.hot_side_inlet",
+        "exists": true
+      },
+      "cold_feed": {
+        "model_component": "fs.unit.cold_side_inlet",
+        "exists": true
+      },
+      "unit": {
+        "model_component": "fs.unit",
+        "exists": true
+      },
+      "hot_product": {
+        "model_component": "fs.unit.hot_side_outlet",
+        "exists": true
+      },
+      "cold_product": {
+        "model_component": "fs.unit.cold_side_outlet",
+        "exists": true
+      }
+    },
+    "arcs": {
+      "hot_feed_to_phe": {
+        "source_component": "fs.unit.hot_side_inlet",
+        "destination_component": "fs.unit.hot_side_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.unit.hot_side_inlet->fs.unit.hot_side_inlet"
+      },
+      "cold_feed_to_phe": {
+        "source_component": "fs.unit.cold_side_inlet",
+        "destination_component": "fs.unit.cold_side_inlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.unit.cold_side_inlet->fs.unit.cold_side_inlet"
+      },
+      "phe_hot_to_product": {
+        "source_component": "fs.unit.hot_side_outlet",
+        "destination_component": "fs.unit.hot_side_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.unit.hot_side_outlet->fs.unit.hot_side_outlet"
+      },
+      "phe_cold_to_product": {
+        "source_component": "fs.unit.cold_side_outlet",
+        "destination_component": "fs.unit.cold_side_outlet",
+        "source_exists": true,
+        "destination_exists": true,
+        "model_connection": "fs.unit.cold_side_outlet->fs.unit.cold_side_outlet"
+      }
+    },
+    "passed": true
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

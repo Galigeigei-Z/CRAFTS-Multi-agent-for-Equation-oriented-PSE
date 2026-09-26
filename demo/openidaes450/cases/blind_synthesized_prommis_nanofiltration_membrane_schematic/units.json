@@ -1,0 +1,28 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarMultiComponentDiafiltration",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "cation_list": [
+        "Li",
+        "Co"
+      ],
+      "anion_list": [
+        "Cl"
+      ],
+      "include_boundary_layer": true,
+      "NFE_module_length": 10,
+      "NFE_boundary_layer_thickness": 5,
+      "NFE_membrane_thickness": 5
+    }
+  }
+]

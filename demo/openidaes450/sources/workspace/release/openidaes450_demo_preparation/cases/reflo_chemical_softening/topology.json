@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.feed",
+      "destination_port": "feed",
+      "id": "feed_to_model",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.lime",
+      "destination_port": "lime",
+      "id": "lime_to_model",
+      "source": "lime.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "treated_water.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_treated_water",
+      "source": "model.treated_water",
+      "source_port": "treated_water",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "sludge.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_sludge",
+      "source": "model.sludge",
+      "source_port": "sludge",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_chemical_softening",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_reflo_chemical_softening",
+  "initialization_order": [
+    "feed",
+    "lime",
+    "model",
+    "treated_water",
+    "sludge"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO Chemical Softening",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official REFLO ChemicalSoftening unit test module"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/unit_models/chemical_softening.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "lime",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "ChemicalSoftening",
+      "package": null,
+      "role": "Source-derived ChemicalSoftening node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "sludge",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

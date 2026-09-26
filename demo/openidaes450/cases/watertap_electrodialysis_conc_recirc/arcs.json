@@ -1,0 +1,52 @@
+[
+  {
+    "name": "fs.arc0",
+    "source": "fs.feed.outlet",
+    "destination": "fs.sepa0.inlet"
+  },
+  {
+    "name": "fs.arc1b",
+    "source": "fs.sepa0.to_dil_in",
+    "destination": "fs.pump1.inlet"
+  },
+  {
+    "name": "fs.arc1f",
+    "source": "fs.pump1.outlet",
+    "destination": "fs.EDstack.inlet_diluate"
+  },
+  {
+    "name": "fs.arc2",
+    "source": "fs.sepa0.to_conc_in0",
+    "destination": "fs.mix0.from_feed"
+  },
+  {
+    "name": "fs.arc3b",
+    "source": "fs.mix0.outlet",
+    "destination": "fs.pump0.inlet"
+  },
+  {
+    "name": "fs.arc3f",
+    "source": "fs.pump0.outlet",
+    "destination": "fs.EDstack.inlet_concentrate"
+  },
+  {
+    "name": "fs.arc4",
+    "source": "fs.EDstack.outlet_diluate",
+    "destination": "fs.prod.inlet"
+  },
+  {
+    "name": "fs.arc5",
+    "source": "fs.EDstack.outlet_concentrate",
+    "destination": "fs.sepa1.inlet"
+  },
+  {
+    "name": "fs.arc6",
+    "source": "fs.sepa1.to_disp",
+    "destination": "fs.disp.inlet"
+  },
+  {
+    "name": "fs.arc7",
+    "source": "fs.sepa1.to_conc_in1",
+    "destination": "fs.mix0.from_conc_out"
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_bped_unit",
+  "family": "family_watertap_bped_unit",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "basic_feed",
+      "variable": "Na_+/OH_- feed",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "official test basic channel ion feed",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "acidic_feed",
+      "variable": "Cl_-/H_+ feed",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "official test acidic channel ion feed",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "diluate_feed",
+      "variable": "NaCl feed",
+      "value": 0.0738,
+      "units": "mol/s",
+      "role": "official test diluate channel salt feed",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "all_feeds",
+      "variable": "H2O feed",
+      "value": 0.24,
+      "units": "mol/s",
+      "role": "water flow in each inlet channel",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "bped_stack",
+      "variable": "voltage_applied",
+      "value": 10.0,
+      "units": "V",
+      "role": "constant-voltage operation",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "bped_stack",
+      "variable": "cell_triplet_num",
+      "value": 10,
+      "units": "count",
+      "role": "stack triplets",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    },
+    {
+      "target": "bped_stack",
+      "variable": "membrane_set",
+      "value": "BPM/AEM/CEM",
+      "units": "dimensionless",
+      "role": "bipolar membrane cell stack",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/electrodialysis_bipolar_1D.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [
+    "basic_product.outlet",
+    "acidic_product.outlet",
+    "diluate_product.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "Build official BPED unit with MCAS ions, fix membrane transport parameters and channel feeds, initialize unit, then solve.",
+    "solve_order": [
+      "basic feed",
+      "acidic feed",
+      "diluate feed",
+      "BPED stack",
+      "three outlet channels"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

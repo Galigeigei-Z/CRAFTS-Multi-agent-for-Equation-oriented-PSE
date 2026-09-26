@@ -1,0 +1,107 @@
+{
+  "arcs": [
+    {
+      "destination": "model.gas_feed",
+      "destination_port": "gas_feed",
+      "id": "gas_feed_to_model",
+      "source": "gas_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "model.tube_feed",
+      "destination_port": "tube_feed",
+      "id": "tube_feed_to_model",
+      "source": "tube_feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "gas_outlet.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_gas_outlet",
+      "source": "model.gas_outlet",
+      "source_port": "gas_outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "tube_outlet.inlet",
+      "destination_port": "inlet",
+      "id": "model_to_tube_outlet",
+      "source": "model.tube_outlet",
+      "source_port": "tube_outlet",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__idaes_heat_exchanger_2d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_idaes_heat_exchanger_2d",
+  "initialization_order": [
+    "gas_feed",
+    "tube_feed",
+    "model",
+    "gas_outlet",
+    "tube_outlet"
+  ],
+  "open_decisions": [],
+  "process_type": "IDAES Boiler Heat Exchanger 2D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official BoilerHeatExchanger2D build, initialization, and run tests"
+  ],
+  "source_url": "https://github.com/IDAES/idaes-pse/blob/eed7cebc3d99be616ee7ead203cecaee9f81ac01/idaes/models_extra/power_generation/unit_models/boiler_heat_exchanger_2D.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "gas_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tube_feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "model",
+      "kind": "BoilerHeatExchanger2D",
+      "package": null,
+      "role": "Source-derived BoilerHeatExchanger2D node",
+      "stage": "model"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "gas_outlet",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tube_outlet",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

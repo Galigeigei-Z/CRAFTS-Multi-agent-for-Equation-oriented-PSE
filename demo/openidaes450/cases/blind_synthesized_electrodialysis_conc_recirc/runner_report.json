@@ -1,0 +1,159 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_electrodialysis_conc_recirc",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/electrodialysis_1stack_conc_recirc.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "ed_conc_recirc_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "ed_conc_recirc_lcow_positive",
+      "pass": true
+    },
+    {
+      "name": "ed_conc_recirc_recovery_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "water_recovery": 0.7,
+  "levelized_cost_of_water": 0.39959976176943973,
+  "specific_energy_consumption": 0.13476490221293938,
+  "product_salinity_kg_m3": 1.1333060073708658,
+  "disposal_salinity_kg_m3": 4.022279316134643,
+  "membrane_area_m2": 18.533759999999997,
+  "cell_pair_number": 56.0,
+  "cell_length_m": 1.68,
+  "stack_voltage_v": 10.0,
+  "stream_values": {
+    "feed_to_separator": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 28.83111116888889,
+        "Liq/Na_+": 0.017777759999999997,
+        "Liq/Cl_-": 0.017777759999999997
+      },
+      "flow_mol": 28.86666668888889,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.sepa0.inlet"
+    },
+    "separator_to_diluate_pump": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.271033017810723,
+        "Liq/Na_+": 0.01249946829422194,
+        "Liq/Cl_-": 0.01249946829422194
+      },
+      "flow_mol": 20.29603195439917,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.sepa0.to_dil_in",
+      "destination_port": "fs.pump1.inlet"
+    },
+    "diluate_pump_to_edstack": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.271033017810723,
+        "Liq/Na_+": 0.01249946829422194,
+        "Liq/Cl_-": 0.01249946829422194
+      },
+      "flow_mol": 20.29603195439917,
+      "temperature": 298.15,
+      "pressure": 169278.12706010882,
+      "source_port": "fs.pump1.outlet",
+      "destination_port": "fs.EDstack.inlet_diluate"
+    },
+    "separator_to_concentrate_mixer": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 8.56007815107817,
+        "Liq/Na_+": 0.00527829170577806,
+        "Liq/Cl_-": 0.00527829170577806
+      },
+      "flow_mol": 8.570634734489726,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.sepa0.to_conc_in0",
+      "destination_port": "fs.mix0.from_feed"
+    },
+    "mixer_to_concentrate_pump": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.24730271202553,
+        "Liq/Na_+": 0.019801100843511932,
+        "Liq/Cl_-": 0.01980110084351194
+      },
+      "flow_mol": 20.286904913712554,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.mix0.outlet",
+      "destination_port": "fs.pump0.inlet"
+    },
+    "concentrate_pump_to_edstack": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.24730271202553,
+        "Liq/Na_+": 0.019801100843511932,
+        "Liq/Cl_-": 0.01980110084351194
+      },
+      "flow_mol": 20.286904913712554,
+      "temperature": 298.15,
+      "pressure": 169278.12706010882,
+      "source_port": "fs.pump0.outlet",
+      "destination_port": "fs.EDstack.inlet_concentrate"
+    },
+    "edstack_diluate_to_product": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.199304256295385,
+        "Liq/Na_+": 0.007051681823640944,
+        "Liq/Cl_-": 0.007051681823640944
+      },
+      "flow_mol": 20.213407619942664,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.EDstack.outlet_diluate",
+      "destination_port": "fs.prod.inlet"
+    },
+    "edstack_concentrate_to_recycle_separator": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 20.319031473540868,
+        "Liq/Na_+": 0.025248887314092926,
+        "Liq/Cl_-": 0.02524888731409293
+      },
+      "flow_mol": 20.36952924816905,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.EDstack.outlet_concentrate",
+      "destination_port": "fs.sepa1.inlet"
+    },
+    "recycle_separator_to_disposal": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 8.631806912593506,
+        "Liq/Na_+": 0.010726078176359052,
+        "Liq/Cl_-": 0.010726078176359056
+      },
+      "flow_mol": 8.653259068946225,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.sepa1.to_disp",
+      "destination_port": "fs.disp.inlet"
+    },
+    "recycle_separator_to_mixer": {
+      "flow_mol_phase_comp": {
+        "Liq/H2O": 11.687224560947362,
+        "Liq/Na_+": 0.014522809137733872,
+        "Liq/Cl_-": 0.014522809137733874
+      },
+      "flow_mol": 11.71627017922283,
+      "temperature": 298.15,
+      "pressure": 101325.0,
+      "source_port": "fs.sepa1.to_conc_in1",
+      "destination_port": "fs.mix0.from_conc_out"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.electrodialysis.electrodialysis_1stack_conc_recirc",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

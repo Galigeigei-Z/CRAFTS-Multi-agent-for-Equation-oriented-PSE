@@ -1,0 +1,37 @@
+[
+  {
+    "name": "fs.arc_np_to_pem",
+    "source": "fs.np_power_split.np_to_pem_port",
+    "destination": "fs.pem.electricity_in"
+  },
+  {
+    "name": "fs.arc_pem_to_h2_tank",
+    "source": "fs.pem.outlet",
+    "destination": "fs.h2_tank.inlet"
+  },
+  {
+    "name": "fs.arc_h2_tank_to_translator",
+    "source": "fs.h2_tank.outlet_to_turbine",
+    "destination": "fs.translator.inlet"
+  },
+  {
+    "name": "fs.arc_translator_to_mixer",
+    "source": "fs.translator.outlet",
+    "destination": "fs.mixer.hydrogen_feed"
+  },
+  {
+    "name": "fs.arc_mixer_to_h2_turbine",
+    "source": "fs.mixer.outlet",
+    "destination": "fs.h2_turbine.compressor.inlet"
+  },
+  {
+    "name": "fs.h2_turbine.comp_to_reactor",
+    "source": "fs.h2_turbine.compressor.outlet",
+    "destination": "fs.h2_turbine.stoic_reactor.inlet"
+  },
+  {
+    "name": "fs.h2_turbine.reactor_to_turbine",
+    "source": "fs.h2_turbine.stoic_reactor.outlet",
+    "destination": "fs.h2_turbine.turbine.inlet"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_lsrro",
+  "family": "family_watertap_lsrro",
+  "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "Cin",
+      "value": 70.0,
+      "units": "kg/m^3",
+      "role": "official example feed NaCl concentration",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "feed",
+      "variable": "Qin",
+      "value": 0.001,
+      "units": "m^3/s",
+      "role": "official example feed volumetric flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "number_of_stages",
+      "value": 3,
+      "units": "count",
+      "role": "official three-stage example",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "water_recovery",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "optimization target",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "permeate_quality_limit",
+      "value": 0.0005,
+      "units": "mass fraction",
+      "role": "permeate quality constraint",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    },
+    {
+      "target": "optimization",
+      "variable": "objective",
+      "value": "LCOW",
+      "units": "$/m^3",
+      "role": "final WaterTAP optimization objective",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/lsrro.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP run_lsrro_case build, initialize with sequential decomposition, simulation solve, then LCOW optimization",
+    "solve_order": [
+      "stage1",
+      "stage2",
+      "stage3",
+      "recycle convergence",
+      "LCOW optimization"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": "optimization"
+  }
+}

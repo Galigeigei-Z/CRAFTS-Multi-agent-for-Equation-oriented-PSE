@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_coagulation_flocculation_unit",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/unit_models/coag_floc_model.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "coag_floc_optimal",
+      "pass": true
+    },
+    {
+      "name": "coag_floc_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "coag_floc_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "coag_floc_tss_target_met",
+      "pass": true
+    },
+    {
+      "name": "coag_floc_sludge_positive",
+      "pass": true
+    },
+    {
+      "name": "coag_floc_mixing_power_positive",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "final_dof": 0,
+  "outlet_tss_kg_s": 9.363526273141075e-06,
+  "outlet_sludge_kg_s": 0.009990636473726859,
+  "outlet_tds_kg_s": 0.010015102461730872,
+  "rapid_mixing_power_W": 0.1211470156563769,
+  "flocculation_power_W": 0.44683669934600256,
+  "stream_values": {
+    "inlet": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mass_Liq_H2O_kg_s": 1.0,
+      "flow_mass_Liq_TDS_kg_s": 0.01,
+      "flow_mass_Liq_TSS_kg_s": 0.01,
+      "flow_mass_Liq_Sludge_kg_s": 0.0
+    },
+    "outlet": {
+      "temperature_K": 298.15,
+      "pressure_Pa": 101325.0,
+      "flow_mass_Liq_H2O_kg_s": 1.0,
+      "flow_mass_Liq_TDS_kg_s": 0.010015102461730872,
+      "flow_mass_Liq_TSS_kg_s": 9.363526273141075e-06,
+      "flow_mass_Liq_Sludge_kg_s": 0.009990636473726859
+    }
+  },
+  "source_summary": {
+    "source": "watertap.unit_models.coag_floc_model.CoagulationFlocculation",
+    "property_package": "watertap.property_models.unit_specific.coagulation_prop_pack.CoagulationParameterBlock",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "variant_idaes_btx_extractive_solvent_recycle",
+  "family": "family_idaes_btx_extractive_solvent_recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "flowsheet",
+      "variable": "separation_intensity_fraction",
+      "value": 0.8,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "heat_recovery_fraction",
+      "value": 1.0,
+      "units": "reported_native_units",
+      "role": "optimized_or_selected_decision",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "light_product_purity",
+      "value": 0.942,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "light_product_recovery",
+      "value": 0.9299999999999999,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "net_reboiler_duty_index",
+      "value": 0.5700000000000001,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "minimum_temperature_approach_K",
+      "value": 18.4,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    },
+    {
+      "target": "flowsheet",
+      "variable": "max_component_balance_error",
+      "value": 0.0,
+      "units": "reported_native_units",
+      "role": "native_response_metric",
+      "source": "native_execution_report",
+      "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_k_v14.py"
+    }
+  ],
+  "terminal_feed_ports": [
+    "FEED.outlet"
+  ],
+  "terminal_product_ports": [
+    "DISTILLATE.inlet",
+    "BOTTOMS.inlet"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "variant_idaes_btx_extractive_distillation_solvent_recycle"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "variant_idaes_btx_extractive_distillation_solvent_recycle",
+    "chemical_change": "Retains explicit solvent-enhanced relative volatility while reducing the topology to one column and recycle loop.",
+    "native_metrics": {
+      "light_product_purity": 0.942,
+      "light_product_recovery": 0.9299999999999999,
+      "net_reboiler_duty_index": 0.5700000000000001,
+      "minimum_temperature_approach_K": 18.4,
+      "max_component_balance_error": 0.0
+    }
+  }
+}

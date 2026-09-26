@@ -1,0 +1,479 @@
+{
+  "pass": true,
+  "stage": "steady_state_simulation",
+  "case_family": "watertap_seawater_ro_desalination",
+  "official_reference_url": "https://watertap.readthedocs.io/en/stable/technical_reference/flowsheets/seawater_RO_desalination.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "seawater_ro_simulation_optimal",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_costing_optimal",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_initial_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_costing_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_product_flow_positive",
+      "pass": true
+    },
+    {
+      "name": "seawater_ro_streams_available",
+      "pass": true
+    }
+  ],
+  "initial_dof": 0,
+  "costing_dof": 0,
+  "final_dof": 0,
+  "feed_flow_m3_s": 0.3092,
+  "ro_area_m2": 13913.999999999998,
+  "ro_recovery_mass_h2o": 0.4368287313492985,
+  "ro_pump_work_w": 1153643.1603686009,
+  "product_flow_m3_s": 0.1335129728559432,
+  "disposal_flow_m3_s": 1.0,
+  "zo_total_capital_cost": 17.90534782708331,
+  "zo_total_operating_cost": 1.6678137622024918,
+  "ro_total_capital_cost": 6603681.991247633,
+  "ro_total_operating_cost": 281594.45973742893,
+  "stream_values": {
+    "s_feed": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.feed.outlet",
+      "destination_port": "fs.pretreatment.intake.inlet"
+    },
+    "s_prtrt_tb": {
+      "flow_mass_comp": {
+        "H2O": 305.5738000715492,
+        "tds": 10.822,
+        "tss": 0.00046379999999999984
+      },
+      "mass_flow": 316.3962638715492,
+      "flow_kg_s": 316.3962638715492,
+      "mass_frac_comp": {
+        "H2O": 0.9657945904051709,
+        "tds": 0.034203943711527275,
+        "tss": 1.465883301922597e-06
+      },
+      "source_port": "fs.pretreatment.cartridge_filtration.treated",
+      "destination_port": "fs.tb_prtrt_desal.inlet"
+    },
+    "s_landfill": {
+      "flow_mass_comp": {
+        "H2O": 0.001528174619998781,
+        "tds": 1.287876250000073e-20,
+        "tss": 0.004406099999999999
+      },
+      "mass_flow": 0.0059342746199987795,
+      "flow_kg_s": 0.0059342746199987795,
+      "mass_frac_comp": {
+        "H2O": 0.25751666679677443,
+        "tds": 2.1702336552809175e-18,
+        "tss": 0.7424833332032256
+      },
+      "source_port": "fs.pretreatment.backwash_handling.byproduct",
+      "destination_port": "fs.landfill.inlet"
+    },
+    "s_tb_desal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 305.5738000715492,
+        "Liq/TDS": 10.822
+      },
+      "mass_flow": 316.3958000715492,
+      "flow_kg_s": 316.3958000715492,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 100000.0,
+      "source_port": "fs.tb_prtrt_desal.outlet",
+      "destination_port": "fs.desalination.S1.inlet"
+    },
+    "s_disposal": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 172.09038465271016,
+        "Liq/TDS": 10.792442562895802
+      },
+      "mass_flow": 182.88282721560597,
+      "flow_kg_s": 182.88282721560597,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9409871187622647,
+        "Liq/TDS": 0.0590128812377352
+      },
+      "temperature": 298.0,
+      "pressure": 100000.0,
+      "source_port": "fs.desalination.PXR.brine_outlet",
+      "destination_port": "fs.disposal.inlet"
+    },
+    "s_desal_tb": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 133.48341541883903,
+        "Liq/TDS": 0.029557437104196883
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9997786174895822,
+        "Liq/TDS": 0.00022138251041783433
+      },
+      "temperature": 298.0,
+      "pressure": 101325.0,
+      "source_port": "fs.desalination.RO.permeate",
+      "destination_port": "fs.tb_desal_psttrt.inlet"
+    },
+    "posttreatment_train__01": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.tb_desal_psttrt.outlet",
+      "destination_port": "fs.posttreatment.storage_tank_2.inlet"
+    },
+    "s_municipal": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.posttreatment.storage_tank_3.outlet",
+      "destination_port": "fs.municipal.inlet"
+    },
+    "pretreatment_train__01": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.pretreatment.intake.outlet",
+      "destination_port": "fs.pretreatment.ferric_chloride_addition.inlet"
+    },
+    "pretreatment_train__02": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.pretreatment.ferric_chloride_addition.outlet",
+      "destination_port": "fs.pretreatment.chlorination.inlet"
+    },
+    "pretreatment_train__03": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.pretreatment.chlorination.treated",
+      "destination_port": "fs.pretreatment.static_mixer.inlet"
+    },
+    "pretreatment_train__04": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.pretreatment.static_mixer.outlet",
+      "destination_port": "fs.pretreatment.storage_tank_1.inlet"
+    },
+    "pretreatment_train__05": {
+      "flow_mass_comp": {
+        "H2O": 305.63492399999996,
+        "tds": 10.822,
+        "tss": 0.009275999999999998
+      },
+      "mass_flow": 316.46619999999996,
+      "flow_kg_s": 316.46619999999996,
+      "mass_frac_comp": {
+        "H2O": 0.9657743038593063,
+        "tds": 0.03419638495359062,
+        "tss": 2.931118710307767e-05
+      },
+      "source_port": "fs.pretreatment.storage_tank_1.outlet",
+      "destination_port": "fs.pretreatment.media_filtration.inlet"
+    },
+    "pretreatment_backwash": {
+      "flow_mass_comp": {
+        "H2O": 0.030563492399975658,
+        "tds": 1.287876250000073e-20,
+        "tss": 0.004637999999999999
+      },
+      "mass_flow": 0.03520149239997566,
+      "flow_kg_s": 0.03520149239997566,
+      "mass_frac_comp": {
+        "H2O": 0.868244222509066,
+        "tds": 3.658584230937219e-19,
+        "tss": 0.13175577749093406
+      },
+      "source_port": "fs.pretreatment.media_filtration.byproduct",
+      "destination_port": "fs.pretreatment.backwash_handling.inlet"
+    },
+    "pretreatment_train__06": {
+      "flow_mass_comp": {
+        "H2O": 305.6043605076,
+        "tds": 10.822,
+        "tss": 0.004637999999999999
+      },
+      "mass_flow": 316.4309985076,
+      "flow_kg_s": 316.4309985076,
+      "mass_frac_comp": {
+        "H2O": 0.9657851536320328,
+        "tds": 0.03420018914404834,
+        "tss": 1.4657223918877859e-05
+      },
+      "source_port": "fs.pretreatment.media_filtration.treated",
+      "destination_port": "fs.pretreatment.anti_scalant_addition.inlet"
+    },
+    "pretreatment_train__07": {
+      "flow_mass_comp": {
+        "H2O": 305.6043605076,
+        "tds": 10.822,
+        "tss": 0.004637999999999999
+      },
+      "mass_flow": 316.4309985076,
+      "flow_kg_s": 316.4309985076,
+      "mass_frac_comp": {
+        "H2O": 0.9657851536320328,
+        "tds": 0.03420018914404834,
+        "tss": 1.4657223918877859e-05
+      },
+      "source_port": "fs.pretreatment.anti_scalant_addition.outlet",
+      "destination_port": "fs.pretreatment.cartridge_filtration.inlet"
+    },
+    "desal_s01": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 132.15170304224998,
+        "Liq/TDS": 4.68019748417032
+      },
+      "mass_flow": 136.8319005264203,
+      "flow_kg_s": 136.8319005264203,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 100000.0,
+      "source_port": "fs.desalination.S1.P1",
+      "destination_port": "fs.desalination.P1.inlet"
+    },
+    "desal_s02": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 132.15170304224998,
+        "Liq/TDS": 4.68019748417032
+      },
+      "mass_flow": 136.8319005264203,
+      "flow_kg_s": 136.8319005264203,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.P1.outlet",
+      "destination_port": "fs.desalination.M1.P1"
+    },
+    "desal_s03": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 305.5738000715492,
+        "Liq/TDS": 10.821999999999997
+      },
+      "mass_flow": 316.3958000715492,
+      "flow_kg_s": 316.3958000715492,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059071
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.M1.outlet",
+      "destination_port": "fs.desalination.RO.inlet"
+    },
+    "desal_s04": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 172.09038465271016,
+        "Liq/TDS": 10.792442562895802
+      },
+      "mass_flow": 182.88282721560597,
+      "flow_kg_s": 182.88282721560597,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9409871187622647,
+        "Liq/TDS": 0.0590128812377352
+      },
+      "temperature": 298.0,
+      "pressure": 6775897.620763551,
+      "source_port": "fs.desalination.RO.retentate",
+      "destination_port": "fs.desalination.PXR.brine_inlet"
+    },
+    "desal_s05": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 173.4220970292992,
+        "Liq/TDS": 6.141802515829678
+      },
+      "mass_flow": 179.5638995451289,
+      "flow_kg_s": 179.5638995451289,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 100000.0,
+      "source_port": "fs.desalination.S1.PXR",
+      "destination_port": "fs.desalination.PXR.feed_inlet"
+    },
+    "desal_s06": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 173.4220970292992,
+        "Liq/TDS": 6.141802515829678
+      },
+      "mass_flow": 179.5638995451289,
+      "flow_kg_s": 179.5638995451289,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 6442102.739725374,
+      "source_port": "fs.desalination.PXR.feed_outlet",
+      "destination_port": "fs.desalination.P2.inlet"
+    },
+    "desal_s07": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 173.4220970292992,
+        "Liq/TDS": 6.141802515829678
+      },
+      "mass_flow": 179.5638995451289,
+      "flow_kg_s": 179.5638995451289,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.9657960061494093,
+        "Liq/TDS": 0.03420399385059072
+      },
+      "temperature": 298.0,
+      "pressure": 7000000.0,
+      "source_port": "fs.desalination.P2.outlet",
+      "destination_port": "fs.desalination.M1.P2"
+    },
+    "posttreatment_train__02": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.posttreatment.storage_tank_2.outlet",
+      "destination_port": "fs.posttreatment.uv_aop.inlet"
+    },
+    "posttreatment_train__03": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.posttreatment.uv_aop.treated",
+      "destination_port": "fs.posttreatment.co2_addition.inlet"
+    },
+    "posttreatment_train__04": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.posttreatment.co2_addition.outlet",
+      "destination_port": "fs.posttreatment.lime_addition.inlet"
+    },
+    "posttreatment_train__05": {
+      "flow_mass_comp": {
+        "H2O": 133.48341541883903,
+        "tds": 0.02955743710419689
+      },
+      "mass_flow": 133.51297285594322,
+      "flow_kg_s": 133.51297285594322,
+      "mass_frac_comp": {
+        "H2O": 0.9997786174895822,
+        "tds": 0.00022138251041783438
+      },
+      "source_port": "fs.posttreatment.lime_addition.outlet",
+      "destination_port": "fs.posttreatment.storage_tank_3.inlet"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.seawater_RO_desalination.seawater_RO_desalination",
+    "erd_type": "pressure_exchanger",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

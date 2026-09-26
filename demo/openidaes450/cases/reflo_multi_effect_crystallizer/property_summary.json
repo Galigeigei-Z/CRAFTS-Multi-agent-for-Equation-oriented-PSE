@@ -1,0 +1,19 @@
+{
+  "case_id": "reflo_multi_effect_crystallizer",
+  "applicability": "model_parameter_packages",
+  "package_count": 2,
+  "packages": [
+    {
+      "name": "fs.properties",
+      "class": "watertap.property_models.unit_specific.cryst_prop_pack.NaClParameterBlock",
+      "module": "watertap.property_models.unit_specific.cryst_prop_pack",
+      "configuration_file": "property_packages.json"
+    },
+    {
+      "name": "fs.vapor_properties",
+      "class": "watertap.property_models.water_prop_pack.WaterParameterBlock",
+      "module": "watertap.property_models.water_prop_pack",
+      "configuration_file": "property_packages.json"
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "arcs": [
+    {
+      "destination": "mcas_to_tds.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_translator",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ec.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_ec",
+      "source": "mcas_to_tds.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "uf.inlet",
+      "destination_port": "inlet",
+      "id": "ec_to_uf",
+      "source": "ec.treated",
+      "source_port": "treated",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "sludge.inlet",
+      "destination_port": "inlet",
+      "id": "ec_to_sludge",
+      "source": "ec.sludge",
+      "source_port": "sludge",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "tds_to_nacl.inlet",
+      "destination_port": "inlet",
+      "id": "uf_to_translator",
+      "source": "uf.product",
+      "source_port": "product",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "uf_waste.inlet",
+      "destination_port": "inlet",
+      "id": "uf_to_waste",
+      "source": "uf.waste",
+      "source_port": "waste",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "pump.inlet",
+      "destination_port": "inlet",
+      "id": "translator_to_pump",
+      "source": "tds_to_nacl.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ro.inlet",
+      "destination_port": "inlet",
+      "id": "pump_to_ro",
+      "source": "pump.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "product.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_product",
+      "source": "ro.permeate",
+      "source_port": "permeate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "dwi.inlet",
+      "destination_port": "inlet",
+      "id": "ro_to_dwi",
+      "source": "ro.retentate",
+      "source_port": "retentate",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ro.renewable_electricity",
+      "destination_port": "renewable_electricity",
+      "id": "pv_to_system",
+      "source": "pv.electricity",
+      "source_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "ro.grid_electricity",
+      "destination_port": "grid_electricity",
+      "id": "grid_to_system",
+      "source": "grid.electricity",
+      "source_port": "electricity",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__reflo_kbhdp_rpt1",
+  "components": {},
+  "evidence_status": "native_optimized",
+  "family": "family_reflo_kbhdp_rpt1",
+  "initialization_order": [
+    "feed",
+    "mcas_to_tds",
+    "ec",
+    "sludge",
+    "uf",
+    "uf_waste",
+    "tds_to_nacl",
+    "pump",
+    "ro",
+    "product",
+    "dwi",
+    "pv",
+    "grid"
+  ],
+  "open_decisions": [],
+  "process_type": "REFLO KBHDP Report Train 1",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official KBHDP report train 1 main() optimization test"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+  "specifications": [
+    {
+      "role": "produced-water feed capacity",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "Mgal/day",
+      "value": 4.0,
+      "variable": "flow_vol"
+    },
+    {
+      "role": "feed temperature",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "K",
+      "value": 293.0,
+      "variable": "temperature"
+    },
+    {
+      "role": "feed pressure",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "feed",
+      "units": "Pa",
+      "value": 101325.0,
+      "variable": "pressure"
+    },
+    {
+      "role": "RO feed-pump efficiency",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "pump",
+      "units": "dimensionless",
+      "value": 0.8,
+      "variable": "efficiency_pump"
+    },
+    {
+      "role": "fixed installed RO membrane area",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "ro",
+      "units": "m^2",
+      "value": 20000.0,
+      "variable": "total_membrane_area"
+    },
+    {
+      "role": "fixed system water recovery",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "system",
+      "units": "dimensionless",
+      "value": 0.8,
+      "variable": "water_recovery"
+    },
+    {
+      "role": "grid electricity price",
+      "source": "pinned_official_source",
+      "source_url": "https://github.com/watertap-org/watertap-reflo/blob/dc05a96838424400deef1157a544109516924d60/src/watertap_contrib/reflo/flowsheets/KBHDP/KBHDP_RPT_1.py",
+      "target": "system",
+      "units": "USD/kWh",
+      "value": 0.15,
+      "variable": "electricity_price"
+    }
+  ],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "mcas_to_tds",
+      "kind": "TranslatorMCAStoZO",
+      "package": null,
+      "role": "Source-derived TranslatorMCAStoZO node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ec",
+      "kind": "Electrocoagulation",
+      "package": null,
+      "role": "Source-derived Electrocoagulation node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "sludge",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "uf",
+      "kind": "Ultrafiltration",
+      "package": null,
+      "role": "Source-derived Ultrafiltration node",
+      "stage": "pretreatment"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "uf_waste",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "tds_to_nacl",
+      "kind": "TranslatorZOtoNaCl",
+      "package": null,
+      "role": "Source-derived TranslatorZOtoNaCl node",
+      "stage": "translation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pump",
+      "kind": "Pump",
+      "package": null,
+      "role": "Source-derived Pump node",
+      "stage": "desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "ro",
+      "kind": "ReverseOsmosis",
+      "package": null,
+      "role": "Source-derived ReverseOsmosis node",
+      "stage": "desalination"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "product",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "dwi",
+      "kind": "DeepWellInjection",
+      "package": null,
+      "role": "Source-derived DeepWellInjection node",
+      "stage": "disposal"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "pv",
+      "kind": "Photovoltaic",
+      "package": null,
+      "role": "Source-derived Photovoltaic node",
+      "stage": "energy"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "grid",
+      "kind": "ElectricitySource",
+      "package": null,
+      "role": "Source-derived ElectricitySource node",
+      "stage": "energy"
+    }
+  ]
+}

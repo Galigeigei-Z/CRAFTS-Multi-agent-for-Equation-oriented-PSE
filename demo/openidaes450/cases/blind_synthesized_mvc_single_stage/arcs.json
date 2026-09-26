@@ -1,0 +1,82 @@
+[
+  {
+    "name": "fs.s01",
+    "source": "fs.feed.outlet",
+    "destination": "fs.pump_feed.inlet"
+  },
+  {
+    "name": "fs.s02",
+    "source": "fs.pump_feed.outlet",
+    "destination": "fs.separator_feed.inlet"
+  },
+  {
+    "name": "fs.s03",
+    "source": "fs.separator_feed.hx_distillate_cold",
+    "destination": "fs.hx_distillate.cold_side_inlet"
+  },
+  {
+    "name": "fs.s04",
+    "source": "fs.separator_feed.hx_brine_cold",
+    "destination": "fs.hx_brine.cold_side_inlet"
+  },
+  {
+    "name": "fs.s05",
+    "source": "fs.hx_distillate.cold_side_outlet",
+    "destination": "fs.mixer_feed.hx_distillate_cold"
+  },
+  {
+    "name": "fs.s06",
+    "source": "fs.hx_brine.cold_side_outlet",
+    "destination": "fs.mixer_feed.hx_brine_cold"
+  },
+  {
+    "name": "fs.s07",
+    "source": "fs.mixer_feed.outlet",
+    "destination": "fs.evaporator.inlet_feed"
+  },
+  {
+    "name": "fs.s08",
+    "source": "fs.evaporator.outlet_vapor",
+    "destination": "fs.compressor.inlet"
+  },
+  {
+    "name": "fs.s09",
+    "source": "fs.compressor.outlet",
+    "destination": "fs.condenser.inlet"
+  },
+  {
+    "name": "fs.s10",
+    "source": "fs.evaporator.outlet_brine",
+    "destination": "fs.pump_brine.inlet"
+  },
+  {
+    "name": "fs.s11",
+    "source": "fs.pump_brine.outlet",
+    "destination": "fs.hx_brine.hot_side_inlet"
+  },
+  {
+    "name": "fs.s12",
+    "source": "fs.hx_brine.hot_side_outlet",
+    "destination": "fs.brine.inlet"
+  },
+  {
+    "name": "fs.s13",
+    "source": "fs.condenser.outlet",
+    "destination": "fs.tb_distillate.inlet"
+  },
+  {
+    "name": "fs.s14",
+    "source": "fs.tb_distillate.outlet",
+    "destination": "fs.pump_distillate.inlet"
+  },
+  {
+    "name": "fs.s15",
+    "source": "fs.pump_distillate.outlet",
+    "destination": "fs.hx_distillate.hot_side_inlet"
+  },
+  {
+    "name": "fs.s16",
+    "source": "fs.hx_distillate.hot_side_outlet",
+    "destination": "fs.distillate.inlet"
+  }
+]

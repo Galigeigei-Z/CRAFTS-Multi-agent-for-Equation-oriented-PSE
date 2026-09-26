@@ -1,0 +1,213 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_plate_hx_cip_standby_train",
+  "family": "family_plate_hx_cip",
+  "process_type": "Plate Heat Exchanger with CIP Standby Train",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_g_v10.py",
+  "source_basis": [
+    "Derived from active parent official_idaes_plate_heat_exchanger.",
+    "Adds a standby/CIP material path and discrete exchanger rotation so fouling no longer accumulates in a single unit.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "process_fluid",
+        "coolant",
+        "foulant",
+        "cleaning_solution"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_idaes_plate_heat_exchanger"
+    }
+  },
+  "components": {
+    "tracked": [
+      "process_fluid",
+      "coolant",
+      "foulant",
+      "cleaning_solution"
+    ]
+  },
+  "units": [
+    {
+      "id": "HOT",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "fouling hot process stream",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COLD",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "cold process stream",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S1",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "duty split",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX1",
+      "kind": "PlateHeatExchanger",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "online exchanger",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "HX2",
+      "kind": "PlateHeatExchanger",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "standby/cleaning exchanger",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CIP",
+      "kind": "CIPUnit",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "clean fouled plates",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "M1",
+      "kind": "Mixer",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "combine heated product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "PRODUCT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "plate_hx_cip",
+      "role": "temperature-controlled product",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "HOT.outlet",
+      "destination": "S1.hot",
+      "stage": "plate_hx_cip",
+      "role": "hot feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "COLD.outlet",
+      "destination": "S1.cold",
+      "stage": "plate_hx_cip",
+      "role": "cold feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "S1.train1",
+      "destination": "HX1.inlet",
+      "stage": "plate_hx_cip",
+      "role": "online train",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S1.train2",
+      "destination": "HX2.inlet",
+      "stage": "plate_hx_cip",
+      "role": "standby train",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "HX1.outlet",
+      "destination": "M1.train1",
+      "stage": "plate_hx_cip",
+      "role": "heated product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "HX2.outlet",
+      "destination": "M1.train2",
+      "stage": "plate_hx_cip",
+      "role": "heated product",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "HX2.fouled",
+      "destination": "CIP.inlet",
+      "stage": "plate_hx_cip",
+      "role": "fouled plates",
+      "tear_candidate": false
+    },
+    {
+      "id": "s08",
+      "source": "CIP.clean",
+      "destination": "HX2.clean",
+      "stage": "plate_hx_cip",
+      "role": "cleaned plates",
+      "tear_candidate": false
+    },
+    {
+      "id": "s09",
+      "source": "M1.outlet",
+      "destination": "PRODUCT.inlet",
+      "stage": "plate_hx_cip",
+      "role": "product",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "HOT.outlet",
+    "COLD.outlet"
+  ],
+  "unconnected_product_ports": [
+    "PRODUCT.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_idaes_plate_heat_exchanger"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_idaes_plate_heat_exchanger",
+    "chemical_change": "Adds a standby/CIP material path and discrete exchanger rotation so fouling no longer accumulates in a single unit.",
+    "native_metrics": {
+      "train_availability": 0.9425000000000001,
+      "fouling_resistance_index": 0.018125,
+      "product_temperature_K": 355.25,
+      "pressure_drop_kPa": 129.5,
+      "cleaning_solution_index": 0.11249999999999999
+    }
+  }
+}

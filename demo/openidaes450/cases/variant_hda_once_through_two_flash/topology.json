@@ -1,0 +1,292 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_hda_once_through_two_flash",
+  "family": "family_hda_btx",
+  "process_type": "HDA once-through with two flash stages",
+  "source_url": "local://examples/hda_once_through/source_root/notebook_build.py",
+  "source_basis": [
+    "Topology-distinct engineering variant derived from the local native HDA model.",
+    "Fresh hydrogen is not recycled; per-pass conversion is reduced to 0.50.",
+    "The second flash is included only in the two_flash variant and must demonstrate benzene enrichment."
+  ],
+  "property_packages": {
+    "HDA_params": {
+      "entry_id": "idaes_hda_btx_property_and_reaction_packages",
+      "components": [
+        "benzene",
+        "toluene",
+        "hydrogen",
+        "methane"
+      ],
+      "phases": [
+        "Liq",
+        "Vap"
+      ],
+      "scope": [
+        "M101",
+        "H101",
+        "R101",
+        "F101",
+        "F102"
+      ],
+      "source": "examples/hda_flash/source_root"
+    }
+  },
+  "components": {
+    "reaction_loop": [
+      "benzene",
+      "toluene",
+      "hydrogen",
+      "methane"
+    ]
+  },
+  "units": [
+    {
+      "id": "M101",
+      "kind": "Mixer",
+      "package": "HDA_params",
+      "stage": "feed",
+      "role": "combine fresh toluene and hydrogen feeds",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "H101",
+      "kind": "Heater",
+      "package": "HDA_params",
+      "stage": "reaction",
+      "role": "preheat the reactor feed",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "StoichiometricReactor",
+      "package": "HDA_params",
+      "stage": "reaction",
+      "role": "once-through hydrodealkylation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F101",
+      "kind": "Flash",
+      "package": "HDA_params",
+      "stage": "separation",
+      "role": "remove hydrogen and methane from crude BTX liquid",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "F102",
+      "kind": "Flash",
+      "package": "HDA_params",
+      "stage": "separation",
+      "role": "recover a benzene-rich vapor cut from crude BTX",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "M101.outlet",
+      "destination": "H101.inlet",
+      "stage": "feed",
+      "role": "mixed feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "H101.outlet",
+      "destination": "R101.inlet",
+      "stage": "reaction",
+      "role": "heated feed",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R101.outlet",
+      "destination": "F101.inlet",
+      "stage": "separation",
+      "role": "reactor effluent",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "F101.liq_outlet",
+      "destination": "F102.inlet",
+      "stage": "separation",
+      "role": "crude BTX to second flash",
+      "tear_candidate": false
+    }
+  ],
+  "feed_specs": [
+    {
+      "target": "M101",
+      "variable": "toluene_feed.flow_mol_phase_comp[0, 'Liq', 'toluene']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "toluene feed",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'hydrogen']",
+      "value": 0.3,
+      "units": "mol/s",
+      "role": "hydrogen feed",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.flow_mol_phase_comp[0, 'Vap', 'methane']",
+      "value": 0.02,
+      "units": "mol/s",
+      "role": "methane impurity",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "toluene feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.temperature[0]",
+      "value": 303.2,
+      "units": "K",
+      "role": "hydrogen feed temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "toluene_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "toluene feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "M101",
+      "variable": "hydrogen_feed.pressure[0]",
+      "value": 350000,
+      "units": "Pa",
+      "role": "hydrogen feed pressure",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    }
+  ],
+  "unit_specs": [
+    {
+      "target": "H101",
+      "variable": "outlet.temperature[0]",
+      "value": 600,
+      "units": "K",
+      "role": "reactor inlet temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "conversion",
+      "value": 0.5,
+      "units": "dimensionless",
+      "role": "conservative once-through conversion",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "R101",
+      "variable": "heat_duty[0]",
+      "value": 0,
+      "units": "W",
+      "role": "adiabatic reactor",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "vap_outlet.temperature[0]",
+      "value": 325,
+      "units": "K",
+      "role": "non-condensable knock-out temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F101",
+      "variable": "deltaP[0]",
+      "value": 0,
+      "units": "Pa",
+      "role": "first flash pressure change",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F102",
+      "variable": "vap_outlet.temperature[0]",
+      "value": 375,
+      "units": "K",
+      "role": "second-stage flash temperature",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    },
+    {
+      "target": "F102",
+      "variable": "deltaP[0]",
+      "value": -225000,
+      "units": "Pa",
+      "role": "second-stage pressure let-down to 125 kPa",
+      "source": "derived_engineering_variant",
+      "source_url": "local://examples/hda_once_through/source_root/notebook_build.py"
+    }
+  ],
+  "unconnected_feed_ports": [
+    "M101.toluene_feed",
+    "M101.hydrogen_feed"
+  ],
+  "unconnected_product_ports": [
+    "F101.vap_outlet",
+    "F102.vap_outlet",
+    "F102.liq_outlet"
+  ],
+  "tear_streams": [],
+  "translator_constraint_templates": {},
+  "translator_constraints": [],
+  "initialization": {
+    "strategy": "acyclic unit-by-unit state propagation followed by simultaneous solve",
+    "tear_destination": null,
+    "solve_order": [
+      "M101",
+      "H101",
+      "R101",
+      "F101",
+      "F102"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "required_entries": [
+    "Mixer",
+    "Heater",
+    "StoichiometricReactor",
+    "Flash"
+  ],
+  "notes_for_agent_a": [
+    "Do not add a recycle splitter or compressor.",
+    "Do not claim product purification beyond the reported flash enrichment."
+  ]
+}

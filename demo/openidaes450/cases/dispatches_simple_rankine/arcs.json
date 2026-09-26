@@ -1,0 +1,47 @@
+[
+  {
+    "name": "blocks[0].process.fs.translator_to_mixer",
+    "source": "blocks[0].process.fs.translator.outlet",
+    "destination": "blocks[0].process.fs.mixer.hydrogen_feed"
+  },
+  {
+    "name": "blocks[0].process.fs.mixer_to_turbine",
+    "source": "blocks[0].process.fs.mixer.outlet",
+    "destination": "blocks[0].process.fs.h2_turbine.compressor.inlet"
+  },
+  {
+    "name": "blocks[0].process.fs.wind_to_splitter",
+    "source": "blocks[0].process.fs.windpower.electricity_out",
+    "destination": "blocks[0].process.fs.splitter.electricity_in"
+  },
+  {
+    "name": "blocks[0].process.fs.splitter_to_pem",
+    "source": "blocks[0].process.fs.splitter.pem_port",
+    "destination": "blocks[0].process.fs.pem.electricity_in"
+  },
+  {
+    "name": "blocks[0].process.fs.splitter_to_battery",
+    "source": "blocks[0].process.fs.splitter.battery_port",
+    "destination": "blocks[0].process.fs.battery.power_in"
+  },
+  {
+    "name": "blocks[0].process.fs.pem_to_tank",
+    "source": "blocks[0].process.fs.pem.outlet",
+    "destination": "blocks[0].process.fs.h2_tank.inlet"
+  },
+  {
+    "name": "blocks[0].process.fs.h2_tank_to_turb",
+    "source": "blocks[0].process.fs.h2_tank.outlet_to_turbine",
+    "destination": "blocks[0].process.fs.translator.inlet"
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine.comp_to_reactor",
+    "source": "blocks[0].process.fs.h2_turbine.compressor.outlet",
+    "destination": "blocks[0].process.fs.h2_turbine.stoic_reactor.inlet"
+  },
+  {
+    "name": "blocks[0].process.fs.h2_turbine.reactor_to_turbine",
+    "source": "blocks[0].process.fs.h2_turbine.stoic_reactor.outlet",
+    "destination": "blocks[0].process.fs.h2_turbine.turbine.inlet"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "fs.unit",
+    "class": "idaes.core.base.process_block._ScalarWAIV",
+    "configuration": {
+      "dynamic": false,
+      "has_holdup": false,
+      "property_package": {
+        "component": "fs.properties"
+      },
+      "property_package_args": {
+        "type": "pyomo.common.config.ConfigDict",
+        "requires_source_definition": true
+      },
+      "material_balance_type": {
+        "component": "useDefault"
+      },
+      "weather_data_path": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/cases/mfs_refactored_cases/full107_official_sources/watertap-reflo/src/watertap_contrib/reflo/unit_models/tests/waiv_test_data.csv",
+      "weather_data_column_dict": {
+        "pressure": "Pressure",
+        "temperature": "Temperature",
+        "relative_humidity": "Relative Humidity",
+        "wind_speed": "Wind Speed"
+      },
+      "terminal_process": true
+    }
+  }
+]

@@ -1,0 +1,204 @@
+{
+  "pass": true,
+  "stage": "steady_state_specification_sweep",
+  "case_family": "watertap_crystallization",
+  "official_reference_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html",
+  "termination_condition": "optimal",
+  "checks": [
+    {
+      "name": "crystallization_all_official_cases_optimal",
+      "pass": true
+    },
+    {
+      "name": "crystallization_final_dof_zero",
+      "pass": true
+    },
+    {
+      "name": "crystallization_streams_available",
+      "pass": true
+    }
+  ],
+  "final_dof": 0,
+  "case_results": [
+    {
+      "case": "case_1_fixed_temperature_and_solids_flow",
+      "termination_condition": "optimal",
+      "temperature_operating_k": 328.15,
+      "pressure_operating_pa": 11991.824260266158,
+      "crystallization_yield_nacl": 0.5285437494648921,
+      "product_volumetric_solids_fraction": 0.14473337368807207,
+      "magma_density_kg_m3": 306.1110853502724,
+      "work_mechanical_w": 63793.745117530576,
+      "solid_nacl_flow_kg_s": 5.556,
+      "vapor_h2o_flow_kg_s": 25.501329714717727,
+      "liquid_out_h2o_flow_kg_s": 13.431271245282268,
+      "liquid_out_nacl_flow_kg_s": 4.95590096,
+      "capital_cost": 5499118.161553248,
+      "total_capital_cost": 5499118.161553248,
+      "total_operating_cost": 1772507.7419029737
+    },
+    {
+      "case": "case_2_fixed_crystallization_yield",
+      "termination_condition": "optimal",
+      "temperature_operating_k": 328.15,
+      "pressure_operating_pa": 11991.824260266163,
+      "crystallization_yield_nacl": 0.7,
+      "product_volumetric_solids_fraction": 0.2604679314071562,
+      "magma_density_kg_m3": 550.8896749261353,
+      "work_mechanical_w": 74542.80120977818,
+      "solid_nacl_flow_kg_s": 7.358330959999997,
+      "vapor_h2o_flow_kg_s": 30.38593015223938,
+      "liquid_out_h2o_flow_kg_s": 8.546670807760616,
+      "liquid_out_nacl_flow_kg_s": 3.153570000000001,
+      "capital_cost": 6382077.948773286,
+      "total_capital_cost": 6382077.948773286,
+      "total_operating_cost": 2078223.8981754305
+    },
+    {
+      "case": "case_3_fixed_product_solids_fraction",
+      "termination_condition": "optimal",
+      "temperature_operating_k": 328.15,
+      "pressure_operating_pa": 11991.82426026616,
+      "crystallization_yield_nacl": 0.4703411732805117,
+      "product_volumetric_solids_fraction": 0.1182,
+      "magma_density_kg_m3": 249.993,
+      "work_mechanical_w": 60144.86819314504,
+      "solid_nacl_flow_kg_s": 4.944180339407413,
+      "vapor_h2o_flow_kg_s": 23.843202185346037,
+      "liquid_out_h2o_flow_kg_s": 15.089398774653954,
+      "liquid_out_nacl_flow_kg_s": 5.5677206205925875,
+      "capital_cost": 5169387.004825565,
+      "total_capital_cost": 5169387.004825565,
+      "total_operating_cost": 1669243.3364943285
+    },
+    {
+      "case": "case_4_fixed_magma_density",
+      "termination_condition": "optimal",
+      "temperature_operating_k": 328.15,
+      "pressure_operating_pa": 11991.824260266163,
+      "crystallization_yield_nacl": 0.4703490840440912,
+      "product_volumetric_solids_fraction": 0.11820330969267141,
+      "magma_density_kg_m3": 250.0,
+      "work_mechanical_w": 60145.36414031044,
+      "solid_nacl_flow_kg_s": 4.944263496563082,
+      "vapor_h2o_flow_kg_s": 23.843427554319877,
+      "liquid_out_h2o_flow_kg_s": 15.089173405680118,
+      "liquid_out_nacl_flow_kg_s": 5.567637463436917,
+      "capital_cost": 5169433.085467733,
+      "total_capital_cost": 5169433.085467733,
+      "total_operating_cost": 1669257.3795964352
+    },
+    {
+      "case": "case_5_fixed_heat_addition",
+      "termination_condition": "optimal",
+      "temperature_operating_k": 328.15,
+      "pressure_operating_pa": 11991.82426026616,
+      "crystallization_yield_nacl": 0.3882763108103846,
+      "product_volumetric_solids_fraction": 0.08743501585340406,
+      "magma_density_kg_m3": 184.92505852994958,
+      "work_mechanical_w": 55000.0,
+      "solid_nacl_flow_kg_s": 4.081522711607681,
+      "vapor_h2o_flow_kg_s": 21.50526430395829,
+      "liquid_out_h2o_flow_kg_s": 17.427336656041707,
+      "liquid_out_nacl_flow_kg_s": 6.430378248392318,
+      "capital_cost": 4669870.542056265,
+      "total_capital_cost": 4669870.542056265,
+      "total_operating_cost": 1523271.2207492231
+    }
+  ],
+  "temperature_operating_k": 328.15,
+  "pressure_operating_pa": 11991.82426026616,
+  "crystallization_yield_nacl": 0.3882763108103846,
+  "product_volumetric_solids_fraction": 0.08743501585340406,
+  "magma_density_kg_m3": 184.92505852994958,
+  "work_mechanical_w": 55000.0,
+  "solid_nacl_flow_kg_s": 4.081522711607681,
+  "vapor_h2o_flow_kg_s": 21.50526430395829,
+  "capital_cost": 4669870.542056265,
+  "total_capital_cost": 4669870.542056265,
+  "total_operating_cost": 1523271.2207492231,
+  "stream_values": {
+    "feed_to_crystallizer": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 38.9326,
+        "Liq/NaCl": 10.5119,
+        "Vap/H2O": 1e-06,
+        "Sol/NaCl": 1e-06
+      },
+      "mass_flow": 49.444502,
+      "flow_kg_s": 49.444502,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.7873999823074364,
+        "Liq/NaCl": 0.21259997724317256,
+        "Vap/H2O": 2.022469555866899e-08,
+        "Sol/NaCl": 2.022469555866899e-08
+      },
+      "temperature": 293.15,
+      "pressure": 101325.0,
+      "source_port": "fs.crystallizer.inlet"
+    },
+    "crystallizer_liquid_outlet": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 17.427336656041707,
+        "Liq/NaCl": 6.430378248392318,
+        "Vap/H2O": 1e-08,
+        "Sol/NaCl": 1e-08
+      },
+      "mass_flow": 23.857714924434028,
+      "flow_kg_s": 23.857714924434028,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 0.7304696493876449,
+        "Liq/NaCl": 0.26953034977405177,
+        "Vap/H2O": 4.191516258649917e-10,
+        "Sol/NaCl": 4.191516258649917e-10
+      },
+      "temperature": 328.15,
+      "pressure": 11991.82426026616,
+      "source_port": "fs.crystallizer.outlet"
+    },
+    "crystallizer_vapor_outlet": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1e-08,
+        "Liq/NaCl": 1e-08,
+        "Vap/H2O": 21.50526430395829,
+        "Sol/NaCl": 1e-08
+      },
+      "mass_flow": 21.50526433395829,
+      "flow_kg_s": 21.50526433395829,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 4.650024219516015e-10,
+        "Liq/NaCl": 4.650024219516015e-10,
+        "Vap/H2O": 0.9999999986049927,
+        "Sol/NaCl": 4.650024219516015e-10
+      },
+      "temperature": 328.15,
+      "pressure": 11991.82426026616,
+      "source_port": "fs.crystallizer.vapor"
+    },
+    "crystallizer_solids_outlet": {
+      "flow_mass_phase_comp": {
+        "Liq/H2O": 1e-08,
+        "Liq/NaCl": 1e-08,
+        "Vap/H2O": 1e-08,
+        "Sol/NaCl": 4.081522711607681
+      },
+      "mass_flow": 4.081522741607681,
+      "flow_kg_s": 4.081522741607681,
+      "mass_frac_phase_comp": {
+        "Liq/H2O": 2.450065976126615e-09,
+        "Liq/NaCl": 2.450065976126615e-09,
+        "Vap/H2O": 2.450065976126615e-09,
+        "Sol/NaCl": 0.9999999926498021
+      },
+      "temperature": 328.15,
+      "pressure": 11991.82426026616,
+      "source_port": "fs.crystallizer.solids"
+    }
+  },
+  "source_summary": {
+    "source": "watertap.flowsheets.crystallization.sim_simple_crystallizer",
+    "stdout_tail": ""
+  },
+  "error": null,
+  "solver_summary_file": "solver_summary.json"
+}

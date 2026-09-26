@@ -1,0 +1,184 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_idaes_tga_redox_oxygen_switching_cycle",
+  "family": "family_tga_redox",
+  "process_type": "Dynamic TGA Redox Oxygen-Switching Cycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_c_v6.py",
+  "source_basis": [
+    "Derived from active parent idaes_dynamic_tga.",
+    "Adds cyclic oxidant/fuel switching and solid oxygen-carrier inventory closure rather than a single transient reaction.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "oxygen_carrier_ox",
+        "oxygen_carrier_red",
+        "CH4",
+        "O2",
+        "CO2",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "idaes_dynamic_tga"
+    }
+  },
+  "components": {
+    "tracked": [
+      "oxygen_carrier_ox",
+      "oxygen_carrier_red",
+      "CH4",
+      "O2",
+      "CO2",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "OC",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "reduced oxygen carrier",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "AIR",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "oxidation gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FUEL",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "reduction gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Selector",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "switch oxidation/reduction gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "TGA",
+      "kind": "DynamicGasSolidReactor",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "redox cycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "GAS",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "cycle exhaust",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "OCOUT",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "tga_redox",
+      "role": "cycled oxygen carrier",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "OC.outlet",
+      "destination": "TGA.solids",
+      "stage": "tga_redox",
+      "role": "oxygen carrier",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "AIR.outlet",
+      "destination": "S101.oxidation",
+      "stage": "tga_redox",
+      "role": "air half-cycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "FUEL.outlet",
+      "destination": "S101.reduction",
+      "stage": "tga_redox",
+      "role": "fuel half-cycle",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "S101.outlet",
+      "destination": "TGA.gas",
+      "stage": "tga_redox",
+      "role": "switched gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "TGA.gas_outlet",
+      "destination": "GAS.inlet",
+      "stage": "tga_redox",
+      "role": "cycle exhaust",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "TGA.solids_outlet",
+      "destination": "OCOUT.inlet",
+      "stage": "tga_redox",
+      "role": "cycled solid",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "OC.outlet",
+    "AIR.outlet",
+    "FUEL.outlet"
+  ],
+  "unconnected_product_ports": [
+    "GAS.inlet",
+    "OCOUT.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "idaes_dynamic_tga"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "idaes_dynamic_tga",
+    "chemical_change": "Adds cyclic oxidant/fuel switching and solid oxygen-carrier inventory closure rather than a single transient reaction.",
+    "native_metrics": {
+      "oxygen_carrier_utilization": 0.98,
+      "methane_conversion": 0.91,
+      "temperature_swing_K": 105.0
+    }
+  }
+}

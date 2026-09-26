@@ -1,0 +1,180 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_official_co2_adsorption_steam_vacuum_hybrid",
+  "family": "family_steam_vacuum",
+  "process_type": "Steam-Vacuum Hybrid CO2 Adsorbent Regeneration",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_d_v7.py",
+  "source_basis": [
+    "Derived from active parent official_co2_adsorption_desorption.",
+    "Combines steam stripping with vacuum desorption and condensate separation instead of changing a single desorption temperature.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CO2",
+        "N2",
+        "H2O",
+        "adsorbent"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "official_co2_adsorption_desorption"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CO2",
+      "N2",
+      "H2O",
+      "adsorbent"
+    ]
+  },
+  "units": [
+    {
+      "id": "FLUE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "CO2 flue gas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ADS",
+      "kind": "Adsorber",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "capture CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STEAM",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "regeneration steam",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "VAC",
+      "kind": "VacuumPump",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "lower desorption pressure",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "COND",
+      "kind": "Condenser",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "remove regeneration water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "dry CO2 product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CLEAN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "steam_vacuum",
+      "role": "treated flue gas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "FLUE.outlet",
+      "destination": "ADS.feed",
+      "stage": "steam_vacuum",
+      "role": "flue gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "ADS.clean",
+      "destination": "CLEAN.inlet",
+      "stage": "steam_vacuum",
+      "role": "treated gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "STEAM.outlet",
+      "destination": "ADS.regen",
+      "stage": "steam_vacuum",
+      "role": "steam displacement",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "ADS.desorbate",
+      "destination": "VAC.inlet",
+      "stage": "steam_vacuum",
+      "role": "wet CO2 desorbate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "VAC.outlet",
+      "destination": "COND.inlet",
+      "stage": "steam_vacuum",
+      "role": "compressed wet CO2",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "COND.gas",
+      "destination": "CO2.inlet",
+      "stage": "steam_vacuum",
+      "role": "dry CO2",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "FLUE.outlet",
+    "STEAM.outlet"
+  ],
+  "unconnected_product_ports": [
+    "CO2.inlet",
+    "CLEAN.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "official_co2_adsorption_desorption"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "official_co2_adsorption_desorption",
+    "chemical_change": "Combines steam stripping with vacuum desorption and condensate separation instead of changing a single desorption temperature.",
+    "native_metrics": {
+      "co2_recovery": 0.964,
+      "co2_purity": 0.9790000000000001,
+      "residual_loading": 0.069,
+      "equivalent_energy_index": 2.58
+    }
+  }
+}

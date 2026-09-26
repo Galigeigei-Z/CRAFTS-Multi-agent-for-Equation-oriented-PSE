@@ -1,0 +1,161 @@
+{
+  "arcs": [
+    {
+      "destination": "anoxic_1.inlet",
+      "destination_port": "inlet",
+      "id": "feed_to_anoxic1",
+      "source": "feed.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "anoxic_2.inlet",
+      "destination_port": "inlet",
+      "id": "anoxic1_to_anoxic2",
+      "source": "anoxic_1.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "aerobic_1.inlet",
+      "destination_port": "inlet",
+      "id": "anoxic2_to_aerobic1",
+      "source": "anoxic_2.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "aerobic_2.inlet",
+      "destination_port": "inlet",
+      "id": "aerobic1_to_aerobic2",
+      "source": "aerobic_1.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "clarifier.inlet",
+      "destination_port": "inlet",
+      "id": "aerobic2_to_clarifier",
+      "source": "aerobic_2.outlet",
+      "source_port": "outlet",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "treated_water.inlet",
+      "destination_port": "inlet",
+      "id": "clarifier_to_water",
+      "source": "clarifier.overflow",
+      "source_port": "overflow",
+      "state_link": "source_verified_connectivity"
+    },
+    {
+      "destination": "sludge.inlet",
+      "destination_port": "inlet",
+      "id": "clarifier_to_sludge",
+      "source": "clarifier.underflow",
+      "source_port": "underflow",
+      "state_link": "source_verified_connectivity"
+    }
+  ],
+  "case_id": "expansion40__watertap_modified_asm2d",
+  "components": {},
+  "evidence_status": "native_solved",
+  "family": "family_watertap_modified_asm2d",
+  "initialization_order": [
+    "feed",
+    "anoxic_1",
+    "anoxic_2",
+    "aerobic_1",
+    "aerobic_2",
+    "clarifier",
+    "treated_water",
+    "sludge"
+  ],
+  "open_decisions": [],
+  "process_type": "WaterTAP Modified ASM2D",
+  "property_packages": {},
+  "schema_version": "topology_ir/1",
+  "source_basis": [
+    "Topology was transcribed from the pinned official source and executed model/test.",
+    "official modified ASM2D flowsheet build, initialization, solve, and regression tests"
+  ],
+  "source_url": "https://github.com/watertap-org/watertap/blob/3df4d0b15d11031716d93a4675b889ac432a7695/watertap/flowsheets/activated_sludge/modified_ASM2D_flowsheet.py",
+  "specifications": [],
+  "translator_constraints": [],
+  "unconnected_feed_ports": [],
+  "unconnected_product_ports": [],
+  "units": [
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "feed",
+      "kind": "Feed",
+      "package": null,
+      "role": "Source-derived Feed node",
+      "stage": "feeds"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "anoxic_1",
+      "kind": "CSTR",
+      "package": null,
+      "role": "Source-derived CSTR node",
+      "stage": "bioreaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "anoxic_2",
+      "kind": "CSTR",
+      "package": null,
+      "role": "Source-derived CSTR node",
+      "stage": "bioreaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "aerobic_1",
+      "kind": "CSTR",
+      "package": null,
+      "role": "Source-derived CSTR node",
+      "stage": "bioreaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "aerobic_2",
+      "kind": "CSTR",
+      "package": null,
+      "role": "Source-derived CSTR node",
+      "stage": "bioreaction"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "clarifier",
+      "kind": "Separator",
+      "package": null,
+      "role": "Source-derived Separator node",
+      "stage": "separation"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "treated_water",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    },
+    {
+      "constraint_template": null,
+      "constructor": {},
+      "id": "sludge",
+      "kind": "Product",
+      "package": null,
+      "role": "Source-derived Product node",
+      "stage": "products"
+    }
+  ]
+}

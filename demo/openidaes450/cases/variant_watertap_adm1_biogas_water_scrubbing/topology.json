@@ -1,0 +1,187 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_adm1_biogas_water_scrubbing",
+  "family": "family_adm1_scrub",
+  "process_type": "ADM1 Biogas Water Scrubbing with Methane Recycle",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent watertap_modified_adm1_translators.",
+    "Adds selective CO2 absorption, water regeneration and methane flash recycle to the digestion product path.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "CH4",
+        "CO2",
+        "H2O"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_modified_adm1_translators"
+    }
+  },
+  "components": {
+    "tracked": [
+      "CH4",
+      "CO2",
+      "H2O"
+    ]
+  },
+  "units": [
+    {
+      "id": "BIOGAS",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "raw ADM1 biogas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "C101",
+      "kind": "Compressor",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "pressurize raw biogas",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "ABS",
+      "kind": "Absorber",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "water scrub CO2",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "FLASH",
+      "kind": "Flash",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "regenerate scrubbing water",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "methane recycle",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "BIOMETHANE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "upgraded methane",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CO2",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "adm1_scrub",
+      "role": "CO2-rich offgas",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "BIOGAS.outlet",
+      "destination": "C101.inlet",
+      "stage": "adm1_scrub",
+      "role": "raw biogas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "C101.outlet",
+      "destination": "ABS.gas",
+      "stage": "adm1_scrub",
+      "role": "pressurized biogas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "ABS.product",
+      "destination": "BIOMETHANE.inlet",
+      "stage": "adm1_scrub",
+      "role": "upgraded gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "ABS.rich_water",
+      "destination": "FLASH.inlet",
+      "stage": "adm1_scrub",
+      "role": "CO2-rich water",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "FLASH.gas",
+      "destination": "S101.inlet",
+      "stage": "adm1_scrub",
+      "role": "flash gas",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.methane",
+      "destination": "C101.recycle",
+      "stage": "adm1_scrub",
+      "role": "methane recycle",
+      "tear_candidate": true
+    },
+    {
+      "id": "s07",
+      "source": "S101.co2",
+      "destination": "CO2.inlet",
+      "stage": "adm1_scrub",
+      "role": "CO2 offgas",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "BIOGAS.outlet"
+  ],
+  "unconnected_product_ports": [
+    "BIOMETHANE.inlet",
+    "CO2.inlet"
+  ],
+  "tear_streams": [
+    "s06"
+  ],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_modified_adm1_translators"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_modified_adm1_translators",
+    "chemical_change": "Adds selective CO2 absorption, water regeneration and methane flash recycle to the digestion product path.",
+    "native_metrics": {
+      "co2_removal_fraction": 0.5034146962085905,
+      "methane_loss_fraction": 0.009000000000000001,
+      "biomethane_purity": 0.9503025422083468,
+      "compression_power_kW": 36.0
+    }
+  }
+}

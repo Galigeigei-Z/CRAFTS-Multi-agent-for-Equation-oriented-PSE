@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fs.thermo_params",
+    "class": "hda_ideal_VLE.HDAParameterBlock",
+    "module": "hda_ideal_VLE",
+    "data_class": "hda_ideal_VLE.HDAParameterData",
+    "identity_evidence": "runtime class hierarchy",
+    "implementation": [
+      {
+        "class": "hda_ideal_VLE.HDAParameterData"
+      },
+      {
+        "class": "hda_ideal_VLE.HDAParameterBlock"
+      }
+    ],
+    "configuration": {
+      "default_arguments": {}
+    },
+    "thermodynamic_model": "HDA ideal vapor-liquid property model"
+  },
+  {
+    "name": "fs.reaction_params",
+    "class": "hda_reaction.HDAReactionParameterBlock",
+    "module": "hda_reaction",
+    "data_class": "hda_reaction.HDAReactionParameterData",
+    "identity_evidence": "runtime class hierarchy",
+    "implementation": [
+      {
+        "class": "hda_reaction.HDAReactionParameterData"
+      },
+      {
+        "class": "hda_reaction.HDAReactionParameterBlock"
+      }
+    ],
+    "configuration": {
+      "property_package": {
+        "component": "fs.thermo_params"
+      },
+      "default_arguments": {}
+    }
+  }
+]

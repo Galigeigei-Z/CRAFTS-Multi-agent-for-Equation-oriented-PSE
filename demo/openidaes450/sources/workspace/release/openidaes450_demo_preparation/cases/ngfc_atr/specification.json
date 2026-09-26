@@ -1,0 +1,101 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "official_ngfc_autothermal_reformer",
+  "family": "family_ngfc_atr",
+  "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "reformer_recuperator.tube_inlet",
+      "variable": "flow_mol[0]",
+      "value": 1161.9,
+      "units": "mol/s",
+      "role": "natural gas feed flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "air_compressor_s1.inlet",
+      "variable": "flow_mol[0]",
+      "value": 1332.9,
+      "units": "mol/s",
+      "role": "air feed initial flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "reformer_mix.steam_inlet",
+      "variable": "flow_mol[0]",
+      "value": 464.77,
+      "units": "mol/s",
+      "role": "steam feed initial flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "reformer_bypass",
+      "variable": "split_fraction[0, 'bypass_outlet']",
+      "value": 0.6,
+      "units": "dimensionless",
+      "role": "internal reformation bypass fraction",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "reformer_mix",
+      "variable": "steam_to_ng_ratio",
+      "value": 1.0,
+      "units": "dimensionless",
+      "role": "official steam flow constraint uses steam = (1 - IR) * NG flow",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "reformer",
+      "variable": "outlet.temperature[0]",
+      "value": 1060.93,
+      "units": "K",
+      "role": "reformer outlet temperature",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    },
+    {
+      "target": "reformer",
+      "variable": "outlet.pressure[0]",
+      "value": 137895,
+      "units": "Pa",
+      "role": "reformer outlet pressure",
+      "source": "reference",
+      "source_url": "https://idaes.github.io/examples-pse/latest/Examples/Flowsheets/power_generation/ngfc/NGFC_flowsheet_doc.html"
+    }
+  ],
+  "terminal_feed_ports": [
+    "reformer_recuperator.tube_inlet",
+    "air_compressor_s1.inlet",
+    "reformer_mix.steam_inlet"
+  ],
+  "terminal_product_ports": [
+    "bypass_rejoin.outlet"
+  ],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "official NGFC initialize_reformer()",
+    "solve_order": [
+      "reformer",
+      "reformer_recuperator",
+      "NG_expander",
+      "reformer_bypass",
+      "air_compressor_s1",
+      "intercooler_s1",
+      "air_compressor_s2",
+      "intercooler_s2",
+      "reformer_mix",
+      "bypass_rejoin"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

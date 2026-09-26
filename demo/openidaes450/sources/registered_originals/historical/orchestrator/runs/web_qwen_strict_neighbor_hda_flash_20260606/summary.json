@@ -1,0 +1,77 @@
+{
+  "question": "Strict qwen neighbor HDA flash. Benzene, toluene, hydrogen, and methane feed a heater and stoichiometric reactor followed by flash separation and recycle. This is hydrodealkylation HDA, not ethylene glycol.",
+  "case_id": "web_qwen_strict_neighbor_hda_flash_20260606",
+  "source_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline",
+  "wrapper_run_dir": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/orchestrator/runs/web_qwen_strict_neighbor_hda_flash_20260606",
+  "output_root": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation",
+  "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_ir.json",
+  "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_context.txt",
+  "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_prebuild.py",
+  "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/topology_prebuild_report_attempt0.json",
+  "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_spec_ir.json",
+  "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/dof_check_report_attempt0.json",
+  "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/build_plan_ir.json",
+  "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/native_solve_report.json",
+  "optimization_report_file": null,
+  "debug_feedback_file": null,
+  "attempt": 0,
+  "max_debug_retries": 0,
+  "last_status": "success",
+  "last_stage": "sandbox_solve",
+  "last_message": "Sandbox BuildPlanIR solve passed without family reference runner.",
+  "last_error": null,
+  "native_debug_target": null,
+  "native_debug_decision_file": null,
+  "native_debug_report_file": null,
+  "native_retry_stage": null,
+  "native_solver_strategy_file": null,
+  "native_pipeline": true,
+  "sandbox_solve": true,
+  "events": [
+    {
+      "node": "topology_ir",
+      "returncode": 0,
+      "topology_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_ir.json",
+      "topology_context_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_context.txt",
+      "output_tail": "{\n  \"case_id\": \"blind_synthesized_hda_flash\",\n  \"family\": \"family_hda_btx\",\n  \"units\": 7,\n  \"arcs\": 7\n}\n"
+    },
+    {
+      "node": "topology_prebuild",
+      "returncode": 0,
+      "prebuild_code_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_prebuild.py",
+      "prebuild_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/topology_prebuild_report_attempt0.json",
+      "validation_rules": [
+        "topology_ir_schema",
+        "stage3_pass_report",
+        "optimization_pass_report"
+      ],
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"prebuild_runner\",\n  \"topology_ir\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_ir.json\",\n  \"generated_code\": \"/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_topology_prebuild.py\",\n  \"errors\": [],\n  \"summary\": {\n    \"unit_count\": 7,\n    \"arc_count\": 7,\n    \"units\": [\n      \"M101\",\n      \"H101\",\n      \"R101\",\n      \"F101\",\n      \"S101\",\n      \"C101\",\n      \"F102\"\n    ],\n    \"arcs\": [\n      \"s03\",\n      \"s04\",\n      \"s05\",\n      \"s06\",\n      \"s08\",\n      \"s09\",\n      \"s10\"\n    ]\n  }\n}\n"
+    },
+    {
+      "node": "spec_ir",
+      "returncode": 0,
+      "spec_ir_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/web_qwen_strict_neighbor_hda_flash_20260606_spec_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"spec_ir/1\",\n  \"spec_count\": 16\n}\n"
+    },
+    {
+      "node": "dof_check",
+      "returncode": 0,
+      "dof_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/dof_check_report_attempt0.json",
+      "output_tail": "{\n  \"pass\": true,\n  \"stage\": \"dof_check\",\n  \"kind\": \"dof_proxy\",\n  \"case_id\": \"blind_synthesized_hda_flash\",\n  \"family\": \"family_hda_btx\",\n  \"spec_count\": 16,\n  \"expected_dof\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"note\": \"This is a deterministic pre-solve IR consistency check; authoritative DOF remains the family Stage-3 solve runner.\"\n}\n"
+    },
+    {
+      "node": "build_plan",
+      "returncode": 0,
+      "build_plan_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/build_plan_ir.json",
+      "output_tail": "{\n  \"schema_version\": \"buildplan/0\",\n  \"unit_count\": 7,\n  \"arc_count\": 7\n}\n"
+    },
+    {
+      "node": "sandbox_solve",
+      "returncode": 0,
+      "solve_report_file": "/scratch/projects/CFP04/CFP04-CF-050/idaes/agentB/prompt/2026-05-31/langgraph_idaes_pipeline/validation/VectorEngine_qwen36_validation/web_qwen_strict_neighbor_hda_flash_20260606/native_solve_report.json",
+      "output_tail": "ssure\": 349999.999190983\n    },\n    \"s09\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq:benzene\": 8e-09,\n        \"Liq:toluene\": 8e-09,\n        \"Liq:hydrogen\": 8e-09,\n        \"Liq:methane\": 8e-09,\n        \"Vap:benzene\": 0.11931614619799466,\n        \"Vap:toluene\": 0.012487676148758611,\n        \"Vap:hydrogen\": 0.26256843549384745,\n        \"Vap:methane\": 1.017669491549395\n      },\n      \"temperature\": 325.0,\n      \"pressure\": 350000.0\n    },\n    \"s10\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq:benzene\": 0.20459860345744463,\n        \"Liq:toluene\": 0.06252045695586685,\n        \"Liq:hydrogen\": 2.6711959465250075e-07,\n        \"Liq:methane\": 2.6711959465250075e-07,\n        \"Vap:benzene\": 1e-08,\n        \"Vap:toluene\": 1e-08,\n        \"Vap:hydrogen\": 1e-08,\n        \"Vap:methane\": 1e-08\n      },\n      \"temperature\": 325.0,\n      \"pressure\": 349999.999190983\n    },\n    \"purge\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq:benzene\": 2e-09,\n        \"Liq:toluene\": 2e-09,\n        \"Liq:hydrogen\": 2e-09,\n        \"Liq:methane\": 2e-09,\n        \"Vap:benzene\": 0.029829036549498665,\n        \"Vap:toluene\": 0.0031219190371896545,\n        \"Vap:hydrogen\": 0.06564210887346186,\n        \"Vap:methane\": 0.2544173728873487\n      },\n      \"temperature\": 325.0,\n      \"pressure\": 349999.999190983\n    },\n    \"vapor_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq:benzene\": 1e-08,\n        \"Liq:toluene\": 1e-08,\n        \"Liq:hydrogen\": 1e-08,\n        \"Liq:methane\": 1e-08,\n        \"Vap:benzene\": 0.1419785795205632,\n        \"Vap:toluene\": 0.03026358690250062,\n        \"Vap:hydrogen\": 1.8224249090804566e-07,\n        \"Vap:methane\": 1.8224249090804569e-07\n      },\n      \"temperature\": 375.0,\n      \"pressure\": 149999.99919098298\n    },\n    \"liquid_product\": {\n      \"flow_mol_phase_comp\": {\n        \"Liq:benzene\": 0.0626200339368814,\n        \"Liq:toluene\": 0.03225688005336622,\n        \"Liq:hydrogen\": 9.487710374445511e-08,\n        \"Liq:methane\": 9.48771037444551e-08,\n        \"Vap:benzene\": 1e-08,\n        \"Vap:toluene\": 1e-08,\n        \"Vap:hydrogen\": 1e-08,\n        \"Vap:methane\": 1e-08\n      },\n      \"temperature\": 375.0,\n      \"pressure\": 149999.99919098298\n    }\n  },\n  \"build_plan_sha256\": \"9a196b3b7107985b0d416a325b6d600fb0dd51b360923b243538301efa3fadcb\",\n  \"source_summary\": {\n    \"source\": \"sandbox_solver.solve_build_plan\",\n    \"uses_family_registry\": false,\n    \"uses_reference_solve_runner\": false,\n    \"template\": \"compact_hda_flash\",\n    \"plan_derived_params\": [\n      \"M101.toluene_feed.flow_mol_phase_comp\",\n      \"M101.hydrogen_feed.flow_mol_phase_comp\",\n      \"H101.outlet.temperature\",\n      \"R101.conversion\",\n      \"F101.vap_outlet.temperature\",\n      \"S101.split_fraction\",\n      \"C101.outlet.pressure\",\n      \"F102.vap_outlet.temperature\"\n    ],\n    \"fixed_template_params\": [\n      \"HDA BTX property/reaction package\",\n      \"StoichiometricReactor conversion constraint\",\n      \"SequentialDecomposition recycle initialization\"\n    ],\n    \"stdout_tail\": \"\"\n  },\n  \"error\": null\n}\n"
+    }
+  ],
+  "done": true,
+  "success": true
+}

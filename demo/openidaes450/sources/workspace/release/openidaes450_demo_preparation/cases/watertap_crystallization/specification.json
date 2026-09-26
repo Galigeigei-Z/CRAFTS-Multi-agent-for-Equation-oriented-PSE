@@ -1,0 +1,118 @@
+{
+  "schema_version": "spec_ir/1",
+  "case_id": "watertap_crystallization",
+  "family": "family_watertap_crystallization",
+  "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html",
+  "topology_schema_version": "topology_ir/1",
+  "specs": [
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp_Liq_NaCl",
+      "value": 10.5119,
+      "units": "kg/s",
+      "role": "official feed liquid NaCl mass flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "flow_mass_phase_comp_Liq_H2O",
+      "value": 38.9326,
+      "units": "kg/s",
+      "role": "official feed liquid water mass flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "temperature",
+      "value": 293.15,
+      "units": "K",
+      "role": "official feed temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "feed",
+      "variable": "pressure",
+      "value": 101325.0,
+      "units": "Pa",
+      "role": "official feed pressure",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "temperature_operating_case1",
+      "value": 328.15,
+      "units": "K",
+      "role": "case 1 fixed operating temperature",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "solid_NaCl_flow_case1",
+      "value": 5.556,
+      "units": "kg/s",
+      "role": "case 1 fixed solid NaCl flow",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "crystallization_yield_case2",
+      "value": 0.7,
+      "units": "dimensionless",
+      "role": "case 2 fixed crystallization yield",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "product_volumetric_solids_fraction_case3",
+      "value": 0.1182,
+      "units": "dimensionless",
+      "role": "case 3 fixed product solids fraction",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "magma_density_case4",
+      "value": 250.0,
+      "units": "kg/m^3",
+      "role": "case 4 fixed magma density",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    },
+    {
+      "target": "crystallizer",
+      "variable": "work_mechanical_case5",
+      "value": 55000.0,
+      "units": "W",
+      "role": "case 5 fixed heat addition",
+      "source": "reference",
+      "source_url": "https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/crystallization.html"
+    }
+  ],
+  "terminal_feed_ports": [],
+  "terminal_product_ports": [],
+  "translator_constraint_templates": {},
+  "initialization": {
+    "strategy": "WaterTAP simple crystallizer build, feed/specification fixing, scaling, costing, crystallizer initialization, then five sequential steady-state solves",
+    "solve_order": [
+      "crystallizer initialization",
+      "case 1 fixed temperature and solids",
+      "case 2 fixed crystallization yield",
+      "case 3 fixed product solids fraction",
+      "case 4 fixed magma density",
+      "case 5 fixed heat addition"
+    ]
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  }
+}

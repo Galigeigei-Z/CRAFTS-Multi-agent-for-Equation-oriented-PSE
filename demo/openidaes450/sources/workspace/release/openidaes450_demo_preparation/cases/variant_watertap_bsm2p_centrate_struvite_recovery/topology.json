@@ -1,0 +1,190 @@
+{
+  "schema_version": "topology_ir/1",
+  "case_id": "variant_watertap_bsm2p_centrate_struvite_recovery",
+  "family": "family_centrate_struvite",
+  "process_type": "BSM2-P Dewatering Centrate Struvite Recovery",
+  "source_url": "local://experiment/scripts/solve_chemical_meaningful_batch_b_v5.py",
+  "source_basis": [
+    "Derived from active parent watertap_bsm2_p_extension.",
+    "Intercepts the dewatering phosphorus recycle with a crystallizer and fertilizer-product path.",
+    "The SVG is deterministically reconstructed from this executable extension and is not an official source figure."
+  ],
+  "property_packages": {
+    "process_extension": {
+      "entry_id": "native_pyomo_conservation_model",
+      "components": [
+        "H2O",
+        "PO4",
+        "NH4",
+        "Mg",
+        "struvite"
+      ],
+      "phases": [
+        "Liq",
+        "Vap",
+        "Sol"
+      ],
+      "parent_case_key": "watertap_bsm2_p_extension"
+    }
+  },
+  "components": {
+    "tracked": [
+      "H2O",
+      "PO4",
+      "NH4",
+      "Mg",
+      "struvite"
+    ]
+  },
+  "units": [
+    {
+      "id": "CENTRATE",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "P/N-rich dewatering centrate",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "MG",
+      "kind": "Feed",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "magnesium reagent",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "R101",
+      "kind": "StruviteReactor",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "MgNH4PO4 precipitation",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "CF101",
+      "kind": "SolidLiquidSeparator",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "harvest crystals",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "S101",
+      "kind": "Separator",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "treated centrate return and purge",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "STRUVITE",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "fertilizer product",
+      "constructor": {},
+      "constraint_template": null
+    },
+    {
+      "id": "RETURN",
+      "kind": "Product",
+      "package": "process_extension",
+      "stage": "centrate_struvite",
+      "role": "low-P centrate return",
+      "constructor": {},
+      "constraint_template": null
+    }
+  ],
+  "arcs": [
+    {
+      "id": "s01",
+      "source": "CENTRATE.outlet",
+      "destination": "R101.centrate",
+      "stage": "centrate_struvite",
+      "role": "dewatering centrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s02",
+      "source": "MG.outlet",
+      "destination": "R101.magnesium",
+      "stage": "centrate_struvite",
+      "role": "Mg dose",
+      "tear_candidate": false
+    },
+    {
+      "id": "s03",
+      "source": "R101.slurry",
+      "destination": "CF101.inlet",
+      "stage": "centrate_struvite",
+      "role": "struvite slurry",
+      "tear_candidate": false
+    },
+    {
+      "id": "s04",
+      "source": "CF101.solids",
+      "destination": "STRUVITE.inlet",
+      "stage": "centrate_struvite",
+      "role": "fertilizer crystals",
+      "tear_candidate": false
+    },
+    {
+      "id": "s05",
+      "source": "CF101.liquid",
+      "destination": "S101.inlet",
+      "stage": "centrate_struvite",
+      "role": "treated centrate",
+      "tear_candidate": false
+    },
+    {
+      "id": "s06",
+      "source": "S101.return",
+      "destination": "RETURN.inlet",
+      "stage": "centrate_struvite",
+      "role": "biological return",
+      "tear_candidate": false
+    },
+    {
+      "id": "s07",
+      "source": "S101.purge",
+      "destination": "R101.seed",
+      "stage": "centrate_struvite",
+      "role": "struvite seed recycle",
+      "tear_candidate": false
+    }
+  ],
+  "unconnected_feed_ports": [
+    "CENTRATE.outlet",
+    "MG.outlet"
+  ],
+  "unconnected_product_ports": [
+    "STRUVITE.inlet",
+    "RETURN.inlet"
+  ],
+  "tear_streams": [],
+  "initialization": {
+    "strategy": "bounded physical decision search followed by a fixed-decision native IPOPT conservation solve",
+    "parent_case_key": "watertap_bsm2_p_extension"
+  },
+  "solve": {
+    "solver": "ipopt-watertap",
+    "steady_state": true,
+    "expected_dof": 0
+  },
+  "variant_configuration": {
+    "parent_case_key": "watertap_bsm2_p_extension",
+    "chemical_change": "Intercepts the dewatering phosphorus recycle with a crystallizer and fertilizer-product path.",
+    "native_metrics": {
+      "phosphorus_recovery_fraction": 0.9008,
+      "struvite_phosphorus_kg_s": 0.00045040000000000005,
+      "residual_phosphate_kg_s": 4.96e-05,
+      "residual_magnesium_kg_s": 6.960000000000008e-05
+    }
+  }
+}
